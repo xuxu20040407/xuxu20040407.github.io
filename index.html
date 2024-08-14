@@ -194,8 +194,18 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-08-14 10:22:56" itemprop="dateCreated datePublished" datetime="2024-08-14T10:22:56+08:00">2024-08-14</time>
+              <time title="创建时间：2024-08-14 10:22:56 / 修改时间：18:17:31" itemprop="dateCreated datePublished" datetime="2024-08-14T10:22:56+08:00">2024-08-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">电动力学</span></a>
+                </span>
             </span>
 
           
@@ -209,7 +219,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="张量的定义"><a href="#张量的定义" class="headerlink" title="张量的定义"></a>张量的定义</h1><p><strong>n阶张量</strong>被定义为在m维欧式空间内的具有$m^n$个分量的量。</p>
+<ol>
+<li>0阶张量：即我们所说的标量$\varphi$</li>
+<li>1阶张量：即我们所说的矢量$\vec{A}$</li>
+<li>2阶张量</li>
+</ol>
+<h1 id="张量的表示"><a href="#张量的表示" class="headerlink" title="张量的表示"></a>张量的表示</h1><p>在三维欧式空间中，矢量可以表示为<br>$$\mathbf{A}&#x3D;A_x\vec{e_x}+A_y\vec{e_y}+A_z\vec{e_z}$$</p>
+<p>根据爱因斯坦求和规则，也可以写为<br>$$\vec{A}&#x3D;A_i\vec{e}_i$$</p>
+<h1 id="矢量的基本运算"><a href="#矢量的基本运算" class="headerlink" title="矢量的基本运算"></a>矢量的基本运算</h1><h2 id="标量和矢量积"><a href="#标量和矢量积" class="headerlink" title="标量和矢量积"></a>标量和矢量积</h2><p>$$\varphi\mathbf{A}\equiv \varphi A \vec{e}_A$$</p>
+<h2 id="点积（标量积）"><a href="#点积（标量积）" class="headerlink" title="点积（标量积）"></a>点积（标量积）</h2><p>$$\mathbf{A}\cdot\mathbf{B}\equiv AB\cos\theta$$</p>
+<h2 id="叉积"><a href="#叉积" class="headerlink" title="叉积"></a>叉积</h2><p>$$\mathbf{A}\times\mathbf{B}\equiv AB\sin\theta \mathbf{\hat{n}}$$</p>
+<blockquote>
+<p>还有个叫外积的东西</p>
+</blockquote>
+<h2 id="标量三重积"><a href="#标量三重积" class="headerlink" title="标量三重积"></a>标量三重积</h2><p>$$\mathbf A\cdot(\mathbf B\times\mathbf C)&#x3D;\mathbf B\cdot(\mathbf C\times\mathbf A)&#x3D;\mathbf C\cdot(\mathbf A\times\mathbf B)$$</p>
+<h2 id="矢量三重积"><a href="#矢量三重积" class="headerlink" title="矢量三重积"></a>矢量三重积</h2><p>$$\mathbf A\times(\mathbf B\times\mathbf C)&#x3D;\mathbf B(\mathbf A\cdot\mathbf C)-\mathbf C(\mathbf A\cdot\mathbf B)$$</p>
+<blockquote>
+<p>在三维直角坐标系下的表示：</p>
+<p>$\mathbf{A}\cdot\mathbf{B}&#x3D;\delta_{ij}A_iB_j$</p>
+<p>$\mathbf{A}\times\mathbf{B}&#x3D;\epsilon_{ijk}A_iB_i\vec{e_k}\left.&#x3D;\left|\begin{array}{ccc} {A_{x}} &amp; {A_{y}}&amp;{A_{z}}\{B_{x}}&amp;{B_{y}}&amp;{B_{z}}\{e_{x}}&amp;{e_{y}}&amp;{e_{z}}\end{array}\right.\right|$</p>
+<p>$\left.\mathbf{A}\cdot(\mathbf{B}\times\mathbf{C})&#x3D;\left|\begin{array}{ccc}A_x&amp;A_y&amp;A_z\B_x&amp;B_y&amp;B_z\C_x&amp;C_y&amp;C_z\end{array}\right.\right|$</p>
+</blockquote>
+<h1 id="矢量分析"><a href="#矢量分析" class="headerlink" title="矢量分析"></a>矢量分析</h1><p>如果一个矢量$\vec{A}$或标量$\varphi$是空间位置$\vec{r}$的函数，那么称$\vec{A}(\vec{r})$为矢量场，$\varphi(\vec{r})$为标量场，对场量进行的微分和积分运算就是矢量分析。</p>
+<h2 id="微分运算"><a href="#微分运算" class="headerlink" title="微分运算"></a>微分运算</h2><p>$$\nabla&#x3D;\vec{e}_x\frac\partial{\partial x}+\vec{e}_y\frac\partial{\partial y}+\vec{e}_z\frac\partial{\partial z}&#x3D;\vec{e}_i\frac\partial{\partial x_i}.$$</p>
+<p>$\nabla$是个特殊的矢量，是矢量算符。将算符作用在张量上可得：</p>
+<ol>
+<li>梯度：$\nabla \varphi&#x3D;\partial_i \varphi \vec{e_i}$</li>
+<li>散度：$\nabla \cdot\vec{A}&#x3D;\partial_i A_i$</li>
+<li>旋度：$\nabla \times\vec{A}&#x3D;\partial_i A_j \vec{e_k}\epsilon_{ijk}\left.&#x3D;\left|\begin{array}{ccc}{\partial_{x}}&amp;{\partial_{y}}&amp;{\partial_{z}}\{A_{x}}&amp;{A_{y}}&amp;{A_{z}}\{e_{x}}&amp;{e_{y}}&amp;{e_{z}}\end{array}\right.\right|$</li>
+</ol>
+<h2 id="混合运算公式"><a href="#混合运算公式" class="headerlink" title="混合运算公式"></a>混合运算公式</h2><p>通常会遇到微分算符作用到标积、矢积上的情况：</p>
+<ol>
+<li>标量与标量的积的梯度：$$\nabla(fg)&#x3D;f\nabla g+g\nabla f$$</li>
+<li>点积的梯度：$$\nabla(\mathbf{A}\cdot\mathbf{B})&#x3D;\mathbf{A}\times(\nabla\times\mathbf{B})+\mathbf{B}\times(\nabla\times\mathbf{A})+(\mathbf{A}\cdot\nabla)\mathbf{B}+(\mathbf{B}\cdot\nabla)\mathbf{A}$$</li>
+<li>标量和矢量的积的散度：$$\nabla\cdot(f\mathbf{A})&#x3D;f(\nabla\cdot\mathbf{A})+\mathbf{A}\cdot(\nabla f)$$</li>
+<li>叉积的散度：$$\nabla\cdot(\mathbf{A}\times\mathbf{B})&#x3D;\mathbf{B}\cdot(\nabla\times\mathbf{A})-\mathbf{A}\cdot(\nabla\times\mathbf{B})$$</li>
+<li>标量和矢量的积的旋度：$$\nabla\times(f\mathbf{A})&#x3D;f(\nabla\times\mathbf{A})-\mathbf{A}\times(\nabla f)$$</li>
+<li>叉积的旋度：$$\nabla\times(\mathbf{A}\times\mathbf{B})&#x3D;(\mathbf{B}\cdot\nabla)\mathbf{A}-(\mathbf{A}\cdot\nabla)\mathbf{B}+\mathbf{A}(\nabla\cdot\mathbf{B})-\mathbf{B}(\nabla\cdot\mathbf{A})$$</li>
+</ol>
+<h2 id="二重微分"><a href="#二重微分" class="headerlink" title="二重微分"></a>二重微分</h2><p>除了对积的微分外，对张量的二阶微分也是麻烦的运算，我们有以下公式：</p>
+<ol>
+<li>标量梯度的散度：$$\nabla^2 \varphi\equiv\nabla\cdot(\nabla \varphi)&#x3D;\partial_i^2 \varphi$$</li>
+<li>矢量散度的梯度：$$\nabla^2 \mathbf{A}\equiv\nabla(\nabla \cdot\mathbf{A})&#x3D;\partial_i^2 A_i \vec{e_i}$$</li>
+<li>标量梯度的旋度：$$\nabla\times(\nabla \varphi)&#x3D;0.$$</li>
+<li>矢量旋度的散度：$$\nabla\cdot(\nabla\times\mathbf{A})&#x3D;0.$$</li>
+<li>矢量旋度和旋度：$$\nabla\times(\nabla\times\mathbf{A})&#x3D;\nabla(\nabla\cdot\mathbf{A})-\nabla^2\mathbf{A}<br>.$$</li>
+</ol>
+
       
     </div>
 
