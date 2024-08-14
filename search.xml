@@ -18,4 +18,23 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>矢量分析初步</title>
+    <url>/2024/08/14/%E7%9F%A2%E9%87%8F%E5%88%86%E6%9E%90%E5%88%9D%E6%AD%A5/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>前言</title>
+    <url>/2024/08/12/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/</url>
+    <content><![CDATA[<p>本学期的电动力学前半学期复习电磁学内容，后半学期才真正开始讲电动力学的内容。</p>
+<p><strong>电磁学</strong>部分包含：矢量分析初步、电磁学基础、介质中的电场和磁场、麦克斯韦方程组和守恒律，以及一些常用的技巧，如镜像法。</p>
+<p><strong>电动力学</strong>部分包含电磁波、推迟势、相对论。</p>
+]]></content>
+      <categories>
+        <category>电动力学</category>
+      </categories>
+      <tags>
+        <tag>电动力学</tag>
+      </tags>
+  </entry>
 </search>
