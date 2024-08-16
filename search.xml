@@ -77,6 +77,7 @@
     <content><![CDATA[<p>本学期的电动力学前半学期复习电磁学内容，后半学期才真正开始讲电动力学的内容。</p>
 <p><strong>电磁学</strong>部分包含：矢量分析初步、电磁学基础、介质中的电场和磁场、麦克斯韦方程组和守恒律，以及一些常用的技巧，如镜像法。</p>
 <p><strong>电动力学</strong>部分包含电磁波、推迟势、相对论。</p>
+<p>主要参考教材为格里菲斯的《电动力学导论》。</p>
 ]]></content>
       <categories>
         <category>电动力学</category>
@@ -86,9 +87,11 @@
       </tags>
   </entry>
   <entry>
-    <title>量子力学</title>
+    <title>前言</title>
     <url>/2024/08/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>本学期量子力学（一）主要学习了以下内容：一维势阱中束缚态和散射态波函数的求解、薛定谔方程的性质、形式理论、全同粒子、对称性和守恒律，以及EPR佯谬。</p>
+<p>本科生的量子力学更偏向于为了解决问题而介绍了一种新的理论，而并没有对量子力学的原理进行发问。本学期量子力学的参考教材为格里菲斯的《量子力学导论》。</p>
+]]></content>
       <categories>
         <category>量子力学</category>
       </categories>
@@ -100,5 +103,204 @@
     <title>分析力学</title>
     <url>/2024/08/14/%E5%88%86%E6%9E%90%E5%8A%9B%E5%AD%A6/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>波函数和薛定谔方程</title>
+    <url>/2024/08/15/%E6%B3%A2%E5%87%BD%E6%95%B0%E5%92%8C%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>本学期的学习中并不看重公理化体系的引入，不过这里还是简单的介绍一下，学完量子力学不免有的疑问在这里可以稍作解答。不同的作者对基本原理有着不同的归纳，这里结合喀兴林和<a href="https://www.scigeek.cn/posts/61518/">Haku</a>的归纳方法。</p>
+</blockquote>
+<h1 id="量子力学公设"><a href="#量子力学公设" class="headerlink" title="量子力学公设"></a>量子力学公设</h1><ol>
+<li><strong>波函数公设</strong>：波函数$\psi(\vec{r})$用于描述量子系统的状态。更数学地讲，希尔伯特空间中的矢量$\left|\psi\right\rangle $可以描述微观系统的状态，那么波函数是态矢量在某一表象下的投影；</li>
+<li><strong>算符和测量公设</strong>：希尔伯特空间中的厄密算符可以描述围观系统的物理量，而物理量的具体数值，取决于算符的本征值。算符可能有多个本征值，那么讲态矢量按照归一化本征矢量展开得到的系数的复平方，即是取到该值的概率。如果用数学公式表达，就是：</li>
+</ol>
+<ul>
+<li><em>算符公设</em>：$A|a_i\rangle=a_i|a_i\rangle $其中$\langle a_i|a_j\rangle=\delta_{ij}$</li>
+<li><em>测量公设（统计诠释）</em>：$|\psi\rangle=\sum_i\lvert a_i\rangle c_i , c_i=\langle a_i\rvert \psi\rangle ,P=c_i^*c_i$</li>
+</ul>
+<ol>
+<li><strong>演化公设</strong>：波函数或态矢量的演化由薛定谔方程决定：<script type="math/tex; mode=display">\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=H|\psi(t)\rangle</script></li>
+<li><strong>对易公设（一次量子化）</strong>： <script type="math/tex">[X_{i},X_{j}]=0 , [P_{i},P_{j}]=0 , [X_{i},P_{j}]=\mathrm{i}\hbar\delta_{ij}</script></li>
+<li><strong>全同粒子公设（二次量子化？）</strong>：态矢量对于任意一对粒子的对换，都是对称（玻色子）和反对称（费米子）的。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>量子力学</category>
+      </categories>
+      <tags>
+        <tag>量子力学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前言</title>
+    <url>/2024/08/15/%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%86/</url>
+    <content><![CDATA[<p>本学期的计算物理质量之高令人惊叹，只可惜含金量全都集中在助教和作业上了，建议同学们都去问助教问题。</p>
+<p>本专栏记录了计算物理的作业及个人解答，供同学们参考用。值得注意的是，希望在参考处标注出处（尤其是上计算物理这门课的同学们）。尽管如此，我依然推荐大家去自己搜索该课程需要用到的文献，这对于锻炼你的搜索能力有着极大的帮助。</p>
+<p>计算物理课程作业不定期修改，所以注意作业的数值变动，以及更常见的整道题都不同的情况。</p>
+<p>作者做作业是参考了该学长（<a href="https://www.zhihu.com/column/c_1629285157101432832?">知乎-计算物理专栏</a>）的某些思路，并进行了一定程度的创新。致谢每一位具有传承精神的同学。</p>
+]]></content>
+      <categories>
+        <category>计算物理</category>
+      </categories>
+      <tags>
+        <tag>计算物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算物理1</title>
+    <url>/2024/08/15/%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%861/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>1.对于迭代方程$x_{n+1}=1-\mu x_n^2$，分析不同$\mu\in (0,2)$下$x_n$的长时间行为，及其与初值$x_0\in(-1,1)$的关系。</p>
+<p>2.对于迭代方程$f(x)=\left\{\begin{aligned}<br>x_{n+1}=1-\mu x_n &amp; x&gt;0\\<br>x_{n+1}=1+\mu x_n &amp; x&lt;0<br>\end{aligned}<br>\right.$，分析不同$\mu\in (0,2)$下$x_n$的长时间行为，及其与初值$x_0\in(-1,1)$的关系。</p>
+<p>3.对于迭代方程$x_{n+1}=1-\mu x_n$，分析不同$\mu\in (0,2)$下$x_n$的长时间行为，及其与初值$x_0\in(-1,1)$的关系。</p>
+<p>4.比较上述两种情况，你发现了什么。</p>
+</blockquote>
+<p>如果你有幸在物理实验课上进行了混沌相关的实验，你会发现这就是实验课所讲的虫口模型：虫子在繁殖增加和竞争减小的双重作用下，数量产生了周期性或非周期性的波动。研究其中的行为特征，可以对混沌理论和行为略窥一二。</p>
+<p>这里仅针对第一种情况进行以下方面的讨论。</p>
+<h1 id="初步理论分析"><a href="#初步理论分析" class="headerlink" title="初步理论分析"></a>初步理论分析</h1><p>良好的理论分析可以减少不必要的尝试。对于$x_{n+1}=1-\mu x_n^2$，显然在该初值和系数范围下，$x_n$的绝对值不会超过1，那么不必担心发散的问题。</p>
+<h1 id="程序实现对单一系数初值组合的行为"><a href="#程序实现对单一系数初值组合的行为" class="headerlink" title="程序实现对单一系数初值组合的行为"></a>程序实现对单一系数初值组合的行为</h1><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% Parameter</span></span><br><span class="line">mu=<span class="number">0.5</span>;</span><br><span class="line">x0=<span class="number">0</span>;</span><br><span class="line">cir=<span class="number">500</span>;</span><br><span class="line">x=<span class="built_in">zeros</span>(<span class="number">1</span>,cir+<span class="number">1</span>);</span><br><span class="line">x(<span class="number">1</span>)=x0;</span><br><span class="line"></span><br><span class="line"><span class="comment">%% Main</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:cir</span><br><span class="line">    x(<span class="built_in">i</span>+<span class="number">1</span>)=<span class="number">1</span>-mu*x(<span class="built_in">i</span>)^<span class="number">2</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%% Plot</span></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(x)</span><br></pre></td></tr></table></figure>
+<p>以此为基础，稍作修改即可对不同的系数初值组合进行模拟。</p>
+<h1 id="对-mu-的讨论"><a href="#对-mu-的讨论" class="headerlink" title="对$\mu$的讨论"></a>对$\mu$的讨论</h1><p>从$x_0=0$，$\mu=0,1,1.3,1.6$开始，绘制500次迭代的图像如下，此时部分图像已出现稳定情况，可视为长时间行为：</p>
+<ul>
+<li>当$\mu=0$时，图像稳定于$x_n=1$。</li>
+<li>当$\mu=1$时，图像稳定于$x_n=0,1$，出现二周期震荡（周期为2）行为。</li>
+<li>当$\mu=1.3$时，图像有四个稳定点，出现四周期行为。</li>
+<li>当$\mu=1.6$时，图像出现不规则震荡和混沌现象。</li>
+</ul>
+<p><img src="/img/计算物理1/0.jpg" alt="image"></p>
+<p><img src="/img/计算物理1/1.jpg" alt="image"></p>
+<p><img src="/img/计算物理1/1.3.jpg" alt="image"></p>
+<p><img src="/img/计算物理1/1.6.jpg" alt="image"></p>
+<p>不难发现，稳定点常表现为极值点，在$x_0=0$的条件下，找出稳定后图像中的极值点并绘制出极值点-$\mu$值的关系图像。</p>
+<p><img src="/img/计算物理1/untitled.png" alt="image"></p>
+<p>该图像说明，当$\mu$从小增大，图像由稳定逐步过渡到二周期震荡，四周期震荡...再过渡到混沌。每个$\mu$值对应的周期数和震荡点理论上都可以通过方程迭代解出（具体讨论见问题三）。</p>
+<h1 id="与-x-0-的关系"><a href="#与-x-0-的关系" class="headerlink" title="与$x_0$的关系"></a>与$x_0$的关系</h1><p>稳定点实质是方程的不动点(于问题三中讨论)，这说明其行为和初值关系不大。然而当出现混沌的时候，初值的变化会导致后续迭代的显著不同，这本身是混沌的定义。</p>
+<p>当方程本身存在稳定的周期震荡的时候，初值的变化不影响其长时间行为。绘制极值点-$x_0$图像如下（$\mu=0,1,1.3$）：</p>
+<p><img src="/img/计算物理1/0x0.jpg" alt="image"></p>
+<p><img src="/img/计算物理1/1x0.jpg" alt="image"></p>
+<p><img src="/img/计算物理1/1.3x0.jpg" alt="image"></p>
+<p>当方程本身无规则震荡的时候，初值的变化极易影响长时间行为：</p>
+<p><img src="/img/计算物理1/1.6x0.jpg" alt="image"></p>
+<p>将两个图像合并到一个三维图里面：</p>
+<p><img src="/img/计算物理1/3D.png" alt="image"></p>
+<p>所以，迭代方程$x_{n+1}=1-\mu x_n^2$的长时间行为应是：长时间震荡行为趋于周期运动，并随着$\mu$增大周期增倍，此时与$x_0$几乎无关（除了会在对应的$\mu$处”合拢”，直至出现混沌，此时$x_0$的变化极易影响震荡行为。</p>
+<h1 id="稳定点与分叉"><a href="#稳定点与分叉" class="headerlink" title="稳定点与分叉"></a>稳定点与分叉</h1><p>不难发现，不管是$x_{n+1}=1-\mu x_n^2$还是$x_{n+1}=1-\mu x_n^4$，<br>都存在稳定点和分叉结构和混沌现象。</p>
+<p>稳定点是由于方程的不动点形成的。以前者为例，稳定情况即方程本身的不动点(不稳定解已舍去)：</p>
+<script type="math/tex; mode=display">x=1-\mu x^2 \Leftrightarrow x=\frac{-1+\sqrt{1+4\mu} }{2\mu}</script><p>二周期震荡是迭代方程和二阶不动点：</p>
+<script type="math/tex; mode=display">x=1-\mu (1-\mu x^2)^2 \Leftrightarrow x=\frac{1+\sqrt{-3+4\mu} }{2\mu},\frac{1-\sqrt{-3+4\mu} }{2\mu}</script><p>将理论解和真实情况同时画在图中，可见是相差无几的：</p>
+<p><img src="/img/计算物理1/untitled1.png" alt="image"></p>
+<h1 id="不动点的稳定性"><a href="#不动点的稳定性" class="headerlink" title="不动点的稳定性"></a>不动点的稳定性</h1><p>以下方程实际上有两个根，为何其中一个是不稳定的？</p>
+<script type="math/tex; mode=display">x=1-\mu x^2 \Leftrightarrow x=\frac{-1\pm \sqrt{1+4\mu} }{2\mu}</script><p><img src="/img/计算物理1/untitled.png" alt="image"></p>
+<p>不妨计算方程右边在不动点处的斜率： </p>
+<script type="math/tex; mode=display">x^\prime=-2\mu x={1\mp \sqrt{1+4\mu} }</script><p>由蛛网图不难得知，斜率大于1者不稳定而小于1者稳定，这也是为什么舍去另一个解（$\frac{-1-\sqrt{1+4\mu} }{2\mu}$）的原因。当$\mu&gt;0.75$时，原本的稳定解对应的斜率也大于1，也变得不稳定。</p>
+<p><img src="/img/计算物理1/untitled1.png" alt="image"></p>
+<p><img src="/img/计算物理1/untitled2.png" alt="image"></p>
+<p>对高阶不动点的分析同理。</p>
+<blockquote>
+<p>有兴趣的同学可以搜索费根鲍姆常数，并通过该模型计算该常数的数值。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>费米加速</title>
+    <url>/2024/08/14/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F/</url>
+    <content><![CDATA[<p>在研究并和星系团的大尺度射电晕结构时，经常用到的解释时费米的一二阶加速，其本质上是预加速电子在星系团湍流的作用下的统计上的能量增加。</p>
+<p>费米一阶加速预期电子被激波加速，看上去就好像电子被激波反弹了回来，从而获得了加速的能量。从下面这样一个简单的模型可以略窥一二。</p>
+<h1 id="直碰的乒乓球模型"><a href="#直碰的乒乓球模型" class="headerlink" title="直碰的乒乓球模型"></a>直碰的乒乓球模型</h1><p><img src="/img/Fermi_img/screenshot001.png" alt="alt text"></p>
+<p>如图，墙的速度为$v$，小球碰前速度为$v_1$，碰后速度为$v_2$。</p>
+<p>小球的反弹满足墙坐标系下能量守恒：</p>
+<script type="math/tex; mode=display">v_1+v=v_2-v\Rightarrow v_2=v_1+2v</script><p>则能量的增加为：</p>
+<script type="math/tex; mode=display">\Delta E=\frac12 m(v_1+2v)^2- \frac12 mv_1^2=2m(v_1v+v^2)</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}=4\frac{v_1v+v^2}{v_1^2}\approx 4\frac{v_1}{v}</script></p>
+<p>近似采用了墙的速度$v$远小于球的速度$v_1$。此时，可以看到整体为一阶加速，即能量增加率和墙的速度的一阶呈正比。</p>
+<p>费米加速度的模型与以上有众多相同之处，比如利用坐标系变换和“墙”坐标系下能量守恒。</p>
+<h1 id="随机角度的乒乓球模型"><a href="#随机角度的乒乓球模型" class="headerlink" title="随机角度的乒乓球模型"></a>随机角度的乒乓球模型</h1><p>现在考虑球和墙的速度矢量有夹角$\theta$，考虑到墙的速度较小，夹角在坐标系变换中保持不变。</p>
+<p>能量的增加为：</p>
+<script type="math/tex; mode=display">\Delta E=\frac12 m(v_1+2v\cos{\theta})^2- \frac12 mv_1^2=2m(v_1v\cos{\theta}+v^2\cos^2{\theta})</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}\approx 4\frac{v_1\cos{\theta}}{v}</script></p>
+<p>考虑到$\theta$角度的随机性：</p>
+<script type="math/tex; mode=display"><\epsilon>\approx 4\frac{v_1}{v}<\cos{\theta}></script><p>对于单个球，$\theta$的权重与对应的面积元呈正比，那么</p>
+<script type="math/tex; mode=display">weight \propto dS=d(2\pi R (1-\cos{\theta}))=2\pi R \sin{\theta}d\theta</script><p>积分得到：</p>
+<script type="math/tex; mode=display"><\cos{\theta}>=\frac{\int_{0}^{\frac\pi2}\cos{\theta}\sin{\theta}2\pi R d\theta}{\int_{0}^{\frac\pi2}2\pi R \sin{\theta}d\theta} =\frac{1}{2}</script><script type="math/tex; mode=display"><\epsilon>\approx 2\frac{v_1}{v}</script><p>可见，角度的随机不影响加速机制的阶数。</p>
+<h1 id="随机角度的乒乓球流模型"><a href="#随机角度的乒乓球流模型" class="headerlink" title="随机角度的乒乓球流模型"></a>随机角度的乒乓球流模型</h1><p>我们考虑到并非是单个的球，而是球的“流”(flux)。对于流，$\theta$的权重与碰撞事件数呈正比，事件数与对应的面积元和相对速度呈正比，那么</p>
+<script type="math/tex; mode=display">weight \propto dn=(v_1\cos{\theta}+v)dS\approx v_1\cos{\theta}dS=2\pi R v_1\cos{\theta}\sin{\theta}d\theta</script><p>积分得到：</p>
+<script type="math/tex; mode=display"><\cos{\theta}>=\frac{\int_{0}^{\frac\pi2}\cos^2{\theta}\sin{\theta} d\theta}{\int_{0}^{\frac\pi2}\cos{\theta} \sin{\theta}d\theta} =\frac{2}{3}</script><script type="math/tex; mode=display"><\epsilon>\approx \frac{8}{3}\frac{v_1}{v}</script><p>可见，考虑了流也是不影响加速机制的阶数。同时，这个系数也有点像接下来两个机制的系数了。</p>
+<h1 id="天文情况的概论"><a href="#天文情况的概论" class="headerlink" title="天文情况的概论"></a>天文情况的概论</h1><p>天文情况和球模型不同之处在于：粒子往往是相对论粒子；激波或星系团往往被假定为无穷大质量；粒子在激波或星系团坐标系下能量守恒的原因来自于“弹性碰撞”，这是通过磁场的缓变造成的，这意味着该假定依赖于——1.粒子之间无碰撞，只依靠磁场产生速度变化；2.磁场是缓变的，不然有能量的损耗。<br><img src="/img/Fermi_img/screenshot002.png" alt="alt text"></p>
+<p>考虑粒子原来的四动量$(E_0,\vec{p_0})$，激波或星系团的速度为$v$，洛伦兹变换后的四动量为</p>
+<script type="math/tex; mode=display">E_1^*=\gamma(E_1-\beta p_1\cos{\theta_1}c)</script><p>注意这里的$\theta$为速度矢量和激波速度的夹角，所以取负号。出射能量为</p>
+<script type="math/tex; mode=display">E_2=\gamma(E_1^*+\beta p_1^*\cos{\theta_2}c)</script><p>注意这里变换回来，相当于原来的激波速度矢量取反，所以负负得正。</p>
+<p>由于是相对论粒子，其能量<script type="math/tex">E^2=p^2c^2+m_0^2c^4\approx p^2c^2</script><br>则</p>
+<script type="math/tex; mode=display">E_1^*\approx\gamma E_1(1-\beta \cos{\theta_1})</script><script type="math/tex; mode=display">E_2=\gamma E_1^*(1+\beta \cos{\theta_2})=\gamma^2E_1(1+\beta \cos{\theta_2})(1-\beta \cos{\theta_1})</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}= \gamma^2(1+\beta \cos{\theta_2})(1-\beta \cos{\theta_1})-1=\frac{\beta(\cos{\theta_2}-\cos{\theta_1})-\beta^2(\cos{\theta_2}\cos{\theta_1}-1)}{1-\beta^2}</script></p>
+<p><img src="/img/Fermi_img/screenshot003.png" alt="alt text"><br>这种情况像乒乓球，</p>
+<script type="math/tex; mode=display"><\cos{\theta}>=\frac{2}{3}</script><p>所以</p>
+<script type="math/tex; mode=display"><\cos{\theta_1}>=-\frac{2}{3},<\cos{\theta_2}>=\frac{2}{3}</script><p>能量增加率为<script type="math/tex"><\epsilon>= \frac{\frac43\beta+\frac{13}{9}\beta^2}{1-\beta^2}\approx\frac43\beta</script></p>
+<p>注意到，星系团允许从后往前入射（快追慢，导致$\theta_1$取值范围变化），也允许从前穿射到后方（导致$\theta_2$取值范围变化）。</p>
+<p>这里采用一种更简单的方法，将星系团看成两面激波，从前面入射穿射的能量增加率为</p>
+<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(-\frac23+\frac23)+\beta^2(1-\frac49)}{1-\beta^2}</script><p>从前面入射反射的能量增加率为</p>
+<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(+\frac23+\frac23)+\beta^2(1+\frac49)}{1-\beta^2}</script><p>从后面入射穿射的能量增加率为</p>
+<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(+\frac23-\frac23)+\beta^2(1-\frac49)}{1-\beta^2}</script><p>从后面入射反射的能量增加率为</p>
+<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(-\frac23-\frac23)+\beta^2(1+\frac49)}{1-\beta^2}</script><p>所以总的能量增加率为四者之和，一阶项被抵消</p>
+<script type="math/tex; mode=display"><\epsilon>= \frac{\beta^2}{1-\beta^2}\approx \beta^2</script><p>这里也顺便回答了，如果只关注单个粒子的能量增减会怎么样——如果前穿后，能量居然是总体增加的（这有些反常识）；如果后穿前，后反射，都是能量减少；更不用说前反射了，能量绝对是增加的。</p>
+<p>二阶费米机制的来源是一阶费米机制的相消，\textbf{一阶项抵消，只留下二阶项}。<br><img src="/img/Fermi_img/screenshot004.png" alt="alt text"></p>
+<script type="math/tex; mode=display">d\theta=\frac{dL}{R}=\frac{qBdL}{\gamma mv}</script><p>总的转动的角度和湍流磁场的尺度(dL)星系团的尺度(L)粒子的速度(v)和磁场的强度(B)有关。设平均偏转了$n=\frac{L}{<dL>}$次（实际上会多得多），则粒子的偏转角度的分布为：</dL></p>
+<script type="math/tex; mode=display">\theta=\sum_{i=1}^{n}d\theta_i</script><ul>
+<li>如果星系团内部的磁场是完全随机的，星系团的尺度越小，或湍流的尺度越大，粒子的出射方向越和原来的速度方向一致，分布越窄；</li>
+<li>磁场的增大会使得分布变宽，这对于费米加速机制是好事；</li>
+<li>粒子速度的增大会使得分布变窄；</li>
+</ul>
+<p>%<script type="math/tex"><\theta>=\frac{q<B>dL}{mv}</script><br>如果认为磁场的分布是正态分布，湍流的尺度是一样的，那么</p>
+<script type="math/tex; mode=display">\theta=\sum_{i=1}^{n}\frac{qdL}{\gamma mv}N_B(0,\sigma^2)=\frac{qdL}{\gamma mv}N_B(0,n\sigma^2)</script><!-- 
+以下用数值模拟演示。
+
+认为一个星系团的尺度为Mly量级，粒子速度为光速量级，湍流尺度为ly量级，磁场为μG量级，这说明粒子每次偏转的角度为1量级，总共偏转大概1M次。这个数量级已经\textbf{很接近费米机制的成立条件}。
+
+仅模拟100ly和500ly的星系团，已可见几乎不会影响粒子的出射角度。尺度越大的星系团，该问题越不显著，所以可以初步得到结论——粒子的入射角度和出射角度是独立的。以下模拟偏转角度取-1到1的均匀分布 -->]]></content>
+      <categories>
+        <category>天文</category>
+      </categories>
+      <tags>
+        <tag>天文</tag>
+        <tag>科研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>/img/计算物理2</title>
+    <url>/2024/08/16/%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%862/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>从不同的初值$z_0$出发，牛顿法求解复方程$z^4-1=0$的根，并以一定的分辨率画出指定范围下不同初值的收敛结果:</p>
+<p>1.$\operatorname{Re}[z_0]\in (-1,1),\operatorname{Im}[z_0]\in (-1,1)$，分辨率0.01</p>
+<p>2.$\operatorname{Re}[z_0]\in (0.4,0.6),\operatorname{Im}[z_0]\in (0.4,0.6)$，分辨率0.001</p>
+<p>3.$\operatorname{Re}[z_0]\in (0.49,0.51),\operatorname{Im}[z_0]\in (0.49,0.51)$，分辨率0.0001</p>
+<p>4.$\operatorname{Re}[z_0]\in (0.499,0.501),\operatorname{Im}[z_0]\in (0.499,0.501)$，分辨率0.00001</p>
+</blockquote>
+<h1 id="理论分析"><a href="#理论分析" class="headerlink" title="理论分析"></a>理论分析</h1><p>方程$z^4=1$有四个解：</p>
+<script type="math/tex; mode=display">z_1=1,z_2=-1,z_3=1i,z_4=-1i</script><p>牛顿法的迭代方程为：</p>
+<script type="math/tex; mode=display">z=z-\frac{z^4-1}{4z^3}=\frac 34 z+\frac{1}{4z^3}</script><p>其中，分别对收敛到$1,-1,1i,-1i$的点染蓝色，红的，黄色和绿色。没有收敛的点为白色。</p>
+<h1 id="程序实现"><a href="#程序实现" class="headerlink" title="程序实现"></a>程序实现</h1><figure class="highlight julia"><table><tr><td class="code"><pre><span class="line">N=<span class="number">201</span></span><br><span class="line">center=<span class="number">0</span></span><br><span class="line">lim=<span class="number">1</span></span><br><span class="line">xx=range(center - lim, center + lim; length = N)</span><br><span class="line">yy = range(center - lim, center + lim; length = N)</span><br><span class="line"></span><br><span class="line">X= repeat(xx, <span class="number">1</span>, length(yy))</span><br><span class="line">Y = repeat(yy, <span class="number">1</span>, length(xx))&#x27;</span><br><span class="line">p=<span class="number">4</span></span><br><span class="line">Z=X+Y*<span class="literal">im</span></span><br><span class="line">Z_origin=Z</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Plots</span><br><span class="line">cond=[<span class="number">1</span>,-<span class="number">1</span>,<span class="number">1</span><span class="literal">im</span>,-<span class="number">1</span><span class="literal">im</span>]</span><br><span class="line">color=[<span class="string">&quot;blue&quot;</span>,<span class="string">&quot;red&quot;</span>,<span class="string">&quot;yellow&quot;</span>,<span class="string">&quot;green&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>:<span class="number">4</span></span><br><span class="line">    index=findall(x-&gt; x&lt;<span class="number">0.1</span>,abs.(Z.-cond[i]))</span><br><span class="line">    scatter!(real(Z_origin[index]),imag(Z_origin[index]),legend = <span class="literal">false</span>,xlim=(-<span class="number">1</span>, <span class="number">1</span>), ylim=(-<span class="number">1</span>, <span class="number">1</span>),color=color[i],ms=<span class="number">1</span>,markerstrokewidth = <span class="number">0</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">plot!()</span><br><span class="line">png(<span class="string">&quot;100&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/计算物理2/100.png" alt="image"></p>
+<p><img src="/img/计算物理2/1000.png" alt="image"></p>
+<p><img src="/img/计算物理2/100001.png" alt="image"></p>
+<p><img src="/img/计算物理2/1000001.png" alt="image"></p>
+<p>直观上看，可以发现：</p>
+<ul>
+<li>四个单位根附近的初始点收敛到该单位根本身，而在直线$y=\pm x$附近的初始点却不一定收敛到最近的单位根。</li>
+<li>随着图像的放大，初始点的收敛情况呈现出分形的特征，且并非是一直收敛到同一单位根，颜色貌似和分形的指向有关。</li>
+<li>直线$y=\pm x$上的点不收敛</li>
+<li>颜色区域由六条曲线分割，分别是$y=\pm x$，$y=\pm(2+\sqrt3) x$，$y=\pm(2-\sqrt3) x$，</li>
+</ul>
+<p><img src="/img/计算物理2/100_plus.png" alt="image"></p>
+<p><img src="/img/计算物理2/1000_plus.png" alt="image"></p>
+<p>第一点和第三点可以被回答：因为这是一个二维的非线性方程，按理来说可以用作业一的方法去研究：</p>
+<p>我们对上述的非线性方程展开：</p>
+<script type="math/tex; mode=display">x+iy=\frac{1}{4}(3x+\frac{x^3-3xy^2}{(x^2+y^2)^3})+\frac{i}{4}(3y+\frac{y^3-3x^2y}{(x^2+y^2)^3})</script><p>辐角</p>
+<script type="math/tex; mode=display">\Phi=\frac{3y(x^2+y^2)^3+y^3-3x^2y}{3x(x^2+y^2)^3+x^3-3xy^2}</script><p>令</p>
+<script type="math/tex; mode=display">\Phi=\frac{3y(x^2+y^2)^3+y^3-3x^2y}{3x(x^2+y^2)^3+x^3-3xy^2}=\frac yx</script><p>不难解得辐角不动点：</p>
+<script type="math/tex; mode=display">x=\pm y\quad or\quad x=0\quad or\quad y=0</script><p>也就是说，这四条直线上的点的辐角稳定，但是否收敛还要看模的方程：</p>
+<script type="math/tex; mode=display">r=\frac{1}{16}((3x+\frac{x^3-3xy^2}{(x^2+y^2)^3})^2+(3y+\frac{y^3-3x^2y}{(x^2+y^2)^3})^2)</script><p>对其进行讨论（分别取$x=0$,$y=0$,$y=\pm x$），不难发现，坐标轴上的点收敛到附近的单位根，但是直线$y=\pm x$确实永远发散的。</p>
+]]></content>
+      <categories>
+        <category>/img/计算物理</category>
+      </categories>
+      <tags>
+        <tag>/img/计算物理</tag>
+      </tags>
   </entry>
 </search>
