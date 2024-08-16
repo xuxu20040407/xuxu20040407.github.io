@@ -200,6 +200,12 @@
 <p>有兴趣的同学可以搜索费根鲍姆常数，并通过该模型计算该常数的数值。</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>计算物理</category>
+      </categories>
+      <tags>
+        <tag>计算物理 混沌</tag>
+      </tags>
   </entry>
   <entry>
     <title>费米加速</title>
@@ -300,7 +306,7 @@
         <category>计算物理</category>
       </categories>
       <tags>
-        <tag>计算物理</tag>
+        <tag>计算物理 分形</tag>
       </tags>
   </entry>
   <entry>
@@ -361,7 +367,63 @@
         <category>计算物理</category>
       </categories>
       <tags>
-        <tag>计算物理</tag>
+        <tag>计算物理 自相似</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算物理4</title>
+    <url>/2024/08/16/%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%864/</url>
+    <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote>
+<ol>
+<li><p>用四阶龙格库塔方法求解周期驱动单摆方程：</p>
+<script type="math/tex; mode=display">\ddot{\phi}=-(1+a\nu^2\cos\nu t)\sin\phi</script><p>通过调节方程中的参数，以及初始条件，找到 $\phi=\pi$附近的稳定振动（建议通过相图的方式展示）。</p>
+</li>
+<li><p>用四阶龙格库塔方法求解一组耦合转的运动方程组：</p>
+<script type="math/tex; mode=display">\dot{\theta}_i=\omega_i+\frac KN\sum_j\sin(\theta_j-\theta_i)</script><p>其中$N=1000$是转子的个数，$\omega_i\in (-1,1)是均匀分布的转子的初速度$，$K$代表了耦合大小。从$\theta_i(t=0)=0$出发，定义</p>
+<script type="math/tex; mode=display">r(t)=\frac1N\sum_ie^{i\theta(t)}</script><p>以及从物理上解释为什么会有这种差别分别计算K=0.2 和K=5时，r(t)的模 |r(t)| 随时间的演化，说明这两种情况下有何区别。</p>
+</li>
+</ol>
+</blockquote>
+<h1 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h1><p>周期驱动单摆不同于普通单摆，可以稳定于 $\phi=\pi$，也可能出现在两个稳定点的跳跃，那么对稳定情况的约束需要考虑长时间稳定行为。定义步长$h=\frac{1}{10v}$，稳定条件为$|\mod{(\phi_{ave},2\pi)}-\pi|&lt;0.02$，其中$\phi_{ave}$取最后500个点的平均。</p>
+<p>在初值$\phi_0=\pi-0.001$情况下，画出$a-v$相图如下<br><img src="/img/计算物理4/顶视图1.png" alt="image"></p>
+<p>有兴趣的同学可以拟合这两条边界并进行解释，还可以分析初始条件的变化对相图的影响。</p>
+<h1 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h1><script type="math/tex; mode=display">r(t)=\frac1N\sum_ie^{i\theta(t)}</script><p>是转子系统的耦合程度——当所有转子指向相同的时候，该值取1，如果全部均匀随机取向，该值取0。</p>
+<p>当耦合常数$K=0.2,5$时，得到的r值随时间的演化如图：</p>
+<p><img src="/img/计算物理4/K0.2.png" alt="image"><br><img src="/img/计算物理4/K5.png" alt="image"></p>
+<p>每个转子的角度变化如下</p>
+<p><img src="/img/计算物理4/k-0.2.png" alt="image"><br><img src="/img/计算物理4/k-5.png" alt="image"></p>
+<p>这是因为耦合常数小的时候，转子之间的关联并不大，初始取向随机，后续取向几乎不变，所以趋于0，同时回复力较小，r值变化比较平缓；耦合常数大的时候，所有转子的取向趋于相同，同时由于回复力较大，r值振动频繁。</p>
+<p>画出K-r关系如下以验证：<br><img src="/img/计算物理4/ave.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>计算物理5</title>
+    <url>/2024/08/16/%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%865/</url>
+    <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>数值求解一维定态薛定谔方程 $(\hbar=1,m=1)$</p>
+<script type="math/tex; mode=display">-\frac{\hbar^2}{2m}\frac{d^2\phi(x)}{dx^2}+V(x)\phi(x)=\varepsilon\phi(x),</script><p>取$m=1, V(x)=0.5x2+0.1x^6$,  在$-4&lt;x&lt;4$的范围内，画出基态波函数<br>和第一激发态波函数随空间的分布，同时求出基态和第一激发态的本征能量。</p>
+<h1 id="打靶法"><a href="#打靶法" class="headerlink" title="打靶法"></a>打靶法</h1><p>打靶法的思路在于，如果波函数是无穷处收敛的，那么从较远的某端（值为0）开始以随机能量演化，到另一端的值如果也是0，那么认为该能量就是本征能量。</p>
+<p><img src="/img/计算物理5/energy.png" alt="image"><br>可以看到，基态的能量大概在[0.5,0.6]，第一激发态大概在[1.9,2.0]。考虑到时间和精度的问题，再加上这里局部是单调的，那么采用二分法，计算得到：</p>
+<script type="math/tex; mode=display">E_0=0.586944672502093\quad E_1=1.950417785129478</script><p>画出波函数如图：<br><img src="/img/计算物理5/jitai1.png" alt="image"><br><img src="/img/计算物理5/jifatai1.png" alt="image"></p>
+<h1 id="矩阵离散化求特征向量"><a href="#矩阵离散化求特征向量" class="headerlink" title="矩阵离散化求特征向量"></a>矩阵离散化求特征向量</h1><script type="math/tex; mode=display">\begin{aligned}
+H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1&\cdots\\\cdots&\cdots&\cdots&\cdots&\cdots\\0&0&0&1&-2\end{bmatrix}+V(x)\\
+=&\frac{1}{\Delta x^2}
+\begin{bmatrix}
+-2+v_1&1&0&0&\cdots\\
+1&-2+v_2&1&0&\cdots\\
+0&1&-2+v_3&1&\cdots\\
+\cdots&\cdots&\cdots&\cdots&\cdots\\
+0&0&0&1&-2+v_{n+1}
+\end{bmatrix}
+\end{aligned}</script><p>其中$v=V(\Delta x)^2$。</p>
+<p>这里用一阶近似展开了二阶导，所以误差如果要做的小，那么矩阵维度就要很大，计算量指数级上升。有兴趣的同学可以尝试高阶近似展开二阶导。</p>
+<p>对上述矩阵提取特征值，可得</p>
+<script type="math/tex; mode=display">E_0=0.58696\quad E_1=1.9505</script><p><img src="/img/计算物理5/jitai.png" alt="image"><br><img src="/img/计算物理5/jifatai.png" alt="image"></p>
+]]></content>
+      <categories>
+        <category>计算物理</category>
+      </categories>
+      <tags>
+        <tag>计算物理 量子物理</tag>
       </tags>
   </entry>
 </search>
