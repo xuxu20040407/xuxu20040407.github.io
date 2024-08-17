@@ -456,7 +456,7 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
     <content><![CDATA[<p>常见的（部分）可解析的一维势阱势垒有：无限深方势阱、有限深方势阱（势垒）、$\delta$函数势阱（势垒）、谐振子势阱和部分简单周期势阱。</p>
 <h1 id="无限深方势阱"><a href="#无限深方势阱" class="headerlink" title="无限深方势阱"></a>无限深方势阱</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&0&0<x<L\\&\infty&elsewhere\end{cases}</script><p><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Infinite_potential_well-en.svg"></p>
 <ol>
-<li><strong>波函数形式</strong>：$\psi(x)=\sqrt{\dfrac{2}{L}}\sin{\dfrac{n\pi x}{L}}$</li>
+<li><strong>波函数形式</strong>： $\psi(x)=\sqrt{\dfrac{2}{L}}\sin{\dfrac{n\pi x}{L}}$</li>
 <li><strong>能量</strong>：$E_n=\dfrac{n^2\pi^2 \hbar^2}{2mL^2}$</li>
 <li><strong>参数</strong>：</li>
 </ol>
@@ -467,21 +467,22 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <li>$\langle p^2\rangle=\dfrac{n^2\pi^2\hbar^2}{L^2}$</li>
 <li>$\sigma_x\sigma_p=\sqrt{\dfrac{n^2\pi^2-6}{12}}\hbar\geq\dfrac{\hbar}{2}$</li>
 </ul>
-<h1 id="有限深对称方势阱（束缚解）"><a href="#有限深对称方势阱（束缚解）" class="headerlink" title="有限深对称方势阱（束缚解）"></a>有限深对称方势阱（束缚解）</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&0&0<x<L\\&V&elsewhere\end{cases}</script><p><strong>偶对称波函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{k_1x}&amp;x<0\\&B\cos{k_2x}&0<x<L\\&Ae^{-k_1x}&x>L\end{cases}$</0\\&B\cos{k_2x}&0<x<L\\&Ae^{-k_1x}&x></p>
-<p>满足</p>
+<h1 id="有限深对称方势阱（束缚解）"><a href="#有限深对称方势阱（束缚解）" class="headerlink" title="有限深对称方势阱（束缚解）"></a>有限深对称方势阱（束缚解）</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&0&0<x<L\\&V&elsewhere\end{cases}</script><p><strong>偶对称波函数形式</strong>： </p>
+<script type="math/tex; mode=display">\psi(x)=\begin{cases}&Ae^{k_1x}&x<0\\&B\cos{k_2x}&0<x<L\\&Ae^{-k_1x}&x>L\end{cases}</script><p>满足</p>
 <script type="math/tex; mode=display">k_1^2+k_2^2=\dfrac{2mV}{\hbar^2}</script><script type="math/tex; mode=display">k_1=k_2\tan{\dfrac{k_2L}{2}}</script><p>必定有解。</p>
-<p><strong>奇对称波函数形式</strong>：$\psi(x)=\begin{cases}&amp;-Ae^{k_1x}&amp;x<0\\&B\sin{k_2x}&0<x<L\\&Ae^{-k_1x}&x>L\end{cases}$</0\\&B\sin{k_2x}&0<x<L\\&Ae^{-k_1x}&x></p>
-<p>满足</p>
+<p><strong>奇对称波函数形式</strong>： </p>
+<script type="math/tex; mode=display">\psi(x)=\begin{cases}&-Ae^{k_1x}&x<0\\&B\sin{k_2x}&0<x<L\\&Ae^{-k_1x}&x>L\end{cases}</script><p>满足</p>
 <script type="math/tex; mode=display">k_1^2+k_2^2=\dfrac{2mV}{\hbar^2}</script><script type="math/tex; mode=display">k_1=k_2\tan{\dfrac{k_2L}{2}}</script><p>可能有解。当$\dfrac{k_2L}{2}=\dfrac{\pi}{2}$时，恰好有解，此时波函数的能量为$E=\dfrac{\pi^2\hbar^2}{2mL^2}$，此时恰好是无限深方势阱的第一个解。然而这个解在数学上成立，在物理上并不成立（分母为0）。</p>
 <p><img src="\img\一维势阱势垒\image.png" alt="alt text"></p>
 <h1 id="有限深对称方势垒"><a href="#有限深对称方势垒" class="headerlink" title="有限深对称方势垒"></a>有限深对称方势垒</h1><p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Square_potential.png"></p>
-<script type="math/tex; mode=display">V(x)=\begin{cases}&V_0&0<x<L\\&0&elsewhere\end{cases}</script><p><strong>$E&lt; V_0$波函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{ik_1x}+Be^{-ik_1x}&amp;x<0\\&Ce^{k_2x}+De^{-k_2x}&0<x<L\\&Ee^{ik_1x}&x>L\end{cases}$</0\\&Ce^{k_2x}+De^{-k_2x}&0<x<L\\&Ee^{ik_1x}&x></p>
-<p>可以解得，透射率</p>
-<script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2+k_2^2)^2\sinh^2{k_2L}+4k_1^2k_2^2}</script><p><strong>$E&gt; V_0$波函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{ik_1x}+Be^{-ik_1x}&amp;x<0\\&Ce^{ik_2x}+De^{-ik_2x}&0<x<L\\&Ee^{ik_1x}&x>L\end{cases}$</0\\&Ce^{ik_2x}+De^{-ik_2x}&0<x<L\\&Ee^{ik_1x}&x></p>
-<p>可以解得，透射率</p>
+<script type="math/tex; mode=display">V(x)=\begin{cases}&V_0&0<x<L\\&0&elsewhere\end{cases}</script><p><strong>$E&lt; V_0$波函数形式</strong>： </p>
+<script type="math/tex; mode=display">\psi(x)=\begin{cases}&Ae^{ik_1x}+Be^{-ik_1x}&x<0\\&Ce^{k_2x}+De^{-k_2x}&0<x<L\\&Ee^{ik_1x}&x>L\end{cases}</script><p>可以解得，透射率</p>
+<script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2+k_2^2)^2\sinh^2{k_2L}+4k_1^2k_2^2}</script><p><strong>$E&gt; V_0$波函数形式</strong>： </p>
+<script type="math/tex; mode=display">\psi(x)=\begin{cases}&Ae^{ik_1x}+Be^{-ik_1x}&x<0\\&Ce^{ik_2x}+De^{-ik_2x}&0<x<L\\&Ee^{ik_1x}&x>L\end{cases}</script><p>可以解得，透射率</p>
 <script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2-k_2^2)^2\sin^2{k_2L}+4k_1^2k_2^2}</script><p><strong>$E= V_0$情况</strong>：透射率</p>
 <script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4}{k_1^2L^2+4}</script><p>引入无量纲量$\beta=\dfrac{k_2}{k_1}$：</p>
-<script type="math/tex; mode=display">T=\begin{cases}\frac{4\beta^2}{\left[1-\beta^2\right]^2\sin^2{k_2L}+4\beta^2},&\Delta>0\\\frac{4}{k_1^2L^2+4},&\Delta=0\\\frac{4\beta^2}{\left[1+\beta^2\right]^2\sinh^2{k_2L}+4\beta^2},&\Delta<0\end{cases}</script><p><img src="\img\一维势阱势垒\image2.png" alt="alt text"><br>当$E&gt; V_0$，且$E-V_0=\dfrac{n^2\pi^2\hbar^2}{2mL^2}$时，出现共振透射的情况，此时透射率为1.</p>
+<script type="math/tex; mode=display">T=\begin{cases}\frac{4\beta^2}{\left[1-\beta^2\right]^2\sin^2{k_2L}+4\beta^2},&\Delta>0\\\frac{4}{k_1^2L^2+4},&\Delta=0\\\frac{4\beta^2}{\left[1+\beta^2\right]^2\sinh^2{k_2L}+4\beta^2},&\Delta<0\end{cases}</script><p><img src="\img\一维势阱势垒\image2.png" alt="alt text"></p>
+<p>当$E&gt; V_0$，且$E-V_0=\dfrac{n^2\pi^2\hbar^2}{2mL^2}$时，出现共振透射的情况，此时透射率为1.</p>
 <h1 id="有限深对称方势阱（散射解）"><a href="#有限深对称方势阱（散射解）" class="headerlink" title="有限深对称方势阱（散射解）"></a>有限深对称方势阱（散射解）</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&-V_0&0<x<L\\&0&elsewhere\end{cases}</script><p>此时波函数的能量总是大于势阱的势能，那么透射率同上：</p>
 <script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2-k_2^2)^2\sin^2{k_2L}+4k_1^2k_2^2}</script><p><img src="\img\一维势阱势垒\image3.png" alt="alt text"></p>
 <h1 id="delta-函数势阱（束缚解）"><a href="#delta-函数势阱（束缚解）" class="headerlink" title="$\delta$函数势阱（束缚解）"></a>$\delta$函数势阱（束缚解）</h1><script type="math/tex; mode=display">V(x)=-\alpha\delta(x)</script><p><strong>函数形式</strong>：$\psi(x)=\dfrac{\sqrt{m\alpha}}{\hbar}e^{-\frac{m\alpha}{\hbar^2}|x|}$</p>
