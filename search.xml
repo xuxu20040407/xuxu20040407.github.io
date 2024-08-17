@@ -485,7 +485,8 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <p>当$E&gt; V_0$，且$E-V_0=\dfrac{n^2\pi^2\hbar^2}{2mL^2}$时，出现共振透射的情况，此时透射率为1.</p>
 <h1 id="有限深对称方势阱（散射解）"><a href="#有限深对称方势阱（散射解）" class="headerlink" title="有限深对称方势阱（散射解）"></a>有限深对称方势阱（散射解）</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&-V_0&0<x<L\\&0&elsewhere\end{cases}</script><p>此时波函数的能量总是大于势阱的势能，那么透射率同上：</p>
 <script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2-k_2^2)^2\sin^2{k_2L}+4k_1^2k_2^2}</script><p><img src="\img\一维势阱势垒\image3.png" alt="alt text"></p>
-<h1 id="delta-函数势阱（束缚解）"><a href="#delta-函数势阱（束缚解）" class="headerlink" title="$\delta$函数势阱（束缚解）"></a>$\delta$函数势阱（束缚解）</h1><script type="math/tex; mode=display">V(x)=-\alpha\delta(x)</script><p><strong>函数形式</strong>：$\psi(x)=\dfrac{\sqrt{m\alpha}}{\hbar}e^{-\frac{m\alpha}{\hbar^2}|x|}$</p>
+<h1 id="delta-函数势阱（束缚解）"><a href="#delta-函数势阱（束缚解）" class="headerlink" title="$\delta$函数势阱（束缚解）"></a>$\delta$函数势阱（束缚解）</h1><p><img src="https://commons.wikimedia.org/wiki/File:Dirac_distribution_PDF.svg"></p>
+<script type="math/tex; mode=display">V(x)=-\alpha\delta(x)</script><p><strong>函数形式</strong>：$\psi(x)=\dfrac{\sqrt{m\alpha}}{\hbar}e^{-\frac{m\alpha}{\hbar^2}|x|}$</p>
 <h1 id="delta-函数势垒"><a href="#delta-函数势垒" class="headerlink" title="$\delta$函数势垒"></a>$\delta$函数势垒</h1><script type="math/tex; mode=display">V(x)=\alpha\delta(x)</script><ol>
 <li><strong>函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{ik_1x}+Be^{-ik_1x}&amp;x<0\\&Ce^{ik_1x}&x>0\end{cases}$</0\\&Ce^{ik_1x}&x></li>
 <li><strong>透射率</strong>：$T=\dfrac{1}{1+\dfrac{m\alpha}{\hbar^2k_1}}$</li>
@@ -498,7 +499,32 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <p><strong>奇对称函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{kx}&amp;x&lt;-L\\ &amp;-Be^{kx}+Be^{-kx}&amp;L&gt;x&gt;-L\\ &amp;-Ae^{-kx}&amp;x&gt;L\end{cases}$</p>
 <p>满足</p>
 <script type="math/tex; mode=display">\dfrac{\hbar^2k}{m\alpha}=1-e^{-2kL}</script><p>只有当$\dfrac{\hbar^2}{m\alpha}&gt;2a$的时候才开始有解。</p>
-<h1 id="谐振子势阱"><a href="#谐振子势阱" class="headerlink" title="谐振子势阱"></a>谐振子势阱</h1><h1 id="周期-delta-函数势阱"><a href="#周期-delta-函数势阱" class="headerlink" title="周期$\delta$函数势阱"></a>周期$\delta$函数势阱</h1><h1 id="Kronig-Penny模型"><a href="#Kronig-Penny模型" class="headerlink" title="Kronig-Penny模型"></a>Kronig-Penny模型</h1>]]></content>
+<h1 id="谐振子势阱"><a href="#谐振子势阱" class="headerlink" title="谐振子势阱"></a>谐振子势阱</h1><script type="math/tex; mode=display">V(x)=\frac12 m\omega^2x^2</script><h2 id="代数解法"><a href="#代数解法" class="headerlink" title="代数解法"></a>代数解法</h2><p><strong>函数形式</strong>：$\psi_n(x)=(\dfrac{m\omega}{\pi\hbar})^{\frac14}\dfrac{1}{\sqrt{2^nn!}}H_n(\sqrt{\dfrac{m\omega}{\hbar}}x)e^{-\frac{m\omega}{2\hbar}x^2}$</p>
+<h2 id="阶梯法"><a href="#阶梯法" class="headerlink" title="阶梯法"></a>阶梯法</h2><ol>
+<li><strong>函数形式</strong>：$\psi_n(x)=\frac{1}{\sqrt{n!}}(\hat{a}_+)^n\psi_0(x)$ ，其中$\psi_0(x)=(\dfrac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{m\omega}{2\hbar}x^2}$</li>
+<li><strong>能量</strong>：$E_n=(n+\frac12)\hbar\omega$</li>
+<li><strong>参数</strong>：</li>
+</ol>
+<ul>
+<li>$\langle x\rangle=0$</li>
+<li>$\langle x^2\rangle=\dfrac{2n+1}{4m\omega}\hbar$</li>
+<li>$\langle p\rangle=0$</li>
+<li>$\langle p^2\rangle=\dfrac{2n+1}{4}m\omega\hbar$</li>
+<li>$\sigma_x\sigma_p=(n+\frac12)\hbar$</li>
+</ul>
+<h1 id="周期-delta-函数势阱"><a href="#周期-delta-函数势阱" class="headerlink" title="周期$\delta$函数势阱"></a>周期$\delta$函数势阱</h1><p><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Dirac_comb.svg"></p>
+<script type="math/tex; mode=display">V(x)=-\alpha\sum_{n=-\infty}^{\infty}\delta(x-nL)</script><p>根据Bloch定理，$\psi(x+a)=e^{iqL}\psi(x)$，设</p>
+<script type="math/tex; mode=display">\psi(x)=Ae^{ikx}+Be^{-ikx}</script><p>那么</p>
+<script type="math/tex; mode=display">\psi(x+L)=Ae^{ikx+iqL}+Be^{-ikx+iqL}</script><p>经过化简可得：</p>
+<script type="math/tex; mode=display">\frac{m\alpha}{\hbar^2k}\sin{kL}+\cos{kL}=\cos{qL}</script><p><img src="\img\一维势阱势垒\image4.png" alt="alt text"></p>
+<p>如图，只有在$\pm 1$中的部分可以满足该式，考虑到$q=\frac{2n\pi}{NL}$，$N$是个很大的数，那么近似可以看作$\cos{qL}$可以取遍$\pm 1$中的值，这就是能带的雏形。</p>
+<h1 id="Kronig-Penny模型"><a href="#Kronig-Penny模型" class="headerlink" title="Kronig-Penny模型"></a>Kronig-Penny模型</h1><p><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Periodic_square_potential_130707.png"></p>
+<script type="math/tex; mode=display">V(x)=\begin{cases}&-V_0&mod(x,a)>a-b\\&0&mod(x,a)<a-b\end{cases}</script><script type="math/tex; mode=display">\psi(x)=\begin{cases}&Ae^{ik_1x}+Be^{-ik_1x}&-b<x<0\\&Ce^{k_2x}+De^{-k_2x}&0<x<a-b\end{cases}</script><script type="math/tex; mode=display">\psi(x)=\begin{cases}&Ae^{ik_1x+iqa}+Be^{-ik_1x+iqa}&a-b<x<a\\&Ce^{k_2x+iqa}+De^{-k_2x+iqa}&a<x<2a-b\end{cases}</script><p>这四个系数对应的四个方程的系数行列式为0时，有解，则：</p>
+<script type="math/tex; mode=display">\dfrac{k_2^2-k_1^2}{2k_1k_2}\sinh{k_2 b}\sin{k_1(a-b)}+\cosh{k_2 b}\cos{k_1(a-b)}=\cos{qa}</script><p>展开波矢，得到：</p>
+<script type="math/tex; mode=display">\dfrac{(-V_0-2E)}{2 \sqrt{-E(V_0+E)}}\sinh{\dfrac{2mb\sqrt{-E}}{\hbar} }\sin{\dfrac{2m(a-b)\sqrt{V_0+E}}{\hbar}}+\cosh{\dfrac{2mb\sqrt{-E}}{\hbar}}\cos{\dfrac{2m(a-b)\sqrt{V_0+E}}{\hbar}}=\cos{qa}</script><p><img src="\img\一维势阱势垒\image5.png" alt="alt text"></p>
+<p>这里也有能带的结构，更常见的图为：</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Penney-Kronig_Dispersion.svg"></p>
+]]></content>
       <categories>
         <category>量子力学</category>
       </categories>
