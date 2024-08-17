@@ -112,18 +112,42 @@
 </blockquote>
 <h1 id="量子力学公设"><a href="#量子力学公设" class="headerlink" title="量子力学公设"></a>量子力学公设</h1><ol>
 <li><strong>波函数公设</strong>：波函数$\psi(\vec{r})$用于描述量子系统的状态。更数学地讲，希尔伯特空间中的矢量$\left|\psi\right\rangle $可以描述微观系统的状态，那么波函数是态矢量在某一表象下的投影；</li>
-<li><strong>算符和测量公设</strong>：希尔伯特空间中的厄密算符可以描述围观系统的物理量，而物理量的具体数值，取决于算符的本征值。算符可能有多个本征值，那么讲态矢量按照归一化本征矢量展开得到的系数的复平方，即是取到该值的概率。如果用数学公式表达，就是：</li>
-</ol>
-<ul>
-<li><em>算符公设</em>：$A|a_i\rangle=a_i|a_i\rangle $其中$\langle a_i|a_j\rangle=\delta_{ij}$</li>
+<li><strong>算符和测量公设</strong>：希尔伯特空间中的厄密算符可以描述围观系统的物理量，而物理量的具体数值，取决于算符的本征值。算符可能有多个本征值，那么讲态矢量按照归一化本征矢量展开得到的系数的复平方，即是取到该值的概率。如果用数学公式表达，就是：<ul>
+<li><em>算符公设</em>：$A|a_i\rangle=a_i|a_i\rangle$  其中 $\langle a_i|a_j\rangle=\delta_{ij}$</li>
 <li><em>测量公设（统计诠释）</em>：$|\psi\rangle=\sum_i\lvert a_i\rangle c_i , c_i=\langle a_i\rvert \psi\rangle ,P=c_i^*c_i$</li>
 </ul>
-<ol>
+</li>
 <li><strong>演化公设</strong>：波函数或态矢量的演化由薛定谔方程决定：<script type="math/tex; mode=display">\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=H|\psi(t)\rangle</script></li>
-<li><strong>对易公设（一次量子化）</strong>： <script type="math/tex">[X_{i},X_{j}]=0 , [P_{i},P_{j}]=0 , [X_{i},P_{j}]=\mathrm{i}\hbar\delta_{ij}</script></li>
+<li><strong>对易公设（一次量子化）</strong>： <script type="math/tex; mode=display">[X_{i},X_{j}]=0 , [P_{i},P_{j}]=0 , [X_{i},P_{j}]=\mathrm{i}\hbar\delta_{ij}</script></li>
 <li><strong>全同粒子公设（二次量子化？）</strong>：态矢量对于任意一对粒子的对换，都是对称（玻色子）和反对称（费米子）的。</li>
 </ol>
-]]></content>
+<h1 id="波函数和态矢量"><a href="#波函数和态矢量" class="headerlink" title="波函数和态矢量"></a>波函数和态矢量</h1><h2 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h2><p>波函数是态矢量在某个表象空间的投影。</p>
+<script type="math/tex; mode=display">\mathrm{\psi_{a_i}=\langle a_i|\psi\rangle}\quad\mathrm{or}\quad\mathrm{\psi_{\alpha}=\langle \alpha|\psi\rangle}</script><p>对于不同的表象，波函数可以是离散或连续的，不过都必须满足基完备归一化的条件：</p>
+<script type="math/tex; mode=display">\sum_\text{i}|\mathrm{a_i}\rangle\langle\mathrm{a_i}|=1\quad\mathrm{or}\quad\int|\alpha\rangle\langle\alpha|\mathrm{d}\alpha=1</script><p>如果态矢量本身是归一化的，那么简单推导即可得到波函数的归一化：</p>
+<script type="math/tex; mode=display">\sum_\text{i}\mathrm{\psi_{a_i}}^*\mathrm{\psi_{a_i}}=\sum_\text{i}\langle\psi|\mathrm{a_i}\rangle\langle\mathrm{a_i}|\psi\rangle=1</script><script type="math/tex; mode=display">\int\mathrm{\psi_{\alpha}}^*\mathrm{\psi_{\alpha}}\mathrm{d}\alpha=\int\langle\psi|\alpha\rangle\langle\alpha|\psi\rangle\mathrm{d}\alpha=1</script><p>然而波函数的归一化不是必备的条件，对于散射态的波函数，有以下几种方法使其趋于归一化的数学形式：</p>
+<ol>
+<li><strong>归一化到$\delta$函数</strong>：假设要对态矢量的另外一个物理量做归一化，我们拿坐标表象下对动量指标做归一化为例：<script type="math/tex; mode=display">\int\psi_{p^{\prime}}^*(\boldsymbol{x})\psi_p(\boldsymbol{x})\mathrm{d}\boldsymbol{x}=\int\langle\psi_{p^{\prime}}|\boldsymbol{x}\rangle\langle\boldsymbol{x}|\psi_{p}\rangle\mathrm{d}\boldsymbol{x}=\delta(p^\prime-p)</script></li>
+<li><strong>箱归一化</strong>：与上面不同，箱归一化则不依赖其他指标，更像是自身在某一局限空间的归一化。取任一体积为$V$的连续可重复空间内进行归一化，则<script type="math/tex; mode=display">\int_V\psi_{p}^*(\boldsymbol{x})\psi_p(\boldsymbol{x})\mathrm{d}\boldsymbol{x}=|\bar{\psi_p}|^2V</script></li>
+</ol>
+<h2 id="表象变换"><a href="#表象变换" class="headerlink" title="表象变换"></a>表象变换</h2><p>假设需要从表象$|\beta\rangle$变换到$|\alpha\rangle$，利用完备基的条件可以得到：</p>
+<script type="math/tex; mode=display">\begin{gathered}
+\langle\alpha|\psi\rangle =\langle\alpha|(\int|\beta\rangle\langle\beta|\mathrm{d}\beta)|\psi\rangle \\
+=\int\langle\alpha|\beta\rangle\langle\beta|\psi\rangle\mathrm{d}\beta \\
+=\int\langle\alpha|\beta\rangle\psi(\beta)\mathrm{d}\beta
+\end{gathered}</script><p>现在的问题是，如何求$\langle\alpha|\beta\rangle$？以坐标表象和动量表象为例，需要用到对易公设来推导了（详见<a href="https://www.scigeek.cn/posts/43757/">此处</a>）。</p>
+<h1 id="薛定谔方程"><a href="#薛定谔方程" class="headerlink" title="薛定谔方程"></a>薛定谔方程</h1><h2 id="定态和概率流"><a href="#定态和概率流" class="headerlink" title="定态和概率流"></a>定态和概率流</h2><script type="math/tex; mode=display">\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=H|\psi(t)\rangle</script><p>其中$H=\dfrac{\hat{p}^2}{2m}+V(\hat{r})$。为了方便，我们先探究一维薛定谔方程的性质：</p>
+<script type="math/tex; mode=display">\mathrm{i}\hbar\frac\partial{\partial t}\psi(x,t)=[\dfrac{\hbar^2}{2m}\dfrac{\partial^2}{\partial x^2}+V(x)]\psi(x,t)</script><p>这里可以分离变量：如果有一个定态的波函数$\psi(x)$满足</p>
+<script type="math/tex; mode=display">[\dfrac{\hbar^2}{2m}\dfrac{\partial^2}{\partial x^2}+V(x)]\psi(x)=E\psi(x)</script><p>那么可以很容易地写出其演化的函数形式：</p>
+<script type="math/tex; mode=display">\psi(x,t)=\psi(x)e^{-\frac{iEt}{\hbar}}</script><p>为什么叫定态呢？即便是含时的该波函数，其概率密度</p>
+<script type="math/tex; mode=display">\rho(x,t)=\psi^*(x,t)\psi(x,t)=|\psi(x)|^2</script><p>显然是不含时的，也就是说概率流为0，态是“固定的”。</p>
+<h2 id="线性组合"><a href="#线性组合" class="headerlink" title="线性组合"></a>线性组合</h2><p>一个本征方程显然不一定只有一个本征能量。对于有多个本征能量的哈密顿量，可以解出</p>
+<script type="math/tex; mode=display">\psi_i(x,t)=\psi_i(x)e^{-\frac{iE_it}{\hbar}}</script><p>两个定态的线性组合显然也满足薛定谔方程，但是不再是定态：</p>
+<script type="math/tex; mode=display">\begin{aligned}\rho(x,t)=&(\psi_m^*(x,t)+\psi_n^*(x,t))(\psi_m(x,t)+\psi_n(x,t))\\=&|\psi_m(x)|^2+|\psi_n(x)|^2+2\psi_m(x)\psi_n(x)\cos{\dfrac{E_m-E_n}{\hbar}t}\end{aligned}</script><h2 id="简并度"><a href="#简并度" class="headerlink" title="简并度"></a>简并度</h2><p>一维薛定谔方程的束缚解没有简并，即$E_m\neq E_n$。散射态的平面波简并度为2。我们先证明，如果有简并，那么有以下式子成立：</p>
+<script type="math/tex; mode=display">\psi_1\psi_2^\prime-\psi_2\psi_1^\prime=const</script><p>证明：</p>
+<script type="math/tex; mode=display">\psi^{\prime\prime}=-\frac{2m}{\hbar^2}(E-V)\psi</script><script type="math/tex; mode=display">\psi_1\psi_2^{\prime\prime}-\psi_2\psi_1^{\prime\prime}=0</script><p>积分得到：</p>
+<script type="math/tex; mode=display">\psi_1\psi_2^\prime-\psi_2\psi_1^\prime=const</script><p>显然，如果是束缚解，那么$\psi(x)|_{x\rightarrow\pm\infty}\rightarrow 0$，则$\psi_1=\psi_2$。</p>
+<h2 id="Ehrenfest定理"><a href="#Ehrenfest定理" class="headerlink" title="Ehrenfest定理"></a>Ehrenfest定理</h2><script type="math/tex; mode=display">\frac{d\langle A\rangle}{d t}=\left\langle\frac{\partial A}{\partial t}\right\rangle+\frac{\mathrm{i}}{\boldsymbol{\hbar}}\langle[H,A]\rangle</script><p>证明：</p>
+<script type="math/tex; mode=display">\begin{aligned}\frac{d\langle A\rangle}{d t}&=\frac{d }{d t}\int\psi^*\hat{A}\psi \mathrm{d}x\\&=\int\frac{\partial }{\partial t}(\psi^*\hat{A}\psi) \mathrm{d}x\\&=\int (\frac{\partial \psi^*}{\partial t}\hat{A}\psi+\psi^*\frac{\partial \hat{A}}{\partial t}\psi+\psi^*\hat{A}\frac{\partial \psi}{\partial t})\mathrm{d}x\\&=\left\langle\frac{\partial A}{\partial t}\right\rangle+\frac{\mathrm{i}}{\boldsymbol{\hbar}}\langle[H,A]\rangle\end{aligned}</script>]]></content>
       <categories>
         <category>量子力学</category>
       </categories>
@@ -424,6 +448,61 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
       </categories>
       <tags>
         <tag>计算物理 量子物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一维势阱势垒</title>
+    <url>/2024/08/17/%E4%B8%80%E7%BB%B4%E5%8A%BF%E9%98%B1%E5%8A%BF%E5%9E%92/</url>
+    <content><![CDATA[<p>常见的（部分）可解析的一维势阱势垒有：无限深方势阱、有限深方势阱（势垒）、$\delta$函数势阱（势垒）、谐振子势阱和部分简单周期势阱。</p>
+<h1 id="无限深方势阱"><a href="#无限深方势阱" class="headerlink" title="无限深方势阱"></a>无限深方势阱</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&0&0<x<L\\&\infty&elsewhere\end{cases}</script><p><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Infinite_potential_well-en.svg"></p>
+<ol>
+<li><strong>波函数形式</strong>：$\psi(x)=\sqrt{\dfrac{2}{L}}\sin{\dfrac{n\pi x}{L}}$</li>
+<li><strong>能量</strong>：$E_n=\dfrac{n^2\pi^2 \hbar^2}{2mL^2}$</li>
+<li><strong>参数</strong>：</li>
+</ol>
+<ul>
+<li>$\langle x\rangle=\dfrac{L}{2}$</li>
+<li>$\langle x^2\rangle=\dfrac{L^2}{3}-\dfrac{L^2}{2n^2\pi^2}$</li>
+<li>$\langle p\rangle=0$</li>
+<li>$\langle p^2\rangle=\dfrac{n^2\pi^2\hbar^2}{L^2}$</li>
+<li>$\sigma_x\sigma_p=\sqrt{\dfrac{n^2\pi^2-6}{12}}\hbar\geq\dfrac{\hbar}{2}$</li>
+</ul>
+<h1 id="有限深对称方势阱（束缚解）"><a href="#有限深对称方势阱（束缚解）" class="headerlink" title="有限深对称方势阱（束缚解）"></a>有限深对称方势阱（束缚解）</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&0&0<x<L\\&V&elsewhere\end{cases}</script><p><strong>偶对称波函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{k_1x}&amp;x<0\\&B\cos{k_2x}&0<x<L\\&Ae^{-k_1x}&x>L\end{cases}$</0\\&B\cos{k_2x}&0<x<L\\&Ae^{-k_1x}&x></p>
+<p>满足</p>
+<script type="math/tex; mode=display">k_1^2+k_2^2=\dfrac{2mV}{\hbar^2}</script><script type="math/tex; mode=display">k_1=k_2\tan{\dfrac{k_2L}{2}}</script><p>必定有解。</p>
+<p><strong>奇对称波函数形式</strong>：$\psi(x)=\begin{cases}&amp;-Ae^{k_1x}&amp;x<0\\&B\sin{k_2x}&0<x<L\\&Ae^{-k_1x}&x>L\end{cases}$</0\\&B\sin{k_2x}&0<x<L\\&Ae^{-k_1x}&x></p>
+<p>满足</p>
+<script type="math/tex; mode=display">k_1^2+k_2^2=\dfrac{2mV}{\hbar^2}</script><script type="math/tex; mode=display">k_1=k_2\tan{\dfrac{k_2L}{2}}</script><p>可能有解。当$\dfrac{k_2L}{2}=\dfrac{\pi}{2}$时，恰好有解，此时波函数的能量为$E=\dfrac{\pi^2\hbar^2}{2mL^2}$，此时恰好是无限深方势阱的第一个解。然而这个解在数学上成立，在物理上并不成立（分母为0）。</p>
+<p><img src="\img\一维势阱势垒\image.png" alt="alt text"></p>
+<h1 id="有限深对称方势垒"><a href="#有限深对称方势垒" class="headerlink" title="有限深对称方势垒"></a>有限深对称方势垒</h1><p><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Square_potential.png"></p>
+<script type="math/tex; mode=display">V(x)=\begin{cases}&V_0&0<x<L\\&0&elsewhere\end{cases}</script><p><strong>$E&lt; V_0$波函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{ik_1x}+Be^{-ik_1x}&amp;x<0\\&Ce^{k_2x}+De^{-k_2x}&0<x<L\\&Ee^{ik_1x}&x>L\end{cases}$</0\\&Ce^{k_2x}+De^{-k_2x}&0<x<L\\&Ee^{ik_1x}&x></p>
+<p>可以解得，透射率</p>
+<script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2+k_2^2)^2\sinh^2{k_2L}+4k_1^2k_2^2}</script><p><strong>$E&gt; V_0$波函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{ik_1x}+Be^{-ik_1x}&amp;x<0\\&Ce^{ik_2x}+De^{-ik_2x}&0<x<L\\&Ee^{ik_1x}&x>L\end{cases}$</0\\&Ce^{ik_2x}+De^{-ik_2x}&0<x<L\\&Ee^{ik_1x}&x></p>
+<p>可以解得，透射率</p>
+<script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2-k_2^2)^2\sin^2{k_2L}+4k_1^2k_2^2}</script><p><strong>$E= V_0$情况</strong>：透射率</p>
+<script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4}{k_1^2L^2+4}</script><p>引入无量纲量$\beta=\dfrac{k_2}{k_1}$：</p>
+<script type="math/tex; mode=display">T=\begin{cases}\frac{4\beta^2}{\left[1-\beta^2\right]^2\sin^2{k_2L}+4\beta^2},&\Delta>0\\\frac{4}{k_1^2L^2+4},&\Delta=0\\\frac{4\beta^2}{\left[1+\beta^2\right]^2\sinh^2{k_2L}+4\beta^2},&\Delta<0\end{cases}</script><p><img src="\img\一维势阱势垒\image2.png" alt="alt text"><br>当$E&gt; V_0$，且$E-V_0=\dfrac{n^2\pi^2\hbar^2}{2mL^2}$时，出现共振透射的情况，此时透射率为1.</p>
+<h1 id="有限深对称方势阱（散射解）"><a href="#有限深对称方势阱（散射解）" class="headerlink" title="有限深对称方势阱（散射解）"></a>有限深对称方势阱（散射解）</h1><script type="math/tex; mode=display">V(x)=\begin{cases}&-V_0&0<x<L\\&0&elsewhere\end{cases}</script><p>此时波函数的能量总是大于势阱的势能，那么透射率同上：</p>
+<script type="math/tex; mode=display">T=|\dfrac{E}{A}|^2=\dfrac{4k_1^2k_2^2}{(k_1^2-k_2^2)^2\sin^2{k_2L}+4k_1^2k_2^2}</script><p><img src="\img\一维势阱势垒\image3.png" alt="alt text"></p>
+<h1 id="delta-函数势阱（束缚解）"><a href="#delta-函数势阱（束缚解）" class="headerlink" title="$\delta$函数势阱（束缚解）"></a>$\delta$函数势阱（束缚解）</h1><script type="math/tex; mode=display">V(x)=-\alpha\delta(x)</script><p><strong>函数形式</strong>：$\psi(x)=\dfrac{\sqrt{m\alpha}}{\hbar}e^{-\frac{m\alpha}{\hbar^2}|x|}$</p>
+<h1 id="delta-函数势垒"><a href="#delta-函数势垒" class="headerlink" title="$\delta$函数势垒"></a>$\delta$函数势垒</h1><script type="math/tex; mode=display">V(x)=\alpha\delta(x)</script><ol>
+<li><strong>函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{ik_1x}+Be^{-ik_1x}&amp;x<0\\&Ce^{ik_1x}&x>0\end{cases}$</0\\&Ce^{ik_1x}&x></li>
+<li><strong>透射率</strong>：$T=\dfrac{1}{1+\dfrac{m\alpha}{\hbar^2k_1}}$</li>
+<li><strong>反射率</strong>：$R=\dfrac{1}{1+\dfrac{\hbar^2k_1}{m\alpha}}$</li>
+</ol>
+<h1 id="delta-函数势阱（散射解）"><a href="#delta-函数势阱（散射解）" class="headerlink" title="$\delta$函数势阱（散射解）"></a>$\delta$函数势阱（散射解）</h1><script type="math/tex; mode=display">V(x)=-\alpha\delta(x)</script><p>同势垒，不变。</p>
+<h1 id="双-delta-函数势阱"><a href="#双-delta-函数势阱" class="headerlink" title="双$\delta$函数势阱"></a>双$\delta$函数势阱</h1><script type="math/tex; mode=display">V(x)=-\alpha\delta(x+L)-\alpha\delta(x-L)</script><p><strong>偶对称函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{kx}&amp;x&lt;-L\\ &amp;Be^{kx}+Be^{-kx}&amp;L&gt;x&gt;-L\\ &amp;Ae^{-kx}&amp;x&gt;L\end{cases}$</p>
+<p>满足</p>
+<script type="math/tex; mode=display">\dfrac{\hbar^2k}{m\alpha}=1+e^{-2kL}</script><p>一定有解。</p>
+<p><strong>奇对称函数形式</strong>：$\psi(x)=\begin{cases}&amp;Ae^{kx}&amp;x&lt;-L\\ &amp;-Be^{kx}+Be^{-kx}&amp;L&gt;x&gt;-L\\ &amp;-Ae^{-kx}&amp;x&gt;L\end{cases}$</p>
+<p>满足</p>
+<script type="math/tex; mode=display">\dfrac{\hbar^2k}{m\alpha}=1-e^{-2kL}</script><p>只有当$\dfrac{\hbar^2}{m\alpha}&gt;2a$的时候才开始有解。</p>
+<h1 id="谐振子势阱"><a href="#谐振子势阱" class="headerlink" title="谐振子势阱"></a>谐振子势阱</h1><h1 id="周期-delta-函数势阱"><a href="#周期-delta-函数势阱" class="headerlink" title="周期$\delta$函数势阱"></a>周期$\delta$函数势阱</h1><h1 id="Kronig-Penny模型"><a href="#Kronig-Penny模型" class="headerlink" title="Kronig-Penny模型"></a>Kronig-Penny模型</h1>]]></content>
+      <categories>
+        <category>量子力学</category>
+      </categories>
+      <tags>
+        <tag>量子力学</tag>
       </tags>
   </entry>
 </search>
