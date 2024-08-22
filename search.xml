@@ -638,4 +638,305 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
         <tag>量子力学</tag>
       </tags>
   </entry>
+  <entry>
+    <title>双电子自旋</title>
+    <url>/2024/08/22/%E5%8F%8C%E7%94%B5%E5%AD%90%E8%87%AA%E6%97%8B/</url>
+    <content><![CDATA[<p>两个电子自旋的状态可以描述为角动量相加$\hat J=\hat j_1+\hat j_2$，简单验证可知其也是角动量：</p>
+<script type="math/tex; mode=display">[\hat J_x,\hat J_y]=[\hat j_{1x}+\hat j_{2x},\hat j_{1y}+\hat j_{2y}]=i\hbar \hat J_z</script><p>描述角动量之和有两种方式（两种基底）：</p>
+<ol>
+<li>$|j_1,j_2,m_1,m_2\rangle=|j_1,m_1\rangle|j_2,m_2\rangle$ 即为非耦合基底；</li>
+<li>$|j_1,j_2,J,m\rangle$ 即为耦合基底。</li>
+</ol>
+<p>以$s=\frac12$为例：</p>
+<script type="math/tex; mode=display">|\frac12,\frac12,1,1\rangle=|\frac12,\frac12\rangle|\frac12,\frac12\rangle</script><script type="math/tex; mode=display">|\frac12,\frac12,1,-1\rangle=|\frac12,-\frac12\rangle|\frac12,-\frac12\rangle</script><script type="math/tex; mode=display">|\frac12,\frac12,1,0\rangle=\frac{1}{\sqrt{2}}|\frac12,\frac12\rangle|\frac12,-\frac12\rangle+\frac{1}{\sqrt{2}}|\frac12,-\frac12\rangle|\frac12,\frac12\rangle</script><script type="math/tex; mode=display">|\frac12,\frac12,0,0\rangle=\frac{1}{\sqrt{2}}|\frac12,\frac12\rangle|\frac12,-\frac12\rangle-\frac{1}{\sqrt{2}}|\frac12,-\frac12\rangle|\frac12,\frac12\rangle</script><p>这是符合直觉的，也由此可以注意到两组基底是可以相互转换的，连接中间的系数的桥梁是CG系数。公式如下：</p>
+<script type="math/tex; mode=display">|j_1,j_2,J,m\rangle=\sum_{m_1+m_2=m}C_{m_1,m_2,m}^{j_1,j_2,J}|j_1,m_1\rangle|j_2,m_2\rangle</script><script type="math/tex; mode=display">|j_1,m_1\rangle|j_2,m_2\rangle=\sum_{J}C_{m_1,m_2,m}^{j_1,j_2,J}|j_1,j_2,J,m\rangle</script><p>通过耦合基底，我们发现双电子自旋中有4种态，其中</p>
+<script type="math/tex; mode=display">|0,0\rangle=\frac{1}{\sqrt{2}}|\frac12,\frac12\rangle|\frac12,-\frac12\rangle-\frac{1}{\sqrt{2}}|\frac12,-\frac12\rangle|\frac12,\frac12\rangle</script><p>是交换反对称的，称为自旋单态；另三种交换对称，称为自旋三重态。</p>
+<p>其实通过非耦合基底也可以求出以上结果。$\hat J=\hat j_1+\hat j_2$对应的算符矩阵$\hat J^2$为</p>
+<script type="math/tex; mode=display">\hat J^2=\hat j_{1x}\hat j_{2x}+\hat j_{1y}\hat j_{2y}+\hat j_{1z}\hat j_{2z}</script><p>注意这里是直积，则</p>
+<script type="math/tex; mode=display">\hat J^2=\hat j_{1x}^2+\hat j_{1y}^2+\hat j_{1z}^2+\hat j_{2x}^2+\hat j_{2y}^2+\hat j_{2z}^2+2(\hat j_{1x}\hat j_{2x}+\hat j_{1y}\hat j_{2y}+\hat j_{1z}\hat j_{2z})</script><p>运用 $\sigma_i^2=1$得到：</p>
+<script type="math/tex; mode=display">\begin{aligned}\hat J^2&=\frac{\hbar^2}{4}(3+3+2\begin{pmatrix}1&0&0&0\\0&-1&2&0\\0&2&-1&0\\0&0&0&1\\\end{pmatrix})\\&=\frac{\hbar^2}{2}\begin{pmatrix}4&0&0&0\\0&2&2&0\\0&2&2&0\\0&0&0&4\\\end{pmatrix}\\&=\begin{pmatrix}2&0&0&0\\0&1&1&0\\0&1&1&0\\0&0&0&2\\\end{pmatrix}\hbar^2\end{aligned}</script><p>通过计算本征值和本征向量，可以得到：</p>
+<script type="math/tex; mode=display">J^2=\begin{cases}&2&\begin{pmatrix}1\\0\\0\\0\end{pmatrix}\\&2&\begin{pmatrix}0\\0\\0\\1\end{pmatrix}\\&2&\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\1\\0\end{pmatrix}\\&0&\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\\0\end{pmatrix}\\\end{cases}</script><p>显然，由于共用本征态，$J_z$的本征态也是这个。</p>
+]]></content>
+      <categories>
+        <category>量子物理</category>
+      </categories>
+      <tags>
+        <tag>量子物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>托福写作方法论</title>
+    <url>/2024/08/21/%E6%89%98%E7%A6%8F%E5%86%99%E4%BD%9C/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>托福</category>
+        <category>写作</category>
+      </categories>
+      <tags>
+        <tag>托福</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>托福口语Task1</title>
+    <url>/2024/08/21/%E6%89%98%E7%A6%8F%E5%8F%A3%E8%AF%ADTask1/</url>
+    <content><![CDATA[<p>本专栏的范例来源于《吴奇老师的托福口语秀》。该题为什么被称为独立口语题？因为这是托福口语考试中唯一一道不需要你听或者读任何材料，只需要表达自己观点的题目。</p>
+<h3 id="题型"><a href="#题型" class="headerlink" title="题型"></a>题型</h3><p>该题有两种题型：</p>
+<ol>
+<li>Do you agree of disagree with the following statement?…</li>
+<li>Some people … and other people … . Which do you think better/ do you prefer?</li>
+</ol>
+<p>然后都会加一句：Use details and examples to explain your opinion.</p>
+<h3 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h3><p>15s准备，45s作答。</p>
+<h3 id="结构1"><a href="#结构1" class="headerlink" title="结构1"></a>结构1</h3><p>最多回答两个原因并且进行解释，否则不能具体。如果选择只说一个原因，那么：</p>
+<ol>
+<li>表达观点（5-10s）：Honestly, I think … is better/ I prefer …/ I  agree (with the statement) that … </li>
+<li>说原因（5s）</li>
+<li>给解释（20-30s）</li>
+<li>结尾：Therefore, I agree with the statement/ I prefer that …/ I think … is better</li>
+</ol>
+<h3 id="结构2"><a href="#结构2" class="headerlink" title="结构2"></a>结构2</h3><p>如果选择说两个原因：</p>
+<ol>
+<li>表达观点（5-10s）</li>
+<li>说原因1（5s）</li>
+<li>给解释（15s）</li>
+<li>说原因2（5s）</li>
+<li>给解释（15s）</li>
+<li>结尾<h3 id="2024年8月"><a href="#2024年8月" class="headerlink" title="2024年8月"></a>2024年8月</h3></li>
+</ol>
+<p><strong>2024.08.17</strong></p>
+<p><em>Do you agree or disagree with the following statement? Students can learn school subjects as effectively through online videos as they can from classroom teaching. Use details and examples to explain your opinion.</em></p>
+<p>Honestly, I agree with the statement that students can learn through online vedios as effectively as they do from traditional classrooms. First off, I think this can help students to understand the class content better. This is because while watching the vedios, they can pause if they have any questions. Then they can look it up online. In this case, they can better understand the lecture and follow along the professor. Besides, watching vedios can help students to study for exams. This is because before the exams they can reply the videos; they can go over those key chapters. In this case, they can better understand the concepts and their applications. So they can do well in the exams. Therefore, I agree with the statement. </p>
+<h3 id="2024年7月"><a href="#2024年7月" class="headerlink" title="2024年7月"></a>2024年7月</h3><p><strong>2024.07.24</strong></p>
+<p>上午：</p>
+<p><em>Imagine that you live in a crowded city with only one green space—the city park. To address the issue of overcrowding, the city council has proposed building a new housing complex on this last green space in the city center. Do you think this is a good idea? Explain why or why not.</em></p>
+<p>下午：</p>
+<p><em>Some people prefer to shop for groceries at specialty shops such as butcher shops and bakeries. Others prefer to shop for everything at once at a supermarket. Which do you think is better and why? Use details and examples to support your answer.</em></p>
+<p><strong>2024.07.21（重复2021.9.11上午场/2024.06.26考题）</strong><br>Some people like to celebrate their birthday or holidays with large gatherings orparties; other people prefer to celebrate in quieter ways alone or with just a few people. Which do you prefer? Explain why.</p>
+<p><strong>2024.07.20</strong></p>
+<p>上午（重复2011.10.8/2012.9.23/2013.8.24老题）：</p>
+<p>When on vacation, some people prefer to participate in outdoor activities, such as hiking or swimming. Other people prefer to be less physically active on vacation. Which type of vacation do you prefer? Explain why.</p>
+<p>下午：</p>
+<p>Some people believe that our personalities change as we grow older. Others think that our personalities stay the same from childhood. Which view do you agree with and why? Give specific details to explain your answer.</p>
+<p><strong>2024.7.13</strong>（类似于2018.10.13考题）</p>
+<p>Some people think that having a sense of humor makes it easier to deal with certain difficult situations in life, such as conflicts with friends. Others believe it is best to approach difficult situations in a more serious manner. Which point of view do you agree with? Use details and examples to explain your opinion.</p>
+<p><strong>2024.07.10</strong></p>
+<p>上午场（重复2023.11.15/类似2018.9.8）<br>Do you agree or disagree with the following statement? When traveling, people should periodically let their friends and family know where they are and how they are doing. Use details and examples to explain your opinion.<br>下午场【新题】<br>Do you agree or disagree with the following statement? People perform better when they are under some stress or pressure.</p>
+<p><strong>2024.07.06</strong></p>
+<p>上午：</p>
+<p>Do you agree or disagree with the following statement? One of the best ways to learn about a country’s culture is to watch television shows made in that country. Use details and examples to explain your opinion. </p>
+<p>下午（重复2021.12.11）：</p>
+<p>Some people prefer to go to the gym every day. Others like to go to the gym when they have free time. Which one do you prefer? Please explain why and use specific details and examples to support your answer.</p>
+<h2 id="2024年6月"><a href="#2024年6月" class="headerlink" title="2024年6月"></a>2024年6月</h2><p><strong>2024.06.30</strong>（重复2023.03.18下午场/2023.10.14/2022.07.09）考题<br>When facing a difficult situation, some people prefer to get advice from people of their own age, like their friends. Others like to ask people who are older than them, such as their parents or teachers. Which one do you prefer? Please include specific details and examples in vour answer.</p>
+<p><strong>2024.06.26</strong>（重复2021.9.11 上午场考题）</p>
+<p>Some people like to celebrate their birthday or holidays with large gatherings or parties. Other people prefer to celebrate in quieter ways alone or with just a few people. Which do you prefer? Explain why.</p>
+<p><strong>2024.06.22</strong>（重复2024.03.02考题）</p>
+<p>Do you agree or disagree with the following statement? The most important quality of a leader is being a gifted speaker. Use details and examples to explain your opinion.</p>
+<p><strong>2024.6.16</strong>（重复2023.11.22/ 2023.8.23线下）<br>版本1：</p>
+<p>lt is the policy of many universities that parents of university students cannot have access to their child’s grades without their children’s permission. Do you agree or disagree with this policy? Explain why.</p>
+<p>版本2：</p>
+<p>Many schools have Web sites where parents can have immediate access to their children’s grades on daily assignments, tests, and quizzes. Do you think this is a good idea? Why or why not. </p>
+<p><strong>2024.06.12</strong>（2024.04.27/2023.09.24/2019.07.28/2019.03.16的考题）</p>
+<p>版本1：Do you agree or disagree with the following statement? The best way to teach children how to behave is to praise their good behavior rather than to criticize their bad behavior. Use details and examples to support your opinion.</p>
+<p>版本2：When teaching children proper behavior, some parents think it is more effective to offer rewards when their children behave well. Other parents think it is more effective to discipline their children when they misbehave. Which point of view do you agree with?</p>
+<p><strong>2024.06.08</strong>（重复2020年9月家考原题）</p>
+<p>Some people like to read certain books more than once. Others prefer to always read something they have never read before. Which do you usually prefer? Explain why, using details and examples. </p>
+<p><strong>2024.06.02</strong>(重复2023.7.31/2022.05.01/2022.03.17/2022.01.09/2020.06.30/2016.03.19的考题)</p>
+<p>Do you agree or disagree with the following statement? Students should be allowed to take additional classes each semester in order to earn their degrees more quickly. Use specific examples and details in your response.</p>
+<h2 id="2024年5月"><a href="#2024年5月" class="headerlink" title="2024年5月"></a><strong>2024年5月</strong></h2><p><strong>2024.05.26(重复2024.05.11）</strong></p>
+<p>Do you agree or disagree with the following statement? Use details and examples to explain your answer.</p>
+<p>In order to succeed in school, students need to be well-organized.</p>
+<p><strong>2024.05.18</strong>（重复2023.03.25/2024.03.10考题）</p>
+<p>Some people believe old people should not take risks and participate in adventurous/challenging events as the young people. What do you think and explain why.</p>
+<p><strong>2024.05.15</strong></p>
+<p>Some people think that, when moving to a new country, they should adapt to the cultural habits and traditions of the new country. Other people prefer to keep their original habits and traditions. Which do you think is better?</p>
+<p><strong>2024.05.11</strong></p>
+<p>Do you agree or disagree with the following statement? Use details and examples to explain your answer.</p>
+<p>In order to succeed in school, students need to be well-organized.</p>
+<h2 id="2024年4月"><a href="#2024年4月" class="headerlink" title="2024年4月"></a><strong>2024年4月</strong></h2><p><strong>2024.04.27</strong></p>
+<p>When teaching children proper behavior, some parents think it is more effective to offer rewards when their children behave well. Other parents think it is more effective to discipline their children when they misbehave. Which point of view do you agree with?</p>
+<p><strong>2024.04.21</strong>（重复2023.7.8下午/2023.2.4 NA/2012.11.17）</p>
+<p>Imagine there are two places to choose to be your home. One is a noisy place but is close to restaurants, shopping centers and public transportation; the other one is a quiet area which is far from these things. Which would you like to choose?</p>
+<p><strong>2024.04.17</strong></p>
+<p>Previous generations spent time playing board games or card games with family and friends. Nowadays, many young people prefer to play games on their computers and phones. Which do you think is better and why? Use details and examples in your response.</p>
+<p><strong>2024.04.13</strong></p>
+<p>People should spend time reading the news every day in order to know what is happening in other countries around the world.</p>
+<p><strong>2024.04.06</strong></p>
+<p>Do you agree or disagree with the following statement? People’s social skills have declined as their use of technology has increased.</p>
+<h2 id="2024年3月"><a href="#2024年3月" class="headerlink" title="2024年3月"></a><strong>2024年3月</strong></h2><p><strong>2024.03.23</strong></p>
+<p>Do you agree or disagree with the following statement:‍‍ Taking too many photos affects participation in events and activities?</p>
+<p>Do you agree or disagree with the following statement: taking too many photographs will prevent people from participating in the parties with friends or family.</p>
+<p><strong>2024.03.16</strong></p>
+<p>People should spend time reading the news every day in order to know what is happening in other countries around the world.</p>
+<p><strong>2024.03.10</strong> </p>
+<p>Some people believe old people should not take risks and participate in adventurous events as the young people. What do you think and explain why.</p>
+<p><strong>2024.03.06</strong></p>
+<p>More and more robots are performing work traditionally done by humans. Do you think this is a positive trend? Explain why or why not, using examples and details.</p>
+<p><strong>2024.03.02</strong></p>
+<p>Do you agree or disagree with the following statement? The most important quality of a leader is being a gifted speaker. Use details and examples to explain your opinion.</p>
+<h2 id="2024年2月"><a href="#2024年2月" class="headerlink" title="2024年2月"></a><strong>2024年2月</strong></h2><p><strong>2024.02.27</strong></p>
+<p>Because most students have their own laptops, your university is considering closing the campus computer lab, where students use university-owned computers. Do you think this is a good idea and why?</p>
+<p><strong>2024.02.03上午</strong></p>
+<p>Do you agree or disagree with the following statement: Happiness comes from helping others rather than helping yourself.</p>
+<p><strong>2024.02.03下午</strong></p>
+<p>When visiting a museum that allows photography, some people like to take photographs of the exhibits they see. Others prefer to simply look at the exhibits and do not take photographs. Which do you prefer?</p>
+<h2 id="2024年1月"><a href="#2024年1月" class="headerlink" title="2024年1月"></a><strong>2024年1月</strong></h2><p><strong>2024.01.27</strong></p>
+<p>Some people prefer to read reviews written by critics before watching a movie; Other people prefer to watch the movie without reading reviews of it. Which way do you prefer and why?</p>
+<p><strong>2024.01.24（重复 2023.04.29考题）</strong></p>
+<p>Some adults believe that young people have become excessively dependent on or even addicted to electronic devices and should try to use them less. Do you agree with this point of view? Explain why or why not.</p>
+<p><strong>2024.01.20上午</strong></p>
+<p>A large corporation would like to open a new factory in your city, but it would first need to be approved by the residents. The factory would provide many job opportunities for local residents, but it also may create some pollution. Do you think your city should allow the new factory to open? Explain why.</p>
+<p><strong>2024.01.20下午</strong></p>
+<p>Some people prefer to be constantly busy and always have something to do. Others prefer not to be busy all the time but to spend some periods of time doing nothing. Which approach do you think is better? Explain why.</p>
+<p><strong>2024.1.13</strong></p>
+<p>Some people prefer to watch films that are exciting and entertaining. Others prefer to watch films that are more serious and have an important message or teach them something new. What kind of film do you prefer and why? </p>
+<p><strong>2024.1.6（重复2023.11.12考题）</strong></p>
+<p>If you were to take a history class, would you choose to have a teacher who is experienced but doesn’t have class discussions, or a teacher who is less experienced but has a lot of class discussions?</p>
+]]></content>
+      <categories>
+        <category>托福</category>
+        <category>口语</category>
+      </categories>
+      <tags>
+        <tag>托福口语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>热力学统计物理</title>
+    <url>/2024/08/21/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</url>
+    <content><![CDATA[<p>学期前的预习，主要分为热学部分和统计物理部分。参考教材为汪志诚的《热力学·统计物理》。</p>
+]]></content>
+      <categories>
+        <category>统计物理</category>
+      </categories>
+      <tags>
+        <tag>统计物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自旋及其演化</title>
+    <url>/2024/08/20/%E8%87%AA%E6%97%8B%E5%8F%8A%E5%85%B6%E6%BC%94%E5%8C%96/</url>
+    <content><![CDATA[<p>Stern-Gerlach 实验发现过去的三个量子数并不能完全的描述氢原子的状态，促使物理学家引入了新的物理量——自旋角动量。自旋角动量描述自旋这一状态，波函数从而拥有了一个除连续变量坐标外的离散变量。</p>
+<p>自旋依赖于粒子的种类。由于自旋角动量也是角动量，其取值满足角动量的规则。其中半整数$s=\frac12,\frac32,\cdots$的粒子为费米子，整数$s=0,1,\cdots$的粒子为玻色子。</p>
+<p>承接之前角动量一节的内容，这里给出$\hat{S_\pm}$的矩阵表示：</p>
+<ol>
+<li>$s=0$，$\hat{S_\pm}=0$；</li>
+<li>$s=\frac12$，$\hat{S_+}=\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\hbar$，$\hat{S_-}=\begin{pmatrix}0&amp;0\\1&amp;0\end{pmatrix}\hbar$；</li>
+<li>$s=1$，$\hat{S_+}=\begin{pmatrix}0&amp;\sqrt{2}&amp;0\\0&amp;0&amp;\sqrt{2}\\0&amp;0&amp;0\end{pmatrix}\hbar$，$\hat{S_-}=\begin{pmatrix}0&amp;0&amp;0\\\sqrt{2}&amp;0&amp;0\\0&amp;\sqrt{2}&amp;0\end{pmatrix}\hbar$；<h1 id="s-frac12-自旋"><a href="#s-frac12-自旋" class="headerlink" title="$s=\frac12$自旋"></a>$s=\frac12$自旋</h1>以$s=\frac12$为例，知道了阶梯算符，自然可以知道$\hat{S_x}$和$\hat{S_y}$：<script type="math/tex; mode=display">\hat{S_x}=\frac{\hat{S_+}+\hat{S_-}}{2}=\begin{pmatrix}0&1\\1&0\end{pmatrix}\frac\hbar2</script><script type="math/tex; mode=display">\hat{S_y}=\frac{\hat{S_+}-\hat{S_-}}{2i}=\begin{pmatrix}0&-i\\i&0\end{pmatrix}\frac\hbar2</script>以及：<script type="math/tex; mode=display">\hat{S_z}=\begin{pmatrix}1&0\\0&-1\end{pmatrix}\frac\hbar2</script></li>
+</ol>
+<p>定义泡利矩阵：</p>
+<script type="math/tex; mode=display">\hat{\sigma_x}=\begin{pmatrix}0&1\\1&0\end{pmatrix}</script><script type="math/tex; mode=display">\hat{\sigma_y}=\begin{pmatrix}0&-i\\i&0\end{pmatrix}</script><script type="math/tex; mode=display">\hat{\sigma_z}=\begin{pmatrix}1&0\\0&-1\end{pmatrix}</script><p>那么$\hat{S_i}=\frac\hbar2\hat{\sigma_i}$。泡利矩阵具有以下性质：</p>
+<ol>
+<li>$\hat{\sigma}_{x}^2=\hat{\sigma}_{y}^2=\hat{\sigma}_{z}^2=1$</li>
+<li>$\hat{\sigma}_y\hat{\sigma}_z={i}\hat{\sigma}_x,\hat{\sigma}_z\hat{\sigma}_x={i}\hat{\sigma}_y,\hat{\sigma}_x\hat{\sigma}_y={i}\hat{\sigma}_z$</li>
+<li>对易关系：$[\hat{\sigma}_\alpha,\hat{\sigma}_\beta]=2\mathrm{i}\varepsilon_{\alpha\beta\gamma}\hat{\sigma}_\gamma$</li>
+<li>反对易关系：$\{\hat{\sigma}_\alpha,\hat{\sigma}_\beta\}=2\delta_{\alpha\beta}$</li>
+</ol>
+<p>自旋波函数可以写为：</p>
+<script type="math/tex; mode=display">\chi_+=\begin{pmatrix}1\\0\end{pmatrix}</script><script type="math/tex; mode=display">\chi_-=\begin{pmatrix}0\\1\end{pmatrix}</script><p>那么一个粒子的波函数可以写为：</p>
+<script type="math/tex; mode=display">\psi=\psi_+\chi_++\psi_-\chi_-=\begin{pmatrix}\psi_+\\\psi_-\end{pmatrix}</script><p>现在我们要写出泡利矩阵的本征态，从自旋波函数的定义来看，其本身就是$\sigma_z$的本征态。但是$\sigma_x$和$\sigma_y$呢？简单地求矩阵的本征值：</p>
+<script type="math/tex; mode=display">\sigma_x=\begin{cases}&1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix}\\&-1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}\end{cases}</script><script type="math/tex; mode=display">\sigma_y=\begin{cases}&1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\i\end{pmatrix}\\&-1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-i\end{pmatrix}\end{cases}</script><script type="math/tex; mode=display">\sigma_z=\begin{cases}&1&\begin{pmatrix}1\\0\end{pmatrix}\\&-1&\begin{pmatrix}0\\1\end{pmatrix}\end{cases}</script><p>现在不满足于三个指定方向的本征态，我希望求出任意方向的本征态，即：</p>
+<script type="math/tex; mode=display">\hat\sigma_n=\hat{\sigma}_{x}\sin\theta\cos\phi+\hat{\sigma}_{y}\sin\theta\sin\phi+\hat{\sigma}_{z}\cos\theta</script><script type="math/tex; mode=display">\sigma_n=\begin{cases}&1&\begin{pmatrix}\cos{\frac\theta2}\\\sin{\frac\theta2}e^{i\phi}\end{pmatrix}\\&-1&\begin{pmatrix}\sin{\frac\theta2}e^{i\phi}\\-\cos{\frac\theta2}\end{pmatrix}\end{cases}</script><h1 id="磁场中自旋的演化"><a href="#磁场中自旋的演化" class="headerlink" title="磁场中自旋的演化"></a>磁场中自旋的演化</h1><p>磁场中自旋的演化实际上是双态系统的演化。对于双态系统，哈密顿量可以表示为</p>
+<script type="math/tex; mode=display">\hat{H}=\begin{pmatrix}E_1&V^*\\V&E_2\end{pmatrix}</script><p>其中$E_i$分别是两个系统的能量，而$V$是耦合两个态的相互作用。</p>
+<h2 id="拉莫尔进动"><a href="#拉莫尔进动" class="headerlink" title="拉莫尔进动"></a>拉莫尔进动</h2><p>拉莫尔进动语境下，磁场为恒定磁场$\vec B=B_0 \vec k$，则哈密顿量为：</p>
+<script type="math/tex; mode=display">\hat{H}=\vec B_0\cdot(-\gamma \vec S)=-\gamma B_0 S_z=-\gamma B_0\begin{pmatrix}1&0\\0&-1\end{pmatrix}\frac\hbar2</script><p>假设初态为：</p>
+<script type="math/tex; mode=display">\chi(t=0)=\begin{pmatrix}\cos{\frac\theta2}\\\sin{\frac\theta2}\end{pmatrix}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}</script><p>由哈密顿方程可知：</p>
+<script type="math/tex; mode=display">i\hbar\begin{pmatrix}\dot\alpha\\\dot\beta\end{pmatrix}=-\gamma B_0\begin{pmatrix}1&0\\0&-1\end{pmatrix}\frac\hbar2\begin{pmatrix}\alpha\\\beta\end{pmatrix}</script><p>解得：</p>
+<script type="math/tex; mode=display">\chi(t)=\begin{pmatrix}\cos{\frac\theta2}e^{\frac{i\gamma B_0 t}{2}}\\\sin{\frac\theta2}e^{-\frac{i\gamma B_0 t}{2}}\end{pmatrix}</script><p>则：</p>
+<script type="math/tex; mode=display">\langle \hat S_z\rangle =\frac\hbar2 \cos{\theta}</script><script type="math/tex; mode=display">\langle \hat S_x\rangle =\frac\hbar2 \sin{\theta}\cos{\gamma B_0 t}</script><script type="math/tex; mode=display">\langle \hat S_y\rangle =\frac\hbar2 \sin{\theta}\sin{\gamma B_0 t}</script><h2 id="拉比振荡"><a href="#拉比振荡" class="headerlink" title="拉比振荡"></a>拉比振荡</h2><p>拉比振荡语境下，磁场为周期振荡磁场$\vec B=B_0 \cos{\omega t}\vec k$，该情况解形式同上：</p>
+<script type="math/tex; mode=display">\chi(t)=\begin{pmatrix}\cos{\frac\theta2}e^{\frac{i\gamma B_0 \sin{\omega t}}{2\omega}}\\\sin{\frac\theta2}e^{-\frac{i\gamma B_0 \sin{\omega t}}{2\omega}}\end{pmatrix}</script><p>则：</p>
+<script type="math/tex; mode=display">\langle \hat S_z\rangle =\frac\hbar2 \cos{\theta}</script><script type="math/tex; mode=display">\langle \hat S_x\rangle =\frac\hbar2 \sin{\theta}\cos{\frac{\gamma B_0 \sin{\omega t}}{\omega}}</script><script type="math/tex; mode=display">\langle \hat S_y\rangle =\frac\hbar2 \sin{\theta}\sin{\frac{\gamma B_0 \sin{\omega t}}{\omega}}</script><p>如果磁场为$\vec B=B \cos{\omega t}\vec i-B \sin{\omega t}\vec j+B_0\vec k$</p>
+<p>可以解得：</p>
+<script type="math/tex; mode=display">\langle \hat S_z(t)\rangle =\langle \hat S_z(t=0)\rangle\frac{(\omega_0-\omega)^2+\gamma^2B^2\cos{\omega_r t}}{(\omega_0-\omega)^2+\gamma^2B^2}</script><blockquote>
+<p>待补充</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>量子力学</category>
+      </categories>
+      <tags>
+        <tag>量子力学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>角动量</title>
+    <url>/2024/08/20/%E8%A7%92%E5%8A%A8%E9%87%8F/</url>
+    <content><![CDATA[<h1 id="角动量算符"><a href="#角动量算符" class="headerlink" title="角动量算符"></a>角动量算符</h1><p>类比$L=r\times p$，可以得出</p>
+<script type="math/tex; mode=display">\hat{L}=\hat{r}\times\hat{p}=-i\hbar \hat{r}\times \nabla=-i\hbar(-\vec{e_\theta}\frac{1}{\sin{\theta}}\partial_\phi+\vec{e_\phi}\partial_\theta)</script><script type="math/tex; mode=display">\hat{L^2}=-\hbar^2 (\frac{1}{\sin{\theta}}\partial_\theta(\sin{\theta}\partial_\theta)+\frac1{\sin^2{\theta}}\partial^2_\phi)</script><p>转换到直角坐标，即可得到$\hat{L_i},i=x,y,z$的表达式。</p>
+<h1 id="厄密性"><a href="#厄密性" class="headerlink" title="厄密性"></a>厄密性</h1><p>显然$\hat{L},\hat{L^2}$都是厄密的，这从表达式可以看出来。另外一种证明方法是，两个对易厄密算符之积是厄密的，那么$\hat{L_i}=\hat{r_j}\hat{p_k}-\hat{r_k}\hat{p_j}$就是厄密的。</p>
+<p>不过下面定义的$\hat{L_\pm}=\hat{L_x}\pm i \hat{L_y}$就显然不是厄密的了。</p>
+<h1 id="对易关系"><a href="#对易关系" class="headerlink" title="对易关系"></a>对易关系</h1><ol>
+<li>如果$\hat{F}$是标量算符，如$\hat{H},\hat{L^2},\hat{L_z^2}$，那么$[\hat{L_i},\hat{F}]=0$；</li>
+<li>如果$\hat{F}$是矢量算符，如$\hat{L},\hat{p},\hat{r}$，那么$[\hat{L_i},\hat{F_j}]=i\hbar \hat{F_k}$；</li>
+</ol>
+<p>利用这个结论，我们轻易得到：</p>
+<ol>
+<li>$[\hat{L_i},\hat{L_j}]=i\hbar \hat{L_k}$，这说明三个角动量分量不是对易的；</li>
+<li>$[\hat{L_i},\hat{L^2}]=0$，可以推出 $[\hat{L},\hat{L^2}]=0$；</li>
+<li>$[\hat{L_z},\hat{L_\pm}]=\pm \hbar\hat{L_\pm}$</li>
+</ol>
+<p>这里还得补充两个关系：</p>
+<ol>
+<li>$[\hat{H},\hat{L^2}]=0$，这通过拆开哈密顿算符是显然的。</li>
+<li>$[\hat{H},\hat{L_z}]=0$，这通过拆开哈密顿算符后运用$[\hat{L_z},\hat{L^2}]=0$是显然的。当然，直接用结论也行。</li>
+</ol>
+<h2 id="对易关系带来的问题"><a href="#对易关系带来的问题" class="headerlink" title="对易关系带来的问题"></a>对易关系带来的问题</h2><p>我们知道，不对易的算符是不能同时测出精确数值的。在三个角动量分量中，我们只能优先测量其中一个分量的数值。我们选择$\hat{L_z}$，因为他的表达式相对简单：</p>
+<script type="math/tex; mode=display">\hat{L_z}=-i\hbar \partial_\phi</script><blockquote>
+<p>注意，这个方向的分量是我们优先选取的，其实优先选取其他方向也没有什么问题。</p>
+<script type="math/tex; mode=display">\begin{gathered}
+\hat_= \frac\hbar(-\sin\phi\frac\partial{\partial\theta}-\cot\theta\cos\phi\frac\partial{\partial\phi}) \\
+\hat_= \frac\hbar(\cos\phi\frac\partial{\partial\theta}-\cot\theta\sin\phi\frac\partial{\partial\phi}) 
+\end{gathered}</script></blockquote>
+<p>此外，由于$\hat{H},\hat{L^2},\hat{L_z}$是两两对易的，他们公用了一套本征态$\psi_{nlm}$。他们的本征值分别为：</p>
+<script type="math/tex; mode=display">\hat{H}\psi_{nlm}=E_n\psi_{nlm},\hat{L^2}\psi_{nlm}=l(l+1)\hbar^2\psi_{nlm},\hat{L_z}\psi_{nlm}=m\hbar\psi_{nlm}</script><h1 id="期望值"><a href="#期望值" class="headerlink" title="期望值"></a>期望值</h1><p>给定一个氢原子的本征态$\psi_{nlm}$，可知</p>
+<script type="math/tex; mode=display">\hat{L_z}\psi_{nlm}=m\hbar\psi_{nlm},\langle\hat{L_z}\rangle=m\hbar</script><p>尽管不能得知另外两个角动量分量的本征值，但是可以知道期望值$\langle\hat{L_x}\rangle=\langle\hat{L_y}\rangle=0$</p>
+<p>证明：<br>$\langle\hat{L_x}\rangle=\frac{1}{i\hbar}\langle[\hat{L_y},\hat{L_z}]\rangle=\frac{m}{\hbar}\langle\hat{L_y}-\hat{L_y}\rangle=0$</p>
+<p>此外，还可以知道$\langle\hat{L_x^2}\rangle=\langle\hat{L_y^2}\rangle=\frac{l(l+1)-m^2}{2}\hbar^2$</p>
+<p>证明：</p>
+<script type="math/tex; mode=display">\langle\hat{L_x^2}\rangle+\langle\hat{L_y^2}\rangle=\langle\hat{L^2}\rangle-\langle\hat{L_z^2}\rangle={[l(l+1)-m^2]}\hbar^2</script><p>下证明$\langle\hat{L_x^2}\rangle=\langle\hat{L_y^2}\rangle$；</p>
+<script type="math/tex; mode=display">\begin{aligned}\langle\hat{L_x^2}\rangle&=\frac{1}{i\hbar}\langle[\hat{L_y},\hat{L_z}]\hat{L_x}\rangle\\&=\frac{1}{i\hbar}\langle\hat{L_y}\hat{L_z}\hat{L_x}-\hat{L_z}\hat{L_y}\hat{L_x}\rangle\\&=\frac{1}{i\hbar}\langle i\hbar^2\hat{L_y^2}+\hat{L_y}\hat{L_x}\hat{L_z}-\hat{L_z}\hat{L_y}\hat{L_x}\rangle\\&=\langle\hat{L_y^2}\rangle\end{aligned}</script><p>这里接着可以验证不确定性原理：</p>
+<script type="math/tex; mode=display">\sigma_{L_x}\sigma_{L_y}=\frac{l(l+1)-m^2}{2}\hbar^2\geq |\frac{m}{2}|\hbar</script><h1 id="阶梯法计算角动量本征值"><a href="#阶梯法计算角动量本征值" class="headerlink" title="阶梯法计算角动量本征值"></a>阶梯法计算角动量本征值</h1><p>假设我们不知道角动量的物理含义，也即不知道其具体的表达式，我们也可以通过上面的对易关系推导出本征值。</p>
+<p>我们需要知道几个结论：</p>
+<ol>
+<li>$[\hat{L_z},\hat{L_\pm}]=\pm \hbar \hat{L_\pm}$</li>
+<li>$\hat{L_z}(\hat{L_\pm}\psi_{lm})=(\hat{L_\pm}\hat{L_z}\pm \hbar\hat{L_\pm})\psi_{lm}=(m+\hbar)\hat{L_\pm}\psi_{lm}$，这里假设$m$是本征值。</li>
+<li>$\hat{L^2}\psi_{lm}=\lambda\psi_{lm}$，这里假设$\lambda$是本征值。</li>
+</ol>
+<p>从结论二，我们发现该阶梯算子可以以$\hbar$为单位提升本征值——那是否可以无限制地提升？不妨假定是有限制的，有一个最高态$\hat{L_z}\psi_{top}=m_{tpo}\psi_{top}$（毕竟无限制就设$m_{tpo}=\infty$），还有个最低态$\hat{L_z}\psi_{bottom}=m_{bottom}\psi_{bottom}$。</p>
+<p>我们知道，角量子数是不变的，所以我们希望从$\lambda$入手。</p>
+<script type="math/tex; mode=display">\hat{L^2}\psi_{lm}=(\hat{L_x^2}+\hat{L_y^2}+\hat{L_z^2})\psi_{lm}=(\hat{L_\pm}\hat{L_\mp}+\hat{L_z^2}\mp\hbar\hat{L_z})\psi_{lm}</script><p>如果是最高态或最低态，阶梯算子作用上去得到0：</p>
+<script type="math/tex; mode=display">\hat{L^2}\psi_{top}=(\hat{L_-}\hat{L_+}+\hat{L_z^2}+\hbar\hat{L_z})\psi_{top}=m_{top}(m_{top}+1)\hbar^2\psi_{top}</script><script type="math/tex; mode=display">\hat{L^2}\psi_{bottom}=(\hat{L_+}\hat{L_1}+\hat{L_z^2}1\hbar\hat{L_z})\psi_{bottom}=m_{bottom}(m_{bottom}-1)\hbar^2\psi_{bottom}</script><p>这里的角量子数不变，所以</p>
+<script type="math/tex; mode=display">m_{top}(m_{top}+1)\hbar^2\psi_{top}=m_{bottom}(m_{bottom}-1)\hbar^2\psi_{bottom}</script><p>说明</p>
+<script type="math/tex; mode=display">m_{top}=-m_{bottom}</script><p>而这里的阶梯上升必须在正整数步内完成，这说明$m_{top}=-m_{bottom}=\frac N2$</p>
+<blockquote>
+<p>仅依靠对易关系就可以推导出角动量的性质，这意味着在不需要依赖物理的定义。此后，我们将满足</p>
+<script type="math/tex; mode=display">[\hat{L_i},\hat{L_j}]=i\hbar\hat{L_k}</script><p>的物理量直接称为角动量。</p>
+</blockquote>
+<h1 id="角动量表象"><a href="#角动量表象" class="headerlink" title="角动量表象"></a>角动量表象</h1><p>我们希望用矩阵形式写出$\hat{L^2},\hat{L_i},\hat{L_\pm}$算符的矩阵形式。考虑到$|l,m\rangle$是一组完备的基底，我们可以在角动量表象中表示态矢量和算符。</p>
+<p>规定态矢量从上到下写为$l$递增，然后$m$递减的形式，即：</p>
+<script type="math/tex; mode=display">\begin{pmatrix}|0,0\rangle\\|\frac12,\frac12\rangle\\|\frac12,-\frac12\rangle\\|1,-1\rangle\\|1,0\rangle\\|1,1\rangle\\\cdots\end{pmatrix}</script><p>考虑到角动量表象中，不同角量子数的本征态互不影响，那么算符的矩阵应该是块对角形式：</p>
+<script type="math/tex; mode=display">Q=\begin{pmatrix}
+\boxed{\begin{matrix}0\end{matrix}}&&&&\\
+&\boxed{\begin{matrix}\frac12 &\\&-\frac12\end{matrix}}&&&\\
+&&\boxed{\begin{matrix}1&&\\&0&\\&&-1\end{matrix}}&\\
+&&&\ddots\end{pmatrix}\hbar</script><p>其中由于$\hat{L^2},\hat{L_z}$是有本征态的，所以他们的矩阵很好写（没错甚至原封不动）：</p>
+<script type="math/tex; mode=display">L_z=\begin{pmatrix}
+\boxed{\begin{matrix}0\end{matrix}}&&&&\\
+&\boxed{\begin{matrix}\frac12 &\\&-\frac12\end{matrix}}&&&\\
+&&\boxed{\begin{matrix}1&&\\&0&\\&&-1\end{matrix}}&\\
+&&&\ddots\end{pmatrix}\hbar</script><script type="math/tex; mode=display">L^2=\begin{pmatrix}
+\boxed{\begin{matrix}0\end{matrix}}&&&&\\
+&\boxed{\begin{matrix}\frac34 &\\&\frac34\end{matrix}}&&&\\
+&&\boxed{\begin{matrix}2&&\\&2&\\&&2\end{matrix}}&\\
+&&&\ddots\end{pmatrix}\hbar</script><p>但是$\hat{L_\pm}$怎么办？同上面阶梯法所述，他们勾连了同角量子数不同磁量子数的本征态。现在计算阶梯算子作用在本征态的结果。设</p>
+<script type="math/tex; mode=display">\hat{L_+}\psi_{lm}=\lambda_+\psi_{l,m+1}</script><script type="math/tex; mode=display">\hat{L_-}\psi_{lm}=\lambda_-\psi_{l,m-1}</script><script type="math/tex; mode=display">\langle\hat{L_+}\psi_{lm}|\hat{L_+}\psi_{lm}\rangle=\langle\psi_{lm}|\hat{L_+}^\dagger\hat{L_+}\psi_{lm}\rangle=\langle\psi_{lm}|\hat{L_-}\hat{L_+}\psi_{lm}\rangle=[l(l+1)-m(m+1)]\hbar^2</script><script type="math/tex; mode=display">\langle\hat{L_-}\psi_{lm}|\hat{L_-}\psi_{lm}\rangle=\langle\psi_{lm}|\hat{L_-}^\dagger\hat{L_-}\psi_{lm}\rangle=\langle\psi_{lm}|\hat{L_+}\hat{L_-}\psi_{lm}\rangle=[l(l+1)-m(m-1)]\hbar^2</script><p>所以</p>
+<script type="math/tex; mode=display">|\lambda_+|^2=[l(l+1)-m(m+1)]\hbar^2</script><script type="math/tex; mode=display">|\lambda_-|^2=[l(l+1)-m(m-1)]\hbar^2</script><p>合理选取相位使得该系数为实数：</p>
+<script type="math/tex; mode=display">\lambda_+=\sqrt{[l(l+1)-m(m+1)]}\hbar</script><script type="math/tex; mode=display">\lambda_-=\sqrt{[l(l+1)-m(m-1)]}\hbar</script><p>这样就可以写出$\hat{L_\pm}$及$\hat{L_x},\hat{L_y}$的矩阵形式，处于篇幅的考虑，将其放入自旋一节。</p>
+]]></content>
+      <categories>
+        <category>量子力学</category>
+      </categories>
+      <tags>
+        <tag>量子力学</tag>
+      </tags>
+  </entry>
 </search>
