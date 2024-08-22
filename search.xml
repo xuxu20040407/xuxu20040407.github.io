@@ -228,7 +228,8 @@
         <category>计算物理</category>
       </categories>
       <tags>
-        <tag>计算物理 混沌</tag>
+        <tag>计算物理</tag>
+        <tag>混沌</tag>
       </tags>
   </entry>
   <entry>
@@ -330,7 +331,8 @@
         <category>计算物理</category>
       </categories>
       <tags>
-        <tag>计算物理 分形</tag>
+        <tag>计算物理</tag>
+        <tag>分形</tag>
       </tags>
   </entry>
   <entry>
@@ -391,7 +393,8 @@
         <category>计算物理</category>
       </categories>
       <tags>
-        <tag>计算物理 自相似</tag>
+        <tag>计算物理</tag>
+        <tag>自相似</tag>
       </tags>
   </entry>
   <entry>
@@ -419,6 +422,12 @@
 <p>这是因为耦合常数小的时候，转子之间的关联并不大，初始取向随机，后续取向几乎不变，所以趋于0，同时回复力较小，r值变化比较平缓；耦合常数大的时候，所有转子的取向趋于相同，同时由于回复力较大，r值振动频繁。</p>
 <p>画出K-r关系如下以验证：<br><img src="/img/计算物理4/ave.png" alt="image"></p>
 ]]></content>
+      <categories>
+        <category>计算物理</category>
+      </categories>
+      <tags>
+        <tag>计算物理</tag>
+      </tags>
   </entry>
   <entry>
     <title>计算物理5</title>
@@ -447,7 +456,8 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
         <category>计算物理</category>
       </categories>
       <tags>
-        <tag>计算物理 量子物理</tag>
+        <tag>计算物理</tag>
+        <tag>量子物理</tag>
       </tags>
   </entry>
   <entry>
