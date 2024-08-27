@@ -662,16 +662,15 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <script type="math/tex; mode=display">|j_1,j_2,J,m\rangle=\sum_{m_1+m_2=m}C_{m_1,m_2,m}^{j_1,j_2,J}|j_1,m_1\rangle|j_2,m_2\rangle</script><script type="math/tex; mode=display">|j_1,m_1\rangle|j_2,m_2\rangle=\sum_{J}C_{m_1,m_2,m}^{j_1,j_2,J}|j_1,j_2,J,m\rangle</script><p>通过耦合基底，我们发现双电子自旋中有4种态，其中</p>
 <script type="math/tex; mode=display">|0,0\rangle=\frac{1}{\sqrt{2}}|\frac12,\frac12\rangle|\frac12,-\frac12\rangle-\frac{1}{\sqrt{2}}|\frac12,-\frac12\rangle|\frac12,\frac12\rangle</script><p>是交换反对称的，称为自旋单态；另三种交换对称，称为自旋三重态。</p>
 <p>其实通过非耦合基底也可以求出以上结果。$\hat J=\hat j_1+\hat j_2$对应的算符矩阵$\hat J^2$为</p>
-<script type="math/tex; mode=display">\hat J^2=\hat j_{1x}\hat j_{2x}+\hat j_{1y}\hat j_{2y}+\hat j_{1z}\hat j_{2z}</script><p>注意这里是直积，则</p>
-<script type="math/tex; mode=display">\hat J^2=\hat j_{1x}^2+\hat j_{1y}^2+\hat j_{1z}^2+\hat j_{2x}^2+\hat j_{2y}^2+\hat j_{2z}^2+2(\hat j_{1x}\hat j_{2x}+\hat j_{1y}\hat j_{2y}+\hat j_{1z}\hat j_{2z})</script><p>运用 $\sigma_i^2=1$得到：</p>
+<script type="math/tex; mode=display">\hat J^2=\hat j_{1x}^2+\hat j_{1y}^2+\hat j_{1z}^2+\hat j_{2x}^2+\hat j_{2y}^2+\hat j_{2z}^2+2(\hat j_{1x}\hat j_{2x}+\hat j_{1y}\hat j_{2y}+\hat j_{1z}\hat j_{2z})</script><p>注意这里是直积，运用 $\sigma_i^2=1$得到：</p>
 <script type="math/tex; mode=display">\begin{aligned}\hat J^2&=\frac{\hbar^2}{4}(3+3+2\begin{pmatrix}1&0&0&0\\0&-1&2&0\\0&2&-1&0\\0&0&0&1\\\end{pmatrix})\\&=\frac{\hbar^2}{2}\begin{pmatrix}4&0&0&0\\0&2&2&0\\0&2&2&0\\0&0&0&4\\\end{pmatrix}\\&=\begin{pmatrix}2&0&0&0\\0&1&1&0\\0&1&1&0\\0&0&0&2\\\end{pmatrix}\hbar^2\end{aligned}</script><p>通过计算本征值和本征向量，可以得到：</p>
-<script type="math/tex; mode=display">J^2=\begin{cases}&2&\begin{pmatrix}1\\0\\0\\0\end{pmatrix}\\&2&\begin{pmatrix}0\\0\\0\\1\end{pmatrix}\\&2&\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\1\\0\end{pmatrix}\\&0&\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\\0\end{pmatrix}\\\end{cases}</script><p>显然，由于共用本征态，$J_z$的本征态也是这个。</p>
+<script type="math/tex; mode=display">J^2=\begin{cases}&2&\begin{pmatrix}1\\0\\0\\0\end{pmatrix}&2&\begin{pmatrix}0\\0\\0\\1\end{pmatrix}\\&2&\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\1\\0\end{pmatrix}&0&\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\\0\end{pmatrix}\\\end{cases}</script><p>显然，由于共用本征态，$J_z$的本征态也是这个。</p>
 ]]></content>
       <categories>
-        <category>量子物理</category>
+        <category>量子力学</category>
       </categories>
       <tags>
-        <tag>量子物理</tag>
+        <tag>量子力学</tag>
       </tags>
   </entry>
   <entry>
@@ -715,12 +714,19 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 </ol>
 <p><strong>2024.08.17</strong></p>
 <p><em>Do you agree or disagree with the following statement? Students can learn school subjects as effectively through online videos as they can from classroom teaching. Use details and examples to explain your opinion.</em></p>
-<p>Honestly, I agree with the statement that students can learn through online vedios as effectively as they do from traditional classrooms. First off, I think this can help students to understand the class content better. This is because while watching the vedios, they can pause if they have any questions. Then they can look it up online. In this case, they can better understand the lecture and follow along the professor. Besides, watching vedios can help students to study for exams. This is because before the exams they can reply the videos; they can go over those key chapters. In this case, they can better understand the concepts and their applications. So they can do well in the exams. Therefore, I agree with the statement. </p>
+<p>Honestly, I agree with the statement that students can learn through online vedios as effectively as they do from traditional classrooms.</p>
+<p>First off, I think this can help students to understand the class content better. This is because while watching the vedios, they can pause if they have any questions. Then they can look it up online. In this case, they can better understand the lecture and follow along the professor. </p>
+<p>Besides, watching vedios can help students to study for exams. This is because before the exams they can reply the videos; they can go over those key chapters. In this case, they can better understand the concepts and their applications. So they can do well in the exams.</p>
+<p>Therefore, I agree with the statement. </p>
 <h3 id="2024年7月"><a href="#2024年7月" class="headerlink" title="2024年7月"></a>2024年7月</h3><p><strong>2024.07.24</strong></p>
 <p>上午：</p>
 <p><em>Imagine that you live in a crowded city with only one green space—the city park. To address the issue of overcrowding, the city council has proposed building a new housing complex on this last green space in the city center. Do you think this is a good idea? Explain why or why not.</em></p>
 <p>下午：</p>
 <p><em>Some people prefer to shop for groceries at specialty shops such as butcher shops and bakeries. Others prefer to shop for everything at once at a supermarket. Which do you think is better and why? Use details and examples to support your answer.</em></p>
+<p>Honestly, I would like to shop at large grocery stores or department stores. </p>
+<p>First off, this helps me to save money. Well this is because these large stores, they usually have better deals. Like, their soft drinks are often on sale, buy one and get one free. You know, by shopping at these large grocery of department stores, it can really help me to make ends meet.</p>
+<p>Besides,I would like to shop at large places because it’s more convenient. Well, this is because the stores often have a large selection of goods. Basically, I can find everything I need from groceries to clothes. So, doing this kind of one stop shopping really can help me to save time.</p>
+<p>Therefore, I would like to shop at large grocery stores or department stores.</p>
 <p><strong>2024.07.21（重复2021.9.11上午场/2024.06.26考题）</strong><br>Some people like to celebrate their birthday or holidays with large gatherings orparties; other people prefer to celebrate in quieter ways alone or with just a few people. Which do you prefer? Explain why.</p>
 <p><strong>2024.07.20</strong></p>
 <p>上午（重复2011.10.8/2012.9.23/2013.8.24老题）：</p>
@@ -814,7 +820,8 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
     <title>热力学统计物理</title>
     <url>/2024/08/21/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/</url>
     <content><![CDATA[<p>学期前的预习，主要分为热学部分和统计物理部分。参考教材为汪志诚的《热力学·统计物理》。</p>
-]]></content>
+<!-- （但看了看网上的评价，还是决定以Cellen的书来参考吧！） -->
+<!-- 两本书都是热力学+统计物理的顺序。 -->]]></content>
       <categories>
         <category>统计物理</category>
       </categories>
@@ -947,6 +954,167 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
       </categories>
       <tags>
         <tag>量子力学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全同粒子</title>
+    <url>/2024/08/23/%E5%85%A8%E5%90%8C%E7%B2%92%E5%AD%90/</url>
+    <content><![CDATA[<p>量子力学的基本假设规定基本粒子是不可区分的，不可区分的粒子即为<strong>全同粒子</strong>。当研究两个相同粒子体系的时候，不可避免涉及到相互作用的问题，为了简单起见，我们假设两个粒子没有相互作用。</p>
+<h1 id="波函数的交换对称性"><a href="#波函数的交换对称性" class="headerlink" title="波函数的交换对称性"></a>波函数的交换对称性</h1><p>既然两个粒子是不可区分的，他们的波函数满足：</p>
+<script type="math/tex; mode=display">|\psi_{1,2}|^2=|\psi_{2,1}|^2</script><p>这必然要求$\psi_{1,2}=e^{i\theta}\psi_{2,1}=e^{2i\theta}\psi_{1,2}$，也即：</p>
+<script type="math/tex; mode=display">\psi_{1,2}=\pm\psi_{2,1}</script><p>这样似乎可以写出体系的波函数了：</p>
+<script type="math/tex; mode=display">\psi(x_1,x_2)=\psi_a(x_1)\psi_b(x_2)</script><p>这里似乎有几个小问题：</p>
+<ol>
+<li>如果这两个态是相同的，也就是$\psi(x_1,x_2)=\psi_a(x_1)\psi_a(x_2)$，那么显然是交换对称的，不可能出现交换反对称的情况——这似乎是泡利不相容原理的反命题。</li>
+<li>如果这两个态不相同，那为什么不写成$\psi(x_1,x_2)=\psi_b(x_1)\psi_a(x_2)$？这似乎违背了全同粒子的概念，于是只好写成：<script type="math/tex; mode=display">\psi(x_1,x_2)=\frac 1{\sqrt{2}}(\psi_a(x_1)\psi_b(x_2)\pm\psi_b(x_1)\psi_a(x_2))</script></li>
+</ol>
+<h1 id="交换力"><a href="#交换力" class="headerlink" title="交换力"></a>交换力</h1><p>对于以下三种情况，分别计算两个粒子间距离的方差：</p>
+<ol>
+<li>$\psi(x_1,x_2)=\psi_a(x_1)\psi_b(x_2)$<script type="math/tex; mode=display">\langle\left(x_1-x_2\right)^2\rangle_d=\langle x^2\rangle_a+\langle x^2\rangle_b-2\langle x\rangle_a\langle x\rangle_b .</script></li>
+<li>$\psi(x_1,x_2)=\frac 1{\sqrt{2}}(\psi_a(x_1)\psi_b(x_2)\pm\psi_b(x_1)\psi_a(x_2))$<script type="math/tex; mode=display">\langle\left(x_1-x_2\right)^2\rangle_d=\langle x^2\rangle_a+\langle x^2\rangle_b-2\langle x\rangle_a\langle x\rangle_b\mp 2|\langle x\rangle_{ab}|^2 .</script></li>
+</ol>
+<p>这样看似乎很抽象——为什么两个粒子之间的距离会凭空变化呢？下面做了一些演示，对于给定正态分布的$\psi_a$和$\psi_b$，当交换变量并叠加时，的确会因为交换（反）对称而变得聚集（分散）。</p>
+<p><img src="/img/全同粒子/untitled.png" alt="alt text"></p>
+<p><img src="/img/全同粒子/untitled2.png" alt="alt text"></p>
+<p><img src="/img/全同粒子/untitled3.png" alt="alt text"></p>
+<h1 id="费米子，玻色子和泡利不相容原理"><a href="#费米子，玻色子和泡利不相容原理" class="headerlink" title="费米子，玻色子和泡利不相容原理"></a>费米子，玻色子和泡利不相容原理</h1><p>经实验统计，呈现交换对称的粒子自旋为整数，称为玻色子；呈现交换反对称的粒子自旋为半整数，称为费米子。在全同粒子的推论下，自然有泡利不相容原理：</p>
+<p>费米子不能占据同一个态。</p>
+<h1 id="双电子自旋"><a href="#双电子自旋" class="headerlink" title="双电子自旋"></a>双电子自旋</h1><p>自旋单态的$S=0$，代表了自旋反对称；自旋三重态的$S=1$，代表了自旋对称。</p>
+<h1 id="多电子组态"><a href="#多电子组态" class="headerlink" title="多电子组态"></a>多电子组态</h1><p>原子物理中对电子组态有三角规则，量子力学则给出了对该规则的解释：</p>
+<p>如果一个电子组态是自旋反对称的（S是偶数），则其空间必须是对称的（L是偶数）；如果一个电子组态是自旋对称的（S是奇数），则其空间必须是反对称的（L是奇数）。</p>
+]]></content>
+      <categories>
+        <category>量子力学</category>
+      </categories>
+      <tags>
+        <tag>量子力学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>单元系的相变</title>
+    <url>/2024/08/27/%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/</url>
+    <content><![CDATA[<h1 id="热动平衡判据"><a href="#热动平衡判据" class="headerlink" title="热动平衡判据"></a>热动平衡判据</h1><p>热力学第二定律指出，孤立系统的熵朝着增加的方向进行，如果孤立系统处于稳定平衡态，其熵一定是极大值：</p>
+<script type="math/tex; mode=display">\delta S=0, \delta^2 S<0</script><p>对于其他系统也是如此：</p>
+<ol>
+<li>孤立系统：$\delta S=0, \delta^2 S&lt;0$</li>
+<li>等温等容系统：$\delta F=0, \delta^2 F&gt;0$</li>
+<li>等温等压系统：$\delta G=0, \delta^2 G&gt;0$</li>
+<li>等熵等容系统：$\delta U=0, \delta^2 U&gt;0$</li>
+</ol>
+<p>作为以上的应用，可以推导出均匀系统的稳定平衡条件：</p>
+<script type="math/tex; mode=display">C_V>0,(\dfrac{\partial p}{\partial V})_{T}<0</script>]]></content>
+      <categories>
+        <category>统计物理</category>
+      </categories>
+      <tags>
+        <tag>统计物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>热力学基本规律</title>
+    <url>/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B/</url>
+    <content><![CDATA[<p>在学习统计物理之前，大概都有热力学的基础。热力学更唯像一些，归纳了四条基本规律和物态方程，这些从何而来？或许统计物理会给出一个更基本的解答。</p>
+<h1 id="热力学系统"><a href="#热力学系统" class="headerlink" title="热力学系统"></a>热力学系统</h1><p>热力学研究大量微观粒子组成的宏观物质系统。一个热力学孤立系统，最后会达到热力学平衡状态，表现为各参量（几何参量，力学参量，化学参量，电磁参量）不变。</p>
+<h1 id="热力学第零定律"><a href="#热力学第零定律" class="headerlink" title="热力学第零定律"></a>热力学第零定律</h1><p><strong>热力学第零定律</strong>：经验表明，如果物体 <em>A</em> 和物体 <em>B</em> 各自与处在同一状态的物体 <em>C</em> 达到热平衡，若令 <em>A</em> 与 <em>B</em> 进行热接触，它们也将处在热平衡。</p>
+<p><strong>温度</strong>：温度定义为热平衡系统的相同特征量，或者称之为态函数。</p>
+<p>以下证明热平衡系统的确具有该特征量：</p>
+<p>假设热力学系统具有$p,V$两个参量，热力学系统<em>A</em>和<em>C</em>处在平衡状态，因而</p>
+<script type="math/tex; mode=display">f_{AC}(p_A,V_A;p_C,V_C)=0</script><p>热力学系统B和C处在平衡状态，同理</p>
+<script type="math/tex; mode=display">f_{BC}(p_B,V_B;p_C,V_C)=0</script><p>则</p>
+<script type="math/tex; mode=display">f_{AC}(p_A,V_A;p_C,V_C)=f_{BC}(p_B,V_B;p_C,V_C)=0</script><p>然而由于平衡定律：</p>
+<script type="math/tex; mode=display">f_{AB}(p_A,V_A;p_B,V_B)=0</script><p>这意味着可以从$f_{AC}(p_A,V_A;p_C,V_C)=f_{BC}(p_B,V_B;p_C,V_C)$导出$f_{AB}(p_A,V_A;p_B,V_B)=0$，那么<em>C</em>系统相关的参量应当被消去</p>
+<script type="math/tex; mode=display">f_{A}(p_A,V_A)=f_{B}(p_B,V_B)</script><p><strong>物态方程</strong>：对于一个系统，描述参量和平衡状态的函数称为物态方程：</p>
+<script type="math/tex; mode=display">f(p,V,T)=0</script><p>其中：</p>
+<ol>
+<li>体积膨胀系数：$\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p$</li>
+<li>压强系数：$\beta=\frac1p\left(\frac{\partial p}{\partial T}\right)_V$</li>
+<li>等温压缩系数：$\kappa_T=-\frac1V\left(\frac{\partial V}{\partial P}\right)_T$</li>
+</ol>
+<p>三者满足关系：</p>
+<script type="math/tex; mode=display">\left(\frac{\partial V}{\partial T}\right)_p\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial P}\right)_T=-1\Rightarrow \alpha=\kappa_T\beta p</script><p>物态方程的具体形式来源于从微观粒子的统计物理推导。对于气体，有以下几种状态方程：</p>
+<ol>
+<li><strong>理想气体状态方程</strong>：$pV=nRT$</li>
+<li><strong>理范德瓦尔斯方程</strong>：$(p+\frac{an^2}{V^2})(V-nb)=nRT$</li>
+</ol>
+<h1 id="热力学第一定律"><a href="#热力学第一定律" class="headerlink" title="热力学第一定律"></a>热力学第一定律</h1><p><strong>热力学第一定律</strong>：第一类永动机是不可能造成的。也即是能量守恒定律。</p>
+<script type="math/tex; mode=display">\Delta U=W+Q</script><p>其中，$U$是内能，$W$是外界对系统做的功，$Q$是外界向系统传入的热量。为了减少变量，将$W$和$Q$用系统的参量表示：</p>
+<script type="math/tex; mode=display">\mathrm{d}W=-p\mathrm{d}V</script><script type="math/tex; mode=display">\mathrm{d}Q=-C(p,V)\mathrm{d}T</script><p>其中</p>
+<script type="math/tex; mode=display">C=\lim_{\Delta T\to0}\frac{\Delta Q}{\Delta T}</script><p>如果在等容过程和等压过程计算热容：</p>
+<script type="math/tex; mode=display">C_{V}=(\frac{\partial U}{\partial T})_{V}=T(\frac{\partial S}{\partial T})_{V}</script><script type="math/tex; mode=display">C_{P}=(\frac{\partial H}{\partial T})_{V}=T(\frac{\partial S}{\partial T})_{P}</script><p>其中$H=U+pV$。显然：</p>
+<script type="math/tex; mode=display">C_p=C_V+nR</script><p><strong>内能和焓</strong>：理想气体的内能与体积无关，因而可以写成：</p>
+<script type="math/tex; mode=display">U=C_VT</script><p>同理，焓也只是温度的函数，那么：</p>
+<script type="math/tex; mode=display">H=C_PT</script><p><strong>准静态过程和绝热过程</strong>：气体以极缓慢的速度历经一系列过程，可视作一直处于平衡态。如果气体处于绝热过程：</p>
+<script type="math/tex; mode=display">C_V dT+pdV=0</script><p>可以解得：</p>
+<script type="math/tex; mode=display">\frac{dp}{p}+\gamma\frac{dV}{V}=0\Rightarrow pV^{\gamma}=const</script><p>其中$\gamma=\frac{C_P}{C_V}=1+\frac{R}{C_V}$。</p>
+<p><strong>多方过程</strong>：对绝热过程进行推广，定义多方指数$n$：</p>
+<script type="math/tex; mode=display">pV^{n}=const</script><ol>
+<li>等压过程：$n=0$;</li>
+<li>等容过程：$n=\infty$;</li>
+<li>等温过程：$n=1$;</li>
+<li>绝热过程：$n=\gamma$。</li>
+</ol>
+<p>对于常见的过程，可以参考以下表格：<br>| 过程名称 | 过程方程  |做功公式 |放热公式 |热容公式<br>|:————:| :————-:|:————:|:————:|:————:|<br>| 多方过程 | $pV^{n}=const$ <br>$TV^{n-1}=const$<br>$\dfrac{p^{n-1}}{T^{n}}=const$ |$\int_{V_1}^{V_2}pdV=\dfrac{p_1V_1}{n-1}$<br>$[(\dfrac{V_1}{V_2})^{n-1}-1]$|$C_m\Delta T$|$C_m=\dfrac{n-\gamma}{n-1}C_{V,m}$|<br>| 绝热过程 | $pV^{\gamma}=const$ |$\frac{p_1V_1}{\gamma-1}[(\dfrac{V_1}{V_2})^{\gamma-1}-1]$|$0$|$C_m=0$|<br>| 等容过程 | $V=const$  |$0$|$C_m\Delta T$|$C_m=C_{V,m}$|<br>| 等压过程 | $p=const$  |$p\Delta V$|$C_m\Delta T$|$C_m=\gamma C_{V,m}=C_{P,m}$|<br>| 等温过程 | $pV=const$  |$\nu R T \ln(\dfrac{V_2}{V_1})$|$C_m\Delta T$|$C_m=\infty$|</p>
+<p><strong>热机</strong>：热机是指利用内能做功的机械。在准静态过程的语境下，热机的过程可以画在$p-V$图上。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Carnot_cycle_pV_diagram.svg"></p>
+<p>简单来说，通过在高温热源吸热并向低温热源放热，热机利用之间的热量差做功。根据能量守恒，热量差和做功是相等的：</p>
+<script type="math/tex; mode=display">A=Q_{hot}-Q_{cold}</script><p><img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Carnot_heat_engine_2.svg"></p>
+<p><em>热机效率</em>：一般来说，人们允许高温热源放热量一定的情况下，总是希望多做功，也即希望热机效率最大化：</p>
+<script type="math/tex; mode=display">\eta=\frac{A}{Q_{hot}}=1-\dfrac{Q_{cold}}{Q_{hot}}</script><p>当热机效率为1的时候，吸收的热量全部做功。</p>
+<p><strong>常见热机的功率</strong></p>
+<ol>
+<li><strong>卡诺热机</strong>：等温膨胀$\Rightarrow$绝热膨胀$\Rightarrow$等温压缩$\Rightarrow$绝热压缩<script type="math/tex; mode=display">\eta=1-\dfrac{Q_{cold}}{Q_{hot}}=1-\dfrac{T_2\ln{\frac{V_3}{V_4}}}{T_1\ln{\frac{V_2}{V_1}}}=1-\dfrac{T_2}{T_1}</script></li>
+<li><strong>奥托热机</strong>：等容加热$\Rightarrow$绝热膨胀$\Rightarrow$等容降温$\Rightarrow$绝热压缩<script type="math/tex; mode=display">\eta=1-\dfrac{Q_{cold}}{Q_{hot}}=1-(\dfrac{V_1}{V_2})^{\gamma-1}</script></li>
+<li><strong>布雷顿热机</strong>：等压膨胀$\Rightarrow$绝热膨胀$\Rightarrow$等压压缩$\Rightarrow$绝热压缩</li>
+</ol>
+<script type="math/tex; mode=display">\eta=1-\dfrac{Q_{cold}}{Q_{hot}}=1-(\dfrac{P_2}{P_1})^{\frac{\gamma-1}{\gamma}}</script><blockquote>
+<p>我们常说卡诺循环是可逆过程，这总是令人费解——明明对外界做了功，怎么是可逆的呢？这里需要回顾可逆过程的定义——无耗散的准静态过程，或在$p-V$图上是闭合的曲线。</p>
+<p>卡诺循环当然满足这两个定义，但卡诺热机却是有方向性的，不会重新利用功。卡诺循环是未带方向性的，大可以想象为一个卡诺热机接着一个卡诺制冷机，所以说是可逆的，不可逆的只是卡诺热机而已。</p>
+<h1 id="热力学第二定律"><a href="#热力学第二定律" class="headerlink" title="热力学第二定律"></a>热力学第二定律</h1></blockquote>
+<p><strong>克劳修斯表述</strong>：不可能把热量从低温物体传递到高温物体而不引起其他变化。</p>
+<p><strong>开尔文表述</strong>：不可能从单一热源吸热使之完全变成有用的功而不引起其他变化。（第二类永动机是不可能的）</p>
+<p>两种表述是等价的。如果热量可以从低温物体传到高温物体，那么从热源吸收的热量即使不能完全利用，也可以返回到高温热源，从而实现热机效率为1；如果从低温热源吸收的热量能完全转化为功，那么这部分功完全可以作用在高温热源，这样就实现了从低温到高温的传导。</p>
+<p><strong>卡诺定理</strong>：所有工作于两个确定温度之间的热机中，可逆热机的效率最高。</p>
+<p><em>推论</em>：所有可逆热机的效率相同，都为$\eta=1-\dfrac{T_2}{T_1}$</p>
+<blockquote>
+<p>这部分反而加深了我的疑惑——既然可逆热机的效率都是一样的，为什么奥托循环，斯特林循环等“可逆热机”算出来确实不一样的呢？其实他们并不是可逆的热机，但的确是可逆的循环过程。<a href="https://lencerf.github.io/post/2016-06-29-the-feature-of-carnot-engine/">详情请见此站</a>，可逆的循环过程意味着其在特定的条件下（如可以随时变化温度的热源）可以发生可逆变化，然而热机特定的高低温热源限制了这一点——唯有卡诺热机的等温变化的正逆过程不依赖于热源的温度，绝热变化又不会释放热量，这一点造成了卡诺热机的特殊性。</p>
+</blockquote>
+<p>由卡诺定理可以推导出<strong>克劳修斯不等式</strong>：</p>
+<script type="math/tex; mode=display">\oint\frac{\delta Q}T\leq0</script><p>在无限小可逆过程中定义熵：</p>
+<script type="math/tex; mode=display">dS=\frac{dQ}{T}</script><p>热力学第二定律也是熵增加定律，因而可以写为：</p>
+<script type="math/tex; mode=display">dS\leq\frac{dQ}{T}</script><p>如果是可逆过程，那么可以取等号；如果是可逆的绝热过程，那么熵变化为0。</p>
+<blockquote>
+<p>为什么可逆过程的熵变化为0？我们从两个角度理解。熵的一个定义为系统微观状态的数目，那么过程之所以可逆，就是过程两端的微观状态数是一样的，所以熵变化为0。此外，熵也定义为$dS=\frac{dQ}{T}$，对于可逆过程，宏观上无热量放出或吸收，所以熵变化为0，表现在$p-V$图上是闭合的曲线。</p>
+</blockquote>
+<h1 id="热力学基本方程"><a href="#热力学基本方程" class="headerlink" title="热力学基本方程"></a>热力学基本方程</h1><script type="math/tex; mode=display">dS=\frac{dQ}{T}=\frac{dU+pdV}{dT}\Rightarrow dU=TdS-pdV</script><p>这就是热力学基本方程，其描述了状态参量$p,V$和态函数$T,S,U$的关系。</p>
+<blockquote>
+<p>尽管不重要，这里我们要回顾状态参量和状态函数的区别（其实是人为的）——能确定一个平衡态的最少的几个量就是状态参量，由其作为自变量的函数就是状态函数。</p>
+<p>这里更重要的区别是，$U,S,V$指向了增量，而$p,T$指向了平衡态的参量。</p>
+</blockquote>
+<p>对热力学基本方程进行变量的替换可以得到另外三个具有物理意义的同本质的方程（可以并称为热力学基本方程）。</p>
+<ol>
+<li>由焓的定义$H=U+pV$，可得$dU=dH-pdV-Vdp=TdS-pdV$，所以<script type="math/tex; mode=display">dH=TdS+Vdp</script></li>
+<li>由亥姆霍兹自由能的定义$F=U-TS$，可得$dU=dF+TdS+SdT=TdS-pdV$，所以<script type="math/tex; mode=display">dF=-SdT-pdV</script></li>
+<li>由吉布斯自由能的定义$G=H-TS$，可得$dU=dG-pdV-Vdp+TdS+SdT=TdS-pdV$，所以<script type="math/tex; mode=display">dF=-SdT+Vdp</script></li>
+</ol>
+<blockquote>
+<p>怎么理解内能、焓、亥姆霍兹自由能、吉布斯自由能的意义呢？我们从以下两个角度出发。</p>
+<p>从热量和功的角度：内能描述了<strong>等容环境</strong>下气体升高/降低一定温度所吸收/放出的热量；焓描述了<strong>等压环境</strong>下气体升高/降低一定温度所吸收/放出的热量，这部分热量扣除了体积变化的体积功；亥姆霍兹自由能描述了一个系统在等温条件下能做的最大的功。</p>
+<p>从能量的角度：内能描述了在真空环境下放入一团体积为V的气体的能量；焓描述了在等压P环境下放入一团体积为V的气体的能量，此时需要挤开原来的体积，即对外界做体积功；亥姆霍兹自由能描述在等温真空环境下放入一团体积为V的0K气体的能量，气体可以逐渐升温从而变得和内能一样，那么亥姆霍兹自由能就是创造这一团气体的最小能量；吉布斯自由能类似，不过是在等温等压环境下考虑。</p>
+</blockquote>
+<h1 id="麦克斯韦关系"><a href="#麦克斯韦关系" class="headerlink" title="麦克斯韦关系"></a>麦克斯韦关系</h1><script type="math/tex; mode=display">dU=TdS-pdV=(\frac{\partial U}{\partial S})_{V}dS+(\frac{\partial U}{\partial V})_{S}dV</script><p>借助$\dfrac{\partial }{\partial S}\dfrac{\partial U}{\partial V}=\dfrac{\partial }{\partial V}\dfrac{\partial U}{\partial S}$，可得</p>
+<script type="math/tex; mode=display">(\frac{\partial T}{\partial V})_{S}=-(\frac{\partial p}{\partial S})_{V}</script><p>对于其他三个关系，有</p>
+<script type="math/tex; mode=display">(\frac{\partial T}{\partial p})_{S}=(\frac{\partial V}{\partial S})_{p}</script><script type="math/tex; mode=display">(\frac{\partial S}{\partial V})_{T}=(\frac{\partial p}{\partial T})_{V}</script><script type="math/tex; mode=display">(\frac{\partial S}{\partial P})_{T}=-(\frac{\partial V}{\partial T})_{P}</script><p>可以用对应的热力学基本公式辅助记忆：</p>
+<script type="math/tex; mode=display">dA=Bdx+Cdy\Rightarrow (\frac{\partial B}{\partial y})_{x}=(\frac{\partial C}{\partial x})_{y}</script><p><strong>应用</strong>：假设我需要将内能表达为温度和体积的函数，那么从</p>
+<script type="math/tex; mode=display">\begin{aligned}dU&=TdS-pdV\\&=T(\frac{\partial S}{\partial T})_{V}dT+T(\frac{\partial S}{\partial V})_{T}dV-pdV\\&=T(\frac{\partial S}{\partial T})_{V}dT+(T(\frac{\partial S}{\partial V})_{T}-p)dV\end{aligned}</script><p>所以等容热容的表达式为</p>
+<script type="math/tex; mode=display">C_V=T(\frac{\partial S}{\partial T})_{V}</script><p>如果将焓表达为温度和压强的函数，那么：</p>
+<script type="math/tex; mode=display">\begin{aligned}dH&=TdS+Vdp\\&=T(\frac{\partial S}{\partial T})_{P}dT+T(\frac{\partial S}{\partial P})_{T}dp+Vdp\\&=T(\frac{\partial S}{\partial T})_{P}dT+(T(\frac{\partial S}{\partial P})_{T}+V)dp\end{aligned}</script><p>所以等压热容的表达式为</p>
+<script type="math/tex; mode=display">C_P=T(\frac{\partial S}{\partial T})_{P}</script><p>那么</p>
+<script type="math/tex; mode=display">C_P-C_V=T(\frac{\partial S}{\partial T})_{P}-T(\frac{\partial S}{\partial T})_{V}=T(\frac{\partial p}{\partial T})_{V}(\frac{\partial V}{\partial T})_{P}</script>]]></content>
+      <categories>
+        <category>统计物理</category>
+      </categories>
+      <tags>
+        <tag>热力学</tag>
       </tags>
   </entry>
 </search>
