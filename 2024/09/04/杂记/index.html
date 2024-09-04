@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>杂记 | 小径</title><meta name="author" content="Zixu Wang"><meta name="copyright" content="Zixu Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="尚未解决的几大问题：  费米加速的代码模拟必须使用相对论变换，具体见下述推导。done  实现代码后，精度的划分是否有显著的影响，是否能够收敛？由于费米加速是按照次数加速，如何将其用于理论模型？  如何划分云团？这只对理论模型的建立有影响。  如何模拟后续的加速减速竞争？需要推导同步辐射的功率。  如何模拟射电晕的结构？需要推导$\gamma$和辐射功率的关系。    为什么一定要用相对论变换？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杂记">
+<meta property="og:url" content="https://xuxu20040407.github.io/2024/09/04/%E6%9D%82%E8%AE%B0/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="尚未解决的几大问题：  费米加速的代码模拟必须使用相对论变换，具体见下述推导。done  实现代码后，精度的划分是否有显著的影响，是否能够收敛？由于费米加速是按照次数加速，如何将其用于理论模型？  如何划分云团？这只对理论模型的建立有影响。  如何模拟后续的加速减速竞争？需要推导同步辐射的功率。  如何模拟射电晕的结构？需要推导$\gamma$和辐射功率的关系。    为什么一定要用相对论变换？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2024-09-04T07:31:00.000Z">
+<meta property="article:modified_time" content="2024-09-04T07:31:34.718Z">
+<meta property="article:author" content="Zixu Wang">
+<meta property="article:tag" content="天文">
+<meta property="article:tag" content="科研">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2024/09/04/%E6%9D%82%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '杂记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-09-04 15:31:34'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">杂记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-04T07:31:00.000Z" title="发表于 2024-09-04 15:31:00">2024-09-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-04T07:31:34.718Z" title="更新于 2024-09-04 15:31:34">2024-09-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A9%E6%96%87/">天文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="杂记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>尚未解决的几大问题：</p>
+<ol>
+<li><p>费米加速的代码模拟必须使用相对论变换，具体见下述推导。done</p>
+</li>
+<li><p>实现代码后，精度的划分是否有显著的影响，是否能够收敛？由于费米加速是按照次数加速，如何将其用于理论模型？</p>
+</li>
+<li><p>如何划分云团？这只对理论模型的建立有影响。</p>
+</li>
+<li><p>如何模拟后续的加速减速竞争？需要推导同步辐射的功率。</p>
+</li>
+<li><p>如何模拟射电晕的结构？需要推导$\gamma$和辐射功率的关系。</p>
+</li>
+</ol>
+</blockquote>
+<h1 id="为什么一定要用相对论变换？"><a href="#为什么一定要用相对论变换？" class="headerlink" title="为什么一定要用相对论变换？"></a>为什么一定要用相对论变换？</h1><p>此前我认为云团的速度远小于光速，所以可以使用伽利略变换近似，这是<strong>错误</strong>的。如果使用伽利略变换：</p>
+<p>假设云团的速度为$v_0$，电子的入射速度是$v_1$，出射速度是$v_2$，入射出射角度分别是$\theta_1,\theta_2$。则出射速度和入射速度的能量守恒关系为</p>
+<script type="math/tex; mode=display">(v_1\cos{\theta_1}-v_0)^2+(v_1\sin{\theta_1})^2=(v_2\cos{\theta_2}-v_0)^2+(v_2\sin{\theta_2})^2</script><p>化简有</p>
+<script type="math/tex; mode=display">v_1^2-2v_0v_1\cos{\theta_1}=v_2^2-2v_0v_2\cos{\theta_2}</script><script type="math/tex; mode=display">v_2^2-2v_0v_2\cos{\theta_2}-v_1^2+2v_0v_1\cos{\theta_1}=0</script><p>求解$v_2$有：</p>
+<script type="math/tex; mode=display">v_2=v_0\cos{\theta_2}\pm\sqrt{v_0^2\cos^2{\theta_2}+v_1^2-2v_0v_1\cos{\theta_1}}</script><p>考虑到$v_1\gg v_0$，进行小量近似可得：</p>
+<script type="math/tex; mode=display">\delta v\propto \frac{v_0^2}{v_1}</script><script type="math/tex; mode=display">\delta E\propto \frac{\delta v}{v_1} \propto \beta^2</script><p>这里假设了$\theta_2$与$\theta_1$无关，则$\theta_2$自由平均。这主要是基于电子的拉莫尔半径是</p>
+<script type="math/tex; mode=display">R=\frac{\gamma mv}{qB}= 1.7\times10^{7}\gamma(\frac{v}{1c})(\frac{B}{1\mu G})^{-1}m\approx 10^{10}m\ll 1pc=3\times 10^{16}m</script><blockquote>
+<p>这说明云团的尺寸和局域磁场的尺寸有着较大的差别，局域磁场的尺寸应该远小于云团的尺寸（不然电子会一直打转）。</p>
+</blockquote>
+<p>我们回到这个公式</p>
+<script type="math/tex; mode=display">v_2=v_0\cos{\theta_2}+\sqrt{v_0^2\cos^2{\theta_2}+v_1^2-2v_0v_1\cos{\theta_1}}=v_1+v_0(\cos{\theta_2}-\cos{\theta_1})+\frac{v_0^2\cos^2{\theta_2}}{2v_1}</script><p>这里其实是有问题的，小量近似本身是二阶精度，那么最后一项是不可以保留的。此外，倒数第二项的意义保证了只和头尾有关。对$\theta_1$和$\theta_2$进行数值积分，可以知道如果不进行小量近似，那么整体上是减速的。</p>
+<p>这是因为虽然云团的速度远小于光速，但是高速粒子的速度却和光速差不多(0.999c)，如果使用伽利略变换，可能会导致粒子速度高于光速，这是不可能的。</p>
+<h1 id="保留小量的相对论变换"><a href="#保留小量的相对论变换" class="headerlink" title="保留小量的相对论变换"></a>保留小量的相对论变换</h1><p>我们来估计相对论电子的$\gamma_e$系数，考虑到观测到的射电晕的频率在1-4GHz，并由</p>
+<script type="math/tex; mode=display">f=2\times 10^6 \gamma^2 (\frac{B}{1G})</script><p>可以估算出</p>
+<script type="math/tex; mode=display">\gamma_e>10^3</script><p>$\gamma_e$系数和动量，能量的换算关系：</p>
+<script type="math/tex; mode=display">E=\gamma_e m_0 c^2</script><script type="math/tex; mode=display">E^2=p^2c^2+ m_0^2 c^4\Rightarrow p=\sqrt{\gamma_e^2-1}m_0c</script><p>Fermi的推导中用到了小量近似：</p>
+<script type="math/tex; mode=display">E^*_1=\gamma(E_1-\beta p_1\cos{\theta_1}c)=\gamma E_1(1-\beta \cos{\theta_1})</script><p>这个地方如果不使用小量近似：</p>
+<script type="math/tex; mode=display">E^*_1=\gamma(E_1-\beta p_1\cos{\theta_1}c)=\gamma m_0 c^2(\gamma_e-\beta \sqrt{\gamma_e^2-1}\cos{\theta_1})=\gamma E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1})</script><p>相当于这个地方的小量近似误差为$O(\beta\gamma\gamma^{-2}_e m_0c^2)$，而费米加速的能量增加率为$\beta^2 \gamma_e m_0c^2$。我们关心这两个的数量级，幸运的是，看上去可以弥补这个误差。下面是详细的推导：</p>
+<script type="math/tex; mode=display">E^*_1=\gamma E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1})</script><script type="math/tex; mode=display">E_2=\gamma E_1^*(1+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2})</script><p>所以：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+    E_2&=\gamma^2 E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1})(1+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2})\\
+    &=\gamma^2 E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1}+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2}-\beta^2(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2})
+\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+    \langle \epsilon\rangle&=\gamma^2 (1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1}+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2}-\beta^2(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2})-1\\
+    &=\frac{\beta^2-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1}+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2}-\beta^2(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2}}{1-\beta^2}\\
+    &=\frac{\beta^2(1-(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2})+\beta \sqrt{1-\gamma_e^{-2}}(\cos{\theta_2}-\cos{\theta_1})}{1-\beta^2}\\
+    &\approx\frac{\beta^2\cos{\theta_1}\cos{\theta_2}+\beta (\cos{\theta_2}-\cos{\theta_1})}{1-\beta^2}
+\end{aligned}</script><p>这和之前的推导是一致的。</p>
+<h1 id="相对论部分代码推导及其数量级"><a href="#相对论部分代码推导及其数量级" class="headerlink" title="相对论部分代码推导及其数量级"></a>相对论部分代码推导及其数量级</h1><p>上面的模型或许可以用于解释或者建立解析模型，但是对于第一性的模拟来说却是不够的，第一点是划分精度决定加速效率的问题（下面再说），第二点就是在确定而非随机磁场中角度和速度大小的变化。</p>
+<p>原本的速度变换公式为：</p>
+<script type="math/tex; mode=display">{u^{\prime}}=\frac{\sqrt{1-v^2}{u}-\frac{1-\sqrt{1-v^2}}{v^2}({u}\cdot{v}){v}-{v}}{1-{u}\cdot{v}}</script><p>在新的参考系中，粒子做无能量耗散的圆周运动，其半径为</p>
+<script type="math/tex; mode=display">R=\frac{\gamma mv}{qB}</script><p>云团的尺寸假设为1pc，以光速运动的电子也需要3年的时间穿过，如果第一性原理计算量极大，而使用费米加速模型或许可以简化一些计算量。</p>
+<p>转念一想，云团的尺寸大啊，我只需要在里面做一次相对论变换，至于怎么在磁场中转，这涉及到了磁场的模型，不如在足够大的情况下假设随机出射。（注意，是新系下的随机出射）</p>
+<p>不对，还是得考虑随机偏转，因为出射角度可能和入射角度不独立。</p>
+<p>由于云团的速度较小，忽略云团的移动。开始运动时，判断处于哪个云团，做相对论速度变换和位置变换。粒子仿照磁场偏转的办法，在其中做随机正态分布的偏转（记得$\times \gamma$），时间步为？</p>
+<h1 id="解析模型遇到的问题"><a href="#解析模型遇到的问题" class="headerlink" title="解析模型遇到的问题"></a>解析模型遇到的问题</h1><ol>
+<li>不是简单的扩散，加速度空间可以视为随机游走，但是速度是其一阶积分，位移是其二阶积分，最终呈现的效果有待计算。</li>
+<li>希望解析模型反应index和位置的关系。但是加速机制却和次数而不是和位置有关（见下），这里希望能有一个异于费米模型的模型，结合上面一点，在速度空间描述其变化，假定云团变成随机速度场，或许可以解决？</li>
+<li>基于射电晕有寿命且生成于并和时期的事实，如何反应湍流的程度影响加速效果？云团的平均速度大小，还是速度场的不均匀度（云团的个数）？</li>
+</ol>
+<h1 id="划分精度决定了加速效率？"><a href="#划分精度决定了加速效率？" class="headerlink" title="划分精度决定了加速效率？"></a>划分精度决定了加速效率？</h1><p>云团内包含了方向各异的磁场，却有着统一的速度。但数据是速度场，对云团的划分精度会显著影响加速效果，这显然是违背物理的。我们需要考虑速度的缓变场。</p>
+<h1 id="代码遇到的问题"><a href="#代码遇到的问题" class="headerlink" title="代码遇到的问题"></a>代码遇到的问题</h1><ol>
+<li>在模拟磁场运动这一步遇到了极大的计算量，这是希望保留一定的第一性且试图抛开费米模型前后角度独立的假定。现在的想法是，由于每次的变化是一个小量，那么能不能整合timestep的大小（加一点解析的模型进去）。</li>
+<li>怎么验证这个代码结果的正确性？怎么证明现在的随机固定云团可以反应真实的情况。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Zixu Wang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2024/09/04/%E6%9D%82%E8%AE%B0/">https://xuxu20040407.github.io/2024/09/04/%E6%9D%82%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A9%E6%96%87/">天文</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E7%A0%94/">科研</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/29/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F%E4%BB%A3%E7%A0%81%E5%8F%8A%E5%85%B6%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/" title="费米加速代码及其理论推导"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">费米加速代码及其理论推导</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/14/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F/" title="费米加速机制"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-14</div><div class="title">费米加速机制</div></div></a></div><div><a href="/2024/08/29/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F%E4%BB%A3%E7%A0%81%E5%8F%8A%E5%85%B6%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/" title="费米加速代码及其理论推导"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-29</div><div class="title">费米加速代码及其理论推导</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zixu Wang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E5%AE%9A%E8%A6%81%E7%94%A8%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%8F%98%E6%8D%A2%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">为什么一定要用相对论变换？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%B0%8F%E9%87%8F%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%8F%98%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">保留小量的相对论变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E8%AE%BA%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E6%8E%A8%E5%AF%BC%E5%8F%8A%E5%85%B6%E6%95%B0%E9%87%8F%E7%BA%A7"><span class="toc-number">3.</span> <span class="toc-text">相对论部分代码推导及其数量级</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E6%A8%A1%E5%9E%8B%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">解析模型遇到的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%92%E5%88%86%E7%B2%BE%E5%BA%A6%E5%86%B3%E5%AE%9A%E4%BA%86%E5%8A%A0%E9%80%9F%E6%95%88%E7%8E%87%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">划分精度决定了加速效率？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">代码遇到的问题</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/04/%E6%9D%82%E8%AE%B0/" title="杂记"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="杂记"/></a><div class="content"><a class="title" href="/2024/09/04/%E6%9D%82%E8%AE%B0/" title="杂记">杂记</a><time datetime="2024-09-04T07:31:00.000Z" title="发表于 2024-09-04 15:31:00">2024-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/29/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F%E4%BB%A3%E7%A0%81%E5%8F%8A%E5%85%B6%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/" title="费米加速代码及其理论推导"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="费米加速代码及其理论推导"/></a><div class="content"><a class="title" href="/2024/08/29/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F%E4%BB%A3%E7%A0%81%E5%8F%8A%E5%85%B6%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/" title="费米加速代码及其理论推导">费米加速代码及其理论推导</a><time datetime="2024-08-29T00:57:18.000Z" title="发表于 2024-08-29 08:57:18">2024-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/" title="单元系的相变"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="单元系的相变"/></a><div class="content"><a class="title" href="/2024/08/27/%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/" title="单元系的相变">单元系的相变</a><time datetime="2024-08-27T02:35:08.000Z" title="发表于 2024-08-27 10:35:08">2024-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/23/%E5%85%A8%E5%90%8C%E7%B2%92%E5%AD%90/" title="全同粒子"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="全同粒子"/></a><div class="content"><a class="title" href="/2024/08/23/%E5%85%A8%E5%90%8C%E7%B2%92%E5%AD%90/" title="全同粒子">全同粒子</a><time datetime="2024-08-23T13:03:00.000Z" title="发表于 2024-08-23 21:03:00">2024-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B/" title="热力学基本规律"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="热力学基本规律"/></a><div class="content"><a class="title" href="/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B/" title="热力学基本规律">热力学基本规律</a><time datetime="2024-08-22T08:02:18.000Z" title="发表于 2024-08-22 16:02:18">2024-08-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Zixu Wang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
