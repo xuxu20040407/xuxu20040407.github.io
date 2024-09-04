@@ -233,57 +233,90 @@
       </tags>
   </entry>
   <entry>
-    <title>费米加速</title>
+    <title>费米加速机制</title>
     <url>/2024/08/14/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F/</url>
     <content><![CDATA[<p>在研究并和星系团的大尺度射电晕结构时，经常用到的解释时费米的一二阶加速，其本质上是预加速电子在星系团湍流的作用下的统计上的能量增加。</p>
 <p>费米一阶加速预期电子被激波加速，看上去就好像电子被激波反弹了回来，从而获得了加速的能量。从下面这样一个简单的模型可以略窥一二。</p>
 <h1 id="直碰的乒乓球模型"><a href="#直碰的乒乓球模型" class="headerlink" title="直碰的乒乓球模型"></a>直碰的乒乓球模型</h1><p><img src="/img/Fermi_img/screenshot001.png" alt="alt text"></p>
-<p>如图，墙的速度为$v$，小球碰前速度为$v_1$，碰后速度为$v_2$。</p>
-<p>小球的反弹满足墙坐标系下能量守恒：</p>
-<script type="math/tex; mode=display">v_1+v=v_2-v\Rightarrow v_2=v_1+2v</script><p>则能量的增加为：</p>
-<script type="math/tex; mode=display">\Delta E=\frac12 m(v_1+2v)^2- \frac12 mv_1^2=2m(v_1v+v^2)</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}=4\frac{v_1v+v^2}{v_1^2}\approx 4\frac{v_1}{v}</script></p>
-<p>近似采用了墙的速度$v$远小于球的速度$v_1$。此时，可以看到整体为一阶加速，即能量增加率和墙的速度的一阶呈正比。</p>
-<p>费米加速度的模型与以上有众多相同之处，比如利用坐标系变换和“墙”坐标系下能量守恒。</p>
-<h1 id="随机角度的乒乓球模型"><a href="#随机角度的乒乓球模型" class="headerlink" title="随机角度的乒乓球模型"></a>随机角度的乒乓球模型</h1><p>现在考虑球和墙的速度矢量有夹角$\theta$，考虑到墙的速度较小，夹角在坐标系变换中保持不变。</p>
-<p>能量的增加为：</p>
-<script type="math/tex; mode=display">\Delta E=\frac12 m(v_1+2v\cos{\theta})^2- \frac12 mv_1^2=2m(v_1v\cos{\theta}+v^2\cos^2{\theta})</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}\approx 4\frac{v_1\cos{\theta}}{v}</script></p>
-<p>考虑到$\theta$角度的随机性：</p>
-<script type="math/tex; mode=display"><\epsilon>\approx 4\frac{v_1}{v}<\cos{\theta}></script><p>对于单个球，$\theta$的权重与对应的面积元呈正比，那么</p>
-<script type="math/tex; mode=display">weight \propto dS=d(2\pi R (1-\cos{\theta}))=2\pi R \sin{\theta}d\theta</script><p>积分得到：</p>
-<script type="math/tex; mode=display"><\cos{\theta}>=\frac{\int_{0}^{\frac\pi2}\cos{\theta}\sin{\theta}2\pi R d\theta}{\int_{0}^{\frac\pi2}2\pi R \sin{\theta}d\theta} =\frac{1}{2}</script><script type="math/tex; mode=display"><\epsilon>\approx 2\frac{v_1}{v}</script><p>可见，角度的随机不影响加速机制的阶数。</p>
-<h1 id="随机角度的乒乓球流模型"><a href="#随机角度的乒乓球流模型" class="headerlink" title="随机角度的乒乓球流模型"></a>随机角度的乒乓球流模型</h1><p>我们考虑到并非是单个的球，而是球的“流”(flux)。对于流，$\theta$的权重与碰撞事件数呈正比，事件数与对应的面积元和相对速度呈正比，那么</p>
+<p>墙的速度为$v$，小球碰前速度为$v_1$，碰后速度为$v_2$。满足墙坐标系下能量守恒：</p>
+<script type="math/tex; mode=display">v_1+v=v_2-v\Rightarrow v_2=v_1+2v</script><p>能量的增加为：</p>
+<script type="math/tex; mode=display">\Delta E=\frac12 m(v_1+2v)^2- \frac12 mv_1^2=2m(v_1v+v^2)</script><p>能量增加率为：</p>
+<script type="math/tex; mode=display">\epsilon=\frac{\Delta E}{E}=4\frac{v_1v+v^2}{v_1^2}\approx 4\frac{v_1}{v}</script><p>近似采用了墙的速度$v$远小于球的速度$v_1$。此时，可以看到整体为一阶加速，即能量增加率和墙的速度的一阶呈正比。</p>
+<h1 id="随机角度的乒乓球模型"><a href="#随机角度的乒乓球模型" class="headerlink" title="随机角度的乒乓球模型"></a>随机角度的乒乓球模型</h1><script type="math/tex; mode=display">\Delta E=\frac12 m(v_1+2v\cos{\theta})^2- \frac12 mv_1^2=2m(v_1v\cos{\theta}+v^2\cos^2{\theta})</script><p>能量增加率为：</p>
+<script type="math/tex; mode=display">\epsilon=\frac{\Delta E}{E}\approx 4\frac{v_1\cos{\theta}}{v}</script><p>考虑到$\theta$角度的随机性：</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle\approx 4\frac{v_1}{v}\langle\cos{\theta}\rangle</script><p>对于单个球，$\theta$的权重与对应的面积元呈正比，那么：</p>
+<script type="math/tex; mode=display">weight \propto dS=d(2\pi R (1-\cos{\theta}))=2\pi R \sin{\theta}d\theta\propto\sin{\theta}d\theta</script><p>积分得到：</p>
+<script type="math/tex; mode=display">\langle\cos{\theta}\rangle=\frac{\int_{0}^{\frac\pi2}\cos{\theta}\sin{\theta} d\theta}{\int_{0}^{\frac\pi2} \sin{\theta}d\theta} =\frac{1}{2}</script><script type="math/tex; mode=display">\langle\epsilon\rangle\approx 2\frac{v_1}{v}</script><p>可见，角度的随机不影响加速机制的阶数。</p>
+<h1 id="随机角度的乒乓球流模型"><a href="#随机角度的乒乓球流模型" class="headerlink" title="随机角度的乒乓球流模型"></a>随机角度的乒乓球流模型</h1><p>我们考虑到并非是单个的球，而是球的“流”(flux)。对于流，$\theta$的权重与碰撞事件数呈正比，事件数与对应的面积元和相对速度呈正比，那么：</p>
 <script type="math/tex; mode=display">weight \propto dn=(v_1\cos{\theta}+v)dS\approx v_1\cos{\theta}dS=2\pi R v_1\cos{\theta}\sin{\theta}d\theta</script><p>积分得到：</p>
-<script type="math/tex; mode=display"><\cos{\theta}>=\frac{\int_{0}^{\frac\pi2}\cos^2{\theta}\sin{\theta} d\theta}{\int_{0}^{\frac\pi2}\cos{\theta} \sin{\theta}d\theta} =\frac{2}{3}</script><script type="math/tex; mode=display"><\epsilon>\approx \frac{8}{3}\frac{v_1}{v}</script><p>可见，考虑了流也是不影响加速机制的阶数。同时，这个系数也有点像接下来两个机制的系数了。</p>
-<h1 id="天文情况的概论"><a href="#天文情况的概论" class="headerlink" title="天文情况的概论"></a>天文情况的概论</h1><p>天文情况和球模型不同之处在于：粒子往往是相对论粒子；激波或星系团往往被假定为无穷大质量；粒子在激波或星系团坐标系下能量守恒的原因来自于“弹性碰撞”，这是通过磁场的缓变造成的，这意味着该假定依赖于——1.粒子之间无碰撞，只依靠磁场产生速度变化；2.磁场是缓变的，不然有能量的损耗。<br><img src="/img/Fermi_img/screenshot002.png" alt="alt text"></p>
-<p>考虑粒子原来的四动量$(E_0,\vec{p_0})$，激波或星系团的速度为$v$，洛伦兹变换后的四动量为</p>
-<script type="math/tex; mode=display">E_1^*=\gamma(E_1-\beta p_1\cos{\theta_1}c)</script><p>注意这里的$\theta$为速度矢量和激波速度的夹角，所以取负号。出射能量为</p>
-<script type="math/tex; mode=display">E_2=\gamma(E_1^*+\beta p_1^*\cos{\theta_2}c)</script><p>注意这里变换回来，相当于原来的激波速度矢量取反，所以负负得正。</p>
-<p>由于是相对论粒子，其能量<script type="math/tex">E^2=p^2c^2+m_0^2c^4\approx p^2c^2</script><br>则</p>
-<script type="math/tex; mode=display">E_1^*\approx\gamma E_1(1-\beta \cos{\theta_1})</script><script type="math/tex; mode=display">E_2=\gamma E_1^*(1+\beta \cos{\theta_2})=\gamma^2E_1(1+\beta \cos{\theta_2})(1-\beta \cos{\theta_1})</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}= \gamma^2(1+\beta \cos{\theta_2})(1-\beta \cos{\theta_1})-1=\frac{\beta(\cos{\theta_2}-\cos{\theta_1})-\beta^2(\cos{\theta_2}\cos{\theta_1}-1)}{1-\beta^2}</script></p>
-<p><img src="/img/Fermi_img/screenshot003.png" alt="alt text"><br>这种情况像乒乓球，</p>
-<script type="math/tex; mode=display"><\cos{\theta}>=\frac{2}{3}</script><p>所以</p>
-<script type="math/tex; mode=display"><\cos{\theta_1}>=-\frac{2}{3},<\cos{\theta_2}>=\frac{2}{3}</script><p>能量增加率为<script type="math/tex"><\epsilon>= \frac{\frac43\beta+\frac{13}{9}\beta^2}{1-\beta^2}\approx\frac43\beta</script></p>
-<p>注意到，星系团允许从后往前入射（快追慢，导致$\theta_1$取值范围变化），也允许从前穿射到后方（导致$\theta_2$取值范围变化）。</p>
-<p>这里采用一种更简单的方法，将星系团看成两面激波，从前面入射穿射的能量增加率为</p>
-<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(-\frac23+\frac23)+\beta^2(1-\frac49)}{1-\beta^2}</script><p>从前面入射反射的能量增加率为</p>
-<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(+\frac23+\frac23)+\beta^2(1+\frac49)}{1-\beta^2}</script><p>从后面入射穿射的能量增加率为</p>
-<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(+\frac23-\frac23)+\beta^2(1-\frac49)}{1-\beta^2}</script><p>从后面入射反射的能量增加率为</p>
-<script type="math/tex; mode=display"><\epsilon>= \frac{\beta(-\frac23-\frac23)+\beta^2(1+\frac49)}{1-\beta^2}</script><p>所以总的能量增加率为四者之和，一阶项被抵消</p>
-<script type="math/tex; mode=display"><\epsilon>= \frac{\beta^2}{1-\beta^2}\approx \beta^2</script><p>这里也顺便回答了，如果只关注单个粒子的能量增减会怎么样——如果前穿后，能量居然是总体增加的（这有些反常识）；如果后穿前，后反射，都是能量减少；更不用说前反射了，能量绝对是增加的。</p>
-<p>二阶费米机制的来源是一阶费米机制的相消，\textbf{一阶项抵消，只留下二阶项}。<br><img src="/img/Fermi_img/screenshot004.png" alt="alt text"></p>
-<script type="math/tex; mode=display">d\theta=\frac{dL}{R}=\frac{qBdL}{\gamma mv}</script><p>总的转动的角度和湍流磁场的尺度(dL)星系团的尺度(L)粒子的速度(v)和磁场的强度(B)有关。设平均偏转了$n=\frac{L}{<dL>}$次（实际上会多得多），则粒子的偏转角度的分布为：</dL></p>
-<script type="math/tex; mode=display">\theta=\sum_{i=1}^{n}d\theta_i</script><ul>
-<li>如果星系团内部的磁场是完全随机的，星系团的尺度越小，或湍流的尺度越大，粒子的出射方向越和原来的速度方向一致，分布越窄；</li>
-<li>磁场的增大会使得分布变宽，这对于费米加速机制是好事；</li>
-<li>粒子速度的增大会使得分布变窄；</li>
+<script type="math/tex; mode=display">\langle\cos{\theta}\rangle=\frac{\int_{0}^{\frac\pi2}\cos^2{\theta}\sin{\theta} d\theta}{\int_{0}^{\frac\pi2}\cos{\theta} \sin{\theta}d\theta} =\frac{2}{3}</script><script type="math/tex; mode=display">\langle\epsilon\rangle\approx \frac{8}{3}\frac{v_1}{v}</script><h1 id="天文情况的概论"><a href="#天文情况的概论" class="headerlink" title="天文情况的概论"></a>天文情况的概论</h1><p>天文情况和球模型不同之处在于：粒子往往是相对论粒子；激波或星系团往往被假定为无穷大质量；粒子在激波或星系团坐标系下能量守恒的原因来自于“弹性碰撞”，这是通过磁场造成的。</p>
+<p>此处隐含的假定：</p>
+<ol>
+<li>粒子不与其他粒子碰撞；</li>
+<li><p>由于云团的速度远小于粒子的速度，所以$\gamma$接近1，忽略以下变化：</p>
+<ul>
+<li>参考系变化前后的夹角很小</li>
+<li>参考系变化前后的磁场产生的电场很小（最大0.01V/m）</li>
 </ul>
-<p>%<script type="math/tex"><\theta>=\frac{q<B>dL}{mv}</script><br>如果认为磁场的分布是正态分布，湍流的尺度是一样的，那么</p>
-<script type="math/tex; mode=display">\theta=\sum_{i=1}^{n}\frac{qdL}{\gamma mv}N_B(0,\sigma^2)=\frac{qdL}{\gamma mv}N_B(0,n\sigma^2)</script><!-- 
-以下用数值模拟演示。
+</li>
+<li><p>磁场是时缓变的（不然会产生强电场）；</p>
+</li>
+<li>磁场也是空间缓变的（不然磁矩会变）。</li>
+</ol>
+<p><img src="/img/Fermi_img/screenshot002.png" alt="alt text"></p>
+<p>洛伦兹变换的公式为：</p>
+<script type="math/tex; mode=display">\begin{array}{l}E^{\prime}=\gamma(E-\vec{v}\cdot\vec{p})\\\vec{p^{\prime}}=\gamma(\vec{p}-\dfrac E{c^2}\vec{v})\end{array}</script><p>考虑粒子原来的四动量$(E_0,\vec{p_0})$，激波或星系团的速度为$v$，洛伦兹变换后的四动量为：</p>
+<script type="math/tex; mode=display">E_1^*=\gamma(E_1-v p_1\cos{\theta_1})</script><p>出射能量为：</p>
+<script type="math/tex; mode=display">E_2=\gamma(E_1^*+v p_1^*\cos{\theta_2})</script><p>由于是相对论粒子，其能量</p>
+<script type="math/tex; mode=display">E^2=p^2c^2+m_0^2c^4\approx p^2c^2</script><p>记$\beta=\dfrac vc$，则</p>
+<script type="math/tex; mode=display">E_1^*\approx\gamma E_1(1-\beta \cos{\theta_1})</script><script type="math/tex; mode=display">E_2=\gamma E_1^*(1+\beta \cos{\theta_2})=\gamma^2E_1(1+\beta \cos{\theta_2})(1-\beta \cos{\theta_1})</script><p>能量增加率为<script type="math/tex">\epsilon=\frac{\Delta E}{E}= \gamma^2(1+\beta \cos{\theta_2})(1-\beta \cos{\theta_1})-1=\frac{\beta(\cos{\theta_2}-\cos{\theta_1})-\beta^2(\cos{\theta_2}\cos{\theta_1}-1)}{1-\beta^2}</script></p>
+<h1 id="Shock-Fermi-I"><a href="#Shock-Fermi-I" class="headerlink" title="Shock-Fermi I"></a>Shock-Fermi I</h1><p><img src="/img/Fermi_img/screenshot003.png" alt="alt text"></p>
+<p>这种情况像乒乓球，</p>
+<script type="math/tex; mode=display">\langle\cos{\theta}\rangle=\frac{2}{3}</script><p>所以</p>
+<script type="math/tex; mode=display">\langle\cos{\theta_1}\rangle=-\frac{2}{3},\langle\cos{\theta_2}\rangle=\frac{2}{3}</script><p>能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\frac43\beta+\frac{13}{9}\beta^2}{1-\beta^2}\approx\frac43\beta</script><h1 id="Cluster-Fermi-II"><a href="#Cluster-Fermi-II" class="headerlink" title="Cluster-Fermi II"></a>Cluster-Fermi II</h1><p>注意到，星系团云团允许从后往前入射（快追慢，导致$\theta_1$取值范围变化），也允许从前穿射到后方（导致$\theta_2$取值范围变化）。</p>
+<p>这里采用一种更简单的方法，将星系团看成两面激波，从前面入射穿射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(-\frac23+\frac23)+\beta^2(1-\frac49)}{1-\beta^2}</script><p>从前面入射反射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(+\frac23+\frac23)+\beta^2(1+\frac49)}{1-\beta^2}</script><p>从后面入射穿射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(+\frac23-\frac23)+\beta^2(1-\frac49)}{1-\beta^2}</script><p>从后面入射反射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(-\frac23-\frac23)+\beta^2(1+\frac49)}{1-\beta^2}</script><p>所以总的能量增加率为四者之和，一阶项被抵消</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta^2}{1-\beta^2}\approx \beta^2</script><p>二阶费米机制的来源是一阶费米机制的相消，\textbf{一阶项抵消，只留下二阶项}。</p>
+<p>如果进行更精确的计算，那么迎头撞和追尾撞的事件数是不一样的（这是由于追尾撞的相对速度较低）</p>
+<script type="math/tex; mode=display">weight \propto dn=(v_1\cos{\theta}+v)dS\propto(v_1\cos{\theta}+v)\sin{\theta}d\theta</script><p>补正如下：</p>
+<script type="math/tex; mode=display">\langle\cos{\theta_1}\rangle=\frac{\int_{0}^{\frac\pi2}\cos{\theta}(v_1\cos{\theta}+v)\sin{\theta} d\theta}{\int_{0}^{\frac\pi2} (v_1\cos{\theta}+v)\sin{\theta}d\theta} \approx\frac{\frac13v_1+\frac12 v}{\frac12 v_1+v}=\frac{2}{3}+\frac13\beta</script><p>从前面入射穿射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(-\frac23+\frac23+\frac13\beta)+\beta^2(1-\frac23(\frac{2}{3}+\frac13\beta))}{1-\beta^2}</script><p>从前面入射反射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(+\frac23+\frac23+\frac13\beta)+\beta^2(1+\frac23(\frac{2}{3}+\frac13\beta))}{1-\beta^2}</script><p>从后面入射穿射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(+\frac23-\frac23+\frac13\beta)+\beta^2(1-\frac23(\frac{2}{3}-\frac13\beta))}{1-\beta^2}</script><p>从后面入射反射的能量增加率为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac{\beta(-\frac23-\frac23+\frac13\beta)+\beta^2(1+\frac23(\frac{2}{3}-\frac13\beta))}{1-\beta^2}</script><p>很容易看出，抛开三阶项，只比上述计算多出了$\frac13\beta^2$，所以最终的结果为</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= \frac43\beta^2</script><h1 id="数值讨论"><a href="#数值讨论" class="headerlink" title="数值讨论"></a>数值讨论</h1><p>一般而言，对于星系团中的湍流，$v\sim10km/s,\beta=10^{-4}$，每次二阶加速的能量增加率为：</p>
+<script type="math/tex; mode=display">\langle\epsilon\rangle= 10^{-8}</script><p>如果我们假定云团的尺寸为1pc，粒子在里面运动的时间为10年量级($3\times 10^8 s$)，粒子的速度为$\gamma=10^3$，磁场平均大小为$1\mu G$，拉莫尔半径取$1.7\times 10^7 \gamma\approx10^{10}m$，同步辐射的功率为</p>
+<script type="math/tex; mode=display">P=\frac23\frac{e^2a^2\gamma^4}{c^3}\approx 10^{-30}J/s</script><p>那么在10年内，粒子加速一次，平均加速功率为：</p>
+<script type="math/tex; mode=display">P_{acc}=\gamma mc^2\beta^2\approx10^{-19}J/10yr\approx 3\times 10^{-27}J/s</script><p>这样算下来，加速完全是有可能的。</p>
+<p>需要注意的是，为什么可以用平均能量增加率来计算，这是因为：</p>
+<script type="math/tex; mode=display">\epsilon_{final}=\prod_{i=1}^n(1+\epsilon(i))^n\approx1+\sum_{i=1}^n \epsilon(i)=1+n\langle\epsilon\rangle</script><h1 id="能量增加率分布"><a href="#能量增加率分布" class="headerlink" title="能量增加率分布"></a>能量增加率分布</h1><p>幸运的是，尽管$\theta$满足正弦分布，其$\cos$值满足均匀分布，那么能量增加</p>
+<script type="math/tex; mode=display">\epsilon=\frac{\beta(\cos{\theta_2}-\cos{\theta_1})-\beta^2(\cos{\theta_2}\cos{\theta_1}-1)}{1-\beta^2}</script><p>的分布就可以理论计算出来，即</p>
+<script type="math/tex; mode=display">\epsilon\sim \beta\times TriangleDistribution(x|-2,2,0)+\beta^2(1-\frac12\ln(|x|)),x\in [-1,1]</script><p><img src="/img/Fermi_img/7057b9587d603d00155fe9c4bcf1f2b.jpg" alt="alt text"></p>
+<!-- ![alt text](/img/Fermi_img/screenshot004.png)
+
+
+
+$$d\theta=\frac{dL}{R}=\frac{qBdL}{\gamma mv}$$
+总的转动的角度和湍流磁场的尺度(dL)星系团的尺度(L)粒子的速度(v)和磁场的强度(B)有关。设平均偏转了$n=\frac{L}{\langle dL\rangle}$次（实际上会多得多），则粒子的偏转角度的分布为：
+$$\theta=\sum_{i=1}^{n}d\theta_i$$
+
+
+- 如果星系团内部的磁场是完全随机的，星系团的尺度越小，或湍流的尺度越大，粒子的出射方向越和原来的速度方向一致，分布越窄；
+- 磁场的增大会使得分布变宽，这对于费米加速机制是好事；
+- 粒子速度的增大会使得分布变窄；
+
+$$\langle\theta\rangle=\frac{q\langle B\rangle dL}{mv}$$
+如果认为磁场的分布是正态分布，湍流的尺度是一样的，那么
+$$\theta=\sum_{i=1}^{n}\frac{qdL}{\gamma mv}N_B(0,\sigma^2)=\frac{qdL}{\gamma mv}N_B(0,n\sigma^2)$$ -->
+<!-- 以下用数值模拟演示。
 
 认为一个星系团的尺度为Mly量级，粒子速度为光速量级，湍流尺度为ly量级，磁场为μG量级，这说明粒子每次偏转的角度为1量级，总共偏转大概1M次。这个数量级已经\textbf{很接近费米机制的成立条件}。
 
-仅模拟100ly和500ly的星系团，已可见几乎不会影响粒子的出射角度。尺度越大的星系团，该问题越不显著，所以可以初步得到结论——粒子的入射角度和出射角度是独立的。以下模拟偏转角度取-1到1的均匀分布 -->]]></content>
+仅模拟100ly和500ly的星系团，已可见几乎不会影响粒子的出射角度。尺度越大的星系团，该问题越不显著，所以可以初步得到结论——粒子的入射角度和出射角度是独立的。以下模拟偏转角度取-1到1的均匀分布  -->]]></content>
       <categories>
         <category>天文</category>
       </categories>
@@ -713,21 +746,43 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <li>结尾<h3 id="2024年8月"><a href="#2024年8月" class="headerlink" title="2024年8月"></a>2024年8月</h3></li>
 </ol>
 <p><strong>2024.08.17</strong></p>
+<blockquote>
 <p><em>Do you agree or disagree with the following statement? Students can learn school subjects as effectively through online videos as they can from classroom teaching. Use details and examples to explain your opinion.</em></p>
+</blockquote>
 <p>Honestly, I agree with the statement that students can learn through online vedios as effectively as they do from traditional classrooms.</p>
 <p>First off, I think this can help students to understand the class content better. This is because while watching the vedios, they can pause if they have any questions. Then they can look it up online. In this case, they can better understand the lecture and follow along the professor. </p>
 <p>Besides, watching vedios can help students to study for exams. This is because before the exams they can reply the videos; they can go over those key chapters. In this case, they can better understand the concepts and their applications. So they can do well in the exams.</p>
 <p>Therefore, I agree with the statement. </p>
 <h3 id="2024年7月"><a href="#2024年7月" class="headerlink" title="2024年7月"></a>2024年7月</h3><p><strong>2024.07.24</strong></p>
 <p>上午：</p>
+<blockquote>
 <p><em>Imagine that you live in a crowded city with only one green space—the city park. To address the issue of overcrowding, the city council has proposed building a new housing complex on this last green space in the city center. Do you think this is a good idea? Explain why or why not.</em></p>
+</blockquote>
+<p>Honestly, I think it’s a bad idea to build a housing complex over this only green space in the city.</p>
+<p>First off, I think the park, the green space, is essential to people’s lives. This is because a lot of people use the park every day, like they work out in the morning and in the evening they take a relaxing walk. So if the park is destroyed, they have no place to work out or relax.</p>
+<p>Besides, the park is also very important for animals. This is because a lot of birds, you know they need the trees to build nests on, and sqirrels, they need the trees to look for food. So without the park they cannot survive.</p>
+<p>Therefore, I think this is a bad idea.</p>
 <p>下午：</p>
+<blockquote>
 <p><em>Some people prefer to shop for groceries at specialty shops such as butcher shops and bakeries. Others prefer to shop for everything at once at a supermarket. Which do you think is better and why? Use details and examples to support your answer.</em></p>
+</blockquote>
 <p>Honestly, I would like to shop at large grocery stores or department stores. </p>
 <p>First off, this helps me to save money. Well this is because these large stores, they usually have better deals. Like, their soft drinks are often on sale, buy one and get one free. You know, by shopping at these large grocery of department stores, it can really help me to make ends meet.</p>
 <p>Besides,I would like to shop at large places because it’s more convenient. Well, this is because the stores often have a large selection of goods. Basically, I can find everything I need from groceries to clothes. So, doing this kind of one stop shopping really can help me to save time.</p>
 <p>Therefore, I would like to shop at large grocery stores or department stores.</p>
-<p><strong>2024.07.21（重复2021.9.11上午场/2024.06.26考题）</strong><br>Some people like to celebrate their birthday or holidays with large gatherings orparties; other people prefer to celebrate in quieter ways alone or with just a few people. Which do you prefer? Explain why.</p>
+<p><strong>2024.07.21（重复2021.9.11上午场/2024.06.26考题）</strong></p>
+<blockquote>
+<p><em>Some people like to celebrate their birthday or holidays with large gatherings orparties; other people prefer to celebrate in quieter ways alone or with just a few people. Which do you prefer? Explain why.</em></p>
+</blockquote>
+<p>Honestly, I would like to celebrate special occasions with a large number of people.</p>
+<p>First off, I can receive more gifts in this way. Well, this is because these many guests will bring me a lot of gifts, you know, gifts I have been longing for. So when I open gifts, I will just feel so acknowledged and valued by all of them.</p>
+<p>Besides, I would like to celebrate with a large number of people because it will be more fun. This is because we can play a lot of interesting games like charades or even Truth or Dare. In this case, I can totaly enjoy the company of all my friends</p>
+<p>So because of these two reasons, I think it is better to celebrate important occasions with a large number of people.</p>
+<p>这里给出一个我自己的i人回答：</p>
+<p>Honestly, I would like to celebrate special occasions with just a few people.</p>
+<p>First off, I am not a people person. I enjoy spending time on doing things I like or with a few people, which makes me feel comfortable. I will feel embarrassed with lots of people, especially those who I am just on nodding terms with.</p>
+<p>Besides, celebrating special occasions with a few people can really save my energy. I behave relaxingly in front of a few people. I can open my heart to those who are my best friends.</p>
+<p>So because of these two reasons, I prefer celebrating important occasions with a few people.</p>
 <p><strong>2024.07.20</strong></p>
 <p>上午（重复2011.10.8/2012.9.23/2013.8.24老题）：</p>
 <p>When on vacation, some people prefer to participate in outdoor activities, such as hiking or swimming. Other people prefer to be less physically active on vacation. Which type of vacation do you prefer? Explain why.</p>
@@ -993,7 +1048,7 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
   <entry>
     <title>单元系的相变</title>
     <url>/2024/08/27/%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/</url>
-    <content><![CDATA[<h1 id="热动平衡判据"><a href="#热动平衡判据" class="headerlink" title="热动平衡判据"></a>热动平衡判据</h1><p>热力学第二定律指出，孤立系统的熵朝着增加的方向进行，如果孤立系统处于稳定平衡态，其熵一定是极大值：</p>
+    <content><![CDATA[<h1 id="单元系的单相平衡条件（热动平衡判据）"><a href="#单元系的单相平衡条件（热动平衡判据）" class="headerlink" title="单元系的单相平衡条件（热动平衡判据）"></a>单元系的单相平衡条件（热动平衡判据）</h1><p>热力学第二定律指出，孤立系统的熵朝着增加的方向进行，如果孤立系统处于稳定平衡态，其熵一定是极大值：</p>
 <script type="math/tex; mode=display">\delta S=0, \delta^2 S<0</script><p>对于其他系统也是如此：</p>
 <ol>
 <li>孤立系统：$\delta S=0, \delta^2 S&lt;0$</li>
@@ -1002,7 +1057,40 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <li>等熵等容系统：$\delta U=0, \delta^2 U&gt;0$</li>
 </ol>
 <p>作为以上的应用，可以推导出均匀系统的稳定平衡条件：</p>
-<script type="math/tex; mode=display">C_V>0,(\dfrac{\partial p}{\partial V})_{T}<0</script>]]></content>
+<script type="math/tex; mode=display">C_V>0,(\dfrac{\partial p}{\partial V})_{T}<0</script><h1 id="开系的热力学基本方程"><a href="#开系的热力学基本方程" class="headerlink" title="开系的热力学基本方程"></a>开系的热力学基本方程</h1><blockquote>
+<p>我们曾定义温度为两个系统能量交换平衡的判据，定义压强为两个系统体积交换平衡的判据，现在两个系统还可以交换粒子数（物质的量），我们则定义化学势为粒子数交换的平衡判据。然而化学势最初只是被定义为吉布斯函数随物质的量增加的系数，在后面两节会重新推导出平衡的定义。</p>
+<p>以上两个系统整体看作孤立系统，所以不涉及外场。</p>
+</blockquote>
+<p>根据化学势的定义，吉布斯函数可以写为$G=nG_m=\mu n$，四个热力学基本方程被改写为：</p>
+<script type="math/tex; mode=display">dU=TdS-pdV+\mu dn</script><script type="math/tex; mode=display">dH=TdS+Vdp+\mu dn</script><script type="math/tex; mode=display">dF=-SdT-pdV+\mu dn</script><script type="math/tex; mode=display">dG=-SdT+Vdp+\mu dn</script><p>定义巨热力势：</p>
+<script type="math/tex; mode=display">J=F-\mu n=F-G=-pV</script><p>其全微分关系为：</p>
+<script type="math/tex; mode=display">dJ=-SdT-pdV-nd\mu</script><blockquote>
+<p>巨热力势可以理解为在将系统“挤压”到体积为零的过程中所能获得的能量，是一个负值。</p>
+</blockquote>
+<h1 id="单元系的复相平衡条件"><a href="#单元系的复相平衡条件" class="headerlink" title="单元系的复相平衡条件"></a>单元系的复相平衡条件</h1><p>根据熵判据：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\delta S^\alpha&=\dfrac{\delta U^\alpha+p^\alpha\delta V^\alpha-\mu^\alpha\delta n^\alpha}{T^\alpha}\\\\
+\delta S^\beta&=\dfrac{\delta U^\beta+p^\beta\delta V^\beta-\mu^\beta\delta n^\beta}{T^\beta}\end{cases}</script><p>所以整个系统的熵变为：</p>
+<script type="math/tex; mode=display">\begin{aligned}\delta S^\alpha+\delta S^\beta&=\dfrac{\delta U^\alpha+p^\alpha\delta V^\alpha-\mu^\alpha\delta n^\alpha}{T^\alpha}+\dfrac{\delta U^\beta+p^\beta\delta V^\beta-\mu^\beta\delta n^\beta}{T^\beta}\\
+&=\delta U^\alpha(\frac{1}{T^\alpha}-\frac{1}{T^\beta})+\delta V^\alpha(\frac{p^\alpha}{T^\alpha}-\frac{p^\beta}{T^\beta})-\delta n^\alpha(\frac{\mu^\alpha}{T^\alpha}-\frac{\mu^\beta}{T^\beta})\end{aligned}</script><p>这说明复相系的平衡条件为：</p>
+<script type="math/tex; mode=display">\begin{cases}T^\alpha&=&T^\beta&\text{(热平衡条件)}\\p^\alpha&=&p^\beta&\text{(力学平衡条件)}\\\mu^\alpha&=&\mu^\beta&\text{(相变平衡条件)}\end{cases}</script><h1 id="相变的性质"><a href="#相变的性质" class="headerlink" title="相变的性质"></a>相变的性质</h1><p>在不同的温度和压强下，系统可以处在不同的平衡态，双相平衡在相图中表现为两相平衡线，中间的区域即为单相平衡区。以下是最简单的水的$p-T$相图。<br><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Phase-diag-Xiang-zh-hans.svg"></p>
+<p>根据平衡理论，相变曲线中相邻的两点满足：</p>
+<script type="math/tex; mode=display">\mu^\alpha(T,p)=\mu^\beta(T,p)</script><script type="math/tex; mode=display">\mu^\alpha(T+dT,p+dp)=\mu^\beta(T+dT,p+dp)</script><p>怎么求得化学势关于温度压强的微分关系呢？我们曾经在麦克斯韦关系中得到了方法：</p>
+<script type="math/tex; mode=display">\begin{aligned}d\mu&=(\dfrac{\partial \mu}{\partial T})_pdT+(\dfrac{\partial \mu}{\partial p})_Tdp\\
+&=-S_mdT+V_mdp\end{aligned}</script><p>其中</p>
+<script type="math/tex; mode=display">(\dfrac{\partial \mu}{\partial T})_p=(\dfrac{\partial }{\partial T}\dfrac{\partial G}{\partial n})_p=(\dfrac{\partial }{\partial n}\dfrac{\partial G}{\partial T})_p=-\dfrac{\partial S}{\partial n}=-S_m</script><script type="math/tex; mode=display">(\dfrac{\partial \mu}{\partial p})_T=(\dfrac{\partial }{\partial p}\dfrac{\partial G}{\partial n})_T=(\dfrac{\partial }{\partial n}\dfrac{\partial G}{\partial p})_T=\dfrac{\partial V}{\partial n}=V_m</script><p>所以可以给出相变曲线的斜率方程，即克拉珀龙方程：</p>
+<script type="math/tex; mode=display">\dfrac{dp}{dT}=\dfrac{S_m^\beta-S_m^\alpha}{V_m^\beta-V_m^\alpha}</script><p>对于水来说，相变会吸收潜热：</p>
+<script type="math/tex; mode=display">L=T(S_m^\beta-S_m^\alpha)</script><p>所以原方程可以化简为蒸汽压方程：</p>
+<script type="math/tex; mode=display">\dfrac{dp}{dT}=\dfrac{L}{T(V_m^\beta-V_m^\alpha)}</script><h1 id="相变的分类"><a href="#相变的分类" class="headerlink" title="相变的分类"></a>相变的分类</h1><p><strong>一级相变</strong>：相变点两端的化学势连续，但是一阶偏导数不连续。一级相变有相变潜热和比体积突变。</p>
+<script type="math/tex; mode=display">S_m=-\left(\frac{\partial\mu}{\partial T}\right)_p,V_m=\left(\frac{\partial\mu}{\partial p}\right)_T</script><p><strong>二级相变</strong>：相变点两端的化学势和一阶偏导数连续，但是二阶偏导数不连续。二级相变的定压比热、定压膨胀系数和等温压缩系数存在突变。</p>
+<script type="math/tex; mode=display">c_p=-T\left(\frac{\partial s}{\partial T}\right)_p,\alpha=\frac1v\left(\frac{\partial v}{\partial T}\right)_p,\kappa_T=- \frac1v\left(\frac{\partial v}{\partial P}\right)_T</script><p>可以到处埃伦费斯特方程：</p>
+<script type="math/tex; mode=display">\begin{aligned}&\frac{dp}{dT}&&=\quad\frac{\alpha^\beta-\alpha^\alpha}{\kappa_{T}^\beta-\kappa_{T}^\alpha}\\&\frac{dp}{dT}&&=\quad\frac{c
+_p^\beta-c_p^\alpha}{T v(\alpha^\beta-\alpha^\alpha)}\end{aligned}</script><h1 id="多元系的复相平衡条件"><a href="#多元系的复相平衡条件" class="headerlink" title="多元系的复相平衡条件"></a>多元系的复相平衡条件</h1><p>由单元系的复相平衡条件可以推广到多元系复相的平衡条件。对于$k$组元$\phi$相的系统，其热力学基本方程写为：</p>
+<script type="math/tex; mode=display">dU=TdS-pdV+\sum_k\mu_i dn_i</script><script type="math/tex; mode=display">dH=TdS+Vdp+\sum_k\mu_i dn_i</script><script type="math/tex; mode=display">dF=-SdT-pdV+\sum_k\mu_i dn_i</script><script type="math/tex; mode=display">dF=-SdT+Vdp+\sum_k\mu_i dn_i</script><p>那么其平衡条件就为:</p>
+<script type="math/tex; mode=display">\begin{cases}T^\alpha&=\cdots=&T^\phi&\text{(热平衡条件)}\\p^\alpha&=\cdots=&p^\phi&\text{(力学平衡条件)}\\\mu^\alpha_i&=\cdots=&\mu^\phi_i&\text{(相变平衡条件)}\end{cases}</script><p>显然，一共有$(k+2)(\phi-1)$个方程，总共有$(k+2)\phi$个变量。但要注意的是，如果我只关注强度量而不关注广延量，物质的量可以用物质的量分数代替，这样只剩下了$(k+1)\phi$个变量。所以该系统的自由度为：</p>
+<script type="math/tex; mode=display">f=(k+2)(\phi-1)-(k+1)\phi=k+2-\phi</script><p>我们在上面讨论的水的二相变，$k=1,\phi=2$，则自由度为1，只有压强或温度在独立变化。如果要讨论盐水，$k=2,\phi=1$，则自由度为3，一般选取固定压强下温度和物质比的相图。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Eutektikum_new.svg"></p>
+]]></content>
       <categories>
         <category>统计物理</category>
       </categories>
@@ -1094,7 +1182,7 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
 <ol>
 <li>由焓的定义$H=U+pV$，可得$dU=dH-pdV-Vdp=TdS-pdV$，所以<script type="math/tex; mode=display">dH=TdS+Vdp</script></li>
 <li>由亥姆霍兹自由能的定义$F=U-TS$，可得$dU=dF+TdS+SdT=TdS-pdV$，所以<script type="math/tex; mode=display">dF=-SdT-pdV</script></li>
-<li>由吉布斯自由能的定义$G=H-TS$，可得$dU=dG-pdV-Vdp+TdS+SdT=TdS-pdV$，所以<script type="math/tex; mode=display">dF=-SdT+Vdp</script></li>
+<li>由吉布斯自由能的定义$G=H-TS$，可得$dU=dG-pdV-Vdp+TdS+SdT=TdS-pdV$，所以<script type="math/tex; mode=display">dG=-SdT+Vdp</script></li>
 </ol>
 <blockquote>
 <p>怎么理解内能、焓、亥姆霍兹自由能、吉布斯自由能的意义呢？我们从以下两个角度出发。</p>
@@ -1115,6 +1203,87 @@ H=&\frac{1}{\Delta x^2}\begin{bmatrix}-2&1&0&0&\cdots\\1&-2&1&0&\cdots\\0&1&-2&1
       </categories>
       <tags>
         <tag>热力学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>费米加速代码及其理论推导</title>
+    <url>/2024/08/29/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F%E4%BB%A3%E7%A0%81%E5%8F%8A%E5%85%B6%E7%90%86%E8%AE%BA%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<blockquote>
+<p>尚未解决的几大问题：</p>
+<ol>
+<li><p>费米加速的代码模拟必须使用相对论变换，具体见下述推导。done</p>
+</li>
+<li><p>实现代码后，精度的划分是否有显著的影响，是否能够收敛？由于费米加速是按照次数加速，如何将其用于理论模型？</p>
+</li>
+<li><p>如何划分云团？这只对理论模型的建立有影响。</p>
+</li>
+<li><p>如何模拟后续的加速减速竞争？需要推导同步辐射的功率。</p>
+</li>
+<li><p>如何模拟射电晕的结构？需要推导$\gamma$和辐射功率的关系。</p>
+</li>
+</ol>
+</blockquote>
+<h1 id="为什么一定要用相对论变换？"><a href="#为什么一定要用相对论变换？" class="headerlink" title="为什么一定要用相对论变换？"></a>为什么一定要用相对论变换？</h1><p>此前我认为云团的速度远小于光速，所以可以使用伽利略变换近似，这是<strong>错误</strong>的。如果使用伽利略变换：</p>
+<p>假设云团的速度为$v_0$，电子的入射速度是$v_1$，出射速度是$v_2$，入射出射角度分别是$\theta_1,\theta_2$。则出射速度和入射速度的能量守恒关系为</p>
+<script type="math/tex; mode=display">(v_1\cos{\theta_1}-v_0)^2+(v_1\sin{\theta_1})^2=(v_2\cos{\theta_2}-v_0)^2+(v_2\sin{\theta_2})^2</script><p>化简有</p>
+<script type="math/tex; mode=display">v_1^2-2v_0v_1\cos{\theta_1}=v_2^2-2v_0v_2\cos{\theta_2}</script><script type="math/tex; mode=display">v_2^2-2v_0v_2\cos{\theta_2}-v_1^2+2v_0v_1\cos{\theta_1}=0</script><p>求解$v_2$有：</p>
+<script type="math/tex; mode=display">v_2=v_0\cos{\theta_2}\pm\sqrt{v_0^2\cos^2{\theta_2}+v_1^2-2v_0v_1\cos{\theta_1}}</script><p>考虑到$v_1\gg v_0$，进行小量近似可得：</p>
+<script type="math/tex; mode=display">\delta v\propto \frac{v_0^2}{v_1}</script><script type="math/tex; mode=display">\delta E\propto \frac{\delta v}{v_1} \propto \beta^2</script><p>这里假设了$\theta_2$与$\theta_1$无关，则$\theta_2$自由平均。这主要是基于电子的拉莫尔半径是</p>
+<script type="math/tex; mode=display">R=\frac{\gamma mv}{qB}= 1.7\times10^{7}\gamma(\frac{v}{1c})(\frac{B}{1\mu G})^{-1}m\approx 10^{10}m\ll 1pc=3\times 10^{16}m</script><blockquote>
+<p>这说明云团的尺寸和局域磁场的尺寸有着较大的差别，局域磁场的尺寸应该远小于云团的尺寸（不然电子会一直打转）。</p>
+</blockquote>
+<p>我们回到这个公式</p>
+<script type="math/tex; mode=display">v_2=v_0\cos{\theta_2}+\sqrt{v_0^2\cos^2{\theta_2}+v_1^2-2v_0v_1\cos{\theta_1}}=v_1+v_0(\cos{\theta_2}-\cos{\theta_1})+\frac{v_0^2\cos^2{\theta_2}}{2v_1}</script><p>这里其实是有问题的，小量近似本身是二阶精度，那么最后一项是不可以保留的。此外，倒数第二项的意义保证了只和头尾有关。对$\theta_1$和$\theta_2$进行数值积分，可以知道如果不进行小量近似，那么整体上是减速的。</p>
+<p>这是因为虽然云团的速度远小于光速，但是高速粒子的速度却和光速差不多(0.999c)，如果使用伽利略变换，可能会导致粒子速度高于光速，这是不可能的。</p>
+<h1 id="保留小量的相对论变换"><a href="#保留小量的相对论变换" class="headerlink" title="保留小量的相对论变换"></a>保留小量的相对论变换</h1><p>我们来估计相对论电子的$\gamma_e$系数，考虑到观测到的射电晕的频率在1-4GHz，并由</p>
+<script type="math/tex; mode=display">f=2\times 10^6 \gamma^2 (\frac{B}{1G})</script><p>可以估算出</p>
+<script type="math/tex; mode=display">\gamma_e>10^3</script><p>$\gamma_e$系数和动量，能量的换算关系：</p>
+<script type="math/tex; mode=display">E=\gamma_e m_0 c^2</script><script type="math/tex; mode=display">E^2=p^2c^2+ m_0^2 c^4\Rightarrow p=\sqrt{\gamma_e^2-1}m_0c</script><p>Fermi的推导中用到了小量近似：</p>
+<script type="math/tex; mode=display">E^*_1=\gamma(E_1-\beta p_1\cos{\theta_1}c)=\gamma E_1(1-\beta \cos{\theta_1})</script><p>这个地方如果不使用小量近似：</p>
+<script type="math/tex; mode=display">E^*_1=\gamma(E_1-\beta p_1\cos{\theta_1}c)=\gamma m_0 c^2(\gamma_e-\beta \sqrt{\gamma_e^2-1}\cos{\theta_1})=\gamma E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1})</script><p>相当于这个地方的小量近似误差为$O(\beta\gamma\gamma^{-2}_e m_0c^2)$，而费米加速的能量增加率为$\beta^2 \gamma_e m_0c^2$。我们关心这两个的数量级，幸运的是，看上去可以弥补这个误差。下面是详细的推导：</p>
+<script type="math/tex; mode=display">E^*_1=\gamma E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1})</script><script type="math/tex; mode=display">E_2=\gamma E_1^*(1+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2})</script><p>所以：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+    E_2&=\gamma^2 E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1})(1+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2})\\
+    &=\gamma^2 E_1(1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1}+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2}-\beta^2(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2})
+\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+    \langle \epsilon\rangle&=\gamma^2 (1-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1}+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2}-\beta^2(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2})-1\\
+    &=\frac{\beta^2-\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_1}+\beta \sqrt{1-\gamma_e^{-2}}\cos{\theta_2}-\beta^2(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2}}{1-\beta^2}\\
+    &=\frac{\beta^2(1-(1-\gamma_e^{-2})\cos{\theta_1}\cos{\theta_2})+\beta \sqrt{1-\gamma_e^{-2}}(\cos{\theta_2}-\cos{\theta_1})}{1-\beta^2}\\
+    &\approx\frac{\beta^2\cos{\theta_1}\cos{\theta_2}+\beta (\cos{\theta_2}-\cos{\theta_1})}{1-\beta^2}
+\end{aligned}</script><p>这和之前的推导是一致的。</p>
+<h1 id="相对论部分代码推导及其数量级"><a href="#相对论部分代码推导及其数量级" class="headerlink" title="相对论部分代码推导及其数量级"></a>相对论部分代码推导及其数量级</h1><p>上面的模型或许可以用于解释或者建立解析模型，但是对于第一性的模拟来说却是不够的，第一点是划分精度决定加速效率的问题（下面再说），第二点就是在确定而非随机磁场中角度和速度大小的变化。</p>
+<p>原本的速度变换公式为：</p>
+<script type="math/tex; mode=display">{u^{\prime}}=\frac{\sqrt{1-v^2}{u}-\frac{1-\sqrt{1-v^2}}{v^2}({u}\cdot{v}){v}-{v}}{1-{u}\cdot{v}}</script><p>在新的参考系中，粒子做无能量耗散的圆周运动，其半径为</p>
+<script type="math/tex; mode=display">R=\frac{\gamma mv}{qB}</script><p>云团的尺寸假设为1pc，以光速运动的电子也需要3年的时间穿过，如果第一性原理计算量极大，而使用费米加速模型或许可以简化一些计算量。</p>
+<p>转念一想，云团的尺寸大啊，我只需要在里面做一次相对论变换，至于怎么在磁场中转，这涉及到了磁场的模型，不如在足够大的情况下假设随机出射。（注意，是新系下的随机出射）</p>
+<p>不对，还是得考虑随机偏转，因为出射角度可能和入射角度不独立。</p>
+<p>由于云团的速度较小，忽略云团的移动。开始运动时，判断处于哪个云团，做相对论速度变换和位置变换。粒子仿照磁场偏转的办法，在其中做随机正态分布的偏转（记得$\times \gamma$），时间步为？</p>
+<h1 id="解析模型遇到的问题"><a href="#解析模型遇到的问题" class="headerlink" title="解析模型遇到的问题"></a>解析模型遇到的问题</h1><ol>
+<li>不是简单的扩散，加速度空间可以视为随机游走，但是速度是其一阶积分，位移是其二阶积分，最终呈现的效果有待计算。</li>
+<li>希望解析模型反应index和位置的关系。但是加速机制却和次数而不是和位置有关（见下），这里希望能有一个异于费米模型的模型，结合上面一点，在速度空间描述其变化，假定云团变成随机速度场，或许可以解决？</li>
+<li>基于射电晕有寿命且生成于并和时期的事实，如何反应湍流的程度影响加速效果？云团的平均速度大小，还是速度场的不均匀度（云团的个数）？</li>
+</ol>
+<h1 id="划分精度决定了加速效率？"><a href="#划分精度决定了加速效率？" class="headerlink" title="划分精度决定了加速效率？"></a>划分精度决定了加速效率？</h1><p>云团内包含了方向各异的磁场，却有着统一的速度。但数据是速度场，对云团的划分精度会显著影响加速效果，这显然是违背物理的。我们需要考虑速度的缓变场。</p>
+<h1 id="代码遇到的问题"><a href="#代码遇到的问题" class="headerlink" title="代码遇到的问题"></a>代码遇到的问题</h1><ol>
+<li>在模拟磁场运动这一步遇到了极大的计算量，这是希望保留一定的第一性且试图抛开费米模型前后角度独立的假定。现在的想法是，由于每次的变化是一个小量，那么能不能整合timestep的大小（加一点解析的模型进去）。</li>
+<li>怎么验证这个代码结果的正确性？怎么证明现在的随机固定云团可以反应真实的情况。<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clc</span><br><span class="line">close all</span><br><span class="line">clear</span><br><span class="line">%% Initialize</span><br><span class="line">particle_position_save=[];</span><br><span class="line">particle_velocity_save=[];</span><br><span class="line">index_change=0;</span><br></pre></td></tr></table></figure>
+为了保证云团的密接，</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Generate clouds position</span><br><span class="line">R=5e6;</span><br><span class="line">num=1e2;</span><br><span class="line">cloud_position=Gen_cloud_pos(R,num);</span><br><span class="line"></span><br><span class="line">%% Give a random velocity</span><br><span class="line">v_norm=1e-4;</span><br><span class="line">cloud_velocity=Gen_cloud_vel(v_norm,num);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Generate particle position</span><br><span class="line">xe=0;</span><br><span class="line">ye=0;</span><br><span class="line">ze=0;</span><br><span class="line">particle_position=[xe;ye;ze];</span><br><span class="line"></span><br><span class="line">%% Generate particle velocity</span><br><span class="line">gamma=1000;</span><br><span class="line">particle_velocity=Gen_par_vel(gamma,1);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Simulation begin</span><br><span class="line">while norm(particle_position)&lt;R</span><br><span class="line">    %% Determine which cloud is in</span><br><span class="line">    index=find_minimum_distance(particle_position(:,end),cloud_position);</span><br><span class="line">    %% Velocity Transform</span><br><span class="line">    index_velocity=cloud_velocity(:,index);</span><br><span class="line">    particle_velocity_transform=vel_tran(particle_velocity,index_velocity);</span><br><span class="line">    %% Simulate the B</span><br><span class="line">    timestep=100;</span><br><span class="line">    while find_minimum_distance(particle_position(:,end),cloud_position)==index</span><br><span class="line">        particle_position_save=[particle_position_save,particle_position];</span><br><span class="line">        particle_velocity_save=[particle_velocity_save,vel_tran(particle_velocity_transform,-index_velocity)];</span><br><span class="line">        particle_position=particle_position+timestep*particle_velocity_transform;</span><br><span class="line">        rand1=rand*pi;</span><br><span class="line">        rand2=rand;</span><br><span class="line">        while rand2&gt;sin(rand1)</span><br><span class="line">            rand1=rand*pi;</span><br><span class="line">            rand2=rand;</span><br><span class="line">        end</span><br><span class="line">        theta=3/1.7*sqrt(1-norm(particle_velocity_transform)^2)*rand()*cos(rand1);</span><br><span class="line">        particle_velocity_transform=rotation(particle_velocity_transform,theta);</span><br><span class="line">        if norm(particle_position)&gt;R</span><br><span class="line">            break</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">    index_change=index_change+1;</span><br><span class="line">    %% Velocity Transform Back</span><br><span class="line">    particle_velocity=particle_velocity_save(:,end);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">figure()</span><br><span class="line">plot3(particle_position_save(1,:),particle_position_save(2,:),particle_position_save(3,:))</span><br><span class="line">xlim([-R,R])</span><br><span class="line">ylim([-R,R])</span><br><span class="line">zlim([-R,R])</span><br><span class="line"></span><br><span class="line">figure()</span><br><span class="line">gamma_save=zeros(1,size(particle_velocity_save,2));</span><br><span class="line">for i=1:size(particle_velocity_save,2)</span><br><span class="line">    gamma_save(i)=1/sqrt(1-norm(particle_velocity_save(:,i))^2);</span><br><span class="line">end</span><br><span class="line">plot(gamma_save)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Generate clouds position</span><br><span class="line">function cloud_position=Gen_cloud_pos(R,num)</span><br><span class="line">x=zeros(1,num);</span><br><span class="line">y=zeros(1,num);</span><br><span class="line">z=zeros(1,num);</span><br><span class="line">for i=1:num</span><br><span class="line">    x(i)=2*R*rand()-R;</span><br><span class="line">    y(i)=2*R*rand()-R;</span><br><span class="line">    z(i)=2*R*rand()-R;</span><br><span class="line">    while x(i)^2+y(i)^2+z(i)^2&gt;R^2</span><br><span class="line">        x(i)=2*R*rand()-R;</span><br><span class="line">        y(i)=2*R*rand()-R;</span><br><span class="line">        z(i)=2*R*rand()-R;</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">cloud_position=[x;y;z];</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">%% Give a random velocity</span><br><span class="line">function cloud_velocity=Gen_cloud_vel(v_norm,num)</span><br><span class="line">vx=2*rand(1,num)-1;</span><br><span class="line">vy=2*rand(1,num)-1;</span><br><span class="line">vz=2*rand(1,num)-1;</span><br><span class="line">normalization=sqrt(vx.^2+vy.^2+vz.^2);</span><br><span class="line">vx=vx./normalization*v_norm;</span><br><span class="line">vy=vy./normalization*v_norm;</span><br><span class="line">vz=vz./normalization*v_norm;</span><br><span class="line"></span><br><span class="line">cloud_velocity=[vx;vy;vz];</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Generate particle velocity</span><br><span class="line">function particle_velocity=Gen_par_vel(gamma,num)</span><br><span class="line">u_norm=sqrt(1-1/gamma^2);</span><br><span class="line"></span><br><span class="line">ux=2*rand(1,num)-1;</span><br><span class="line">uy=2*rand(1,num)-1;</span><br><span class="line">uz=2*rand(1,num)-1;</span><br><span class="line"></span><br><span class="line">normalization=sqrt(ux^2+uy^2+uz^2);</span><br><span class="line">ux=ux/normalization*u_norm;</span><br><span class="line">uy=uy/normalization*u_norm;</span><br><span class="line">uz=uz/normalization*u_norm;</span><br><span class="line"></span><br><span class="line">particle_velocity=[ux;uy;uz];</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Determine which cloud is in</span><br><span class="line">function index=find_minimum_distance(vec1,vec2)</span><br><span class="line">r=(vec1(1)-vec2(1,:)).^2+(vec1(2)-vec2(2,:)).^2+(vec1(3)-vec2(3,:)).^2;</span><br><span class="line">[~,index]=min(r&#x27;);</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line">%% Velocity Transform</span><br><span class="line">function particle_velocity_transform=vel_tran(particle_velocity,index_velocity)</span><br><span class="line">gamma_c=1/sqrt(1-norm(index_velocity)^2);</span><br><span class="line">particle_velocity_transform=(particle_velocity/gamma_c+gamma_c/(gamma_c+1)*dot(particle_velocity,index_velocity)*index_velocity-index_velocity)/(1-dot(particle_velocity,index_velocity));</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% Position Transform</span><br><span class="line">function particle_position_transform=pos_tran(particle_position,index_position,index_velocity)</span><br><span class="line">particle_rel=particle_position-index_position;</span><br><span class="line">vxc=vx(index);</span><br><span class="line">vyc=vy(index);</span><br><span class="line">vzc=vz(index);</span><br><span class="line">index_velocity=[vxc;vyc;vzc];</span><br><span class="line">gamma_c=1/sqrt(1-norm(index_velocity)^2);</span><br><span class="line">Lambda=[</span><br><span class="line">    v_norm^2+(gamma_c-1)*vxc^2,(gamma_c-1)*vxc*vyc,(gamma_c-1)*vxc*vzc;</span><br><span class="line">    (gamma_c-1)*vxc*vyc,v_norm^2+(gamma_c-1)*vyc^2,(gamma_c-1)*vyc*vzc;</span><br><span class="line">    (gamma_c-1)*vxc*vzc,(gamma_c-1)*vyc*vzc,v_norm^2+(gamma_c-1)*vzc^2]/v_norm^2;</span><br><span class="line">particle_position_transform=Lambda*particle_rel;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%% B rotation</span><br><span class="line">function v_rotated=rotation(v,theta)</span><br><span class="line">random_vector = rand(3,1) - 0.5;</span><br><span class="line">axis = random_vector / norm(random_vector);</span><br><span class="line"></span><br><span class="line">K = [0, -axis(3), axis(2); axis(3), 0, -axis(1); -axis(2), axis(1), 0];</span><br><span class="line">I = eye(3);</span><br><span class="line">cos_theta = cos(theta);</span><br><span class="line">sin_theta = sin(theta);</span><br><span class="line">rotation_matrix = cos_theta * I + (1 - cos_theta) * (axis * axis&#x27;) + sin_theta * K;</span><br><span class="line"></span><br><span class="line">v_rotated = rotation_matrix * v;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>天文</category>
+      </categories>
+      <tags>
+        <tag>天文</tag>
+        <tag>科研</tag>
       </tags>
   </entry>
 </search>
