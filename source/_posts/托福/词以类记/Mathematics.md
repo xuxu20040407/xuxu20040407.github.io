@@ -1,0 +1,84 @@
+---
+title: Mathematics
+mathjax: true
+date: 2024-08-21 21:31:37
+tags: 托福
+categories:
+- 托福
+cover:
+---
+
+# Mathematics
+- rank{% spoiler p: 排名 %}
+- discrete{% spoiler p: 分离的 %}
+- symmetry{% spoiler p: 对称性 %}
+- sequence{% spoiler p: 数列 %}
+- dual{% spoiler p: 双重的 %}
+- induction{% spoiler p: 归纳%}
+- inference{% spoiler p: 推断%}
+- circular{% spoiler p: 圆形的 %}
+- circulate{% spoiler p: 循环%}
+- probability{% spoiler p: 概率%}
+- qualitative{% spoiler p: 定性的 %}
+- dispersion{% spoiler p: 离散%}
+- vertical{% spoiler p: 垂直的 %}
+- plumb{% spoiler p: 铅垂的%}
+- upright{% spoiler p: 竖直的%}
+- cubic{% spoiler p: 立方的%}
+- circuitous{% spoiler p: 迂回的%} // 纠正拼写错误
+- facet{% spoiler p: 面%}
+- sphere{% spoiler p: 球体%}
+- loop{% spoiler p: 循环%}
+- triangle{% spoiler p: 三角形%}
+- circumference{% spoiler p: 周长%}
+- cone{% spoiler p: 圆锥体%}
+- caliber{% spoiler p: 口径%}
+- diameter{% spoiler p: 直径%}
+- figure{% spoiler p: 图形%}
+- circle{% spoiler p: 圆%}
+- cube{% spoiler p: 立方体%}
+- column{% spoiler p: 柱%}
+- angle{% spoiler p: 角度%}
+- area{% spoiler p: 面积%}
+- ellipse{% spoiler p: 椭圆%}
+- diagram{% spoiler p: 图表%}
+- polygon{% spoiler p: 多边形%}
+- intersect{% spoiler p: 相交%}
+- radius{% spoiler p: 半径%}
+- rectangle{% spoiler p: 矩形%}
+- square{% spoiler p: 正方形%}
+- parallel{% spoiler p: 平行%}
+- deduction{% spoiler p: 演绎%}
+- degree{% spoiler p: 度%}
+- geometry{% spoiler p: 几何学%}
+- mathematics{% spoiler p: 数学%}
+- arithmetic{% spoiler p: 算术%}
+- statistics{% spoiler p: 统计学%}
+- even{% spoiler p: 偶数%}
+- decimal{% spoiler p: 小数%}
+- ratio{% spoiler p: 比率%}
+- estimate{% spoiler p: 估计%}
+- calculate{% spoiler p: 计算%}
+- evaluate{% spoiler p: 评估%}
+- variant{% spoiler p: 变体%}
+- variable{% spoiler p: 变量%}
+- abacus{% spoiler p: 算盘%}
+- aggregate{% spoiler p: 总计%}
+- sum{% spoiler p: 和%}
+- calculation{% spoiler p: 计算%}
+- calculator{% spoiler p: 计算器%}
+- calculus{% spoiler p: 微积分%}
+- digit{% spoiler p: 数字%}
+- function{% spoiler p: 函数%}
+- subtract{% spoiler p: 减去%}
+- addition{% spoiler p: 加法%}
+- minus{% spoiler p: 减%}
+- multiply{% spoiler p: 乘%}
+- multiplication{% spoiler p: 乘法%}
+- numeral{% spoiler p: 数字%}
+- percentage{% spoiler p: 百分比%}
+- plus{% spoiler p: 加%}
+- equation{% spoiler p: 方程%}
+- quarter{% spoiler p: 四分之一%}
+- fraction{% spoiler p: 分数%}
+- divide{% spoiler p: 除%}
