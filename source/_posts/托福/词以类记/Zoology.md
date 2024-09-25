@@ -73,52 +73,52 @@ cover:
 - baboon{% spoiler p: 狒狒 %}
 - gorilla{% spoiler p: 大猩猩 %}
 - lizard{% spoiler p: 蜥蜴 %}
-- moth{% spoiler p: 蛾 }
-- canary{% spoiler p: 金丝雀 }
-- caterpillar{% spoiler p: 毛虫 }
-- dinosaur{% spoiler p: 恐龙 }
-- chameleon{% spoiler p: 变色龙 }
-- larva{% spoiler p: 幼虫 }
-- bat{% spoiler p: 蝙蝠 }
-- family{% spoiler p: 科 }
-- class{% spoiler p: 纲 }
-- suborder{% spoiler p: 亚目 }
-- order{% spoiler p: 目 }
-- genus{% spoiler p: 属 }
-- antenna{% spoiler p: 触角 }
-- tentacle{% spoiler p: 触手 }
-- brain{% spoiler p: 大脑 }
-- spleen{% spoiler p: 脾 }
-- hide{% spoiler p: 皮 }
-- spine{% spoiler p: 脊柱 }
-- spineless{% spoiler p: 无脊柱的 }
-- toe{% spoiler p: 脚趾 }
-- bill{% spoiler p: 喙 }
-- beak{% spoiler p: 喙 }
-- fuzzy{% spoiler p: 毛茸茸的 }
-- head{% spoiler p: 头部 }
-- hump{% spoiler p: 驼峰 }
-- scale{% spoiler p: 鳞片 }
-- wing{% spoiler p: 翅膀 }
-- fluffy{% spoiler p: 蓬松的 }
-- carnal{% spoiler p: 肉体的 }
-- nervous{% spoiler p: 神经的 }
-- fat{% spoiler p: 脂肪 }
-- grease{% spoiler p: 油脂 }
-- greasy{% spoiler p: 油腻的 }
-- turtle{% spoiler p: 海龟 }
-- beaver{% spoiler p: 海狸 }
-- jellyfish{% spoiler p: 水母 }
-- starfish{% spoiler p: 海星 }
-- whale{% spoiler p: 鲸鱼 }
-- porpoise{% spoiler p: 海豚 }
-- dolphin{% spoiler p: 海豚 }
-- prawn{% spoiler p: 虾 }
-- shrimp{% spoiler p: 虾 }
-- lobster{% spoiler p: 龙虾 }
-- sponge{% spoiler p: 海绵 }
-- plankton{% spoiler p: 浮游生物 }
-- oyster{% spoiler p: 牡蛎 }
-- clam{% spoiler p: 蛤 }
-- coral{% spoiler p: 珊瑚 }
-- crab{% spoiler p: 蟹 }
+- moth{% spoiler p: 蛾%}
+- canary{% spoiler p: 金丝雀%}
+- caterpillar{% spoiler p: 毛虫%}
+- dinosaur{% spoiler p: 恐龙%}
+- chameleon{% spoiler p: 变色龙%}
+- larva{% spoiler p: 幼虫%}
+- bat{% spoiler p: 蝙蝠%}
+- family{% spoiler p: 科%}
+- class{% spoiler p: 纲%}
+- suborder{% spoiler p: 亚目%}
+- order{% spoiler p: 目%}
+- genus{% spoiler p: 属%}
+- antenna{% spoiler p: 触角%}
+- tentacle{% spoiler p: 触手%}
+- brain{% spoiler p: 大脑%}
+- spleen{% spoiler p: 脾%}
+- hide{% spoiler p: 皮%}
+- spine{% spoiler p: 脊柱%}
+- spineless{% spoiler p: 无脊柱的%}
+- toe{% spoiler p: 脚趾%}
+- bill{% spoiler p: 喙%}
+- beak{% spoiler p: 喙%}
+- fuzzy{% spoiler p: 毛茸茸的%}
+- head{% spoiler p: 头部%}
+- hump{% spoiler p: 驼峰%}
+- scale{% spoiler p: 鳞片%}
+- wing{% spoiler p: 翅膀%}
+- fluffy{% spoiler p: 蓬松的%}
+- carnal{% spoiler p: 肉体的%}
+- nervous{% spoiler p: 神经的%}
+- fat{% spoiler p: 脂肪%}
+- grease{% spoiler p: 油脂%}
+- greasy{% spoiler p: 油腻的%}
+- turtle{% spoiler p: 海龟%}
+- beaver{% spoiler p: 海狸%}
+- jellyfish{% spoiler p: 水母%}
+- starfish{% spoiler p: 海星%}
+- whale{% spoiler p: 鲸鱼%}
+- porpoise{% spoiler p: 海豚%}
+- dolphin{% spoiler p: 海豚%}
+- prawn{% spoiler p: 虾%}
+- shrimp{% spoiler p: 虾%}
+- lobster{% spoiler p: 龙虾%}
+- sponge{% spoiler p: 海绵%}
+- plankton{% spoiler p: 浮游生物%}
+- oyster{% spoiler p: 牡蛎%}
+- clam{% spoiler p: 蛤%}
+- coral{% spoiler p: 珊瑚%}
+- crab{% spoiler p: 蟹%}
