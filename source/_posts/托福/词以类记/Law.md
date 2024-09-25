@@ -1,0 +1,106 @@
+---
+title: Law
+mathjax: true
+date: 2024-08-21 21:31:37
+tags: 托福
+categories:
+- 托福
+cover:
+---
+# Law
+- penal{% spoiler p: 刑罚的 %}
+- penalty{% spoiler p: 处罚 %}
+- illicit{% spoiler p: 违法的 %}
+- unruly{% spoiler p: 不守规矩的 %}
+- illegitimate{% spoiler p: 不合法的 %}
+- default{% spoiler p: 违约 %}
+- violate{% spoiler p: 违反 %}
+- infringe{% spoiler p: 侵犯 %}
+- bound{% spoiler p: 受约束的 %}
+- compulsory{% spoiler p: 强制的 %}
+- oblige{% spoiler p: 有义务的 %}
+- obligatory{% spoiler p: 义务的 %}
+- responsible{% spoiler p: 有责任的 %}
+- domineering{% spoiler p: 专横的 %}
+- mandatory{% spoiler p: 强制性的 %}
+- licensed{% spoiler p: 有执照的 %}
+- heirship{% spoiler p: 继承权 %}
+- jurisdiction{% spoiler p: 司法管辖权 %}
+- arbitration{% spoiler p: 仲裁 %}
+- fine{% spoiler p: 罚款 %}
+- confiscate{% spoiler p: 没收 %}
+- convict{% spoiler p: 定罪 %}
+- verdict{% spoiler p: 裁决 %}
+- judgment{% spoiler p: 判决 %}
+- indemnity{% spoiler p: 赔偿金 %}
+- imprisonment{% spoiler p: 监禁 %}
+- captivity{% spoiler p: 囚禁 %}
+- trial{% spoiler p: 审判 %}
+- detain{% spoiler p: 拘留 %}
+- extenuate{% spoiler p: 减轻罪责 %}
+- saddle{% spoiler p: 使负担 %}
+- court{% spoiler p: 法庭 %}
+- bar{% spoiler p: 律师界 %}
+- authorize{% spoiler p: 授权 %}
+- empower{% spoiler p: 授权 %}
+- plea{% spoiler p: 抗辩 %}
+- oath{% spoiler p: 誓言 %}
+- pledge{% spoiler p: 保证 %}
+- plaintiff{% spoiler p: 原告 %}
+- plead{% spoiler p: 辩护 %}
+- flee{% spoiler p: 逃避 %}
+- defend{% spoiler p: 辩护 %}
+- proscribe{% spoiler p: 禁止 %}
+- forbid{% spoiler p: 禁止 %}
+- abstinence{% spoiler p: 节制 %}
+- abstain{% spoiler p: 戒绝 %}
+- ban{% spoiler p: 禁止 %}
+- veto{% spoiler p: 否决权 %}
+- revise{% spoiler p: 修改 %}
+- verify{% spoiler p: 核实 %}
+- deserve{% spoiler p: 应得 %}
+- stipulate{% spoiler p: 规定 %}
+- testify{% spoiler p: 作证 %}
+- testimony{% spoiler p: 证词 %}
+- substantiate{% spoiler p: 证实 %}
+- confirm{% spoiler p: 确认 %}
+- affirm{% spoiler p: 肯定 %}
+- assure{% spoiler p: 保证 %}
+- evidence{% spoiler p: 证据 %}
+- follow{% spoiler p: 跟随 %}
+- observe{% spoiler p: 观察 %}
+- observance{% spoiler p: 遵守 %}
+- abide{% spoiler p: 遵守 %}
+- accuse{% spoiler p: 控告 %}
+- accusation{% spoiler p: 指控 %}
+- complaint{% spoiler p: 投诉 %}
+- impeach{% spoiler p: 弹劾 %}
+- indictment{% spoiler p: 起诉 %}
+- incriminate{% spoiler p: 控告 %}
+- prosecute{% spoiler p: 起诉 %}
+- denounce{% spoiler p: 谴责 %}
+- lawsuit{% spoiler p: 诉讼 %}
+- query{% spoiler p: 询问 %}
+- interrogate{% spoiler p: 审问 %}
+- impunity{% spoiler p: 免受惩罚 %}
+- exempt{% spoiler p: 免除 %}
+- condone{% spoiler p: 宽恕 %}
+- liberate{% spoiler p: 解放 %}
+- remit{% spoiler p: 减免 %}
+- release{% spoiler p: 释放 %}
+- absolve{% spoiler p: 赦免 %}
+- acquit{% spoiler p: 宣告无罪 %}
+- abolish{% spoiler p: 废除 %}
+- term{% spoiler p: 条款 %}
+- clause{% spoiler p: 条款 %}
+- bill{% spoiler p: 法案 %}
+- constitution{% spoiler p: 宪法 %}
+- decree{% spoiler p: 法令 %}
+- legislate{% spoiler p: 立法 %}
+- legislation{% spoiler p: 法规 %}
+- legalize{% spoiler p: 合法化 %}
+- prescribe{% spoiler p: 开处方；规定 %}
+- set{% spoiler p: 规定 %}
+- credential{% spoiler p: 证书 %}
+- standard{% spoiler p: 标准 %}
+- enact{% spoiler p: 制定（法律）%}
