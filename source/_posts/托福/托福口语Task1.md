@@ -34,8 +34,51 @@ cover:
 4. 说原因2（5s）
 5. 给解释（15s）
 6. 结尾
-### 2024年8月
 
+对于给原因，有以下主题：
+
+对于给解释，有以下模板：
+- 逻辑链条：假设你的分论点是A，那么结构就是A-B-C-A
+> First off, I think the park, the green space, is essential to people's lives. 
+> 
+> If the park and the green space are absent in people's lives, people cannot enjoy a relaxing walk or beneficial exercise,
+>
+> causing the decrease in working efficiency and wellbeing.
+> 
+> So if the park is destroyed, the quality of people's lives cannot be ensured.
+- 反复解释：分论点+解释+细节+反面
+> First off, I think the park, the green space, is essential to people's lives. 
+> 
+> This is because a lot of people use the park every day, 
+> 
+> like they work out in the morning and in the evening they take a relaxing walk. 
+> 
+> So if the park is destroyed, they have no place to work out or relax.
+
+**TPO 1**
+
+> *Some people believe that television has had a positive influence on society. Others believe it has had a negative influence on society. Which do you agree with and why? Use details and examples to explain your opinion.*
+
+Television has both positive and negative impacts on society, but I lean towards the positive side. Firstly, television is a powerful educational tool. For instance, educational programs like "Sesame Street" have been proven to enhance children's learning abilities. Additionally, TV documentaries can broaden our horizons by exposing us to different cultures and histories, like the BBC's "Planet Earth" series.
+
+Secondly, television fosters a sense of community. During significant events, such as the Olympics or the Super Bowl, people gather around the TV to share these moments, which strengthens social bonds.
+
+However, it's also important to acknowledge the negative aspects. Excessive TV watching can lead to a sedentary lifestyle and health issues. Moreover, the content on TV can sometimes be violent or inappropriate, which might influence viewers, especially children, negatively.
+
+In conclusion, while there are concerns, I believe the positive aspects of television, such as education and community building, outweigh the negatives when used responsibly. It's crucial for viewers to be mindful of their consumption habits and for the industry to continue producing high-quality, enriching content.
+
+**TPO 2**
+> *Some students prefer to work on class assignments by themselves. Others believe it is better to work in a group. Which do you prefer? Explain why.*
+
+I prefer working in a group on class assignments. 
+
+Group work allows for diverse perspectives, which can lead to more creative and comprehensive solutions. For instance, when tackling a marketing project, a design major might bring fresh visual ideas, while a business major could offer insights into strategy. 
+
+Additionally, group work enhances communication and teamwork skills, which are essential in the professional world. Collaborating with others also helps distribute the workload, making the task less overwhelming. 
+
+Overall, group assignments foster a supportive learning environment and prepare students for future collaborative endeavors.
+
+### 2024年8月
 **2024.08.17**
 
 >*Do you agree or disagree with the following statement? Students can learn school subjects as effectively through online videos as they can from classroom teaching. Use details and examples to explain your opinion.*
