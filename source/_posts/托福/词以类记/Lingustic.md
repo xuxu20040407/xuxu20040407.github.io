@@ -1,0 +1,123 @@
+---
+title: Linguistics and Politics
+mathjax: true
+date: 2024-08-21 21:31:37
+tags: 托福
+categories:
+- 托福
+cover:
+---
+
+# Linguistics
+- implicit{% spoiler p: 内含的 %}
+- concise{% spoiler p: 简洁的 %}
+- succinct{% spoiler p: 简明的 %}
+- fluent{% spoiler p: 流利的 %}
+- cogent{% spoiler p: 有说服力的 %}
+- character{% spoiler p: 字符 %}
+- glossary{% spoiler p: 词汇表 %}
+- dialect{% spoiler p: 方言 %}
+- clause{% spoiler p: 从句 %}
+- linguistics{% spoiler p: 语言学 %}
+- phonetics{% spoiler p: 语音学 %}
+- tense{% spoiler p: 时态 %}
+- version{% spoiler p: 版本 %}
+- genre{% spoiler p: 类型 %}
+- tag{% spoiler p: 标记 %}
+- slogan{% spoiler p: 口号 %}
+- lyric{% spoiler p: 歌词 %}
+- verse{% spoiler p: 诗%}
+- fiction{% spoiler p: 小说%}
+- byword{% spoiler p: 格言 %}
+- fable{% spoiler p: 寓言%}
+- term{% spoiler p: 术语%}
+- maxim{% spoiler p: 格言%}
+- satire{% spoiler p: 讽刺%}
+- farce{% spoiler p: 闹剧%}
+- adage{% spoiler p: 谚语%}
+- synopsis{% spoiler p: 概要%}
+- compile{% spoiler p: 编写%}
+- entitle{% spoiler p: 命名%}
+- emend{% spoiler p: 修改%}
+- paraphrase{% spoiler p: 改述%} // 纠正拼写错误
+- adapt{% spoiler p: 适应%}
+- adaptable{% spoiler p: 可适应的 %}
+- adaptation{% spoiler p: 适应%}
+- excerpt{% spoiler p: 摘录 %}
+- abstract{% spoiler p: 摘要 %}
+- abstraction{% spoiler p: 抽象概念 %}
+- abridge{% spoiler p: 删节%}
+- coin{% spoiler p: 创造%} // 如创造新词
+
+# Politics
+- factious{% spoiler p: 宗派的 %}
+- partisan{% spoiler p: 党派的 %}
+- board{% spoiler p: 委员会 %}
+- Senate{% spoiler p: 参议院 %}
+- Congress{% spoiler p: 国会 %}
+- diplomatic{% spoiler p: 外交的 %}
+- diplomacy{% spoiler p: 外交%}
+- confederate{% spoiler p: 联盟%}
+- league{% spoiler p: 联盟%}
+- affiliate{% spoiler p: 联系%}
+- unconventional{% spoiler p: 非正统的 %}
+- dictatorial{% spoiler p: 独裁的 %}
+- domestic{% spoiler p: 国内的 %}
+- potent{% spoiler p: 有力的 %}
+- authoritative{% spoiler p: 权威的 %}
+- influential{% spoiler p: 有影响力的 %}
+- centralized{% spoiler p: 中央集权的 %}
+- authority{% spoiler p: 权力 %}
+- privilege{% spoiler p: 特权 %}
+- democracy{% spoiler p: 民主制 %}
+- petition{% spoiler p: 请愿书%}
+- domain{% spoiler p: 领域 %}
+- territory{% spoiler p: 领土 %}
+- nationality{% spoiler p: 国籍 %}
+- kingdom{% spoiler p: 王国 %}
+- realm{% spoiler p: 王国 %}
+- regime{% spoiler p: 政权%} // 纠正拼写错误
+- sovereignty{% spoiler p: 主权%}
+- autonomy{% spoiler p: 自治%}
+- commission{% spoiler p: 委员会 %}
+- committee{% spoiler p: 委员会 %}
+- election{% spoiler p: 选举%}
+- ballot{% spoiler p: 投票%}
+- ideology{% spoiler p: 意识形态%}
+- parade{% spoiler p: 游行%}
+- govern{% spoiler p: 管理%}
+- confer{% spoiler p: 授予%}
+- entitle{% spoiler p: 授权%}
+- exploit{% spoiler p: 开发%}
+- maneuver{% spoiler p: 策略%}
+- reform{% spoiler p: 改革%}
+- inspect{% spoiler p: 检查%}
+- emigrate{% spoiler p: 移民国外%}
+- immigrate{% spoiler p: 移入%}
+- exile{% spoiler p: 流放%}
+- enslave{% spoiler p: 奴役%}
+- hustle{% spoiler p: 催促%}
+- impel{% spoiler p: 驱使%}
+- oust{% spoiler p: 驱逐%}
+- banish{% spoiler p: 放逐%}
+- deport{% spoiler p: 递解出境%}
+- enable{% spoiler p: 授权%}
+- reign{% spoiler p: 统治%}
+- dominate{% spoiler p: 支配%}
+- abdicate{% spoiler p: 退位%}
+- administer{% spoiler p: 管理%}
+- administration{% spoiler p: 行政%}
+- institute{% spoiler p: 建立%}
+- amendment{% spoiler p: 修正%}
+- colonize{% spoiler p: 殖民%}
+- check{% spoiler p: 制衡%}
+- monarchy{% spoiler p: 君主制%}
+- republican{% spoiler p: 共和制的 %}
+- anarchism{% spoiler p: 无政府主义%} // 纠正拼写错误
+- doctrine{% spoiler p: 主义%}
+- immigrant{% spoiler p: 移民%}
+- municipal{% spoiler p: 市政的 %}
+- strike{% spoiler p: 罢工%}
+- scandal{% spoiler p: 丑闻%}
+- vote{% spoiler p: 投票%}
+- welfare{% spoiler p: 福利%}

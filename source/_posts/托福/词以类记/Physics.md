@@ -1,0 +1,119 @@
+---
+title: Physics
+mathjax: true
+date: 2024-08-21 21:31:37
+tags: 托福
+categories:
+- 托福
+cover:
+---
+
+# Physics
+- # Physics
+- compatible{% spoiler p: 兼容的 %}
+- boundary{% spoiler p: 边界 %}
+- boundless{% spoiler p: 无限的 %}
+- endless{% spoiler p: 无尽的 %}
+- cohesive{% spoiler p: 凝聚的 %}
+- horizontal{% spoiler p: 水平的 %}
+- bulk{% spoiler p: 体积 %}
+- brim{% spoiler p: 边缘 %}
+- edge{% spoiler p: 边缘 %}
+- rim{% spoiler p: 边缘 %}
+- brink{% spoiler p: 边缘 %}
+- constituent{% spoiler p: 构成要素 %}
+- dimension{% spoiler p: 维度 %}
+- elasticity{% spoiler p: 弹性 %}
+- cohesion{% spoiler p: 内聚力 %} // 纠正拼写错误
+- mechanics{% spoiler p: 力学 %}
+- pressure{% spoiler p: 压力 %}
+- gravity{% spoiler p: 重力 %}
+- impetus{% spoiler p: 推动力 %}
+- release{% spoiler p: 释放 %}
+- decelerate{% spoiler p: 减速 %}
+- precipitate{% spoiler p: 沉淀 %}
+- expedite{% spoiler p: 加速 %}
+- quiver{% spoiler p: 微颤 %}
+- jar{% spoiler p: 震动 %}
+- vibration{% spoiler p: 振动 %}
+- discharge{% spoiler p: 放电 %}
+- shrink{% spoiler p: 收缩 %}
+- diffuse{% spoiler p: 扩散 %}
+- emit{% spoiler p: 发出 %}
+- transpire{% spoiler p: 发生 %}
+- constitute{% spoiler p: 组成 %}
+- eject{% spoiler p: 喷射 %}
+- radiate{% spoiler p: 辐射 %}
+- molecule{% spoiler p: 分子 %}
+- ion{% spoiler p: 离子 %}
+- electron{% spoiler p: 电子 %}
+- neutron{% spoiler p: 中子 %}
+- proton{% spoiler p: 质子 %}
+- atom{% spoiler p: 原子 %}
+- nuclear{% spoiler p: 核的 %}
+- physics{% spoiler p: 物理学 %}
+- fusion{% spoiler p: 融合 %}
+- thermometer{% spoiler p: 温度计 %}
+- temperature{% spoiler p: 温度 %}
+- thaw{% spoiler p: 解冻 %}
+- centigrade{% spoiler p: 摄氏 %}
+- clot{% spoiler p: 凝块 %}
+- sublimate{% spoiler p: 升华 %}
+- distillation{% spoiler p: 蒸馏 %}
+- chaos{% spoiler p: 混乱 %}
+- clutter{% spoiler p: 杂乱 %}
+- equilibrium{% spoiler p: 平衡 %}
+- density{% spoiler p: 密度 %}
+- liquid{% spoiler p: 液体 %}
+- dilute{% spoiler p: 稀释 %}
+- dehydrate{% spoiler p: 脱水 %}
+- declivity{% spoiler p: 倾斜 %}
+- foam{% spoiler p: 泡沫 %}
+- ventilation{% spoiler p: 通风 %} // 纠正拼写错误
+- evaporate{% spoiler p: 发生%}
+- evaporation{% spoiler p: 发生%}
+- thermodynamics{% spoiler p: 热力学 %}
+- friction{% spoiler p: 摩擦 %}
+- attrition{% spoiler p: 磨损 %}
+- resonance{% spoiler p: 共振 %}
+- echo{% spoiler p: 回声 %} // 纠正拼写错误
+- ultrasonics{% spoiler p: 超声波学 %}
+- sonar{% spoiler p: 声纳 %}
+- acoustic{% spoiler p: 声学的 %}
+- band{% spoiler p: 带 %}
+- charge{% spoiler p: 电荷 %}
+- electricity{% spoiler p: 电 %}
+- electromagnetism{% spoiler p: 电磁学 %}
+- electronic{% spoiler p: 电子的 %}
+- amplifier{% spoiler p: 放大器 %}
+- battery{% spoiler p: 电池 %}
+- chip{% spoiler p: 芯片 %}
+- conductor{% spoiler p: 导体 %}
+- insulator{% spoiler p: 绝缘体 %}
+- magnet{% spoiler p: 磁铁 %}
+- magnetism{% spoiler p: 磁性 %}
+- semiconductor{% spoiler p: 半导体 %}
+- transistor{% spoiler p: 晶体管 %}
+- ultraviolet{% spoiler p: 紫外线 %}
+- microwave{% spoiler p: 微波 %}
+- mechanics{% spoiler p: 力学 %}
+- gravitation{% spoiler p: 万有引力 %}
+- oscillation{% spoiler p: 振动 %}
+- statics{% spoiler p: 静力学 %}
+- relativity{% spoiler p: 相对论 %}
+- velocity{% spoiler p: 速度 %}
+- dynamics{% spoiler p: 动力学 %}
+- force{% spoiler p: 力 %}
+- current{% spoiler p: 电流 %}
+- accelerate{% spoiler p: 加速 %}
+- acceleration{% spoiler p: 加速度 %}
+- transparent{% spoiler p: 透明的 %}
+- opaque{% spoiler p: 不透明的 %}
+- translucent{% spoiler p: 半透明的 %}
+- optical{% spoiler p: 光学的 %}
+- optics{% spoiler p: 光学 %}
+- ray{% spoiler p: 射线 %}
+- spectrum{% spoiler p: 光谱 %}
+- wavelength{% spoiler p: 波长 %}
+- magnifier{% spoiler p: 放大镜 %}
+- lens{% spoiler p: 透镜 %}
