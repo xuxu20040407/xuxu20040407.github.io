@@ -36,6 +36,24 @@ cover:
 6. 结尾
 
 对于给原因，有以下主题：
+- Personality
+  - Character and Quaity
+  - Movement and Health
+  - Behavior
+  - ...
+- Education & Study
+  - Online and Offline
+  - Degree and Knowledge
+  - ...
+- Social & Interpersonal Relationships
+  - Friendship
+  - ...
+- Technology & Modern Life
+  - ...
+- Environment & Economy
+  - ...
+- Work & Life Style
+  - ...
 
 对于给解释，有以下模板：
 - 逻辑链条：假设你的分论点是A，那么结构就是A-B-C-A
@@ -54,6 +72,9 @@ cover:
 > like they work out in the morning and in the evening they take a relaxing walk. 
 > 
 > So if the park is destroyed, they have no place to work out or relax.
+
+对于给原因，有以下方法：
+- 双位思考：如果题目是A对B的影响，不妨思考A的一个分论点和B的一个分论点。
 
 **TPO 1**
 
