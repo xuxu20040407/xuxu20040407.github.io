@@ -1,5 +1,4 @@
 ---
 title: about
-date: 2024-08-14 11:09:18
-type: about
+date: 2024-10-13 15:52:07
 ---
