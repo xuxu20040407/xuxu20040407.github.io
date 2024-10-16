@@ -99,6 +99,51 @@ Additionally, group work enhances communication and teamwork skills, which are e
 
 Overall, group assignments foster a supportive learning environment and prepare students for future collaborative endeavors.
 
+
+**真题61**
+>*Do you agree or disagree with the following statement? Students can learn school subjects as effectively through online videos as thev can from classroom teaching. Use details and examples to explain your opinion.*
+
+To be honest, I don't agree with the statement that students can learn school subjects as effectively through online videos as they can from classroom teaching.
+
+First off, since there are no teachers to supervise students, their attention will be inevitably distracted. If they work in the classrooms, they can focus their minds on the subjects.
+
+Moreover, teachers cannot adapt their class content from students' feedback. If they can ask questions in the classrooms, teachers' answers will clear their confusion.
+
+Therefore, I don't agree with the statement.
+
+> 看到隐含比较的题目，第一时间想到了要进行对比，不过这里也可以用其他方法补充细节，比如：
+> ..., their attention will be inevitably distracted by their mobile phones and computers.
+
+
+
+**真题62**
+> *To help ensure students have enough time for studying, your school is considering placing a limit on the number of student clubs, sports, or organizations that a student is allowed to join. Do you think this is a good idea? Explain why or why not, using specific details and examples in your response.*
+
+To be honest, I don't think it's a good idea to place a limit on the number of organization and clubs.
+
+First off, such an action will hinder students' rounded development. With a wide range of acticities, students can develop their interests thus know what they want to do, such as reading books and playing football.
+
+Moreover, various activities can help students relax thus they can devote much more time into study. So it sounds ironic to ensure student's time on study by placing a limit on the number of activities.
+
+**真题63**
+> *Some professors allow students who have not done well on graded assignments during a course to do additional assignments in order to improve their overall course grade. Do you think this is a good idea? Explain why or why not. Use details and examples to support your opinion.*
+
+
+Allowing students to improve their grades through additional assignments is a beneficial practice. It fosters a growth mindset, encouraging students to learn from their mistakes and perseverence. 
+
+For instance, a student who performs poorly on a midterm can use the opportunity to review and master the material, potentially leading to a better final exam score. 
+
+By providing a chance to recover, educators show empathy and support, which can enhance students' motivation and engagement. So I think it's a good idea.
+
+**真题64**
+> *Do you agree or disagree with the following statement? Parents should control the access their children have to social media. Use details and examples to explain your response.*
+
+To be honest, I agree with the statement that parents should control the access their children have to social media, because there are much harmful and dagerous infomation on it, and children are at the stage to form their world view and values.
+
+For example, children under 12 years old should not be exposed to games including violence, which will lead them to form a bad and false world view and values.
+
+Therefore, I agree with the statement.
+
 ### 2024年8月
 **2024.08.17**
 
