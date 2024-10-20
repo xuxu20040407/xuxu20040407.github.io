@@ -144,6 +144,59 @@ For example, children under 12 years old should not be exposed to games includin
 
 Therefore, I agree with the statement.
 
+**真题65**
+> *Do you agree or disagree with the following statement? Children need to learn at an early age how to be independent. Use details and examples to explain your answer.*
+
+To be honest, I agree with the statement that children need to learn at an early age how to be independent.
+
+This is because independence is one of the necessory qualities that an adult should have.If a child cannot develop self-reliance, let alone the adult he grows to. An dependent adult cannot cook and wash clothes for himself, not to mention pursue his dreams.
+
+Therefore, I agree with the statement.
+
+Kimi:
+
+I agree that children should learn independence early on. 
+
+Developing self-reliance fosters a sense of responsibility and resilience. For instance, teaching a child to dress themselves or make their bed instills pride and autonomy. It prepares them for more significant challenges, such as academic pursuits and social interactions. 
+
+Moreover, independent children are more likely to adapt to new environments, like starting school or making new friends. 
+
+However, the process should be gradual and age-appropriate, ensuring children don't feel overwhelmed. Balancing guidance with independence nurtures well-rounded individuals ready for life's complexities.
+
+**真题66**
+> *When taking notes during a lecture or meeting, some people prefer to write them by hand on paper. Other people prefer to take notes by typing them on a laptop or other device. Which do you prefer? Explain why, using details and examples.*
+
+To be honest, I prefer taking notes by typing on the laptop or screen when on the lecture and meeting.
+
+This is because it's convenient and safe to save notes on the laptop. When I need to go over the notes, I can just tap the screen, click the mouse and open the folder whenever and wherever I want. If I take notes on the paper, It can be easily loss.
+
+Therefore, I prefer taking notes by typing on the laptop or screen when on the lecture and meeting.
+
+**真题67**
+> *Nowadays, some people use extreme methods, including surgery, to change their appearance-usually because they are trying to look more attractive in some way. Do you think this is a good idea? Explain why you agree or disagree with people using such methods to change how they look. Support your opinion with details.*
+
+I disagree with using extreme methods like surgery to change one's appearance for the sake of attractiveness. 
+
+While beauty standards can influence self-esteem, altering one's body through surgery carries significant risks such as complications, scarring, and the potential for unsatisfactory results. 
+
+Moreover, societal pressure to conform to certain looks can lead to unrealistic expectations and a cycle of continuous dissatisfaction. Instead, fostering self-acceptance and promoting a healthy lifestyle can enhance attractiveness more genuinely. Confidence and a positive attitude often resonate more with others than superficial changes.
+
+**真题68**
+> *Some people think it is better to socialize on social media rather than in person. Which do you think is better? Explain why, using specific examples and details.*
+
+To be honest, I think it's better to socialize in person.
+
+First off, Socializing in person means face to face interactions, which can strengthen the relationship between friends rather than on social media.
+
+Moreover, frequent chances in socialzing in person can make a person more confident and improve his social skills. If one person devotes more time on social media, he is more likely to be introverted.
+
+Therefore, I prefer socializing in person.
+
+
+
+
+
+
 ### 2024年8月
 **2024.08.17**
 
