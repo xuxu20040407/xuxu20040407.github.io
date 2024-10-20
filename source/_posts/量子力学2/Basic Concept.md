@@ -6,6 +6,7 @@ tags: 量子力学2
 categories: 量子力学2
 cover:
 ---
+量子力学2主要参考课程讲义以及Sarkari的《现代量子力学》。
 - [量子力学公设](#量子力学公设)
 - [基本概念](#基本概念)
   - [左矢空间和右矢空间](#左矢空间和右矢空间)
@@ -15,6 +16,9 @@ cover:
   - [基底右矢和线性展开](#基底右矢和线性展开)
   - [矩阵表示](#矩阵表示)
   - [测量](#测量)
+  - [相容可测量量和简并](#相容可测量量和简并)
+  - [不确定性关系](#不确定性关系)
+- [基矢的变换](#基矢的变换)
 - [混合态和密度矩阵](#混合态和密度矩阵)
 - [量子熵和极大熵原理](#量子熵和极大熵原理)
   - [微正则系综](#微正则系综)
@@ -111,11 +115,63 @@ $$\langle\alpha|\alpha\rangle=\langle\alpha|\sum_{a}|a\rangle\langle a|\alpha\ra
 ## 矩阵表示
 
 对于正交标准完备基底，算符表示为：
-$$\hat A=\sum_{a_1}\sum_{a_2}|a_2\rangle\langle a_1|\hat A|a_2\rangle\langle a_2|=\sum_{a_1}\sum_{a_2}|a_2\rangle A_{a_1a_2}\langle a_2|$$
+$$\hat A=\sum_{a_i}\sum_{a_j}|a_i\rangle\langle a_i|\hat A|a_j\rangle\langle a_j|=\sum_{a_i}\sum_{a_j}|a_i\rangle A_{a_ia_j}\langle a_j|$$
+
+厄密性和矩阵的复共轭转置的性质联系了起来。
 
 ## 测量
+当我们用算符作用在一个右矢上，其物理意义是测量:
+$$|\alpha\rangle=\hat A|a\rangle$$
+测量一个右矢，给出了相应算符表象下物理态及其概率。
+
+实际上作用前后的右矢我们仍然观测不了，我们真正感兴趣的是态对于算符的平均值，定义为
+$$\langle\hat A\rangle=\langle\alpha|\hat A|\alpha\rangle$$
+这和经典的概率诠释相符。用算符的本征基矢展开：
+$$\begin{aligned}\langle\alpha|\hat A|\alpha\rangle&=\sum_{a_i}\sum_{a_j}\langle\alpha|a_i\rangle\langle a_i|\hat A|a_j\rangle\langle a_j|\alpha\rangle\\&=\sum_{a_i}\sum_{a_j}c_{a_j}\langle\alpha|a_i\rangle\langle a_i|\hat A|a_j\rangle\\&=\sum_{a_j}c_{a_j}c_{a_j}^*\langle a_j|\hat A|a_j\rangle=\sum_{a_j}c_j^2A_j\end{aligned}$$
 
 
+## 相容可测量量和简并
+当两个可观测量的算符对易时，称这两个可观测量是相容的。
+
+**定理**：相容可观测量具有共同本征右矢，记为
+$$|a,b\rangle$$
+满足
+$$\hat A|a,b\rangle=a|a,b\rangle,\hat B|a,b\rangle=b|a,b\rangle$$
+
+## 不确定性关系
+$$|\langle\Delta A\Delta B\rangle|^2=\frac14|\langle[A, B]\rangle|^2+\frac14|\langle{\Delta A,\Delta B}\rangle|^2$$
+
+# 基矢的变换
+
+两组正交完备标准基矢$|a\rangle,|b\rangle$可以通过一个幺正算符：
+$$\hat U=\sum_{k}|b^k\rangle\langle a^k|$$
+进行转换：
+$$|b\rangle=\hat U|a\rangle$$
+
+
+对于原来基矢的右矢，在保持系数不变的情况下，可以通过该矩阵进行转换：
+$$\begin{aligned}
+|\beta\rangle&=\sum_i\langle a^i|\alpha\rangle|b^i\rangle\\
+&=\sum_i\sum_j\langle a^i|\alpha\rangle\hat U_{ij}|a^j\rangle\\
+&=\hat U |\alpha\rangle\\
+\end{aligned}$$
+
+反过来，如果要保持右矢不变，那么右矢在新基矢的系数则为：
+$$\langle b^i|\alpha\rangle=\sum_j\langle b^i|a^j\rangle\langle a^j\alpha\rangle=\sum_j\langle a^i|\hat U^\dagger|a^j\rangle\langle a^j\alpha\rangle$$
+
+也就是说把共轭矩阵作用在系数向量。
+
+对于原来基矢的算符，同样类似于上面的变换：
+$$\hat X_b=\hat U^\dagger\hat X_a\hat U$$
+相似变换不改变矩阵的迹，即迹是不依赖于表象的：
+$$\begin{aligned}
+Tr(\hat X)&=\sum_i \langle a^i|\hat X |a^i\rangle\\
+&=\sum_i\sum_j\sum_k \langle a^i|b^j\rangle\langle b^j|\hat X|b^k\rangle\langle b^k| a^i\rangle\\
+&=\sum_i\sum_j\sum_k \langle b^k| a^i\rangle\langle a^i|b^j\rangle\langle b^j|\hat X|b^k\rangle\\
+&=\sum_i\sum_j\sum_k \langle b^k|b^j\rangle\langle b^j|\hat X|b^k\rangle\\
+&=\sum_i\sum_j\sum_k\langle b^j|\hat X|b^k\rangle \langle b^k|b^j\rangle\\
+&=\sum_i\sum_j\sum_k\langle b^j|\hat X|b^j\rangle\\
+\end{aligned}$$
 
 
 # 混合态和密度矩阵
@@ -133,7 +189,7 @@ $$\hat A=\sum_{a_1}\sum_{a_2}|a_2\rangle\langle a_1|\hat A|a_2\rangle\langle a_2
 
 > 导致结果差别的数学本质是混合态没有交叉项，这是为什么类比为非相干叠加的原因。混合态的组合需要用外积表示，也就是下文说的密度矩阵。
 
-**密度矩阵/算符**：定义为：
+**密度矩阵/算符**：当基矢为可能出现的态时，密度矩阵定义为：
 $$\begin{pmatrix}
 p_1&0&\cdots&0\\
 0&p_2&\cdots&0\\
@@ -146,6 +202,14 @@ $$\hat\rho=\sum_{i=1}^n p_i|\psi_i\rangle\langle\psi_i|$$
 
 显然其本征值为各参与混合态的概率。
 
+但是用常规的基矢表示时，密度矩阵不一定是对角化的：
+$$\begin{aligned}
+\hat\rho&=\sum_{i=1}^n p_i|\psi_i\rangle\langle\psi_i|\\
+&=\sum_{i=1}^n p_i(\sum_jc_{ij}|\phi_j\rangle)(\sum_kc_{ik}^*\langle\phi_k|)\\
+&=\sum_j\sum_k(\sum_{i=1}^n p_ic_{ij}c_{ik}^*)|\phi_j\rangle\langle\phi_k|\\
+\end{aligned}$$
+
+
 **密度算符的运动方程**：运用Ehrenfest定理，混合态的演化可以表示为：
 $$\frac{d\hat\rho}{dt}=\frac{\partial\hat\rho}{\partial t}+\frac{i}{\hbar}[\hat H,\hat \rho]$$
 
@@ -155,7 +219,7 @@ $$\frac{\partial\hat\rho}{\partial t}=\frac{d p_i}{dt}|\psi_i\rangle\langle\psi_
 **算符的平均值**：
 $$\langle \hat A\rangle=Tr(\hat\rho \hat A)$$
 
-证明：对于纯态，
+证明：对于混合态，
 $$\begin{aligned}Tr(\hat\rho \hat A)
 &=\sum_n\langle \psi_n|\hat\rho \hat A|\psi_n\rangle\\
 &=\sum_{n,i}p_i\langle \psi_n|\psi_i\rangle \langle \psi_i|\hat A|\psi_n\rangle\\
@@ -170,15 +234,19 @@ Tr(\hat\rho^2)=1&pure\\
 Tr(\hat\rho^2)<1&mixed
 \end{cases}$
 
-简化证明：选取混合态中的纯态作为一组基$|\alpha_i\rangle$，这组基内部互不相干，即$\langle\alpha_i|\alpha_j\rangle=0$，那么显然：
-$$Tr(\hat\rho)=\sum_iP_i=1$$
-$$Tr(\hat\rho^2)=\sum_iP_i^2\leq1$$
-
 严格证明：选取一组完备的基$|n\rangle$（当然，从下面可以看到迹和这组基的选取无关）：
 $$Tr(\hat\rho)=\sum_n\sum_iP_i\langle n|\psi_i\rangle\langle\psi_i|n\rangle=\sum_n\sum_iP_i\langle\psi_i|n\rangle\langle n|\psi_i\rangle=\sum_iP_i\langle \psi_i|\psi_i\rangle=1$$
 
 同理，运用上面的结论：
-$$Tr(\hat\rho^2)=\sum_i\sum_jP_iP_j|\psi_i\rangle\langle \psi_i|\psi_j\rangle\langle \psi_j|=\sum_i\sum_jP_iP_j|\langle \psi_i|\psi_j\rangle|^2\leq1$$
+$$\begin{aligned}
+Tr(\hat\rho^2)&=\sum_n\sum_i\sum_jP_iP_j\langle n|\psi_i\rangle\langle \psi_i|\psi_j\rangle\langle \psi_j|n\rangle\\
+
+&=\sum_i\sum_jP_iP_j|\langle \psi_i|\psi_j\rangle|^2\\
+&\leq\sum_i\sum_jP_iP_j\\
+&=1
+\end{aligned}$$
+
+> 切不可认为$Tr(\hat\rho^2)=\sum_iP_i^2$。这是因为$\hat\rho^2$并不是原来维度的矩阵，而是维度平方（或者说直积）的矩阵。
 
 **约化密度矩阵**：对于两个互相联系的系统$\mathcal{H_1}\otimes \mathcal{H_2}$，他们的基底分别是$|\alpha_i\rangle,|\beta_j\rangle$。
 
