@@ -1,5 +1,5 @@
 ---
-title: 托福Contend
+title: 托福Content
 mathjax: true
 date: 2024-08-21 21:31:37
 tags: 托福阅读
@@ -20,3 +20,4 @@ cover:
 - {% post_link '托福/写作/托福写作' %}
 - {% post_link '托福/写作/托福写作词汇' %}
 - {% post_link '托福/写作/托福写作范文' %}
+- {% post_link '托福/词以类记/词以类记Contend' %}
