@@ -15,4 +15,4 @@ top: true
 ## 热力学统计物理
 {% post_link '热力学与统计物理/热力学统计物理Content' %}
 ## 托福
-{% post_link '托福/托福Contend' %}
+{% post_link '托福/托福Content' %}

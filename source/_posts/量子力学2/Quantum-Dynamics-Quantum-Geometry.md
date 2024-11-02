@@ -21,7 +21,8 @@ cover:
   - [量子化霍尔电导](#量子化霍尔电导)
 - [规范变换](#规范变换)
 - [几何相位](#几何相位)
-  - [](#)
+  - [绝热近似](#绝热近似)
+- [量子几何](#量子几何)
 
 
 # 薛定谔绘景
@@ -57,9 +58,7 @@ $$\begin{aligned}|\langle \hat{S_x}\rangle|^2
 
 ### 中微子振荡
 
-$$
-\begin{aligned} {{| \nu_{e} \rangle}} & {{} {{}=\operatorname{c o s} \theta| \nu_{1} \rangle-\operatorname{s i n} \theta| \nu_{2} \rangle}} \\ {{| \nu_{\mu} \rangle}} & {{} {{}=\operatorname{s i n} \theta| \nu_{1} \rangle+\operatorname{c o s} \theta| \nu_{2} \rangle}} \\ \end{aligned} 
-$$
+$$\begin{aligned} {| \nu_{e} \rangle} & { =\operatorname{c o s} \theta| \nu_{1} \rangle-\operatorname{s i n} \theta| \nu_{2} \rangle} \\ {| \nu_{\mu} \rangle} & {=\operatorname{s i n} \theta| \nu_{1} \rangle+\operatorname{c o s} \theta| \nu_{2} \rangle} \\ \end{aligned}$$
 
 # 海森堡绘景
 
@@ -151,4 +150,50 @@ $$n_{max}=\frac{A}{\frac{2\hbar}{eB}\pi}=\frac{\phi}{\phi_0}$$
 # 规范变换
 # 几何相位
 
-## 
+## 绝热近似
+我们考虑本征态变化即哈密顿量变化的情况：
+$$\mathrm{i}\hbar\frac d{d t}|\psi(t)\rangle=\hat H|\psi(t)\rangle $$
+考虑将态矢展开：
+$$|\psi(t)\rangle=\sum_n C_n(t)|n(t)\rangle$$
+其中$|n(t)\rangle$是某组完备的本征态基矢。
+
+代入薛定谔方程可得：
+$$\mathrm{i}\hbar\sum_n \dot{C_n}(t)|n(t)\rangle+\mathrm{i}\hbar\sum_n C_n(t)|\dot{n}(t)\rangle=\sum_n C_n(t)E_n|n(t)\rangle $$
+左边作用另一基矢$\langle m(t)|$：
+$$\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar\sum_n C_n(t)\langle m(t)|\dot{n}(t)\rangle=\sum_n C_n(t)E_n\langle m(t)|n(t)\rangle $$
+$$\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar C_m(t)\langle m(t)|\dot{m}(t)\rangle+\mathrm{i}\hbar\sum_{m\neq n}C_n(t)\langle m(t)|\dot{n}(t)\rangle= C_m(t)E_m $$
+
+绝热近似指，当哈密顿量变化缓慢的时候，$\langle m(t)|\dot{n}(t)\rangle$远小于1。
+
+证明：对薛定谔方程求导：
+$$\dot{\hat{H}}|n(t)\rangle+\hat H|\dot{n}(t)\rangle=\dot{E_n}|n(t)\rangle+E_n|\dot{n}(t)\rangle$$
+左边作用另一基矢$\langle m(t)|$：
+$$\langle m(t)|\dot{\hat{H}}|n(t)\rangle+\langle m(t)|\hat H|\dot{n}(t)\rangle=\langle m(t)|\dot{E_n}|n(t)\rangle+\langle m(t)|E_n|\dot{n}(t)\rangle$$
+$$\langle m(t)|\dot{\hat{H}}|n(t)\rangle+E_m\langle m(t)|\dot{n}(t)\rangle=E_n\langle m(t)|\dot{n}(t)\rangle$$
+所以：
+$$\langle m(t)|\dot{n}(t)\rangle=\frac{\langle m(t)|\dot{\hat{H}}|n(t)\rangle}{E_n-E_m}$$
+
+证毕。
+
+这样我们可以对方程进行进一步的化简：
+$$\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar C_m(t)\langle m(t)|\dot{m}(t)\rangle= C_m(t)E_m $$
+$$\mathrm{i}\hbar \frac{\dot{C_m}(t)}{C_m(t)}= E_m -\mathrm{i}\hbar \langle m(t)|\dot{m}(t)\rangle$$
+解得：
+$$C_m(t_0)=C_m(0)\exp{[-\frac{i}{\hbar}\int^{t_0}_0 (E_m(t) +\langle m(t)|\dot{m}(t)\rangle)dt]}$$
+
+我们知道前一项是动力学相位，后一位被定义为几何相位：
+$$\begin{aligned}C_m(t_0)&=C_m(0)\exp{[-\int^{t_0}_0 \frac{i}{\hbar}E_m(t) dt]}\exp{[-\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt]}\\&=C_m(0)\exp{[-\frac{i}{\hbar}\int^{t_0}_0 E_m(t) dt]}\exp{[i\gamma(t_0) dt]}\end{aligned}$$
+其中
+$$\gamma(t_0)=i\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt$$
+当然，如果引起本征态或哈密顿算符变化的参数不直接是时间而是$\lambda(t)$，原定义推广为：
+$$\gamma(\lambda_0)=i\int^{\lambda_0}_0\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle dt$$
+其中
+$$\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle$$
+被称为贝里联络。
+
+磁矢势的贝里联络
+
+some example
+
+# 量子几何
+
