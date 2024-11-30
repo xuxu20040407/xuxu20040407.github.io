@@ -11,6 +11,236 @@
 <h2><span id="激光核聚变">激光核聚变</span></h2><a href="/2024/11/08/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/%E6%A0%B8%E8%81%9A%E5%8F%98Content/" title="核聚变Content">核聚变Content</a>]]></content>
   </entry>
   <entry>
+    <title>非平衡态统计理论初步</title>
+    <url>/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E9%9D%9E%E5%B9%B3%E8%A1%A1%E6%80%81%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%88%9D%E6%AD%A5/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>涨落理论</title>
+    <url>/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E6%B6%A8%E8%90%BD%E7%90%86%E8%AE%BA/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>系综理论</title>
+    <url>/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>玻色统计和费米统计</title>
+    <url>/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>玻尔兹曼统计</title>
+    <url>/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/</url>
+    <content><![CDATA[<h1><span id="热力学量的统计表达">热力学量的统计表达</span></h1><h2><span id="配分函数">配分函数</span></h2><p>很难解释什么是配分函数：从数学处理的角度，似乎只是做了一个变量替换；从能级和状态数的角度，可以理解为系统粒子总数除以基态粒子总数的比例（如果固定基态能量$E_0=0$，我们将在下面看到），所以是一个无量纲量；从测量的角度，他又是个不可观测量。</p>
+<p>对于一个系统，其配分函数定义为：</p>
+<script type="math/tex; mode=display">Z_1=\sum_{l}e^{-\alpha-\beta \epsilon_i}</script><h2><span id="热力学宏观量">热力学宏观量</span></h2><h3><span id="粒子数">粒子数</span></h3><p>粒子数的统计表达为：</p>
+<script type="math/tex; mode=display">N=\sum_{l}a_l=\sum_{l}\omega_l e^{-\alpha-\beta \epsilon_i}=e^{-\alpha}\sum_{l}\omega_l e^{-\beta \epsilon_i}=e^{-\alpha}Z_1</script><blockquote>
+<p>从这里可以尝试理解：</p>
+<script type="math/tex; mode=display">Z_1=\frac{N}{e^{-\alpha-\beta\epsilon_l}}|_{\epsilon_l=0}</script><p>这也是为什么说配分函数是系统粒子总数除以基态粒子总数的比例。</p>
+</blockquote>
+<h3><span id="内能">内能</span></h3><p>内能的统计表达为：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+U&=\sum_{l}a_l\epsilon_l\\
+&=\sum_{l}\omega_l e^{-\alpha-\beta \epsilon_i}\epsilon_l\\
+&=e^{-\alpha}\sum_{l}\omega_l e^{-\beta \epsilon_i}\epsilon_l\\
+&=e^{-\alpha}(-\frac{\partial}{\partial\beta})\sum_{l}\omega_l e^{-\beta \epsilon_i}\\
+&=\frac{N}{Z_1}(-\frac{\partial}{\partial\beta})Z_1\\
+&=N(-\frac{\partial}{\partial\beta})\ln Z_1
+\end{aligned}</script>]]></content>
+      <categories>
+        <category>统计物理</category>
+      </categories>
+      <tags>
+        <tag>统计物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>近独立粒子的最概然分布</title>
+    <url>/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/</url>
+    <content><![CDATA[<ul>
+<li><a href="#粒子运动状态的经典描述">粒子运动状态的经典描述</a><ul>
+<li><a href="#自由粒子">自由粒子</a></li>
+<li><a href="#线性谐振子">线性谐振子</a></li>
+<li><a href="#转子">转子</a></li>
+</ul>
+</li>
+<li><a href="#粒子运动状态的量子描述">粒子运动状态的量子描述</a><ul>
+<li><a href="#线性谐振子-1">线性谐振子</a></li>
+<li><a href="#转子-1">转子</a></li>
+<li><a href="#自旋角动量">自旋角动量</a></li>
+<li><a href="#自由粒子-1">自由粒子</a></li>
+</ul>
+</li>
+<li><a href="#系统微观运动状态的描述">系统微观运动状态的描述</a></li>
+<li><a href="#等概率原理">等概率原理</a></li>
+<li><a href="#分布和微观状态">分布和微观状态</a><ul>
+<li><a href="#玻尔兹曼系统">玻尔兹曼系统</a></li>
+<li><a href="#玻色系统">玻色系统</a></li>
+<li><a href="#费米系统">费米系统</a></li>
+<li><a href="#非简并条件">非简并条件</a></li>
+</ul>
+</li>
+<li><a href="#玻尔兹曼分布">玻尔兹曼分布</a><ul>
+<li><a href="#玻尔兹曼分布的推导">玻尔兹曼分布的推导</a></li>
+</ul>
+</li>
+<li><a href="#玻色-爱因斯坦分布">玻色-爱因斯坦分布</a></li>
+<li><a href="#费米-狄拉克分布">费米-狄拉克分布</a></li>
+</ul>
+<h1><span id="粒子运动状态的经典描述">粒子运动状态的经典描述</span></h1><p>统计物理学从微观粒子的行为研究物质的宏观特性。我们知道粒子的能量由其广义坐标和广义动量表示：</p>
+<script type="math/tex; mode=display">\epsilon=\epsilon(q_1,\cdots,q_r;p_1,\cdots,p_r)</script><p>粒子的相空间是一个2r维空间，称为$\mu$空间。</p>
+<p>以下是常见的模型：</p>
+<h2><span id="自由粒子">自由粒子</span></h2><script type="math/tex; mode=display">\epsilon=\sum_i \frac{p_i^2}{2m}</script><h2><span id="线性谐振子">线性谐振子</span></h2><script type="math/tex; mode=display">\epsilon=\frac{p^2}{2m}+\frac12 m\omega^2x^2</script><h2><span id="转子">转子</span></h2><script type="math/tex; mode=display">\epsilon=\frac{1}{2l}(p_\theta^2+\frac{1}{\sin^2{\theta}}p^2_\varphi)</script><h1><span id="粒子运动状态的量子描述">粒子运动状态的量子描述</span></h1><h2><span id="线性谐振子">线性谐振子</span></h2><script type="math/tex; mode=display">\epsilon=\hbar \omega(n+\frac12)</script><h2><span id="转子">转子</span></h2><script type="math/tex; mode=display">\epsilon=\frac{L^2}{2I}=\frac{l(l+1)\hbar^2}{2I}</script><h2><span id="自旋角动量">自旋角动量</span></h2><p>自旋角动量本身无能量，不过在与磁场耦合时，会有能级分裂。自旋角动量的量子数为$s$，则能级为：</p>
+<script type="math/tex; mode=display">\epsilon=g\mu_B Bm_s</script><h2><span id="自由粒子">自由粒子</span></h2><script type="math/tex; mode=display">p_i=\frac{2\pi\hbar }{L}n_i</script><script type="math/tex; mode=display">\epsilon=\sum_i \frac{p_i^2}{2m}=\frac{2\pi^2\hbar^2}{m}\sum_i\frac{n_i^2}{L^2}</script><p>单位动量空间体积$p_i\sim p_i+dp_i$内，可能的$p_i$的数目为：</p>
+<script type="math/tex; mode=display">dn_i=\frac{L}{2\pi\hbar}dp_i</script><p>总的量子态数为：</p>
+<script type="math/tex; mode=display">\prod_i dn_i=\frac{V}{h^r}\prod_i dp_i</script><p>同样的道理，如果用动量空间的球坐标系$p,\theta,\varphi$描述：</p>
+<script type="math/tex; mode=display">\prod_i dn_i=\frac{Vp^2\sin{\theta}}{h^3} dpd\theta d\varphi</script><p>对$\theta,\varphi$积分，就得到任意动量方向对应的自由粒子可能的状态数：</p>
+<script type="math/tex; mode=display">\prod_i dn_i=\frac{4\pi Vp^2}{h^3} dp</script><script type="math/tex; mode=display">\epsilon=\frac{p^2}{2m}\Rightarrow dp=\sqrt{\frac{m}{2\epsilon}}d\epsilon</script><script type="math/tex; mode=display">D(\epsilon)d\epsilon=\frac{2\pi V}{h^3}(2m)^\frac32\epsilon^\frac12 d\epsilon</script><h1><span id="系统微观运动状态的描述">系统微观运动状态的描述</span></h1><p>由全同粒子组成的系统就是由具有完全相同的内禀性质的类粒子组成的系统。而近独立粒子组成的系统中，粒子之间的相互作用很弱，可以忽略，但又不是完全没有，因为完全没有相互作用的系统是无法平衡的。</p>
+<p>这样一个系统的能量可以表达为单个粒子的能量之和：</p>
+<script type="math/tex; mode=display">E=\sum_i \epsilon_i</script><p>经典系统的粒子是可以分辨的，所以描述粒子的$\mu$空间上的点是无法交换的；而量子力学中，粒子是不可分辨的，其中又分为玻色子和费米子。玻色子是具有整数自旋的粒子，不受泡利不相容原理的约束；费米子是具有半整数自旋的粒子，受到泡利不相容原理的约束。</p>
+<h1><span id="等概率原理">等概率原理</span></h1><p>等概率原理是指在一个孤立系统中，系统的微观状态数$\Omega$在满足宏观条件的情况下，每种微观状态出现的概率相等，而系统的微观状态数$\Omega$最大的状态就是最可能出现的状态。这个原理是统计物理学的基础。</p>
+<h1><span id="分布和微观状态">分布和微观状态</span></h1><p>一个宏观系统有确定的粒子数$N$，能量$E$和体积$V$。约定在$\{\epsilon_l\}$能级系统上粒子数的分布为$\{a_l\}$，能级的简并度为$\omega_l$。同时需要满足条件：</p>
+<script type="math/tex; mode=display">\sum_l a_l=N,\sum_l a_l\epsilon_l=E</script><h2><span id="玻尔兹曼系统">玻尔兹曼系统</span></h2><p>玻尔兹曼系统是由可分辨的全同近独立粒子组成，且处在同一个个体量子态上的粒子数不受限制的系统。即经典的玻色系统。</p>
+<script type="math/tex; mode=display">\Omega_{MB}=\frac{N!}{\prod_la_l!}\prod_l \omega_l^{a_l}</script><p>其中在$\epsilon_l$能级上的微观状态数为$\prod_l \omega_l^{a_l}$，不过由于<em>N</em>个例子可以交换，且考虑能级上的粒子之间的交换不影响微观状态，所以要乘以$\frac{N!}{\prod_la_l!}$。</p>
+<h2><span id="玻色系统">玻色系统</span></h2><p>把由不可分辨的全同近独立的玻色粒子组成，不受泡利不相容原理的约束，即处在同一个个体量子态上的粒子数不受限制的系统称作玻色系统。</p>
+<script type="math/tex; mode=display">\Omega_{BE}=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}</script><p>这个高中学过的不可分辨小球装箱子有异曲同工之妙；如果小球是不可分辨的，那么状态数可以通过隔板法求解，即从$\omega_l+a_l-1$个位置插入$\omega_l-1$个隔板：$\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}$。</p>
+<h2><span id="费米系统">费米系统</span></h2><p>把由不可分辨的全同近独立的费米粒子组成，受泡利不相容原理的约束，即处在同一个个体量子态上的粒子数最多只能为1个粒子的系统称作费米系统。这时候$\omega_l\geq a_l$，所以化为简单的排列组合问题：</p>
+<script type="math/tex; mode=display">\Omega_{FD}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}</script><h2><span id="非简并条件">非简并条件</span></h2><p>如果一个系统满足</p>
+<script type="math/tex; mode=display">\frac{a_l}{\omega_l}\ll 1,\forall l</script><p>这说明系统的能级分布是非简并的，即每个能级上的粒子数远小于能级的简并度。这个条件又叫经典极限条件。</p>
+<script type="math/tex; mode=display">\Omega_{BE}=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}=\prod_l\frac{(\omega_l+a_l-1)(\omega_l+a_l-2)\cdots\omega_l}{a_l!}\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}</script><script type="math/tex; mode=display">\Omega_{FD}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}=\prod_l\frac{(\omega_l-a_l+1)(\omega_l-a_l+2)\cdots\omega_l}{a_l!}\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}</script><p>所以</p>
+<script type="math/tex; mode=display">\Omega_{BE}=\Omega_{FD}=\frac{\Omega_{MB}}{N!}</script><h1><span id="玻尔兹曼分布">玻尔兹曼分布</span></h1><p>玻尔兹曼分布是玻尔兹曼系统的最概然分布。玻尔兹曼分布的特点是：在给定总能量$E$和粒子数$N$的条件下，使得系统的微观状态数$\Omega_{MB}$最大。</p>
+<h2><span id="玻尔兹曼分布的推导">玻尔兹曼分布的推导</span></h2><p>等价于求$\ln \Omega$的极大值：</p>
+<script type="math/tex; mode=display">\ln \Omega=\ln N!-\sum_l \ln a_l!+\sum_l a_l\ln \omega_l</script><p>假设$N\gg 1,a_l\gg 1$，有</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\ln \Omega&=N(\ln N-1)-\sum_l a_l(\ln a_l-1)+\sum_l a_l\ln \omega_l\\
+&=N\ln N-\sum_l a_l\ln a_l+\sum_l a_l\ln \omega_l
+\end{aligned}</script><p>对其求变分：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\delta\ln \Omega&=(\ln N-1)\delta N-\sum_l (\ln a_l-1)\delta a_l+\sum_l \ln \omega_l \delta a_l\\
+&\approx -\sum_l \ln a_l\delta a_l+\sum_l \ln \omega_l \delta a_l\\
+&= -\sum_l \ln \frac{a_l}{\omega_l}\delta a_l\\
+\end{aligned}</script><p>同时满足</p>
+<script type="math/tex; mode=display">\sum_l a_l=N,\sum_l a_l\epsilon_l=E</script><p>拉格朗日乘子法：</p>
+<script type="math/tex; mode=display">\delta(\ln \Omega-\alpha\sum_l a_l-\beta\sum_l a_l\epsilon_l)=-\sum_l[\ln \frac{a_l}{\omega_l}+\alpha+\beta\epsilon_l]\delta a_l=0</script><p>所以</p>
+<script type="math/tex; mode=display">a_l=\omega_le^{-\alpha-\beta\epsilon_l}</script><p>这里给出了处在某一具有简并度$\omega_l$的能级$\epsilon_l$上的粒子数是多少。稍微变换一下可以得到更有物理意义的表达式：</p>
+<script type="math/tex; mode=display">f_l=\frac{a_l}{\omega_l}=e^{-\alpha-\beta\epsilon_l}</script><p>这说明处在能级$\epsilon_l$与粒子的能量成反比，与简并度无关。</p>
+<h1><span id="玻色-爱因斯坦分布">玻色-爱因斯坦分布</span></h1><script type="math/tex; mode=display">\begin{aligned}
+\ln\Omega&=\sum_l[\ln(\omega_l+a_l-1)!-\ln a_l!-\ln(\omega_l-1)!]\\&\approx \sum_l[(\omega_l+a_l)\ln(\omega_l+a_l)-a_l\ln a_l-\omega_l\ln\omega_l]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+\delta\ln\Omega
+&=\sum_l[\ln(\omega_l+a_l)-a_l-\ln a_l+a_l]\delta a_l\\
+&=\sum_l\ln\frac{\omega_l+a_l}{a_l}\delta a_l
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">\frac{\omega_l+a_l}{a_l}=e^{\alpha+\beta\epsilon_l}\Rightarrow a_l=\frac{\omega_l}{e^{\alpha+\beta\epsilon_l}-1}</script><h1><span id="费米-狄拉克分布">费米-狄拉克分布</span></h1><script type="math/tex; mode=display">\begin{aligned}
+\ln\Omega&=\sum_l[\ln\omega_l!-\ln a_l!-\ln(\omega_l-a_l)!]\\
+&\approx \sum_l[\omega_l\ln\omega_l-a_l\ln a_l-(\omega_l-a_l)\ln(\omega_l-a_l)]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+\delta\ln\Omega
+&=\sum_l[-\ln a_l+a_l+\ln(\omega_l-a_l)-a_l]\delta a_l\\
+&=\sum_l\ln\frac{\omega_l-a_l}{a_l}\delta a_l
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">\frac{\omega_l-a_l}{a_l}=e^{\alpha+\beta\epsilon_l}\Rightarrow a_l=\frac{\omega_l}{e^{\alpha+\beta\epsilon_l}+1}</script><blockquote>
+<p>显然，由</p>
+<script type="math/tex; mode=display">-\sum_l[\ln \frac{a_l}{\omega_l}+\alpha+\beta\epsilon_l]\delta a_l=0</script><p>可以推出</p>
+<script type="math/tex; mode=display">\frac{a_l}{\omega_l}\ll 1 \Leftrightarrow\alpha \gg 1</script><p>这意味着当经典极限条件下，三种分布趋同。当然，我们在讨论三种系统的微观状态数的时候也得到了同样的结论。</p>
+<script type="math/tex; mode=display">\begin{matrix}
+\boxed{\begin{aligned}
+\Omega_{MB}&=\frac{N!}{\prod_la_l!}\prod_l \omega_l^{a_l}\\
+\Omega_{BE}&=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}\\
+\Omega_{FD}&=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}\\
+\end{aligned}}&\stackrel{\dfrac{a_l}{\omega_l}\ll 1 }{\longrightarrow}  &\dfrac{\Omega_{MB}}{N!}=\Omega_{BE}=\Omega_{FD}\\
+\downarrow& &\downarrow\\
+\boxed{\begin{aligned}
+a_{MB}=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}}\\
+a_{BE}=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}-1}\\
+a_{FD}=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}+1}\\
+\end{aligned}}&\stackrel{\alpha \gg 1}{\longrightarrow}& a_{MB}=a_{BE}=a_{FD}
+\end{matrix}</script></blockquote>
+]]></content>
+      <categories>
+        <category>统计物理</category>
+      </categories>
+      <tags>
+        <tag>统计物理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Approximation Method</title>
+    <url>/2024/11/21/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Perturbation/</url>
+    <content><![CDATA[<ul>
+<li><a href="#time-independet-perturbation">Time-independet Perturbation</a><ul>
+<li><a href="#non-degenerate-perturbation">Non-degenerate Perturbation</a><ul>
+<li><a href="#first-order-theory">First Order Theory</a></li>
+<li><a href="#second-order-theory">Second Order Theory</a></li>
+</ul>
+</li>
+<li><a href="#degenerate-perturbation">Degenerate Perturbation</a><ul>
+<li><a href="#two-fold-degenerate">Two-fold Degenerate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#time-dependet-perturbation">Time-dependet Perturbation</a></li>
+<li><a href="#variantional-method">Variantional Method</a></li>
+<li><a href="#scattering-theory">Scattering Theory</a></li>
+</ul>
+<h1><span id="time-independet-perturbation">Time-independet Perturbation</span></h1><p>现在有一个微扰后哈密顿量：</p>
+<script type="math/tex; mode=display">\hat H(\lambda)=\hat H^0+\lambda\delta\hat H</script><p>原始哈密顿量有以下能级：</p>
+<script type="math/tex; mode=display">\hat H^0|k^0\rangle=E_k^0|k^0\rangle</script><p>能级有以下关系：</p>
+<script type="math/tex; mode=display">E_i^0\leq E_j^0,i<j</script><p>现在我们的问题是，如何求解微扰后的能级：</p>
+<script type="math/tex; mode=display">\hat H(\lambda)|n\rangle_\lambda=E_n(\lambda)|n\rangle_\lambda</script><p>假定态矢量和能级可以用<strong>正交</strong>基底多项式展开：</p>
+<script type="math/tex; mode=display">|n\rangle_\lambda=\sum_{i=0}^\infty \lambda^i|n^i\rangle</script><script type="math/tex; mode=display">E_n(\lambda)=\sum_{i=0}^\infty \lambda^iE^i_n</script><p>那么只需要代入薛定谔方程即可。</p>
+<h2><span id="non-degenerate-perturbation">Non-degenerate Perturbation</span></h2><p>对于不简并的情况：</p>
+<script type="math/tex; mode=display">[\hat H^0+\lambda\delta\hat H-E_n(\lambda)]|n\rangle_\lambda=0</script><p>展开有：</p>
+<script type="math/tex; mode=display">[\hat H^0-E^0_n-\lambda(E^1_n-\delta \hat H)-\lambda^iE^i_n](\sum_{i=0}^\infty \lambda^i|n^i\rangle)=0</script><p>对不同的量级进行分开分析：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\lambda^0\quad&(\hat H^0-E^0_n)|n^0\rangle=0\\
+\lambda^1\quad&(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle\\\cdots\quad\\
+\lambda^k\quad&(\hat H^0-E^0_n)|n^k\rangle=(E^1_n-\delta \hat H)|n^{k-1}\rangle+\sum_{i=2}^k E^i_n|n^{k-i}\rangle
+\end{aligned}</script><h3><span id="first-order-theory">First Order Theory</span></h3><p>我们先考虑一阶修正：</p>
+<script type="math/tex; mode=display">(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle</script><p>两边同时作用：</p>
+<script type="math/tex; mode=display">\langle n^0|(\hat H^0-E^0_n)|n^1\rangle=\langle n^0|(E^1_n-\delta \hat H)|n^0\rangle</script><script type="math/tex; mode=display">E^1_n=\langle n^0|\delta \hat H|n^0\rangle</script><p>现在我们完成了对能级的修正，但除了一阶，其他的能量修正因为不知道态函数修正而无法求解，这时候需要用一阶能量修正来求解一阶态矢量修正，并依次类推：</p>
+<script type="math/tex; mode=display">\langle k^0|(\hat H^0-E^0_n)|n^1\rangle=\langle k^0|(E^1_n-\delta \hat H)|n^0\rangle</script><script type="math/tex; mode=display">( E^0_k-E^0_n)\langle k^0|n^1\rangle=-\langle k^0|\delta \hat H|n^0\rangle</script><script type="math/tex; mode=display">\langle k^0|n^1\rangle=-\frac{\langle k^0|\delta \hat H|n^0\rangle}{E^0_k-E^0_n}</script><p>所以一阶态矢量修正被原本的能级表示出来，系数即为上述表示：</p>
+<script type="math/tex; mode=display">|n^1\rangle=\sum_{k\neq n}|k^0\rangle\langle k^0|n^1\rangle=\sum_{k\neq n}-\frac{\langle k^0|\delta \hat H|n^0\rangle}{E^0_k-E^0_n}|k^0\rangle</script><h3><span id="second-order-theory">Second Order Theory</span></h3><p>同理，考虑k阶修正：</p>
+<script type="math/tex; mode=display">\langle n^0|(\hat H^0-E^0_n)|n^k\rangle=\langle n^0|(E^1_n-\delta \hat H)|n^{k-1}\rangle+\sum_{i=2}^k \langle n^0|E^i_n|n^{k-i}\rangle</script><script type="math/tex; mode=display">E^k_n=\langle n^0|\delta \hat H|n^{k-1}\rangle-\sum_{i=1}^{k-1} \langle n^0|E^i_n|n^{k-i}\rangle</script><p>比如2阶：</p>
+<script type="math/tex; mode=display">E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle</script><p>同样的：</p>
+<script type="math/tex; mode=display">(\hat H^0-E^0_n)|n^2\rangle=(E^1_n-\delta \hat H)|n^{1}\rangle+ E^2_n|n^{0}\rangle</script><script type="math/tex; mode=display">( E^0_k-E^0_n)\langle k^0|n^2\rangle=E^1_n\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+E^2_n\langle k^0|n^{0}\rangle</script><p>代入</p>
+<script type="math/tex; mode=display">E^1_n=\langle n^0|\delta \hat H|n^{0}\rangle</script><script type="math/tex; mode=display">E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle</script><script type="math/tex; mode=display">\begin{aligned}
+(E^0_k-E^0_n)\langle k^0|n^2\rangle&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+(\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle)\langle k^0|n^{0}\rangle\\
+&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{0}\rangle \langle n^0|n^{1}\rangle\langle k^0|n^{0}\rangle\\
+&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle\\
+&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\
+\end{aligned}</script><p>所以：</p>
+<script type="math/tex; mode=display">\langle k^0|n^2\rangle=\frac{\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle}{E^0_k-E^0_n}</script><h2><span id="degenerate-perturbation">Degenerate Perturbation</span></h2><p>考虑有简并的哈密顿量：</p>
+<script type="math/tex; mode=display">\hat H_0=\begin{pmatrix}E^0_n&0\\0&E^0_n\end{pmatrix}</script><script type="math/tex; mode=display">\hat H(\lambda)=\hat H_0+\lambda \delta\hat H</script><p>其中</p>
+<script type="math/tex; mode=display">\delta\hat H=\begin{pmatrix}0&V\\V&0\end{pmatrix}</script><p>如果我们按照非简并的方法求解，我们会发现，一阶修正能量为0：</p>
+<script type="math/tex; mode=display">E^1_n=\langle n^0|\delta \hat H|n^0\rangle=0</script><p>这是因为简并态的一阶修正能量是相等的，所以无法求解。这时候我们需要用另一种方法求解。为了简单起见，我们先研究两重简并态的情况。</p>
+<h3><span id="two-fold-degenerate">Two-fold Degenerate</span></h3><p>原始哈密顿量有以下简并能级：</p>
+<script type="math/tex; mode=display">\hat H^0|n^0,a\rangle=E_n^0|n^0,a\rangle</script><script type="math/tex; mode=display">\hat H^0|n^0,b\rangle=E_n^0|n^0,b\rangle</script><p>展开有：</p>
+<script type="math/tex; mode=display">\hat H(\lambda)|n\rangle_\lambda=E_n(\lambda)|n\rangle_\lambda</script><p>其中：</p>
+<script type="math/tex; mode=display">|n\rangle_\lambda=\sum_{i=0}^\infty \lambda^i|n^i\rangle</script><script type="math/tex; mode=display">E_n(\lambda)=\sum_{i=0}^\infty \lambda^iE^i_n</script><p>我们可以得到：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\lambda^0\quad&(\hat H^0-E^0_n)|n^0\rangle=0\\
+\lambda^1\quad&(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle\\\cdots\quad\\
+\lambda^k\quad&(\hat H^0-E^0_n)|n^k\rangle=(E^1_n-\delta \hat H)|n^{k-1}\rangle+\sum_{i=2}^k E^k_n|n^{k-i}\rangle
+\end{aligned}</script><p>以上的步骤相对于非简并的情况是一样的，不过：</p>
+<script type="math/tex; mode=display">|n^0\rangle=\alpha|n^0,a\rangle+\beta |n^0,b\rangle</script><p>对于一阶，同时作用$|n^0,a\rangle$：</p>
+<script type="math/tex; mode=display">\langle n^0,a|(\hat H^0-E^0_n)|n^1\rangle=\langle n^0,a|(E^1_n-\delta \hat H)|n^0\rangle</script><p>显然由于哈密顿算符的简并性和态的正交性，有一些项为0：</p>
+<script type="math/tex; mode=display">0=\alpha E_n^1-\alpha\langle n^0,a|\delta \hat H|n^0,a\rangle-\beta\langle n^0,a|\delta \hat H|n^0,b\rangle</script><p>同样的：</p>
+<script type="math/tex; mode=display">0=\beta E_n^1-\beta\langle n^0,b|\delta \hat H|n^0,b\rangle-\alpha\langle n^0,b|\delta \hat H|n^0,a\rangle</script><p>写成矩阵形式：</p>
+<script type="math/tex; mode=display">E_n^1\begin{pmatrix}\alpha\\\beta\end{pmatrix}=\begin{pmatrix}\langle n^0,a|\delta \hat H|n^0,a\rangle&\langle n^0,a|\delta \hat H|n^0,b\rangle\\\langle n^0,b|\delta \hat H|n^0,a\rangle&\langle n^0,b|\delta \hat H|n^0,b\rangle\end{pmatrix}\begin{pmatrix}\alpha\\\beta\end{pmatrix}</script><p>所以能量的一阶修正，就是该矩阵的本征值:</p>
+<script type="math/tex; mode=display">\begin{aligned}
+E_n^1&=\frac{1}{2}(\langle n^0,a|\delta \hat H|n^0,a\rangle+\langle n^0,b|\delta \hat H|n^0,b\rangle)\\&\pm\frac{1}{2}\sqrt{(\langle n^0,a|\delta \hat H|n^0,a\rangle-\langle n^0,b|\delta \hat H|n^0,b\rangle)^2+4|\langle n^0,a|\delta \hat H|n^0,b\rangle|^2}
+\end{aligned}</script><p>同时也可以求出本征矢量：</p>
+<script type="math/tex; mode=display">\begin{pmatrix}\alpha\\\beta\end{pmatrix}</script><h1><span id="time-dependet-perturbation">Time-dependet Perturbation</span></h1><h1><span id="variantional-method">Variantional Method</span></h1><h1><span id="scattering-theory">Scattering Theory</span></h1>]]></content>
+      <categories>
+        <category>量子力学2</category>
+      </categories>
+      <tags>
+        <tag>量子力学2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>概率论</title>
     <url>/2024/11/19/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
     <content><![CDATA[]]></content>
@@ -176,6 +406,11 @@
     <title>星系</title>
     <url>/2024/11/08/%E5%AE%9E%E6%B5%8B%E5%A4%A9%E4%BD%93%E7%89%A9%E7%90%86/%E6%98%9F%E7%B3%BB/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>观测设备</title>
+    <url>/2024/11/08/%E5%AE%9E%E6%B5%8B%E5%A4%A9%E4%BD%93%E7%89%A9%E7%90%86/%E8%A7%82%E6%B5%8B%E8%AE%BE%E5%A4%87/</url>
+    <content><![CDATA[<h1><span id="天文光学望远镜">天文光学望远镜</span></h1><h1><span id="辐射探测器">辐射探测器</span></h1><h1><span id="未来光学望远镜展望">未来光学望远镜展望</span></h1>]]></content>
   </entry>
   <entry>
     <title>Angular Momentumn and Symmetry</title>
@@ -377,7 +612,7 @@ a&b\\
 <h2><span id="简并度">简并度</span></h2><p>满足系统不变的对称变换有：</p>
 <script type="math/tex; mode=display">\hat S^{-1}\hat H\hat S=\hat H</script><p>如果对称变换是厄密算符：</p>
 <script type="math/tex; mode=display">\hat S^{\dagger}\hat H\hat S=\hat H\Rightarrow[\hat H,\hat S]=0</script><p>这必然会导致能级的简并，因为：</p>
-<script type="math/tex; mode=display">\hat H|n\rangle=E_n|n\rangle\Leftrightarrow \hat H|(\hat S|n\rangle)=E_n(\hat S|n\rangle)</script><h2><span id="氢原子的四维旋转对称">氢原子的四维旋转对称</span></h2><p>哈密顿量属于任意本征值的本征子空间都有其对称性群的不可约表示。</p>
+<script type="math/tex; mode=display">\hat H|n\rangle=E_n|n\rangle\Leftrightarrow \hat H|(\hat S|n\rangle)=\hat S|(\hat H|n\rangle)=\hat S|(E_n|n\rangle)=E_n(\hat S|n\rangle)</script><h2><span id="氢原子的四维旋转对称">氢原子的四维旋转对称</span></h2><p>哈密顿量属于任意本征值的本征子空间都有其对称性群的不可约表示。</p>
 <p>什么意思呢，以氢原子的n=2能级为例，有四个本征态：</p>
 <script type="math/tex; mode=display">|l=1,m=1\rangle</script><script type="math/tex; mode=display">|l=1,m=0\rangle</script><script type="math/tex; mode=display">|l=1,m=-1\rangle</script><script type="math/tex; mode=display">|l=0,m=0\rangle</script><p>其对应的旋转矩阵是可分块对角化的，这与上面违背了，这说明我们关于旋转的对称性认知还不完整。</p>
 <p>从龙格楞次矢量的守恒性可以启发氢原子的另一守恒量：</p>
@@ -464,9 +699,10 @@ a&b\\
 <script type="math/tex; mode=display">i\hbar \partial_{\tilde{t}} \psi^*(x,\tilde{t})=\hat H \psi^*(x,\tilde{t})</script><p>当然，以上需要$\hat H$是时间反演对称的。</p>
 <p>时间反演算符是一个反线性算符，即：</p>
 <script type="math/tex; mode=display">\hat T(a|\psi_1\rangle+b|\psi_2\rangle)=a^*\hat T|\psi_1\rangle+b^*\hat T|\psi_2\rangle</script><p>考虑时间反演后的内积：</p>
-<script type="math/tex; mode=display">\langle \hat T\psi_1|\hat T\psi_2\rangle=\langle \hat T\psi_1|\int|\hat x\rangle\langle\hat x|dx|\hat T\psi_2\rangle=\psi_2(x)\psi_1^*(x)=\langle \psi_1|\psi_2\rangle^*</script><p>对于有自旋的情况：</p>
-<p>$$$$</p>
-]]></content>
+<script type="math/tex; mode=display">\langle \hat T\psi_1|\hat T\psi_2\rangle=\langle \hat T\psi_1|\int|\hat x\rangle\langle\hat x|dx|\hat T\psi_2\rangle=\psi_2(x)\psi_1^*(x)=\langle \psi_1|\psi_2\rangle^*</script><p>对于球谐函数：</p>
+<script type="math/tex; mode=display">\hat TY_l^m=(Y_l^m)^*=(-1)^mY_l^{-m}</script><p>即</p>
+<script type="math/tex; mode=display">\hat T|l,m\rangle=(-1)^m|l,-m\rangle</script><p>对于有自旋的情况：</p>
+<script type="math/tex; mode=display">\hat T|l,s\rangle=(-1)^{2s}|l,-s\rangle</script>]]></content>
       <categories>
         <category>量子力学2</category>
       </categories>
@@ -2470,71 +2706,6 @@ T(\frac{\partial S}{\partial T})_{P}-T(\frac{\partial S}{\partial T})_{V}
 <script type="math/tex; mode=display">\lim_{T\rightarrow 0}(\Delta S)_T=0</script><p>绝对零度不能到达原理：不可能通过有限的步骤使一个物体冷却到热力学温度零度。</p>
 <p>这是热力学第三定律的两种表述。</p>
 ]]></content>
-      <categories>
-        <category>统计物理</category>
-      </categories>
-      <tags>
-        <tag>热力学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>热力学关系记忆手册</title>
-    <url>/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/Cheating-Paper/</url>
-    <content><![CDATA[<ul>
-<li><a href="#偏微分关系">偏微分关系</a></li>
-<li><a href="#热力学基本函数与方程">热力学基本函数与方程</a></li>
-<li><a href="#麦克斯韦关系">麦克斯韦关系</a><ul>
-<li><a href="#图示">图示</a></li>
-<li><a href="#一阶关系">一阶关系</a></li>
-<li><a href="#二阶关系">二阶关系</a></li>
-</ul>
-</li>
-<li><a href="#常见的结果">常见的结果</a></li>
-<li><a href="#二阶导处理">二阶导处理</a></li>
-<li><a href="#平衡条件">平衡条件</a><ul>
-<li><a href="#单元单相系">单元单相系</a></li>
-<li><a href="#单元复相系">单元复相系</a></li>
-<li><a href="#多元复相系">多元复相系</a></li>
-</ul>
-</li>
-</ul>
-<h1><span id="偏微分关系">偏微分关系</span></h1><ul>
-<li><strong>倒易关系</strong>：$(\dfrac{\partial x}{\partial y})_z(\dfrac{\partial y}{\partial x})_z=1$</li>
-<li><strong>循环关系</strong>：$(\dfrac{\partial x}{\partial y})_z(\dfrac{\partial y}{\partial z})_x(\dfrac{\partial z}{\partial x})_y=-1$</li>
-<li><strong>复合关系1</strong>：$(\dfrac{\partial x}{\partial y})_w(\dfrac{\partial y}{\partial z})_w=(\dfrac{\partial x}{\partial z})_w$</li>
-<li><strong>复合关系2</strong>：$(\dfrac{\partial x}{\partial y})_w=(\dfrac{\partial x}{\partial y})_z+(\dfrac{\partial x}{\partial z})_y(\dfrac{\partial z}{\partial y})_w$</li>
-</ul>
-<h1><span id="热力学基本函数与方程">热力学基本函数与方程</span></h1><script type="math/tex; mode=display">H=U+pV</script><script type="math/tex; mode=display">F=U-TS</script><script type="math/tex; mode=display">G=H-TS</script><script type="math/tex; mode=display">dU=TdS-pdV</script><script type="math/tex; mode=display">dH=TdS+Vdp</script><script type="math/tex; mode=display">dF=-SdT-pdV</script><script type="math/tex; mode=display">dG=-SdT+Vdp</script><h1><span id="麦克斯韦关系">麦克斯韦关系</span></h1><h2><span id="图示">图示</span></h2><script type="math/tex; mode=display">\begin{matrix}
-G&p&H\\
-T&&S\\
-F&-V&U
-\end{matrix}</script><h2><span id="一阶关系">一阶关系</span></h2><script type="math/tex; mode=display">\begin{aligned}\left(\frac{\partial G}{\partial T}\right)_p&=\left(\frac{\partial F}{\partial T}\right)_V=-S\\\left(\frac{\partial G}{\partial p}\right)_T&=\left(\frac{\partial H}{\partial p}\right)_S=V\\\left(\frac{\partial H}{\partial S}\right)_p&=\left(\frac{\partial U}{\partial S}\right)_V=T\\\left(\frac{\partial U}{\partial V}\right)_S&=\left(\frac{\partial F}{\partial V}\right)_T=-p\end{aligned}</script><h2><span id="二阶关系">二阶关系</span></h2><script type="math/tex; mode=display">(\frac{\partial T}{\partial V})_{S}=-(\frac{\partial p}{\partial S})_{V}</script><script type="math/tex; mode=display">(\frac{\partial T}{\partial p})_{S}=(\frac{\partial V}{\partial S})_{p}</script><script type="math/tex; mode=display">(\frac{\partial S}{\partial V})_{T}=(\frac{\partial p}{\partial T})_{V}</script><script type="math/tex; mode=display">(\frac{\partial S}{\partial P})_{T}=-(\frac{\partial V}{\partial T})_{P}</script><h1><span id="常见的结果">常见的结果</span></h1><ol>
-<li>体积膨胀系数：$\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p$</li>
-<li>压强系数：$\beta=\frac1p\left(\frac{\partial p}{\partial T}\right)_V$</li>
-<li>等温压缩系数：$\kappa_T=-\frac1V\left(\frac{\partial V}{\partial P}\right)_T$</li>
-</ol>
-<blockquote>
-<p>三者满足关系：</p>
-<script type="math/tex; mode=display">\left(\frac{\partial V}{\partial T}\right)_p\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial P}\right)_T=-1\Rightarrow \alpha=\kappa_T\beta p</script></blockquote>
-<ol>
-<li>等容热容：$C_V=(\dfrac{\partial U}{\partial T})_V(definition)=T(\dfrac{\partial S}{\partial T})_V$</li>
-<li>等压热容：$C_P=(\dfrac{\partial H}{\partial T})_p(definition)=T(\dfrac{\partial S}{\partial T})_p$</li>
-</ol>
-<blockquote>
-<p>二者满足的关系：</p>
-<script type="math/tex; mode=display">C_P-C_V=T(\dfrac{\partial S}{\partial T})_p-T(\dfrac{\partial S}{\partial T})_V=T(\dfrac{\partial p}{\partial T})_V(\dfrac{\partial V}{\partial T})_p</script></blockquote>
-<h1><span id="二阶导处理">二阶导处理</span></h1><script type="math/tex; mode=display">(\dfrac{\partial C_V}{\partial V})_T=T(\dfrac{\partial^2 S}{\partial V\partial T})=T(\dfrac{\partial^2 S}{\partial T\partial V})=T(\dfrac{\partial^2 p}{\partial T^2})_V</script><script type="math/tex; mode=display">(\dfrac{\partial C_P}{\partial p})_T=T(\dfrac{\partial^2 S}{\partial p\partial T})=T(\dfrac{\partial^2 S}{\partial T\partial p})=-T(\dfrac{\partial^2 V}{\partial T^2})_p</script><h1><span id="平衡条件">平衡条件</span></h1><h2><span id="单元单相系">单元单相系</span></h2><p><strong>热力学平衡</strong>:$T=T_0$</p>
-<p><strong>动力学平衡</strong>:$P=P_0$</p>
-<p><strong>稳定平衡</strong>:</p>
-<ol>
-<li>孤立系统：$\delta S=0, \delta^2 S&lt;0$</li>
-<li>等温等容系统：$\delta F=0, \delta^2 F&gt;0$</li>
-<li>等温等压系统：$\delta G=0, \delta^2 G&gt;0$</li>
-<li>等熵等容系统：$\delta U=0, \delta^2 U&gt;0$</li>
-</ol>
-<p>其中孤立系统等价于</p>
-<script type="math/tex; mode=display">C_V>0,(\dfrac{\partial p}{\partial V})_{T}<0</script><h2><span id="单元复相系">单元复相系</span></h2><p><strong>复相平衡</strong>:</p>
-<script type="math/tex; mode=display">\begin{cases}T^\alpha&=&T^\beta&\text{(热平衡条件)}\\p^\alpha&=&p^\beta&\text{(力学平衡条件)}\\\mu^\alpha&=&\mu^\beta&\text{(相变平衡条件)}\end{cases}</script><h2><span id="多元复相系">多元复相系</span></h2><script type="math/tex; mode=display">\begin{cases}T^\alpha&=&T^\beta&\text{(热平衡条件)}\\p^\alpha&=&p^\beta&\text{(力学平衡条件)}\\\mu^\alpha_i&=&\mu^\beta_i&\text{(相变平衡条件)}\end{cases}</script>]]></content>
       <categories>
         <category>统计物理</category>
       </categories>
@@ -7154,7 +7325,7 @@ F&-V&U
     <title>热力学统计物理</title>
     <url>/2024/08/21/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86Content/</url>
     <content><![CDATA[<p>学期前的预习，主要分为热学部分和统计物理部分。参考教材为汪志诚的《热力学·统计物理》。</p>
-<h1><span id="content">Content:</span></h1><ul>
+<h1><span id="content">Content:</span></h1><h2><span id="热力学">热力学</span></h2><ul>
 <li><a href="/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B/" title="热力学基本规律">热力学基本规律</a></li>
 <li><a href="/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E5%87%BD%E6%95%B0/" title="热力学基本方程">热力学基本方程</a>
 <ul>
@@ -7165,6 +7336,15 @@ F&-V&U
 <li><a href="/2024/08/27/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/" title="单元系的相变">单元系的相变</a></li>
 <li><a href="/2024/11/14/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E5%A4%9A%E5%85%83%E7%B3%BB%E7%9A%84%E5%A4%8D%E7%9B%B8%E5%B9%B3%E8%A1%A1/" title="多元系的复相平衡和化学平衡">多元系的复相平衡和化学平衡</a>
 </li>
+</ul>
+<h2><span id="统计物理">统计物理</span></h2><ul>
+<li><a href="/2024/11/19/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E6%A6%82%E7%8E%87%E8%AE%BA/" title="概率论">概率论</a></li>
+<li><a href="/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/" title="近独立粒子的最概然分布">近独立粒子的最概然分布</a></li>
+<li><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计">玻尔兹曼统计</a></li>
+<li><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/" title="玻色统计和费米统计">玻色统计和费米统计</a></li>
+<li><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论">系综理论</a></li>
+<li><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E6%B6%A8%E8%90%BD%E7%90%86%E8%AE%BA/" title="涨落理论">涨落理论</a></li>
+<li><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E9%9D%9E%E5%B9%B3%E8%A1%A1%E6%80%81%E7%BB%9F%E8%AE%A1%E7%90%86%E8%AE%BA%E5%88%9D%E6%AD%A5/" title="非平衡态统计理论初步">非平衡态统计理论初步</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -8510,10 +8690,8 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 </ul>
 </li>
 <li><a href="#热斑点火模型">热斑点火模型</a></li>
-<li><a href="#激光聚变点火新方案">激光聚变点火新方案</a><ul>
-<li><a href="#挑战">挑战：</a></li>
-</ul>
-</li>
+<li><a href="#激光聚变点火新方案">激光聚变点火新方案</a></li>
+<li><a href="#习题">习题</a></li>
 </ul>
 <h1><span id="聚变能源简介">聚变能源简介</span></h1><h2><span id="反应功率">反应功率</span></h2><p>单位体积的聚变反应功率为：</p>
 <script type="math/tex; mode=display">P_f=n_1n_2\sigma v E</script><p>由于氘氚反应截面在64keV处达到最大值（比其他过程大了一个数量级），我们常选取氘氚反应作为核聚变的主要过程：</p>
@@ -8527,13 +8705,16 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 <p>如果不忽略，则可以推导出：</p>
 <script type="math/tex; mode=display">n\tau\geq 3T[\frac14E\langle\sigma v\rangle-\alpha T^\frac12]</script><p>若需要表征为单次聚变反应放出的所有能量$E^\prime=17.6MeV$的形式，则：</p>
 <script type="math/tex; mode=display">n\tau\geq 3T[\frac1{20}E^\prime\langle\sigma v\rangle-\alpha T^\frac12]</script></blockquote>
-<p>不同的聚变装置有着不同的参数组。如果是磁约束，比较理想的参数组为：</p>
+<p>不同的聚变装置有着不同的参数组。如果是磁约束（MCF），比较理想的参数组为：</p>
 <script type="math/tex; mode=display">n=10^{14}/cm^3,T=10keV,\tau=10s</script><p>这是比较难以实现的。</p>
-<p>激光聚变由于约束时间没有办法直接观测，所以通过等价替换为以下参数：</p>
+<p>激光聚变（ICF）由于约束时间没有办法直接观测，所以通过等价替换为以下参数：</p>
 <script type="math/tex; mode=display">nT\tau=\frac{\rho}{m}T\frac{R}{C_{sound}}</script><p>带入胜诉和粒子质量，可以得到惯性约束的劳森判据：</p>
 <script type="math/tex; mode=display">\rho R T\geq 1.5[g\cdot keV/cm^2]</script><p>其中$\rho R$可以视为面密度。一个公认的点火条件为：</p>
 <script type="math/tex; mode=display">\rho R=0.3[g/cm^2]</script><p>那么点火温度为：</p>
-<script type="math/tex; mode=display">T=5keV</script><h1><span id="压强提升过程">压强提升过程</span></h1><p>由于压强的量纲就是能量密度，所以用压强来衡量激光聚变的状态是合理的。氢弹使用原子弹来产生如此大的压强，而在民用可控领域只有激光能做到如此地步。但是单纯使用激光也很难达到$10^{12}bar$，那么需要通过以下步骤来逐步增加。</p>
+<script type="math/tex; mode=display">T=5keV</script><blockquote>
+<p>核聚变反应要求极高的温度和极高的密度——温度提高可以提高量子隧穿的效率，从而提高反应效率；密度的提高有利于提高反应截面。</p>
+</blockquote>
+<h1><span id="压强提升过程">压强提升过程</span></h1><p>由于压强的量纲就是能量密度，所以用压强来衡量激光聚变的状态是合理的。氢弹使用原子弹来产生如此大的压强，而在民用可控领域只有激光能做到如此地步。但是单纯使用激光也很难达到$10^{12}bar$，那么需要通过以下步骤来逐步增加。</p>
 <h2><span id="烧蚀增压">烧蚀增压</span></h2><p>烧蚀增压类似于火箭的反冲。当激光蒸发了固体燃料层时，除了光压，蒸发的离子同样会产生反冲。如果认为离子的能量密度和激光相当（能量全部被离子吸收），那么由于离子的反冲速度大概是光速的$\frac1{300}$，可得烧蚀压为光压得300倍。</p>
 <p>具体的公式如下：</p>
 <script type="math/tex; mode=display">P_a=57(\frac{I_{15}}{0.351})^\frac23</script><p>那么$10^{15}W/cm^2$的激光大概能产生$300Mbar$的压强。</p>
@@ -8555,10 +8736,10 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 </ul>
 </li>
 </ul>
-<h1><span id="激光核聚变的四大过程">激光核聚变的四大过程</span></h1><h2><span id="激光等离子体相互作用">激光等离子体相互作用</span></h2><p>通过以上两种模式，使激光或X射线均匀辐照靶丸表面，在临界密度面产生热电子，热电子进而进行烧蚀，产生烧蚀压。此时为等熵压缩。这是通常用激光等离子体不稳定性。</p>
+<h1><span id="激光核聚变的四大过程">激光核聚变的四大过程</span></h1><h2><span id="激光等离子体相互作用">激光等离子体相互作用</span></h2><p>通过以上两种模式，使激光或X射线均匀辐照靶丸表面，在临界密度面产生热电子，热电子进而进行烧蚀，产生烧蚀压。此时为等熵压缩。</p>
 <h2><span id="向心内爆">向心内爆</span></h2><p>烧蚀压驱动燃料壳层压缩，获得内爆动能和密度提升。</p>
 <h2><span id="阻滞和约束">阻滞和约束</span></h2><p>壳层的动能转化为内能，依靠惯性继续压缩。</p>
-<h2><span id="点火和自持燃烧">点火和自持燃烧</span></h2><p>热斑点火以维持反应，此时种子无法进行能量沉积，不过$\alpha$粒子可以。热斑的燃烧波向外传播，点燃外层的主燃料。</p>
+<h2><span id="点火和自持燃烧">点火和自持燃烧</span></h2><p>热斑点火以维持反应，此时中子无法进行能量沉积，不过$\alpha$粒子可以。热斑的燃烧波向外传播，点燃外层的主燃料。</p>
 <h1><span id="热斑点火模型">热斑点火模型</span></h1><p>即便有以上的过程进行增压，想要真正点火仍然极为困难。通过先点燃内部的燃料释放能量，点燃更多的燃料不失为一种办法。这种方法为等压点火模型，内部的先点燃的燃料就是热斑区域。</p>
 <p>热斑燃烧过程中会损失一部分的能量，包括：</p>
 <ul>
@@ -8572,14 +8753,36 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 <script type="math/tex; mode=display">W_\alpha\geq W_b</script><p>其中：</p>
 <script type="math/tex; mode=display">W_\alpha=\frac1{20}n^2\langle\sigma v\rangle Q_{DT}</script><script type="math/tex; mode=display">W_b=C_b n_e^2T^\frac12</script><p>可以解得$T=4.3keV$，考虑其他因素，点火温度应该在$5keV$左右。这和我们之前的推导是一致的。</p>
 <p>同样的道理，要留下$\alpha$粒子进行加热需要面密度条件——$0.3g/cm^2$</p>
-<h1><span id="激光聚变点火新方案">激光聚变点火新方案</span></h1><p>由于流体不稳定性，NIF采用的柱形黑腔点火有着极小的成功率。双锥对撞点火的优势：</p>
+<h1><span id="激光聚变点火新方案">激光聚变点火新方案</span></h1><p>由于流体不稳定性，NIF采用的柱形黑腔点火有着极小的成功率。双锥对撞点火采用了新的物理过程：</p>
+<ul>
+<li>近等熵压缩</li>
+<li>混合加速</li>
+<li>对撞密度倍增</li>
+<li>强磁场引导快点火</li>
+</ul>
+<p>双锥对撞点火的优势：</p>
 <ul>
 <li>降低对激光能量的要求；</li>
 <li>降低对激光聚焦均匀性和对称性的要求；</li>
 <li>不需要封装氘氚气体，摆脱流体不稳定性；</li>
 <li>使用强磁场引导的快电子点火，升温效率更高。</li>
 </ul>
-<p>挑战：<br>-</p>
+<p>挑战：</p>
+<h1><span id="习题">习题</span></h1><ul>
+<li>如何计算理想点火温度：<ul>
+<li>方法1：通过劳森判据$nT\tau=\frac{\rho}{m}T\frac{R}{C_{sound}}= 1.5[g\cdot keV/cm^2]$和点火条件$\rho R=0.3[g/cm^2]$可以导出$T=5keV$；</li>
+<li>方法2：通过使聚变加热速率和辐射冷却速率相等推出$T=4.3keV$。</li>
+</ul>
+</li>
+<li>直接把高能氘原子注入氚靶内能否获得净能量输出：<ul>
+<li>温度：直接注入会因为质心速度的存在损失一部分动能；</li>
+<li>密度：未经压缩的氘靶密度低，约束时间短，反应效率低。</li>
+</ul>
+</li>
+<li>如何推导劳森判据和ICF劳森判据。</li>
+<li>中心点火的四大物理过程及其作用。</li>
+<li>双锥对撞点火的基本物理过程，优势和挑战：</li>
+</ul>
 ]]></content>
       <categories>
         <category>激光核聚变</category>
@@ -8606,16 +8809,11 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 </ul>
 </li>
 <li><a href="#激光在等离子体中传播和吸收">激光在等离子体中传播和吸收</a></li>
-<li><a href="#激光不稳定性">激光不稳定性</a><ul>
-<li><a href="#色散关系">色散关系</a><ul>
-<li><a href="#电子波">电子波</a></li>
-<li><a href="#等离子体波">等离子体波</a></li>
-<li><a href="#激光">激光</a></li>
-</ul>
-</li>
+<li><a href="#激光等离子体不稳定性">激光等离子体不稳定性</a><ul>
 <li><a href="#三波耦合">三波耦合</a></li>
 </ul>
 </li>
+<li><a href="#习题">习题</a></li>
 </ul>
 <h1><span id="激光等离子体简介">激光等离子体简介</span></h1><h2><span id="激光简介">激光简介</span></h2><h3><span id="激光工作原理">激光工作原理</span></h3><p><strong>受激吸收</strong>：低能级的粒子吸收光子（泵浦光）跃迁到高能级；</p>
 <p><strong>受激辐射</strong>：高能级的粒子遇到同样能量的光子（种子光）会跃迁到低能级，放出两个光子；</p>
@@ -8653,23 +8851,75 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 <script type="math/tex; mode=display">\nu_{ei}=\dfrac{Z_i^2e^4n_i\ln{\Lambda}}{(kT_e)^\frac32m_e^\frac12}</script><h3><span id="电离度">电离度</span></h3><p>Saha方程描述了一定高温高压强场环境下，离子的离化态分布为：</p>
 <script type="math/tex; mode=display">\dfrac{N_j}{N_k}n_e=\dfrac{g_i}{4g_k}(\dfrac{k_BT_e}{\pi E_H})^\frac32e^{\frac{-E_{jk}}{k_BT_e}}</script><h1><span id="激光在等离子体中传播和吸收">激光在等离子体中传播和吸收</span></h1><p>激光在等离子体中的波动方程为：</p>
 <script type="math/tex; mode=display">\nabla^2\vec{E}-\nabla(\nabla\cdot\vec{E})+\frac{\omega^2}{c^2}\varepsilon\vec{E}=0 ,\vec{E}\sim e^{i\vec{k}\cdot\vec{i}}</script><p>介电系数为复数：</p>
-<script type="math/tex; mode=display">\varepsilon=1-\frac{\omega_{pe}{}^{2}}{\omega(\omega+iv_{ei})}</script><p>可以解得频率和波矢满足的方程为：</p>
-<script type="math/tex; mode=display">\omega^2=c^2k^2+\omega_{pe}^2\left(1-\frac{iv_{ei}}\omega\right),\frac{v_{ei}}\omega<<1</script><p>那么波矢为：</p>
+<script type="math/tex; mode=display">\varepsilon=1-\frac{\omega_{pe}{}^{2}}{\omega(\omega+i\nu_{ei})}</script><p>可以解得频率和波矢满足的方程为：</p>
+<script type="math/tex; mode=display">\omega^2=c^2k^2+\omega_{pe}^2\left(1-\frac{i\nu_{ei}}\omega\right),\frac{\nu_{ei}}\omega<<1</script><p>那么波矢为：</p>
 <script type="math/tex; mode=display">k=k_r+i\frac{k_i}2</script><p>实部表示传播；</p>
 <script type="math/tex; mode=display">k_{r}=\frac1c\sqrt{\omega^{2}-\omega_{pe}^{2}}</script><p>虚部表示吸收：</p>
-<script type="math/tex; mode=display">k_{i}=\frac{\omega_{pe}^{2}}{\omega^{2}}\frac{v_{ei}}{v_{g}}</script><p>激光的衰减意味着电子获得了能量。</p>
+<script type="math/tex; mode=display">k_{i}=\frac{\omega_{pe}^{2}}{\omega^{2}}\frac{\nu_{ei}}{v_{g}}</script><p>激光的衰减意味着电子获得了能量。</p>
 <blockquote>
-<p>短波长的激光吸收效率更高。目前一般采用三倍频激光。</p>
+<p>注意到等离子体本征频率$\nu_{ei}$和密度成正比，所以密度越大$\nu_{ei}$越大，而虚部$k_i=\frac{\nu_{ei}}{v_g}$与密度成正比，所以短波长的激光吸收效率更高（因为短波长）。目前一般采用三倍频激光。</p>
 <p>吸收效率和激光强度负相关。更强的光强使得电子速度过大，碰撞频率下降。</p>
-<h1><span id="激光不稳定性">激光不稳定性</span></h1><h2><span id="色散关系">色散关系</span></h2><h3><span id="电子波">电子波</span></h3><p>色散关系</p>
+<h1><span id="激光等离子体不稳定性">激光等离子体不稳定性</span></h1><p>激光等离子体不稳定性(Laser plasma instabilities, LPI)是制约ICF成功的两大不稳定性之一，另一个是流体力学不稳定性(Rayleigh–Taylor Instability，RTI)。<br>&lt;!— ## 色散关系</p>
+<h3><span id="电子波">电子波</span></h3><p>色散关系</p>
 <script type="math/tex; mode=display">\omega^2=\omega_p^2+\frac{3k_BT_e}{m}k^2</script><p>$\omega_p$是等离子体中电子振动的本征频率，其实就是朗缪尔频率。</p>
 <h3><span id="等离子体波">等离子体波</span></h3><p>色散关系</p>
 <script type="math/tex; mode=display">\omega^2=(\frac{k_BT_e}{M}+\frac{3k_BT_i}{M})k^2</script><p>这说明等离子体波是恒速波，$\sqrt{\frac{k_B(T_e+3T_i)}{M}}$就是等离子体的声速。左边部分来自于电场，右边部分来自于离子的热运动。</p>
 <h3><span id="激光">激光</span></h3><p>色散关系</p>
-<script type="math/tex; mode=display">\omega^2=\omega_{pe}^2+c^2k^2</script><h2><span id="三波耦合">三波耦合</span></h2></blockquote>
+<p><script type="math/tex">\omega^2=\omega_{pe}^2+c^2k^2</script> —&gt;</p>
+<h2><span id="三波耦合">三波耦合</span></h2></blockquote>
 <p>激光在等离子体中传播会产生散射波，激光、散射波和等离子体声波或静电波会产生三波耦合，从而形成不稳定性。</p>
-<script type="math/tex; mode=display">\omega_0=\omega_s+\omega_{es}</script><p>其中三波耦合分为多种情况：<br>|三波耦合模式|受激拉曼散射|双等离子体衰变|受激布里渊散射|<br>|—-|—-|—-|—-|<br>|英文简称|SRS|TPD|SBS|<br>|波的种类|等离子体波+散射光|等离子体波+等离子体波|离子声波+散射光|<br>|发生位置|&lt;$\frac14$临界密度面|$\frac14$临界密度面|$\leq$临界密度面|<br>|强度|$G_{SRS}\propto I_sL_n$|$G_{TPD}\propto \frac{\langle I_s\rangle L_n}{T_e}$|$G_{SBS}\propto \frac{ I_s L_v n_e}{T_e}$|</p>
+<script type="math/tex; mode=display">\omega_0=\omega_s+\omega_{es}</script><p>其中三波耦合分为多种情况：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>三波耦合模式</th>
+<th>受激拉曼散射</th>
+<th>双等离子体衰变</th>
+<th>受激布里渊散射</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>英文简称</td>
+<td>SRS</td>
+<td>TPD</td>
+<td>SBS</td>
+</tr>
+<tr>
+<td>波的种类</td>
+<td>等离子体波(EPW)+散射光(SRS)</td>
+<td>等离子体波(EPW)+等离子体波(EPW)</td>
+<td>离子声波(IAW)+散射光(SBS)</td>
+</tr>
+<tr>
+<td>发生位置</td>
+<td>&lt;$\frac14$临界密度面</td>
+<td>$\frac14$临界密度面</td>
+<td>$\leq$临界密度面</td>
+</tr>
+<tr>
+<td>强度</td>
+<td>$G_{SRS}\propto I_sL_n$</td>
+<td>$G_{TPD}\propto \frac{\langle I_s\rangle L_n}{T_e}$</td>
+<td>$G_{SBS}\propto \frac{ I_s L_v n_e}{T_e}$</td>
+</tr>
+<tr>
+<td>危害</td>
+<td>导致激光能量的损失和能量分布的不均匀，从而影响聚变效率</td>
+<td>导致激光能量的损失，产生热电子，预热聚变靶丸，影响聚变反应</td>
+<td>束间能量转移降低辐照对称性</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><img src="\img\激光等离子体聚变\image6.png" alt="alt text"></p>
+<h1><span id="习题">习题</span></h1><ul>
+<li>激光波长和泵浦波长的关系：</li>
+<li>等离子体的性质和严格定义：</li>
+<li>碰撞吸收在哪里最强？激光频率的影响？激光强度的影响？</li>
+<li>参量不稳定性过程和三波耦合</li>
+</ul>
 ]]></content>
       <categories>
         <category>激光核聚变</category>
@@ -8738,7 +8988,9 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 <script type="math/tex; mode=display">\frac{\rho_1}{\rho_0}_{max}=\frac{\gamma+1}{\gamma-1}=4|_{\gamma=\frac53}</script><p>但这导致多余的能量成为了靶物质的内能，使得热压强提高，不利于后续压缩。</p>
 <h2><span id="等熵压缩和多雨贡纽曲线逼近">等熵压缩和多雨贡纽曲线逼近</span></h2><p>雨贡纽曲线由于越压缩越偏离等熵压缩线，导致多余的能量没有利用到。不过利用多次弱雨贡纽曲线逼近等熵曲线，可以实现更大程度的压缩。</p>
 <p><img src="\img\激光等离子体聚变\image4.png" alt="alt text"></p>
-<h1><span id="球形火箭驱动的加速">球形火箭驱动的加速</span></h1>]]></content>
+<h1><span id="球形火箭驱动的加速">球形火箭驱动的加速</span></h1><p>球形火箭方程：$M\frac{du}{dt}=-4\pi R^2p_\alpha$，所以大半径靶丸和高强度激光有利于高速内爆。</p>
+<p>积分得：$u_{imp}=u_{ex}\ln(\frac{M_0}{M_1})$，其中$\frac{M_1}{M_0}$是负载比，当负载比等于0.58得时候，可以达到$u_{imp}=0.53u_{ex}=350km/s$，其中$u_{ex}=2c_T=660km/s$。</p>
+]]></content>
       <categories>
         <category>激光核聚变</category>
       </categories>
@@ -8802,6 +9054,76 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
       </categories>
       <tags>
         <tag>量子力学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>习题课</title>
+    <url>/2024/08/14/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/%E4%B9%A0%E9%A2%98%E8%AF%BE/</url>
+    <content><![CDATA[<h1><span id="要求">要求</span></h1><ul>
+<li>Cheating-paper，A4</li>
+<li>计算器</li>
+</ul>
+<h1><span id="题型">题型</span></h1><ul>
+<li>名词解释：5题；</li>
+<li>简单题，猜6</li>
+<li>计算题，比较简单，不需要记公式，猜1，不考公式推导</li>
+</ul>
+<h1><span id="重点">重点</span></h1><ul>
+<li>导论<ul>
+<li>四象限<ul>
+<li>激光等离子体相互作用：激光辐照；烧蚀压；等熵压缩；不稳定性-三波耦合。</li>
+<li>烧蚀向心内爆：激光辐照；火箭效应；压缩加速过程；外表面RT不稳定性。</li>
+<li>阻滞和约束：动能转换，速度下降，温度密度（球形汇聚）上升；惯性约束；内表面RT不稳定性。</li>
+<li>热斑点火和自持燃烧：热斑点火，燃烧波传播；</li>
+</ul>
+</li>
+<li>劳森判据：磁约束和惯性约束；</li>
+<li>点火条件：高密度和温度；</li>
+<li>理想点火温度的计算；</li>
+<li>不同点火方案的优劣。</li>
+</ul>
+</li>
+<li>导读1：激光等离子体相互作用<ul>
+<li>作用过程：激光传播-临界面-电子热传导-烧蚀波前-冲击压缩区-冲击波前-未扰动区</li>
+<li>作用特征：激光等离子体不稳定性-激光能量吸收-电子热传导和烧蚀-冲击波的产生-等熵压缩</li>
+<li>不稳定性：SRS，TPD，SBS；</li>
+<li>激光原理</li>
+<li>等离子体性质</li>
+<li>能量耦合机制；逆韧致吸收，共振吸收；</li>
+</ul>
+</li>
+<li>导读2：压缩和加速过程<ul>
+<li>等熵压缩及其逼近方法</li>
+<li>球形火箭方程<ul>
+<li>负载轻</li>
+<li>半径大</li>
+<li>烧蚀高</li>
+<li>反冲速度大</li>
+</ul>
+</li>
+<li>稳态烧蚀速率和不稳态的影响</li>
+<li>双锥点火和中心点火的区别</li>
+</ul>
+</li>
+<li>导读3：阻滞和约束<ul>
+<li>动力学<ul>
+<li>阻滞时刻</li>
+<li>残余动能（不对称性）阻滞时刻的不同？</li>
+<li>等压模型上限，冷燃料内能</li>
+</ul>
+</li>
+<li>能量学</li>
+</ul>
+</li>
+<li>导读4：</li>
+</ul>
+<p>#</p>
+]]></content>
+      <categories>
+        <category>激光核聚变</category>
+      </categories>
+      <tags>
+        <tag>激光核聚变</tag>
       </tags>
   </entry>
   <entry>
