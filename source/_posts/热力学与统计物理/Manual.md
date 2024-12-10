@@ -14,8 +14,12 @@ cover:
   - [一阶关系](#一阶关系)
   - [二阶关系](#二阶关系)
 - [一阶导处理方法](#一阶导处理方法)
-- [常见的结果](#常见的结果)
 - [二阶导处理](#二阶导处理)
+- [所有结果一览](#所有结果一览)
+  - [常数](#常数)
+  - [$S$](#s)
+  - [$U$](#u)
+  - [$H$](#h)
 
 
 # 偏微分关系
@@ -74,21 +78,69 @@ $$(\dfrac{\partial b}{\partial a})_X=-(\dfrac{\partial b}{\partial X})_a(\dfrac{
 
 ![alt text](\img\热力学\image.png)
 
-# 常见的结果
-
-1. 体积膨胀系数：$\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p$
-2. 压强系数：$\beta=\frac1p\left(\frac{\partial p}{\partial T}\right)_V$
-3. 等温压缩系数：$\kappa_T=-\frac1V\left(\frac{\partial V}{\partial P}\right)_T$
-
-> 三者满足关系：
-> $$\left(\frac{\partial V}{\partial T}\right)_p\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial P}\right)_T=-1\Rightarrow \alpha=\kappa_T\beta p$$
-
-4. 等容热容：$C_V=(\dfrac{\partial U}{\partial T})_V(definition)=T(\dfrac{\partial S}{\partial T})_V$
-5. 等压热容：$C_P=(\dfrac{\partial H}{\partial T})_p(definition)=T(\dfrac{\partial S}{\partial T})_p$
-
-> 二者满足的关系：
-> $$C_P-C_V=T(\dfrac{\partial S}{\partial T})_p-T(\dfrac{\partial S}{\partial T})_V=T(\dfrac{\partial p}{\partial T})_V(\dfrac{\partial V}{\partial T})_p$$
 
 # 二阶导处理
 $$(\dfrac{\partial C_V}{\partial V})_T=T(\dfrac{\partial^2 S}{\partial V\partial T})=T(\dfrac{\partial^2 S}{\partial T\partial V})=T(\dfrac{\partial^2 p}{\partial T^2})_V$$
 $$(\dfrac{\partial C_P}{\partial p})_T=T(\dfrac{\partial^2 S}{\partial p\partial T})=T(\dfrac{\partial^2 S}{\partial T\partial p})=-T(\dfrac{\partial^2 V}{\partial T^2})_p$$
+
+# 所有结果一览
+
+一般在化简的时候有技巧可循：如果你的形式是热力学函数偏两个自变量，那么四个热力学函数中总有对应的自变量组：
+$$U\rightarrow S,V$$
+$$H\rightarrow S,p$$
+$$F\rightarrow T,V$$
+$$G\rightarrow T,p$$
+
+另一种方法是采用全微分的办法；或者用偏微分关系。
+
+## 常数
+
+1. 体积膨胀系数：$\alpha=\frac1V\left(\frac{\partial V}{\partial T}\right)_p$
+2. 压强系数：$\beta=\frac1p\left(\frac{\partial p}{\partial T}\right)_V$
+3. 等温压缩系数：$\kappa_T=-\frac1V\left(\frac{\partial V}{\partial P}\right)_T$
+4. 等容热容：$C_V=(\dfrac{\partial U}{\partial T})_V(definition)=T(\dfrac{\partial S}{\partial T})_V$
+5. 等压热容：$C_P=(\dfrac{\partial H}{\partial T})_p(definition)=T(\dfrac{\partial S}{\partial T})_p$
+
+> 三者满足关系：
+> $$\left(\frac{\partial V}{\partial T}\right)_p\left(\frac{\partial p}{\partial T}\right)_V\left(\frac{\partial V}{\partial P}\right)_T=-1\Rightarrow \alpha=\kappa_T\beta p$$
+> 二者满足的关系：
+> $$C_P-C_V=T(\dfrac{\partial S}{\partial T})_p-T(\dfrac{\partial S}{\partial T})_V=T(\dfrac{\partial p}{\partial T})_V(\dfrac{\partial V}{\partial T})_p=-T(\dfrac{\partial p}{\partial V})_T$$
+
+
+## $S$
+由于热力学函数对S的偏导可以全部转化为TPV对S的偏导，这里整合到下面。
+
+$$\begin{aligned}
+(\frac{\partial S}{\partial P})_T&=-(\frac{\partial V}{\partial T})_P\\
+(\frac{\partial S}{\partial V})_T&=(\frac{\partial P}{\partial T})_V\\
+(\frac{\partial S}{\partial T})_V&=(\frac{\partial S}{\partial U})_V(\frac{\partial U}{\partial T})_V=\frac{C_V}{T}\\
+(\frac{\partial S}{\partial P})_V&=(\frac{\partial S}{\partial T})_V(\frac{\partial T}{\partial P})_V=\frac{C_V}{T}(\frac{\partial T}{\partial P})_V\\
+(\frac{\partial S}{\partial T})_P&=(\frac{\partial S}{\partial H})_P(\frac{\partial H}{\partial T})_P=\frac{C_P}{T}\\
+(\frac{\partial S}{\partial V})_P&=(\frac{\partial S}{\partial T})_P(\frac{\partial T}{\partial V})_P=\frac{C_P(\frac{\partial T}{\partial V})_P}{T}\\
+\end{aligned}$$
+
+## $U$
+
+$$\begin{aligned}
+(\frac{\partial U}{\partial T})_V&=C_V\\
+(\frac{\partial U}{\partial V})_T&=(\frac{\partial [F+TS]}{\partial V})_T=T(\frac{\partial P}{\partial T})_V-P\\
+(\frac{\partial U}{\partial T})_P&=(\frac{\partial [H-PV]}{\partial V})_T=C_P-P(\frac{\partial V}{\partial T})_P\\
+(\frac{\partial U}{\partial P})_T&=(\frac{\partial [G+TS-PV]}{\partial V})_T=-P(\frac{\partial V}{\partial P})_T-T(\frac{\partial V}{\partial T})_P\\
+(\frac{\partial U}{\partial P})_V&=(\frac{\partial U}{\partial T})_V(\frac{\partial T}{\partial P})_V=C_V(\frac{\partial T}{\partial P})_V\\
+(\frac{\partial U}{\partial V})_P&=(\frac{\partial [H-PV]}{\partial T})_P(\frac{\partial T}{\partial V})_P=C_P(\frac{\partial T}{\partial V})_P-P\\
+\end{aligned}$$
+
+> 当然可以配合$\alpha,\beta,\kappa_T$进一步简写，不过就没什么必要了。
+
+
+## $H$
+H和U对偶，相当于把$C_V$和$C_P$，$V$和$P$对换，不过注意符号。
+
+$$\begin{aligned}
+(\frac{\partial H}{\partial T})_P&=C_P\\
+(\frac{\partial H}{\partial P})_T&=-T(\frac{\partial V}{\partial T})_P+V\\
+(\frac{\partial H}{\partial T})_V&=C_V+V(\frac{\partial P}{\partial T})_V\\
+(\frac{\partial H}{\partial V})_T&=V(\frac{\partial P}{\partial V})_T+T(\frac{\partial P}{\partial T})_V\\
+(\frac{\partial H}{\partial V})_P&=C_P(\frac{\partial T}{\partial V})_P\\
+(\frac{\partial H}{\partial P})_V&=C_V(\frac{\partial T}{\partial P})_V+V\\
+\end{aligned}$$
