@@ -16,3 +16,5 @@ top: true
 {% post_link '热力学与统计物理/热力学统计物理Content' %}
 ## 托福
 {% post_link '托福/托福Content' %}
+## 激光核聚变
+{% post_link '激光等离子体核聚变/核聚变Content' %}
