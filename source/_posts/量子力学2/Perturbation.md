@@ -26,8 +26,9 @@ cover:
     - [Expotential Decay Perturbation-Energy Shift and Decay Width](#expotential-decay-perturbation-energy-shift-and-decay-width)
       - [First Order](#first-order-1)
       - [Second Order](#second-order-1)
+  - [Lamb Shift](#lamb-shift)
 - [Variantional Method](#variantional-method)
-- [Scattering Theory](#scattering-theory)
+  - [Helium Atom](#helium-atom)
 
 
 
@@ -97,8 +98,8 @@ $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle$$
 
 $$\begin{aligned}
 (E^0_k-E^0_n)\langle k^0|n^2\rangle&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+(\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle)\langle k^0|n^{0}\rangle\\
-&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{0}\rangle \langle n^0|n^{1}\rangle\langle k^0|n^{0}\rangle\\
-&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle\\
+&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\&+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{0}\rangle \langle n^0|n^{1}\rangle\langle k^0|n^{0}\rangle\\
+&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\&+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle\\
 &=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\
 \end{aligned}$$
 
@@ -235,13 +236,9 @@ $$i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\end{pmatrix}=\begin{pmatrix}0&
 $$\Omega=\sqrt{\frac{V^2}{\hbar^2}+\frac{(\omega+\omega_{12})^2}{4}}$$
 
 解得：
-$$c_1(t)=\alpha(e^{i\Omega t}+e^{-i\Omega t})$$
-$$c_2(t)=\beta(e^{i\Omega t}-e^{-i\Omega t})$$
-
-通过$|c_1|^2+|c_2|^2=1$，可以得到：
-$$c_1(t)=\sqrt{\frac{V/\hbar^2}{V/\hbar^2+(\omega+\omega_{12})/4}}(e^{i\Omega t}+e^{-i\Omega t})$$
-$$c_2(t)=\sqrt{\frac{(\omega+\omega_{12})/4}{V/\hbar^2+(\omega+\omega_{12})/4}}(e^{i\Omega t}-e^{-i\Omega t})$$
-
+$$c_2(t)=-\frac{\gamma}{2\Omega\hbar}e^{i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}+\frac{\gamma}{2\Omega\hbar}e^{-i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}=\frac{i\gamma}{\Omega\hbar}\sin{[\Omega t]}e^{i\frac{\omega+\omega_{12}}{2}t}$$
+$$|c_2(t)|^2=\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
+$$|c_1(t)|^2=1-|c_2(t)|^2=1-\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
 这就是Rabi振荡。
 
 ## Time-dependet Perturbation
@@ -350,8 +347,61 @@ $$c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}
 合并起来，跃迁概率为：
 $$c_i(t)=1-\frac{i}{\hbar\eta}V_{ii}e^{\eta t}-\frac{1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
 
-$$\frac{\dot{c_i}}{c_i}=\frac{-i}{\hbar\eta}V_{ii}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|}{2\eta(E_i-E_m+i\hbar \eta)}$$
+$$\frac{\dot{c_i}}{c_i}=\frac{-i}{\hbar\eta}V_{ii}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|}{E_i-E_m+i\hbar \eta}$$
+解得：
+$$c_i(t)=e^{-i\Delta_i t/\hbar},E_i\rightarrow E_i+\Delta_i$$
+
+其中：
+$$\Delta_i^{(1)}=V_{ii}$$
+$$\Re\Delta_i^{(2)}=\Pr.\sum_{m\neq i}\frac{|V_{mi}|^2}{E_i-E_m}$$
+$$\Im\Delta_i^{(2)}=-\pi\sum_{m\neq i}|V_{mi}|^2\delta(E_i-E_m)=-\frac{\hbar}{2}\sum_{m\neq i}W_{im}$$
+
+定义：
+$$\Gamma_i=-2\Im\Delta_i$$
+那么：
+$$|c_i(t)|^2=e^{-\Gamma_i t/\hbar}$$
+这意味着$1/\Gamma_i$是衰减时间，$\Gamma_i$是对应的能级展宽。
+
+
+## Lamb Shift
+
+
+
+
+
 # Variantional Method
 
-# Scattering Theory
+对于非微扰情况，得不到精确解又得不到近似解，那可以通过变分法来求解。
+
+**定理**：对于任意能量的估计，都大于基态能量——具体来说：
+$$\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}\geq E_0$$
+**证明**：
+$$\begin{aligned}|\tilde0\rangle=\sum_{k}|k\rangle\langle k|\tilde0\rangle\end{aligned}$$
+$$\begin{aligned}
+\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}&=\frac{\sum_{k}\langle \tilde0|k\rangle\langle k|\hat H|k\rangle\langle k|\tilde0\rangle}{\sum_{k}|\langle 0|k\rangle|^2}\\
+&=\frac{\sum_k E_k|\langle 0|k\rangle|^2}{\sum_k |\langle 0|k\rangle|^2}\\
+&\geq E_0
+\end{aligned}$$
+显然，误差来源于$|\tilde0\rangle$和$|0\rangle$的不同。我们可以在$|\tilde0\rangle$加上许多自由度$|\tilde0(\alpha,\beta,\cdots)\rangle$，在最后的估计能量上取极值，就可以找到最佳近似。
+
+## Helium Atom
+对于氦原子，我们可以用变分法求解基态能量。
+
+$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(2/r_1+2/r_2-1/r_{12})$$
+假如忽略电子之间的相互作用，那么基态波函数是
+$$\psi_1(r_1,r_2)=\psi_{1s}(r_1)\psi_{1s}(r_2)=\frac{8}{\pi a^3}e^{-2r_1/a}e^{-2r_2/a}$$
+这时候的能量是：
+$$E_{He_0}=8E_{H_0}+V_{ee}$$
+其中
+$$V_{ee}=\int d^3r_1d^3r_2\frac{|\psi_{1s}(r_1)|^2|\psi_{1s}(r_2)|^2}{r_{12}}=-\frac{5}{2}E_{H_0}$$
+所以：
+$$E_{He_0}=\frac{11}{2}E_{H_0}=-75eV$$
+很接近实验值$-79eV$。
+
+进一步引入参数：
+$$\psi_1(r_1,r_2)=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a}$$
+这时候可以将哈密顿量看成：
+$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(Z/r_1+Z/r_2)+\frac{e^2}{4\pi\epsilon}(\frac{Z-2}{r_1}+\frac{Z-2}{r_2}+1/r_{12})$$
+$$\begin{aligned}E_{He_0}&=2Z^2E_{H_0}+2(Z-2)\frac{e^2}{4\pi\epsilon}\langle \frac1r\rangle+V_{ee}\\&=(2Z^2-4Z(Z-2)-\frac54Z)E_{H_0}\end{aligned}$$
+当$Z=\frac{27}{16}$时，能量最低，为$-77.5eV$。
 
