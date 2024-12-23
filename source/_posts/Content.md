@@ -12,6 +12,8 @@ top: true
 {% post_link 'hexo/hexo' %}
 ## 量子力学
 {% post_link '量子力学/量子力学' %}
+## 量子力学Ⅱ
+{% post_link '量子力学2/量子力学2Content' %}
 ## 热力学统计物理
 {% post_link '热力学与统计物理/热力学统计物理Content' %}
 ## 托福
