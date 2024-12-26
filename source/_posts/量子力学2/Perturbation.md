@@ -203,8 +203,8 @@ $$i\hbar\frac{d}{dt}\hat A_I(t)=[\hat A_I(t),\hat H_0]$$
 |  | 薛定谔绘景 | 海森堡绘景 | 相互作用绘景 |
 | --- | --- | --- | --- |
 | 算符 | $\hat A_S$ | $\hat A_H(t)$ | $\hat A_I(t)$ |
-| 矢量 | $\|\alpha_S(t)\rangle$ | $\|\alpha_H(t)\rangle$ | $\|\alpha_I(t)\rangle$ |
-| 薛定谔矢量方程 | $i\hbar\frac{d}{dt}\|\alpha_S(t)\rangle=\hat H_S\|\alpha_S(t)\rangle$ | None | $i\hbar\frac{d}{dt}\|\alpha_I(t)\rangle=\hat V_I(t)\|\alpha_I(t)\rangle$ |
+| 矢量 | $\lvert\alpha_S(t)\rangle$ | $\lvert\alpha_H(t)\rangle$ | $\lvert\alpha_I(t)\rangle$ |
+| 薛定谔矢量方程 | $i\hbar\frac{d}{dt}\lvert\alpha_S(t)\rangle=\hat H_S\lvert\alpha_S(t)\rangle$ | None | $i\hbar\frac{d}{dt}\lvert\alpha_I(t)\rangle=\hat V_I(t)\lvert\alpha_I(t)\rangle$ |
 | 薛定谔算符方程 | None | $i\hbar\frac{d}{dt}\hat A_H(t)=[\hat A_H(t),\hat H_S]$ | $i\hbar\frac{d}{dt}\hat A_I(t)=[\hat A_I(t),\hat H_0]$ |
 
 

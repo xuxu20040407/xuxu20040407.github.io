@@ -12,3 +12,4 @@ cover:
 - {% post_link '量子力学2/Quantum-Dynamics-Quantum-Geometry' %}
 - {% post_link '量子力学2/Symmetry' %}
 - {% post_link '量子力学2/Perturbation' %}
+- {% post_link '量子力学2/Scattering-Theory' %}
