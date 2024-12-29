@@ -50,6 +50,7 @@ $$\hat U(t,t_0)=\exp[-\dfrac{i(t-t_0)}{\hbar}\hat{H}]$$
 $$\hat U(t,t_0)=\exp[-\dfrac{i}{\hbar}\int_{t_0}^t\hat{H}(t^\prime)dt^\prime]$$
 - 哈密顿算符与时间相关，但不同时刻的哈密顿量算符不对易：
 $$\hat U(t,t_0)=1+\sum_{n=1}^\infty(\dfrac{-i}{\hbar})^n\int_{t_0}^tdt_1\int_{t_0}^{t_1}dt_2\cdots\int_{t_0}^{t_{n-1}}dt_n\hat{H}(t_1)\hat{H}(t_2)\cdots\hat{H}(t_n)$$
+
 ## 定态和叠加态
 我们只考虑以上的第一种情况，那么时间算符同时与哈密顿算符对易，态矢量的演化可以用能量本征右矢表示：
 $$|\alpha,t\rangle=\sum_nc_n|a_n,t\rangle=\sum_nc_n\exp[-\frac{iE_nt}{\hbar}]|a_n,t=0\rangle$$
@@ -112,6 +113,7 @@ $$m\frac{d^2\langle\hat x\rangle}{dt^2}=-\langle\vec\nabla\hat V(\vec x)\rangle$
 
 # 简谐振子和相干态
 简谐振子的模型可以阐述量子力学的诸多概念，如朗道能级、电磁场量子化、氢原子模型等等。
+
 ## 谐振子
 $$\hat H=\frac{\hat p^2}{2m}+\frac{m\omega^2\hat x^2}2$$
 一种计算两个算符之和的本征态的普遍的想法是：
@@ -136,6 +138,7 @@ $$\hat a^\dagger |n\rangle=\sqrt{n+1}|n+1\rangle,\hat a |n\rangle=\sqrt{n}|n-1\r
 $$\psi_n(x)=\frac{1}{\sqrt{n!}}(a^\dagger)^n\psi_0$$
 - 反表示：
 $$\hat x=\sqrt{\frac{\hbar}{2m\omega}}(\hat a^\dagger+\hat a),\hat p=i\sqrt{\frac{\hbar m\omega}{2}}(\hat a^\dagger-\hat a)$$
+
 ## 简谐振子动力学
 根据运动方程：
 $$\frac{d}{dt}\hat a=\frac{\omega}{i}\hat a\Rightarrow \hat a(t)=\hat a(0)e^{-i\omega t}$$
@@ -145,6 +148,7 @@ $$\hat a^\dagger(t)=\hat a^\dagger(0)e^{i\omega t}$$
 $$\hat x(t)=\hat x(0)\cos{\omega t}+\frac{\hat p(0)}{m\omega}\sin{\omega t}$$
 $$\hat p(t)=\hat p(0)\cos{\omega t}-m\omega\hat x(0)\sin{\omega t}$$
 然而由于其期望一直是0，能量本征态不能反应经典简谐振子的运动状态；能反应的其实是湮灭算符的本征态，即相干态。
+
 ## 相干态
 湮灭算符的本征右矢定义为相干态：
 $$\hat a|\lambda\rangle=\lambda |\lambda\rangle$$
@@ -156,6 +160,7 @@ $$C_n=\frac{\lambda^n}{\sqrt{n!}}C_0$$
 $$C_0=e^{-\frac{|\lambda|^2}{2}}$$
 所以
 $$|\lambda\rangle=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}|n\rangle=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}\frac{\hat {a^\dagger}^n}{\sqrt{n!}}|0\rangle=e^{\frac{-|\lambda|^2}{2}}e^{\lambda \hat a^\dagger}|0\rangle$$
+
 ### 位置表象
 将相干态转移到位置表象：
 $$\lambda(x)=\langle x|\lambda\rangle=e^{\frac{-|\lambda|^2}{2}}\langle x|e^{\lambda \hat a^\dagger}|0\rangle$$

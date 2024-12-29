@@ -55,8 +55,8 @@ $$\langle\alpha|\alpha\rangle=1$$
 > 对比|量子力学|经典力学
 > -|-|-
 > 空间|希尔伯特空间|欧几里得空间
-> 基底|$\| \psi_n\rangle$|$\hat{e_i}$
-> 算符|$\sum_{n,m}\alpha_{nm}\|\psi_n\rangle\langle\psi_m\|$|$\sum_{i,j}c_{ij}\hat{e_i}\hat{e_j}$
+> 基底|$\lvert \psi_n\rangle$|$\hat{e_i}$
+> 算符|$\sum_{n,m}\alpha_{nm}\lvert\psi_n\rangle\langle\psi_m\lvert$|$\sum_{i,j}c_{ij}\hat{e_i}\hat{e_j}$
 
 > 唯一的区别是，量子力学中的$\alpha_{nm}$是复数，而经典力学中的$c_{ij}$是实数。量子力学是无穷维空间，经典力学是有限维空间。
 
@@ -189,7 +189,7 @@ Tr(\hat X)&=\sum_i \langle a^i|\hat X |a^i\rangle\\
 
 > 导致结果差别的数学本质是混合态没有交叉项，这是为什么类比为非相干叠加的原因。混合态的组合需要用外积表示，也就是下文说的密度矩阵。
 
-**密度矩阵/算符**：当基矢为可能出现的态时，密度矩阵定义为：
+**密度矩阵/算符**：当基矢为可能出现的态时，密度矩阵（在可能出现的态的表象下）定义为：
 $$\begin{pmatrix}
 p_1&0&\cdots&0\\
 0&p_2&\cdots&0\\
@@ -247,6 +247,14 @@ Tr(\hat\rho^2)&=\sum_n\sum_i\sum_jP_iP_j\langle n|\psi_i\rangle\langle \psi_i|\p
 \end{aligned}$$
 
 > 切不可认为$Tr(\hat\rho^2)=\sum_iP_i^2$。这是因为$\hat\rho^2$并不是原来维度的矩阵，而是维度平方（或者说直积）的矩阵。
+>
+> 从：
+> $$\hat\rho=\sum_j\sum_k(\sum_{i=1}^n p_ic_{ij}c_{ik}^*)|\phi_j\rangle\langle\phi_k|$$
+> 中可以轻松看出：
+> $$Tr(\hat \rho)=\sum_j(\sum_{i=1}^n p_ic_{ij}c_{ij}^*)=\sum_j\sum_{i=1}^n p_i|c_{ij}|^2=\sum_{i=1}^n p_i=1$$
+> 而：
+> $$Tr(\hat \rho^2)=\sum_n(\sum_{i=1}^n\sum_{j=1}^n p_ip_j|c_{in}|^2|c_{jn}|^2)<1$$
+
 
 **约化密度矩阵**：对于两个互相联系的系统$\mathcal{H_1}\otimes \mathcal{H_2}$，他们的基底分别是$|\alpha_i\rangle,|\beta_j\rangle$。
 
