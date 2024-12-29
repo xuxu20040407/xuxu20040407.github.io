@@ -106,6 +106,12 @@ $$\begin{aligned}
 所以：
 $$\langle k^0|n^2\rangle=\frac{\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle}{E^0_k-E^0_n}$$
 
+> 特殊地，如果一阶修正能量为0，即：
+> $$E^1_n=\langle n^0|\delta \hat H|n^{0}\rangle=0$$
+> 得到：
+> $$E^2_n=-\langle n^0|E^1_n|n^{1}\rangle$$
+> $$\langle k^0|n^2\rangle=-\frac{\langle k^0|\delta \hat H|n^{1}\rangle}{E^0_k-E^0_n}$$
+
 ## Degenerate Perturbation
 
 考虑有简并的哈密顿量：
@@ -166,6 +172,8 @@ E_n^1&=\frac{1}{2}(\langle n^0,a|\delta \hat H|n^0,a\rangle+\langle n^0,b|\delta
 
 同时也可以求出本征矢量：
 $$\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
+
+> 实际上不需要死记硬背，对于非简并微扰，本质上是解关于修正能量和修正波函数的矩阵方程（n+1个方程确定n+1个未知数，其中n个方程为波函数各维度的线性方程，另外加上波函数的归一化方程）；对于简并微扰，本质上是解关于修正能量、修正波函数和“Good State”的矩阵方程（n+m个方程确定n+m个未知数，m为简并数）。
 
 
 # Time-dependet Perturbation
