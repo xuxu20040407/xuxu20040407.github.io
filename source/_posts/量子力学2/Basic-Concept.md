@@ -139,7 +139,27 @@ $$|a,b\rangle$$
 $$\hat A|a,b\rangle=a|a,b\rangle,\hat B|a,b\rangle=b|a,b\rangle$$
 
 ## 不确定性关系
-$$|\langle\Delta A\Delta B\rangle|^2=\frac14|\langle[A, B]\rangle|^2+\frac14|\langle{\Delta A,\Delta B}\rangle|^2$$
+证明1：由内积的正定性：
+$$\begin{aligned}
+||\psi\rangle|^2&=\langle \psi|\psi\rangle=\langle \phi|(\hat A-i\lambda\hat B)(\hat A+i\lambda\hat B)|\phi\rangle\geq 0\\
+&\Rightarrow \langle \phi|\hat A^2|\phi\rangle+\lambda^2\langle \phi|\hat B^2|\phi\rangle+i\lambda\langle \phi|[\hat A,\hat B]|\phi\rangle\geq 0\\
+&\Rightarrow \langle \hat B^2\rangle\lambda^2+i\lambda\langle [\hat A,\hat B]\rangle+\langle \hat A^2\rangle\geq 0\\
+&\Rightarrow \lambda^2\langle i[\hat A,\hat B]\rangle^2-4\langle \hat A^2\rangle\langle \hat B^2\rangle\leq 0\\
+&\Rightarrow \langle \hat A^2\rangle\langle \hat B^2\rangle\geq |\frac{i}{2}\langle [\hat A,\hat B]\rangle|^2
+\end{aligned}$$
+这个可以约束出更强的式子，取：
+$$ \hat A'= \hat A-\langle \hat A\rangle, \hat B'= \hat B-\langle \hat B\rangle$$
+就可以得到：
+$$(\Delta\hat A)^2(\Delta\hat B)^2\geq |\frac{i}{2}\langle [\hat A,\hat B]\rangle|^2$$
+
+证明2：由施瓦茨不等式：
+$$\begin{aligned}
+(\Delta\hat A)^2(\Delta\hat B)^2&=\langle \hat A'\rangle^2\langle \hat B'\rangle^2\\
+&\geq |\langle \hat A'\hat B'\rangle|^2\\
+&=|\langle \frac{1}{2}[\hat A',\hat B']+\frac{1}{2}\{\hat A',\hat B'\} \rangle|^2\\
+&=|\langle \frac{1}{2}[\hat A,\hat B]+\frac{1}{2}\{\hat A',\hat B'\} \rangle|^2\\
+&\geq |\frac{1}{2}\langle [\hat A,\hat B]\rangle|^2
+\end{aligned}$$
 
 # 基矢的变换
 

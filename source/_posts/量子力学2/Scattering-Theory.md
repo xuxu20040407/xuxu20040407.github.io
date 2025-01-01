@@ -127,9 +127,39 @@ $$D(\theta,\phi)=\frac{(2\pi)^4m^2}{\hbar^4}|\langle \vec{k_f}|\hat V|k_i\rangle
 格林函数的算符形式：
 $$\hat G_0^\pm=\frac{1}{E-\hat H_0\pm i\epsilon}$$
 
+## Optical Theorem
 光学定理：
 $$\frac{k}{4\pi}\sigma_{tot}=\Im [f(\theta=0,\phi=0)]$$
+证明：
+$$\begin{aligned}
+\Im{f(\theta=0)}&=\frac{4\pi^2m}{\hbar^2}\Im{\langle \vec{k_i}|\hat T^+|\vec{k_i}\rangle}\\
+&=\frac{4\pi^2m}{\hbar^2}\Im{\langle \psi_k|(1-\hat V\hat G_0^-)\hat V|\psi_k\rangle}\\
+&=\frac{4\pi^2m}{\hbar^2}\langle \psi_k|\Im{\hat V\hat G_0^-\hat V}|\psi_k\rangle\\
+&=\frac{4\pi^2m}{\hbar^2}\langle \psi_k|\hat V\Im{\hat G_0^-\hat V}|\psi_k\rangle\\
+&=\frac{4\pi^2m}{\hbar^2}\langle \psi_k|\hat V\Im{\frac{1}{E_0-\hat H-i\epsilon}}\hat V|\psi_k\rangle\\
+&=\frac{4\pi^3m}{\hbar^2}\langle \psi_k|\hat V\delta(E-H_0)\hat V|\psi_k\rangle\\
+&=\frac{4\pi^3m}{\hbar^2}\langle \psi_k|\hat V\delta(E-H_0)\hat T|\vec{k_i}\rangle\\
+&=\frac{4\pi^3m}{\hbar^2}\int\langle \psi_k|\hat V\delta(E-H_0)|\vec{k}'\rangle\langle \vec{k}'|\hat T|\vec{k_i}\rangle d^3k'\\
+&=\frac{4\pi^3m}{\hbar^2}\int\langle \psi_k|\hat V|\vec{k}'\rangle\langle \vec{k}'|\hat T|\vec{k_i}\rangle \delta(E-\frac{\hbar^2k'^2}{2m})d^3k'\\
+&=\frac{4\pi^3m}{\hbar^2}\frac{m}{\hbar^2k}\int_{|k|=|k_i|}\langle \psi_k|\hat V|\vec{k}\rangle\langle \vec{k}|\hat T|\vec{k_i}\rangle k^2d\Omega\\
+&=\frac{4\pi^3m^2}{\hbar^4}k\int_{|k|=|k_i|}|\langle \vec{k}|\hat T|\vec{k}_i\rangle|^2 d\Omega\\
+&=\frac{k}{4\pi}(\frac{4\pi^2 m}{\hbar^2})^2\int d\Omega|f(\theta,\phi)|^2\\
+&=\frac{k}{4\pi}\sigma_{tot}
+\end{aligned}$$
 
+## Example: Square Well
+方势阱的势能为：
+$$V(r)=\begin{cases}
+V_0,&r<a\\
+0,&r>a
+\end{cases}$$
+由散射振幅的定义：
+$$f(\theta)=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}-\vec{k'})\cdot\vec{r}}V(r)d\vec{r}=-\frac{2m}{\hbar^2}\int_0^a rV(r)\sin{(qr)}dr$$
+
+其中$|q|=2k\sin\frac{\theta}{2}$，积分得到：
+$$f(\theta)=-\frac{2mV_0a}{\hbar^2q^2}[\frac{\sin(qa)}{qa}-\cos{(qa)}]$$
+
+## Example: Yukawa Potential
 
 
 
