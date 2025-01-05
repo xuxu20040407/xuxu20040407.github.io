@@ -27,8 +27,17 @@ cover:
   - [简并](#简并)
   - [量子化霍尔电导](#量子化霍尔电导)
 - [规范变换](#规范变换)
+  - [标势的规范变换](#标势的规范变换)
+  - [矢势的规范变换](#矢势的规范变换)
+  - [更一般的情况](#更一般的情况)
+    - [态矢量的幺正变换](#态矢量的幺正变换)
+    - [薛定谔方程的规范不变性](#薛定谔方程的规范不变性)
+    - [概率和概率流密度的规范不变性](#概率和概率流密度的规范不变性)
+  - [AB效应](#ab效应)
 - [几何相位](#几何相位)
   - [绝热近似](#绝热近似)
+  - [例子：无限深势阱边界的移动](#例子无限深势阱边界的移动)
+  - [例子：自旋1/2的磁矩](#例子自旋12的磁矩)
 - [量子几何](#量子几何)
   - [经典度规](#经典度规)
   - [量子度规](#量子度规)
@@ -118,7 +127,7 @@ $$m\frac{d^2\langle\hat x\rangle}{dt^2}=-\langle\vec\nabla\hat V(\vec x)\rangle$
 $$\hat H=\frac{\hat p^2}{2m}+\frac{m\omega^2\hat x^2}2$$
 一种计算两个算符之和的本征态的普遍的想法是：
 $$\hat H=\hat A\hat B$$
-<!-- 如果这两个算符无关，那么$\hat B$的本征态 -->
+
 处于朴素的理解，我们可以通过类比复数将哈密顿算符分解为：
 $$\hat H=\hbar\omega\hat a\hat a^\dagger$$
 其中$\hat a=\frac{1}{\sqrt{2\hbar m\omega}}(i\hat p+m\omega \hat x),\hat a^\dagger=\frac{1}{\sqrt{2\hbar m\omega}}(-i\hat p+m\omega \hat x)$。
@@ -172,20 +181,21 @@ e^{\lambda \hat a^\dagger}&=e^{\lambda (\sqrt{\frac{2m\omega}{\hbar}}\hat x-\hat
 &=e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\lambda\hat a}e^{-\frac{\lambda^2}2}\\
 \end{aligned}$$
 所以
-$$\lambda(x)=\langle x|\lambda\rangle=e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{2\lambda\hat x}\langle x|0\rangle=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{2\lambda x}e^{-\frac{m\omega}{2\hbar}x^2}$$
+$$\lambda(x)=\langle x|\lambda\rangle=e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}\langle x|0\rangle=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\frac{m\omega}{2\hbar}x^2}$$
 相应的概率为：
-$$|\lambda(x)|^2\propto e^{4\lambda x-\frac{m\omega}{\hbar}x^2}=e^{-\frac{m\omega}{\hbar}(x-\frac{2\lambda\hbar}{m\omega})^2}$$
+$$|\lambda(x)|^2\propto e^{2\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x-\frac{m\omega}{\hbar}x^2}\propto e^{-(\sqrt{\frac{m\omega}{\hbar}}x-\sqrt{2}\lambda)^2}$$
 
 如果其随时间演化：
 $$\begin{aligned}
-e^{-\frac{i\hat H t}{\hbar}}|\lambda\rangle&=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}e^{-\frac{i\hat H t}{\hbar}}|n\rangle\\&=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}e^{-i(n+\frac12)\omega t}|n\rangle\\&=e^{-\frac{|\lambda e^{-i\frac12\omega t}|^2}{2}}\sum_n\frac{(\lambda e^{-i\omega t})^n}{\sqrt{n!}}\frac{\hat {a^\dagger}^n}{\sqrt{n!}}|0\rangle\\&=e^{-i\frac12\omega t}|\lambda e^{-i\omega t}\rangle
+e^{-\frac{i\hat H t}{\hbar}}|\lambda\rangle&=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}e^{-\frac{i\hat H t}{\hbar}}|n\rangle\\&=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}e^{-i(n+\frac12)\omega t}|n\rangle\\
+&=e^{-\frac{|\lambda |^2}{2}}e^{-i\frac12\omega t}\sum_n\frac{(\lambda e^{-i\omega t})^n}{\sqrt{n!}}\frac{\hat {a^\dagger}^n}{\sqrt{n!}}|0\rangle\\&=e^{-i\frac12\omega t}|\lambda e^{-i\omega t}\rangle
 \end{aligned}$$
 
 所以
-$$|\lambda(x,t)|^2\propto e^{-\frac{m\omega}{\hbar}(x-\frac{2\lambda\hbar}{m\omega}\cos{\omega t})^2}$$
+$$|\lambda(x,t)|^2\propto e^{-(\sqrt{\frac{m\omega}{\hbar}}x-\sqrt{2}\lambda\cos{\omega t})^2}$$
 
 其位置期望为：
-$$\langle  x\rangle=\frac{2\lambda\hbar}{m\omega}\cos{\omega t}$$
+$$\langle  x\rangle=\lambda\sqrt{\frac{2\hbar}{m\omega}}\cos{\omega t}$$
 与自由粒子波包不同，这个波包往复运动而不弥散。
 
 ### 粒子数算符
@@ -222,9 +232,16 @@ $$\hat B=\sum_n \sqrt{n+1}|n\rangle\langle n|=\begin{pmatrix}\ddots&\cdots&0&0\\
 $$ e^{i\hat \Phi}=\frac{1}{\sqrt{\hat N+1}}\hat a$$
 $$e^{-i\hat \Phi}=\hat a^\dagger\frac{1}{\sqrt{\hat N+1}}$$
 作用在能级上：
-$$e^{i\hat \Phi}|n\rangle=\frac{1}{\sqrt{\hat N+1}}\hat a|n\rangle=\sqrt{n+1}|n\rangle$$
-矩阵表示为：
-$$\hat B=\sum_n \sqrt{n+1}|n\rangle\langle n|=\begin{pmatrix}\ddots&\cdots&0&0\\\vdots&\ddots&0&0\\0&0&\sqrt{n+1}&0\\0&0&0&\ddots\end{pmatrix}$$
+$$e^{i\hat \Phi}|n\rangle=\frac{1}{\sqrt{\hat N+1}}\hat a|n\rangle=|n-1\rangle$$
+所以相位算符表示为：
+$$e^{i\hat \Phi}=\sum_{n=0} |n\rangle\langle n+1$$
+$$e^{-i\hat \Phi}=\sum_{n=0} |n+1\rangle\langle n$$
+相位算符的指数函数显然不是厄密的。定义三角函数部分：
+$$\cos{\hat \Phi}=\frac{e^{i\hat \Phi}+e^{-i\hat \Phi}}2$$
+$$\sin{\hat \Phi}=\frac{e^{i\hat \Phi}-e^{-i\hat \Phi}}{2i}$$
+可以证明：
+$$[\hat N,\cos{\hat\Phi}]=-i\sin{\hat\Phi}$$
+$$[\hat N,\sin{\hat\Phi}]=i\cos{\hat\Phi}$$
 
 # 朗道能级
 ## 经典理论
@@ -280,11 +297,137 @@ $$\langle r^2\rangle=(n+1)\frac{2\hbar}{eB}$$
 ## 简并
 每一个n都对应了基态能量，所以对于无穷大体系，简并度无穷大。但是由于有限的面积A，此体系的简并度为
 $$n_{max}=\frac{A}{\frac{2\hbar}{eB}\pi}=\frac{\phi}{\phi_0}$$
-其中$\phi_0=\frac{h}{e}$是量子磁通。
+其中$\phi_0=\frac{h}{e}$是量子磁通，$\phi=AB$。
+
+与我们物理直觉相符的是，朗道能级的简并度正比于磁场和面积。
 
 ## 量子化霍尔电导
+霍尔电阻定义为：
+$$R_H=\frac{V_y}{I_x}$$
+其中$V_y=E_y l=Blv$，$I_x=eNv$，所以
+$$R_H=\frac{Blv}{env}=\frac{B}{en}$$
+
+载流子浓度n与朗道能级总数N的关系：
+$$n=\frac{N\frac{\phi}{\phi_0}}{A}=\frac{NB}{\phi_0}$$
+霍尔电阻为：
+$$R_H=\frac{\phi_0}{Ne}$$
+其倒数定义为霍尔电导：
+$$\sigma_H=\frac{1}{R_H}=N\frac{e^2}{h}$$
+其中$\frac{e^2}{h}$是单位霍尔电导。
+
+> 朗道提出用新的波函数：
+> $$\Psi=\prod_{i<j}(z_i-z_j)^ke^{-\frac{eB}{4\hbar}\sum z_i\bar{z_i}}$$
+> 来描述分数霍尔效应，最后的结果为：
+> $$N=\frac{1}{k}\frac{\phi}{\phi_0}$$
+
+
 
 # 规范变换
+规范变换的本意是对“标势和矢势进行的不影响电磁场和变换”。电矢势不是规范不变的，但是与磁矢势相关联的电磁场具有规范不变性。
+
+$$\begin{cases}
+\vec E=-\nabla\phi-\frac{\partial\vec A}{\partial t}\\
+\vec B=\nabla\times\vec A
+\end{cases}$$
+
+现在，我们拓展规范不变性的概念：对于某些非可观测量做的规范变换可以使某些可观测量保持不变，或者可以是运动方程保持不变，这种不变性就是规范不变性。
+
+- 全局规范变换：$\vec A\to \vec A+\vec{A_0},\phi\to \phi-\phi_0$
+- 局域规范变换：$\vec A\to \vec A+\nabla\Lambda,\phi\to \phi-\frac{\partial\Lambda}{\partial t}$
+
+
+## 标势的规范变换
+考虑新增一个标势后的哈密顿量：
+$$\hat H=\hat H_0+V(t)$$
+根据时间演化算符的定义：
+$$\hat U(t)= \exp{\int_0^t\frac{-i}{\hbar}\hat H_0 dt^\prime}\exp{\int_0^t\frac{-i}{\hbar}V(t^\prime)dt^\prime}=\hat U_0\hat U'(\hat V)$$
+代入即得：
+$$|\psi'(t)\rangle=\hat U_0\hat U'(\hat V)|\psi(0)\rangle=\hat U'(\hat V)|\psi(t)\rangle$$
+
+## 矢势的规范变换
+考虑新增电矢势后的哈密顿量：
+$$\hat H=\frac{(\hat p-q\vec{A})^2}{2m}+e\phi$$
+计算时间的微商：
+$$\frac{d}{dt}\hat x=\frac{1}{i\hbar}[\hat x,\hat H]=\frac{\hat p-e\vec{A}}{m}$$
+与前面的动量不同，我们称$\hat \Pi=\hat p-e\vec{A}$为机械动量，而把之前的$\hat p$称为正则动量。
+
+## 更一般的情况
+
+算符$\hat R$和算符$\hat P$组成所有其他算符，这两个算符是被规定的，他们不随规范的变化而变化：
+$$\hat R_{\xi'}=\hat R_{\xi},\hat P_{\xi'}=\hat P_{\xi}$$
+
+但有些算符，比如$\phi,\vec{A}$是随着规范改变的。显然，显含$\phi,\vec{A}$的算符，比如哈密顿算符，随着规范变化。
+
+### 态矢量的幺正变换
+假设新的规范下，态矢量为$|\psi'\rangle$，那么：
+$$\begin{aligned}
+\langle\psi'|\hat R_{\xi'}|\psi'\rangle&=\langle\psi|\hat U^\dagger\hat R_{\xi'}\hat U|\psi\rangle\\
+&=\langle\psi|\hat U^\dagger\hat R_{\xi}\hat U|\psi\rangle\\
+&=\langle\psi|\hat R_{\xi}|\psi\rangle
+\end{aligned}$$
+
+$$\begin{aligned}
+\langle\psi'|\hat P_{\xi'}|\psi'\rangle&=\langle\psi|\hat U^\dagger\hat P_{\xi'}\hat U|\psi\rangle\\
+&=\langle\psi|\hat U^\dagger\hat P_{\xi}\hat U|\psi\rangle\\
+&=\langle\psi|\hat P_{\xi}+q\nabla\Lambda(\hat R,t)|\psi\rangle
+\end{aligned}$$
+
+> 这里需要用到坐标和机械动量**的值**不随规范改变，即
+> $$\langle\psi'|\hat R_{\xi'}|\psi'\rangle=\langle\psi|\hat R_{\xi}|\psi\rangle,\langle\psi'|\hat \Pi_{\xi'}|\psi'\rangle=\langle\psi|\hat \Pi_{\xi}|\psi\rangle$$
+> 注意，值不随规范改变，不代表算符不随规范改变。
+
+即：
+$$\hat R_{\xi}=\hat U^\dagger\hat R_{\xi}\hat U$$
+$$\hat P_{\xi}+q\nabla\Lambda(\hat R,t)=\hat U^\dagger\hat P_{\xi}\hat U$$
+
+从第一个式子得到：
+$$[\hat R_{\xi},\hat U]=0\Rightarrow \hat U=\exp{i F(\hat R,t)}$$
+从第二个式子得到：
+$$[\hat P_{\xi},\hat U]=q\nabla\Lambda(\hat R,t)\hat U\Rightarrow i\hbar\nabla \hat U=q\nabla\Lambda(\hat R,t)\hat U\Rightarrow F=\frac{q}{\hbar}\Lambda$$
+
+综上，变换算符是：
+$$\hat U=\exp{\frac{iq}{\hbar}\Lambda(\hat R,t)}$$
+
+### 薛定谔方程的规范不变性
+$$i\hbar\frac{\partial}{\partial t}|\psi\rangle=\hat H_{\xi}|\psi\rangle$$
+$$i\hbar\frac{\partial}{\partial t}\hat U|\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle$$
+将第二个式子展开：
+$$i\hbar \dot{\hat U}|\psi\rangle+i\hbar \hat U|\dot\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle$$
+$$- q\dot\Lambda(\hat R,t)\hat U|\psi\rangle+\hat U\hat H_{\xi}|\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle$$
+$$- q\dot\Lambda(\hat R,t)\hat U|\psi\rangle+\hat U\hat H_{\xi}\hat U^\dagger\hat U|\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle$$
+所以：
+$$\hat H_{\xi'}=\hat U\hat H_{\xi}\hat U^\dagger-q\dot\Lambda$$
+因此我们知道，对哈密顿算符做以上规范变换可以保证薛定谔方程的规范不变性。具体来说，新的哈密顿算符为：
+$$\begin{aligned}\hat H_{\xi'}&=\hat U\hat H_{\xi}\hat U^\dagger-q\dot\Lambda\\
+&=\frac{1}{2m}(\hat U\hat P\hat U^\dagger-q\vec{A})^2+q\phi-q\dot\Lambda\\
+&=\frac{1}{2m}(\hat P-q\vec{A}-q\nabla\Lambda)^2+q\phi-q\dot\Lambda\\
+\end{aligned}$$
+这刚好对应着：
+$$\vec{A'}=\vec{A}+\nabla\Lambda,\phi'=\phi-\frac{\partial\Lambda}{\partial t}$$
+
+
+### 概率和概率流密度的规范不变性
+考虑：
+$$i\hbar \frac{\partial}{\partial t}\psi=(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)\psi$$
+$$-i\hbar \frac{\partial}{\partial t}\psi^*=(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)^\dagger\psi^*$$
+所以：
+$$\begin{aligned}
+\frac{\partial \rho}{\partial t}&=\frac{\partial \psi^*\psi}{\partial t}=\psi^*\frac{\partial \psi}{\partial t}+\frac{\partial \psi^*}{\partial t}\psi\\
+&=\frac{-i}{\hbar}(\psi^*(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)\psi-(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)^\dagger\psi^*\psi)\\
+&=\frac{-i}{2m\hbar}(\psi^*((\hat p-q\vec{A})^2+2mq\phi)\psi-((\hat p-q\vec{A})^2+2mq\phi)^\dagger\psi^*\psi)\\
+&=\frac{i\hbar}{2m}(\psi^*\nabla^2\psi-\nabla^2\psi^*\psi)+\frac{q}{m}( \psi^*\vec{A}\nabla\psi+\vec{A}\nabla\psi^*\psi)\\
+&=\frac{i\hbar}{2m}\nabla(\psi^*\nabla\psi-\nabla\psi^*\psi)+\frac{q}{m}\nabla(\psi^*\vec{A}\psi)\\
+\end{aligned}$$
+所以
+$$\vec{j}=\frac{-i\hbar}{2m}(\psi^*\nabla\psi-\nabla\psi^*\psi)-\frac{q}{m}(\psi^*\vec{A}\psi)=\frac{\hbar}{m}\Re{[\frac{\psi^*\nabla\psi}{i}-\frac{q}{\hbar}\psi^*\vec{A}\psi]}$$
+
+将$-i\hbar\nabla\rightarrow -i\hbar\nabla-e\vec{A}$之后，就可以证明概率流密度的规范不变性。
+
+## AB效应
+考虑一个无限长的螺线管，磁通量为$\phi$，磁矢势为$\vec{A}=\frac{\phi}{2\pi r}\vec{e_\theta}$，从左右两侧通过的电子相差的相位为：
+$$\Delta\phi=-\frac{ie}{\hbar}\oint \vec{A}\cdot d\vec{r}=-\frac{ie}{\hbar}\iint (\nabla\times \vec{A})\cdot d\vec{S}=-\frac{ie}{\hbar}\phi=-i2\pi\frac{\phi}{\phi_0}$$
+
+
 # 几何相位
 
 ## 绝热近似
@@ -316,21 +459,54 @@ $$\langle m(t)|\dot{n}(t)\rangle=\frac{\langle m(t)|\dot{\hat{H}}|n(t)\rangle}{E
 $$\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar C_m(t)\langle m(t)|\dot{m}(t)\rangle= C_m(t)E_m $$
 $$\mathrm{i}\hbar \frac{\dot{C_m}(t)}{C_m(t)}= E_m -\mathrm{i}\hbar \langle m(t)|\dot{m}(t)\rangle$$
 解得：
-$$C_m(t_0)=C_m(0)\exp{[-\frac{i}{\hbar}\int^{t_0}_0 (E_m(t) +\langle m(t)|\dot{m}(t)\rangle)dt]}$$
+$$C_m(t_0)=C_m(0)\exp{[\int^{t_0}_0 (-\frac{i}{\hbar}E_m(t) -\langle m(t)|\dot{m}(t)\rangle)dt]}$$
 
 我们知道前一项是动力学相位，后一位被定义为几何相位：
-$$\begin{aligned}C_m(t_0)&=C_m(0)\exp{[-\int^{t_0}_0 \frac{i}{\hbar}E_m(t) dt]}\exp{[-\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt]}\\&=C_m(0)\exp{[-\frac{i}{\hbar}\int^{t_0}_0 E_m(t) dt]}\exp{[i\gamma(t_0) dt]}\end{aligned}$$
+$$\begin{aligned}C_m(t_0)&=C_m(0)\exp{[-\int^{t_0}_0 \frac{i}{\hbar}E_m(t) dt]}\exp{[-\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt]}\\&=C_m(0)\exp{[-\frac{i}{\hbar}\int^{t_0}_0 E_m(t) dt]}\exp{[i\gamma(t_0)]}\end{aligned}$$
 其中
 $$\gamma(t_0)=i\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt$$
 当然，如果引起本征态或哈密顿算符变化的参数不直接是时间而是$\lambda(t)$，原定义推广为：
 $$\gamma(\lambda_0)=i\int^{\lambda_0}_0\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle dt$$
-其中
-$$\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle$$
-被称为贝里联络。
 
-磁矢势的贝里联络
+其中$\vec{A}=i\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle$被称为贝里联络，具有类似于电矢势的物理意义。而$\vec{B}=\nabla\times\vec{A}$被称为贝里曲率，具有类似于磁场的物理意义。
 
-some example
+
+|||||
+|---|---|---|---|
+|实空间|AB相位|电矢势|磁场|
+|参数空间|贝里相位|贝里联络|贝里曲率|
+
+> 重新计算AB相位，通过规范变换可得：
+> $$\hat H=\frac{(\hat p-q\vec{A})^2}{2m}+q\phi\Rightarrow \hat H=\frac{(\hat p-q\vec{A}+q\nabla\Lambda)^2}{2m}+q\phi+q\dot\Lambda$$
+> 取$\nabla\Lambda=\vec{A},\dot\Lambda=0$，则：
+> $$\psi=e^{\frac{-iq\Lambda}{\hbar}}\psi'=\exp{[\frac{-iq\int_0^{\vec{r}}\vec{A}d\vec{r}}{\hbar}]}\psi'$$
+> 换句话说：
+> $$\psi'(\vec{r})=\exp{[\frac{iq}{\hbar}\int_{0}^{\vec{r}}\vec{A}d\vec{r}]}\psi(\vec{r})$$
+> 贝里联络为：
+> $$\begin{aligned}
+\vec{A_r}&=\langle \psi'|\vec{\nabla_r}|\psi'\rangle\\&=\langle \psi'|\vec{\nabla_r}|\psi\rangle+\frac{q}{\hbar}\vec{A}\langle \psi'|\psi'\rangle\\&=\frac{i\exp{[\frac{-iq}{\hbar}\int_{0}^{\vec{r}}\vec{A}d\vec{r}]}}{\hbar}\langle \psi|\vec{p}|\psi\rangle+\frac{q}{\hbar}\vec{A}\\&=\frac{q}{\hbar}\vec{A}\end{aligned}$$
+> 用到了定态下物理期望为0的条件。
+
+## 例子：无限深势阱边界的移动
+
+$$\gamma=\oint_C\langle m(L)|\dot{m}(L)\rangle dL$$
+在坐标表象下：
+$$\begin{aligned}\gamma
+&=i\oint_C\langle \sqrt{\frac{2}{L}}\sin{\frac{m\pi x}{L}}|\frac{d}{dL}|\sqrt{\frac{2}{L}}\sin{\frac{m\pi x}{L}}\rangle dL\\
+&=i\oint_C\langle \sqrt{\frac{2}{L}}\sin{\frac{m\pi x}{L}}|-\frac{1}{\sqrt{2L^3}}\sin{\frac{m\pi x}{L}}-\sqrt{\frac{2}{L^5}}m\pi x\cos{\frac{m\pi x}{L}}\rangle dL\\\end{aligned}$$
+注意到没有关于L的平方项，在闭合回路积分中等于0。
+
+## 例子：自旋1/2的磁矩
+$$\hat H_0=\vec{h}\cdot\vec{\sigma}=h\begin{pmatrix}\cos{\theta}&\sin{\theta}e^{-i\phi}\\\sin{\theta}e^{i\phi}&-\cos{\theta}\end{pmatrix}$$
+相应的本征态为：
+$$\begin{cases}|+\rangle=\begin{pmatrix}\cos{\frac{\theta}{2}}\\ \sin{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}\\|-\rangle=\begin{pmatrix}\sin{\frac{\theta}{2}}e^{-i\phi}\\-\cos{\frac{\theta}{2}}\end{pmatrix}\end{cases}$$
+取向上态，贝里联络为：
+$${A}_\theta=i\langle +|\vec{\nabla_\theta}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}-\frac12\sin{\frac{\theta}{2}}\\ -\frac12\cos{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=0$$
+$${A}_\phi=i\langle +|\vec{\nabla_\phi}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}0\\ i\sin{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=-\sin^2{\theta/2}$$
+所以贝里联络为：
+$$\vec{A}=-\sin^2{\frac\theta{2}}\vec{e_\phi}$$
+贝里曲率：
+$$\vec{B}=\nabla\times\vec{A}=-\frac{\partial}{\partial\theta}(-\sin^2{\frac\theta{2}})=\frac12\sin{\theta}$$
 
 # 量子几何
 
