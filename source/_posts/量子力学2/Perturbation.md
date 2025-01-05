@@ -12,6 +12,12 @@ cover:
     - [Second Order Theory](#second-order-theory)
   - [Degenerate Perturbation](#degenerate-perturbation)
     - [Two-fold Degenerate](#two-fold-degenerate)
+    - [Linear Stark Effect](#linear-stark-effect)
+    - [Fine Structure](#fine-structure)
+      - [Relative Correction](#relative-correction)
+      - [Spin-Orbit Coupling](#spin-orbit-coupling)
+    - [Zeeman Effect](#zeeman-effect)
+    - [Van der Waals Interaction](#van-der-waals-interaction)
 - [Time-dependet Perturbation](#time-dependet-perturbation)
   - [Interaction Picture](#interaction-picture)
     - [Example: Nuclear Magnetic Resonance](#example-nuclear-magnetic-resonance)
@@ -26,7 +32,7 @@ cover:
     - [Expotential Decay Perturbation-Energy Shift and Decay Width](#expotential-decay-perturbation-energy-shift-and-decay-width)
       - [First Order](#first-order-1)
       - [Second Order](#second-order-1)
-  - [Lamb Shift](#lamb-shift)
+    - [Lamb Shift](#lamb-shift)
 - [Variantional Method](#variantional-method)
   - [Helium Atom](#helium-atom)
 
@@ -109,8 +115,18 @@ $$\langle k^0|n^2\rangle=\frac{\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0
 > 特殊地，如果一阶修正能量为0，即：
 > $$E^1_n=\langle n^0|\delta \hat H|n^{0}\rangle=0$$
 > 得到：
-> $$E^2_n=-\langle n^0|E^1_n|n^{1}\rangle$$
+> $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle$$
 > $$\langle k^0|n^2\rangle=-\frac{\langle k^0|\delta \hat H|n^{1}\rangle}{E^0_k-E^0_n}$$
+> 当我们考虑二阶微扰的时候，这才是常见的情况。
+>
+> 不失一般性，当前k-1阶修正能量为0，第k阶修正能量为：
+> $$E^k_n=\langle n^0|\delta \hat H|n^{k-1}\rangle$$
+> 这意味着：
+> $$E_n^{k}\Leftrightarrow|n^{k-1}\rangle$$
+
+> 补充：当一阶微扰为0的时候，二阶微扰总是起到互斥的作用(Level Repulsion)：
+> $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle= \sum_{k\neq n}-\frac{|\langle k^0|\delta \hat H|n^0\rangle|^2}{E^0_k-E^0_n}
+
 
 ## Degenerate Perturbation
 
@@ -174,6 +190,67 @@ E_n^1&=\frac{1}{2}(\langle n^0,a|\delta \hat H|n^0,a\rangle+\langle n^0,b|\delta
 $$\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
 
 > 实际上不需要死记硬背，对于非简并微扰，本质上是解关于修正能量和修正波函数的矩阵方程（n+1个方程确定n+1个未知数，其中n个方程为波函数各维度的线性方程，另外加上波函数的归一化方程）；对于简并微扰，本质上是解关于修正能量、修正波函数和“Good State”的矩阵方程（n+m个方程确定n+m个未知数，m为简并数）。
+
+### Linear Stark Effect
+
+考虑一个线性Stark效应：
+$$\delta\hat H=-e\hat r\cdot \hat E=-ez|E|$$
+考虑$n=2$能级的选择定则：
+- 宇称选择定则：这是一个奇宇称的算符，所以只有不同宇称，或者说$l+l'$是奇数之间的态可能；
+- 角动量选择定则：$z=r\cos{\theta}$，所以连接不同轨道角动量数l之间的态；进一步，只有$m=m'$的态可能。
+
+所以最终的微扰算符为：
+$$\delta\hat H=\begin{pmatrix}0&g|E|&0&0\\g|E|&0&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix}$$
+显然只连接了$|2,0,0\rangle,|2,1,0\rangle$两个态。"Good State"为：
+$$|n^0,a\rangle=\frac{1}{\sqrt{2}}(|2,0\rangle+|2,1\rangle)$$
+$$|n^0,b\rangle=\frac{1}{\sqrt{2}}(|2,0\rangle-|2,1\rangle)$$
+那么一阶能量修正为：
+$$E^1_a=g|E|,E^1_b=-g|E|$$
+这意味着4重简并的能级最终分裂。
+
+### Fine Structure
+氢原子的能级为：
+$$E_n=-\frac12 mc^2\alpha^2\frac{1}{n^2}$$
+更精细的结构为：
+- 相对论修正
+- 自旋轨道耦合
+
+二者都是$mc^2\alpha^4$的量级。
+
+#### Relative Correction
+对于相对论修正：
+$$K=\sqrt{p^2c^2+m^2c^4}-mc^2\approx \frac{p^2}{2m}-\frac{p^4}{8m^3c^2}$$
+所以这里微扰是：
+$$\delta\hat H=-\frac{p^4}{8m^3c^2}$$
+这里本应该使用简并微扰理论，但是由于：
+$$[\hat L,\delta\hat H]=0$$
+意味着$\delta\hat H$已经是对角化的，不会联系不同的轨道角动量数，所以我们可以直接求解：
+$$E^1_{nlm}=\langle nlm|\delta\hat H|nlm\rangle=\cdots=-\alpha^2[-\frac{3}{4n^2}+\frac{1}{n(l+\frac12)}]$$
+
+#### Spin-Orbit Coupling
+
+微扰为：
+$$\delta\hat H=\frac{1}{2m_e^2c^2}\frac{1}{r}\frac{dV}{dr}\hat L\cdot \hat S$$
+
+选择$\hat L^2,\hat S^2,\hat J^2,\hat J_z$作为本征态，因为他们和$\hat L\cdot \hat S$对易。
+
+一阶能量修正为：
+$$E^1_{nlj}=\langle nlj|\delta\hat H|nlj\rangle=\cdots=-\frac{\alpha^2}{2nl(l+\frac12)(l+1)}E_n^0\begin{cases}l&j=l+\frac12\\-l-1&j=l-\frac12\end{cases}$$
+
+
+
+### Zeeman Effect
+塞曼效应
+
+### Van der Waals Interaction
+范德瓦尔斯相互作用表现为两个原子之间的相互吸引，可以用以下物理图像理解：电子云的涨落会导致瞬时偶极子，这些偶极子会相互作用，导致两个原子之间的相互吸引。直白地说，电子靠近产生的吸引力大于电子远离产生的排斥力。
+
+微扰为：
+$$\begin{aligned}\delta\hat H&=-\frac{e^2}{r^3}(x_1x_2+y_1y_2-2z_1z_2)\\&=-\frac{e^2}{r^3}(\sin{\theta_1}\cos{\phi_1}\sin{\theta_2}\cos{\phi_2}+\sin{\theta_1}\sin{\phi_1}\sin{\theta_2}\sin{\phi_2}-2\cos{\theta_1}\cos{\theta_2})
+\end{aligned}$$
+
+<!-- 以第一项$\sin{\theta}\cos{\phi}=\sqrt{1-\cos{\theta^2}\cos{\phi}}$为例，要求两边的量子数满足：
+$$l-l'\in N,m-m'=\pm 1$$ -->
 
 
 # Time-dependet Perturbation
@@ -255,7 +332,7 @@ $$|c_1(t)|^2=1-|c_2(t)|^2=1-\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
 
 假设系数的近似解为：
 $$c_n(t)=c_n^{(0)}(t)+c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots$$
-知道$$c_n^{(0)}(t)=c_n(0)$，是容易求得$c_n^{(1)}(t)$的，将其作为初值重新代入，我们可以不断迭代得到更高阶的近似解。
+知道$c_n^{(0)}(t)=c_n(0)$，是容易求得$c_n^{(1)}(t)$的，将其作为初值重新代入，我们可以不断迭代得到更高阶的近似解。
 
 相互作用中关于时间演化算符的微分方程为：
 $$i\hbar\frac{d}{dt}U_I(t,t_0)=\hat V_I(t)U_I(t,t_0)$$
@@ -270,10 +347,8 @@ U_I(t,t_0)&=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')[1-\frac{i}{\hbar}\int_{t_0
 \end{aligned}$$
 
 这其中的第n阶项为：
-$$\begin{aligned}
-U_I(t,t_0)
-&=\sum_{n=0}^\infty(-\frac{i}{\hbar})^n\int_{t_0}^t\cdots\int_{t_0}^{t_{n-1}}\hat V_I(t_1)\cdots\hat V_I(t_n)dt_1\cdots dt_n
-\end{aligned}$$
+$$U_I(t,t_0)
+=\sum_{n=0}^\infty(-\frac{i}{\hbar})^n\int_{t_0}^t\cdots\int_{t_0}^{t_{n-1}}\hat V_I(t_1)\cdots\hat V_I(t_n)dt_1\cdots dt_n$$
 
 ### Transition Probability
 考虑跃迁的概率：
@@ -292,8 +367,10 @@ $$P_{ni}(t)=|\sum_{n=0}^\infty c_n(t)|^2$$
 考虑一个常数微扰：
 $$V(t)=\begin{cases}0&t<0\\V&t\geq 0\end{cases}$$
 假定在$t=0$的时候，体系处于态$|i\rangle$：
+
 #### Zero Order
 $$c_n^{(0)}(t)=\langle n|i\rangle$$
+
 #### First Order
 $$\begin{aligned}c_n^{(1)}(t)&=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'\\&=\frac{-i}{\hbar}\int_{0}^te^{i\omega_{ni}t'}V_{ni}dt'\\&=\frac{V_{ni}}{E_n-E_i}(1-e^{i\omega_{ni}t})\end{aligned}$$
 或者：
@@ -310,6 +387,7 @@ $$\sum_n|c_n^{(1)}(t)|^2=\int dE \rho(E)\frac{|V_{ni}|^2}{\hbar^2}t^2\frac{\sin^
 定义单位时间的跃迁概率——跃迁速率：
 $$W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^2|}\rho(E)|_{E_n=E_i}$$
 该式被称为费米黄金规则。
+
 #### Second Order
 $$\begin{aligned}c_n^{(2)}(t)&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'\\
 &=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}V_{nm}e^{-i\omega_{mi}t''}V_{mi}dt''dt'\\
@@ -319,6 +397,7 @@ $$\begin{aligned}c_n^{(2)}(t)&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}\l
 
 合并一阶修正，跃迁速率：
 $$W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}+\sum_m\frac{V_{nm}V_{mi}}{E_i-E_m}|^2}\rho(E)|_{E_n=E_i}$$
+
 ### Harmonic Perturbation
 考虑一个简谐微扰：
 $$V(t)=Ve^{i\omega t}+V^\dagger e^{-i\omega t}$$
@@ -349,6 +428,7 @@ $$W_{ni}=\frac{2\pi}{\hbar}|V_{ni}|^2\delta(E_n-E_i)$$
 
 #### First Order
 $$c_i^{(1)}(t)=\frac{-i}{\hbar}\lim_{t_0\rightarrow \infty}\int_{t_0}^t\langle i|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar\eta}V_{ii}e^{\eta t}$$
+
 #### Second Order
 $$c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
 
@@ -371,8 +451,11 @@ $$|c_i(t)|^2=e^{-\Gamma_i t/\hbar}$$
 这意味着$1/\Gamma_i$是衰减时间，$\Gamma_i$是对应的能级展宽。
 
 
-## Lamb Shift
+### Lamb Shift
+经典中的真空无光子涨落，自然不会出现电子光子耦合，但是在量子力学中，真空中的光子涨落会导致电子的能级发生变化，这就是Lamb Shift。
 
+写出微扰项：
+$$\hat \delta H=-\frac{e}{m}\vec{A}\vec{p}+\frac{e^2}{2m}\vec{A}^2$$
 
 
 

@@ -161,6 +161,13 @@ $$\begin{aligned}
 &\geq |\frac{1}{2}\langle [\hat A,\hat B]\rangle|^2
 \end{aligned}$$
 
+> 对于不显含时间的算符$\hat f$，其期望值的时间导数为：
+> $$\frac{d}{dt}\langle \hat f\rangle=\frac{1}{i\hbar}\langle[\hat H,\hat f]\rangle$$
+> 那么：
+> $$(\Delta\hat H)^2(\Delta\hat f)^2\geq|\frac{1}{2}\langle [\hat H,\hat f]\rangle|^2=|\frac{1}{2}\langle i\hbar \dot{\hat f}\rangle|^2$$
+> 即
+> $$\Delta E\Delta t\geq\frac{\hbar}{2}$$
+
 # 基矢的变换
 
 两组正交完备标准基矢$|a\rangle,|b\rangle$可以通过一个幺正算符：
@@ -273,7 +280,7 @@ Tr(\hat\rho^2)&=\sum_n\sum_i\sum_jP_iP_j\langle n|\psi_i\rangle\langle \psi_i|\p
 > 中可以轻松看出：
 > $$Tr(\hat \rho)=\sum_j(\sum_{i=1}^n p_ic_{ij}c_{ij}^*)=\sum_j\sum_{i=1}^n p_i|c_{ij}|^2=\sum_{i=1}^n p_i=1$$
 > 而：
-> $$Tr(\hat \rho^2)=\sum_n(\sum_{i=1}^n\sum_{j=1}^n p_ip_j|c_{in}|^2|c_{jn}|^2)<1$$
+> $$Tr(\hat \rho^2)=\sum_n\sum_m(\sum_{i}\sum_{j} p_ip_j|c_{in}|^2|c_{jm}|^2)<1$$
 
 
 **约化密度矩阵**：对于两个互相联系的系统$\mathcal{H_1}\otimes \mathcal{H_2}$，他们的基底分别是$|\alpha_i\rangle,|\beta_j\rangle$。
@@ -309,23 +316,33 @@ $$
 
 量子香农熵定义为：$S(\hat\rho)=-Tr(\hat\rho\log\hat\rho)$
 
+量子香农熵显然不随相似变换而改变，那么选择本征态表象，可以得到和经典一样的表达式。
+
 ## 微正则系综
+
+
+对于微正则系综：
+$$\hat \rho=\frac{1}{\Omega}\sum_{i=1}^{\Omega}|\psi_i\rangle\langle\psi_i|$$
+
+证明：
+
 $$\begin{cases}
 \delta S=0\\
 Tr(\hat\rho)=1
 \end{cases}$$
 
+$$S=-\sum_ip_i\log{p_i},\sum_{i}p_i=1$$
 
-以二维系统为例，可以用经典方法解释：
-$$S=-p_i\log{p_i},\sum_{i}p_i=1$$
+$$S_L=-\sum_ip_i\log{p_i}-\alpha(\sum_{i}p_i-1)$$
 
-$$S_L=-p_i\log{p_i}-\alpha(\sum_{i}p_i-1)$$
+$$\delta S_L=\sum_i(-\log{p_i}-1-\alpha)\delta p_i=0\Rightarrow p_i=e^{-(1+\alpha)}$$
 
-$$\delta S_L=(-\log{p_i}-1-\alpha)\delta p_i=0\Rightarrow p_i=e^{-(1+\alpha)}$$
 
-甚至不需要用到量子的概念。
 
 ## 正则系综
+对于正则系综：
+$$\hat \rho=\frac{1}{Z}e^{-\beta\hat H},Z=Tr(e^{-\beta\hat H})$$
+证明：
 $$\begin{cases}
 \delta S=0\\
 Tr(\hat\rho)=1\\
@@ -341,12 +358,15 @@ $$S_L=-Tr(\hat\rho\log\hat\rho)-\alpha(Tr\hat\rho-1)-\beta(Tr(\hat\rho\hat H)-E)
 > 假设$\hat\rho=e^{\hat A}$，那么$\hat\rho\delta\log\hat\rho=e^{\hat A}\delta\hat A=\delta e^{\hat A}=\delta \hat\rho$，所以：
 > $$\delta(Tr(\hat\rho\log\hat\rho))=Tr(\delta\hat\rho\log\hat\rho)+Tr(\delta\hat\rho)$$
 
-$$\delta S_L=(-\log\hat\rho-1-\alpha-\beta\hat H)\delta \hat\rho=0\Rightarrow \hat\rho=Ce^{-\beta H}$$
+$$\delta S_L=Tr[(-\log\hat\rho-1-\alpha-\beta\hat H)\delta \hat\rho]=0\Rightarrow \hat\rho=Ce^{-\beta H}$$
 运用$Tr(\hat\rho)=1$，得到
 $$\hat\rho=\frac{e^{-\beta H}}{Z}$$
 其中$Z=Tr(e^{-\beta H})$
 
 ## 巨正则系综
+对于巨正则系综：
+$$\hat \rho=\frac{1}{Z}e^{-\beta(\hat H-\mu\hat N)},Z=Tr(e^{-\beta(\hat H-\mu\hat N)})$$
+证明：
 $$\begin{cases}
 \delta S=0\\
 Tr(\hat\rho)=1\\
@@ -357,8 +377,4 @@ Tr(\hat\rho\hat N)=N
 
 $$S_L=-Tr(\hat\rho\log\hat\rho)-\alpha(Tr\hat\rho-1)-\beta(Tr(\hat\rho\hat H)-E)-\beta\mu(Tr(\hat\rho\hat N)-N)$$
 
-$$\delta S_L=(-\log\hat\rho-1-\alpha-\beta\hat H-\beta\mu\hat N)\delta \hat\rho=0\Rightarrow \hat\rho=\frac{e^{-\beta H}}{Z}$$
-
-$$\hat\rho=\frac{e^{-\beta (H-\mu \hat N)}}{Z}$$
-
-$$\beta=(k_BT)^{-1}$$
+$$\delta S_L=(-\log\hat\rho-1-\alpha-\beta\hat H-\beta\mu\hat N)\delta \hat\rho=0\Rightarrow \hat\rho=\frac{e^{-\beta (H-\mu \hat N)}}{Z}$$

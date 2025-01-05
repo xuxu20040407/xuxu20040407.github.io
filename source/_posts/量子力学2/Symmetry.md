@@ -27,15 +27,22 @@ cover:
 - [基本作用力和对称性](#基本作用力和对称性)
   - [基本作用力](#基本作用力)
   - [对称性](#对称性)
-  - [简并度](#简并度)
+    - [对称性和简并度](#对称性和简并度)
+    - [对称性和守恒律](#对称性和守恒律)
   - [氢原子的四维旋转对称](#氢原子的四维旋转对称)
   - [宇称对称性](#宇称对称性)
     - [宇称算符的本征态](#宇称算符的本征态)
     - [自发对称性破缺](#自发对称性破缺)
-    - [选择定则](#选择定则)
+    - [宇称选择定则](#宇称选择定则)
   - [时间反演对称性](#时间反演对称性)
     - [经典力学的时间反演](#经典力学的时间反演)
     - [量子力学的时间反演](#量子力学的时间反演)
+    - [时间反演算符](#时间反演算符)
+      - [时间反演算符的性质](#时间反演算符的性质)
+      - [内积](#内积)
+      - [算符](#算符)
+      - [波函数](#波函数)
+      - [有自旋波函数](#有自旋波函数)
 
 # 转动和角动量对易
 
@@ -209,15 +216,21 @@ $$j=\begin{pmatrix}0&i\\i&0\end{pmatrix},k=\begin{pmatrix}i&0\\0&-i\end{pmatrix}
 ## 对称性
 
 - 连续对称性
-  - 平移对称性
-  - 旋转对称性
+  - 空间平移对称性
+  - 空间旋转对称性
+  - 时间平移对称性
 - 离散对称性
   - 空间宇称对称性
   - 时间反演对称性
   - 电荷共轭对称性
 - 规范“对称性”
 
-## 简并度
+保系统对称性的操作叫做对称变换，满足：
+$$\hat S^{-1}\hat H\hat S=\hat H$$
+即：
+$$[\hat H,\hat S]=0$$
+
+### 对称性和简并度
 
 满足系统不变的对称变换有：
 $$\hat S^{-1}\hat H\hat S=\hat H$$
@@ -228,8 +241,17 @@ $$\hat S^{\dagger}\hat H\hat S=\hat H\Rightarrow[\hat H,\hat S]=0$$
 这必然会导致能级的简并，因为：
 $$\hat H|n\rangle=E_n|n\rangle\Leftrightarrow \hat H|(\hat S|n\rangle)=\hat S|(\hat H|n\rangle)=\hat S|(E_n|n\rangle)=E_n(\hat S|n\rangle)$$
 
+### 对称性和守恒律
 
-
+考虑无穷小变换
+$$\hat Q=\hat I+i\epsilon\hat F$$
+满足幺正条件：
+$$\hat Q^\dagger\hat Q=\hat I+i\epsilon(\hat F-\hat F^\dagger)=\hat I$$
+所以：
+$$\hat F=\hat F^\dagger$$
+意味着$\hat F$是厄密算符，所以对应了一个可观测量。如果这时候要求$\hat Q$是对称变换，即：
+$$[\hat Q,\hat H]=0$$
+那么由Ehrenfest定理，$\hat F$是守恒的。
 
 ## 氢原子的四维旋转对称
 
@@ -314,7 +336,22 @@ $$\hat \Pi^\dagger\hat L\hat \Pi=\hat L$$
 - 对平移算符的变换：
 $$\hat \Pi^\dagger\hat T(\vec{dx})\hat \Pi=-\hat T(\vec{dx})$$
 
+还有这些性质：
+- 宇称算符的平方：
+$$\hat \Pi^2=1\Leftrightarrow \hat \Pi=\hat \Pi^{-1}$$
+- 宇称算符的厄密性：
+$$\hat \Pi^\dagger=\hat \Pi$$
 
+> 证明：
+> $$\langle \hat \Pi^\dagger \vec{x}|\vec{y}\rangle=\langle \vec{x}|\hat \Pi|\vec{y}\rangle=\langle \vec{x}|-\vec{y}\rangle=\delta(\vec{x}+\vec{y})$$
+> 所以：
+> $$\langle \hat \Pi^\dagger \vec{x}|=\langle -\vec{x}|$$
+> $$| \hat \Pi^\dagger \vec{x}\rangle=| -\vec{x}\rangle=\hat \Pi| \vec{x}\rangle$$
+
+
+- 宇称算符的厄密性和逆算符又构成了幺正性：
+$$\hat \Pi^\dagger\hat \Pi=1$$
+- 宇称算符的幺正性要求其本征值为$e^{i\delta}$，又因为其厄密性，所以本征值只能是$\pm1$。
 
 ### 宇称算符的本征态
 
@@ -328,7 +365,11 @@ $$\hat H\hat \Pi|n\rangle=\hat \Pi\hat H|n\rangle=\hat \Pi E_n|n\rangle=E_n(\hat
 所以
 $$\hat \Pi|n\rangle=\lambda|n\rangle$$
 如果$\lambda=1$，那么是偶宇称；如果$\lambda=-1$，那么是奇宇称。
+> 如果是简并的，那么在这一步会出现问题：
+> $$\hat H(\hat \Pi|n\rangle)=E_n(\hat \Pi|n\rangle)\Rightarrow \hat \Pi|n\rangle=\lambda|m\rangle$$
+> 其中$m$是和$n$不同的本征态。
 
+这个定义指出如果哈密顿算符对称，那么其本征态也具有对称性。
 
 例如：
 - 量子谐振子$|0\rangle$是偶宇称的，但是$|1\rangle=\hat a^\dagger|0\rangle$是奇的，因为作用在$\hat a^\dagger$会变号；
@@ -339,9 +380,9 @@ $$\hat \Pi|n\rangle=\lambda|n\rangle$$
 
 
 
-### 选择定则
+### 宇称选择定则
 
-我们似乎发现有些量被宇称操作的结果是不一样的，实际上由如下结果：
+我们似乎发现有些量被宇称操作的结果是不一样的，实际上有如下结果：
 
 
 Classification|Parity|Rotations
@@ -351,6 +392,17 @@ $\text{pseudovector }\hat{\mathbf{V}}$|$\left[\hat{\Pi},\hat{V}_i\right]=0$|$\le
 $\text{true scalar }\hat{f}$|$\left[\hat{\Pi},\hat{f}\right]=0$|$\left[\hat{L}_i,\hat{f}\right]=0$
 $\text{pseudoscalar }\hat{f}$|$\left\{\hat{\Pi},\hat{f}\right\}=0$|$\left[\hat{L}_i,\hat{f}\right]=0$
 
+奇宇称算符，或者说实矢量或赝标量，其算符不能连接宇称相同的量子态，即如下定理：
+> 如果$|\alpha\rangle$和$|\beta\rangle$是宇称算符的两个本征态，且他们的宇称相同，即
+> $$\hat \Pi|\alpha\rangle=\lambda_a|\alpha\rangle,\hat \Pi|\beta\rangle=\lambda_b|\beta\rangle$$
+> $$\lambda_a\lambda_b=1$$
+> 那么：
+> $$\langle \alpha|\hat O|\beta\rangle=0,if ~ \hat \Pi\hat O\Pi^\dagger=-\hat O$$
+>
+> 证明：
+> $$\langle \alpha|\hat O|\beta\rangle=\langle \alpha|\hat \Pi^\dagger\hat \Pi\hat O\Pi^\dagger\hat \Pi|\beta\rangle=-\lambda_a\lambda_b\langle \alpha|\hat O|\beta\rangle=-\langle \alpha|\hat O|\beta\rangle$$
+> 证毕。
+
 ## 时间反演对称性
 
 ### 经典力学的时间反演
@@ -359,23 +411,94 @@ $\text{pseudoscalar }\hat{f}$|$\left\{\hat{\Pi},\hat{f}\right\}=0$|$\left[\hat{L
 
 $$i\hbar \partial_t \psi=\hat H\psi$$
 考虑时间反演算符：
-$$\psi^\prime(x,t)=\hat T\psi(x,t)=\psi^*(x,-t)$$
+$$\psi^\prime(x,t)=\hat \theta\psi(x,t)=\psi^*(x,-t)$$
 代入原来的薛定谔方程检验：
 $$i\hbar \partial_{\tilde{t}} \psi^*(x,\tilde{t})=\hat H \psi^*(x,\tilde{t})$$
 
 当然，以上需要$\hat H$是时间反演对称的。
 
-
+### 时间反演算符
 
 时间反演算符是一个反线性算符，即：
-$$\hat T(a|\psi_1\rangle+b|\psi_2\rangle)=a^*\hat T|\psi_1\rangle+b^*\hat T|\psi_2\rangle$$
+$$\hat \theta(a|\psi_1\rangle+b|\psi_2\rangle)=a^*\hat \theta|\psi_1\rangle+b^*\hat \theta|\psi_2\rangle$$
 
+可以写成：
+$$\hat \theta=\hat U\hat K$$
+其中$\hat U$是幺正算符，$\hat K$是复共轭算符。
+
+#### 时间反演算符的性质
+先考虑复共轭算符的性质：
+$$\hat Kc|a\rangle=c^*|a\rangle$$
+- 复共轭算符会改变系数；
+- 复共轭算符不会改变基矢本身。
+
+一个严峻的问题是，对于不同的基矢选取，复共轭算符的作用是不同的。以$\hat S_y$为例，如果以$|\hat S_z,\pm\rangle$为基矢，那么复共轭算符会改变$|\hat S_y,\pm\rangle$：
+$$\hat K|\hat S_y,\pm\rangle=|\hat S_y,\mp\rangle$$
+另一方面，如果以$|\hat S_y,\pm\rangle$为基矢，那么复共轭算符并不会改变$|\hat S_y,\pm\rangle$。这意味着幺正算符$\hat U$是依赖于基矢的选取的。
+
+#### 内积
 考虑时间反演后的内积：
-$$\langle \hat T\psi_1|\hat T\psi_2\rangle=\langle \hat T\psi_1|\int|\hat x\rangle\langle\hat x|dx|\hat T\psi_2\rangle=\psi_2(x)\psi_1^*(x)=\langle \psi_1|\psi_2\rangle^*$$
+$$\langle \hat \theta\psi_1|\hat \theta\psi_2\rangle=\langle \hat \theta\psi_1|\int|\hat x\rangle\langle\hat x|dx|\hat \theta\psi_2\rangle=\psi_2(x)\psi_1^*(x)=\langle \psi_1|\psi_2\rangle^*$$
 
-对于球谐函数：
-$$\hat TY_l^m=(Y_l^m)^*=(-1)^mY_l^{-m}$$
-即
-$$\hat T|l,m\rangle=(-1)^m|l,-m\rangle$$
-对于有自旋的情况：
-$$\hat T|l,s\rangle=(-1)^{2s}|l,-s\rangle$$
+#### 算符
+- 对于坐标算符：
+$$\hat \theta\hat x(t)\hat \theta^{-1}=\hat x(-t)$$
+- 对于动量算符：
+$$\hat \theta\hat p(t)\hat \theta^{-1}=-\hat p(-t)$$
+- 对于角动量算符：
+$$\hat \theta\hat J(t)\hat \theta^{-1}=-\hat J(-t)$$
+
+#### 波函数
+定理：如果无关自旋的哈密顿量在时间反演下不变，且本征右矢$|n\rangle$是非简并的，则相应的本征函数一定是实数的。
+
+> 证明：
+> $$\hat H\hat \theta|n\rangle=\hat \theta\hat H|n\rangle=E_n\hat \theta|n\rangle$$
+> 所以：
+> $$\hat \theta|n\rangle=|n\rangle$$
+> 选取某一表象下的波函数：
+> $$|n\rangle=\int \psi_n(k)|k\rangle d^3k$$
+> $$\hat \theta|n\rangle=\int \hat \theta\psi_n(k)|k\rangle d^3k=\int  \psi_n^*(k)|k\rangle d^3k$$
+> 所以：
+> $$\psi_n(k)=\psi_n^*(k)$$
+> 证毕。
+
+- 对于球谐函数：
+$$\hat \theta|l,m\rangle=(-1)^m|l,-m\rangle$$
+- 对于平面波：
+$$\hat \theta|\vec{k}\rangle=|-\vec{k}\rangle$$
+
+这两者并非实数，是因为他们是简并的。
+
+
+#### 有自旋波函数
+
+对于自旋为1/2的粒子，我们可以定量写出时间反演算符的作用。
+
+假设幺正算符是泡利矩阵中的一种：
+$$\hat \theta=\hat U\hat K=\hat \sigma_i\hat K$$
+限制条件：
+$$\hat \theta \hat \sigma_i \hat \theta^{-1}=-\hat \sigma_i$$
+即：
+$$\hat U \hat K\hat \sigma_i\hat K \hat U^\dagger=-\hat \sigma_i$$
+只有$\hat \sigma_y$满足条件：
+$$\hat K\hat \sigma_i\hat K=-\hat \sigma_i,i=y$$
+所以自旋系统中的时间反演算符是：
+$$\hat \theta=\hat \sigma_y$$
+一般写为：
+$$\hat \theta=\eta e^{-i\pi\hat S_y/\hbar}\hat K$$
+自然就有：
+$$\hat \theta^2=\eta e^{-i\pi\hat S_y/\hbar}\hat K\eta e^{-i\pi\hat S_y/\hbar}\hat K=|\eta|^2e^{-i2\pi\hat S_y/\hbar}=(-1)^{2s}$$
+
+**克拉默定理**：对一个自旋半整数的体系，如果其时间反演对称，那么其本征态一定简并。
+
+> 证明：显然有
+> $$\hat\theta^2=-1$$
+> 现在已经满足时间反演对称，即
+> $$\hat \theta\hat H|n\rangle=E_n\hat \theta|n\rangle$$
+> 如果是非简并的，那么：
+> $$\hat\theta|n\rangle=e^{i\delta}|n\rangle$$
+> 那么：
+> $$\hat\theta^2|n\rangle=\hat\theta e^{i\delta}|n\rangle=|n\rangle$$
+> 这与前面的结论矛盾，所以一定是简并的。
+
+反过来说，当外加磁场时，简并被破坏，也就说明了时间反演对称性被破坏。
