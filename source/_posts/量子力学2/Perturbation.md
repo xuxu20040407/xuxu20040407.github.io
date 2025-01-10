@@ -12,12 +12,17 @@ cover:
     - [Second Order Theory](#second-order-theory)
   - [Degenerate Perturbation](#degenerate-perturbation)
     - [Two-fold Degenerate](#two-fold-degenerate)
+- [Example](#example)
+  - [Stark Effect](#stark-effect)
+    - [Quadratic Stark Effect](#quadratic-stark-effect)
     - [Linear Stark Effect](#linear-stark-effect)
-    - [Fine Structure](#fine-structure)
-      - [Relative Correction](#relative-correction)
-      - [Spin-Orbit Coupling](#spin-orbit-coupling)
-    - [Zeeman Effect](#zeeman-effect)
-    - [Van der Waals Interaction](#van-der-waals-interaction)
+  - [Fine Structure](#fine-structure)
+    - [Relative Correction](#relative-correction)
+    - [Spin-Orbit Coupling](#spin-orbit-coupling)
+  - [Zeeman Effect](#zeeman-effect)
+    - [Linear Zeeman Effect](#linear-zeeman-effect)
+    - [Quadradic Zeeman Effect](#quadradic-zeeman-effect)
+  - [Van der Waals Interaction](#van-der-waals-interaction)
 - [Time-dependet Perturbation](#time-dependet-perturbation)
   - [Interaction Picture](#interaction-picture)
     - [Example: Nuclear Magnetic Resonance](#example-nuclear-magnetic-resonance)
@@ -125,7 +130,7 @@ $$\langle k^0|n^2\rangle=\frac{\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0
 > $$E_n^{k}\Leftrightarrow|n^{k-1}\rangle$$
 
 > 补充：当一阶微扰为0的时候，二阶微扰总是起到互斥的作用(Level Repulsion)：
-> $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle= \sum_{k\neq n}-\frac{|\langle k^0|\delta \hat H|n^0\rangle|^2}{E^0_k-E^0_n}
+> $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle= \sum_{k\neq n}-\frac{|\langle k^0|\delta \hat H|n^0\rangle|^2}{E^0_k-E^0_n}$$
 
 
 ## Degenerate Perturbation
@@ -191,24 +196,36 @@ $$\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
 
 > 实际上不需要死记硬背，对于非简并微扰，本质上是解关于修正能量和修正波函数的矩阵方程（n+1个方程确定n+1个未知数，其中n个方程为波函数各维度的线性方程，另外加上波函数的归一化方程）；对于简并微扰，本质上是解关于修正能量、修正波函数和“Good State”的矩阵方程（n+m个方程确定n+m个未知数，m为简并数）。
 
-### Linear Stark Effect
+# Example
+## Stark Effect
 
 考虑一个线性Stark效应：
 $$\delta\hat H=-e\hat r\cdot \hat E=-ez|E|$$
-考虑$n=2$能级的选择定则：
 - 宇称选择定则：这是一个奇宇称的算符，所以只有不同宇称，或者说$l+l'$是奇数之间的态可能；
 - 角动量选择定则：$z=r\cos{\theta}$，所以连接不同轨道角动量数l之间的态；进一步，只有$m=m'$的态可能。
 
-所以最终的微扰算符为：
+
+
+### Quadratic Stark Effect
+
+显然根据选择定则，一阶能量修正为0。代入二阶修正：
+$$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle=e^2|E|^2 \sum_{n\neq 1}-\frac{|\langle n,l,m|\delta \hat H|1,0,0\rangle|^2}{E^0_n-E^0_0}=-\frac12\alpha E^2$$
+
+所以外电场使能量降低了。
+
+
+### Linear Stark Effect
+
+微扰算符为：
 $$\delta\hat H=\begin{pmatrix}0&g|E|&0&0\\g|E|&0&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix}$$
 显然只连接了$|2,0,0\rangle,|2,1,0\rangle$两个态。"Good State"为：
-$$|n^0,a\rangle=\frac{1}{\sqrt{2}}(|2,0\rangle+|2,1\rangle)$$
-$$|n^0,b\rangle=\frac{1}{\sqrt{2}}(|2,0\rangle-|2,1\rangle)$$
+$$|n^0,a\rangle=\frac{1}{\sqrt{2}}(|2,0,0\rangle+|2,1,0\rangle)$$
+$$|n^0,b\rangle=\frac{1}{\sqrt{2}}(|2,0,0\rangle-|2,1,0\rangle)$$
 那么一阶能量修正为：
 $$E^1_a=g|E|,E^1_b=-g|E|$$
 这意味着4重简并的能级最终分裂。
 
-### Fine Structure
+## Fine Structure
 氢原子的能级为：
 $$E_n=-\frac12 mc^2\alpha^2\frac{1}{n^2}$$
 更精细的结构为：
@@ -217,7 +234,7 @@ $$E_n=-\frac12 mc^2\alpha^2\frac{1}{n^2}$$
 
 二者都是$mc^2\alpha^4$的量级。
 
-#### Relative Correction
+### Relative Correction
 对于相对论修正：
 $$K=\sqrt{p^2c^2+m^2c^4}-mc^2\approx \frac{p^2}{2m}-\frac{p^4}{8m^3c^2}$$
 所以这里微扰是：
@@ -227,7 +244,7 @@ $$[\hat L,\delta\hat H]=0$$
 意味着$\delta\hat H$已经是对角化的，不会联系不同的轨道角动量数，所以我们可以直接求解：
 $$E^1_{nlm}=\langle nlm|\delta\hat H|nlm\rangle=\cdots=-\alpha^2[-\frac{3}{4n^2}+\frac{1}{n(l+\frac12)}]$$
 
-#### Spin-Orbit Coupling
+### Spin-Orbit Coupling
 
 微扰为：
 $$\delta\hat H=\frac{1}{2m_e^2c^2}\frac{1}{r}\frac{dV}{dr}\hat L\cdot \hat S$$
@@ -239,19 +256,57 @@ $$E^1_{nlj}=\langle nlj|\delta\hat H|nlj\rangle=\cdots=-\frac{\alpha^2}{2nl(l+\f
 
 
 
-### Zeeman Effect
-塞曼效应
+## Zeeman Effect
+考虑外磁场：
+$$\vec{A}=-\frac{1}{2}B(y\hat i-x\hat j)$$
+哈密顿量修正为：
+$$\hat H=\frac{\hat p^2}{2m}+V(r)-\frac{e}{m_e}(\vec{A}\cdot\hat p)+\frac{e^2}{2m_e}\vec{A}^2$$
+此处有两项微扰——一阶塞曼效应和二阶塞曼效应。
 
-### Van der Waals Interaction
+### Linear Zeeman Effect
+注意到一阶塞曼效应可以写为：
+$$\delta\hat H=-\frac{e}{2m_e}B\hat L_z$$
+同时考虑自旋磁矩作用：
+$$\delta\hat H=-\frac{e}{2m_e}B(\hat L_z+2\hat S_z)$$
+
+
+当外磁场强于内磁场时，自旋轨道耦合未被破坏：
+$$\delta\hat H=-\frac{e}{2m_e}B(\hat J_z+\hat S_z)$$
+能级分裂为：
+$$\Delta=-\frac{e\hbar B m}{2m_e}(1\pm \frac{1}{2l+1})$$
+
+
+当外磁场弱于内磁场时，即帕刑效应：
+$$\delta\hat H=-\frac{e\hbar}{2m_e}B(m_l+2m_s)$$
+
+
+
+
+
+
+
+### Quadradic Zeeman Effect
+
+二阶塞曼效应为：
+$$\delta\hat H=\frac{e^2}{2m_e}\vec{A}^2=-\frac{e^2}{8m_e}B^2(x^2+y^2)$$
+当一阶塞曼效应为0时，比如说氢原子的基态，二阶塞曼效应凸显为：
+$$\delta E=\frac{e^2}{8m_e}B^2\langle nlm|\hat x^2+\hat y^2|nlm\rangle=\frac23\frac{e^2}{8m_e}B^2\langle r^2\rangle=\frac{e^2B^2a_0^2}{4m_e}$$
+
+
+## Van der Waals Interaction
 范德瓦尔斯相互作用表现为两个原子之间的相互吸引，可以用以下物理图像理解：电子云的涨落会导致瞬时偶极子，这些偶极子会相互作用，导致两个原子之间的相互吸引。直白地说，电子靠近产生的吸引力大于电子远离产生的排斥力。
 
 微扰为：
 $$\begin{aligned}\delta\hat H&=-\frac{e^2}{r^3}(x_1x_2+y_1y_2-2z_1z_2)\\&=-\frac{e^2}{r^3}(\sin{\theta_1}\cos{\phi_1}\sin{\theta_2}\cos{\phi_2}+\sin{\theta_1}\sin{\phi_1}\sin{\theta_2}\sin{\phi_2}-2\cos{\theta_1}\cos{\theta_2})
 \end{aligned}$$
 
-<!-- 以第一项$\sin{\theta}\cos{\phi}=\sqrt{1-\cos{\theta^2}\cos{\phi}}$为例，要求两边的量子数满足：
-$$l-l'\in N,m-m'=\pm 1$$ -->
+显然，一阶能量修正由于选择定则为0，二阶能量修正小于0，这使得两个原子之间的相互作用趋于吸引。
 
+> 总结：氢原子的能级分裂包括：
+> - Stark效应：外电场使能级分裂；
+> - 相对论修正：相对论效应使能级分裂；
+> - 自旋轨道耦合：自旋轨道耦合使能级分裂；
+> - 塞曼效应：外磁场使能级分裂；
 
 # Time-dependet Perturbation
 

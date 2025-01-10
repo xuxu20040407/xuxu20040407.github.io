@@ -87,3 +87,16 @@ $$\vec{\Sigma}\cdot \hat{e}_z=\begin{pmatrix}\vec{\sigma}\cdot \hat{e}_z&0\\0&\v
 - $\psi_L^{(+)}$
 - $\psi_R^{(-)}$
 - $\psi_L^{(-)}$
+
+## 无质量自由粒子
+
+对于无质量自由粒子，哈密顿算符为：
+$$\hat H=\begin{pmatrix}0&0&p&0\\0&0&0&-p\\p&0&0&0\\0&-p&0&0\end{pmatrix}$$
+解得特征向量为：
+- 正能解：
+$$\psi_1=\begin{pmatrix}1\\0\\1\\0\end{pmatrix}e^{i(pz-Et)}$$
+$$\psi_2=\begin{pmatrix}0\\1\\0\\-1\end{pmatrix}e^{i(pz-Et)}$$
+- 负能解：
+$$\psi_3=\begin{pmatrix}1\\0\\-1\\0\end{pmatrix}e^{i(pz-Et)}$$
+$$\psi_4=\begin{pmatrix}0\\1\\0\\1\end{pmatrix}e^{i(pz-Et)}$$
+
