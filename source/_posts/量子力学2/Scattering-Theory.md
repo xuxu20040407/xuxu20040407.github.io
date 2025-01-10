@@ -43,7 +43,7 @@ $$b=\frac{Z_1Z_2e^2}{4\pi\epsilon_0E}\cot{\theta}$$
 得到：
 $$D(\theta)=\frac{Z_1^2Z_2^2e^4}{4\pi^2\epsilon_0^2E^2}\csc^4{\frac{\theta}{2}}$$
 
-积分发现该积分发散。
+积分发现该积分发散，这当然和氢原子的经典散射截面相符。
 
 # Quamtum Scattering Theory
 ## Scattering Amplitude
@@ -121,7 +121,8 @@ $$f(\theta,\phi)=-\frac{4\pi^2m}{\hbar^2}\langle \vec{k_f}|\hat T^+|k_i\rangle$$
 $$D(\theta,\phi)=\frac{(2\pi)^4m^2}{\hbar^4}|\langle \vec{k_f}|\hat T^+|k_i\rangle|^2$$
 当$\hat G_0^+\hat V\ll 1$时，可以进行波恩近似：
 $$\hat T^+\approx \hat V$$
-这时候散射截面为：
+这时候散射振幅和散射截面为：
+$$f(\theta,\phi)=-\frac{4\pi^2m}{\hbar^2}\langle \vec{k_f}|\hat T^+|k_i\rangle=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}_i-\vec{k}_f)\vec{r}}V(\vec{r})d\vec{r}$$
 $$D(\theta,\phi)=\frac{(2\pi)^4m^2}{\hbar^4}|\langle \vec{k_f}|\hat V|k_i\rangle|^2=\frac{m^2}{(2\pi)^2\hbar^4}|\int e^{i(\vec{k}_i-\vec{k}_f)\vec{r}}V(\vec{r})d\vec{r}|^2$$
 
 格林函数的算符形式：
@@ -154,7 +155,14 @@ V_0,&r<a\\
 0,&r>a
 \end{cases}$$
 由散射振幅的定义：
-$$f(\theta)=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}-\vec{k'})\cdot\vec{r}}V(r)d\vec{r}=-\frac{2m}{\hbar^2}\int_0^a rV(r)\sin{(qr)}dr$$
+$$f(\theta)=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}_i-\vec{k}_f)\cdot\vec{r}}V(r)d\vec{r}=-\frac{2m}{q\hbar^2}\int_0^a rV(r)\sin{(qr)}dr$$
+> 这里是这么计算的：默认$\vec{k}_i$朝$\vec{z}$方向，$\vec{k}_f$与$\vec{k}_i$夹角恒为$\theta$，所以：
+> $$(\vec{k}_i-\vec{k}_f)\vec{r}=\vec{q}\vec{r}=qr\cos{\theta'}$$
+> 对定义式积分：
+> $$\begin{aligned}f(\theta)&=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}_i-\vec{k}_f)\cdot\vec{r}}V(r)d\vec{r}\\&=-\frac{mV_0}{2\pi\hbar^2}\int e^{iqr\cos{\theta'}}r^2\sin{\theta'}drd\theta' d\phi\\&=\frac{mV_0}{2\pi\hbar^2}\int e^{iqr\cos{\theta'}}r^2drd\cos{\theta'} d\phi\\&=-\frac{mV_0}{2\pi\hbar^2}\int  \frac{2\pi}{iqr} (e^{iqr}-e^{-iqr})r^2drd\cos{\theta'}\\&=-\frac{2mV_0}{q\hbar^2}\int_0^a   \sin{(qr)}rdr\end{aligned}$$
+> 对于势能只和$r$有关的情况，以下式子是通用的：
+> $$f(\theta)=-\frac{2m}{q\hbar^2}\int_0^a rV(r)\sin{(qr)}dr$$
+
 
 其中$|q|=2k\sin\frac{\theta}{2}$，积分得到：
 $$f(\theta)=-\frac{2mV_0a}{\hbar^2q^2}[\frac{\sin(qa)}{qa}-\cos{(qa)}]$$
