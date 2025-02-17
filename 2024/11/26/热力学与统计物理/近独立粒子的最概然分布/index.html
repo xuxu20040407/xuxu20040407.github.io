@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>近独立粒子的最概然分布 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="粒子运动状态的经典描述 自由粒子 线性谐振子 转子   粒子运动状态的量子描述 线性谐振子 转子 自旋角动量 自由粒子   系统微观运动状态的描述 等概率原理 分布和微观状态 玻尔兹曼系统 玻色系统 费米系统 非简并条件   玻尔兹曼分布 玻尔兹曼分布的推导   玻色-爱因斯坦分布 费米-狄拉克分布  粒子运动状态的经典描述统计物理学从微观粒子的行为研究物质的宏观特性。我们知道粒子的能量由其广义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="近独立粒子的最概然分布">
+<meta property="og:url" content="https://xuxu20040407.github.io/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="粒子运动状态的经典描述 自由粒子 线性谐振子 转子   粒子运动状态的量子描述 线性谐振子 转子 自旋角动量 自由粒子   系统微观运动状态的描述 等概率原理 分布和微观状态 玻尔兹曼系统 玻色系统 费米系统 非简并条件   玻尔兹曼分布 玻尔兹曼分布的推导   玻色-爱因斯坦分布 费米-狄拉克分布  粒子运动状态的经典描述统计物理学从微观粒子的行为研究物质的宏观特性。我们知道粒子的能量由其广义">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2024-11-26T02:16:14.000Z">
+<meta property="article:modified_time" content="2024-12-15T11:35:00.971Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="统计物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '近独立粒子的最概然分布',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-15 19:35:00'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">103</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">近独立粒子的最概然分布</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-26T02:16:14.000Z" title="发表于 2024-11-26 10:16:14">2024-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-15T11:35:00.971Z" title="更新于 2024-12-15 19:35:00">2024-12-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/">统计物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="近独立粒子的最概然分布"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#粒子运动状态的经典描述">粒子运动状态的经典描述</a><ul>
+<li><a href="#自由粒子">自由粒子</a></li>
+<li><a href="#线性谐振子">线性谐振子</a></li>
+<li><a href="#转子">转子</a></li>
+</ul>
+</li>
+<li><a href="#粒子运动状态的量子描述">粒子运动状态的量子描述</a><ul>
+<li><a href="#线性谐振子-1">线性谐振子</a></li>
+<li><a href="#转子-1">转子</a></li>
+<li><a href="#自旋角动量">自旋角动量</a></li>
+<li><a href="#自由粒子-1">自由粒子</a></li>
+</ul>
+</li>
+<li><a href="#系统微观运动状态的描述">系统微观运动状态的描述</a></li>
+<li><a href="#等概率原理">等概率原理</a></li>
+<li><a href="#分布和微观状态">分布和微观状态</a><ul>
+<li><a href="#玻尔兹曼系统">玻尔兹曼系统</a></li>
+<li><a href="#玻色系统">玻色系统</a></li>
+<li><a href="#费米系统">费米系统</a></li>
+<li><a href="#非简并条件">非简并条件</a></li>
+</ul>
+</li>
+<li><a href="#玻尔兹曼分布">玻尔兹曼分布</a><ul>
+<li><a href="#玻尔兹曼分布的推导">玻尔兹曼分布的推导</a></li>
+</ul>
+</li>
+<li><a href="#玻色-爱因斯坦分布">玻色-爱因斯坦分布</a></li>
+<li><a href="#费米-狄拉克分布">费米-狄拉克分布</a></li>
+</ul>
+<h1><span id="粒子运动状态的经典描述">粒子运动状态的经典描述</span></h1><p>统计物理学从微观粒子的行为研究物质的宏观特性。我们知道粒子的能量由其广义坐标和广义动量表示：</p>
+<script type="math/tex; mode=display">\epsilon=\epsilon(q_1,\cdots,q_r;p_1,\cdots,p_r)</script><p>粒子的相空间是一个2r维空间，称为$\mu$空间。</p>
+<p>以下是常见的模型：</p>
+<h2><span id="自由粒子">自由粒子</span></h2><script type="math/tex; mode=display">\epsilon=\sum_i \frac{p_i^2}{2m}</script><h2><span id="线性谐振子">线性谐振子</span></h2><script type="math/tex; mode=display">\epsilon=\frac{p^2}{2m}+\frac12 m\omega^2x^2</script><h2><span id="转子">转子</span></h2><script type="math/tex; mode=display">\epsilon=\frac{1}{2l}(p_\theta^2+\frac{1}{\sin^2{\theta}}p^2_\varphi)</script><h1><span id="粒子运动状态的量子描述">粒子运动状态的量子描述</span></h1><h2><span id="线性谐振子">线性谐振子</span></h2><script type="math/tex; mode=display">\epsilon=\hbar \omega(n+\frac12)</script><h2><span id="转子">转子</span></h2><script type="math/tex; mode=display">\epsilon=\frac{L^2}{2I}=\frac{l(l+1)\hbar^2}{2I}</script><h2><span id="自旋角动量">自旋角动量</span></h2><p>自旋角动量本身无能量，不过在与磁场耦合时，会有能级分裂。自旋角动量的量子数为$s$，则能级为：</p>
+<script type="math/tex; mode=display">\epsilon=g\mu_B Bm_s</script><h2><span id="自由粒子">自由粒子</span></h2><script type="math/tex; mode=display">p_i=\frac{2\pi\hbar }{L}n_i</script><script type="math/tex; mode=display">\epsilon=\sum_i \frac{p_i^2}{2m}=\frac{2\pi^2\hbar^2}{m}\sum_i\frac{n_i^2}{L^2}</script><p>单位动量空间体积$p_i\sim p_i+dp_i$内，可能的$p_i$的数目为：</p>
+<script type="math/tex; mode=display">dn_i=\frac{L}{2\pi\hbar}dp_i</script><p>总的量子态数为：</p>
+<script type="math/tex; mode=display">\prod_i dn_i=\frac{V}{h^r}\prod_i dp_i</script><p>同样的道理，如果用动量空间的球坐标系$p,\theta,\varphi$描述：</p>
+<script type="math/tex; mode=display">\prod_i dn_i=\frac{Vp^2\sin{\theta}}{h^3} dpd\theta d\varphi</script><p>对$\theta,\varphi$积分，就得到任意动量方向对应的自由粒子可能的状态数：</p>
+<script type="math/tex; mode=display">\prod_i dn_i=\frac{4\pi Vp^2}{h^3} dp</script><script type="math/tex; mode=display">\epsilon=\frac{p^2}{2m}\Rightarrow dp=\sqrt{\frac{m}{2\epsilon}}d\epsilon</script><script type="math/tex; mode=display">D(\epsilon)d\epsilon=\frac{2\pi V}{h^3}(2m)^\frac32\epsilon^\frac12 d\epsilon</script><h1><span id="系统微观运动状态的描述">系统微观运动状态的描述</span></h1><p>由全同粒子组成的系统就是由具有完全相同的内禀性质的类粒子组成的系统。而近独立粒子组成的系统中，粒子之间的相互作用很弱，可以忽略，但又不是完全没有，因为完全没有相互作用的系统是无法平衡的。</p>
+<p>这样一个系统的能量可以表达为单个粒子的能量之和：</p>
+<script type="math/tex; mode=display">E=\sum_i \epsilon_i</script><p>经典系统的粒子是可以分辨的，所以描述粒子的$\mu$空间上的点是无法交换的；而量子力学中，粒子是不可分辨的，其中又分为玻色子和费米子。玻色子是具有整数自旋的粒子，不受泡利不相容原理的约束；费米子是具有半整数自旋的粒子，受到泡利不相容原理的约束。</p>
+<h1><span id="等概率原理">等概率原理</span></h1><p>等概率原理是指在一个孤立系统中，系统的微观状态数$\Omega$在满足宏观条件的情况下，每种微观状态出现的概率相等，而系统的微观状态数$\Omega$最大的状态就是最可能出现的状态。这个原理是统计物理学的基础。</p>
+<h1><span id="分布和微观状态">分布和微观状态</span></h1><p>一个宏观系统有确定的粒子数$N$，能量$E$和体积$V$。约定在$\{\epsilon_l\}$能级系统上粒子数的分布为$\{a_l\}$，能级的简并度为$\omega_l$。同时需要满足条件：</p>
+<script type="math/tex; mode=display">\sum_l a_l=N,\sum_l a_l\epsilon_l=E</script><h2><span id="玻尔兹曼系统">玻尔兹曼系统</span></h2><p>玻尔兹曼系统是由<strong>可分辨</strong>的全同近独立粒子组成，且处在同一个个体量子态上的粒子数不受限制的系统。即经典的玻色系统。</p>
+<script type="math/tex; mode=display">\Omega_{MB}=\frac{N!}{\prod_la_l!}\prod_l \omega_l^{a_l}</script><p>其中在$\epsilon_l$能级上的微观状态数为$\prod_l \omega_l^{a_l}$，不过由于<em>N</em>个例子可以交换，且考虑能级上的粒子之间的交换不影响微观状态，所以要乘以$\frac{N!}{\prod_la_l!}$。</p>
+<blockquote>
+<p>所谓可分辨的全同近独立粒子，指的是波包尺度远小于粒子之间距离的尺度，因而可以通过距离来分辨粒子，这种粒子叫做定域粒子，相应的系统叫做定域系统。</p>
+</blockquote>
+<h2><span id="玻色系统">玻色系统</span></h2><p>把由不可分辨的全同近独立的玻色粒子组成，不受泡利不相容原理的约束，即处在同一个个体量子态上的粒子数不受限制的系统称作玻色系统。</p>
+<script type="math/tex; mode=display">\Omega_{BE}=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}</script><p>这个高中学过的不可分辨小球装箱子有异曲同工之妙；如果小球是不可分辨的，那么状态数可以通过隔板法求解，即从$\omega_l+a_l-1$个位置插入$\omega_l-1$个隔板：$\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}$。</p>
+<h2><span id="费米系统">费米系统</span></h2><p>把由不可分辨的全同近独立的费米粒子组成，受泡利不相容原理的约束，即处在同一个个体量子态上的粒子数最多只能为1个粒子的系统称作费米系统。这时候$\omega_l\geq a_l$，所以化为简单的排列组合问题：</p>
+<script type="math/tex; mode=display">\Omega_{FD}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}</script><h2><span id="非简并条件">非简并条件</span></h2><p>如果一个系统满足</p>
+<script type="math/tex; mode=display">\frac{a_l}{\omega_l}\ll 1,\forall l</script><p>这说明系统的能级分布是非简并的，即每个能级上的粒子数远小于能级的简并度。这个条件又叫经典极限条件。</p>
+<script type="math/tex; mode=display">\Omega_{BE}=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}=\prod_l\frac{(\omega_l+a_l-1)(\omega_l+a_l-2)\cdots\omega_l}{a_l!}\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}</script><script type="math/tex; mode=display">\Omega_{FD}=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}=\prod_l\frac{(\omega_l-a_l+1)(\omega_l-a_l+2)\cdots\omega_l}{a_l!}\approx\prod_l\frac{\omega_l^{a_l}}{a_l!}</script><p>所以</p>
+<script type="math/tex; mode=display">\Omega_{BE}=\Omega_{FD}=\frac{\Omega_{MB}}{N!}</script><h1><span id="玻尔兹曼分布">玻尔兹曼分布</span></h1><p>玻尔兹曼分布是玻尔兹曼系统的最概然分布。玻尔兹曼分布的特点是：在给定总能量$E$和粒子数$N$的条件下，使得系统的微观状态数$\Omega_{MB}$最大。</p>
+<h2><span id="玻尔兹曼分布的推导">玻尔兹曼分布的推导</span></h2><p>等价于求$\ln \Omega$的极大值：</p>
+<script type="math/tex; mode=display">\ln \Omega=\ln N!-\sum_l \ln a_l!+\sum_l a_l\ln \omega_l</script><p>假设$N\gg 1,a_l\gg 1$，有</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\ln \Omega&=N(\ln N-1)-\sum_l a_l(\ln a_l-1)+\sum_l a_l\ln \omega_l\\
+&=N\ln N-\sum_l a_l\ln a_l+\sum_l a_l\ln \omega_l
+\end{aligned}</script><p>对其求变分：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\delta\ln \Omega&=(\ln N-1)\delta N-\sum_l (\ln a_l-1)\delta a_l+\sum_l \ln \omega_l \delta a_l\\
+&\approx -\sum_l \ln a_l\delta a_l+\sum_l \ln \omega_l \delta a_l\\
+&= -\sum_l \ln \frac{a_l}{\omega_l}\delta a_l\\
+\end{aligned}</script><p>同时满足</p>
+<script type="math/tex; mode=display">\sum_l a_l=N,\sum_l a_l\epsilon_l=E</script><p>拉格朗日乘子法：</p>
+<script type="math/tex; mode=display">\delta(\ln \Omega-\alpha\sum_l a_l-\beta\sum_l a_l\epsilon_l)=-\sum_l[\ln \frac{a_l}{\omega_l}+\alpha+\beta\epsilon_l]\delta a_l=0</script><p>所以</p>
+<script type="math/tex; mode=display">a_l=\omega_le^{-\alpha-\beta\epsilon_l}</script><p>这里给出了处在某一具有简并度$\omega_l$的能级$\epsilon_l$上的粒子数是多少。稍微变换一下可以得到更有物理意义的表达式：</p>
+<script type="math/tex; mode=display">f_l=\frac{a_l}{\omega_l}=e^{-\alpha-\beta\epsilon_l}</script><p>这说明处在能级$\epsilon_l$与粒子的能量成反比，与简并度无关。</p>
+<h1><span id="玻色-爱因斯坦分布">玻色-爱因斯坦分布</span></h1><script type="math/tex; mode=display">\begin{aligned}
+\ln\Omega&=\sum_l[\ln(\omega_l+a_l-1)!-\ln a_l!-\ln(\omega_l-1)!]\\&\approx \sum_l[(\omega_l+a_l)\ln(\omega_l+a_l)-a_l\ln a_l-\omega_l\ln\omega_l]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+\delta\ln\Omega
+&=\sum_l[\ln(\omega_l+a_l)-a_l-\ln a_l+a_l]\delta a_l\\
+&=\sum_l\ln\frac{\omega_l+a_l}{a_l}\delta a_l
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">\frac{\omega_l+a_l}{a_l}=e^{\alpha+\beta\epsilon_l}\Rightarrow a_l=\frac{\omega_l}{e^{\alpha+\beta\epsilon_l}-1}</script><h1><span id="费米-狄拉克分布">费米-狄拉克分布</span></h1><script type="math/tex; mode=display">\begin{aligned}
+\ln\Omega&=\sum_l[\ln\omega_l!-\ln a_l!-\ln(\omega_l-a_l)!]\\
+&\approx \sum_l[\omega_l\ln\omega_l-a_l\ln a_l-(\omega_l-a_l)\ln(\omega_l-a_l)]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+\delta\ln\Omega
+&=\sum_l[-\ln a_l+a_l+\ln(\omega_l-a_l)-a_l]\delta a_l\\
+&=\sum_l\ln\frac{\omega_l-a_l}{a_l}\delta a_l
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">\frac{\omega_l-a_l}{a_l}=e^{\alpha+\beta\epsilon_l}\Rightarrow a_l=\frac{\omega_l}{e^{\alpha+\beta\epsilon_l}+1}</script><blockquote>
+<p>显然，由</p>
+<script type="math/tex; mode=display">-\sum_l[\ln \frac{a_l}{\omega_l}+\alpha+\beta\epsilon_l]\delta a_l=0</script><p>可以推出</p>
+<script type="math/tex; mode=display">\frac{a_l}{\omega_l}\ll 1 \Leftrightarrow\alpha \gg 1</script><p>这意味着当经典极限条件下，三种分布趋同。当然，我们在讨论三种系统的微观状态数的时候也得到了同样的结论。</p>
+<script type="math/tex; mode=display">\begin{matrix}
+\boxed{\begin{aligned}
+\Omega_{MB}&=\frac{N!}{\prod_la_l!}\prod_l \omega_l^{a_l}\\
+\Omega_{BE}&=\prod_l\frac{(\omega_l+a_l-1)!}{a_l!(\omega_l-1)!}\\
+\Omega_{FD}&=\prod_l\frac{\omega_l!}{a_l!(\omega_l-a_l)!}\\
+\end{aligned}}&\stackrel{\dfrac{a_l}{\omega_l}\ll 1 }{\longrightarrow}  &\dfrac{\Omega_{MB}}{N!}=\Omega_{BE}=\Omega_{FD}\\
+\downarrow& &\downarrow\\
+\boxed{\begin{aligned}
+a_{MB}=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}}\\
+a_{BE}=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}-1}\\
+a_{FD}=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}+1}\\
+\end{aligned}}&\stackrel{\alpha \gg 1}{\longrightarrow}& a_{MB}=a_{BE}=a_{FD}
+\end{matrix}</script></blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/">https://xuxu20040407.github.io/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/">统计物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">玻尔兹曼统计</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/21/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Perturbation/" title="Approximation Method"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Approximation Method</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-30</div><div class="title">系综理论</div></div></a></div><div><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/" title="玻色统计和费米统计"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-30</div><div class="title">玻色统计和费米统计</div></div></a></div><div><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-28</div><div class="title">玻尔兹曼统计</div></div></a></div><div><a href="/2024/11/19/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E6%A6%82%E7%8E%87%E8%AE%BA/" title="概率论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-19</div><div class="title">概率论</div></div></a></div><div><a href="/2024/11/14/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E5%A4%9A%E5%85%83%E7%B3%BB%E7%9A%84%E5%A4%8D%E7%9B%B8%E5%B9%B3%E8%A1%A1/" title="多元系的复相平衡和化学平衡"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-14</div><div class="title">多元系的复相平衡和化学平衡</div></div></a></div><div><a href="/2024/08/27/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/" title="单元系的相变"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">单元系的相变</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">103</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">粒子运动状态的经典描述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">自由粒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">线性谐振子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">转子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">粒子运动状态的量子描述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">线性谐振子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">转子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">自旋角动量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">自由粒子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">系统微观运动状态的描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">等概率原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">分布和微观状态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">玻尔兹曼系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">玻色系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">费米系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.4.</span> <span class="toc-text">非简并条件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">玻尔兹曼分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">玻尔兹曼分布的推导</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">玻色-爱因斯坦分布</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">费米-狄拉克分布</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/02/17/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/ICF%E5%B1%95%E6%9D%BF/" title="ICF展板"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ICF展板"/></a><div class="content"><a class="title" href="/2025/02/17/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/ICF%E5%B1%95%E6%9D%BF/" title="ICF展板">ICF展板</a><time datetime="2025-02-17T02:32:30.000Z" title="发表于 2025-02-17 10:32:30">2025-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Relativistic-QM/" title="Relativistic-QM"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Relativistic-QM"/></a><div class="content"><a class="title" href="/2025/01/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Relativistic-QM/" title="Relativistic-QM">Relativistic-QM</a><time datetime="2025-01-02T06:03:51.000Z" title="发表于 2025-01-02 14:03:51">2025-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Scattering-Theory/" title="Scattering-Theory"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Scattering-Theory"/></a><div class="content"><a class="title" href="/2024/12/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Scattering-Theory/" title="Scattering-Theory">Scattering-Theory</a><time datetime="2024-12-23T06:18:35.000Z" title="发表于 2024-12-23 14:18:35">2024-12-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62Content/" title="量子力学2Content"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学2Content"/></a><div class="content"><a class="title" href="/2024/12/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62Content/" title="量子力学2Content">量子力学2Content</a><time datetime="2024-12-14T05:29:04.000Z" title="发表于 2024-12-14 13:29:04">2024-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="系综理论"/></a><div class="content"><a class="title" href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论">系综理论</a><time datetime="2024-11-30T08:37:18.000Z" title="发表于 2024-11-30 16:37:18">2024-11-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Quantum Dynamics &amp; Quantum Geometry | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="薛定谔绘景 定态和叠加态 自旋的进动 中微子振荡     海森堡绘景 海森堡运动方程 自由运动的粒子 Ehrenfest定理   简谐振子和相干态 谐振子 简谐振子动力学 相干态 位置表象 粒子数算符 幅值算符和相位算符     朗道能级 经典理论 半经典量子理论 简并 量子化霍尔电导   规范变换 标势的规范变换 矢势的规范变换 更一般的情况 态矢量的幺正变换 薛定谔方程的规范不变性 概率和概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quantum Dynamics &amp; Quantum Geometry">
+<meta property="og:url" content="https://xuxu20040407.github.io/2024/08/15/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Quantum-Dynamics-Quantum-Geometry/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="薛定谔绘景 定态和叠加态 自旋的进动 中微子振荡     海森堡绘景 海森堡运动方程 自由运动的粒子 Ehrenfest定理   简谐振子和相干态 谐振子 简谐振子动力学 相干态 位置表象 粒子数算符 幅值算符和相位算符     朗道能级 经典理论 半经典量子理论 简并 量子化霍尔电导   规范变换 标势的规范变换 矢势的规范变换 更一般的情况 态矢量的幺正变换 薛定谔方程的规范不变性 概率和概">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover2.jpeg">
+<meta property="article:published_time" content="2024-08-15T02:56:17.000Z">
+<meta property="article:modified_time" content="2025-01-06T04:12:27.269Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子力学2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover2.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2024/08/15/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Quantum-Dynamics-Quantum-Geometry/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Quantum Dynamics & Quantum Geometry',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-06 12:12:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">103</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Quantum Dynamics &amp; Quantum Geometry</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-15T02:56:17.000Z" title="发表于 2024-08-15 10:56:17">2024-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-06T04:12:27.269Z" title="更新于 2025-01-06 12:12:27">2025-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/">量子力学2</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Quantum Dynamics &amp; Quantum Geometry"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#薛定谔绘景">薛定谔绘景</a><ul>
+<li><a href="#定态和叠加态">定态和叠加态</a><ul>
+<li><a href="#自旋的进动">自旋的进动</a></li>
+<li><a href="#中微子振荡">中微子振荡</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#海森堡绘景">海森堡绘景</a><ul>
+<li><a href="#海森堡运动方程">海森堡运动方程</a></li>
+<li><a href="#自由运动的粒子">自由运动的粒子</a></li>
+<li><a href="#ehrenfest定理">Ehrenfest定理</a></li>
+</ul>
+</li>
+<li><a href="#简谐振子和相干态">简谐振子和相干态</a><ul>
+<li><a href="#谐振子">谐振子</a></li>
+<li><a href="#简谐振子动力学">简谐振子动力学</a></li>
+<li><a href="#相干态">相干态</a><ul>
+<li><a href="#位置表象">位置表象</a></li>
+<li><a href="#粒子数算符">粒子数算符</a></li>
+<li><a href="#幅值算符和相位算符">幅值算符和相位算符</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#朗道能级">朗道能级</a><ul>
+<li><a href="#经典理论">经典理论</a></li>
+<li><a href="#半经典量子理论">半经典量子理论</a></li>
+<li><a href="#简并">简并</a></li>
+<li><a href="#量子化霍尔电导">量子化霍尔电导</a></li>
+</ul>
+</li>
+<li><a href="#规范变换">规范变换</a><ul>
+<li><a href="#标势的规范变换">标势的规范变换</a></li>
+<li><a href="#矢势的规范变换">矢势的规范变换</a></li>
+<li><a href="#更一般的情况">更一般的情况</a><ul>
+<li><a href="#态矢量的幺正变换">态矢量的幺正变换</a></li>
+<li><a href="#薛定谔方程的规范不变性">薛定谔方程的规范不变性</a></li>
+<li><a href="#概率和概率流密度的规范不变性">概率和概率流密度的规范不变性</a></li>
+</ul>
+</li>
+<li><a href="#ab效应">AB效应</a></li>
+</ul>
+</li>
+<li><a href="#几何相位">几何相位</a><ul>
+<li><a href="#绝热近似">绝热近似</a></li>
+<li><a href="#例子无限深势阱边界的移动">例子：无限深势阱边界的移动</a></li>
+<li><a href="#例子自旋12的磁矩">例子：自旋1/2的磁矩</a></li>
+</ul>
+</li>
+<li><a href="#量子几何">量子几何</a><ul>
+<li><a href="#经典度规">经典度规</a></li>
+<li><a href="#量子度规">量子度规</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id="薛定谔绘景">薛定谔绘景</span></h1><p>薛定谔方程描述了量子态随时间的演化：</p>
+<script type="math/tex; mode=display">\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=H|\psi(t)\rangle</script><p>或者使用时间演化算符$\hat{U}(t)=\exp[-\dfrac{it}{\hbar}\hat{H}]$表示为：</p>
+<script type="math/tex; mode=display">|\psi(t)\rangle=\hat{U}(t)|\psi(0)\rangle</script><p>代入时间演化算符，可以获得简洁一般（不要求哈密顿量不含时）的薛定谔方程表达式：</p>
+<script type="math/tex; mode=display">i{\hbar}\partial_t\hat{U}(t,t_0)=\hat{H}(t)\hat{U}(t,t_0)</script><p>薛定谔绘景描述了在确定的算符作用下，量子态的演化过程。</p>
+<p>为了推导该方程的形式解，我们分以下三种情况：</p>
+<ul>
+<li>哈密顿算符不依赖时间：则容易解出<script type="math/tex; mode=display">\hat U(t,t_0)=\exp[-\dfrac{i(t-t_0)}{\hbar}\hat{H}]</script></li>
+<li>哈密顿算符与时间相关，但不同时刻的哈密顿量算符对易：<script type="math/tex; mode=display">\hat U(t,t_0)=\exp[-\dfrac{i}{\hbar}\int_{t_0}^t\hat{H}(t^\prime)dt^\prime]</script></li>
+<li>哈密顿算符与时间相关，但不同时刻的哈密顿量算符不对易：<script type="math/tex; mode=display">\hat U(t,t_0)=1+\sum_{n=1}^\infty(\dfrac{-i}{\hbar})^n\int_{t_0}^tdt_1\int_{t_0}^{t_1}dt_2\cdots\int_{t_0}^{t_{n-1}}dt_n\hat{H}(t_1)\hat{H}(t_2)\cdots\hat{H}(t_n)</script></li>
+</ul>
+<h2><span id="定态和叠加态">定态和叠加态</span></h2><p>我们只考虑以上的第一种情况，那么时间算符同时与哈密顿算符对易，态矢量的演化可以用能量本征右矢表示：</p>
+<script type="math/tex; mode=display">|\alpha,t\rangle=\sum_nc_n|a_n,t\rangle=\sum_nc_n\exp[-\frac{iE_nt}{\hbar}]|a_n,t=0\rangle</script><p>所以不同的本征态会有不同的相位频率。这引出了定态的概念——本征态的可观测量是不变的，而叠加态会变化。</p>
+<h3><span id="自旋的进动">自旋的进动</span></h3><p>一个例子是自旋的进动。</p>
+<script type="math/tex; mode=display">\hat{H}=\omega S_z,E_\pm=\mp\frac{e\hbar B}{2m_ec}</script><p>可以得到：</p>
+<script type="math/tex; mode=display">\begin{aligned}|\langle \hat{S_x}\rangle|^2
+&=\frac{\hbar^2}{4}|(\sin{\phi}\exp(\frac{+i\omega t}{2})\langle +|+\cos{\phi}\exp(\frac{-i\omega t}{2})\langle -|)\\&\times(\sin{\phi}\exp(\frac{-i\omega t}{2})| -\rangle+\cos{\phi}\exp(\frac{+i\omega t}{2})| +\rangle)|^2\\
+&=|\sin{\phi}\cos{\phi}(\exp(-i\omega t)+\exp(+i\omega t))|^2\\
+&=\sin^2{\phi}\cos^2{\phi}\cos^2{\omega t}\end{aligned}</script><p>只有当初始为定态时，其可观测量才不会变。</p>
+<h3><span id="中微子振荡">中微子振荡</span></h3><script type="math/tex; mode=display">\begin{aligned} {| \nu_{e} \rangle} & { =\operatorname{c o s} \theta| \nu_{1} \rangle-\operatorname{s i n} \theta| \nu_{2} \rangle} \\ {| \nu_{\mu} \rangle} & {=\operatorname{s i n} \theta| \nu_{1} \rangle+\operatorname{c o s} \theta| \nu_{2} \rangle} \\ \end{aligned}</script><h1><span id="海森堡绘景">海森堡绘景</span></h1><p>对于唯一可测量的可观测量的平均值，时间演化相当于对其做幺正变换。我们发现似乎有两种方法来达到相同的目的，即</p>
+<script type="math/tex; mode=display">\langle\beta|X|\alpha\rangle\to(\langle\beta|U^\dagger)\cdot X\cdot(U|\alpha\rangle)=\langle\beta|U^\dagger XU|\alpha\rangle.</script><p>一种方法就是薛定谔绘景：</p>
+<script type="math/tex; mode=display">|\alpha\rangle\rightarrow U|\alpha\rangle</script><p>另一种方法就是海森堡绘景：</p>
+<script type="math/tex; mode=display">X\to U^{\dagger}XU</script><p>海森堡绘景认为算符是变化的，态右矢是固定的；既然算符是变化了，那么以某种算符产生的本征基右矢自然也是变化的：</p>
+<script type="math/tex; mode=display">|a^{\prime},t\rangle_H=U^\dagger|a^{\prime}\rangle.</script><h2><span id="海森堡运动方程">海森堡运动方程</span></h2><script type="math/tex; mode=display">\frac{dA^{(H)}}{dt}=\frac i{\hbar}[H,A^{(H)}].</script><p>证明：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\frac{dA}{dt}& =\frac{\partial{U}^\dagger}{\partial t}A^{(S)} {U}+{U}^\dagger A^{(S)} \frac{\partial{U}}{\partial t} \\
+&=-\frac1{i\hbar} U^\dagger H UU^\dagger A^{(S)} u+\frac1{i\hbar} U^\dagger A^{(S)} UU^\dagger H u \\
+&=\frac1{i\hbar}[A^{(H)},U^{\dagger}HU],
+\end{aligned}</script><p>这里假定了算符不显含时间。</p>
+<h2><span id="自由运动的粒子">自由运动的粒子</span></h2><p>考虑一个自由运动的粒子：</p>
+<script type="math/tex; mode=display">\hat H =\frac{\hat p^2}{2m}</script><script type="math/tex; mode=display">\frac{d\hat p}{dt}=0\Rightarrow \hat p(t)=\hat p(0)</script><script type="math/tex; mode=display">\frac{d\hat x}{dt}=\frac{\hat p(0)}{m}\Rightarrow \hat x(t)=\hat x(0) +\frac{\hat p(0)}{m}t</script><p>所以：</p>
+<script type="math/tex; mode=display">[\hat x(t),\hat x(0)]=\frac{-i\hbar t}{m}\Rightarrow \Delta\hat x(t)\Delta\hat x(0)\geq \frac{\hbar t}{2m}</script><p>这意味着粒子的位置随着时间的推移越来越不确定，当然可以类比波动力学里自由粒子波包随时间的演化。</p>
+<h2><span id="ehrenfest定理">Ehrenfest定理</span></h2><p>对于势场中的粒子：</p>
+<script type="math/tex; mode=display">\frac{d\hat x}{dt}=\frac{\hat p(0)}{m}</script><script type="math/tex; mode=display">\frac{d^2\hat x}{dt^2}=-\frac{\vec\nabla\hat V(\vec x)}{m}</script><script type="math/tex; mode=display">m\frac{d^2\langle\hat x\rangle}{dt^2}=-\langle\vec\nabla\hat V(\vec x)\rangle</script><h1><span id="简谐振子和相干态">简谐振子和相干态</span></h1><p>简谐振子的模型可以阐述量子力学的诸多概念，如朗道能级、电磁场量子化、氢原子模型等等。</p>
+<h2><span id="谐振子">谐振子</span></h2><script type="math/tex; mode=display">\hat H=\frac{\hat p^2}{2m}+\frac{m\omega^2\hat x^2}2</script><p>一种计算两个算符之和的本征态的普遍的想法是：</p>
+<script type="math/tex; mode=display">\hat H=\hat A\hat B</script><p>处于朴素的理解，我们可以通过类比复数将哈密顿算符分解为：</p>
+<script type="math/tex; mode=display">\hat H=\hbar\omega\hat a\hat a^\dagger</script><p>其中$\hat a=\frac{1}{\sqrt{2\hbar m\omega}}(i\hat p+m\omega \hat x),\hat a^\dagger=\frac{1}{\sqrt{2\hbar m\omega}}(-i\hat p+m\omega \hat x)$。</p>
+<p>然而并没有这么幸运，由于算符不对易，正确的结果应该为：</p>
+<script type="math/tex; mode=display">\hat H=\hbar\omega(\hat a\hat a^\dagger-\frac12)</script><p>升降算符具有以下性质：</p>
+<ul>
+<li>能级升降：<script type="math/tex; mode=display">\hat H(\hat a^\dagger \psi)=(E+\hbar \omega)\psi</script><script type="math/tex; mode=display">\hat H(\hat a \psi)=(E-\hbar \omega)\psi</script></li>
+<li>基态波函数：<script type="math/tex; mode=display">\psi_0(x)=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{m\omega}{2\hbar}x^2}</script></li>
+<li>升降系数：<script type="math/tex; mode=display">\hat a^\dagger |n\rangle=\sqrt{n+1}|n+1\rangle,\hat a |n\rangle=\sqrt{n}|n-1\rangle</script></li>
+<li>其他本征函数：<script type="math/tex; mode=display">\psi_n(x)=\frac{1}{\sqrt{n!}}(a^\dagger)^n\psi_0</script></li>
+<li>反表示：<script type="math/tex; mode=display">\hat x=\sqrt{\frac{\hbar}{2m\omega}}(\hat a^\dagger+\hat a),\hat p=i\sqrt{\frac{\hbar m\omega}{2}}(\hat a^\dagger-\hat a)</script></li>
+</ul>
+<h2><span id="简谐振子动力学">简谐振子动力学</span></h2><p>根据运动方程：</p>
+<script type="math/tex; mode=display">\frac{d}{dt}\hat a=\frac{\omega}{i}\hat a\Rightarrow \hat a(t)=\hat a(0)e^{-i\omega t}</script><p>同理</p>
+<script type="math/tex; mode=display">\hat a^\dagger(t)=\hat a^\dagger(0)e^{i\omega t}</script><p>那么</p>
+<script type="math/tex; mode=display">\hat x(t)=\hat x(0)\cos{\omega t}+\frac{\hat p(0)}{m\omega}\sin{\omega t}</script><script type="math/tex; mode=display">\hat p(t)=\hat p(0)\cos{\omega t}-m\omega\hat x(0)\sin{\omega t}</script><p>然而由于其期望一直是0，能量本征态不能反应经典简谐振子的运动状态；能反应的其实是湮灭算符的本征态，即相干态。</p>
+<h2><span id="相干态">相干态</span></h2><p>湮灭算符的本征右矢定义为相干态：</p>
+<script type="math/tex; mode=display">\hat a|\lambda\rangle=\lambda |\lambda\rangle</script><p>由于湮灭算符不是可观测量，$\lambda$可以是任意复数。设$|\lambda\rangle=\sum_nC_n|n\rangle$，则</p>
+<script type="math/tex; mode=display">\sum_nC_{n+1}\sqrt{n+1}|n\rangle=\sum_n\lambda C_n|n\rangle</script><p>解得：</p>
+<script type="math/tex; mode=display">C_n=\frac{\lambda^n}{\sqrt{n!}}C_0</script><p>考虑归一化条件：</p>
+<script type="math/tex; mode=display">C_0=e^{-\frac{|\lambda|^2}{2}}</script><p>所以</p>
+<script type="math/tex; mode=display">|\lambda\rangle=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}|n\rangle=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}\frac{\hat {a^\dagger}^n}{\sqrt{n!}}|0\rangle=e^{\frac{-|\lambda|^2}{2}}e^{\lambda \hat a^\dagger}|0\rangle</script><h3><span id="位置表象">位置表象</span></h3><p>将相干态转移到位置表象：</p>
+<script type="math/tex; mode=display">\lambda(x)=\langle x|\lambda\rangle=e^{\frac{-|\lambda|^2}{2}}\langle x|e^{\lambda \hat a^\dagger}|0\rangle</script><p>其中：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+e^{\lambda \hat a^\dagger}&=e^{\lambda (\sqrt{\frac{2m\omega}{\hbar}}\hat x-\hat a)}\\
+&=e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\lambda\hat a}e^{-\frac12[\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x,-\lambda\hat a]}\\
+&=e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\lambda\hat a}e^{\sqrt{\frac{m\omega}{2\hbar}}\lambda^2[ \hat x,\hat a]}\\
+&=e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\lambda\hat a}e^{-\frac{\lambda^2}2}\\
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">\lambda(x)=\langle x|\lambda\rangle=e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}\langle x|0\rangle=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\frac{m\omega}{2\hbar}x^2}</script><p>相应的概率为：</p>
+<script type="math/tex; mode=display">|\lambda(x)|^2\propto e^{2\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x-\frac{m\omega}{\hbar}x^2}\propto e^{-(\sqrt{\frac{m\omega}{\hbar}}x-\sqrt{2}\lambda)^2}</script><p>如果其随时间演化：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+e^{-\frac{i\hat H t}{\hbar}}|\lambda\rangle&=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}e^{-\frac{i\hat H t}{\hbar}}|n\rangle\\&=e^{-\frac{|\lambda|^2}{2}}\sum_n\frac{\lambda^n}{\sqrt{n!}}e^{-i(n+\frac12)\omega t}|n\rangle\\
+&=e^{-\frac{|\lambda |^2}{2}}e^{-i\frac12\omega t}\sum_n\frac{(\lambda e^{-i\omega t})^n}{\sqrt{n!}}\frac{\hat {a^\dagger}^n}{\sqrt{n!}}|0\rangle\\&=e^{-i\frac12\omega t}|\lambda e^{-i\omega t}\rangle
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">|\lambda(x,t)|^2\propto e^{-(\sqrt{\frac{m\omega}{\hbar}}x-\sqrt{2}\lambda\cos{\omega t})^2}</script><p>其位置期望为：</p>
+<script type="math/tex; mode=display">\langle  x\rangle=\lambda\sqrt{\frac{2\hbar}{m\omega}}\cos{\omega t}</script><p>与自由粒子波包不同，这个波包往复运动而不弥散。</p>
+<h3><span id="粒子数算符">粒子数算符</span></h3><p>粒子数算符定义为：</p>
+<script type="math/tex; mode=display">\hat N=\hat a^\dagger \hat a</script><p>作用在像相干态上：</p>
+<script type="math/tex; mode=display">\langle \lambda|\hat N|\lambda\rangle=\langle \hat a\lambda|\hat a\lambda\rangle=|\lambda|^2\equiv \bar n</script><p>某次测量得到N个光子的概率为：</p>
+<script type="math/tex; mode=display">|\langle\hat N|\lambda\rangle|=e^{-\bar n}\frac{\bar{n}^n}{n!}</script><p>这是个泊松分布。</p>
+<h3><span id="幅值算符和相位算符">幅值算符和相位算符</span></h3><p>湮灭算符不是厄米算符，我们考虑：</p>
+<script type="math/tex; mode=display">\hat a=\hat B e^{i\hat \Phi}</script><p>其中幅值算符$\hat B$和相位算符$\hat \Phi$都是厄密算符。</p>
+<p>由于$\hat a\hat a^\dagger=\hat N+1$，可设：</p>
+<script type="math/tex; mode=display">\hat B=\sqrt{\hat N+1}</script><p>那么</p>
+<script type="math/tex; mode=display">\hat a=\sqrt{\hat N+1} e^{i\hat \Phi}</script><script type="math/tex; mode=display">\hat a^\dagger= e^{-i\hat \Phi}\sqrt{\hat N+1}</script><blockquote>
+<p>之所以不取</p>
+<script type="math/tex; mode=display">\hat B=\sqrt{\hat N}</script><p>是因为这样的话幅值算符就不存在逆算符了，因为对基态的本征值为0。</p>
+</blockquote>
+<p>作用在能级上：</p>
+<script type="math/tex; mode=display">\hat B|n\rangle=\sqrt{n+1}|n\rangle</script><p>矩阵表示为：</p>
+<script type="math/tex; mode=display">\hat B=\sum_n \sqrt{n+1}|n\rangle\langle n|=\begin{pmatrix}\ddots&\cdots&0&0\\\vdots&\ddots&0&0\\0&0&\sqrt{n+1}&0\\0&0&0&\ddots\end{pmatrix}</script><p>相位算符定义为：</p>
+<script type="math/tex; mode=display">e^{i\hat \Phi}=\frac{1}{\sqrt{\hat N+1}}\hat a</script><script type="math/tex; mode=display">e^{-i\hat \Phi}=\hat a^\dagger\frac{1}{\sqrt{\hat N+1}}</script><p>作用在能级上：</p>
+<script type="math/tex; mode=display">e^{i\hat \Phi}|n\rangle=\frac{1}{\sqrt{\hat N+1}}\hat a|n\rangle=|n-1\rangle</script><p>所以相位算符表示为：</p>
+<script type="math/tex; mode=display">e^{i\hat \Phi}=\sum_{n=0} |n\rangle\langle n+1</script><script type="math/tex; mode=display">e^{-i\hat \Phi}=\sum_{n=0} |n+1\rangle\langle n</script><p>相位算符的指数函数显然不是厄密的。定义三角函数部分：</p>
+<script type="math/tex; mode=display">\cos{\hat \Phi}=\frac{e^{i\hat \Phi}+e^{-i\hat \Phi}}2</script><script type="math/tex; mode=display">\sin{\hat \Phi}=\frac{e^{i\hat \Phi}-e^{-i\hat \Phi}}{2i}</script><p>可以证明：</p>
+<script type="math/tex; mode=display">[\hat N,\cos{\hat\Phi}]=-i\sin{\hat\Phi}</script><script type="math/tex; mode=display">[\hat N,\sin{\hat\Phi}]=i\cos{\hat\Phi}</script><h1><span id="朗道能级">朗道能级</span></h1><h2><span id="经典理论">经典理论</span></h2><p>对于经典力学的方法，可以得到拉莫尔半径和频率：</p>
+<script type="math/tex; mode=display">R=\frac{mV}{eB},\omega=\frac{eB}{m}</script><p>对于分析力学：</p>
+<script type="math/tex; mode=display">H=\frac{(\vec p-e \vec{A})^2}{2m}</script><script type="math/tex; mode=display">\begin{cases}
+\dot{\vec{x}}=\frac{\partial  H}{\partial \vec{p}}=\frac{(\vec p-e \vec{A})}{2m}\\
+\dot{\vec{p}}=-\frac{\partial  H}{\partial \vec{x}}=\frac{-e(\vec p-e \vec{A})_i}{2m}\nabla \vec{A_i}
+\end{cases}</script><script type="math/tex; mode=display">\ddot{\vec{x}}=e\vec{v}\times\vec{B}</script><p>如果还有电场：</p>
+<script type="math/tex; mode=display">\ddot{\vec{x}}=e\vec{v}\times\vec{B}+e\frac{\vec{E}}{m}</script><p>假设电场朝x方向且磁场朝y方向，这可以解出：</p>
+<script type="math/tex; mode=display">\begin{cases}
+x(t)=R\cos{\omega t}\\
+y(t)=R\sin{\omega t}-\frac{eE_xt}{m\omega}
+\end{cases}</script><p>这就是经典霍尔效应。</p>
+<h2><span id="半经典量子理论">半经典量子理论</span></h2><p>半经典近似指磁场未被量子化。磁场中的哈密顿量为：</p>
+<script type="math/tex; mode=display">\hat H=\frac{(\hat p-e \vec{A})^2}{2m}=\frac{\hat\pi_x^2}{2m}+\frac{\hat\pi_y^2}{2m}</script><p>遵循上述的分解方法：</p>
+<script type="math/tex; mode=display">[\hat\pi_x,\hat\pi_y]=-e([\hat p_x,A_y]+[A_x,\hat p_y])=i\hbar eB=i\hbar \omega m</script><script type="math/tex; mode=display">\hat H=(\hat\pi_x-i\hat\pi_y)(\hat\pi_x+i\hat\pi_y)+\frac{\hbar\omega}{2}=\hbar\omega(\hat a^\dagger\hat a+\frac12)</script><p>其中</p>
+<script type="math/tex; mode=display">\hat a\equiv \frac{1}{\sqrt{2e\hbar B}}(\hat\pi_x+i\hat\pi_y)=\frac{1}{\sqrt{2e\hbar B}}[(\hat p_x-eA_x)+i(\hat p_y-eA_y)]</script><script type="math/tex; mode=display">\hat a^\dagger\equiv \frac{1}{\sqrt{2e\hbar B}}(\hat\pi_x-i\hat\pi_y)=\frac{1}{\sqrt{2e\hbar B}}[(\hat p_x-eA_x)-i(\hat p_y-eA_y)]</script><p>从$\hat a|0\rangle=0$可以解得：</p>
+<script type="math/tex; mode=display">-[i\hbar (\partial_x+i\partial_y)+\frac{ieB}{2}(x+iy)]\psi(x)=0</script><p>设</p>
+<script type="math/tex; mode=display">z=x+iy,\bar z=x-iy</script><script type="math/tex; mode=display">\partial_z=\partial_x\frac{\partial x}{\partial z}+\partial_y\frac{\partial y}{\partial z}=\frac12(\partial_x-i\partial_y)</script><script type="math/tex; mode=display">\partial_{\bar z}=\frac12(\partial_x+i\partial_y)</script><p>得到基态波函数：</p>
+<script type="math/tex; mode=display">\psi(z,\bar{z})=f(z)e^{-\frac{eB\bar{z}z}{4\hbar}}</script><p>$f(z)$是任意函数，通常使用多项式函数近似：</p>
+<script type="math/tex; mode=display">\psi(z,\bar{z})=\sum_n\psi_n</script><p>其中</p>
+<script type="math/tex; mode=display">\psi_n(z,\bar{z})=N_nz^ne^{-\frac{eB\bar{z}z}{4\hbar}}</script><p>归一化条件给出：</p>
+<script type="math/tex; mode=display">N_n=[n!\pi(\frac{2\hbar}{eB})^{n+1}]^{-\frac12}</script><script type="math/tex; mode=display">\langle r^2\rangle=(n+1)\frac{2\hbar}{eB}</script><h2><span id="简并">简并</span></h2><p>每一个n都对应了基态能量，所以对于无穷大体系，简并度无穷大。但是由于有限的面积A，此体系的简并度为</p>
+<script type="math/tex; mode=display">n_{max}=\frac{A}{\frac{2\hbar}{eB}\pi}=\frac{\phi}{\phi_0}</script><p>其中$\phi_0=\frac{h}{e}$是量子磁通，$\phi=AB$。</p>
+<p>与我们物理直觉相符的是，朗道能级的简并度正比于磁场和面积。</p>
+<h2><span id="量子化霍尔电导">量子化霍尔电导</span></h2><p>霍尔电阻定义为：</p>
+<script type="math/tex; mode=display">R_H=\frac{V_y}{I_x}</script><p>其中$V_y=E_y l=Blv$，$I_x=eNv$，所以</p>
+<script type="math/tex; mode=display">R_H=\frac{Blv}{env}=\frac{B}{en}</script><p>载流子浓度n与朗道能级总数N的关系：</p>
+<script type="math/tex; mode=display">n=\frac{N\frac{\phi}{\phi_0}}{A}=\frac{NB}{\phi_0}</script><p>霍尔电阻为：</p>
+<script type="math/tex; mode=display">R_H=\frac{\phi_0}{Ne}</script><p>其倒数定义为霍尔电导：</p>
+<script type="math/tex; mode=display">\sigma_H=\frac{1}{R_H}=N\frac{e^2}{h}</script><p>其中$\frac{e^2}{h}$是单位霍尔电导。</p>
+<blockquote>
+<p>朗道提出用新的波函数：</p>
+<script type="math/tex; mode=display">\Psi=\prod_{i<j}(z_i-z_j)^ke^{-\frac{eB}{4\hbar}\sum z_i\bar{z_i}}</script><p>来描述分数霍尔效应，最后的结果为：</p>
+<script type="math/tex; mode=display">N=\frac{1}{k}\frac{\phi}{\phi_0}</script></blockquote>
+<h1><span id="规范变换">规范变换</span></h1><p>规范变换的本意是对“标势和矢势进行的不影响电磁场和变换”。电矢势不是规范不变的，但是与磁矢势相关联的电磁场具有规范不变性。</p>
+<script type="math/tex; mode=display">\begin{cases}
+\vec E=-\nabla\phi-\frac{\partial\vec A}{\partial t}\\
+\vec B=\nabla\times\vec A
+\end{cases}</script><p>现在，我们拓展规范不变性的概念：对于某些非可观测量做的规范变换可以使某些可观测量保持不变，或者可以是运动方程保持不变，这种不变性就是规范不变性。</p>
+<ul>
+<li>全局规范变换：$\vec A\to \vec A+\vec{A_0},\phi\to \phi-\phi_0$</li>
+<li>局域规范变换：$\vec A\to \vec A+\nabla\Lambda,\phi\to \phi-\frac{\partial\Lambda}{\partial t}$</li>
+</ul>
+<h2><span id="标势的规范变换">标势的规范变换</span></h2><p>考虑新增一个标势后的哈密顿量：</p>
+<script type="math/tex; mode=display">\hat H=\hat H_0+V(t)</script><p>根据时间演化算符的定义：</p>
+<script type="math/tex; mode=display">\hat U(t)= \exp{\int_0^t\frac{-i}{\hbar}\hat H_0 dt^\prime}\exp{\int_0^t\frac{-i}{\hbar}V(t^\prime)dt^\prime}=\hat U_0\hat U'(\hat V)</script><p>代入即得：</p>
+<script type="math/tex; mode=display">|\psi'(t)\rangle=\hat U_0\hat U'(\hat V)|\psi(0)\rangle=\hat U'(\hat V)|\psi(t)\rangle</script><h2><span id="矢势的规范变换">矢势的规范变换</span></h2><p>考虑新增电矢势后的哈密顿量：</p>
+<script type="math/tex; mode=display">\hat H=\frac{(\hat p-q\vec{A})^2}{2m}+e\phi</script><p>计算时间的微商：</p>
+<script type="math/tex; mode=display">\frac{d}{dt}\hat x=\frac{1}{i\hbar}[\hat x,\hat H]=\frac{\hat p-e\vec{A}}{m}</script><p>与前面的动量不同，我们称$\hat \Pi=\hat p-e\vec{A}$为机械动量，而把之前的$\hat p$称为正则动量。</p>
+<h2><span id="更一般的情况">更一般的情况</span></h2><p>算符$\hat R$和算符$\hat P$组成所有其他算符，这两个算符是被规定的，他们不随规范的变化而变化：</p>
+<script type="math/tex; mode=display">\hat R_{\xi'}=\hat R_{\xi},\hat P_{\xi'}=\hat P_{\xi}</script><p>但有些算符，比如$\phi,\vec{A}$是随着规范改变的。显然，显含$\phi,\vec{A}$的算符，比如哈密顿算符，随着规范变化。</p>
+<h3><span id="态矢量的幺正变换">态矢量的幺正变换</span></h3><p>假设新的规范下，态矢量为$|\psi’\rangle$，那么：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\langle\psi'|\hat R_{\xi'}|\psi'\rangle&=\langle\psi|\hat U^\dagger\hat R_{\xi'}\hat U|\psi\rangle\\
+&=\langle\psi|\hat U^\dagger\hat R_{\xi}\hat U|\psi\rangle\\
+&=\langle\psi|\hat R_{\xi}|\psi\rangle
+\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}
+\langle\psi'|\hat P_{\xi'}|\psi'\rangle&=\langle\psi|\hat U^\dagger\hat P_{\xi'}\hat U|\psi\rangle\\
+&=\langle\psi|\hat U^\dagger\hat P_{\xi}\hat U|\psi\rangle\\
+&=\langle\psi|\hat P_{\xi}+q\nabla\Lambda(\hat R,t)|\psi\rangle
+\end{aligned}</script><blockquote>
+<p>这里需要用到坐标和机械动量<strong>的值</strong>不随规范改变，即</p>
+<script type="math/tex; mode=display">\langle\psi'|\hat R_{\xi'}|\psi'\rangle=\langle\psi|\hat R_{\xi}|\psi\rangle,\langle\psi'|\hat \Pi_{\xi'}|\psi'\rangle=\langle\psi|\hat \Pi_{\xi}|\psi\rangle</script><p>注意，值不随规范改变，不代表算符不随规范改变。</p>
+</blockquote>
+<p>即：</p>
+<script type="math/tex; mode=display">\hat R_{\xi}=\hat U^\dagger\hat R_{\xi}\hat U</script><script type="math/tex; mode=display">\hat P_{\xi}+q\nabla\Lambda(\hat R,t)=\hat U^\dagger\hat P_{\xi}\hat U</script><p>从第一个式子得到：</p>
+<script type="math/tex; mode=display">[\hat R_{\xi},\hat U]=0\Rightarrow \hat U=\exp{i F(\hat R,t)}</script><p>从第二个式子得到：</p>
+<script type="math/tex; mode=display">[\hat P_{\xi},\hat U]=q\nabla\Lambda(\hat R,t)\hat U\Rightarrow i\hbar\nabla \hat U=q\nabla\Lambda(\hat R,t)\hat U\Rightarrow F=\frac{q}{\hbar}\Lambda</script><p>综上，变换算符是：</p>
+<script type="math/tex; mode=display">\hat U=\exp{\frac{iq}{\hbar}\Lambda(\hat R,t)}</script><h3><span id="薛定谔方程的规范不变性">薛定谔方程的规范不变性</span></h3><script type="math/tex; mode=display">i\hbar\frac{\partial}{\partial t}|\psi\rangle=\hat H_{\xi}|\psi\rangle</script><script type="math/tex; mode=display">i\hbar\frac{\partial}{\partial t}\hat U|\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle</script><p>将第二个式子展开：</p>
+<script type="math/tex; mode=display">i\hbar \dot{\hat U}|\psi\rangle+i\hbar \hat U|\dot\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle</script><script type="math/tex; mode=display">- q\dot\Lambda(\hat R,t)\hat U|\psi\rangle+\hat U\hat H_{\xi}|\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle</script><script type="math/tex; mode=display">- q\dot\Lambda(\hat R,t)\hat U|\psi\rangle+\hat U\hat H_{\xi}\hat U^\dagger\hat U|\psi\rangle=\hat H_{\xi'}\hat U|\psi\rangle</script><p>所以：</p>
+<script type="math/tex; mode=display">\hat H_{\xi'}=\hat U\hat H_{\xi}\hat U^\dagger-q\dot\Lambda</script><p>因此我们知道，对哈密顿算符做以上规范变换可以保证薛定谔方程的规范不变性。具体来说，新的哈密顿算符为：</p>
+<script type="math/tex; mode=display">\begin{aligned}\hat H_{\xi'}&=\hat U\hat H_{\xi}\hat U^\dagger-q\dot\Lambda\\
+&=\frac{1}{2m}(\hat U\hat P\hat U^\dagger-q\vec{A})^2+q\phi-q\dot\Lambda\\
+&=\frac{1}{2m}(\hat P-q\vec{A}-q\nabla\Lambda)^2+q\phi-q\dot\Lambda\\
+\end{aligned}</script><p>这刚好对应着：</p>
+<script type="math/tex; mode=display">\vec{A'}=\vec{A}+\nabla\Lambda,\phi'=\phi-\frac{\partial\Lambda}{\partial t}</script><h3><span id="概率和概率流密度的规范不变性">概率和概率流密度的规范不变性</span></h3><p>考虑：</p>
+<script type="math/tex; mode=display">i\hbar \frac{\partial}{\partial t}\psi=(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)\psi</script><script type="math/tex; mode=display">-i\hbar \frac{\partial}{\partial t}\psi^*=(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)^\dagger\psi^*</script><p>所以：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\frac{\partial \rho}{\partial t}&=\frac{\partial \psi^*\psi}{\partial t}=\psi^*\frac{\partial \psi}{\partial t}+\frac{\partial \psi^*}{\partial t}\psi\\
+&=\frac{-i}{\hbar}(\psi^*(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)\psi-(\frac{(\hat p-q\vec{A})^2}{2m}+q\phi)^\dagger\psi^*\psi)\\
+&=\frac{-i}{2m\hbar}(\psi^*((\hat p-q\vec{A})^2+2mq\phi)\psi-((\hat p-q\vec{A})^2+2mq\phi)^\dagger\psi^*\psi)\\
+&=\frac{i\hbar}{2m}(\psi^*\nabla^2\psi-\nabla^2\psi^*\psi)+\frac{q}{m}( \psi^*\vec{A}\nabla\psi+\vec{A}\nabla\psi^*\psi)\\
+&=\frac{i\hbar}{2m}\nabla(\psi^*\nabla\psi-\nabla\psi^*\psi)+\frac{q}{m}\nabla(\psi^*\vec{A}\psi)\\
+\end{aligned}</script><p>所以</p>
+<script type="math/tex; mode=display">\vec{j}=\frac{-i\hbar}{2m}(\psi^*\nabla\psi-\nabla\psi^*\psi)-\frac{q}{m}(\psi^*\vec{A}\psi)=\frac{\hbar}{m}\Re{[\frac{\psi^*\nabla\psi}{i}-\frac{q}{\hbar}\psi^*\vec{A}\psi]}</script><p>将$-i\hbar\nabla\rightarrow -i\hbar\nabla-e\vec{A}$之后，就可以证明概率流密度的规范不变性。</p>
+<h2><span id="ab效应">AB效应</span></h2><p>考虑一个无限长的螺线管，磁通量为$\phi$，磁矢势为$\vec{A}=\frac{\phi}{2\pi r}\vec{e_\theta}$，从左右两侧通过的电子相差的相位为：</p>
+<script type="math/tex; mode=display">\Delta\phi=-\frac{ie}{\hbar}\oint \vec{A}\cdot d\vec{r}=-\frac{ie}{\hbar}\iint (\nabla\times \vec{A})\cdot d\vec{S}=-\frac{ie}{\hbar}\phi=-i2\pi\frac{\phi}{\phi_0}</script><h1><span id="几何相位">几何相位</span></h1><h2><span id="绝热近似">绝热近似</span></h2><p>我们考虑本征态变化即哈密顿量变化的情况：</p>
+<script type="math/tex; mode=display">\mathrm{i}\hbar\frac d{d t}|\psi(t)\rangle=\hat H|\psi(t)\rangle</script><p>考虑将态矢展开：</p>
+<script type="math/tex; mode=display">|\psi(t)\rangle=\sum_n C_n(t)|n(t)\rangle</script><p>其中$|n(t)\rangle$是某组完备的本征态基矢。</p>
+<p>代入薛定谔方程可得：</p>
+<script type="math/tex; mode=display">\mathrm{i}\hbar\sum_n \dot{C_n}(t)|n(t)\rangle+\mathrm{i}\hbar\sum_n C_n(t)|\dot{n}(t)\rangle=\sum_n C_n(t)E_n|n(t)\rangle</script><p>左边作用另一基矢$\langle m(t)|$：</p>
+<script type="math/tex; mode=display">\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar\sum_n C_n(t)\langle m(t)|\dot{n}(t)\rangle=\sum_n C_n(t)E_n\langle m(t)|n(t)\rangle</script><script type="math/tex; mode=display">\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar C_m(t)\langle m(t)|\dot{m}(t)\rangle+\mathrm{i}\hbar\sum_{m\neq n}C_n(t)\langle m(t)|\dot{n}(t)\rangle= C_m(t)E_m</script><p>绝热近似指，当哈密顿量变化缓慢的时候，$\langle m(t)|\dot{n}(t)\rangle$远小于1。</p>
+<p>证明：对薛定谔方程求导：</p>
+<script type="math/tex; mode=display">\dot{\hat{H}}|n(t)\rangle+\hat H|\dot{n}(t)\rangle=\dot{E_n}|n(t)\rangle+E_n|\dot{n}(t)\rangle</script><p>左边作用另一基矢$\langle m(t)|$：</p>
+<script type="math/tex; mode=display">\langle m(t)|\dot{\hat{H}}|n(t)\rangle+\langle m(t)|\hat H|\dot{n}(t)\rangle=\langle m(t)|\dot{E_n}|n(t)\rangle+\langle m(t)|E_n|\dot{n}(t)\rangle</script><script type="math/tex; mode=display">\langle m(t)|\dot{\hat{H}}|n(t)\rangle+E_m\langle m(t)|\dot{n}(t)\rangle=E_n\langle m(t)|\dot{n}(t)\rangle</script><p>所以：</p>
+<script type="math/tex; mode=display">\langle m(t)|\dot{n}(t)\rangle=\frac{\langle m(t)|\dot{\hat{H}}|n(t)\rangle}{E_n-E_m}</script><p>证毕。</p>
+<p>这样我们可以对方程进行进一步的化简：</p>
+<script type="math/tex; mode=display">\mathrm{i}\hbar \dot{C_m}(t)+\mathrm{i}\hbar C_m(t)\langle m(t)|\dot{m}(t)\rangle= C_m(t)E_m</script><script type="math/tex; mode=display">\mathrm{i}\hbar \frac{\dot{C_m}(t)}{C_m(t)}= E_m -\mathrm{i}\hbar \langle m(t)|\dot{m}(t)\rangle</script><p>解得：</p>
+<script type="math/tex; mode=display">C_m(t_0)=C_m(0)\exp{[\int^{t_0}_0 (-\frac{i}{\hbar}E_m(t) -\langle m(t)|\dot{m}(t)\rangle)dt]}</script><p>我们知道前一项是动力学相位，后一位被定义为几何相位：</p>
+<script type="math/tex; mode=display">\begin{aligned}C_m(t_0)&=C_m(0)\exp{[-\int^{t_0}_0 \frac{i}{\hbar}E_m(t) dt]}\exp{[-\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt]}\\&=C_m(0)\exp{[-\frac{i}{\hbar}\int^{t_0}_0 E_m(t) dt]}\exp{[i\gamma(t_0)]}\end{aligned}</script><p>其中</p>
+<script type="math/tex; mode=display">\gamma(t_0)=i\int^{t_0}_0\langle m(t)|\dot{m}(t)\rangle dt</script><p>当然，如果引起本征态或哈密顿算符变化的参数不直接是时间而是$\lambda(t)$，原定义推广为：</p>
+<script type="math/tex; mode=display">\gamma(\lambda_0)=i\int^{\lambda_0}_0\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle dt</script><p>其中$\vec{A}=i\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle$被称为贝里联络，具有类似于电矢势的物理意义。而$\vec{B}=\nabla\times\vec{A}$被称为贝里曲率，具有类似于磁场的物理意义。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实空间</td>
+<td>AB相位</td>
+<td>电矢势</td>
+<td>磁场</td>
+</tr>
+<tr>
+<td>参数空间</td>
+<td>贝里相位</td>
+<td>贝里联络</td>
+<td>贝里曲率</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>重新计算AB相位，通过规范变换可得：</p>
+<script type="math/tex; mode=display">\hat H=\frac{(\hat p-q\vec{A})^2}{2m}+q\phi\Rightarrow \hat H=\frac{(\hat p-q\vec{A}+q\nabla\Lambda)^2}{2m}+q\phi+q\dot\Lambda</script><p>取$\nabla\Lambda=\vec{A},\dot\Lambda=0$，则：</p>
+<script type="math/tex; mode=display">\psi=e^{\frac{-iq\Lambda}{\hbar}}\psi'=\exp{[\frac{-iq\int_0^{\vec{r}}\vec{A}d\vec{r}}{\hbar}]}\psi'</script><p>换句话说：</p>
+<script type="math/tex; mode=display">\psi'(\vec{r})=\exp{[\frac{iq}{\hbar}\int_{0}^{\vec{r}}\vec{A}d\vec{r}]}\psi(\vec{r})</script><p>贝里联络为：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\vec{A_r}&=\langle \psi'|\vec{\nabla_r}|\psi'\rangle\\&=\langle \psi'|\vec{\nabla_r}|\psi\rangle+\frac{q}{\hbar}\vec{A}\langle \psi'|\psi'\rangle\\&=\frac{i\exp{[\frac{-iq}{\hbar}\int_{0}^{\vec{r}}\vec{A}d\vec{r}]}}{\hbar}\langle \psi|\vec{p}|\psi\rangle+\frac{q}{\hbar}\vec{A}\\&=\frac{q}{\hbar}\vec{A}\end{aligned}</script><p>用到了定态下物理期望为0的条件。</p>
+</blockquote>
+<h2><span id="例子无限深势阱边界的移动">例子：无限深势阱边界的移动</span></h2><script type="math/tex; mode=display">\gamma=\oint_C\langle m(L)|\dot{m}(L)\rangle dL</script><p>在坐标表象下：</p>
+<script type="math/tex; mode=display">\begin{aligned}\gamma
+&=i\oint_C\langle \sqrt{\frac{2}{L}}\sin{\frac{m\pi x}{L}}|\frac{d}{dL}|\sqrt{\frac{2}{L}}\sin{\frac{m\pi x}{L}}\rangle dL\\
+&=i\oint_C\langle \sqrt{\frac{2}{L}}\sin{\frac{m\pi x}{L}}|-\frac{1}{\sqrt{2L^3}}\sin{\frac{m\pi x}{L}}-\sqrt{\frac{2}{L^5}}m\pi x\cos{\frac{m\pi x}{L}}\rangle dL\\\end{aligned}</script><p>注意到没有关于L的平方项，在闭合回路积分中等于0。</p>
+<h2><span id="例子自旋12的磁矩">例子：自旋1/2的磁矩</span></h2><script type="math/tex; mode=display">\hat H_0=\vec{h}\cdot\vec{\sigma}=h\begin{pmatrix}\cos{\theta}&\sin{\theta}e^{-i\phi}\\\sin{\theta}e^{i\phi}&-\cos{\theta}\end{pmatrix}</script><p>相应的本征态为：</p>
+<script type="math/tex; mode=display">\begin{cases}|+\rangle=\begin{pmatrix}\cos{\frac{\theta}{2}}\\ \sin{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}\\|-\rangle=\begin{pmatrix}\sin{\frac{\theta}{2}}e^{-i\phi}\\-\cos{\frac{\theta}{2}}\end{pmatrix}\end{cases}</script><p>取向上态，贝里联络为：</p>
+<script type="math/tex; mode=display">{A}_\theta=i\langle +|\vec{\nabla_\theta}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}-\frac12\sin{\frac{\theta}{2}}\\ -\frac12\cos{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=0</script><script type="math/tex; mode=display">{A}_\phi=i\langle +|\vec{\nabla_\phi}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}0\\ i\sin{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=-\sin^2{\theta/2}</script><p>所以贝里联络为：</p>
+<script type="math/tex; mode=display">\vec{A}=-\sin^2{\frac\theta{2}}\vec{e_\phi}</script><p>贝里曲率：</p>
+<script type="math/tex; mode=display">\vec{B}=\nabla\times\vec{A}=-\frac{\partial}{\partial\theta}(-\sin^2{\frac\theta{2}})=\frac12\sin{\theta}</script><h1><span id="量子几何">量子几何</span></h1><h2><span id="经典度规">经典度规</span></h2><p>两点之间的距离表示为：</p>
+<script type="math/tex; mode=display">(ds)^2=g_{\mu\nu}dx^\mu dx^\nu</script><p>其中，$g_{\mu\nu}$是经典度规，常见的度规有：</p>
+<ul>
+<li>直角坐标系：<script type="math/tex; mode=display">g_{\mu\nu}=\begin{pmatrix}1&0\\0&1\end{pmatrix}</script></li>
+<li>极坐标系：<script type="math/tex; mode=display">g_{\mu\nu}=\begin{pmatrix}1&0\\0&r^2\end{pmatrix}</script></li>
+<li>球坐标系：<script type="math/tex; mode=display">g_{\mu\nu}=\begin{pmatrix}1&0&0\\0&r^2&0\\0&0&r^2\sin^2{\theta}\end{pmatrix}</script></li>
+</ul>
+<h2><span id="量子度规">量子度规</span></h2><p>假设量子态依赖于$\lambda$：</p>
+<script type="math/tex; mode=display">|\psi(\lambda+d\lambda)\rangle=|\psi(\lambda)\rangle+\partial_\mu|\psi(\lambda)\rangle d\lambda^\mu+\frac12\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu</script><p>通过内积的方式来度量两个量子态的距离：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\langle \psi(\lambda)|\psi(\lambda+d\lambda)\rangle
+&=1+\langle \psi(\lambda)|\partial_\mu|\psi(\lambda)\rangle d\lambda^\mu+\frac12\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu\end{aligned}</script><p>如果我们要求其模方，那么对每一项的实虚分辨是必要的。分析：</p>
+<ul>
+<li>第二项$\langle \psi(\lambda)|\partial_\mu|\psi(\lambda)\rangle$是纯虚的，因为：<script type="math/tex; mode=display">\langle \psi(\lambda)|\partial_\mu\psi(\lambda)\rangle^*=\langle \partial_\mu\psi(\lambda)|\psi(\lambda)\rangle=-\langle \psi(\lambda)|\partial_\mu\psi(\lambda)\rangle</script></li>
+<li>第三项$\partial_\mu\langle \psi(\lambda)|\partial_\nu|\psi(\lambda)\rangle$是纯虚的，即$\langle \partial_\mu\psi(\lambda)|\partial_\nu\psi(\lambda)\rangle+ \langle\psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle$，那么<script type="math/tex; mode=display">\Re \langle \partial_\mu\psi(\lambda)|\partial_\nu\psi(\lambda)\rangle+ \Re\langle\psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle=0</script>记$r_{\mu\nu}\equiv \Re\psi(\lambda)|\partial_\mu\langle\partial_\nu|\psi(\lambda)\rangle$</li>
+</ul>
+<p>那么可以表示为：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+|\langle \psi(\lambda)|\psi(\lambda+d\lambda)\rangle|
+&=|1-i(i\langle \psi(\lambda)|\partial_\mu|\psi(\lambda)\rangle d\lambda^\mu)+\frac12\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu|\\
+&=|1-iA_\mu+\frac12\Re{[\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu]}+\frac i2\Im{[\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu]}|\\
+&=\sqrt{(1+\frac12\Re{[\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu]})^2+(\frac 12\Im{[\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle d\lambda^\mu d\lambda^\nu]}-A_\mu)^2}\\
+&=\sqrt{1+\Re{[\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle+A_\mu A_\nu ]}d\lambda^\mu d\lambda^\nu}\\
+&=1+\frac12\Re{[\langle \psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle+A_\mu A_\nu ]}d\lambda^\mu d\lambda^\nu\\
+&=1-\frac12(r_{\mu\nu}-A_\mu A_\nu)d\lambda^\mu d\lambda^\nu\\
+&=1-\frac12 g_{\mu\nu} d\lambda^\mu d\lambda^\nu
+\end{aligned}</script><p>所以$g_{\mu\nu}=r_{\mu\nu}-A_\mu A_\nu$就是量子度规。可以推广为量子几何张量</p>
+<script type="math/tex; mode=display">G_{\mu\nu}=\psi(\lambda)|\partial_\mu\langle\partial_\nu|\psi(\lambda)\rangle-A_\mu A_\nu</script><p>那么量子度规就是量子几何张量的实部，其虚部是贝里曲率：</p>
+<script type="math/tex; mode=display">\Omega_{\mu\nu}=\partial_\mu A_{\nu}-\partial_\nu A_{\mu}=-2\Im[\langle \partial_\mu\psi(\lambda)|\partial_\nu|\psi(\lambda)\rangle]</script><p>综上：</p>
+<script type="math/tex; mode=display">G_{\mu\nu}=r_{\mu\nu}-i\Omega_{\mu\nu}</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2024/08/15/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Quantum-Dynamics-Quantum-Geometry/">https://xuxu20040407.github.io/2024/08/15/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Quantum-Dynamics-Quantum-Geometry/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/">量子力学2</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/15/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Cheating-Paper/" title="Cheating-Paper"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Cheating-Paper</div></div></a></div><div class="next-post pull-right"><a href="/2024/08/14/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F/%E8%B4%B9%E7%B1%B3%E5%8A%A0%E9%80%9F/" title="费米加速机制"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">费米加速机制</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/01/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Relativistic-QM/" title="Relativistic-QM"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-02</div><div class="title">Relativistic-QM</div></div></a></div><div><a href="/2024/12/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Scattering-Theory/" title="Scattering-Theory"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="title">Scattering-Theory</div></div></a></div><div><a href="/2024/12/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62Content/" title="量子力学2Content"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-14</div><div class="title">量子力学2Content</div></div></a></div><div><a href="/2024/11/21/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Perturbation/" title="Approximation Method"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-21</div><div class="title">Approximation Method</div></div></a></div><div><a href="/2024/11/05/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Symmetry/" title="Angular Momentumn and Symmetry"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-05</div><div class="title">Angular Momentumn and Symmetry</div></div></a></div><div><a href="/2024/08/15/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Basic-Concept/" title="Basic Concept"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-15</div><div class="title">Basic Concept</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">103</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">薛定谔绘景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">定态和叠加态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">自旋的进动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">中微子振荡</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">海森堡绘景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">海森堡运动方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">自由运动的粒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">Ehrenfest定理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">简谐振子和相干态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">谐振子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">简谐振子动力学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">相干态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.3.1.</span> <span class="toc-text">位置表象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.3.2.</span> <span class="toc-text">粒子数算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.3.3.</span> <span class="toc-text">幅值算符和相位算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">朗道能级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">经典理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">半经典量子理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">简并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">量子化霍尔电导</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">规范变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">标势的规范变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">矢势的规范变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">更一般的情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.3.1.</span> <span class="toc-text">态矢量的幺正变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.3.2.</span> <span class="toc-text">薛定谔方程的规范不变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.3.3.</span> <span class="toc-text">概率和概率流密度的规范不变性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.4.</span> <span class="toc-text">AB效应</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">几何相位</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">绝热近似</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">例子：无限深势阱边界的移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.3.</span> <span class="toc-text">例子：自旋1&#x2F;2的磁矩</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">量子几何</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.1.</span> <span class="toc-text">经典度规</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.2.</span> <span class="toc-text">量子度规</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/02/17/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/ICF%E5%B1%95%E6%9D%BF/" title="ICF展板"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ICF展板"/></a><div class="content"><a class="title" href="/2025/02/17/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/ICF%E5%B1%95%E6%9D%BF/" title="ICF展板">ICF展板</a><time datetime="2025-02-17T02:32:30.000Z" title="发表于 2025-02-17 10:32:30">2025-02-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Relativistic-QM/" title="Relativistic-QM"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Relativistic-QM"/></a><div class="content"><a class="title" href="/2025/01/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Relativistic-QM/" title="Relativistic-QM">Relativistic-QM</a><time datetime="2025-01-02T06:03:51.000Z" title="发表于 2025-01-02 14:03:51">2025-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Scattering-Theory/" title="Scattering-Theory"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Scattering-Theory"/></a><div class="content"><a class="title" href="/2024/12/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Scattering-Theory/" title="Scattering-Theory">Scattering-Theory</a><time datetime="2024-12-23T06:18:35.000Z" title="发表于 2024-12-23 14:18:35">2024-12-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62Content/" title="量子力学2Content"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学2Content"/></a><div class="content"><a class="title" href="/2024/12/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62Content/" title="量子力学2Content">量子力学2Content</a><time datetime="2024-12-14T05:29:04.000Z" title="发表于 2024-12-14 13:29:04">2024-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="系综理论"/></a><div class="content"><a class="title" href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论">系综理论</a><time datetime="2024-11-30T08:37:18.000Z" title="发表于 2024-11-30 16:37:18">2024-11-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
