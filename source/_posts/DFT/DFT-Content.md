@@ -12,3 +12,4 @@ cover:
 
 # Content:
 - {% post_link 'DFT/DFT基础' %}
+- {% post_link 'DFT/SIESTA计算细节' %} 
