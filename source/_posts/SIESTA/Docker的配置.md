@@ -163,8 +163,13 @@ CMD python3
 
 
 
+# Docker + VSCode
 
+以下是两个常用的插件：
+- Docker - 为Docker提供支持的官方扩展
+- Dev Container - 为Container提供远程支持的本地编辑器
 
+在VSCode中按`Ctrl+Shift+P`打开命令面板，输入`Dev Container: Attach to Running Container`，可以连接到已经运行的容器。这样一来，容器中的文件结构就可以在左侧进行可视化操作了。
 
 
 
