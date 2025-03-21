@@ -1,5 +1,5 @@
 ---
-title: SIESTA教程
+title: First-Encounter
 mathjax: true
 date: 2025-03-12 22:28:27
 tags:
@@ -97,6 +97,19 @@ DM.NumberPulay  2
 SolutionMethod diagon
 ```
 
+## psf Format
+
+`.psf`文件是赝势（pseudopotential）文件，包含了原子核和电子之间的相互作用。
+
+
+
+## RUN SIESTA
+
+```bash
+siesta <ch4.fdf> ch4.out
+```
+
+
 ## out Format
 
 SIESTA的输出文件是一个文本文件，通常以`.out`为后缀。这个文件包含了计算的结果。下面是一个简单的例子`ch4.out`：
@@ -125,6 +138,12 @@ XC.functional  GGA
 XC.authors    PBE
 ```
 
+对比：
+| Pseudopotentials | Total Energy (eV) | Runtime (s) |
+| :------------ | :---------------- | :---------- |
+| LDA               | -216.514681           | 9.500       |
+| GGA               | -217.482725           | 9.527       |
+
 # Try
 
 ## Change PAO.BasisSize
@@ -142,7 +161,7 @@ XC.authors    PBE
 
 | MeshCutoff (Ry) | Total Energy (eV) | Runtime (s) |
 | :-------------- | :---------------- | :---------- |
-| 75             | -214.707126           |  1.837         |
+| 75              | -214.707126           |  1.837         |
 | 125             | -214.704321           | 2.136         |
 | 250             | -214.704137           | 3.359         |
 
@@ -150,6 +169,44 @@ XC.authors    PBE
 
 ## Change EnergyShift
 
+BasisSize: DZP
+
+| EnergyShift (meV) | Total Energy (eV) | Runtime (s) |
+| :---------------- | :---------------- | :---------- |
+| 250               | -216.514681           | 9.500       |
+| 100               | -216.742603           | 9.996      |
+| 50                | -216.766565           | 10.154      |
+| 10                | -216.755123           | 11.480      |
+
 
 ## Change SplitNorm
 
+| SplitNorm  | Total Energy (eV) | Runtime (s) |
+| :---------------- | :---------------- | :---------- |
+| 0.20               | -216.543082           | 9.706      |
+| 0.15               | -216.514681           | 9.500       |
+| 0.10               | -216.399940           | 9.488      |
+
+## Close SoftDefault
+`PAO.SoftDefault`用软约束的方法优化基组，使得截断处更加平滑。
+
+| SoftDefault  | Total Energy (eV) | Runtime (s) |
+| :---------------- | :---------------- | :---------- |
+| False              | -217.573318           | 10.535      |
+| Ture               | -216.514681           | 9.500       |
+
+
+
+
+# Conclusion
+
+- 完整的项目至少包含以下几个文件：`.fdf`、`.psf` or `.psml`
+- 运行`siesta <ch4.fdf> ch4.out`，查看输出文件`ch4.out`，检查计算结果
+- 通过修改`.fdf`文件中的参数，可以调整计算的精度和效率
+  - `PAO.BasisSize`：基组的大小
+  - `MeshCutoff`：网格精度
+  - `PAO.EnergyShift`：原子轨道的能量范围
+  - `PAO.SplitNorm`：原子轨道的分裂参数
+- 还可以选择不同的赝势和交换相关泛函
+  - `LDA`：局域密度近似
+  - `GGA`：广义梯度近似
