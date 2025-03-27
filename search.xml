@@ -12,6 +12,1018 @@
 <h2><span id="激光核聚变">激光核聚变</span></h2><a href="/2024/11/08/%E6%BF%80%E5%85%89%E7%AD%89%E7%A6%BB%E5%AD%90%E4%BD%93%E6%A0%B8%E8%81%9A%E5%8F%98/%E6%A0%B8%E8%81%9A%E5%8F%98Content/" title="核聚变Content">核聚变Content</a>]]></content>
   </entry>
   <entry>
+    <title>Basis-Set</title>
+    <url>/2025/03/27/SIESTA/Basis-Set/</url>
+    <content><![CDATA[<h1><span id="visualization-of-basis-set">Visualization of Basis Set</span></h1><p>通过在<code>$HOME/.local/bin</code>中添加新的命令来可视化轨道的形状：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">string=<span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br><span class="line"></span><br><span class="line">ioncat <span class="variable">$@</span>  &gt; .tmp_ioncat</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> &gt; .plot.g &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">set title &quot;$string&quot;</span></span><br><span class="line"><span class="string">plot &quot;.tmp_ioncat&quot; using 1:2 w l title &quot;f&quot;</span></span><br><span class="line"><span class="string">replot &quot;.tmp_ioncat&quot; using 1:3 w l title &quot;grad f&quot;</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">gnuplot -persist .plot.g</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>表面光学</title>
+    <url>/2025/03/25/%E5%85%89%E5%AD%A6/%E8%A1%A8%E9%9D%A2%E5%85%89%E5%AD%A6/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>几何光学</title>
+    <url>/2025/03/25/%E5%85%89%E5%AD%A6/%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6/</url>
+    <content><![CDATA[<h1><span id="三大基本定律">三大基本定律</span></h1><ul>
+<li>直线传播定律：光线在各向同性介质中传播时，沿直线传播。</li>
+<li>独立传播定律：光线在各向同性介质中传播时，各光线之间互不干扰。</li>
+<li>反射和折射定律。</li>
+</ul>
+<p>主要的内容集中在反射和折射定理上。</p>
+<h2><span id="全反射">全反射</span></h2><p>全反射临界角：</p>
+<script type="math/tex; mode=display">\sin \theta_c = \frac{n_2}{n_1},n_2 < n_1</script><h2><span id="斯涅尔定理">斯涅尔定理</span></h2><script type="math/tex; mode=display">n_1 \sin \theta_1 = n_2 \sin \theta_2</script><p>一般考察变折射率光学题。</p>
+<h1><span id="惠更斯原理在几何光学的应用">惠更斯原理在几何光学的应用</span></h1><h1><span id="费马原理">费马原理</span></h1>]]></content>
+  </entry>
+  <entry>
+    <title>波动光学</title>
+    <url>/2025/03/25/%E5%85%89%E5%AD%A6/%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6/</url>
+    <content><![CDATA[<ul>
+<li><a href="#干涉理论">干涉理论</a><ul>
+<li><a href="#干涉的条件">干涉的条件</a></li>
+<li><a href="#平行干涉">平行干涉</a></li>
+</ul>
+</li>
+<li><a href="#分波前干涉">分波前干涉</a><ul>
+<li><a href="#杨氏双缝干涉">杨氏双缝干涉</a></li>
+<li><a href="#薄膜干涉">薄膜干涉</a><ul>
+<li><a href="#楔形薄膜">楔形薄膜</a></li>
+<li><a href="#牛顿环">牛顿环</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#分振幅干涉">分振幅干涉</a></li>
+</ul>
+<h1><span id="干涉理论">干涉理论</span></h1><p>一般用复振幅描述光波：</p>
+<script type="math/tex; mode=display">
+U(P,t) =A(P) \cos{\omega t-\varphi(P)}\Leftrightarrow\tilde{U}(P,t) = A(P) e^{-i(\omega t-\varphi(P))}</script><p>复振幅在运算中具有天然的优势。常见的复振幅有：</p>
+<ul>
+<li>平面波：$U(P,t) = A \cos{\omega t - \vec{k} \cdot \vec{r}}\Leftarrow\tilde{U}(P,t) = A e^{-i(\omega t - \vec{k} \cdot \vec{r})}$</li>
+<li>球面波：$U(P,t) = \frac{A}{r} \cos{\omega t - kr}\Leftarrow\tilde{U}(P,t) = \frac{A}{r} e^{-i(\omega t - kr)}$</li>
+<li>柱面波：$U(P,t) = \frac{A}{\sqrt{r}} \cos{\omega t - kr}\Leftarrow\tilde{U}(P,t) = \frac{A}{\sqrt{r}} e^{-i(\omega t - kr)}$</li>
+</ul>
+<h2><span id="干涉的条件">干涉的条件</span></h2><p>两列波相遇是，其复振幅满足叠加原理：</p>
+<script type="math/tex; mode=display">
+\tilde{U} = \tilde{U}_1 + \tilde{U}_2</script><p>其光强不一定满足叠加原理：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+I &= \langle\left|U\right|^2 \rangle= \langle U \cdot U^*\rangle = \langle\left(U_1 + U_2\right) \left(U_1^* + U_2^*\right)\rangle\\
+&= \langle\left|U_1\right|^2\rangle +\langle \left|U_2\right|^2\rangle +\langle U_1 U_2^* + U_1^* U_2\rangle\\
+&=|A_1|^2 + |A_2|^2 + 2|\vec{A_1}\cdot \vec{A_2}|\langle \cos((\omega_1-\omega_2)t-(\varphi_1-\varphi_2))\rangle
+\end{aligned}</script><p>显然，若要满足相干叠加（干涉），需要满足以下条件：</p>
+<ul>
+<li>$\vec{A_1}\cdot \vec{A_2} \neq 0$：两列波有平行方向的分量；</li>
+<li>$\varphi_1-\varphi_2 = \text{const}$：两列波的相位差稳定；</li>
+<li>$\omega_1-\omega_2 =0$：两列波的频率相同。</li>
+</ul>
+<p>三个条件缺一不可。</p>
+<h2><span id="平行干涉">平行干涉</span></h2><p>对于两列传播方向分别为$\theta_1$和$\theta_2$的平面波，其复振幅为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\tilde{U}_1 &= A_1 e^{i(k\sin{\theta_1}x-\phi_{10})}\\
+\tilde{U}_2 &= A_2 e^{i(k\sin{\theta_2}x-\phi_{20})}
+\end{aligned}</script><p>两列波的叠加为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+I &= |A_1|^2 + |A_2|^2 + 2|A_1A_2|\cos{\left(kx(\sin{\theta_1}-\sin{\theta_2})-(\phi_{10}-\phi_{20})\right)}
+\end{aligned}</script><p>条纹的间距满足：</p>
+<script type="math/tex; mode=display">
+\Delta x = \frac{\lambda}{\sin{\theta_1}-\sin{\theta_2}}</script><p>定义干涉的空间频率：</p>
+<script type="math/tex; mode=display">
+f=\frac{1}{\Delta x} = \frac{\sin{\theta_1}-\sin{\theta_2}}{\lambda}</script><p>衬比满足：</p>
+<script type="math/tex; mode=display">
+\gamma=\frac{I_{\text{max}}-I_{\text{min}}}{I_{\text{max}}+I_{\text{min}}} = \frac{2|A_1A_2|}{|A_1|^2+|A_2|^2}</script><p>将光强写为衬比度的函数：</p>
+<script type="math/tex; mode=display">
+I = I_0(1+\gamma\cos{(2\pi f x+\phi_0)})</script><p>实际上，我们在解决干涉问题的时候，通常不会考虑这样写出复振幅的解法，而是通过光程差解决问题。</p>
+<h1><span id="分波前干涉">分波前干涉</span></h1><p>分波前干涉，顾名思义，是指通过分波前装置，使两列波具有相同的相位差和频率，从而实现干涉。</p>
+<h2><span id="杨氏双缝干涉">杨氏双缝干涉</span></h2><p>假定：</p>
+<ul>
+<li>光线满足傍轴条件，所有角均为小角；</li>
+<li>不考虑两列光线因为夹角导致的光强差异。</li>
+</ul>
+<p>写出两列光的光程相位差：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\delta&=\frac{2\pi}{\lambda}(r_2-r_1)\\
+&=\frac{2\pi}{\lambda}d\sin{\theta}\\
+&=\frac{2\pi}{\lambda}d\frac{x}{D}=\frac{2\pi d}{\lambda D}x
+\end{aligned}</script><p>条纹间距：</p>
+<script type="math/tex; mode=display">
+\Delta x = \frac{2\pi x}{\delta} = \frac{\lambda D}{d}\\
+f=\frac{1}{\Delta x} = \frac{d}{\lambda D}</script><p>衬比度：</p>
+<script type="math/tex; mode=display">
+\gamma = \frac{I_{\text{max}}-I_{\text{min}}}{I_{\text{max}}+I_{\text{min}}} = \frac{2\sqrt{I_1I_2}}{I_1+I_2}</script><p>如果$\gamma=0$，称为完全不相干；如果$\gamma=1$，称为完全相干，将光强写为衬比度的函数：</p>
+<script type="math/tex; mode=display">
+I = 2I_0(1+\gamma\cos{(2\pi f x)})=4I_0\cos^2{\left(\frac{\pi d}{\lambda D}x\right)}</script><blockquote>
+<p>对于杨氏双缝干涉的进一步讨论：</p>
+<h3><span id="非单色光干涉">非单色光干涉</span></h3><p>假设某一束光由两个波长组成，其波长分别为$\lambda-\frac12\Delta\lambda$和$\lambda+\frac12\Delta\lambda$，当长波长的第k级亮纹和短波长的第k+1级亮纹重合时，条纹无法辨认：</p>
+<script type="math/tex; mode=display">
+k(\lambda+\frac12\Delta\lambda) = (k+1)(\lambda-\frac12\Delta\lambda)\Rightarrow k=\frac{\lambda-\frac12\Delta\lambda}{\Delta\lambda}</script><p>显然两列光的波长差越小，越不容易出现条纹重合的情况。</p>
+<h3><span id="光源不在对称轴上">光源不在对称轴上</span></h3><p>需要额外引入光程相位差：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\delta &= \frac{2\pi}{\lambda}d\sin{\theta}+\frac{2\pi}{\lambda}d\sin{\theta_0}\\
+&=\frac{2\pi d}{\lambda D}x+\frac{2\pi d}{\lambda R}\xi
+\end{aligned}</script><p>其中$\xi$为光源到对称轴的距离。</p>
+<p>这种情况相当于对光源在对称轴的情况做以下变换：</p>
+<script type="math/tex; mode=display">
+x\rightarrow x+\frac{D}{R}\xi</script><h3><span id="光源具有扩展性">光源具有扩展性</span></h3><p>承继上述讨论，如果有两个点光源，一个位于$\xi$，一个位于$-\xi$，由于各点的发光具有随机性和独立性，可以视作非相干的电源，则光强函数分别为：</p>
+<script type="math/tex; mode=display">
+I_1 = 4I_0\cos^2{\left(\frac{\pi d}{\lambda D}(x+\frac{D}{R}\xi)\right)}\\
+I_2 = 4I_0\cos^2{\left(\frac{\pi d}{\lambda D}(x-\frac{D}{R}\xi)\right)}</script><p>由于是非相干的电源，可以直接相加：</p>
+<script type="math/tex; mode=display">
+I = I_1+I_2 = 4I_0(1+\cos{\frac{2\pi d}{\lambda R}\xi}\cos{\frac{2\pi d}{\lambda D}x})</script><p>可以看到，衬比度变为：</p>
+<script type="math/tex; mode=display">
+\gamma = |\cos{\frac{2\pi d}{\lambda R}\xi}|\leq 1</script><p>对于线光源照明，只需要将求和改为积分即可：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+I &= 4I_0\int_{-\xi}^{+\xi}\cos^2{\left(\frac{\pi d}{\lambda D}(x+\frac{D}{R}\xi)\right)}d\xi\\
+&=4I_0[1+\text{sinc}{(\frac{2 \pi d}{\lambda R}\xi)}\cos{(\frac{2\pi d}{\lambda D}x)}]\\
+\end{aligned}</script><p>衬比度变为：</p>
+<script type="math/tex; mode=display">
+\gamma = |\text{sinc}{(\frac{2\pi d}{\lambda R}\xi)}|=|\frac{\sin{(\frac{2\pi d}{\lambda R}\xi)}}{\frac{2\pi d}{\lambda R}\xi}|\leq 1</script></blockquote>
+<h2><span id="薄膜干涉">薄膜干涉</span></h2><p>薄膜干涉的光程相位差：</p>
+<script type="math/tex; mode=display">
+\delta = \frac{2\pi}{\lambda}2nd\cos{\theta}</script><p>条纹间距为：</p>
+<script type="math/tex; mode=display">
+\Delta d = \frac{2\pi d}{\delta}= \frac{\lambda}{2n\cos{\theta}}</script><h3><span id="楔形薄膜">楔形薄膜</span></h3><p>以垂直光入射，条纹间距为：</p>
+<script type="math/tex; mode=display">
+\Delta d = \frac{\lambda}{2n}\Rightarrow \Delta x = \frac{\lambda }{2n\alpha}</script><h3><span id="牛顿环">牛顿环</span></h3><p>以垂直光入射，条纹间距为：</p>
+<script type="math/tex; mode=display">
+\Delta d = \frac{\lambda}{2n}\Rightarrow r_n=\sqrt{n\lambda R}</script><h1><span id="分振幅干涉">分振幅干涉</span></h1>]]></content>
+  </entry>
+  <entry>
+    <title>矩阵光学</title>
+    <url>/2025/03/25/%E5%85%89%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%85%89%E5%AD%A6/</url>
+    <content><![CDATA[<h1><span id="introduction-and-assumptions">Introduction and Assumptions</span></h1><p>矩阵光学指的是通过线性变换矩阵来描述几何光学传播过程的方法。这其中隐含了几个假设：</p>
+<ul>
+<li>光线是直线（这也是几何光学的基本假设）；</li>
+<li>光线的传播是线性的；</li>
+<li>光线满足傍轴近似（即光线的角度很小）。</li>
+</ul>
+<p>我们用两个参数来描述光线的传播——光线的位置和方向：</p>
+<script type="math/tex; mode=display">\begin{pmatrix} x \\ \theta \end{pmatrix}</script><p>光线通过线性变换矩阵$M$传播后，位置和方向变为：</p>
+<script type="math/tex; mode=display">\begin{pmatrix} x' \\ \theta' \end{pmatrix} = M \begin{pmatrix} x \\ \theta \end{pmatrix}</script><p>显然，矩阵$M$是一个$2 \times 2$的矩阵：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} A & B \\ C & D \end{pmatrix}</script><p>如果我们有多个光学元件，每个元件都有一个传播矩阵$M_i$，那么这些元件的传播矩阵的乘积就是整个系统的传播矩阵：</p>
+<script type="math/tex; mode=display">M = M_n M_{n-1} \cdots M_2 M_1</script><h1><span id="sign-convention">Sign Convention</span></h1><p>在矩阵光学中，我们使用以下符号约定：</p>
+<ul>
+<li>物距和像距的正负遵循“实正虚负”的规则；</li>
+<li>光线角度的正负遵循“逆时针正顺时针负”的规则；</li>
+<li>所有的曲面界面，曲率中心在右侧为正，左侧为负。</li>
+</ul>
+<h1><span id="some-examples">Some Examples</span></h1><h2><span id="free-space">Free Space</span></h2><p>自由空间中的光线传播是最简单的情况，传播矩阵是：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & L \\ 0 & 1 \end{pmatrix}</script><blockquote>
+<p>可以通过简单的推导验证：</p>
+<script type="math/tex; mode=display">\begin{pmatrix} x' \\ \theta' \end{pmatrix} = \begin{pmatrix} 1 & L \\ 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ \theta \end{pmatrix} = \begin{pmatrix} x + L\theta \\ \theta \end{pmatrix}</script></blockquote>
+<h2><span id="surface-and-parallel-plate">Surface and Parallel Plate</span></h2><p>光线入射介质$n_1$，出射介质$n_2$满足以下光学矩阵：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & 0 \\ 0 & \frac{n_1}{n_2} \end{pmatrix}</script><blockquote>
+<p>可以通过简单的推导验证：由折射定理，我们有：</p>
+<script type="math/tex; mode=display">\begin{pmatrix} x' \\ \theta' \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & \frac{n_1}{n_2} \end{pmatrix} \begin{pmatrix} x \\ \theta \end{pmatrix} = \begin{pmatrix} x \\ \frac{n_1}{n_2} \theta \end{pmatrix}</script></blockquote>
+<p>平行板是一个简单的光学元件，传播矩阵可以通过三个光学矩阵相乘得到：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & 0 \\ 0 & \frac{1}{n} \end{pmatrix} \begin{pmatrix} 1 & L \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & n \end{pmatrix} = \begin{pmatrix} 1 & L/n \\ 0 & 1 \end{pmatrix}</script><p>这说明相比于自由空间的传播，平行板的传播矩阵不会改变光线的角度，只会按折射率改变光线的位置。相应的，可以推出多个平行板的传播矩阵：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & L_1/n_1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & L_2/n_2 \\ 0 & 1 \end{pmatrix} \cdots \begin{pmatrix} 1 & L_n/n_n \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & \sum_i L_i/n_i \\ 0 & 1 \end{pmatrix}</script><h2><span id="reflective-spherical-mirrors">Reflective spherical mirrors</span></h2><p>反射球面镜的光学矩阵：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & 0 \\ \frac{2}{R} & 1 \end{pmatrix}</script><h2><span id="refractive-spherical-surfaces">Refractive spherical surfaces</span></h2><p>折射球面的光学矩阵：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & 0 \\ \frac{n_1 - n_2}{n_2R} & \frac{n_1}{n_2} \end{pmatrix}</script><blockquote>
+<p>当$R\rightarrow \infty$时，球面变为平面，折射球面的光学矩阵变为折射平面的光学矩阵：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & 0 \\ 0 & \frac{n_1}{n_2} \end{pmatrix}</script></blockquote>
+<h2><span id="thin-lens">Thin lens</span></h2><p>薄透镜的光学矩阵可以通过两个折射球面的光学矩阵相乘得到：</p>
+<script type="math/tex; mode=display">M = \begin{pmatrix} 1 & 0 \\  \frac{n_2 - n_1}{n_1R_1} & \frac{n_2}{n_1} \end{pmatrix}\begin{pmatrix} 1 & 0 \\  \frac{n_1 - n_2}{n_2R_2} & \frac{n_1}{n_2} \end{pmatrix}= \begin{pmatrix} 1 & 0 \\  \frac{n_2 - n_1}{n_1R_1} + \frac{n_1 - n_2}{n_1R_2} & 1 \end{pmatrix}= \begin{pmatrix} 1 & 0 \\  -\frac{1}{f} & 1 \end{pmatrix}</script><p>其中$f$是透镜的焦距：</p>
+<script type="math/tex; mode=display">\frac1f = \frac{n_2 - n_1}{n_1R_1} + \frac{n_1 - n_2}{n_1R_2}=(\frac{n_2}{n_1}-1)(\frac{1}{R_1} - \frac{1}{R_2})</script><h1><span id="physical-meaning-of-the-matrix-elements">Physical Meaning of the Matrix Elements</span></h1><p>通过运算线性变换矩阵的元素，我们可以得到一些物理意义：</p>
+<script type="math/tex; mode=display">\begin{pmatrix} Ax+B\theta\\Cx+D\theta \end{pmatrix} = \begin{pmatrix} A & B \\ C & D \end{pmatrix} \begin{pmatrix} x \\ \theta \end{pmatrix}</script><ul>
+<li>当满足<strong>成像条件</strong>的时候，光线汇聚的位置和角度无关，即$B=0$<ul>
+<li>这表明$A=\frac{x’}{x}$表示成像放大率；</li>
+<li>$\theta’=Cx+D\theta$表明$\delta\theta’=D\delta\theta$，即$D$表示光线的角度放大率；</li>
+<li>满足成像条件时，$B=0$，表面其物理意义是成像传输距离。</li>
+</ul>
+</li>
+<li>当满足<strong>聚焦条件</strong>的时候，平行光线聚焦在一点上，即$A=D=0$（成像放大率为0，即聚焦）: <script type="math/tex; mode=display">\begin{pmatrix} x'\\ \theta' \end{pmatrix} = \begin{pmatrix} 0 & B \\ C & 0 \end{pmatrix} \begin{pmatrix} x \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ Cx \end{pmatrix}</script><ul>
+<li>$C=\frac{\theta’}{x}=-\frac{1}{f}$表示负屈光度。</li>
+</ul>
+</li>
+</ul>
+<p>所以传输矩阵的物理意义是：</p>
+<script type="math/tex; mode=display">\begin{pmatrix} x'\\ \theta' \end{pmatrix} = \begin{pmatrix} \text{成像放大率} & \text{成像传输距离} \\ \text{负屈光度} & \text{角度放大率} \end{pmatrix} \begin{pmatrix} x \\ \theta \end{pmatrix}</script><h1><span id="relations-between-the-matrix-elements">Relations between the Matrix Elements</span></h1><p>传输矩阵的元素之间有一些关系：</p>
+<script type="math/tex; mode=display">AD-BC=\det{M}=\frac{n_1}{n_2}</script><p>其物理意义是<strong>光束的能流守恒</strong>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>光学Content</title>
+    <url>/2025/03/25/%E5%85%89%E5%AD%A6/%E5%85%89%E5%AD%A6Content/</url>
+    <content><![CDATA[<p>从光学的历史来看，光学的发展经历了几个阶段：</p>
+<ul>
+<li><a href="/2025/03/25/%E5%85%89%E5%AD%A6/%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6/" title="几何光学">几何光学</a></li>
+<li><a href="/2025/03/25/%E5%85%89%E5%AD%A6/%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6/" title="波动光学">波动光学</a></li>
+<li><strong>量子光学</strong></li>
+</ul>
+<p>此外还补充了<a href="/2025/03/25/%E5%85%89%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%85%89%E5%AD%A6/" title="矩阵光学">矩阵光学</a>的内容。按照光的分类——自发辐射光和受激辐射光，还可以引出<strong>非线性光学</strong>的概念。</p>
+<p>本栏目主要参考《新概念光学》和《现代光学基础》。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Basis-Optimization</title>
+    <url>/2025/03/12/SIESTA/Basis-Optimization/</url>
+    <content><![CDATA[<h1><span id="cardinality">Cardinality</span></h1><p>基组的基数（Cardinality）是指基组中的基函数的数量。对于碳原子：</p>
+<ul>
+<li>SZ(Singer-Zeta): 2s+3*2p=4</li>
+<li>DZ(Double-Zeta): (2s+3<em>2p)</em>2=8</li>
+<li>TZ(Triple-Zeta): (2s+3<em>2p)</em>3=12</li>
+<li>QZ(Quadruple-Zeta): (2s+3<em>2p)</em>4=16</li>
+<li>SZP(Singer-Zeta Plus Polarization): 2s+3<em>2p+5</em>2d=9</li>
+<li>DZP(Double-Zeta Plus Polarization): (2s+3<em>2p)</em>2+5*2d=13</li>
+</ul>
+<p>SIESTA的计算成本和基组的基数的三次方成正比，因此在选择基组时需要权衡计算成本和计算精度。</p>
+<h1><span id="cut-off-radii">Cut-off Radii</span></h1><p>截止半径（Cut-off Radii）是指在计算中，对于原子核和电子之间的相互作用，只考虑距离小于截止半径的部分。截止半径的选择会影响计算的精度和计算成本。</p>
+<ul>
+<li>对于SZ基组，截止半径意味着更远的地方为0</li>
+<li>对于多$\zeta$基组，截止半径意味着更远的地方等同第一$\zeta$函数</li>
+</ul>
+<h1><span id="basis-enthalpy">Basis Enthalpy</span></h1><p>基组焓（Basis Enthalpy）用于评估基组的大小是否合理：</p>
+<script type="math/tex; mode=display">H=PV</script><p>其中$P$是虚构的压力，一般取0.2GPa，$V$是轨道体积。对于小原子，可以取$P=0.02GPa$。</p>
+<blockquote>
+<p>另一种办法是用玻尔半径来判断轨道是否足够大：一般小于5Bohr的轨道太小，而大于10Bohr的轨道太大。</p>
+</blockquote>
+<h1><span id="take-water-as-an-example">Take Water as an Example</span></h1><p>不同于选择基组，我们可以自定义基组的大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%block PAO.Basis</span><br><span class="line">  H 1</span><br><span class="line">    n=1 0 2 P 1     # n, l (=0, s-orbital), number of zetas, include 1 set of polarization orbitals</span><br><span class="line">        0.0 0.0     # rcut for first zeta, rmatch for second zeta</span><br><span class="line">  O 2               # Number of different l</span><br><span class="line">    n=2 0 2         # n, l (=0, s-orbital), number of zetas</span><br><span class="line">        0.0 0.0     # rcut for first zeta, rmatch for second zeta</span><br><span class="line">    n=2 1 2 P 1     # n, l (=1, p-orbital), number of zetas, include 1 set of polarization orbitals</span><br><span class="line">        0.0 0.0     # rcut for first zeta, rmatch for second zeta</span><br><span class="line">%endblock PAO.Basis</span><br></pre></td></tr></table></figure>
+<p>这个例子中，氢原子采用了两个$n=1,l=0$的轨道，并添加了极化轨道（1p轨道）；氧原子采用了两个$n=2,l=0$的轨道和两个$n=2,l=1$的轨道，并添加了极化轨道（2d轨道）。所以等同于DZP基组。</p>
+<p>下面的截止半径设为0，意思为让SIESTA程序自动设置。以下是自动设置的结果：</p>
+<ul>
+<li>O : $r_{l_1,\zeta_1}=4.46 Bohr$, $r_{l_1,\zeta_2}=2.54Bohr$, $r_{l_2,\zeta_1}=5.58Bohr$,$r_{l_2,\zeta_2}=2.64Bohr$</li>
+<li>H : $r_{\zeta_1}=7.02 Bohr$,$r_{\zeta_2}=4.05Bohr$</li>
+</ul>
+<h2><span id="optimizing-the-first-zeta-cutoff-radii">Optimizing the first-zeta cutoff radii</span></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$r_{\zeta_1}$</th>
+<th>Enthalpy(eV/cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.0</td>
+<td>-469.0953</td>
+</tr>
+<tr>
+<td><strong>4.5</strong></td>
+<td>-469.1374</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>-469.1220</td>
+</tr>
+<tr>
+<td>5.5</td>
+<td>-469.1107</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$r_{l_1,\zeta_1}$</th>
+<th>Enthalpy(eV/cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.5</td>
+<td>-469.1386</td>
+</tr>
+<tr>
+<td><strong>5.0</strong></td>
+<td>-469.1440</td>
+</tr>
+<tr>
+<td>5.5</td>
+<td>-469.1332</td>
+</tr>
+<tr>
+<td>6.0</td>
+<td>-469.1391</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$r_{l_2,\zeta_1}$</th>
+<th>Enthalpy(eV/cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.5</td>
+<td>-468.8341</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>-469.0138</td>
+</tr>
+<tr>
+<td>5.5</td>
+<td>-469.1320</td>
+</tr>
+<tr>
+<td>6.0</td>
+<td>-469.1921</td>
+</tr>
+<tr>
+<td>6.5</td>
+<td>-469.2163</td>
+</tr>
+<tr>
+<td><strong>7.0</strong></td>
+<td>-469.2224</td>
+</tr>
+<tr>
+<td>7.5</td>
+<td>-469.2187</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="optimizing-the-second-zeta-matching-radii">Optimizing the second-zeta matching radii</span></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$r_{\zeta_2}$</th>
+<th>Enthalpy(eV/cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.5</td>
+<td>-469.2226</td>
+</tr>
+<tr>
+<td><strong>2.0</strong></td>
+<td>-469.4047</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td>-469.3718</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>-469.2950</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$r_{l_1,\zeta_2}$</th>
+<th>Enthalpy(eV/cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.5</td>
+<td>-469.3801</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>-469.3833</td>
+</tr>
+<tr>
+<td><strong>2.5</strong></td>
+<td>-469.4019</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>-469.4011</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$r_{l_2,\zeta_2}$</th>
+<th>Enthalpy(eV/cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.5</td>
+<td>-469.3513</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>-469.3671</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td>-469.3940</td>
+</tr>
+<tr>
+<td><strong>3.0</strong></td>
+<td>-469.4066</td>
+</tr>
+<tr>
+<td>3.5</td>
+<td>-469.3987</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1><span id="calculating-the-binding-energy-of-a-water-dimer">Calculating the binding energy of a water dimer</span></h1><script type="math/tex; mode=display">E_{binding}=E_{dimer}-2E_{monomer}</script><p>用最优化基组计算得到：</p>
+<script type="math/tex; mode=display">E_{dimer}=-939.257566eV</script><script type="math/tex; mode=display">E_{monomer}=-469.504506eV</script><script type="math/tex; mode=display">E_{binding}=-0.248554eV=-248.554meV</script><p>如果使用默认基组，那么与energy shift的关系是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Energy Shift</th>
+<th>Dimer Energy(eV)</th>
+<th>Monomer Energy(eV)</th>
+<th>Binding Energy(meV)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0001</td>
+<td>-938.861554</td>
+<td>-469.281238</td>
+<td>299.035</td>
+</tr>
+<tr>
+<td>0.001</td>
+<td>-938.781324</td>
+<td>-469.238409</td>
+<td>243.304</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>-937.923061</td>
+<td>-468.749136</td>
+<td>248.235</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>-927.087173</td>
+<td>-462.831975</td>
+<td>248.424</td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <title>First-Encounter</title>
+    <url>/2025/03/12/SIESTA/First-Encounter/</url>
+    <content><![CDATA[<p>本教程参考了<a href="https://docs.siesta-project.org/projects/siesta/en/stable/tutorials/00-TutorialSetup.html">SIESTA官方文档</a>。</p>
+<h1><span id="first-encounter">First-Encounter</span></h1><h2><span id="fdf-format">fdf Format</span></h2><p>SIESTA的输入文件是一个文本文件，通常以<code>.fdf</code>为后缀。这个文件包含了所有的输入参数，包括计算的类型、晶胞参数、原子位置、计算方法等等。这个文件的格式是自由格式，可以包含注释，注释以<code>#</code>开头。下面是一个简单的例子<code>ch4.fdf</code>：</p>
+<ul>
+<li><p>系统描述</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SystemName          CH4 molecule</span><br><span class="line">SystemLabel         ch4</span><br><span class="line">NumberOfAtoms       5</span><br><span class="line">NumberOfSpecies     2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>化学物种</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%block ChemicalSpeciesLabel</span><br><span class="line"> 1  6 C   # Species index, atomic number, species label</span><br><span class="line"> 2  1 H   # Species index, atomic number, species label</span><br><span class="line">%endblock ChemicalSpeciesLabel</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原子坐标</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AtomicCoordinatesFormat  Ang</span><br><span class="line">%block AtomicCoordinatesAndAtomicSpecies</span><br><span class="line">  1  0.000000  0.000000  0.000000  1</span><br><span class="line">  2  0.000000  0.000000  1.089000  2</span><br><span class="line">  3  1.026719  0.000000 -0.363000  2</span><br><span class="line">  4 -0.513360 -0.889165 -0.363000  2</span><br><span class="line">  5 -0.513360  0.889165 -0.363000  2</span><br><span class="line">%endblock AtomicCoordinatesAndAtomicSpecies</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>晶格参数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Unit cell for the calculation</span><br><span class="line">LatticeConstant 15 Ang</span><br><span class="line">%block LatticeVectors</span><br><span class="line">  1.000 0.000 0.000</span><br><span class="line">  0.000 1.000 0.000</span><br><span class="line">  0.000 0.000 1.000</span><br><span class="line">%endblock LatticeVectors</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Basis set definition</span><br><span class="line">PAO.EnergyShift 250 meV</span><br><span class="line">PAO.SplitNorm   0.15</span><br><span class="line">PAO.BasisSize   SZ</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>PAO.BasisSize：</p>
+<ul>
+<li>SZ: Single-zeta basis set (s+p)</li>
+<li>DZ: Double-zeta basis set</li>
+<li>SZP: Single-zeta polarized basis set</li>
+<li>DZP: Double-zeta polarized basis set</li>
+<li>TZP: Triple-zeta polarized basis set</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>计算参数<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Real space grid</span><br><span class="line">MeshCutoff 125.0 Ry</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>利用公式$E=\frac{h^2}{8m_ed^2}$，可以计算出以下常用的MeshCutoff：</p>
+<ul>
+<li>300Ry: 0.096 Angstrom</li>
+<li>200eV: 0.354 Angstrom</li>
+<li>520Ry: 0.269 Angstrom</li>
+</ul>
+<p>$1Ry=13.6057eV=2.17987\times 10^{18}J$</p>
+</blockquote>
+<ul>
+<li><p>计算控制</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Convergence of SCF</span><br><span class="line">MaxSCFIterations 50</span><br><span class="line">DM.MixingWeight 0.4</span><br><span class="line">DM.NumberPulay  2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Type of solution</span><br><span class="line">SolutionMethod diagon</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2><span id="psf-format">psf Format</span></h2><p><code>.psf</code>文件是赝势（pseudopotential）文件，包含了原子核和电子之间的相互作用。</p>
+<h2><span id="run-siesta">RUN SIESTA</span></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">siesta &lt;ch4.fdf&gt; ch4.out</span><br></pre></td></tr></table></figure>
+<h2><span id="out-format">out Format</span></h2><p>SIESTA的输出文件是一个文本文件，通常以<code>.out</code>为后缀。这个文件包含了计算的结果。下面是一个简单的例子<code>ch4.out</code>：</p>
+<ul>
+<li>Header：SIESTA 的版本号、编译器版本和编译选项</li>
+<li>Input File：输入文件的内容</li>
+<li>Details on the basis set generation：基组的生成和赝势</li>
+<li>Total energy decomposition and forces, and stress:能量的构成和力学性质</li>
+</ul>
+<h1><span id="first-encounter-theorylevel">First-Encounter-theorylevel</span></h1><h2><span id="pseudopotentials">Pseudopotentials</span></h2><p>在 SIESTA 中，选择合适的赝势（pseudopotential）是影响计算精度和效率的关键因素之一。赝势通常以<code>.psf</code>或<code>.psml</code>格式的外部文件提供。</p>
+<h2><span id="fdf-modifications">fdf Modifications</span></h2><p>选择相应的赝势需要在<code>.fdf</code>文件中进行相应的指定，包括：</p>
+<ul>
+<li>ChemicalSpeciesLabel block<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%block ChemicalSpeciesLabel</span><br><span class="line"> 1  6 C.gga   # Species index, atomic number, species label</span><br><span class="line"> 2  1 H.gga   # Species index, atomic number, species label</span><br><span class="line">%endblock ChemicalSpeciesLabel</span><br></pre></td></tr></table></figure></li>
+<li>Exchange-correlation functional<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">XC.functional  GGA</span><br><span class="line">XC.authors    PBE</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>对比：<br>| Pseudopotentials | Total Energy (eV) | Runtime (s) |<br>| :—————— | :———————— | :————— |<br>| LDA               | -216.514681           | 9.500       |<br>| GGA               | -217.482725           | 9.527       |</p>
+<h1><span id="try">Try</span></h1><h2><span id="change-paobasissize">Change PAO.BasisSize</span></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">PAO.BasisSize</th>
+<th style="text-align:left">Total Energy (eV)</th>
+<th style="text-align:left">Runtime (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SZ</td>
+<td style="text-align:left">-214.704321</td>
+<td style="text-align:left">2.136</td>
+</tr>
+<tr>
+<td style="text-align:left">DZ</td>
+<td style="text-align:left">-215.973123</td>
+<td style="text-align:left">3.156</td>
+</tr>
+<tr>
+<td style="text-align:left">TZ</td>
+<td style="text-align:left">-216.076327</td>
+<td style="text-align:left">3.304</td>
+</tr>
+<tr>
+<td style="text-align:left">SZP</td>
+<td style="text-align:left">-215.002556</td>
+<td style="text-align:left">3.304</td>
+</tr>
+<tr>
+<td style="text-align:left">DZP</td>
+<td style="text-align:left">-216.477078</td>
+<td style="text-align:left">18.114</td>
+</tr>
+<tr>
+<td style="text-align:left">TZP</td>
+<td style="text-align:left">-216.168898</td>
+<td style="text-align:left">19.244</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="change-meshcutoff">Change MeshCutoff</span></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">MeshCutoff (Ry)</th>
+<th style="text-align:left">Total Energy (eV)</th>
+<th style="text-align:left">Runtime (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">75</td>
+<td style="text-align:left">-214.707126</td>
+<td style="text-align:left">1.837</td>
+</tr>
+<tr>
+<td style="text-align:left">125</td>
+<td style="text-align:left">-214.704321</td>
+<td style="text-align:left">2.136</td>
+</tr>
+<tr>
+<td style="text-align:left">250</td>
+<td style="text-align:left">-214.704137</td>
+<td style="text-align:left">3.359</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="change-energyshift">Change EnergyShift</span></h2><p>BasisSize: DZP</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">EnergyShift (meV)</th>
+<th style="text-align:left">Total Energy (eV)</th>
+<th style="text-align:left">Runtime (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">250</td>
+<td style="text-align:left">-216.514681</td>
+<td style="text-align:left">9.500</td>
+</tr>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">-216.742603</td>
+<td style="text-align:left">9.996</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left">-216.766565</td>
+<td style="text-align:left">10.154</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">-216.755123</td>
+<td style="text-align:left">11.480</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="change-splitnorm">Change SplitNorm</span></h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SplitNorm</th>
+<th style="text-align:left">Total Energy (eV)</th>
+<th style="text-align:left">Runtime (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0.20</td>
+<td style="text-align:left">-216.543082</td>
+<td style="text-align:left">9.706</td>
+</tr>
+<tr>
+<td style="text-align:left">0.15</td>
+<td style="text-align:left">-216.514681</td>
+<td style="text-align:left">9.500</td>
+</tr>
+<tr>
+<td style="text-align:left">0.10</td>
+<td style="text-align:left">-216.399940</td>
+<td style="text-align:left">9.488</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="close-softdefault">Close SoftDefault</span></h2><p><code>PAO.SoftDefault</code>用软约束的方法优化基组，使得截断处更加平滑。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SoftDefault</th>
+<th style="text-align:left">Total Energy (eV)</th>
+<th style="text-align:left">Runtime (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">False</td>
+<td style="text-align:left">-217.573318</td>
+<td style="text-align:left">10.535</td>
+</tr>
+<tr>
+<td style="text-align:left">Ture</td>
+<td style="text-align:left">-216.514681</td>
+<td style="text-align:left">9.500</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1><span id="conclusion">Conclusion</span></h1><ul>
+<li>完整的项目至少包含以下几个文件：<code>.fdf</code>、<code>.psf</code> or <code>.psml</code></li>
+<li>运行<code>siesta &lt;ch4.fdf&gt; ch4.out</code>，查看输出文件<code>ch4.out</code>，检查计算结果</li>
+<li>通过修改<code>.fdf</code>文件中的参数，可以调整计算的精度和效率<ul>
+<li><code>PAO.BasisSize</code>：基组的大小</li>
+<li><code>MeshCutoff</code>：网格精度</li>
+<li><code>PAO.EnergyShift</code>：原子轨道的能量范围</li>
+<li><code>PAO.SplitNorm</code>：原子轨道的分裂参数</li>
+</ul>
+</li>
+<li>还可以选择不同的赝势和交换相关泛函<ul>
+<li><code>LDA</code>：局域密度近似</li>
+<li><code>GGA</code>：广义梯度近似</li>
+</ul>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>SIESTA的安装</title>
+    <url>/2025/03/12/SIESTA/SIESTA%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1><span id="siesta官方教程">SIESTA官方教程</span></h1><p>SIESTA的官方教程可以在<a href="https://docs.siesta-project.org/projects/siesta/en/stable/tutorials/00-TutorialSetup.html">这里</a>找到。相关文件保存在<code>siesta-docs</code>文件夹下。</p>
+<h1><span id="构建siesta的docker镜像">构建SIESTA的Docker镜像</span></h1><p>当我们安装好Docker后，我们可以着手构建SIESTA的镜像。SIESTA的安装过程比较复杂，需要一些前置的依赖包，因此我们需要一个Dockerfile来构建SIESTA的镜像。</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用官方 Ubuntu 镜像作为基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">22.04</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装必要的工具</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="language-bash">    wget \</span></span><br><span class="line"><span class="language-bash">    bzip2 \</span></span><br><span class="line"><span class="language-bash">    ca-certificates \</span></span><br><span class="line"><span class="language-bash">    libglib2.0-0 \</span></span><br><span class="line"><span class="language-bash">    libxext6 \</span></span><br><span class="line"><span class="language-bash">    libsm6 \</span></span><br><span class="line"><span class="language-bash">    libxrender1 \</span></span><br><span class="line"><span class="language-bash">    git \</span></span><br><span class="line"><span class="language-bash">    mercurial \</span></span><br><span class="line"><span class="language-bash">    subversion</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 Miniconda</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> bash miniconda.sh -b -p /opt/conda</span></span><br><span class="line"><span class="keyword">ENV</span> PATH=<span class="string">&quot;/opt/conda/bin:$PATH&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 SIESTA</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> conda install -c conda-forge siesta=5.2.2</span></span><br></pre></td></tr></table></figure>
+<p>在Dockerfile所在的目录下，我们可以运行以下命令来构建SIESTA的镜像：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t siesta:latest . <span class="comment"># siesta是镜像的名字，latest是标签</span></span><br></pre></td></tr></table></figure>
+<h1><span id="运行siesta">运行SIESTA</span></h1><p>构建完成后，我们可以运行以下命令来启动SIESTA的容器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it --name siesta -v <span class="string">&quot;D:\SIESTA\siesta-docs:/app&quot;</span> siesta:latest /bin/bash</span><br></pre></td></tr></table></figure>
+<p>此处的<code>D:\SIESTA\siesta-docs</code>是文件的路径，<code>/app</code>是挂在到容器下的路径，<code>-v</code>参数用来挂载宿主机的目录到容器中。此时输入命令<code>ls</code>即可查看到<code>siesta-docs</code>文件夹下的文件。</p>
+<p>进入到<code>/app/work-files/tutorials/basic/first-encounter</code>文件夹下，我们可以运行SIESTA的教程：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">siesta &lt;ch4.fdf&gt; output.txt</span><br></pre></td></tr></table></figure>
+<p>即可得到运行后的结果。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Docker的配置</title>
+    <url>/2025/03/12/SIESTA/Docker%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1><span id="whats-docker">What’s Docker</span></h1><p>Docker是一个开源的应用容器引擎，基于Go语言并遵从Apache2.0协议开源。Docker可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<p>在Docker之前，要想在不同的环境中运行同一个应用，需要在不同的环境中安装相同的依赖包。如果操作系统相同，这件事情可能还是个简单的问题，用Conda可以在Python环境中解决。然而，当问题扩展到区别于Python的其他操作系统时，问题就变得复杂了。一个常见的运维的笑话是：“在我的机器上是可以运行的”。Docker的出现解决了这个问题。</p>
+<p>Docker的核心思想和Conda有很多相似之处，都是通过容器的方式来管理应用的依赖包：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Docker</th>
+<th>Conda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>容器</td>
+<td>Container</td>
+<td>Environment</td>
+</tr>
+<tr>
+<td>镜像</td>
+<td>Image</td>
+<td>Package</td>
+</tr>
+<tr>
+<td>仓库</td>
+<td>Registry</td>
+<td>Repository</td>
+</tr>
+<tr>
+<td>配置文件</td>
+<td>Dockerfile</td>
+<td>Environment.yml</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>通过一个Dockerfile文件，可以将一个应用的运行环境打包成一个镜像，然后通过这个镜像可以生成一个容器，这个容器就是一个独立的运行环境。这个容器可以在任何支持Docker的机器上运行，而不需要担心环境的问题。</p>
+<h1><span id="install-docker">Install Docker</span></h1><h2><span id="preparation">Preparation</span></h2><p>Docker需要的Linux内核可以通过WSL2来提供。</p>
+<ul>
+<li>进入Windows的控制面板</li>
+<li>选择“<strong>程序和功能</strong>”</li>
+<li>选择“<strong>启用或关闭windows功能</strong>”</li>
+<li>勾选“适用于Linux的Windows子系统”和“虚拟机平台(Virtual Machine Platform)”。</li>
+</ul>
+<p>然后通过以下命令设置WSL2：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure><br>如果你此前没有下载，可能需要几分钟安装WSL2.</p>
+<h2><span id="docker-installation">Docker Installation</span></h2><p>前往<a href="https://docs.docker.com/desktop/install/windows-install/">官网下载</a>下载相应的安装包。直接安装即可。</p>
+<h2><span id="docker-mirros">Docker Mirros</span></h2><p>Docker的镜像下载速度可能会很慢，可以通过修改镜像源来提高下载速度。在Docker Desktop中，可以在“<strong>Settings</strong>”中的“<strong>Docker Engine</strong>”中添加镜像源：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;builder&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;gc&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;defaultKeepStorage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20GB&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;experimental&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://docker.m.daocloud.io/&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://huecker.io/&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://dockerhub.timeweb.cloud&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://noohub.ru/&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://dockerproxy.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.nju.edu.cn&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://xx4bwyg2.mirror.aliyuncs.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;http://f1361db2.m.daocloud.io&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>或者前往”./user/.docker/daemon.json”文件中添加镜像源。</p>
+<h1><span id="docker-commands">Docker Commands</span></h1><p>登陆和登出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker login</span><br><span class="line">docker logout</span><br></pre></td></tr></table></figure>
+<p>查看镜像：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p>查看容器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>创建和删除镜像：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker build -t &lt;image_name&gt; -f &lt;Dockerfile_path&gt; </span><br><span class="line">docker rmi &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
+<p>创建和删除容器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker create --name &lt;container_name&gt; &lt;image_name&gt;</span><br><span class="line">docker rm &lt;container_name&gt;</span><br></pre></td></tr></table></figure>
+<p>创建并运行容器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it --name &lt;container_name&gt; &lt;image_name&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><code>-it</code>：交互式运行容器</li>
+<li><code>--name</code>：容器的名字</li>
+<li><code>/bin/bash</code>：容器启动后执行的命令，启动一个终端</li>
+</ul>
+</blockquote>
+<p>启动和停止容器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker start &lt;container_name&gt;</span><br><span class="line">docker stop &lt;container_name&gt;</span><br></pre></td></tr></table></figure>
+<p>进入和退出容器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it &lt;container_name&gt; /bin/bash</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h1><span id="dockerfile">Dockerfile</span></h1><p>前面提到，Dockerfile是用来构建镜像的配置文件。Dockerfile的语法如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">FROM &lt;base_image&gt; # 基础镜像</span><br><span class="line">RUN &lt;command&gt; # 执行命令</span><br><span class="line">ADD &lt;src&gt; &lt;dest&gt; # 添加文件</span><br><span class="line">COPY &lt;src&gt; &lt;dest&gt; # 复制文件</span><br><span class="line">WORKDIR &lt;path&gt; # 工作目录</span><br><span class="line">ENV &lt;key&gt; &lt;value&gt; # 环境变量</span><br><span class="line">CMD &lt;command&gt; # 容器启动后执行的命令</span><br></pre></td></tr></table></figure>
+<p>一个简单的Dockerfile示例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">FROM ubuntu:18.04</span><br><span class="line">RUN apt-get update</span><br><span class="line">RUN apt-get install -y python3</span><br><span class="line">CMD python3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一个RUN命令对应一个镜像层，可以通过合并多个命令来减少镜像层的数量。当然，多个RUN命令可以保存中间结果，以防运行失败需要重新创建。</p>
+<p>RUN和CMD的区别在于，RUN是在构建镜像时执行，CMD是在容器启动时执行。所以一般CMD命令用于测试镜像是否构建成功。</p>
+</blockquote>
+<h1><span id="docker-vscode">Docker + VSCode</span></h1><p>以下是两个常用的插件：</p>
+<ul>
+<li>Docker - 为Docker提供支持的官方扩展</li>
+<li>Dev Container - 为Container提供远程支持的本地编辑器</li>
+</ul>
+<p>在VSCode中按<code>Ctrl+Shift+P</code>打开命令面板，输入<code>Dev Container: Attach to Running Container</code>，可以连接到已经运行的容器。这样一来，容器中的文件结构就可以在左侧进行可视化操作了。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SIESTA计算细节</title>
+    <url>/2025/03/07/DFT/SIESTA%E8%AE%A1%E7%AE%97%E7%BB%86%E8%8A%82/</url>
+    <content><![CDATA[<p>主要程序：</p>
+<ul>
+<li>VASP：平面波基组</li>
+<li>Quantum Espresso：平面波</li>
+<li>wien2k：算的特别准，但是计算量大，用的是平面波加原子基组，活在Benchmark里面</li>
+<li>Gaussion</li>
+<li>ORCA</li>
+<li>ADF</li>
+<li>pyscf</li>
+<li>SIESTA：原子基组</li>
+<li>FHI-aims：原子基组</li>
+<li>OpenMX</li>
+<li>ABACUS</li>
+<li>AI2DFT</li>
+</ul>
+<h1><span id="siesta计算细节">SIESTA计算细节</span></h1><h2><span id="赝势">赝势</span></h2><p>基于价电子近似，赝势方法将价电子和芯层电子分开处理，将芯层电子的作用用赝势来模拟，从而减少计算量。主要有以下三种赝势：</p>
+<ul>
+<li>Norm-conserving赝势：保证赝势和真实势在某个截断半径内的积分相等；</li>
+<li>Ultrasoft赝势：放松模守恒的限制，计算效率更高；</li>
+<li>PAW赝势：通过算符将快速振荡部分平滑。</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/575479762">PAW</a></p>
+<p>不同的DFT程序支持不同的赝势：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>NCPP</th>
+<th>USPP</th>
+<th>PAW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VASP</td>
+<td>√</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>FHI-aims</td>
+<td>√</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>wien2k</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>SIESTA</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>GPAW</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>OpenMX</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>ABACUS</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1><span id="siesta计算细节">SIESTA计算细节</span></h1><h2><span id="siesta总流程">SIESTA总流程</span></h2><h3><span id="哈密顿量的构成">哈密顿量的构成</span></h3><p>在SIESTA程序中，哈密顿量由以下几项构成：</p>
+<script type="math/tex; mode=display">
+\hat{H} = \hat{T} + \hat{V}^{NL} + V^{NA}(\vec{r}) + \delta V^H(\vec{r}) + V^{xc}(\vec{r})</script><ul>
+<li><strong>$\hat{T}$</strong>：电子动能项，由基组的径向函数和球谐函数组成。</li>
+<li><strong>$\hat{V}^{NL}$</strong>：KB赝势项，描述非局域的电子与原子核的相互作用。</li>
+<li><strong>$V^{NA}(\vec{r})$</strong>：定域势和从Hartree势中选取的电荷的库仑屏蔽势的组合，用于描述原子的局域电势。</li>
+<li><strong>$\delta V^H(\vec{r})$</strong>：Hartree势减去之前由于屏蔽的部分，用于描述电子间的库仑相互作用。</li>
+<li><strong>$V^{xc}(\vec{r})$</strong>：交换关联相互作用项，用于描述电子间的交换和关联效应。</li>
+</ul>
+<p>在数值求解过程中，$\delta V^H$ 可以用傅里叶变换求解：</p>
+<script type="math/tex; mode=display">
+\rho\left(\vec{r}\right) \xrightarrow{FFT} \rho(\vec{G}) \longrightarrow V^H(\vec{G}) \xrightarrow{IFFT} V^H\left(\vec{r}\right)</script><p>其中，前两项（动能和KB赝势）涉及双中心积分，后三项（Hartree势、交换关联势和核-核相互作用）涉及三中心积分。只有KB势不参与自洽，而外场势、Hartree势和交换关联势参与自洽。</p>
+<h3><span id="能量的构成">能量的构成</span></h3><p>SIESTA程序中，总能量由以下几项构成：</p>
+<script type="math/tex; mode=display">
+E^{KS} = \sum_{\mu\nu} H_{\mu\nu} \rho_{\nu\mu} - \frac{1}{2} \int V^H(\boldsymbol{r}) \rho(\boldsymbol{r}) \operatorname{d}^3\boldsymbol{r} + \int (\epsilon^{xc}(\boldsymbol{r}) - V^{xc}(\boldsymbol{r})) \rho(\boldsymbol{r}) \operatorname{d}^3\boldsymbol{r} + \sum_{I<J} \frac{Z_IZ_J}{R_{IJ}}</script><ul>
+<li><strong>第一项</strong>：能带能量，由哈密顿量矩阵元和密度矩阵计算得到。</li>
+<li><strong>第二项</strong>：Hartree能量，由电子密度计算得到。</li>
+<li><strong>第三项</strong>：交换关联能量，由交换关联泛函计算得到。</li>
+<li><strong>第四项</strong>：原子核间的库仑相互作用能量。</li>
+</ul>
+<h3><span id="实球谐函数作为基组的角向部分">实球谐函数作为基组的角向部分</span></h3><p>SIESTA论文中使用实球谐函数作为基组的⻆向部分，主要是因为实球谐函数在计算上更简单且更通用。实球谐函数能够有效地描述电子的角向分布，同时避免了复数运算的复杂性，从而提高了计算效率。</p>
+<h1><span id="双中心积分">双中心积分</span></h1><h2><span id="双中心积分的应用">双中心积分的应用</span></h2><p>在SIESTA程序中，双中心积分主要用于求解以下两个量：</p>
+<h3><span id="1-电子动能">1. 电子动能</span></h3><p>通过计算基组函数的动能积分，得到电子的动能贡献。动能积分的具体形式为：</p>
+<script type="math/tex; mode=display">
+T_{\mu\nu} = -\frac{1}{2} \int \nabla \phi_{\mu}(\vec{r}) \cdot \nabla \phi_{\nu}(\vec{r}) \, d^3r</script><p>其中，$\phi_{\mu}(\vec{r})$ 和 $\phi_{\nu}(\vec{r})$ 是基组函数。在SIESTA中，基组函数通常选择原子轨道的线性组合，这些轨道是数值求解的径向函数和球谐函数的乘积。通过这种方式，动能积分可以高效地计算，从而得到电子的动能贡献。</p>
+<h3><span id="2-kb赝势">2. KB赝势</span></h3><p>通过计算非局域赝势的投影积分，得到KB赝势的贡献。KB赝势的投影积分形式为：</p>
+<script type="math/tex; mode=display">
+V_{\mu\nu}^{KB} = \sum_{I} \sum_{lmn} \int \phi_{\mu}(\vec{r}) \hat{V}_{lmn}^{KB} \phi_{\nu}(\vec{r}) \, d^3r</script><p>其中，$\hat{V}_{lmn}^{KB}$ 是KB赝势的投影算符。KB赝势通过这些投影算符描述非局域的电子与原子核的相互作用。在SIESTA中，这些投影算符是预先计算并存储的，从而在自洽迭代中高效使用。</p>
+<p>双中心积分的重要性在于，它将原本复杂的三中心积分问题简化为双中心积分，从而将计算复杂度从 $O(N^3)$ 降低到 $O(N)$，显著提高了计算效率。</p>
+<h2><span id="径向傅里叶变换与快速傅里叶变换">径向傅里叶变换与快速傅里叶变换</span></h2><h3><span id="径向傅里叶变换">径向傅里叶变换</span></h3><p>双中心积分中的数值积分部分可以用“径向傅里叶变换”描述。具体来说，将overlap matrix用k空间的波函数表示，求解k空间波函数用球谐函数的表达式及展开系数。这些计算可以通过快速傅里叶变换（FFT）算法实现，从而进一步提高计算效率。</p>
+<h3><span id="快速傅里叶变换">快速傅里叶变换</span></h3><p>在SIESTA中，FFT主要用于以下几个方面：</p>
+<ol>
+<li><strong>Hartree势的计算</strong>：通过将电子密度 $\rho(\vec{r})$ 进行傅里叶变换，计算其在k空间的表示 $\rho(\vec{G})$，然后计算Hartree势 $V^H(\vec{G})$，再通过逆傅里叶变换得到实空间的Hartree势 $V^H(\vec{r})$：</li>
+</ol>
+<script type="math/tex; mode=display">
+\rho\left(\vec{r}\right) \xrightarrow{FFT} \rho(\vec{G}) \longrightarrow V^H(\vec{G}) \xrightarrow{IFFT} V^H\left(\vec{r}\right)</script><ol>
+<li><strong>电子动能的计算</strong>：通过将基组函数 $\phi_{\mu}(\vec{r})$ 和 $\phi_{\nu}(\vec{r})$ 进行傅里叶变换，计算其在k空间的表示 $\phi_{\mu}(\vec{k})$ 和 $\phi_{\nu}(\vec{k})$，然后计算动能积分 $T_{\mu\nu}$：</li>
+</ol>
+<script type="math/tex; mode=display">
+T_{\mu\nu} = -\frac{1}{2} \int \vec{k}^2 \phi_{\mu}(\vec{k})^* \phi_{\nu}(\vec{k}) \, d^3k</script><ol>
+<li><strong>KB赝势的计算</strong>：通过将投影算符 $\hat{V}_{lmn}^{KB}$ 进行傅里叶变换，计算其在k空间的表示，然后计算KB赝势的投影积分 $V_{\mu\nu}^{KB}$。</li>
+</ol>
+<h3><span id="具体实现">具体实现</span></h3><p>在SIESTA中，这些傅里叶变换的实现主要通过以下步骤：</p>
+<ol>
+<li><strong>初始化</strong>：设置初始的电子密度和基组函数。</li>
+<li><strong>傅里叶变换</strong>：使用FFT将电子密度和基组函数从实空间变换到k空间。</li>
+<li><strong>计算k空间的物理量</strong>：在k空间中计算Hartree势、电子动能和KB赝势。</li>
+<li><strong>逆傅里叶变换</strong>：使用IFFT将k空间的物理量变换回到实空间。</li>
+<li><strong>自洽迭代</strong>：将计算得到的物理量用于更新哈密顿量和电子密度，直到收敛。</li>
+</ol>
+<p>通过这些步骤，SIESTA能够高效地计算双中心积分，从而在处理大型体系时保持计算复杂度为 $O(N)$。</p>
+<h2><span id="实空间积分">实空间积分</span></h2><h3><span id="截断与格点密度">截断与格点密度</span></h3><p>与平面波的截断类似，实空间积分使用的格点也可以对应于某能量截断。具体来说，这样间隔的实空间网格能够承载的最⾼频平面波的动能。如果将截断设为300 Ry，对应的实空间格点的间距可以通过以下公式计算：</p>
+<script type="math/tex; mode=display">
+\Delta r \cdot k_{max} = \pi, \quad E = \frac{k^2}{2} \Rightarrow \Delta r = 0.181 \, \text{a.u.}</script><h3><span id="原子基dft对实空间格点密度的收敛性">原⼦基DFT对实空间格点密度的收敛性</span></h3><p>原子基DFT对实空间格点密度的收敛性比平面波DFT好，主要原因在于平面波DFT需要更密的格点来拟合核区电子的波函数，从而需要更大的基组。而原子基DFT由于其局域性，可以在更稀疏的格点上达到更高的精度。</p>
+<h3><span id="siesta与fhi-aims的格点选择">SIESTA与FHI-aims的格点选择</span></h3><p>SIESTA程序可以选⽤实空间均匀格点进行数值积分，而FHI-aims程序需要⽤以原⼦为中心的⾮均匀格点（且越接近原⼦核格点越稠密）。这是因为SIESTA的基组函数具有局域性，能够更好地适应均匀格点，而FHI-aims的基组函数需要更精细的格点来描述原子核附近的电子结构。</p>
+<h3><span id="eggbox-effect">Eggbox effect</span></h3><p>实空间格点密度有限引起的DFT能量误差常被称为“eggbox effect”。这是因为硬核区波函数或者半核的情况，其空间分布接近一种“egg”，而格点取得实方框，从而导致能量误差。</p>
+<h2><span id="库伦能拆分策略">库伦能拆分策略</span></h2><h3><span id="库伦能的拆分">库伦能的拆分</span></h3><p>在SIESTA中，库伦能（包括原⼦核-原⼦核的作⽤、原⼦核-电⼦作⽤、电⼦-电⼦Hartree作⽤）进行了以下拆分：</p>
+<script type="math/tex; mode=display">
+\sum_{I<J} \frac{Z_IZ_J}{R_{IJ}} = \frac{1}{2} \sum_{IJ} U_{IJ}^{local}(R_{IJ}) + \sum_{I<J} \delta U_{IJ}^{local}(R_{IJ}) - \sum_{I} U_{I}^{local}</script><ul>
+<li><strong>第一项</strong>：来自于原子中扩散离子电荷的相互作用。</li>
+<li><strong>第二项</strong>：用于修正软离子电荷之间可能存在的重叠。当原子核电荷密度在空间上非常延展时，需要考虑这一项。</li>
+<li><strong>第三项</strong>：原子的自相互作用，可能是因为电荷分布不是δ函数，需要考虑这些修正。</li>
+</ul>
+<h3><span id="中性原子势的性质">中性原子势的性质</span></h3><p>中性原⼦势在基组轨道的极限半径外为0，由填充自由原子价电子占据的第一-ζ基组轨道生成。这种势的主要性质是：</p>
+<ul>
+<li>在原子的局域区域内，它能够准确描述原子的电势。</li>
+<li>在局域区域外，它迅速衰减，避免了长程相互作用的计算复杂度。</li>
+</ul>
+<h2><span id="自洽迭代密度矩阵求解">自洽迭代：密度矩阵求解</span></h2><h3><span id="密度矩阵求解公式">密度矩阵求解公式</span></h3><p>在原子基下，密度矩阵求解的主要公式如下：</p>
+<ul>
+<li><strong>零温</strong>：$\rho_{\mu\nu} = \sum_{i} c_{\mu i}^* c_{\nu i}$</li>
+<li><strong>有限温</strong>：$\rho_{\mu\nu} = \sum_{i} f_i c_{\mu i}^* c_{\nu i}$</li>
+</ul>
+<p>其中，$f_i$ 是占据数，由smearing函数决定。</p>
+<h3><span id="常见的smearing函数形式">常见的smearing函数形式</span></h3><p>在有限温的情形下，哈密顿量本征态的占据数可以是分数，由smearing函数决定。一些常见的smearing函数形式包括：</p>
+<ol>
+<li><p><strong>高斯展宽</strong>：</p>
+<script type="math/tex; mode=display">
+g(E, \sigma) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left(-\frac{E^2}{2\sigma^2}\right)</script></li>
+<li><p><strong>洛伦兹展宽</strong>：</p>
+<script type="math/tex; mode=display">
+L(E, \gamma) = \frac{1}{\pi} \frac{\gamma}{E^2 + \gamma^2}</script></li>
+<li><p><strong>马洛宁展宽</strong>：</p>
+<script type="math/tex; mode=display">
+\delta(E, \sigma) = \sum_{n=0}^N c_n H_n\left(\frac{E}{\sigma}\right) \exp\left(-\frac{E^2}{2\sigma^2}\right)</script></li>
+</ol>
+<h3><span id="化学势的确定">化学势的确定</span></h3><p>在密度矩阵求解中，化学势的确定方法如下：</p>
+<ul>
+<li><strong>单k点计算</strong>：化学势通过求解单个k点的电子结构得到。</li>
+<li><strong>多k点计算</strong>：化学势通过求解多个k点的电子结构并进行BZ积分得到。</li>
+</ul>
+<h3><span id="金属计算中的电子温度">金属计算中的电⼦温度</span></h3><p>在进行金属计算时，通常会将“电⼦温度”调大些，这是因为金属的电子结构复杂，需要更大的温度展宽来更好地描述电子的占据态。</p>
+<h2><span id="交换-关联泛函">交换-关联泛函</span></h2><h3><span id="siesta支持的交换-关联泛函">SIESTA支持的交换-关联泛函</span></h3><p>SIESTA支持多种交换-关联泛函，包括：</p>
+<ul>
+<li><strong>局域密度近似（LDA）</strong>：$\epsilon_{xc}^{LDA}(\rho)$</li>
+<li><strong>广义梯度近似（GGA）</strong>：$\epsilon_{xc}^{GGA}(\rho, \nabla \rho)$</li>
+</ul>
+<h3><span id="实空间交换-关联势的推导">实空间交换-关联势的推导</span></h3><p>在LDA近似中，交换-关联势可以表示为：</p>
+<script type="math/tex; mode=display">
+V^{xc}(\vec{r}) = \frac{\delta E^{xc}[\rho]}{\delta \rho(\vec{r})}</script><p>其中，$E^{xc}[\rho]$ 是交换-关联能量泛函，具体形式为：</p>
+<script type="math/tex; mode=display">
+E^{xc}[\rho] = \int \epsilon^{xc}(\rho(\vec{r})) \rho(\vec{r}) \operatorname{d}^3\vec{r}</script><p>通过变分原理，可以得到实空间的交换-关联势：</p>
+<script type="math/tex; mode=display">
+V^{xc}(\vec{r}) = \frac{\partial \epsilon^{xc}(\rho(\vec{r}))}{\partial \rho} \rho(\vec{r})</script><p>在实际计算中，SIESTA程序会根据选择的交换-关联泛函，计算相应的交换-关联势，并将其用于自洽迭代中。</p>
+]]></content>
+      <categories>
+        <category>DFT</category>
+      </categories>
+      <tags>
+        <tag>DFT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Introduction</title>
     <url>/2025/03/04/DFT/DFT%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1><span id="多电子系统">多电子系统</span></h1><p>许多电子系统的结构和动力学性质是理论物理和化学中的基本问题。这些系统包括：</p>
@@ -45,9 +1057,8 @@
 <p>科学家们为了解决这些问题，提出了一系列近似方法：</p>
 <ul>
 <li>从波函数的角度出发，提出了Hartree近似、Hartree-Fock近似；</li>
-<li>从电子密度的角度出发，提出了密度泛函理论。</li>
+<li>从哈密顿量近似的角度出发，提出了Thomas-Fermi模型、Thomas-Fermi-Dirac模型，他们都是基础的密度泛函理论。</li>
 </ul>
-<p>多电子波函数是3N个变量的函数，而电子密度是3个变量的函数，因此具有一定的优越性。</p>
 <h1><span id="born-oppenheimer近似">Born-Oppenheimer近似</span></h1><p>即便是这样近似的哈密顿量，仍然是超级复杂的：</p>
 <script type="math/tex; mode=display">
 \hat{H}\Psi(\mathbf{R}_1,\cdots,\mathbf{R}_N,\mathbf{r}_1\sigma_1,\cdots,\mathbf{r}_n\sigma_n) = E\Psi(\mathbf{R}_1,\cdots,\mathbf{R}_N,\mathbf{r}_1\sigma_1,\cdots,\mathbf{r}_n\sigma_n)</script><p>可以认为由于原子核极重，原子核波函数和电子波函数可以分离，这就是Born-Oppenheimer近似（又称为绝热近似）。这样，我们可以将多体系统的波函数分解为电子波函数和原子核波函数的乘积：</p>
@@ -64,7 +1075,7 @@ E[\Phi] = \langle\Phi|\hat{H}_e|\Phi\rangle &= \sum_{i=1}^{n}\sum_{\sigma=\uparr
 <script type="math/tex; mode=display">
 V_H(\mathbf{r}) = \int d\mathbf{r}'\frac{e^2}{|\mathbf{r}-\mathbf{r}'|}\rho(\mathbf{r}')</script><h1><span id="hartree-fock近似与self-consistent-field方法">Hartree-Fock近似与Self-Consistent Field方法</span></h1><p>Hartree近似虽然考虑了电子间的相互作用，但是没有考虑交换效应，其波函数也不是反对称的。Hartree-Fock方法就是在Hartree近似的基础上，考虑电子波函数的反对称性：</p>
 <script type="math/tex; mode=display">
-\Phi_e(\mathbf{r}_1\sigma_1,\cdots,\mathbf{r}_n\sigma_n) = \frac{1}{\sqrt{N!}}\begin{vmatrix}\psi_1(\mathbf{r}_1\sigma_1)&\cdots&\psi_n(\mathbf{r}_1\sigma_1)\\\vdots&\ddots&\vdots\\\psi_1(\mathbf{r}_n\sigma_n)&\cdots&\psi_n(\mathbf{r}_n\sigma_n)\end{vmatrix}</script><p>此后用$\Phi$来表示独立电子波函数，而用$\Psi$来表示多体波函数。</p>
+\Phi_e(\mathbf{r}_1\sigma_1,\cdots,\mathbf{r}_n\sigma_n) = \frac{1}{\sqrt{n!}}\begin{vmatrix}\psi_1(\mathbf{r}_1\sigma_1)&\cdots&\psi_n(\mathbf{r}_1\sigma_1)\\\vdots&\ddots&\vdots\\\psi_1(\mathbf{r}_n\sigma_n)&\cdots&\psi_n(\mathbf{r}_n\sigma_n)\end{vmatrix}</script><p>此后用$\Phi$来表示独立电子波函数，而用$\Psi$来表示多体波函数。</p>
 <p>我们接下来就要推导出HF方程。先考虑电子波函数能量：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -155,38 +1166,46 @@ E_{xc}[n] = C_2\int d\mathbf{r}n^{\frac43}(\mathbf{r}),C_2=-\frac{3}{4}\left(\fr
 <script type="math/tex; mode=display">
 n_{aux}(\mathbf{r}) = \sum_{\sigma}n_{\sigma}(\mathbf{r})=\sum_{\sigma}\sum_{i=1}^{N_{\sigma}}|\psi_{i\sigma}(\mathbf{r})|^2</script><p>独立粒子的动能为：</p>
 <script type="math/tex; mode=display">
-T_{s} = -\frac12\sum_{\sigma}\sum_{i=1}^{N_{\sigma}}\langle\psi_{i\sigma}|\nabla^2|\psi_{i\sigma}\rangle</script><p>总能量为：</p>
+T_{s}[\rho[\psi]] = -\frac12\sum_{\sigma}\sum_{i=1}^{N_{\sigma}}\langle\psi_{i\sigma}|\nabla^2|\psi_{i\sigma}\rangle</script><p>总能量为：</p>
 <script type="math/tex; mode=display">
-E_{KS} = T_{s} + \int d\mathbf{r}V_{ext}(\mathbf{r})n(\mathbf{r})+E_H+E_{II}+E_{xc}</script><p>其中，$E_{xc}$是交换-关联能，定义为由于平均场近似和轨道动能近似导致的能量误差：</p>
+E_{KS}[\rho[\psi]] = T_{s}[\rho[\psi]] + \int d\mathbf{r}V_{ext}(\mathbf{r})n(\mathbf{r})+E_H[\rho]+E_{II}[\rho]+E_{xc}[\rho]</script><p>其中，$E_{xc}$是交换-关联能，定义为由于平均场近似和轨道动能近似导致的能量误差：</p>
 <script type="math/tex; mode=display">
 E_{xc} = T-T_s +E_{ee}-E_H</script><p>对总能量做变分，得到Kohn-Sham方程：</p>
 <script type="math/tex; mode=display">
 (\hat H_{KS}^\sigma-\epsilon_i^\sigma)\psi_{i\sigma}(\mathbf{r})=0</script><p>其中，$\hat H_{KS}^\sigma$是有效哈密顿量：</p>
 <script type="math/tex; mode=display">
-\hat H_{KS}^\sigma = -\frac12\nabla^2 + V_{ext}(\mathbf{r})+V_H(\mathbf{r})+V_{xc}(\mathbf{r})</script><blockquote>
-<p>泛函变分形式势KSDFT的理论基础，事实上一般通过自洽迭代求解：</p>
+\begin{aligned}
+\hat H_{KS}^\sigma &= -\frac12\nabla^2 + V_{ext}(\mathbf{r})+V_H(\mathbf{r})+V_{xc}(\mathbf{r})\\
+&=-\frac12\nabla^2 + V_{eff}(\mathbf{r})
+\end{aligned}</script><p>唯一和波函数有关的动能近似项变成了算符，这意味着给定电子密度，我可以算出有效势，然后求解Kohn-Sham方程得到波函数。</p>
+<blockquote>
+<p>KSDFT的流程</p>
 <ul>
 <li>猜测初始的电子密度$n(\mathbf{r})$，计算有效势$V_{eff}(\mathbf{r})$；</li>
 <li>用$V_{eff}(\mathbf{r})$计算Kohn-Sham方程，得到新的波函数和密度；</li>
 <li>用新的密度计算新的有效势，直到收敛。</li>
 </ul>
+</blockquote>
+<p><img src="/img/DFT/SCF.png" alt="SCF"></p>
 <p>在近似交换-关联泛函时，有不同的近似方程，组成了KSDFT的雅各比天梯：</p>
 <ul>
-<li>LDA：局域密度近似；</li>
-<li>GGA：广义梯度近似；</li>
-<li>Meta-GGA：广义梯度近似的泛函导数；</li>
-<li>Hybrid：杂化泛函；</li>
+<li>第一级：局域密度近似（LDA, Local Density Approximation）,交换能是局域电子密度的函数<script type="math/tex; mode=display">
+E_\mathrm{xc}^\mathrm{LDA}[n]=\int n(\mathbf{r})\epsilon_\mathrm{xc}(n(\mathbf{r}))d\mathbf{r}</script></li>
+<li>第二级：广义梯度近似（GGA, Generalized Gradient Approximation），交换能还是局域电子密度梯度的函数，更加普遍可以把任意阶的导数作为变量，这种方法无法考虑长程相互作用的影响。<script type="math/tex; mode=display">
+E_\mathrm{xc}^\mathrm{GGA}[n]=\int n(\mathbf{r})\epsilon_\mathrm{xc}(n(\mathbf{r}),\nabla n(\mathbf{r}))d\mathbf{r}</script></li>
+<li>第三级：meta-GGA（Meta-Generalized Gradient Approximation），交换能密度还是局域动能密度的函数<script type="math/tex; mode=display">
+E_\mathrm{xc}^\mathrm{meta-GGA}[n]=\int n(\mathbf{r})\epsilon_\mathrm{xc}(n(\mathbf{r}),\nabla n(\mathbf{r}),\tau(\mathbf{r}))d\mathbf{r}</script>其中动能密度$\tau(r)$由KS方程确定的轨道波函数确定<script type="math/tex; mode=display">
+\tau(r)=\sum\limits_i|\nabla\psi_{i}(r)|^2</script></li>
+<li>第四级：杂化泛函（Hybrid Functionals）（exact exchange and compatible correlation），引入了精确交换能，杂化泛函的形式为<script type="math/tex; mode=display">
+E_{xc}^{hybrid}=E_{xc}^{GGA}+a(E_{x}^{exact}-E_{x}^{GGA})</script>这里的精确交换能定义为：<script type="math/tex; mode=display">
+\begin{aligned}
+E_{x}&=\int\mathrm{dr}n(\mathbf{r})\varepsilon_{x}(\mathbf{r}), \\
+n(\mathbf{r})\varepsilon_{x}(\mathbf{r}) & =-\frac{1}{2}\sum_{\sigma}\int\mathrm{dr}^{\prime}\frac{|\rho_{\sigma}(\mathbf{r},\mathbf{r}^{\prime})|^{2}}{|\mathbf{r}-\mathbf{r}^{\prime}|}, \\
+\rho_{\sigma}(\mathbf{r},\mathbf{r}^{\prime}) & =\sum_{\alpha}\Theta(\mu-\varepsilon_{\alpha\sigma})\psi_{\alpha\sigma}^{*}(\mathbf{r})\psi_{\alpha\sigma}(\mathbf{r}^{\prime})
+\end{aligned}</script></li>
+<li>第五级： exact exchange and exact partial correlation,引入了Gorling- Levy second-order correlation energy</li>
 </ul>
-</blockquote>
-<p><img src="/img/DFT/jacobi.jpg" alt="jacobi"></p>
-<h1><span id="dft计算细节">DFT计算细节</span></h1><h2><span id="赝势">赝势</span></h2><p>基于价电子近似，赝势方法将价电子和芯层电子分开处理，将芯层电子的作用用赝势来模拟，从而减少计算量。主要有以下三种赝势：</p>
-<ul>
-<li>Norm-conserving赝势：保证赝势和真实势在某个截断半径内的积分相等；</li>
-<li>Ultrasoft赝势：放松模守恒的限制，计算效率更高；</li>
-<li>PAW赝势：通过算符将快速振荡部分平滑。</li>
-</ul>
-<p><a href="https://zhuanlan.zhihu.com/p/575479762">PAW</a></p>
-<p>不同的DFT程序支持不同的赝势：<br>| 软件 | NCPP | USPP | PAW |<br>| —- | —- | —- | —- |<br>| VASP | √ | √ | √ |<br>| FHI-aims | √ | √ | √ |<br>| wien2k | √ | √ | √ |<br>| SIESTA | √ | √ | √ |<br>| GPAW | √ | √ | √ |<br>| OpenMX | √ | √ | √ |<br>| ABACUS | √ | √ | √ |</p>
+<p><img src="/img/DFT/jacob.jpg" alt="jacobi"></p>
 ]]></content>
       <categories>
         <category>DFT</category>
@@ -686,6 +1705,19 @@ E_-=V+T_n-|V_n|- \Delta^2T_n(\frac{2T_n}{|V_n|}-1)
     <title>生物物理Content</title>
     <url>/2025/02/17/%E7%94%9F%E7%89%A9%E7%89%A9%E7%90%86/%E7%94%9F%E7%89%A9%E7%89%A9%E7%90%86Content/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>生命系统的空间和时间尺度</title>
+    <url>/2025/02/17/%E7%94%9F%E7%89%A9%E7%89%A9%E7%90%86/%E7%A9%BA%E9%97%B4%E5%92%8C%E6%97%B6%E9%97%B4%E5%B0%BA%E5%BA%A6/</url>
+    <content><![CDATA[<h1><span id="一些重要的生物尺度">一些重要的生物尺度</span></h1>
+
+	<div class="row">
+    <embed src="/pdf/PIIS0092867410006732.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+]]></content>
   </entry>
   <entry>
     <title>个人简历</title>
@@ -12014,7 +13046,8 @@ E_1&=\gamma(\gamma(E_1-vp_1\cos{\theta_1})+vp_1^*\cos{\theta_1^*})\\
 <li>《Density Functional Theory》</li>
 </ul>
 <h1><span id="content">Content:</span></h1><ul>
-<li><a href="/2025/03/04/DFT/DFT%E5%9F%BA%E7%A1%80/" title="Introduction">Introduction</a>
+<li><a href="/2025/03/04/DFT/DFT%E5%9F%BA%E7%A1%80/" title="Introduction">Introduction</a></li>
+<li><a href="/2025/03/07/DFT/SIESTA%E8%AE%A1%E7%AE%97%E7%BB%86%E8%8A%82/" title="SIESTA计算细节">SIESTA计算细节</a>
 </li>
 </ul>
 ]]></content>
