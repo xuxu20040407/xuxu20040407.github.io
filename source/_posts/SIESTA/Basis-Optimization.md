@@ -52,20 +52,77 @@ $$H=PV$$
 
 这个例子中，氢原子采用了两个$n=1,l=0$的轨道，并添加了极化轨道（1p轨道）；氧原子采用了两个$n=2,l=0$的轨道和两个$n=2,l=1$的轨道，并添加了极化轨道（2d轨道）。所以等同于DZP基组。
 
-下面的截止半径设为0，意思为让SIESTA程序自动设置。
+下面的截止半径设为0，意思为让SIESTA程序自动设置。以下是自动设置的结果：
+
+- O : $r_{l_1,\zeta_1}=4.46 Bohr$, $r_{l_1,\zeta_2}=2.54Bohr$, $r_{l_2,\zeta_1}=5.58Bohr$,$r_{l_2,\zeta_2}=2.64Bohr$
+- H : $r_{\zeta_1}=7.02 Bohr$,$r_{\zeta_2}=4.05Bohr$
 
 ## Optimizing the first-zeta cutoff radii
 
-```fdf
-%block PAO.Basis
-  H 1
-    n=1 0 2 P 1     # n, l (=0, s-orbital), number of zetas, include 1 set of polarization orbitals
-        *0.0* 0.0     # rcut for first zeta, rmatch for second zeta
-  O 2               # Number of different l
-    n=2 0 2         # n, l (=0, s-orbital), number of zetas
-        *0.0* 0.0     # rcut for first zeta, rmatch for second zeta
-    n=2 1 2 P 1     # n, l (=1, p-orbital), number of zetas, include 1 set of polarization orbitals
-        *0.0* 0.0     # rcut for first zeta, rmatch for second zeta
-%endblock PAO.Basis
-```
+| $r_{\zeta_1}$ | Enthalpy(eV/cell) |
+| --- | --- |
+|4.0|   -469.0953|
+|**4.5**|   -469.1374   |
+|5.0| -469.1220|
+|5.5| -469.1107|
 
+| $r_{l_1,\zeta_1}$ | Enthalpy(eV/cell) |
+| --- | --- |
+|4.5|  -469.1386|
+|**5.0**| -469.1440|
+|5.5|  -469.1332  |
+|6.0|  -469.1391|
+
+| $r_{l_2,\zeta_1}$ | Enthalpy(eV/cell) |
+| --- | --- |
+|4.5|  -468.8341|
+|5.0| -469.0138|
+|5.5|  -469.1320  |
+|6.0|  -469.1921|
+|6.5|  -469.2163|
+|**7.0**|  -469.2224|
+|7.5|  -469.2187|
+
+## Optimizing the second-zeta matching radii
+
+
+| $r_{\zeta_2}$ | Enthalpy(eV/cell) |
+| --- | --- |
+|1.5| -469.2226|
+|**2.0**|   -469.4047|
+|2.5|  -469.3718|
+|3.0|  -469.2950|
+
+| $r_{l_1,\zeta_2}$ | Enthalpy(eV/cell) |
+| --- | --- |
+|1.5|  -469.3801|
+|2.0|   -469.3833|
+|**2.5**|  -469.4019|
+|3.0|  -469.4011|
+
+| $r_{l_2,\zeta_2}$ | Enthalpy(eV/cell) |
+| --- | --- |
+|1.5|  -469.3513|
+|2.0|  -469.3671|
+|2.5|  -469.3940|
+|**3.0**|  -469.4066|
+|3.5|  -469.3987|
+
+# Calculating the binding energy of a water dimer
+
+$$E_{binding}=E_{dimer}-2E_{monomer}$$
+
+用最优化基组计算得到：
+$$E_{dimer}=-939.257566eV$$
+$$E_{monomer}=-469.504506eV$$
+
+$$E_{binding}=-0.248554eV=-248.554meV$$
+
+如果使用默认基组，那么与energy shift的关系是：
+
+| Energy Shift | Dimer Energy(eV) | Monomer Energy(eV) | Binding Energy(meV) |
+| --- | --- | --- | --- |
+|0.0001|  -938.861554|-469.281238| 299.035|
+|0.001|  -938.781324|-469.238409|243.304|
+|0.01|  -937.923061|-468.749136 |  248.235|
+|0.1|-927.087173|-462.831975| 248.424|
