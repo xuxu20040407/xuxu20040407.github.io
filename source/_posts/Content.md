@@ -10,6 +10,8 @@ top: true
 本博客的所有专栏的目录文章如下：
 ## Hexo
 {% post_link 'hexo/hexo' %}
+## 光学
+{% post_link '光学/光学Content' %}
 ## 量子力学
 {% post_link '量子力学/量子力学' %}
 ## 量子力学Ⅱ
@@ -20,3 +22,7 @@ top: true
 {% post_link '托福/托福Content' %}
 ## 激光核聚变
 {% post_link '激光等离子体核聚变/核聚变Content' %}
+## 生物物理
+{% post_link '生物物理/生物物理Content' %}
+## 固体物理
+{% post_link '固体物理/固体物理Content' %}
