@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>波动光学（衍射） | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="衍射导论当光波遇到障碍物的时候，或多或少偏离几何光学的直线传播，这种现象统称为光的衍射。光的波长和孔径线度相当时，衍射现象尤为明显，且关系满足： \rho \Delta \theta\approx\lambda衍射现象可以使用惠更斯原理来解释，菲涅尔推导了衍射的数学表达式，称为惠更斯-菲涅尔原理： \tilde{U}(P)&#x3D;\oiint d\tilde{U}(P)菲涅尔衍射积分从物理的角度考虑，可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="波动光学（衍射）">
+<meta property="og:url" content="https://xuxu20040407.github.io/2025/04/01/%E5%85%89%E5%AD%A6/%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%EF%BC%88%E8%A1%8D%E5%B0%84%EF%BC%89/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="衍射导论当光波遇到障碍物的时候，或多或少偏离几何光学的直线传播，这种现象统称为光的衍射。光的波长和孔径线度相当时，衍射现象尤为明显，且关系满足： \rho \Delta \theta\approx\lambda衍射现象可以使用惠更斯原理来解释，菲涅尔推导了衍射的数学表达式，称为惠更斯-菲涅尔原理： \tilde{U}(P)&#x3D;\oiint d\tilde{U}(P)菲涅尔衍射积分从物理的角度考虑，可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2025-04-01T11:59:23.000Z">
+<meta property="article:modified_time" content="2025-05-11T07:08:07.593Z">
+<meta property="article:author" content="Xuxu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2025/04/01/%E5%85%89%E5%AD%A6/%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%EF%BC%88%E8%A1%8D%E5%B0%84%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '波动光学（衍射）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-11 15:08:07'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">波动光学（衍射）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-01T11:59:23.000Z" title="发表于 2025-04-01 19:59:23">2025-04-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-11T07:08:07.593Z" title="更新于 2025-05-11 15:08:07">2025-05-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="波动光学（衍射）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="衍射导论">衍射导论</span></h1><p>当光波遇到障碍物的时候，或多或少偏离几何光学的直线传播，这种现象统称为光的衍射。光的波长和孔径线度相当时，衍射现象尤为明显，且关系满足：</p>
+<script type="math/tex; mode=display">\rho \Delta \theta\approx\lambda</script><p>衍射现象可以使用惠更斯原理来解释，菲涅尔推导了衍射的数学表达式，称为惠更斯-菲涅尔原理：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=\oiint d\tilde{U}(P)</script><h2><span id="菲涅尔衍射积分">菲涅尔衍射积分</span></h2><p>从物理的角度考虑，可以给出$d\tilde{U}(P)$的决定因素：</p>
+<ul>
+<li>面元大小$dS$；</li>
+<li>次波源的振幅$\tilde{U_0}$；</li>
+<li>次波源发射球面波到场点$\dfrac{e^{ikr}}{r}$；</li>
+<li>倾角因子$f(\theta_0,\theta)=\frac12(\cos{\theta_0}+\cos{\theta})$。</li>
+</ul>
+<p>引入比例常数$K$，可以得到：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=K\oiint \tilde{U_0} \frac{e^{ikr}}{r} f(\theta_0,\theta)dS</script><p>此即为菲涅尔衍射积分表达式。</p>
+<h2><span id="基尔霍夫衍射积分">基尔霍夫衍射积分</span></h2><p>基尔霍夫在$kr\gg 1$和$r\gg \lambda$的情况下，导出了无源空间边值定解的表达式：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=\frac{-i}{\lambda}\oiint_{\Sigma}  \frac12(\cos{\theta_0}+\cos{\theta})\tilde{U_0} \frac{e^{ikr}}{r}dS</script><p>表面上看，这只是明确了比例系数和倾斜因子；实际上，基尔霍夫衍射积分允许任意隔离光源和场点的闭合面，而不要求等相面。</p>
+<h2><span id="基尔霍夫边界条件与傍轴衍射积分公式">基尔霍夫边界条件与傍轴衍射积分公式</span></h2><p>取衍射屏面为$\Sigma_1$，无穷远半球面为$\Sigma_2$，衍射孔面为$\Sigma_0$，则有：</p>
+<script type="math/tex; mode=display">\Sigma=\Sigma_1+\Sigma_2+\Sigma_0</script><p>将基尔霍夫衍射积分公式代入，得到：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=\oiint_{\Sigma_1} \cdots+\oiint_{\Sigma_2} \cdots+\oiint_{\Sigma_0} \cdots</script><p>可以做基尔霍夫边界条件的假设，$\Sigma_1$和$\Sigma_2$的积分可以忽略，得到：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=\frac{-i}{\lambda}\oiint_{\Sigma_0} \frac12(\cos{\theta_0}+\cos{\theta})\tilde{U_0} \frac{e^{ikr}}{r}dS</script><p>在傍轴条件下，还可以进一步简化：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=\frac{-i}{\lambda r_0}\oiint_{\Sigma_0} \tilde{U_0} e^{ikr}dS</script><h2><span id="衍射的分类">衍射的分类</span></h2><p>衍射现象可以分为两类：</p>
+<ul>
+<li><strong>菲涅尔衍射</strong>：近场衍射，光源和屏幕距离较近；</li>
+<li><strong>夫琅禾费衍射</strong>：远场衍射，光源和屏幕距离无限远（或者衍射孔线度无线小）。</li>
+</ul>
+<h2><span id="巴比涅原理">巴比涅原理</span></h2><p>如果$\Sigma_a$和$\Sigma_b$是两个不同的互补衍射屏面，且它们的衍射场分别为$\tilde{U_a}$和$\tilde{U_b}$，则有：</p>
+<script type="math/tex; mode=display">\tilde{U_a}+\tilde{U_b}=\tilde{U_0}</script><p>对于夫琅禾费衍射尤其方便，因为光线聚集在后焦点，轴外的自由光场为零，那么：</p>
+<script type="math/tex; mode=display">\tilde{U_a}=-\tilde{U_b},I_a(P)=I_b(P)</script><p>这说明两者的衍射图样除了像点完全相同。</p>
+<h1><span id="菲涅尔圆孔衍射">菲涅尔圆孔衍射</span></h1><h2><span id="半波带法">半波带法</span></h2><p>处理圆孔衍射很自然的一个想法是将衍射孔的波前分割为一个个波带，每个波带的相位差为$\lambda/2$，这样，只需要确定最后一个波带的相位，就能定性确定接受屏的强度分布。</p>
+<p>不过，我们需要考证每个波带的振幅是否相同。写出每个波带的振幅：</p>
+<script type="math/tex; mode=display">A_k\propto f(\theta_k)\frac{dS_k}{r_k}</script><p><img src="./img/菲涅尔圆孔衍射.png" alt="alt"></p>
+<p>通过简单的数学运算，可以得到：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+dS_k&=d[2\pi R^2(1-\cos{\alpha})]\\
+&=2\pi R^2\sin{\alpha}d\alpha\\
+&=2\pi R^2\frac{rdr}{R(R+b)}\\
+&\propto r
+\end{aligned}</script><script type="math/tex; mode=display">A_k=\frac{f(\theta_k)}{R(R+b)}</script><p>这说明每个半波带的振幅和$r$是无关的，只和$f(\theta_k(r_k))$有关。我们可以写出这一泛函的表达式：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+f(\theta_k(r_k))&=\frac12(1+\cos{\theta_k})\\
+&=\frac12(1+\frac{(R+b)^2-R^2-(b+\frac{k\lambda}{2})}{2R(b+\frac{k\lambda}{2})})\\
+&\approx \frac12[1-k\lambda(\frac1R+\frac1b)]
+\end{aligned}</script><p>代入$\lambda\sim 100nm,b\sim 1m,R\sim 1m$可知，振幅随着波带数的变化及其缓慢。</p>
+<p>做题的时候，只需要知道以下公式：</p>
+<ul>
+<li>最大波带半径：$r_{max}=\sqrt{b^2+R^2\sin^2\alpha}$</li>
+<li>最大波带数：$k_{max}=\frac{r_{max}}{\lambda}$</li>
+<li>第k级波带半径：$\rho_k=\sqrt{k}\rho_1,\rho_1=\sqrt{\frac{Rb\lambda}{R+b}}$</li>
+</ul>
+<blockquote>
+<p>以$\rho$为变量，最大半径和最小半径之间的差值为：</p>
+<script type="math/tex; mode=display">\begin{aligned}\Delta r&=\sqrt{b^2+\rho^2}-(a+b-\sqrt{a^2+\rho^2})\\&\approx \frac{\rho^2}{2a}+\frac{\rho^2}{2b}\\&\approx \frac{\rho^2}{2R}+\frac{\rho^2}{2b}\end{aligned}</script><p>所以：</p>
+<script type="math/tex; mode=display">\rho=\sqrt{\frac{2Rb\Delta r}{R+b}}</script></blockquote>
+<p>利用以上特性，可以绘制菲涅尔波带片，在奇数或偶数的波带 上涂黑，即可增强光强。菲涅尔波带片就像透镜，可以将入射光汇聚起来，可以将上式改写为：</p>
+<script type="math/tex; mode=display">\frac1R+\frac1b=\frac{k\lambda}{\rho_k^2}</script><p>等效焦距为$f=\frac{\rho_k^2}{k\lambda}=\frac{\rho_1^2}{\lambda}$。</p>
+<h1><span id="单缝夫琅禾费衍射">单缝夫琅禾费衍射</span></h1><p>利用傍轴的基尔霍夫衍射公式：</p>
+<script type="math/tex; mode=display">\tilde{U}(P)=\frac{-i}{\lambda r_0}\oiint_{\Sigma} \tilde{U_0}e^{ikr}dS</script><p>假定缝宽为$b$，长度为$a$，坐标原点沿$\theta$方向到场点P的距离为$L_0$。那么可以计算出：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\tilde{U}(P)&=\frac{-i}{\lambda f}Abe^{ikL_0}\int_{-\frac{a}{2}}^{\frac{a}{2}} e^{-ik\sin\theta x}dx\\
+&=\frac{-i}{\lambda f}Abe^{ikL_0}\times a\text{sinc}{(\frac{\pi a \sin \theta }{\lambda})}
+\end{aligned}</script><p>光强分布为：</p>
+<script type="math/tex; mode=display">I=I_0(\frac{\sin \alpha}{\alpha})^2,\alpha=\frac{\pi a \sin \theta }{\lambda}</script><p>当$\theta$较小的时候，利用近似得到零级衍射光斑的半角宽度：</p>
+<script type="math/tex; mode=display">\Delta \theta=\frac12(\arcsin (\frac\lambda a)-\arcsin (-\frac\lambda a))\approx\frac\lambda a</script><blockquote>
+<p>关于后焦面接受的球面波的振幅说明：记到达透镜的振幅为$A_m$，出透镜的振幅为$A_N=A_M$，到达后焦面的振幅为$A_p$。根据反比关系：</p>
+<script type="math/tex; mode=display">\frac{A_P}{A_N}=\frac{1/(s'-f)}{1/s'}</script><p>得到：</p>
+<script type="math/tex; mode=display">A_P=\frac{s'}{s'-f}A_N=\frac{s}{f}A_M\propto \frac{1}{f}
+
+对于斜入射的情况，宗量变为：
+$$x\rightarrow \xi=x(1-\frac{\sin\theta_0}{\sin\theta})</script><p>相应地，衍射积分的结果变为：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\tilde{U}(P)&=\frac{-i}{\lambda f}Abe^{ikL_0}\int_{-\frac{a}{2}}^{\frac{a}{2}} e^{-ik\sin\theta \xi}dx\\
+&=\frac{-i}{\lambda f}Abe^{ikL_0}\times a\text{sinc}{[\frac{\pi a (\sin \theta-\sin\theta_0) }{\lambda}]}
+\end{aligned}</script><p>光强分布变为：</p>
+<script type="math/tex; mode=display">I=I_0(\frac{\sin \alpha}{\alpha})^2,\alpha=\frac{\pi a (\sin \theta-\sin\theta_0) }{\lambda}</script><p>相应地，半角宽度变为：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\Delta\theta&=\frac12(\arcsin (\frac\lambda a+\sin\theta_0)-\arcsin (-\frac\lambda a+\sin\theta_0))\\
+&\approx[\arcsin{\theta_0}]'\frac\lambda a(\frac{\lambda}{a}\ll \sin\theta_0)\\
+&=\frac{\lambda}{a\cos{\theta_0}}
+\end{aligned}</script></blockquote>
+<h1><span id="矩孔夫琅禾费衍射">矩孔夫琅禾费衍射</span></h1><script type="math/tex; mode=display">\begin{aligned}
+\tilde{U}(P)&=\frac{-i}{\lambda f}A\int_{-\frac{a}{2}}^{\frac{a}{2}} e^{-ik\sin\theta_1 x}dx\int_{-\frac{b}{2}}^{\frac{b}{2}} e^{-ik\sin\theta_2 y}dy\\
+&=\frac{-i}{\lambda f}A\times a\text{sinc}{(\frac{\pi a \sin \theta_1 }{\lambda})}\times b\text{sinc}{(\frac{\pi b \sin \theta_2 }{\lambda})}
+\end{aligned}</script><p>所以光强变为：</p>
+<script type="math/tex; mode=display">I=I_0(\frac{\sin \alpha}{\alpha})^2(\frac{\sin \beta}{\beta})^2,\alpha=\frac{\pi a \sin \theta_2 }{\lambda},\beta=\frac{\pi b \sin \theta_2 }{\lambda}</script><h1><span id="圆孔夫琅禾费衍射">圆孔夫琅禾费衍射</span></h1><p>圆孔夫琅禾费衍射是最有实际应用的模型之一，因为大多数望远镜都满足圆孔夫琅禾费衍射的条件。</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\tilde{U}(P)&\propto\int_{0}^{2\pi}\int_{0}^{R} e^{-ikr\sin\theta\cos{\alpha} }rdrd\alpha\\
+&=2\pi \int_{0}^{R}J_0(kr\sin{\theta})rdr\\
+&=\frac{2\pi}{k^2\sin^2{\theta}}\int_{0}^{R}J_0(kr\sin{\theta})(kr\sin{\theta})d(kr\sin{\theta})\\
+&=\frac{2\pi}{k^2\sin^2{\theta}}[J_1(kr\sin{\theta})(kr\sin{\theta})]|_{kr\sin{\theta}=0}^{kr\sin{\theta}=kR\sin{\theta}}\\
+&=\frac{2\pi J_1(kR\sin{\theta})R}{k\sin\theta}\\
+&\propto \frac{2J_1(Z)}{Z},Z=\frac{2\pi R\sin{\theta}}{\lambda}
+\end{aligned}</script><p>用到了贝塞尔函数的积分定义式：</p>
+<script type="math/tex; mode=display">J_0(r)=\frac{1}{2\pi}\int_0^{2\pi}\exp{(-r\cos\theta)}d\theta</script><p>和贝塞尔函数的递推公式：</p>
+<script type="math/tex; mode=display">rJ_1(r)=\int J_0(r)rdr</script><p>所以最后的光强为：</p>
+<script type="math/tex; mode=display">I=I_0(\frac{2J_1(Z)}{Z})^2.Z=\frac{2\pi R\sin{\theta}}{\lambda}</script><p>考虑系数，$I_0=\frac{\pi^2a^4}{\lambda^2f^2}A^2$。</p>
+<p>第一个零点的位置为：</p>
+<script type="math/tex; mode=display">R\theta\approx0.61\pi</script><p>或表示为直径的更熟悉的形式：</p>
+<script type="math/tex; mode=display">D\theta\approx1.22\pi</script><h1><span id="夫琅禾费多缝衍射">夫琅禾费多缝衍射</span></h1><p>与多缝干涉类似，多缝衍射也可以使用累加方法处理：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\tilde{U}(P)&=\sum_{n=1}^{N}\tilde{U_n}(P)\\
+&=\sum_{n=1}^{N}A\exp{[(N-1)kd\sin\theta]}\text{sinc}(\alpha)\\
+&=A\text{sinc}(\alpha)\sum_{n=1}^{N}\exp{[(N-1)kd\sin\theta]}\\
+&=A\text{sinc}(\alpha)\sum_{n=1}^{N}\exp{[(N-1)kd\sin\theta]}\\
+&=A\text{sinc}(\alpha)\frac{1-\exp{[Nkd\sin\theta]}}{1-\exp{[kd\sin\theta]}}\\
+&=A\text{sinc}(\alpha)\frac{\exp{[\frac N2kd\sin\theta]}}{\exp{[\frac12kd\sin\theta]}}\times\frac{\exp{[-\frac N2kd\sin\theta]}-\exp{[\frac N2kd\sin\theta]}}{\exp{[-\frac12kd\sin\theta]}-\exp{[\frac12kd\sin\theta]}}\\
+&=A\text{sinc}(\alpha)\frac{\exp{[\frac N2kd\sin\theta]}}{\exp{[\frac12kd\sin\theta]}}\times\frac{\sin{N\beta}}{\sin{\beta}}
+\end{aligned}</script><p>所以光强分布为：</p>
+<script type="math/tex; mode=display">I=I_0(\text{sinc}\alpha)^2(\frac{\sin{N\beta}}{\sin{\beta}})^2,\beta=\frac{kd\sin\theta}{2}=\frac{\pi d\sin\theta}{\lambda}</script><p>当$\sin\beta=0$时，产生主极大：</p>
+<script type="math/tex; mode=display">\beta=\frac{\pi d\sin\theta}{\lambda}=n\pi\Rightarrow \sin\theta=\frac{n\lambda}{d}</script><p>对比原来的极大值：</p>
+<script type="math/tex; mode=display">\alpha=\frac{\pi a\sin\theta}{\lambda}=n\pi\Rightarrow \sin\theta=\frac{n\lambda}{a}</script><p>可见新产生的极大值与原来的极大值和缝数无关。但是$\sin N\beta=0$的时候，原来的极大值会被破坏：</p>
+<script type="math/tex; mode=display">N\beta=n\pi\Rightarrow \sin\theta=\frac{n\lambda}{Nd}(n\perp N)</script><h2><span id="正弦光栅">正弦光栅</span></h2><p>正弦光栅的透过率函数为：</p>
+<script type="math/tex; mode=display">T(x)=\frac{1}{2}+\frac{1}{2}\cos{\frac{2\pi x}{d}}=1+\frac12\exp{(\frac{2\pi i x}{d})}+\frac12\exp{(-\frac{2\pi i x}{d})}</script><p>透过率函数只会影响单缝衍射因子，而不会影响缝间干涉因子。所以可以得到单缝衍射因子为：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\tilde{U}(P)&\propto\int_{-\frac d2}^{\frac d2}[1+\frac12\exp{(\frac{2\pi i x}{d})}+\frac12\exp{(-\frac{2\pi i x}{d})}]\exp{(-ikx\sin\theta)}dx\\
+&=\text{sinc}(\alpha)+\text{sinc}(\alpha-\pi)+\text{sinc}(\alpha+\pi)
+\end{aligned}</script><p>所以光强分布为：</p>
+<script type="math/tex; mode=display">I=I_0(\text{sinc}\alpha)^2+\frac12(\text{sinc}(\alpha-\pi)+\text{sinc}(\alpha+\pi))^2(\frac{\sin{N\beta}}{\sin{\beta}})^2</script><h1><span id="光栅光谱仪">光栅光谱仪</span></h1><script type="math/tex; mode=display">\sin\theta=\frac{n\lambda}{d}</script><p>被称为光栅方程，$d$为光栅常数，$n$为衍射级次。两边取微分，得到：</p>
+<script type="math/tex; mode=display">\cos\theta \delta\theta=\frac{n\delta\lambda}{d}</script><p>角色散本领定义为：</p>
+<script type="math/tex; mode=display">D_\theta=\frac{\delta\theta}{\delta\lambda}=\frac{n}{d\cos\theta}</script><p>线色散本领定义为：</p>
+<script type="math/tex; mode=display">D_\lambda=\frac{\delta x}{\delta\lambda}=\frac{nf}{d\cos\theta}</script><p>色分辨本领定义为：</p>
+<script type="math/tex; mode=display">R=\frac{\lambda}{\delta\lambda}=kN</script><h1><span id="闪耀光栅">闪耀光栅</span></h1><p>透射光栅由于光能主要集中在0级主极大上，导致其他光谱级的强度较小，这是由于单元衍射因子和单元干涉因子之间存在0级主极大的重叠。解决的办法也很简单，即通过闪耀光栅调制单元干涉因子。闪耀光栅的光程差为：</p>
+<script type="math/tex; mode=display">\Delta L=2d\sin\theta_b</script><p>$\theta_b$为槽面和光栅平面的夹角。当$\theta_b$为0时，退化到普通光栅。当$\theta_b$满足：</p>
+<script type="math/tex; mode=display">2d\sin\theta_b=n\lambda</script><p>时，干涉因子将以第n级极大为中心，从而将光强集中在第n级极大上。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2025/04/01/%E5%85%89%E5%AD%A6/%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%EF%BC%88%E8%A1%8D%E5%B0%84%EF%BC%89/">https://xuxu20040407.github.io/2025/04/01/%E5%85%89%E5%AD%A6/%E6%B3%A2%E5%8A%A8%E5%85%89%E5%AD%A6%EF%BC%88%E8%A1%8D%E5%B0%84%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/17/DFT/dftcourse/" title="dftcourse"><img class="cover" src="/img/cover5.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">dftcourse</div></div></a></div><div class="next-post pull-right"><a href="/2025/03/27/SIESTA/Basis-Set/" title="Basis-Set"><img class="cover" src="/img/cover2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Basis-Set</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">衍射导论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">菲涅尔衍射积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">基尔霍夫衍射积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">基尔霍夫边界条件与傍轴衍射积分公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">衍射的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">巴比涅原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">菲涅尔圆孔衍射</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">半波带法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">单缝夫琅禾费衍射</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">矩孔夫琅禾费衍射</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">圆孔夫琅禾费衍射</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">夫琅禾费多缝衍射</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">正弦光栅</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">光栅光谱仪</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">闪耀光栅</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%93%88%E5%AF%86%E9%A1%BF%E5%8A%9B%E5%AD%A6/" title="哈密顿力学"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈密顿力学"/></a><div class="content"><a class="title" href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E5%93%88%E5%AF%86%E9%A1%BF%E5%8A%9B%E5%AD%A6/" title="哈密顿力学">哈密顿力学</a><time datetime="2025-05-11T12:41:50.000Z" title="发表于 2025-05-11 20:41:50">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="拉格朗日动力学"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="拉格朗日动力学"/></a><div class="content"><a class="title" href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="拉格朗日动力学">拉格朗日动力学</a><time datetime="2025-05-11T12:41:44.000Z" title="发表于 2025-05-11 20:41:44">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BE%BE%E6%9C%97%E8%B4%9D%E5%B0%94%E5%8E%9F%E7%90%86/" title="达朗贝尔原理"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="达朗贝尔原理"/></a><div class="content"><a class="title" href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E8%BE%BE%E6%9C%97%E8%B4%9D%E5%B0%94%E5%8E%9F%E7%90%86/" title="达朗贝尔原理">达朗贝尔原理</a><time datetime="2025-05-11T12:41:33.000Z" title="发表于 2025-05-11 20:41:33">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/11/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86/" title="留数定理"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="留数定理"/></a><div class="content"><a class="title" href="/2025/05/11/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E7%95%99%E6%95%B0%E5%AE%9A%E7%90%86/" title="留数定理">留数定理</a><time datetime="2025-05-11T12:40:36.000Z" title="发表于 2025-05-11 20:40:36">2025-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/11/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/" title="随机过程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="随机过程"/></a><div class="content"><a class="title" href="/2025/05/11/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B/" title="随机过程">随机过程</a><time datetime="2025-05-11T12:40:23.000Z" title="发表于 2025-05-11 20:40:23">2025-05-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
