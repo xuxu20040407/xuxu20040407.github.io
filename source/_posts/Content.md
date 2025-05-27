@@ -57,6 +57,7 @@ top: true
 
 ### 量子力学Ⅰ与量子力学Ⅱ
 {% post_link '量子力学/量子力学' %}
+
 {% post_link '量子力学2/量子力学2Content' %}
 
 对应的课程为PHY2612量子力学Ⅰ与PHY3702量子力学Ⅱ。主要参考的书籍为：
@@ -68,6 +69,11 @@ top: true
 {% post_link 'DFT/DFT-Content' %}
 
 我没有上过相应的课程，不过自学的时候整理了一些笔记。
+
+### 生物物理
+{% post_link '生物物理/生物物理Content' %}
+
+对应的课程为PHY4961生物物理。主要参考书籍为Philips的《细胞的生物物理学》。
 
 ## 托福
 {% post_link '托福/托福Content' %}
