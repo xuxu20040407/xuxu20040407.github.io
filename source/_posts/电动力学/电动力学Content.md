@@ -22,6 +22,6 @@ categories: 电动力学
 
 1. $\nabla\cdot\vec{E}=\dfrac{\rho}{\varepsilon_0}$：静电学
 2. $\nabla\cdot\vec{B}=0,\nabla\times\vec{B}=\mu_0 \vec{J}$：静磁学
-3. $\nabla\times\vec{E}=-\dfrac{\partial \vec{B}}{\partial t},，\nabla\times\vec{B}=\mu_0 \vec{J}+\mu_0\varepsilon_0\dfrac{\partial \vec{E}}{\partial t}$：电磁感应
+3. $\nabla\times\vec{E}=-\dfrac{\partial \vec{B}}{\partial t},\nabla\times\vec{B}=\mu_0 \vec{J}+\mu_0\varepsilon_0\dfrac{\partial \vec{E}}{\partial t}$：电磁感应
 4. $\nabla^2\vec{E}=\mu_0\varepsilon_0\dfrac{\partial^2 \vec{E}}{\partial t^2}, \nabla^2\vec{B}=\mu_0\varepsilon_0\dfrac{\partial^2 \vec{B}}{\partial t^2}$：电磁波
 5. $\vec{B}=\nabla\times\vec{A}, \vec{E}=-\nabla\varphi-\dfrac{\partial \vec{A}}{\partial t}$：规范变换和电磁波的辐射
