@@ -14,5 +14,5 @@ cover:
 - {% post_link '固体物理/晶体结构' %}
 - {% post_link '固体物理/晶体的结合' %}
 - {% post_link '固体物理/晶格动力学' %}
-- {% post_link '固体物理/能带论' %}
 - {% post_link '固体物理/金属电子论' %}
+- {% post_link '固体物理/能带论' %}
