@@ -16,3 +16,6 @@ cover:
 - {% post_link '固体物理/晶格动力学' %}
 - {% post_link '固体物理/金属电子论' %}
 - {% post_link '固体物理/能带论' %}
+- {% post_link '固体物理/Bloch电子动力学' %}
+- {% post_link '固体物理/半导体' %}
+- {% post_link '固体物理/具体能带的具体分析' %}
