@@ -1,5 +1,5 @@
 ---
-title: 前言
+title: 数学物理方法Content
 date: 2025-04-28 12:34:22
 tags: 数学物理方法
 categories: 数学物理方法

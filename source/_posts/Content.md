@@ -55,10 +55,16 @@ top: true
 - 《现代光学基础》钟锡华；
 - 《新概念光学》赵凯华。
 
-### 量子力学Ⅰ与量子力学Ⅱ
-{% post_link '量子力学/量子力学' %}
+### 原子物理
+{% post_link '原子物理/原子物理Content' %}
 
-{% post_link '量子力学2/量子力学2Content' %}
+对应的课程为PHY1625原子物理。主要参考的书籍为杨福家的《原子物理学》。
+
+
+### 量子力学Ⅰ与量子力学Ⅱ
+
+- {% post_link '量子力学/量子力学' %}
+- {% post_link '量子力学2/量子力学2Content' %}
 
 对应的课程为PHY2612量子力学Ⅰ与PHY3702量子力学Ⅱ。主要参考的书籍为：
 - 《量子力学导论》格里菲斯/《Introduction to Quantum Mechanics》Griffiths；
