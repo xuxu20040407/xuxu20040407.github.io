@@ -1,5 +1,5 @@
 ---
-title: 前言
+title: 理论力学Content
 date: 2025-04-28 12:34:22
 tags: 理论力学
 categories: 理论力学
@@ -31,3 +31,7 @@ categories: 理论力学
 - {% post_link '理论力学/哈密顿力学' %}
 
 
+在相应的理论框架下，分析力学可以在不同的应用场景大显身手：
+- {% post_link '理论力学/有心力和散射问题' %}
+- {% post_link '理论力学/小振动' %}
+- {% post_link '理论力学/刚体力学' %}
