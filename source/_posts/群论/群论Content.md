@@ -2,8 +2,8 @@
 title: 群论Content
 mathjax: true
 date: 2025-07-01 20:00:56
-tags:
-categories:
+tags: 群论
+categories: 群论
 cover:
 ---
 
