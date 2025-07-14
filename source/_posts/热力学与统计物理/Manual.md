@@ -2,8 +2,7 @@
 title: 热力学关系记忆手册
 mathjax: true
 date: 2024-08-22 16:02:18
-tags: 
-- 热力学
+tags: 统计物理
 categories: 统计物理
 cover:
 ---

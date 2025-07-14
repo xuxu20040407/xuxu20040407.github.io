@@ -7,7 +7,9 @@ categories: 量子力学2
 cover:
 ---
 量子力学2主要参考课程讲义以及Sarkari的《现代量子力学》。
-- [量子力学公设](#量子力学公设)
+- [量子力学公设和正则量子化](#量子力学公设和正则量子化)
+  - [量子力学的五大公设](#量子力学的五大公设)
+  - [正则量子化](#正则量子化)
 - [基本概念](#基本概念)
   - [左矢空间和右矢空间](#左矢空间和右矢空间)
   - [算符](#算符)
@@ -27,18 +29,62 @@ cover:
 
 
 
-# 量子力学公设
 
-1. **波函数公设**：波函数$\psi(\vec{r})$用于描述量子系统的状态。更数学地讲，希尔伯特空间中的矢量$\left|\psi\right\rangle $可以描述微观系统的状态，那么波函数是态矢量在某一表象下的投影；
-2. **算符和测量公设**：希尔伯特空间中的厄密算符可以描述围观系统的物理量，而物理量的具体数值，取决于算符的本征值。算符可能有多个本征值，那么讲态矢量按照归一化本征矢量展开得到的系数的复平方，即是取到该值的概率。如果用数学公式表达，就是：
-   - *算符公设*：$A|a_i\rangle=a_i|a_i\rangle$  其中 $\langle a_i|a_j\rangle=\delta_{ij}$
-   - *测量公设（统计诠释）*：$|\psi\rangle=\sum_i\lvert a_i\rangle c_i , c_i=\langle a_i\rvert \psi\rangle ,P=c_i^*c_i$
-3. **演化公设**：波函数或态矢量的演化由薛定谔方程决定：
-$$\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=H|\psi(t)\rangle $$
-4. **对易公设（一次量子化）**： 
-$$[X_{i},X_{j}]=0 , [P_{i},P_{j}]=0 , [X_{i},P_{j}]=\mathrm{i}\hbar\delta_{ij}$$
-5. **全同粒子公设（二次量子化？）**：态矢量对于任意一对粒子的对换，都是对称（玻色子）和反对称（费米子）的。
+# 量子力学公设和正则量子化
+## 量子力学的五大公设
+1. **波函数公设**：
+   - 波函数$\psi(\vec{r})$用于描述量子系统的状态。更数学地讲，希尔伯特空间中的矢量$\left|\psi\right\rangle$可以描述微观系统的状态，那么波函数是态矢量在某一表象下的投影
+   - 关于波函数的物理意义，比较公认的是玻恩的统计诠释，即波函数的模方描述在空间中某点发现粒子的概率幅：
+      $$dP(\vec{r})=|\psi(\vec{r})|^2d\vec{r}=\langle \psi|\vec{r}\rangle\langle \vec{r}|\psi\rangle d\vec{r}$$
+      结合后面谈到的完备性基底，可以证明概率幅是归一化的：
+      $$\int dP(\vec{r})=\int \langle \psi|\vec{r}\rangle\langle \vec{r}|\psi\rangle d\vec{r}=\langle \psi|\psi\rangle=1$$
+   - 态叠加原理：如果$\psi_1$和$\psi_2$是两个可能的态，那么它们的线性组合也是一个可能的态，且系数服从统计诠释（正比于概率）：
+      $$\text{discrete } |\psi\rangle=\sum_i\lvert a_i\rangle c_i , c_i=\langle a_i\rvert \psi\rangle ,P=c_i^*c_i$$
+      $$\text{continuous } |\psi\rangle=\int\lvert a\rangle \psi(a)da , \psi(a)=\langle a\rvert \psi\rangle ,P=\psi(a)^*\psi(a)$$
 
+      > 态叠加原理意味着量子力学是一个线性的理论，具体而言，如果两个态的叠加是一个态，那么也应该满足薛定谔方程，即哈密顿算符应该是个线性算符。
+
+2. **算符公设**：希尔伯特空间中的厄密算符可以描述微观系统的物理量，而物理量的具体数值，取决于算符的本征值。至于为什么必须是厄密算符，是因为实验中的测量都是实数：
+   $$\hat A|\psi\rangle = \lambda|\psi\rangle\Rightarrow \langle\psi|\hat A\psi\rangle=\langle\hat A^\dagger\psi|\psi\rangle = \lambda\langle\psi|\psi\rangle\Rightarrow \hat A^\dagger=\hat A$$
+3. **测量公设**：对物理量进行测量的时候，测量结果一定是本征值之一，且概率遵从态矢量的玻恩统计诠释（即态矢量中包含了“多少”该本征矢量）。测量结束后，态矢量坍缩为相应本征态矢量。测量的行为可以用投影算符描述：
+   $$\hat P_a=|\psi_a\rangle\langle\psi_a|,\hat P_a |\psi\rangle=P_a|\psi_a\rangle$$
+   其中$|\psi_a\rangle$是本征态矢量，$\hat P_a$是投影算符。测量后，态矢量变为：
+   $$|\psi\rangle\rightarrow|\psi_a\rangle$$
+   可以将厄米算符进行谱分解：
+   $$\hat A=\sum_a a\hat P_a=\sum_a a|\psi_a\rangle\langle\psi_a|$$
+4. **演化公设**：波函数或态矢量的演化由**薛定谔方程**决定：
+    $$\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=H|\psi(t)\rangle $$
+    > 定义时间演化算符：
+    > $$|\psi(t)\rangle=\hat{\Lambda}(t,t_0)|\psi(t_0)\rangle$$
+    > 波函数的归一化要求$\hat{\Lambda}(t,t_0)$是幺正的，即：
+    > $$\langle\psi(t)|\psi(t)\rangle=1\Rightarrow\hat{\Lambda}(t,t_0)\hat{\Lambda}^\dagger(t,t_0)=1$$
+    > 初值条件同时需要：
+    > $$\lim_{t\rightarrow 0}\hat{\Lambda}(t,t_0)=1$$
+    > 转写为等价形式：
+    > $$\hat{\Lambda}(t,t_0)=e^{i\hat{\Omega}(t-t_0)}$$
+    > 对演化后的态矢量求导：
+    > $$\frac{\partial}{\partial t}|\psi(t)\rangle=i\hat{\Omega}|\psi(t)\rangle$$
+    > 这就有点薛定谔方程的雏形了，令$\hat{H}=-i\hbar\hat{\Omega}$，即可得到
+    > $$\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=\hat{H}|\psi(t)\rangle$$
+    > 这似乎预示着算符是比方程更根本的东西，我们同样可以定义空间算符，详见 {% post_link '量子力学/对称性和守恒律' %} 。
+
+
+
+5. **全同性原理**：全同粒子指的是内禀属性（质量、电荷、自旋等）完全相同的粒子。对于多粒子系统，出于全同粒子的不可分辨性，其概率幅随着粒子的交换而不变，也就是说波函数要么是对称的，要么是反对称的：
+   $$\psi(x_1,x_2,\ldots,x_n)=\pm\psi(x_{\sigma(1)},x_{\sigma(2)},\ldots,x_{\sigma(n)})$$
+   满足正号的波函数是玻色子（对称），满足负号的波函数是费米子（反对称）。
+
+## 正则量子化
+有的地方会把量子化条件纳入公设的范围，这里不作评价，仅讨论其中的逻辑。在历史上，狄拉克注意到了算符演化：
+$$\frac{d}{dt}\langle \hat{O}\rangle=\frac{1}{i\hbar}\langle[\hat{O},\hat{H}]\rangle+\langle\frac{\partial \hat{O}}{\partial t}\rangle$$
+和经典哈密顿力学中的物理量演化：
+$$\frac{d}{dt}O=\{O,H\}+\frac{\partial O}{\partial t}$$
+的相似关系，并提出通过建立对易子和泊松括号的桥梁——这正是正则量子化的思想。对于经典力学中的正则坐标和正则动量，其泊松括号和对易子分别为：
+$$\{P_i,X_j\}=\delta_{ij},[P_i,X_j]=i\hbar\delta_{ij}$$
+
+这中间只相差了一个系数$i\hbar$（事实上对于大部分物理量都是如此，但并非恒成立），这被称为一次量子化。相应地，上述量子化无法处理多粒子体系，因而需要新的量子化。对经典场论的量子化被称为二次量子化：
+$$\text{boson } [\hat{a}_i,\hat{a}_j]=0,[\hat{a}_i^\dagger,\hat{a}_j^\dagger]=0, [\hat{a}_i,\hat{a}_j^\dagger]=\delta_{ij}$$
+$$\text{fermion } \{\hat{c}_i,\hat{c}_j\}=0,\{\hat{c}_i^\dagger,\hat{c}_j^\dagger\}=0, \{\hat{c}_i,\hat{c}_j^\dagger\}=\delta_{ij}$$
 
 # 基本概念
 ## 左矢空间和右矢空间
