@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>静电学 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="静电学 电荷 库仑定律 电场 高斯定理 电势   物质中的电场 导体中的电场 导体的电容 静电能   电介质中的电场 偶极子模型 极化强度和电极化率 有电介质的高斯定理 有电介质的静电能     静电学总结 附录    静电学电荷静电学的一切都要从电荷说起。实验表明自然界中只存在两种电荷——正电荷和负电荷。同种电荷相互排斥，异种电荷相互吸引。 电荷的单位是库仑（C），国际单位制中规定元电荷的大小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静电学">
+<meta property="og:url" content="https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%94%B5%E5%AD%A6/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="静电学 电荷 库仑定律 电场 高斯定理 电势   物质中的电场 导体中的电场 导体的电容 静电能   电介质中的电场 偶极子模型 极化强度和电极化率 有电介质的高斯定理 有电介质的静电能     静电学总结 附录    静电学电荷静电学的一切都要从电荷说起。实验表明自然界中只存在两种电荷——正电荷和负电荷。同种电荷相互排斥，异种电荷相互吸引。 电荷的单位是库仑（C），国际单位制中规定元电荷的大小">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2025-06-03T10:55:15.000Z">
+<meta property="article:modified_time" content="2025-06-08T05:19:06.998Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="电动力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%94%B5%E5%AD%A6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '静电学',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-06-08 13:19:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">静电学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-03T10:55:15.000Z" title="发表于 2025-06-03 18:55:15">2025-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-08T05:19:06.998Z" title="更新于 2025-06-08 13:19:06">2025-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/">电动力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="静电学"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#静电学">静电学</a><ul>
+<li><a href="#电荷">电荷</a></li>
+<li><a href="#库仑定律">库仑定律</a></li>
+<li><a href="#电场">电场</a></li>
+<li><a href="#高斯定理">高斯定理</a></li>
+<li><a href="#电势">电势</a></li>
+</ul>
+</li>
+<li><a href="#物质中的电场">物质中的电场</a><ul>
+<li><a href="#导体中的电场">导体中的电场</a><ul>
+<li><a href="#导体的电容">导体的电容</a></li>
+<li><a href="#静电能">静电能</a></li>
+</ul>
+</li>
+<li><a href="#电介质中的电场">电介质中的电场</a><ul>
+<li><a href="#偶极子模型">偶极子模型</a></li>
+<li><a href="#极化强度和电极化率">极化强度和电极化率</a></li>
+<li><a href="#有电介质的高斯定理">有电介质的高斯定理</a></li>
+<li><a href="#有电介质的静电能">有电介质的静电能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#静电学总结">静电学总结</a><ul>
+<li><a href="#附录">附录</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id="静电学">静电学</span></h1><h2><span id="电荷">电荷</span></h2><p>静电学的一切都要从电荷说起。实验表明自然界中只存在两种电荷——正电荷和负电荷。同种电荷相互排斥，异种电荷相互吸引。</p>
+<p>电荷的单位是库仑（C），国际单位制中规定元电荷的大小为 $e=1.602\times 10^{-19}\text{C}$，它是由密立根通过油滴实验测得的。</p>
+<p>注意，电荷是一种属性，而不是像电子和质子那般的实体。自然界中的物体都带有大量的电荷，不过通常由于正负电荷的数量相等，所以物体整体上是中性的。物体承载大量电荷，如果电荷能够自由移动，称为导体；如果电荷不能自由移动，称为绝缘体。</p>
+<p>大量实验表明，在与外界没有电荷交换的系统内，正负电荷的代数和保持不变，称为<strong>电荷守恒定律</strong>。</p>
+<h2><span id="库仑定律">库仑定律</span></h2><p>电荷因为相互作用而可以被观察，其相互作用满足以下<strong>库仑定律</strong>：</p>
+<ul>
+<li>两电荷受到的作用力大小相等方向相反，沿着电荷的连线方向。</li>
+<li>两电荷之间的作用力大小与两电荷的乘积成正比，与它们之间距离的平方成反比：<script type="math/tex; mode=display">F=k\dfrac{q_1q_2}{r^2}</script>  其中 $k$ 是库仑常数，$k=\dfrac{1}{4\pi\varepsilon_0}$，$\varepsilon_0$ 是真空的介电常数。</li>
+</ul>
+<p>库伦定律是库伦通过扭秤实验发现的。不同的电荷的力满足<strong>矢量叠加原理</strong>，这是由麦克斯韦方程组的线性性质决定的。</p>
+<h2><span id="电场">电场</span></h2><p>电磁学通常使用“描述电荷对对其他电荷的作用力的普遍性质”这一数学上的动机来引入电场。实际上，我们在牛顿力学中也引入了势场的概念。但不同于牛顿力学经过数学简化的势场，电场这一概念在后续的场论中发扬光大。</p>
+<p>考虑太阳和地球的作用，如果太阳突然消失，我们需要在以下三种情况种选择一种：</p>
+<ul>
+<li>能量不守恒：地球经过8分钟才感受到太阳的消失。</li>
+<li>超距作用：地球瞬间感受到太阳的消失，能量依旧守恒。</li>
+<li>场的存在：场储存了一部分的能量，保证能量守恒。</li>
+</ul>
+<p>为了物理学的美与直观，我们马后炮地发现场的作用是不可或缺的。在静电学中，我们认为电荷激发了空间中的某种没有实形的实体——电场。电场可以通过矢量描述，其强度定义为：</p>
+<script type="math/tex; mode=display">\vec{E}=\dfrac{\vec{F}}{q}=\dfrac{kq}{r^2}\hat{r}</script><p>已知任意电荷分布，通过叠加原理即可求出电场的分布。</p>
+<h2><span id="高斯定理">高斯定理</span></h2><p>可以证明，高斯定理这一针对电场的通量的定理是正确的：</p>
+<ul>
+<li>对于任意闭合曲面，穿过该曲面的电场通量等于该曲面内的电荷总量除以真空介电常数：<script type="math/tex; mode=display">\Phi_E=\iint_S \vec{E}\cdot d\vec{S}=\dfrac{Q_{\text{enc}}}{\varepsilon_0}</script></li>
+</ul>
+<p>通过高斯定理可以简化一部分的电场计算。</p>
+<p>证明：先计算单个点电荷的球形界面内的电场通量：</p>
+<script type="math/tex; mode=display">\Phi_E=\iint_S \vec{E}\cdot d\vec{S}=\iint_S \dfrac{kq}{r^2}\hat{r}\cdot d\vec{S}=4\pi kq=\frac{q}{\varepsilon_0}</script><p>而后证明任意界面的电场通量依然成立：对于给定立体角，电场通量的贡献为：</p>
+<script type="math/tex; mode=display">d\Phi_E'=\dfrac{kq}{r'^2}\hat{r}\cdot d\vec{S'}=\dfrac{kq}{r'^2}\hat{r}\cdot \frac{d\vec{S}}{\cos\theta}\cdot\frac{r'^2}{r^2}\cos\theta=d\Phi_E</script><p>对于电荷在区域外的情况，考虑作包围电荷的补曲面，可以简单证得。</p>
+<h2><span id="电势">电势</span></h2><p>电磁学中存在两种电场：由静电荷分布产生的静电场和由时间变化的磁场产生的感应电场。静电场是无旋场：</p>
+<script type="math/tex; mode=display">\oint \vec{E}\cdot d\vec{l}=0</script><blockquote>
+<p>对静电场矢量作旋度计算：$\nabla\times\vec{E}=0$，可以证明静电场是无旋场。</p>
+</blockquote>
+<p>从而可以定义电势。电势是一个标量场，定义为：</p>
+<script type="math/tex; mode=display">V=\int_{\infty}^{\vec{r}} \vec{E}\cdot d\vec{l}</script><p>对于单个电荷，电势为：</p>
+<script type="math/tex; mode=display">V=\int_{\infty}^{\vec{r}}\frac{kq}{r^2}\hat{r}\cdot d\vec{l}=\int_{\infty}^{\vec{r}}\dfrac{kq}{r^2}dr=\dfrac{kq}{r}</script><p>一般将无穷远处的电势定义为零。</p>
+<p>电势同样满足叠加原理。电场强度是电势的梯度：</p>
+<script type="math/tex; mode=display">\vec{E}=-\nabla V</script><p>这样定义的电势天生满足无旋的条件（梯度的旋度为0）：</p>
+<script type="math/tex; mode=display">\nabla\times \vec{E}=\nabla\times (-\nabla V)=0</script><blockquote>
+<p>总结任意电荷分布下的电场和电势的积分表达式：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">电场 $\vec{E}$</th>
+<th style="text-align:center">电势 $V$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\vec{E}(\vec{r})=\iiint \dfrac{1}{4\pi\varepsilon_0}\dfrac{\rho(\vec{r’})}{\xi^2}\hat{\xi}d\tau’$</td>
+<td style="text-align:center">$V= \iiint \dfrac{1}{4\pi\varepsilon_0}\dfrac{\rho(\vec{r’})}{\xi}d\tau’$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中，$\vec{\xi}=\vec{r}-\vec{r’}$。</p>
+</blockquote>
+<h1><span id="物质中的电场">物质中的电场</span></h1><h2><span id="导体中的电场">导体中的电场</span></h2><p>静电平衡时，导体内部的电场为零，这一点可以通过反证法证明：假设导体内部存在电场，则导体内部的自由电荷会受到作用力而发生运动，直到电场为零为止。</p>
+<p>从导体内部的电场为零可以推出以下推论：</p>
+<ul>
+<li>导体是等势体，导体内部的任意两点的电势相等，导体表面是等势面。</li>
+<li>导体内部电荷密度为零，所有电荷集中在导体表面。</li>
+<li>导体外表面的电场强度垂直于导体表面，且电场强度的大小与表面电荷密度成正比：<script type="math/tex; mode=display">\vec{E}^{ext}=\dfrac{\sigma}{\varepsilon_0}\hat{n}</script>其中 $\sigma$ 是表面电荷密度，$\hat{n}$ 是法向单位矢量。</li>
+</ul>
+<blockquote>
+<p>外部电场由两部分构成：表面电荷的电场和其余电荷的电场：</p>
+<script type="math/tex; mode=display">\vec{E}^{ext}=\vec{E}^{int}_{self}+\vec{E}^{int}_{else}=\dfrac{\sigma}{2\varepsilon_0}\hat{n}+\dfrac{\sigma}{2\varepsilon_0}\hat{n}=\dfrac{\sigma}{\varepsilon_0}\hat{n}</script><p>而内部的电场为零：</p>
+<script type="math/tex; mode=display">\vec{E}^{int}=\vec{E}^{int}_{self}+\vec{E}^{int}_{else}=-\dfrac{\sigma}{2\varepsilon_0}\hat{n}+\dfrac{\sigma}{2\varepsilon_0}\hat{n}=0</script><p>其中$\vec{E}^{int}_{else}$是除去该表面电荷外，其余表面电荷和外部电场的和。</p>
+</blockquote>
+<p>可以计算导体表面所受到的静电力：</p>
+<script type="math/tex; mode=display">\vec{F}=\vec{E}^{int}_{else}\sigma\Delta S=\dfrac{\sigma^2}{2\varepsilon_0}\Delta S\hat{n}</script><p>外部电场促使导体内部电场平衡的过程中，静电力做功使得体系总的能量降低，这里面涉及到电容和静电能的概念。</p>
+<h3><span id="导体的电容">导体的电容</span></h3><p>电容定义为单位电势所能储存的电荷量：</p>
+<script type="math/tex; mode=display">C=\dfrac{Q}{V}</script><p>常见的电容器有：</p>
+<ul>
+<li>孤立导体球：电容为 $C=\dfrac{Q}{Q/4\pi\varepsilon_0R}=4\pi\varepsilon_0R$。</li>
+<li>平行板电容器：电容为 $C=\dfrac{\varepsilon_0S}{d}$，其中 $S$ 是平行板的面积，$d$ 是两板之间的距离。</li>
+<li>球形电容器：电容为 $C=\dfrac{4\pi\varepsilon_0R_1R_2}{R_2-R_1}$，其中 $R_1$ 和 $R_2$ 是内外球的半径。</li>
+<li>圆柱形电容器：电容为 $C=\dfrac{2\pi\varepsilon_0L}{\ln(R_2/R_1)}$，其中 $R_1$ 和 $R_2$ 是内外圆柱的半径，$L$ 是圆柱的长度。</li>
+</ul>
+<p>电容器的串联满足：</p>
+<script type="math/tex; mode=display">\dfrac{1}{C_{eq}}=\dfrac{1}{C_1}+\dfrac{1}{C_2}+\cdots</script><p>电容器的并联满足：</p>
+<script type="math/tex; mode=display">C_{eq}=C_1+C_2+\cdots</script><h3><span id="静电能">静电能</span></h3><p>若干个电荷之间的静电能定义为：</p>
+<script type="math/tex; mode=display">W_{int}=\frac12(q_1V_1+q_2V_2+\cdots)=\frac12\sum_{i=1}^n q_iV_i</script><p>对于连续分布的电荷，使用高斯定理：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+W_{tot}&=\frac12\int \rho V d\tau\\
+&=\frac{\varepsilon_0}2\int (\nabla\cdot \vec{E}) V d\tau\\
+&=\frac{\varepsilon_0}2[\int \nabla\cdot (V\vec{E})  d\tau-\int (\nabla\cdot V)\vec{E}  d\tau]\\
+&=\frac{\varepsilon_0}2[\oint_S V\vec{E}  da+\int_V E^2  d\tau]\\
+(\lim_{r\rightarrow \infty})&=\frac{\varepsilon_0}2\int_V E^2  d\tau
+\end{aligned}</script><blockquote>
+<p>乍一看，这两个公式是不自洽的：对于正负两个电荷，前者的静电能为负，而后者的静电能为正。实际上，前者是指两个电荷之间的相互作用能，而后者是指电场中储存的能量（包含自己的能量和相互作用的能量，简称“自能”和“互能”）。使用后者的计算方法得到：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+W_{tot}'&=\frac{\varepsilon_0}2\int_V E^2  d\tau\\
+&=\frac{\varepsilon_0}2\int_V E_1^2  d\tau+\frac{\varepsilon_0}2\int_V E_2^2  d\tau+\varepsilon_0\int_V \vec{E_1}\cdot\vec{E_2}  d\tau\\
+&=W_{tot}^{(1)}+W_{tot}^{(2)}+W_{int}^{(12)}\\
+\end{aligned}</script><p>对于两个电荷的情况，可以验证：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+W_{int}^{(12)}&=\varepsilon_0\int_V \vec{E_1}\cdot\vec{E_2}  d\tau\\
+&=\frac{q_1q_2}{16\pi^2\varepsilon_0}\iiint \dfrac{\cos\alpha}{r^2r'^2}d\tau\\
+&=\frac{q_1q_2}{16\pi^2\varepsilon_0}\int_{0}^{2\pi}d\phi\int_{0}^{\pi}\sin\theta d\theta \int_{0}^{\infty} \dfrac{r-a\cos\theta}{(r^2+a^2-2ar\cos\theta)^{3/2}} dr\\
+\end{aligned}</script><p>令$t=r-a\cos\theta$，则</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\int_{0}^{\infty} \dfrac{r-a\cos\theta}{(r^2+a^2-2ar\cos\theta)^{3/2}} dr&=\int_{-a\cos\theta}^{\infty} \dfrac{t}{(t^2+a^2\sin^2\theta)^{3/2}} dr\\
+&=\int_{-a\cos\theta}^{\infty} d\dfrac{-1}{(t^2+a^2\sin^2\theta)^{1/2}} \\
+&=\left.\dfrac{-1}{(t^2+a^2\sin^2\theta)^{1/2}}\right|_{-a\cos\theta}^{\infty} \\
+&=1/a \\
+\end{aligned}</script><p>最终得到：</p>
+<script type="math/tex; mode=display">W_{int}^{(12)}=\dfrac{q_1q_2}{4\pi\varepsilon_0a}=\frac12(q_1V_1+q_2V_2)</script></blockquote>
+<p>对于电容器，使用前一种算法（或者通过电场力搬运电荷做功的物理意义）：</p>
+<script type="math/tex; mode=display">W=\frac12QV=\frac12CV^2=\frac12\frac{Q^2}{C}</script><p>这比电场力做功$W_{E}=QV$少了一半，多出的能量转化为热能耗散。</p>
+<h2><span id="电介质中的电场">电介质中的电场</span></h2><p>电介质本质上是绝缘体，但其内部的原子或分子可以被极化：</p>
+<ul>
+<li>一种是无极分子在外电场的作用下，正负电荷发生分离，形成偶极子。</li>
+<li>另一种是有极分子的偶极子在外电场的作用下，发生定向排列。</li>
+</ul>
+<h3><span id="偶极子模型">偶极子模型</span></h3><p>靠的很近的等量正负电荷被称为偶极子，偶极矩定义为：</p>
+<script type="math/tex; mode=display">\vec{p}=q\vec{d}</script><p>均匀电场作用其上，导致正负力抵消，但是受到力矩的作用：</p>
+<script type="math/tex; mode=display">\vec{N}=\vec{p}\times \vec{E}</script><p>如果是非均匀电场，则偶极子受到的力为：</p>
+<script type="math/tex; mode=display">\vec{F}=(\vec{p}\cdot\nabla) \vec{E}</script><p>这里不加证明地给出偶极子的电势：</p>
+<script type="math/tex; mode=display">V=\frac{1}{4\pi\varepsilon_0}\dfrac{\vec{p}\cdot \hat{r}}{r^2}</script><p>和偶极子的电场：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\vec{E}&=\frac{1}{4\pi\varepsilon_0}\left(\dfrac{3(\vec{p}\cdot \hat{r})\hat{r}-\vec{p}}{r^3}\right)\\
+&=\frac{p}{4\pi\varepsilon_0r^3}(2\cos\theta\hat{r}+\sin\theta\hat{\theta})\\
+\end{aligned}</script><p>这里的电场结果正比于偶极矩$\vec{p}$，这一线性性是联系微观偶极子模型和宏观极化强度的重要桥梁。外电场使得偶极子的偶极矩增大，进而产生反向电场。</p>
+<h3><span id="极化强度和电极化率">极化强度和电极化率</span></h3><p>使用极化强度$\vec{P}$来描述电介质的极化程度：</p>
+<script type="math/tex; mode=display">\vec{P}=\dfrac{\sum\vec{p}_i}{V}</script><p>其描述了单位体积内的被极化的分子的偶极矩的总和，单位为 $C\cdot m /m^3$。一般来说，其正比于外电场强度：</p>
+<script type="math/tex; mode=display">\vec{P}=\varepsilon_0\chi_e\vec{E}</script><p>其中 $\chi_e$ 是电介质的电极化率，描述宏观上产生反电场的能力，微观上极化分子的难度。</p>
+<blockquote>
+<p>常见的电介质是各向同性的，用一个标量即可描述；有些电介质是各向异性的，需要使用张量来描述：</p>
+<script type="math/tex; mode=display">\chi_e=\begin{pmatrix}
+\chi_{e11} & \chi_{e12} & \chi_{e13} \\
+\chi_{e21} & \chi_{e22} & \chi_{e23} \\
+\chi_{e31} & \chi_{e32} & \chi_{e33}
+\end{pmatrix}</script><p>有些材料的极化情况除了取决于外电场强度，还取决于其本身的历史极化情况，称为铁电材料。</p>
+</blockquote>
+<p>从极化强度的单位即可猜测极化电荷的面密度为：</p>
+<script type="math/tex; mode=display">\sigma_b=\vec{P}\cdot\hat{n}</script><p>曲面内的极化电荷总量为：</p>
+<script type="math/tex; mode=display">Q_b=-\iint_S \vec{P}\cdot d\vec{S}</script><h3><span id="有电介质的高斯定理">有电介质的高斯定理</span></h3><p>有电介质时，高斯定理的形式为：</p>
+<script type="math/tex; mode=display">\Phi_E=\iint_S \vec{E}\cdot d\vec{S}=\dfrac{Q_{\text{enc}}}{\varepsilon_0}+\dfrac{Q_{\text{enc}}^{(b)}}{\varepsilon_0}</script><p>其中 $Q_{\text{enc}}^{(p)}$ 是极化电荷的总量。</p>
+<p>现在考虑将高斯定理写为电荷量的通量，而非现在的电场强度的通量。注意到$\varepsilon_0\vec{E}$的单位$[Q]/[L]^2$就是电荷量的通量：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\iint_S \varepsilon_0\vec{E}\cdot d\vec{S}&=Q_{\text{enc}}+Q_{\text{enc}}^{(b)}\\
+\Rightarrow \iint_S \varepsilon_0\vec{E}\cdot d\vec{S}&=Q_{\text{enc}}-\oiint_S \vec{P}\cdot d\vec{S}\\
+\Rightarrow \iint_S (\varepsilon_0\vec{E}+\vec{P})\cdot d\vec{S}&=Q_{\text{enc}}\\
+\end{aligned}</script><p>引入电位移矢量：</p>
+<script type="math/tex; mode=display">\vec{D}=\varepsilon_0\vec{E}+\vec{P}</script><p>得到有电介质的高斯定理：</p>
+<script type="math/tex; mode=display">\iint_S \vec{D}\cdot d\vec{S}=Q_{\text{enc}}</script><p>现在我们不需要考虑极化电荷就可以考虑电介质中的电场。为了方便电位移矢量的求解，定义：</p>
+<script type="math/tex; mode=display">\vec{D}=\varepsilon\vec{E},\varepsilon=\varepsilon_0(1+\chi_e)</script><h3><span id="有电介质的静电能">有电介质的静电能</span></h3><p>显然，电介质介入后，静电能减小。具体而言，平衡后电场的大小为原来的$1/\varepsilon_r$倍，所以：</p>
+<script type="math/tex; mode=display">W=\frac{\varepsilon_0}2\int_V(\frac{E}{\varepsilon_r})^2d\tau=\frac{\varepsilon_0}2\int_VE'^2d\tau</script><p>除此之外，还有非平衡过程中电场力所做功：</p>
+<script type="math/tex; mode=display">W_{E}\propto\frac12\langle\int_V\sigma dS\cdot E'dl\rangle=\frac12\langle\int_V(\varepsilon_r-1)\varepsilon_0E' dS\cdot E'dl\rangle=\frac{\varepsilon_0(\varepsilon_r-1)}2\int_VE'^2d\tau</script><p>总的静电能为：</p>
+<script type="math/tex; mode=display">W_{tot}=\frac{\varepsilon_0\varepsilon_r}2\int_VE'^2d\tau=\frac12\int_V\vec{D}\cdot\vec{E}d\tau</script><blockquote>
+<p>以上毕竟是定性的讨论。使用电介质的高斯定理可以推出同样的结论：</p>
+<p>假设原来的自由电荷为$\rho_f$，增加小量$\delta\rho_f$，则有：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\delta W&=\int \delta\rho_f Vd\tau\\
+&=\int \nabla\cdot(\delta \vec{D}) Vd\tau\\
+&=\int \nabla\cdot(\delta \vec{D} V) d\tau+\int \delta\vec{ D}\cdot\vec{E} d\tau\\
+&=\oint_S \delta \vec{D} V dS+\int \delta\vec{ D}\cdot\vec{E} d\tau\\
+(\lim_{r\rightarrow \infty})&=\int \delta\vec{ D}\cdot\vec{E} d\tau\\
+\Rightarrow W_{tot}&=\frac12\int_V\vec{D}\cdot\vec{E}d\tau\\
+\end{aligned}</script></blockquote>
+<h1><span id="静电学总结">静电学总结</span></h1><blockquote>
+<p>通过以上对静电学的讨论，我们归纳出描述静电场的两个方程：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\nabla\cdot\vec{E}=\dfrac{\rho}{\varepsilon_0} \\
+\nabla\times\vec{E}=0
+\end{cases}</script><p>或者不带有极化电荷：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\nabla\cdot\vec{D}=\rho_f \\
+\nabla\times\vec{E}=0
+\end{cases}</script><p>通过引入电势$\vec{E}=-\nabla V$的概念，我们得到：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\nabla^2 V=-\dfrac{\rho}{\varepsilon_0} \\
+\nabla\times(-\nabla V)=0
+\end{cases}</script></blockquote>
+<h2><span id="附录">附录</span></h2><p>常见的电荷构型的电场和电势：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">电荷构型</th>
+<th style="text-align:center">电场 $\vec{E}$</th>
+<th style="text-align:center">电势 $V$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">点电荷 $q$</td>
+<td style="text-align:center">$\vec{E}=\dfrac{kq}{r^2}\hat{r}$</td>
+<td style="text-align:center">$V=\dfrac{kq}{r}$</td>
+</tr>
+<tr>
+<td style="text-align:center">均匀带电球壳</td>
+<td style="text-align:center">$\vec{E}=\dfrac{kq}{r^2}\hat{r}$ ($r&gt;R$);$\vec{E}=0$ ($r&lt;R$)</td>
+<td style="text-align:center">$V=\dfrac{kq}{r}$ ($r&gt;R)$;$V=\dfrac{kq}{R}$ ($r&lt;R$)</td>
+</tr>
+<tr>
+<td style="text-align:center">均匀带电球体</td>
+<td style="text-align:center">$\vec{E}=\dfrac{kq}{r^2}\hat{r}$ ($r&gt;R$);$\vec{E}=\dfrac{kqr}{R^3}\hat{r}$ ($r&lt;R$)</td>
+<td style="text-align:center">$V=\dfrac{kq}{r}$ ($r&gt;R)$;$V=\dfrac{kq(3R^2-r^2)}{2R}$ ($r&lt;R$)</td>
+</tr>
+<tr>
+<td style="text-align:center">无限长带电直线</td>
+<td style="text-align:center">$\vec{E}=\dfrac{\lambda}{2\pi\varepsilon_0 r}\hat{n}$</td>
+<td style="text-align:center">$V=-\dfrac{\lambda}{2\pi\varepsilon_0} \ln(r/r_0)$</td>
+</tr>
+<tr>
+<td style="text-align:center">有限长带电直线</td>
+<td style="text-align:center">$E_x=\dfrac{\lambda}{4\pi\varepsilon_0 r}(\cos\theta_2+\cos\theta_1)$;$E_x=\dfrac{\lambda}{4\pi\varepsilon_0 r}(\sin\theta_2-\sin\theta_1)$</td>
+<td style="text-align:center">None</td>
+</tr>
+<tr>
+<td style="text-align:center">圆环</td>
+<td style="text-align:center">$\vec{E}=\dfrac{kqz}{(z^2+a^2)^{3/2}}\hat{z}$</td>
+<td style="text-align:center">$V=\dfrac{kq}{\sqrt{z^2+a^2}}$</td>
+</tr>
+<tr>
+<td style="text-align:center">无限长带电平面</td>
+<td style="text-align:center">$\vec{E}=\dfrac{\sigma}{2\varepsilon_0}\hat{n}$</td>
+<td style="text-align:center">None</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%94%B5%E5%AD%A6/">https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%94%B5%E5%AD%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/">电动力学</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%A3%81%E5%AD%A6/" title="静磁学"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">静磁学</div></div></a></div><div class="next-post pull-right"><a href="/2025/05/31/%E5%85%89%E5%AD%A6/%E5%88%86%E5%AD%90%E5%85%89%E5%AD%A6/" title="分子光学"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">分子光学</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%9B%B8%E5%AF%B9%E8%AE%BA/" title="相对论"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">相对论</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E8%BE%90%E5%B0%84/" title="电磁波的辐射"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">电磁波的辐射</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2/" title="电磁波"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">电磁波</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84/" title="麦克斯韦方程组"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">麦克斯韦方程组</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94/" title="电磁感应"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">电磁感应</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%A3%81%E5%AD%A6/" title="静磁学"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">静磁学</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">静电学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">电荷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">库仑定律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">电场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">高斯定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">电势</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">物质中的电场</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">导体中的电场</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.1.</span> <span class="toc-text">导体的电容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.2.</span> <span class="toc-text">静电能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">电介质中的电场</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.1.</span> <span class="toc-text">偶极子模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.2.</span> <span class="toc-text">极化强度和电极化率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.3.</span> <span class="toc-text">有电介质的高斯定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.4.</span> <span class="toc-text">有电介质的静电能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">静电学总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">附录</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%AF%9E%E7%94%9F/" title="量子力学的诞生"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学的诞生"/></a><div class="content"><a class="title" href="/2025/07/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%AF%9E%E7%94%9F/" title="量子力学的诞生">量子力学的诞生</a><time datetime="2025-07-12T02:20:38.000Z" title="发表于 2025-07-12 10:20:38">2025-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群论Content"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content">群论Content</a><time datetime="2025-07-01T12:00:56.000Z" title="发表于 2025-07-01 20:00:56">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="置换群"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群">置换群</a><time datetime="2025-07-01T12:00:37.000Z" title="发表于 2025-07-01 20:00:37">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="转动群"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群">转动群</a><time datetime="2025-07-01T12:00:28.000Z" title="发表于 2025-07-01 20:00:28">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群论与量子力学"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学">群论与量子力学</a><time datetime="2025-07-01T12:00:16.000Z" title="发表于 2025-07-01 20:00:16">2025-07-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

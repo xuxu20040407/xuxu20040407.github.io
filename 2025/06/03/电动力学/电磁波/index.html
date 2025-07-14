@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>电磁波 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从麦克斯韦方程组到波动方程\begin{align} \nabla\cdot\vec{E}&amp;&#x3D;\dfrac{\rho}{\varepsilon_0}\\ \nabla\cdot\vec{B}&amp;&#x3D;0\\ \nabla\times\vec{E}&amp;&#x3D;-\dfrac{\partial \vec{B}}{\partial t}\\ \nabla\times\vec{B}&amp;&#x3D;\mu_0 \vec{J}+\mu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电磁波">
+<meta property="og:url" content="https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="从麦克斯韦方程组到波动方程\begin{align} \nabla\cdot\vec{E}&amp;&#x3D;\dfrac{\rho}{\varepsilon_0}\\ \nabla\cdot\vec{B}&amp;&#x3D;0\\ \nabla\times\vec{E}&amp;&#x3D;-\dfrac{\partial \vec{B}}{\partial t}\\ \nabla\times\vec{B}&amp;&#x3D;\mu_0 \vec{J}+\mu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2025-06-03T10:55:46.000Z">
+<meta property="article:modified_time" content="2025-06-08T05:19:06.997Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="电动力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '电磁波',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-06-08 13:19:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">电磁波</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-03T10:55:46.000Z" title="发表于 2025-06-03 18:55:46">2025-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-08T05:19:06.997Z" title="更新于 2025-06-08 13:19:06">2025-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/">电动力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="电磁波"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="从麦克斯韦方程组到波动方程">从麦克斯韦方程组到波动方程</span></h1><script type="math/tex; mode=display">\begin{align}
+\nabla\cdot\vec{E}&=\dfrac{\rho}{\varepsilon_0}\\
+\nabla\cdot\vec{B}&=0\\
+\nabla\times\vec{E}&=-\dfrac{\partial \vec{B}}{\partial t}\\
+\nabla\times\vec{B}&=\mu_0 \vec{J}+\mu_0\varepsilon_0\dfrac{\partial \vec{E}}{\partial t}
+\end{align}</script><p>对式(3)取旋度：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\text{Left}&=\nabla\times(\nabla\times\vec{E})\\
+&=\nabla(\nabla\cdot\vec{E})-\nabla^2\vec{E}\\
+&=-\nabla^2\vec{E}\\
+\text{Right}&=\nabla\times\left(-\dfrac{\partial \vec{B}}{\partial t}\right)\\
+&=-\dfrac{\partial}{\partial t}(\nabla\times\vec{B})\\
+&=-\dfrac{\partial}{\partial t}\left(\mu_0 \vec{J}+\mu_0\varepsilon_0\dfrac{\partial \vec{E}}{\partial t}\right)\\
+&=-\mu_0\varepsilon_0\dfrac{\partial^2 \vec{E}}{\partial t^2}\\
+\end{aligned}</script><p>整理得：</p>
+<script type="math/tex; mode=display">\nabla^2\vec{E}=\mu_0\varepsilon_0\dfrac{\partial^2 \vec{E}}{\partial t^2}</script><p>同理，对式(4)取旋度：</p>
+<script type="math/tex; mode=display">\nabla^2\vec{B}=\mu_0\varepsilon_0\dfrac{\partial^2 \vec{B}}{\partial t^2}</script><p>这说明真空中的电场和磁场都满足波动方程，且速度为：</p>
+<script type="math/tex; mode=display">c=\dfrac{1}{\sqrt{\mu_0\varepsilon_0}}</script><h1><span id="电磁波的传播">电磁波的传播</span></h1><p>关于电磁波在电介质中的传播、反射、折射、吸收和色散，在光学专栏<a href="/2025/03/25/%E5%85%89%E5%AD%A6/%E8%A1%A8%E9%9D%A2%E5%85%89%E5%AD%A6/" title="表面光学">表面光学</a>和<a href="/2025/05/31/%E5%85%89%E5%AD%A6/%E5%88%86%E5%AD%90%E5%85%89%E5%AD%A6/" title="分子光学">分子光学</a>都有了详细的讨论，这里不再赘述。</p>
+<p>这里主要讨论电磁波在波导中的传播。所谓波导，就是一种使用导体限制电磁波传播的结构。为了方便讨论，假设波导内部为真空。</p>
+<p>导体对电磁波的边界条件限制为：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\vec{E}^{\parallel}=0\\
+\vec{B}^{\perp}=0
+\end{cases}</script><p>我们对沿着轴向（设为z轴）传播的单色光感兴趣，设电场和磁场的形式为：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\vec{E}=\vec{E}_0(x,y) e^{i(kz-\omega t)}\\
+\vec{B}=\vec{B}_0(x,y) e^{i(kz-\omega t)}
+\end{cases}</script><p>经过数学运算，可以得到关于$E_z$和$B_z$的方程：</p>
+<script type="math/tex; mode=display">\begin{cases}
+\nabla^2 E_z+\left(\dfrac{\omega^2}{c^2}-k^2\right)E_z=0\\
+\nabla^2 B_z+\left(\dfrac{\omega^2}{c^2}-k^2\right)B_z=0
+\end{cases}</script><p>求出$E_z$和$B_z$的解后，可以通过下式求得另外两个分量:</p>
+<script type="math/tex; mode=display">\begin{cases}
+E_x=\dfrac{i}{(\omega/c)^2-k^2}\left(k\dfrac{\partial E_z}{\partial x}+\omega\dfrac{\partial B_z}{\partial y}\right)\\
+E_y=\dfrac{i}{(\omega/c)^2-k^2}\left(k\dfrac{\partial E_z}{\partial y}-\omega\dfrac{\partial B_z}{\partial x}\right)\\
+B_x=\dfrac{i}{(\omega/c)^2-k^2}\left(k\dfrac{\partial B_z}{\partial x}-\dfrac{\omega}{c^2}\dfrac{\partial E_z}{\partial y}\right)\\
+B_y=\dfrac{i}{(\omega/c)^2-k^2}\left(k\dfrac{\partial B_z}{\partial y}+\dfrac{\omega}{c^2}\dfrac{\partial E_z}{\partial x}\right)
+\end{cases}</script><p>边界条件可以转化为：</p>
+<script type="math/tex; mode=display">\begin{cases}
+E_x|_{y}=0,E_y|_{x}=0,E_z|_{xy}=0\\
+B_x|_x=0,B_y|_y=0
+\end{cases}</script><p>其中$|_{i}$表示在导体在i轴边界上的值。</p>
+<p>如果$E_z=0$，则称为TE波（横电波），如果$B_z=0$，则称为TM波（横磁波）。可以证明，在中空波导中，TEM波（横电磁波）不存在。</p>
+<h2><span id="矩形波导的te波">矩形波导的TE波</span></h2><p>设矩形波导在x轴的长度为a，在y轴的长度为b：</p>
+<script type="math/tex; mode=display">B_z(x,y)=X(x)Y(y)</script><p>通过边界条件$B_x|_{x=0,x=a}=0$和$B_y|_{y=0,y=b}=0$，可以得到：</p>
+<script type="math/tex; mode=display">B_z(x,y)=B_0\cos\left(\dfrac{m\pi x}{a}\right)\cos\left(\dfrac{n\pi y}{b}\right)</script><p>这里使用到了$B_x\propto\frac{dB_z}{dy}$和$B_y\propto\frac{dB_z}{dx}$。</p>
+<p>显然，波数为：</p>
+<script type="math/tex; mode=display">k_x=\dfrac{m\pi}{a}, k_y=\dfrac{n\pi}{b},k_z=\sqrt{\left(\dfrac{\omega}{c}\right)^2-k_x^2-k_y^2}</script><p>必须满足：</p>
+<script type="math/tex; mode=display">\omega>c\sqrt{k_x^2+k_y^2}=\omega_{mn}</script><p>所以$\omega_{mn}$是TE波在$TE_{mn}$模式的截止频率。最低的模式为$TE_{01}$，因为如果$m=n=0$，则$B_z=Const$，与$\nabla\times \vec{E}=0$相悖。</p>
+<h2><span id="矩形波导的tm波">矩形波导的TM波</span></h2><script type="math/tex; mode=display">E_z(x,y)=X(x)Y(y)</script><p>通过边界条件$E_x|_{y}=0,E_y|_{x}=0,E_z|_{xy}=0$，可以得到：</p>
+<script type="math/tex; mode=display">E_z(x,y)=E_0\sin\left(\dfrac{m\pi x}{a}\right)\sin\left(\dfrac{n\pi y}{b}\right)</script><p>可以验证，$E_x\propto\frac{dE_z}{dx}$和$E_y\propto\frac{dE_z}{dy}$在边界也满足条件。</p>
+<p>TM波的最低模为$TM_{11}$。当$m=0$或$n=0$时，$E_z=0$，退化为TEM波。</p>
+<h1><span id="谐振腔">谐振腔</span></h1><p>为产生并加强特定频率的电磁波，通常采用具有金属壁面的谐振腔，通过控制谐振腔线度条件来产生特定波长的驻波，其余的的波长则被抑制减弱。</p>
+<p>以矩形谐振腔为例。设谐振腔的长、宽、高分别为$a$、$b$、$c$，则谐振腔的模式为：</p>
+<script type="math/tex; mode=display">\begin{cases}
+E_x=A_x\cos(k_xx)\sin(k_yy)\sin(k_zz)\\
+E_y=A_y\sin(k_xx)\cos(k_yy)\sin(k_zz)\\
+E_z=A_z\sin(k_xx)\sin(k_yy)\cos(k_zz)\\
+\end{cases}</script><p>为了满足无散条件，必须满足：</p>
+<script type="math/tex; mode=display">k_xA_x+k_yA_y+k_zA_z=0</script><p>本征频率有亥姆霍兹方程给出：</p>
+<script type="math/tex; mode=display">\omega_{xyz}=\sqrt{\left(\dfrac{m\pi}{a}\right)^2+\left(\dfrac{n\pi}{b}\right)^2+\left(\dfrac{p\pi}{c}\right)^2}c</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2/">https://xuxu20040407.github.io/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/">电动力学</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E8%BE%90%E5%B0%84/" title="电磁波的辐射"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">电磁波的辐射</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84/" title="麦克斯韦方程组"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">麦克斯韦方程组</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%9B%B8%E5%AF%B9%E8%AE%BA/" title="相对论"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">相对论</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%B3%A2%E7%9A%84%E8%BE%90%E5%B0%84/" title="电磁波的辐射"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">电磁波的辐射</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84/" title="麦克斯韦方程组"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">麦克斯韦方程组</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94/" title="电磁感应"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">电磁感应</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%A3%81%E5%AD%A6/" title="静磁学"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">静磁学</div></div></a></div><div><a href="/2025/06/03/%E7%94%B5%E5%8A%A8%E5%8A%9B%E5%AD%A6/%E9%9D%99%E7%94%B5%E5%AD%A6/" title="静电学"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-03</div><div class="title">静电学</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">从麦克斯韦方程组到波动方程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">电磁波的传播</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">矩形波导的TE波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">矩形波导的TM波</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">谐振腔</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%AF%9E%E7%94%9F/" title="量子力学的诞生"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学的诞生"/></a><div class="content"><a class="title" href="/2025/07/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%AF%9E%E7%94%9F/" title="量子力学的诞生">量子力学的诞生</a><time datetime="2025-07-12T02:20:38.000Z" title="发表于 2025-07-12 10:20:38">2025-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群论Content"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content">群论Content</a><time datetime="2025-07-01T12:00:56.000Z" title="发表于 2025-07-01 20:00:56">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="置换群"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群">置换群</a><time datetime="2025-07-01T12:00:37.000Z" title="发表于 2025-07-01 20:00:37">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="转动群"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群">转动群</a><time datetime="2025-07-01T12:00:28.000Z" title="发表于 2025-07-01 20:00:28">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群论与量子力学"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学">群论与量子力学</a><time datetime="2025-07-01T12:00:16.000Z" title="发表于 2025-07-01 20:00:16">2025-07-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>群的基本概念 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="群的定义 群的例子   子群和陪集 子群和陪集的例子   类与不变子群 类与不变子群的例子   同构和同态 同构和同态的例子   变换群 变换群的例子   直积  群的定义定义：设群（group）$G$是一些元素（操作）的集合，记为$G&#x3D;\{\cdots,g,\cdots\}$，在$G$中定义了乘法运算，且满足：  封闭性：两个元素的乘积仍然属于这个集合，即： \forall g_1,g_2\i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群的基本概念">
+<meta property="og:url" content="https://xuxu20040407.github.io/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="群的定义 群的例子   子群和陪集 子群和陪集的例子   类与不变子群 类与不变子群的例子   同构和同态 同构和同态的例子   变换群 变换群的例子   直积  群的定义定义：设群（group）$G$是一些元素（操作）的集合，记为$G&#x3D;\{\cdots,g,\cdots\}$，在$G$中定义了乘法运算，且满足：  封闭性：两个元素的乘积仍然属于这个集合，即： \forall g_1,g_2\i">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover5.jpeg">
+<meta property="article:published_time" content="2025-07-01T11:56:15.000Z">
+<meta property="article:modified_time" content="2025-07-14T14:26:08.092Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="群论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover5.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '群的基本概念',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-07-14 22:26:08'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover5.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">群的基本概念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-01T11:56:15.000Z" title="发表于 2025-07-01 19:56:15">2025-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-14T14:26:08.092Z" title="更新于 2025-07-14 22:26:08">2025-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BE%A4%E8%AE%BA/">群论</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="群的基本概念"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#群的定义">群的定义</a><ul>
+<li><a href="#群的例子">群的例子</a></li>
+</ul>
+</li>
+<li><a href="#子群和陪集">子群和陪集</a><ul>
+<li><a href="#子群和陪集的例子">子群和陪集的例子</a></li>
+</ul>
+</li>
+<li><a href="#类与不变子群">类与不变子群</a><ul>
+<li><a href="#类与不变子群的例子">类与不变子群的例子</a></li>
+</ul>
+</li>
+<li><a href="#同构和同态">同构和同态</a><ul>
+<li><a href="#同构和同态的例子">同构和同态的例子</a></li>
+</ul>
+</li>
+<li><a href="#变换群">变换群</a><ul>
+<li><a href="#变换群的例子">变换群的例子</a></li>
+</ul>
+</li>
+<li><a href="#直积">直积</a></li>
+</ul>
+<h1><span id="群的定义">群的定义</span></h1><p><strong>定义</strong>：设群（group）$G$是一些元素（操作）的集合，记为$G=\{\cdots,g,\cdots\}$，在$G$中定义了乘法运算，且满足：</p>
+<ul>
+<li><p><em>封闭性</em>：两个元素的乘积仍然属于这个集合，即：</p>
+<script type="math/tex; mode=display">\forall g_1,g_2\in G,\quad g_1g_2\in G</script></li>
+<li><p><em>结合律</em>：乘法运算满足结合律，即：</p>
+<script type="math/tex; mode=display">\forall g_1,g_2,g_3\in G,\quad (g_1g_2)g_3 = g_1(g_2g_3)</script></li>
+<li><p><em>单位元存在</em>：存在单位元$e\in G$，使得：</p>
+<script type="math/tex; mode=display">\forall g\in G,\quad eg = ge = g</script></li>
+<li><p><em>逆元存在</em>：对于每个元素$g\in G$，存在逆元$g^{-1}\in G$，使得：</p>
+<script type="math/tex; mode=display">gg^{-1} = g^{-1}g = e</script></li>
+</ul>
+<p><strong>注意</strong>：群的定义中<strong>没有</strong>包含交换律。这意味着：</p>
+<ul>
+<li>对于任意两个元素$g_1,g_2\in G$，由封闭性可知$g_1g_2\in G$且$g_2g_1\in G$</li>
+<li>但一般情况下$g_1g_2 \neq g_2g_1$</li>
+<li>如果群$G$中的所有元素都满足交换律，即$\forall g_1,g_2\in G, g_1g_2 = g_2g_1$，则称$G$为<strong>阿贝尔群</strong>（Abel群）或<strong>交换群</strong></li>
+</ul>
+<p><strong>定义</strong>：群内元素的个数称为<strong>阶</strong>（order），记为$|G|$。根据阶的有限和无限，群可以分为<strong>有限群</strong>和<strong>无限群</strong>。</p>
+<p><strong>重排定理</strong>：$G=\{g_\alpha\},\forall u\in G$，当$g_\alpha$取遍$G$时，$ug_\alpha$也取遍$G$。即：</p>
+<script type="math/tex; mode=display">\forall u\in G,\quad \{ug_\alpha\} = G</script><h2><span id="群的例子">群的例子</span></h2><ol>
+<li><p><strong>整数加法群</strong> $(\mathbb{Z}, +)$：所有整数在加法运算下构成阿贝尔群</p>
+<ul>
+<li>封闭性：$a + b \in \mathbb{Z}$</li>
+<li>结合律：$(a + b) + c = a + (b + c)$</li>
+<li>单位元：$0$</li>
+<li>逆元：$a$的逆元是$-a$</li>
+<li>交换律：$a + b = b + a$<blockquote>
+<p>注意，这里的加法就是定义的“乘法”。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>矩阵群</strong> $GL(n,\mathbb{R})$：$n\times n$可逆实矩阵在矩阵乘法下构成非交换群</p>
+<ul>
+<li>一般情况下$AB \neq BA$</li>
+</ul>
+</li>
+<li><p><strong>空间反演群</strong> $\{E,I\}$：包含单位元$E$和反演元$I$，满足$EI = IE = I^2 = E$</p>
+<ul>
+<li>封闭性：$E,E \in \{E,I\}$，$EI = I, IE = I$</li>
+<li>结合律：$(EI)I = E(II)$</li>
+<li>单位元：$E$</li>
+<li>逆元：$E^{-1} = E,I^{-1} = I$ </li>
+</ul>
+</li>
+<li><strong>置换群</strong> $P_n$：$n$个元素的所有置换构成的群，每个元素定义为：<script type="math/tex; mode=display">P=\begin{pmatrix}
+1 & 2 & \cdots & n \\
+\sigma(1) & \sigma(2) & \cdots & \sigma(n)
+\end{pmatrix}</script>其中$\sigma$是一个置换，满足$\sigma: \{1,2,\ldots,n\} \to \{1,2,\ldots,n\}$且是双射。<ul>
+<li>封闭性：两个置换的复合仍然是一个置换</li>
+<li>结合律：<script type="math/tex; mode=display">\begin{aligned}
+\sigma_{m_3m_2}(\sigma_{m_2m_1}(m_1))&=\sigma_{m_3m_2}(m_2)=m_3\\
+\sigma_{m_3m_2}(\sigma_{m_2m_1})(m_1)&=\sigma_{m_3m_1}(m_1)=m_3
+\end{aligned}</script><ul>
+<li>单位元：恒等置换：<script type="math/tex; mode=display">P=\begin{pmatrix}
+ 1 & 2 & \cdots & n \\
+ 1 & 2 & \cdots & n
+ \end{pmatrix}</script></li>
+<li>逆元：<script type="math/tex; mode=display">P=\begin{pmatrix}
+ 1 & 2 & \cdots & n \\
+ \sigma(1) & \sigma(2) & \cdots & \sigma(n)
+ \end{pmatrix}\Leftrightarrow P^{-1}=\begin{pmatrix}
+ \sigma(1) & \sigma(2) & \cdots & \sigma(n)\\1 & 2 & \cdots & n
+ \end{pmatrix}</script></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>置换群在全同粒子的处理中会用到。</p>
+</blockquote>
+<h1><span id="子群和陪集">子群和陪集</span></h1><p><strong>定义</strong>：设$H$是群$G$的一个子集，如果$H$在$G$中关于乘法运算封闭，并且满足群的所有公理，则称$H$为$G$的<strong>子群</strong>（subgroup）。</p>
+<p><strong>注意</strong>：任何群$G$都有平凡子群$\{e\}$和自身$G$。</p>
+<p><strong>定义</strong>：设$H$是群$G$的一个子群，$g\in G$，则$gH=\{gh|h\in H\}$称为$H$在$g$下的<strong>左陪集</strong>（left coset），$Hg=\{hg|h\in H\}$称为$H$在$g$下的<strong>右陪集</strong>（right coset）。</p>
+<ul>
+<li>显然，g构造了一个双射，因为如果$gh_1=gh_2$，由逆元知：<script type="math/tex; mode=display">gh_1=gh_2\Rightarrow h_1=h_2</script>这意味着陪集和子群的元素一一对应。</li>
+<li>那么显然，子群的阶就是陪集的阶（如果它也是个群的话），即$|gH|=|H|$和$|Hg|=|H|$。</li>
+<li>显然，如果$g\in H$，则$gH=H$和$Hg=H$。</li>
+</ul>
+<p><strong>陪集定理</strong>：如果$H$是$G$的子群，则$G$的两个左（右）陪集要么完全相同，要么完全不同。</p>
+<blockquote>
+<p>证明：若非完全不同，则意味着有公共元素$g_1h=g_2h’$，则：</p>
+<script type="math/tex; mode=display">(g_1h)H=(g_2h')H\Rightarrow g_1H=g_2H</script><p>这说明两个左陪集相同。右陪集同理。</p>
+<p>陪集定理告诉我们，可以通过陪集来分割群$G$:</p>
+<script type="math/tex; mode=display">G=H\cup g_1H\cup g_2H\cup \cdots \cup g_kH</script></blockquote>
+<p><strong>Lagrange定理</strong>：有限群子群的阶，是群的阶的因子。</p>
+<blockquote>
+<p>这也是由上述的陪集分割告诉我们的：$|G|=(k+1)|H|$</p>
+</blockquote>
+<h2><span id="子群和陪集的例子">子群和陪集的例子</span></h2><ol>
+<li><strong>n阶循环群</strong>：<ul>
+<li>定义：$G=\{e,g,g^2,\ldots,g^{n-1}\}$，其中$g^n=e$，$g^k$表示$g$的第$k$次幂。</li>
+<li>子群：例如$n=6$，$\{e\}, \{e,g^2,g^4\}, \{e,g^3\}, G$是子群。显然，$1,2,3,6$都是$6$的因子。</li>
+<li>陪集：对于$g\in G$，$\{e,g^2,g^4\}$的左陪集$\{g,g^3,g^5\}$和右陪集$\{g^5,g,g^3\}$都是相同的。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>对于任意群，总可以将其变为一个$n$阶循环群。</p>
+</blockquote>
+<ol>
+<li>整数是实数的子群。</li>
+</ol>
+<h1><span id="类与不变子群">类与不变子群</span></h1><p><strong>定义</strong>：$\forall f,h\in G$，如果群中存在一个$g$，通过</p>
+<script type="math/tex; mode=display">gfg^{-1}=h</script><p>将二者联系起来，称$f,h$共轭，记为$f\sim h$。</p>
+<ul>
+<li><strong>相互性</strong>：$f\sim h \Rightarrow h\sim f$。</li>
+<li><strong>传递性</strong>：$f\sim h, h\sim k \Rightarrow f\sim k$。</li>
+</ul>
+<p><strong>定义</strong>：群$G$中所有相互共轭的元素形成的集合，称为$G$的一个类。</p>
+<ul>
+<li>单位元自成一类：$\forall g\in G,geg^{-1}=e$</li>
+<li>Abel群的所有元素自成一类：$\forall f,g \in G,gfg^{-1}=gg^{-1}f=f$</li>
+<li>元素$f$的阶为$m$，则同类的元素阶也为$m$</li>
+<li><strong>定理</strong>：有限群的每个类中元素的个数都是群阶的因子。</li>
+</ul>
+<p><strong>定义</strong>：$H$是$G$的子群，如果$H$中所有元素的同类元素都属于$H$，则称$H$是$G$的<strong>不变子群</strong>（正规子群）。记为$H\lhd G$。</p>
+<ul>
+<li><strong>定理</strong>：$\forall f\in G$，当$h$取遍$H$的所有元素的时候，$fhf^{-1}$一一给出$H$的所有元素，即：<br>$$\forall f\in G,\{fhf^{-1}, h\in H\}=\{h, h\in H\}</li>
+<li>可以记为：<script type="math/tex; mode=display">fHf^{-1}=H\Rightarrow fH=Hf</script>这说明不变子群的左陪集和右陪集重合。</li>
+</ul>
+<blockquote>
+<p>利用左右陪集相同的定理，可以对G进行分割，分割后所有陪集的集合（注意，是集合的集合）称为商群：</p>
+<script type="math/tex; mode=display">G/H=\{gH|g\in G\}=\{H,g_1H,\cdots,g_kH\}</script><ul>
+<li><strong>单位元</strong>：$H$是商群的单位元</li>
+<li><strong>逆元</strong>：$gH$的逆元是$g^{-1}H$</li>
+<li><strong>封闭性</strong>：$(g_1H)(g_2H)=(g_1g_2)H\in G/H$，其中$g_1,g_2\in G$。</li>
+<li><strong>结合律</strong>：$(g_1Hg_2H)g_3H=g_1H(g_2Hg_3H)$</li>
+</ul>
+</blockquote>
+<h2><span id="类与不变子群的例子">类与不变子群的例子</span></h2><ol>
+<li>整数群是实数群的子群，且由于$a+n-a=n$，他是个不变子群。</li>
+</ol>
+<h1><span id="同构和同态">同构和同态</span></h1><p><strong>定义</strong>：从群$G$到群$F$上，存在双射$\Phi$，且保持群乘法运算规律不变，即$\Phi(g_ig_j)=\Phi(g_i)\Phi(g_j)$，则称群$G$和群$F$同构，记作$G\cong F$。</p>
+<ul>
+<li>同构映射必定把单位元素映射到单位元素，即$\Phi(e_G)=e_F$。</li>
+<li>同构映射必定把逆元映射到逆元，即$\Phi(g^{-1})=\Phi(g)^{-1}$。</li>
+<li>同构映射不改变元素的阶，即$\forall g\in G,\quad \Phi(g^n)=\Phi(g)^n$。</li>
+</ul>
+<blockquote>
+<p>若不要求双射，则称为<strong>同态</strong>（homomorphism），记作$G\sim F$。单射对应单同态，满射对应满同态。</p>
+</blockquote>
+<p><strong>定义</strong>：设$G\sim F$，则$G$中与$F$的单位元素对应的所有元素的集合称为<strong>同态核</strong>，记为$\ker \varphi$。</p>
+<ul>
+<li><strong>同态核定理</strong>：同态核$H$是$G$的一个不变子群，且商群$G/H$同构于$F$，即：<script type="math/tex; mode=display">H\lhd G,\quad G/H\cong F</script></li>
+</ul>
+<blockquote>
+<p>这说明现在我们可以通过同态核来分割群：</p>
+<script type="math/tex; mode=display">G=\ker \varphi \cup g_1\ker \varphi \cup g_2\ker \varphi \cup \cdots \cup g_k\ker \varphi</script></blockquote>
+<p><strong>定义</strong>：群到自身的同构映射，称为自同构映射，即</p>
+<script type="math/tex; mode=display">\nu:G\to G,\forall g\in G,\nu(g)\in G</script><p>显然其满足乘法规律，并且存在单位元和逆元，所以所有自同构映射组成一个群，称为自同构群，记为$\text{Aut}G$。</p>
+<p><strong>定义</strong>：如果我们明确上述$\nu$映射的规则，如伴随作用（定义见下），即：</p>
+<script type="math/tex; mode=display">\nu:G\to G,\forall u\in G,\nu_u(g)=ugu^{-1}\in G</script><p>称为内自同构群，记为$\text{Inn}G$。</p>
+<blockquote>
+<p>伴随作用后的群元仍属于$G$，是由于群本身的封闭性。</p>
+</blockquote>
+<h2><span id="同构和同态的例子">同构和同态的例子</span></h2><ol>
+<li>空间反演群和二阶循环群同构。</li>
+</ol>
+<h1><span id="变换群">变换群</span></h1><p><strong>定义</strong>：对于集合$X=\{x_1,x_2,\ldots,x_n\}$，其所有的双射置换$f(x)=y\in X$构成的群称为<strong>变换群</strong>（transformation group），记作$S_G$。</p>
+<blockquote>
+<p>以$X=\{1,2\}$为例，显然其上的置换有4个：</p>
+<ul>
+<li>$\tau_1:1\to 1,2\to 2$（恒等置换）</li>
+<li>$\tau_2:1\to 2,2\to 1$</li>
+<li>$\tau_3:1\to 1,2\to 1$</li>
+<li>$\tau_4:1\to 2,2\to 2$</li>
+</ul>
+<p>我们考虑以上四个置换是否构成一个群：</p>
+<ul>
+<li><strong>单位元</strong>：恒等置换$\tau_1$是单位元，满足$\tau_1 \circ \tau_i = \tau_i \circ \tau_1 = \tau_i$。</li>
+<li><strong>逆元</strong>：并不满足，后面两个没有逆元。</li>
+<li><strong>封闭性</strong>：任意两个置换的复合仍然是一个置换，这点在前面已经证明。</li>
+<li><strong>结合律</strong>：任意三个置换的复合仍然满足结合律。</li>
+</ul>
+<p>所以，要构成一个群，必须让置换是一个双射，即每个元素都有唯一的像和原像。这样才能保证逆元的存在。</p>
+</blockquote>
+<p><strong>定义</strong>：</p>
+<ul>
+<li><strong>左作用</strong>：$\forall g,g’\in G$，定义左作用$L_g:G\to G$，效果为$L_gg’=gg’$</li>
+<li><strong>右作用</strong>：$\forall g,g’\in G$，定义左作用$R_g:G\to G$，效果为$R_gg’=g’g^{-1}$</li>
+<li><strong>伴随作用</strong>：$\forall g,g’\in G$，定义左作用$\text{Ad}_g:G\to G$，效果为$\text{Ad}_gg’=gg’g^{-1}$</li>
+</ul>
+<blockquote>
+<p>右作用因为是右乘逆元，所以才能保持乘法结构：</p>
+<script type="math/tex; mode=display">R_{g_1g_2}=R_{g_1}R_{g_2}</script><p>显然：</p>
+<ul>
+<li>$L_g$和$R_g$本身是同构映射。</li>
+<li>$\{L_g|g\in G\}$和$\{R_g|g\in G\}$在上述定义下分别构成两个群，且与$G$同构。</li>
+<li>但$\{L_g|g\in G\}$和$\{R_g|g\in G\}$并不是$G\to S_G$的同构映射，因为$S_G$还存在很多其他的置换。</li>
+</ul>
+<p>上述讨论引出了：</p>
+<p><strong>Cayley定理</strong>：群$G$同构于其变换群$S_G$的一个子群，比如$\{L_g|g\in G\}$。</p>
+</blockquote>
+<p><strong>定义</strong>：若$\exist g\in G,g(x_i)=x_j$，则称$x_i$和$x_j$是<strong>等价的</strong>（equivalent），记为$x_i\sim x_j$。</p>
+<blockquote>
+<p>显然，等价和共轭具有相似性，因而也具有对称性和传递性。</p>
+</blockquote>
+<p><strong>定义</strong>：所有在群$G$作用下和$x$等价的元素构成一个<strong>变换群轨道</strong>（orbit），记为$O^G_x=\{g(x)|g\in G\}$。这似乎有点像等价类的概念。不同的轨道绝不相交，因为一旦相交，即可通过传递性得到两个轨道相等。（这和陪集定理很像，因为陪集本身就是轨道）</p>
+<blockquote>
+<p>通过以上性质，可以通过轨道将群进行划分，从而得到不变子集。不变子群就是在伴随作用$\text{Ad}_g$下（或者说内自同构群$\text{Inn}G$变换下）的不变子集。</p>
+</blockquote>
+<p><strong>定义</strong>：所有在群$G$作用下和$x$相等的元素构成一个<strong>迷向子群</strong>（Stabilizer Subgroup），记为$G_x=\{g\in G|g(x)=x\}$。显然，迷向子群是一个不变子群。</p>
+<p><strong>定理</strong>：设$G_x$是群$G$在$x$上的迷向子群，则$G_x$的每一个陪集将$x$映射到其轨道上的一个点。用同构的语言描述：</p>
+<script type="math/tex; mode=display">G/G_x\cong O^G_x</script><p>可以直接写出群元素数$|G|$、轨道中的点数$|O^G_x|$和迷向子群的阶$|G_x|$之间的关系：</p>
+<script type="math/tex; mode=display">|G|=|O^G_x||G_x|</script><h2><span id="变换群的例子">变换群的例子</span></h2><p>以$D_3$群为例，$D_3$群是一个六阶的群，包含三个旋转操作和三个反射操作。作用在一个正三角形上，六个操作都会使得$A,B,C$的位置互换。不难发现，$A$的迷向子群为：</p>
+<script type="math/tex; mode=display">A\to A:G_A=\{E,B_1\}</script><p>该迷向子群的两个陪集分别为（不会有更多的陪集了，我们上面讨论了陪集划分）：</p>
+<script type="math/tex; mode=display">A\to C:C_3^1G_A=\{C_3^1,B_2\};\quad A\to B:C_3^2G_A=\{C_3^2,B_3\}</script><p>显然，$A$的轨道为$O^G_A=\{A,B,C\}$，这和上面的定理一致：</p>
+<script type="math/tex; mode=display">|D_3|=|O^G_A||G_A|\Rightarrow 6=3\times 2</script><p><img src="\img\群论\D3群.png" alt="alt"></p>
+<h1><span id="直积">直积</span></h1><p><strong>定义</strong>：设$G_1,G_2,\ldots,G_n$是$n$个群，则它们的直积群$G_1\times G_2\times\cdots\times G_n$是所有形式为$(g_1,g_2,\ldots,g_n)$的元素的集合，其中$g_i\in G_i$，并且定义乘法运算为：</p>
+<script type="math/tex; mode=display">(g_1,g_2,\ldots,g_n)(h_1,h_2,\ldots,h_n) = (g_1h_1,g_2h_2,\ldots,g_nh_n),g_ih_i\in G_i</script><ul>
+<li><strong>单位元</strong>：$(e_1,e_2,\ldots,e_n)$，其中$e_i$是$G_i$的单位元。</li>
+<li><strong>逆元</strong>：$(g_1,g_2,\ldots,g_n)$的逆元是$(g_1^{-1},g_2^{-1},\ldots,g_n^{-1})$，其中$g_i^{-1}$是$G_i$的逆元。</li>
+<li><strong>封闭性</strong>：在乘法运算中已被定义。</li>
+<li><strong>结合律</strong>：任意三个元素的乘积仍然满足结合律。</li>
+</ul>
+<blockquote>
+<p>这里对直积，张量积和直和做个对比，其中后两者的矩阵表示更为直观，所以对于直积，也像模像样放个矩阵表示：</p>
+<p><strong>直积</strong>：</p>
+<script type="math/tex; mode=display">A\times B=(A,B)=\begin{bmatrix}
+(a_{11},b_{11}) & (a_{12},b_{21}) & \cdots & (a_{1n},b_{mn}) \\
+(a_{21},b_{11}) & (a_{22},b_{21}) & \cdots & (a_{2n},b_{mn}) \\
+\vdots & \vdots & \ddots & \vdots \\
+(a_{m1},b_{11}) & (a_{m2},b_{21}) & \cdots & (a_{mn},b_{mn})
+\end{bmatrix}</script><p><strong>张量积</strong>：</p>
+<script type="math/tex; mode=display">A_{m\times n}\otimes B_{k\times l}=\begin{bmatrix}
+a_{11}B & a_{12}B & \cdots & a_{1n}B \\
+a_{21}B & a_{22}B & \cdots & a_{2n}B \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1}B & a_{m2}B & \cdots & a_{mn}B
+\end{bmatrix}_{mk\times nl}</script><p><strong>直和</strong>：</p>
+<script type="math/tex; mode=display">A\oplus B=\begin{bmatrix}
+A&0 \\
+0&B
+\end{bmatrix}</script></blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">https://xuxu20040407.github.io/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BE%A4%E8%AE%BA/">群论</a></div><div class="post_share"><div class="social-share" data-image="/img/cover5.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论"><img class="cover" src="/img/cover2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">群表示论</div></div></a></div><div class="next-post pull-right"><a href="/2025/06/25/%E5%8E%9F%E5%AD%90%E7%89%A9%E7%90%86/%E5%A4%9A%E7%94%B5%E5%AD%90%E5%8E%9F%E5%AD%90/" title="多电子原子"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">多电子原子</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">群论Content</div></div></a></div><div><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">置换群</div></div></a></div><div><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">转动群</div></div></a></div><div><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">群论与量子力学</div></div></a></div><div><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%82%B9%E7%BE%A4%E4%B8%8E%E7%A9%BA%E9%97%B4%E7%BE%A4/" title="点群与空间群"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">点群与空间群</div></div></a></div><div><a href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">群表示论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">119</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">群的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">群的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">子群和陪集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">子群和陪集的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">类与不变子群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">类与不变子群的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">同构和同态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">同构和同态的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">变换群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">变换群的例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">直积</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%AF%9E%E7%94%9F/" title="量子力学的诞生"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学的诞生"/></a><div class="content"><a class="title" href="/2025/07/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E8%AF%9E%E7%94%9F/" title="量子力学的诞生">量子力学的诞生</a><time datetime="2025-07-12T02:20:38.000Z" title="发表于 2025-07-12 10:20:38">2025-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群论Content"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BAContent/" title="群论Content">群论Content</a><time datetime="2025-07-01T12:00:56.000Z" title="发表于 2025-07-01 20:00:56">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="置换群"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BD%AE%E6%8D%A2%E7%BE%A4/" title="置换群">置换群</a><time datetime="2025-07-01T12:00:37.000Z" title="发表于 2025-07-01 20:00:37">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="转动群"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E8%BD%AC%E5%8A%A8%E7%BE%A4/" title="转动群">转动群</a><time datetime="2025-07-01T12:00:28.000Z" title="发表于 2025-07-01 20:00:28">2025-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="群论与量子力学"/></a><div class="content"><a class="title" href="/2025/07/01/%E7%BE%A4%E8%AE%BA/%E7%BE%A4%E8%AE%BA%E4%B8%8E%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/" title="群论与量子力学">群论与量子力学</a><time datetime="2025-07-01T12:00:16.000Z" title="发表于 2025-07-01 20:00:16">2025-07-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
