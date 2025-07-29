@@ -1,5 +1,5 @@
 ---
-title: 固体物理Content
+title: 固体物理绪论
 mathjax: true
 date: 2025-02-22 09:08:42
 tags: 固体物理
@@ -29,7 +29,7 @@ $$H_n=\sum_n\frac{\vec{p_n}^2}{2M_n}+\frac12\sum_{n\neq m}\frac{Z_nZ_m e^2}{|\ve
 因而可以忽略电子求解声子的运动： {% post_link '固体物理/晶格动力学' %} 。
 
 绝热近似中电子离子相互作用被归为电子的哈密顿项：
-$$H_e=\sum_i\frac{\vec{p_i}^2}{2m_e}+\frac12\sum_{i\neq j}\frac{e^2}{|\vec{r_i}-\vec{r_j}|}+\sum_n\frac{eZ_n}{|\vec{r_i}-\vec{R_n}|}$$
+$$H_e=\sum_i\frac{\vec{p_i}^2}{2m_e}+\frac12\sum_{i\neq j}\frac{e^2}{|\vec{r_i}-\vec{r_j}|}+\sum_{i,n}\frac{eZ_n}{|\vec{r_i}-\vec{R_n}|}$$
 
 如果不考虑电子电子相互作用和电子离子相互作用，则电子的行为类似金属中退局域的电子，可以建立**Drude模型**和**Sommerfeld模型**，推导出 {% post_link '固体物理/金属电子论' %} 中的一些性质。
 

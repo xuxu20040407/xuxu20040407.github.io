@@ -7,6 +7,17 @@ categories: 固体物理
 cover:
 ---
 
+- [Bloch电子动力学](#bloch电子动力学)
+  - [Bloch电子的速度](#bloch电子的速度)
+  - [半经典模型](#半经典模型)
+- [恒定电场磁场中Bloch电子的运动](#恒定电场磁场中bloch电子的运动)
+  - [恒定电场](#恒定电场)
+  - [恒定磁场](#恒定磁场)
+  - [霍尔效应](#霍尔效应)
+    - [单能带模型](#单能带模型)
+    - [双能带模型](#双能带模型)
+
+
 在能带论的基础上，我们不再满足经典的Drude模型和Sommerfeld模型，而是希望基于能带论建立半经典模型。
 
 # Bloch电子动力学
@@ -23,7 +34,6 @@ $$\begin{aligned}
 \Rightarrow& -\frac{\hbar^2}{2m}\nabla^2e^{i\vec{k}\cdot\vec{r}}u_k^n(\vec{r})=\left[E_n(k)-V(\vec{r})\right]e^{i\vec{k}\cdot\vec{r}}u_k^n(\vec{r})\\
 \Rightarrow& -\frac{\hbar^2}{2m}\left[-\vec{k}^2e^{i\vec{k}\cdot\vec{r}}u_k^n(\vec{r})+2i\vec{k}e^{i\vec{k}\cdot\vec{r}}\nabla u_k^n(\vec{r})+e^{i\vec{k}\cdot\vec{r}}\nabla^2u_k^n(\vec{r})\right]=\left[E_n(k)-V(\vec{r})\right]e^{i\vec{k}\cdot\vec{r}}u_k^n(\vec{r})\\
 \Rightarrow& -\frac{\hbar^2}{2m}\left[-\vec{k}^2u_k^n(\vec{r})+2i\vec{k}\nabla u_k^n(\vec{r})+\nabla^2u_k^n(\vec{r})\right]=\left[E_n(k)-V(\vec{r})\right]u_k^n(\vec{r})\\
-\Rightarrow& -\frac{\hbar^2}{2m}\left[\nabla+i\vec{k}\right]^2 u_k^n(\vec{r})=\left[E_n(k)-V(\vec{r})\right]u_k^n(\vec{r})\\
 \Rightarrow& -\frac{\hbar^2}{2m}\left[\nabla+i\vec{k}\right]^2 u_k^n(\vec{r})=\left[E_n(k)-V(\vec{r})\right]u_k^n(\vec{r})\\
 \Rightarrow& \left[\frac{\left(\hat{p}+\hbar \vec{k}\right)^2}{2m}+V(\vec{r})\right]u_k^n(\vec{r})=E_n(k)u_k^n(\vec{r})\\
 \end{aligned}$$
@@ -96,9 +106,154 @@ $$T=\frac{2\pi\hbar}{eEL}$$
 > 
 > ![alt](/img/固体物理/导体和绝缘体.png)
 >
+> 考虑一个含有n个电子、N个元胞的晶体，每个能带上有2N个能态（考虑泡利不相容原理）。由于$\frac{n}{N}$表示每个元胞的电子个数，是个整数；那么$\frac{n}{2N}$表示被电子占据的平均能态数，是个整数或半整数。也就是说，对于理想晶体，只有全填充和半填充两种情况。
+> 
 > 这样说来，二价金属应当是绝缘体，但由于s带和p带的重叠，形成了一个小的导带，所以二价金属仍然是导体。
 >
 > ![alt](/img/固体物理/Mg.png)
 
 ## 恒定磁场
+不考虑散射，电子在k空间的运动可以写为：
+$$\hbar\dot{\vec{k}}=-e\vec{v}\times\vec{B}$$
+显然，上面这条式子暗示了两件事情：
+- $\hbar\dot{\vec{k}}\cdot \vec{B}=0$，即$\dot{\vec{k}}$与$\vec{B}$垂直（$\vec{k}_z$是个守恒量）；
+- $\hbar\dot{\vec{k}}\cdot \vec{v}=0$，即$\dot{\vec{k}}$与$\vec{v}$垂直（结合$\vec{v}=\frac{1}{\hbar} \nabla_{\vec{k}}E_n(k)$，这说明能量守恒）；
+
+因此，电子在k空间的运动轨道是等能面和与磁场垂直的平面的交线。自由电子的等能面是一个球面，因此自由电子在k空间的运动轨道是圆形，对应到实空间就是螺旋轨道。
+
+Bloch电子的等能面不是一个球面，所以其运动轨道会更加复杂，可能呈现出非圆形的轨迹，甚至是非闭合的，具体见下图：
+
+![alt](/img/固体物理/恒定磁场.png)
+
+可以写出理论上电子的运动周期：
+$$T=\oint\frac{dk}{|\dot{\vec{k}}|}=\frac{\hbar}{eB}\oint{\frac{dk}{|\vec{v}_\perp|}}$$
+由于k空间的能量满足：
+$$\Delta E=\hbar|\vec{v}_\perp|\Delta k$$
+因此可以得到：
+$$T=\frac{\hbar}{eB}\oint{\frac{dk}{|\vec{v}_\perp|}}=\frac{\hbar^2}{eB}\oint{\frac{\Delta kdk}{\Delta E}}=\frac{\hbar^2}{eB}\frac{\partial A(E,\vec{k}_z)}{\partial E}$$
+其中，$A(E,\vec{k}_z)$是等能面的面积，积分$\oint{\Delta kdk}$刚好是两个轨道之间的面积。将周期写为$T=\frac{2\pi}{\omega_c}$，可以得到等效回旋质量的定义：
+$$m_c^*=\frac{\hbar^2}{2\pi}\frac{\partial A(E,\vec{k}_z)}{\partial E}$$
+
+以自由电子为例，能量为$E=\frac{\hbar^2 k^2}{2m}$，在最大圆上的等效回旋质量为：
+$$m_c^*=\frac{\hbar^2}{2\pi}\frac{\partial A(E,\vec{k}_z)}{\partial E}=\frac{\hbar^2}{2\pi}\frac{\partial }{\partial E} (\pi k^2)=\frac{\hbar^2}{2\pi}\frac{\partial }{\partial E} (\frac{2m^*\pi E}{\hbar^2})=m^*$$
+
+对于Bloch电子，费米面非常复杂，一般考虑横截面为极值的轨道，称为极值轨道。在极值轨道上，等效回旋质量和回旋频率几乎恒定。
+
+> 以上图像都是准经典的，实际上，描述电子在磁场中的运动应当用到 {% post_link '量子力学2/Quantum-Dynamics-Quantum-Geometry' %} 中学到的朗道能级：
+>
+> $$E_n(k)=\frac{\hbar^2}{2m}k_z^2+\hbar\omega_c\left(n+\frac{1}{2}\right)$$
+> 其中，$\omega_c=\frac{eB}{m}$是朗道频率。朗道能级的分布是离散的，能级间隔为$\hbar\omega_c$，因此在磁场中电子的运动轨迹是量子化的。
+>
+> 利用朗道能级可以解释De Haas-van Alphen效应。体系的磁矩随体系能量和外场的关系为：
+> $$M=-\frac{\partial F}{\partial B}$$
+> 如果用准经典模型，则体系的自由能不会随磁场改变，因为电子密集填充在费米面下。但是对于朗道能级，由于磁场变大时朗道能级间隔变大，体系的能量会类似下图经历周期性变化，尤其在极值轨道非常明显：
+> 
+> $$A(E,\vec{k}_z)=\frac{2\pi eB}{\hbar}(n+\frac12)\Rightarrow \Delta(\frac{1}{B})=\frac{2\pi e}{\hbar} A^{-1}(E,\vec{k}_z)$$
+> 这种磁矩随磁场的变化被称为De Haas-van Alphen效应，利用它可以测量机制轨道的面积，进而测定费米面的形状。
+>
+> ![alt](/img/固体物理/da效应.png)
+
+## 霍尔效应
+### 单能带模型
+考虑散射的情况下，电子同时在电场和磁场中运动：
+$$\frac{d\vec{p}}{dt}=-e(\vec{E}+\vec{v}\times\vec{B})-\frac{\vec{p}}{\tau}$$
+定态时，电子的速度为：
+$$\begin{cases}
+v_x=-\frac{e\tau}{m}E_x-\omega_c\tau v_y\\
+v_y=-\frac{e\tau}{m}E_y+\omega_c\tau v_x
+\end{cases}$$
+电流密度$\vec{J}=-ne\vec{v}$，写成矩阵的形式：
+$$\begin{pmatrix}
+J_x\\
+J_y
+\end{pmatrix}=\frac{\sigma_0}{1+\omega_c^2\tau^2}\begin{pmatrix}
+1& -\omega_c\tau\\
+\omega_c\tau & 1
+\end{pmatrix}\begin{pmatrix}
+E_x\\
+E_y
+\end{pmatrix}$$
+其中$\sigma_0=\dfrac{n\tau e^2}{m}$是零场电导，我们在 {% post_link '固体物理/金属电子论' %} 中推到过。
+
+这里的电阻率是一个张量，同理，可以写出电导率的张量：
+$$\begin{pmatrix}
+E_x\\
+E_y
+\end{pmatrix}=\frac{1}{\sigma_0}\begin{pmatrix}
+1& \omega_c\tau\\
+-\omega_c\tau & 1
+\end{pmatrix}\begin{pmatrix}
+J_x\\
+J_y
+\end{pmatrix}$$
+当电流只能从$x$方向流动时，$J_y=0$，得到霍尔效应：
+$$E_y=-\frac{\omega_c\tau}{\sigma_0}J_x=\frac{B}{ne}J_x$$
+霍尔系数为：
+$$R_H=\frac{E_y}{J_xB}=\frac{1}{ne}$$
+
+与此同时，同方向的电流密度为：
+$$J_x=\sigma_0 E_x$$
+这说明磁场的增加并没有带来额外的电阻（即磁滞电阻）。这是因为该理论忽略了能带的结构，认为所有电子具有一样的速度、质量和弛豫时间。我们以一个简单的双能带模型来说明。
+
+### 双能带模型
+考虑一个双能带模型，电子具有两种有效质量和弛豫时间：
+
+$$\begin{pmatrix}
+J_{1x}\\
+J_{1y}
+\end{pmatrix}=\frac{\sigma_1}{1+\omega_1^2\tau_1^2}\begin{pmatrix}
+1& -\omega_1\tau_1\\
+\omega_1\tau_1 & 1
+\end{pmatrix}\begin{pmatrix}
+E_{1x}\\
+E_{1y}
+\end{pmatrix}$$
+$$\begin{pmatrix}
+J_{2x}\\
+J_{2y}
+\end{pmatrix}=\frac{\sigma_2}{1+\omega_2^2\tau_2^2}\begin{pmatrix}
+1& -\omega_2\tau_2\\
+\omega_2\tau_2 & 1
+\end{pmatrix}\begin{pmatrix}
+E_{2x}\\
+E_{2y}
+\end{pmatrix}$$
+
+总的电流密度为$\vec{J}=\vec{J}_{1}+\vec{J}_{2}$：
+
+$$\begin{pmatrix}
+J_x\\
+J_y
+\end{pmatrix}=\begin{pmatrix}
+\dfrac{\sigma_1}{1+\omega_1^2\tau_1^2}+\dfrac{\sigma_2}{1+\omega_2^2\tau_2^2}& -\dfrac{\sigma_1\omega_1\tau_1}{1+\omega_1^2\tau_1^2}-\dfrac{\sigma_2\omega_2\tau_2}{1+\omega_2^2\tau_2^2}\\\\
+\dfrac{\sigma_1\omega_1\tau_1}{1+\omega_1^2\tau_1^2}+\dfrac{\sigma_2\omega_2\tau_2}{1+\omega_2^2\tau_2^2} & \dfrac{\sigma_1}{1+\omega_1^2\tau_1^2}+\dfrac{\sigma_2}{1+\omega_2^2\tau_2^2}
+\end{pmatrix}\begin{pmatrix}
+E_x\\
+E_y
+\end{pmatrix}$$
+
+- 低磁场情况下，$\omega_1\tau_1\ll 1$，$\omega_2\tau_2\ll 1$，可以近似为：
+  $$\begin{pmatrix}
+  J_x\\
+  J_y
+  \end{pmatrix}=\begin{pmatrix}
+  \sigma_1+\sigma_2& -\sigma_1\omega_1\tau_1-\sigma_2\omega_2\tau_2\\
+  \sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2 & \sigma_1+\sigma_2
+  \end{pmatrix}\begin{pmatrix}
+  E_x\\
+  E_y
+  \end{pmatrix}$$
+  解$J_y=0$得到：
+  $$E_x=-\frac{\sigma_1+\sigma_2}{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}E_y$$
+  霍尔系数为：
+  $$\begin{aligned}R_H&=\frac{E_y}{J_xB}\\&=\frac{E_y}{(\sigma_1+\sigma_2)E_x-(\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2)E_y}\frac{1}{B}\\&=\frac{1}{-\frac{(\sigma_1+\sigma_2)^2}{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}-(\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2)}\frac{1}{B}\\&\approx \frac{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}{B(\sigma_1+\sigma_2)^2}\\&\approx\frac{\sigma_1^2R_1+\sigma_2^2R_2}{(\sigma_1+\sigma_2)^2}\end{aligned}$$
+  这意味着总的霍尔系数是各个能带霍尔系数的加权平均。同理，可以算出此时的电阻率（不给出计算过程）：
+  $$\frac{\Delta \rho}{\rho_0}=\frac{\sigma_1\sigma_2(\mu_1-\mu_2)^2B^2}{(\sigma_1+\sigma_2)^2+(\mu_1\sigma_1+\mu_2\sigma_2)^2B^2}$$
+  其中，$\mu_i=\frac{e\tau_i}{m_i}$是各个电子的迁移率。当两种电子的迁移率相等的时候，上述式子退化为$\Delta\rho=0$，即没有磁滞电阻。
+- 高磁场情况下，$\omega_1\tau_1\gg 1$，$\omega_2\tau_2\gg 1$，可以得到：
+  $$R_H=\frac{1}{(n_1+n_2)e}=\frac{1}{ne}$$
+  这说明在高磁场下，霍尔系数不再是各个能带霍尔系数的加权平均，而是总的载流子浓度的倒数。此时，磁滞电阻为：
+  $$\frac{\Delta \rho}{\rho_0}=\frac{\sigma_1\sigma_2(\mu_1-\mu_2)^2}{(\mu_1\sigma_1+\mu_2\sigma_2)^2}$$
+  趋向于一个饱和值。
+
 

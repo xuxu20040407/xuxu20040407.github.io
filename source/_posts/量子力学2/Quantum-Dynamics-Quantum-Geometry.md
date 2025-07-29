@@ -25,6 +25,7 @@ cover:
   - [经典理论](#经典理论)
   - [半经典量子理论](#半经典量子理论)
   - [简并](#简并)
+  - [态密度](#态密度)
   - [量子化霍尔电导](#量子化霍尔电导)
 - [规范变换](#规范变换)
   - [标势的规范变换](#标势的规范变换)
@@ -300,6 +301,93 @@ $$n_{max}=\frac{A}{\frac{2\hbar}{eB}\pi}=\frac{\phi}{\phi_0}$$
 其中$\phi_0=\frac{h}{e}$是量子磁通，$\phi=AB$。
 
 与我们物理直觉相符的是，朗道能级的简并度正比于磁场和面积。
+
+## 态密度
+对于三维自由电子，其态密度为：
+$$D(E)=\dfrac{V}{2\pi^2}(\dfrac{2m}{\hbar^2})^\frac32\sqrt{E}$$
+对于朗道能级，态密度可以视为一维自由电子（$\vec{k}_z$方向）对量子数$n$的求和：
+$$D(E)=\dfrac{L}{\pi\hbar}\sqrt{2m}\sum_n\left[E-(n+\frac{1}{2})\hbar\omega\right]^{-\frac12}$$
+其中，一维自由电子的态密度由 {% post_link '热力学与统计物理/近独立粒子的最概然分布' %} 给出：
+$$D_1(E)=\dfrac{L}{\pi\hbar}\sqrt{\dfrac{2m}{E}}$$
+
+可以对三维自由电子在xy平面上积分后，与朗道能级的态密度比较：
+$$\begin{cases}
+D(E)=\dfrac{eBL}{2\pi^2\hbar^2}\sqrt{2m}\sum_n\left[E-(n+\frac{1}{2})\hbar\omega\right]^{-\frac12}\\
+D(E)=\dfrac{mL}{\pi^2\hbar^3}\sqrt{\dfrac{2m}{E}}\\
+\end{cases}$$
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import cumulative_trapezoid  # 新版 SciPy 的函数
+
+# 物理参数
+hbar = 1
+e = 1
+B = 1  # 磁场强度 (T)
+m = 1  # 电子质量 (简化为单位质量)
+omega_c = e * B / m  # 回旋频率
+E_max = 3  # 最大能量 (eV)
+E = np.linspace(0.01, E_max, 10000)  # 能量范围
+
+# 自由电子 (xy 平面积分后) 的态密度
+def g_free(E):
+    return np.sqrt(E)
+
+# 朗道能级的态密度
+def g_landau(E, B):
+    n_max = int(E_max / (hbar * omega_c))  # 最大朗道能级索引
+    g = np.zeros_like(E)
+    for n in range(n_max + 1):
+        E_n = (n + 0.5) * hbar * omega_c
+        valid = E > E_n  # 仅当 E > E_n 时贡献不为零
+        g[valid] += 1 / np.sqrt(E[valid] - E_n)
+    return g / 2
+
+# 计算态密度
+g_free_norm = g_free(E)
+g_landau_norm = g_landau(E, B)
+
+# 数值积分计算累积态数目（使用 cumulative_trapezoid）
+N_free = cumulative_trapezoid(g_free_norm, E, initial=0)
+N_landau = cumulative_trapezoid(g_landau_norm, E, initial=0)
+
+# 创建画布
+plt.figure(figsize=(12, 6))
+
+# 子图1：态密度对比
+plt.subplot(1, 2, 1)
+plt.plot(E, g_free_norm, label="Free Electron", lw=2, color="blue")
+plt.plot(E, g_landau_norm, label="Landau Levels", lw=1.5, color="red", alpha=0.7)
+plt.xlabel("Energy (eV)", fontsize=12)
+plt.ylabel("Density of States", fontsize=12)
+plt.title("Density of States Comparison", fontsize=14)
+plt.legend(fontsize=10)
+plt.grid(True, linestyle="--", alpha=0.5)
+plt.ylim(0, 10)  # 限制y轴范围以便更好地观察
+
+# 标记朗道能级阈值
+for n in range(int(E_max / (hbar * omega_c)) + 1):
+    E_n = (n + 0.5) * hbar * omega_c
+    if E_n < E_max:
+        plt.axvline(x=E_n, color="gray", linestyle=":", alpha=0.5)
+        plt.text(E_n, 0.05, f"n={n}", rotation=90, va="bottom", ha="right", fontsize=8)
+
+# 子图2：累积态数目对比
+plt.subplot(1, 2, 2)
+plt.plot(E, N_free, label="Free Electron Total States", lw=2, color="blue")
+plt.plot(E, N_landau, label="Landau Levels Total States", lw=2, color="red", alpha=0.7)
+plt.xlabel("Energy (eV)", fontsize=12)
+plt.ylabel("Cumulative States", fontsize=12)
+plt.title("Cumulative Number of States Comparison", fontsize=14)
+plt.legend(fontsize=10)
+plt.grid(True, linestyle="--", alpha=0.5)
+
+plt.tight_layout()
+plt.show()
+```
+
+![朗道能级态密度对比图](/img/量子力学2/朗道能级.png)
 
 ## 量子化霍尔电导
 霍尔电阻定义为：
