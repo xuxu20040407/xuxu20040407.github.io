@@ -7,6 +7,17 @@ categories: DFT
 cover:
 ---
 
+- [多电子系统](#多电子系统)
+- [Born-Oppenheimer近似](#born-oppenheimer近似)
+- [Hartree近似](#hartree近似)
+- [Hartree-Fock近似与Self-Consistent Field方法](#hartree-fock近似与self-consistent-field方法)
+- [Hohenberg-Kohn定理](#hohenberg-kohn定理)
+  - [第一定理](#第一定理)
+  - [第二定理](#第二定理)
+- [Thomas-Fermi-Dirac近似](#thomas-fermi-dirac近似)
+- [Kohn-Sham方程](#kohn-sham方程)
+
+
 # 多电子系统
 
 许多电子系统的结构和动力学性质是理论物理和化学中的基本问题。这些系统包括：
