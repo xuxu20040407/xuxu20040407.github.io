@@ -29,7 +29,9 @@ $$\pi^0\Rightarrow e^++e^-$$
 
 # Bell不等式
 
-在$\pi$介子的两端防止测量装置，分别测量沿着$\vec{a}$和$\vec{b}$方向的自旋。由于只有两者自旋的乘积的平均值是有意义的，我们记为
+在$\pi$介子的两端放置测量装置，分别测量沿着$\vec{a}$和$\vec{b}$方向的自旋。显然，左右两个装置的测量结果只能是$\pm 1$，而且是相互关联的。
+
+由于只有两者自旋的乘积的平均值是有意义的，我们记为
 $$\langle P(\vec{a},\vec{b})\rangle$$
 
 对于$\vec{a}=\vec{b}$的情况，显然$\langle P(\vec{a},\vec{b})\rangle=-1$；对于$\vec{a}=-\vec{b}$的情况，显然$\langle P(\vec{a},\vec{b})\rangle=+1$。对于任意夹角的情况，下面给出了一种计算方法：
@@ -39,14 +41,13 @@ $$|\psi\rangle=\frac12\begin{pmatrix}1\\0\end{pmatrix}\begin{pmatrix}0\\1\end{pm
 选取$\vec{a}$为轴，记天顶角夹角为$\theta$，那么测量的平均值为：
 $$\begin{aligned}
 \langle P(\vec{a},\vec{b})\rangle&=\langle\psi|S_z^a(S_z^b\cos{\theta}+S_x^b\sin{\theta})|\psi\rangle\\
-&=\langle\psi|\begin{pmatrix}1&0\\0&-1\end{pmatrix}(\begin{pmatrix}1&0\\0&-1\end{pmatrix}\cos{\theta}+\begin{pmatrix}0&1\\1&0\end{pmatrix}\sin{\theta})|\psi\rangle\\
+&=\langle\psi|\begin{pmatrix}1&0\\0&-1\end{pmatrix}\left[\begin{pmatrix}1&0\\0&-1\end{pmatrix}\cos{\theta}+\begin{pmatrix}0&1\\1&0\end{pmatrix}\sin{\theta}\right]|\psi\rangle\\
 &=\langle\psi|\begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}\cos{\theta}&\sin{\theta}\\\sin{\theta}&-\cos{\theta}\end{pmatrix}|\psi\rangle\\
 &=\frac12\langle\begin{pmatrix}1\\0\end{pmatrix}|\begin{pmatrix}1&0\\0&-1\end{pmatrix}|\begin{pmatrix}1\\0\end{pmatrix}\rangle \langle\begin{pmatrix}0\\1\end{pmatrix}|\begin{pmatrix}\cos{\theta}&\sin{\theta}\\\sin{\theta}&-\cos{\theta}\end{pmatrix}|\begin{pmatrix}0\\1\end{pmatrix}\rangle\\
 &+\frac12\langle\begin{pmatrix}0\\1\end{pmatrix}|\begin{pmatrix}1&0\\0&-1\end{pmatrix}|\begin{pmatrix}0\\1\end{pmatrix}\rangle\langle\begin{pmatrix}1\\0\end{pmatrix}|\begin{pmatrix}\cos{\theta}&\sin{\theta}\\\sin{\theta}&-\cos{\theta}\end{pmatrix}|\begin{pmatrix}1\\0\end{pmatrix}\rangle\\
 &=-\cos{\theta}=-\vec{a}\cdot\vec{b}
 \end{aligned}$$
-
-如果量子力学是不完备的，那么引入隐变量$\lambda$，记装置受隐变量影响的测量结果分别为：
+这只是一个期望值的理论，但左右两个装置具体测量结果是什么，在测量前我们是不知道的。由此，我们认为量子力学是不完备的，那么引入隐变量$\lambda$，记装置受隐变量影响的测量结果分别为：
 $$A(\vec{a},\lambda)=\pm1,B(\vec{b},\lambda)=\pm1$$
 并且有约束条件：
 $$A(\vec{a},\lambda)=-B(\vec{a},\lambda)$$

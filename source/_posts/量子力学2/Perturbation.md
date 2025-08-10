@@ -17,10 +17,12 @@ cover:
     - [Quadratic Stark Effect](#quadratic-stark-effect)
     - [Linear Stark Effect](#linear-stark-effect)
   - [Fine Structure](#fine-structure)
-    - [Relative Correction](#relative-correction)
+    - [Relative Movement Correction](#relative-movement-correction)
     - [Spin-Orbit Coupling](#spin-orbit-coupling)
   - [Zeeman Effect](#zeeman-effect)
-    - [Linear Zeeman Effect](#linear-zeeman-effect)
+    - [Normal Zeeman Effect](#normal-zeeman-effect)
+    - [Weak-Field Zeeman Effect](#weak-field-zeeman-effect)
+    - [Strong-Field Zeeman Effect](#strong-field-zeeman-effect)
     - [Quadradic Zeeman Effect](#quadradic-zeeman-effect)
   - [Van der Waals Interaction](#van-der-waals-interaction)
 - [Time-dependet Perturbation](#time-dependet-perturbation)
@@ -56,6 +58,10 @@ $$\hat H(\lambda)|n\rangle_\lambda=E_n(\lambda)|n\rangle_\lambda$$
 $$|n\rangle_\lambda=\sum_{i=0}^\infty \lambda^i|n^i\rangle$$
 $$E_n(\lambda)=\sum_{i=0}^\infty \lambda^iE^i_n$$
 那么只需要代入薛定谔方程即可。
+
+
+> 这里的正交即认为各高级近似解$|n^i\rangle$与零级近似解$|n^0\rangle$正交。这并不是一个假设，而是一个约定，因为想要满足近似能量解$E_i$的态矢量有很多，我们需要一个约束来限制它们的自由度。
+
 ## Non-degenerate Perturbation
 对于不简并的情况：
 $$[\hat H^0+\lambda\delta\hat H-E_n(\lambda)]|n\rangle_\lambda=0$$
@@ -65,19 +71,21 @@ $$[\hat H^0-E^0_n-\lambda(E^1_n-\delta \hat H)-\lambda^iE^i_n](\sum_{i=0}^\infty
 
 $$\begin{aligned}
 \lambda^0\quad&(\hat H^0-E^0_n)|n^0\rangle=0\\
-\lambda^1\quad&(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle\\\cdots\quad\\
+\lambda^1\quad&(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle\\
+\lambda^2\quad&(\hat H^0-E^0_n)|n^2\rangle=(E^1_n-\delta \hat H)|n^1\rangle+E^2_n|n^0\rangle\\
+\cdots\quad\\
 \lambda^k\quad&(\hat H^0-E^0_n)|n^k\rangle=(E^1_n-\delta \hat H)|n^{k-1}\rangle+\sum_{i=2}^k E^i_n|n^{k-i}\rangle
 \end{aligned}$$
 
 ### First Order Theory
 我们先考虑一阶修正：
 $$(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle$$
-两边同时作用：
+两边同时作用$\langle n^0|$：
 $$\langle n^0|(\hat H^0-E^0_n)|n^1\rangle=\langle n^0|(E^1_n-\delta \hat H)|n^0\rangle$$
 $$E^1_n=\langle n^0|\delta \hat H|n^0\rangle$$
 
 
-现在我们完成了对能级的修正，但除了一阶，其他的能量修正因为不知道态函数修正而无法求解，这时候需要用一阶能量修正来求解一阶态矢量修正，并依次类推：
+现在我们完成了对能级的修正，但除了一阶，其他的能量修正因为不知道态函数修正而无法求解，这时候需要用一阶能量修正来求解一阶态矢量修正，并依次类推。一般选择本征态基底$|k^0\rangle$作展开：
 $$\langle k^0|(\hat H^0-E^0_n)|n^1\rangle=\langle k^0|(E^1_n-\delta \hat H)|n^0\rangle$$
 $$( E^0_k-E^0_n)\langle k^0|n^1\rangle=-\langle k^0|\delta \hat H|n^0\rangle$$
 $$\langle k^0|n^1\rangle=-\frac{\langle k^0|\delta \hat H|n^0\rangle}{E^0_k-E^0_n}$$
@@ -90,47 +98,39 @@ $$|n^1\rangle=\sum_{k\neq n}|k^0\rangle\langle k^0|n^1\rangle=\sum_{k\neq n}-\fr
 
 同理，考虑k阶修正：
 $$\langle n^0|(\hat H^0-E^0_n)|n^k\rangle=\langle n^0|(E^1_n-\delta \hat H)|n^{k-1}\rangle+\sum_{i=2}^k \langle n^0|E^i_n|n^{k-i}\rangle$$
-$$E^k_n=\langle n^0|\delta \hat H|n^{k-1}\rangle-\sum_{i=1}^{k-1} \langle n^0|E^i_n|n^{k-i}\rangle$$
+由于不同级的近似解正交，解得：
+$$E^k_n=\langle n^0|\delta \hat H|n^{k-1}\rangle$$
 
 比如2阶：
-$$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle$$
+$$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle=-\sum_{k\neq n}\frac{|\langle k^0|\delta \hat H|n^0\rangle|^2}{E^0_k-E^0_n}$$
 
 
-同样的：
 
-$$(\hat H^0-E^0_n)|n^2\rangle=(E^1_n-\delta \hat H)|n^{1}\rangle+ E^2_n|n^{0}\rangle$$
-
-$$( E^0_k-E^0_n)\langle k^0|n^2\rangle=E^1_n\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+E^2_n\langle k^0|n^{0}\rangle$$
-
-代入
-
-$$E^1_n=\langle n^0|\delta \hat H|n^{0}\rangle$$
-$$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle$$
-
-$$\begin{aligned}
-(E^0_k-E^0_n)\langle k^0|n^2\rangle&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle+(\langle n^0|\delta \hat H|n^{1}\rangle- \langle n^0|E^1_n|n^{1}\rangle)\langle k^0|n^{0}\rangle\\
-&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\&+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{0}\rangle \langle n^0|n^{1}\rangle\langle k^0|n^{0}\rangle\\
-&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\&+\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle-\langle n^0|\delta \hat H|n^{1}\rangle\langle k^0|n^{0}\rangle\\
-&=\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle\\
-\end{aligned}$$
-
-所以：
-$$\langle k^0|n^2\rangle=\frac{\langle n^0|\delta \hat H|n^{0}\rangle\langle k^0|n^{1}\rangle-\langle k^0|\delta \hat H|n^{1}\rangle}{E^0_k-E^0_n}$$
-
-> 特殊地，如果一阶修正能量为0，即：
-> $$E^1_n=\langle n^0|\delta \hat H|n^{0}\rangle=0$$
-> 得到：
-> $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle$$
-> $$\langle k^0|n^2\rangle=-\frac{\langle k^0|\delta \hat H|n^{1}\rangle}{E^0_k-E^0_n}$$
-> 当我们考虑二阶微扰的时候，这才是常见的情况。
->
-> 不失一般性，当前k-1阶修正能量为0，第k阶修正能量为：
-> $$E^k_n=\langle n^0|\delta \hat H|n^{k-1}\rangle$$
-> 这意味着：
-> $$E_n^{k}\Leftrightarrow|n^{k-1}\rangle$$
-
-> 补充：当一阶微扰为0的时候，二阶微扰总是起到互斥的作用(Level Repulsion)：
+> 由于二阶能量微扰的表达式存在平方项，显然，二阶微扰总是起到互斥的作用(Level Repulsion)：
 > $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle= \sum_{k\neq n}-\frac{|\langle k^0|\delta \hat H|n^0\rangle|^2}{E^0_k-E^0_n}$$
+> 这意味着，如果$E^0_k>E^0_n$，那么$E^2_n<0$，也就是说，k能级会使得n能级的能量降低；反之，如果$E^0_k<E^0_n$，那么$E^2_n>0$，也就是说，k能级会使得n能级的能量升高。这就是能级互斥效应。对于基态能级，由于不存在比它更低的能级，所以二阶微扰总是使得基态能级的能量降低。
+
+> 按照一阶微扰论的逻辑，接下来应该求解二阶态矢量修正$|n^2\rangle$，其实也不难求解：
+> $$\langle k^0|(\hat H^0-E^0_n)|n^2\rangle=\langle k^0|(E^1_n-\delta \hat H)|n^1\rangle+\langle k^0|E^2_n|n^0\rangle,\quad \langle k^0|E^2_n|n^0\rangle=\delta_{nk}E^2_n$$
+> $$\langle k^0|n^2\rangle=\frac{\langle k^0|(E^1_n-\delta \hat H)|n^1\rangle+\delta_{nk}E^2_n}{E_k^0-E^0_n}$$
+> 代入$|n^1\rangle$和$E^1_n,E^2_n$的表达式，得到：
+> $$\begin{aligned}
+    \langle k^0|n^2\rangle&=\frac{\langle k^0|(E^1_n-\delta \hat H)|n^1\rangle+\delta_{nk}E^2_n}{E_k^0-E^0_n}\\
+    &=\sum_{m\neq n}-\frac{\langle k^0|(E^1_n-\delta \hat H)|\langle m^0|\delta \hat H|n^0\rangle|m^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
+    &=\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}-\sum_{m\neq n}\frac{E^1_n\langle m^0|\delta \hat H|n^0\rangle\delta_{mk}}{(E_k^0-E^0_n)(E^0_m-E^0_n)}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
+    &=\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}-\frac{\langle n^0|\delta \hat H|n^0\rangle\langle k^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)^2}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
+    \end{aligned}$$
+> $$|n^2\rangle=\sum_{k\neq n}|k^0\rangle\langle k^0|n^2\rangle=\sum_{k\neq n}\left[\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E^0_k-E^0_n)(E^0_m-E^0_n)}-\frac{\langle n^0|\delta \hat H|n^0\rangle\langle k^0|\delta \hat H|n^0\rangle}{(E^0_k-E^0_n)^2}\right]|k^0\rangle$$
+> 但实际上，如果只是要计算三阶能量修正，其实是不需要用到二阶态矢量修正的。代入二阶态矢量修正化简：
+> $$\begin{aligned}
+    E^3_n&=\langle n^0|\delta \hat H|n^{2}\rangle\\
+    &=\sum_{k\neq n}\left[\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E^0_k-E^0_n)(E^0_m-E^0_n)}-\frac{\langle n^0|\delta \hat H|n^0\rangle\langle k^0|\delta \hat H|n^0\rangle}{(E^0_k-E^0_n)^2}\right]\langle n^0|\delta\hat{H}|k^0\rangle\\
+    &=\sum_{k\neq n}\left[\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)(E^0_m-E^0_n)}-\frac{\langle k^0|\delta \hat H|n^0\rangle\langle n^0|\delta \hat H|n^0\rangle\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)^2}\right]\\
+    &=\sum_{k\neq n}\langle k^0|\frac{\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)}|\delta \hat H|\sum_{m\neq n}\frac{\langle m^0|\delta\hat{H}|n^0\rangle}{(E^0_m-E^0_n)}|m^0\rangle-\sum_{k\neq n}\langle k^0|\frac{\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)}|E_n^1\delta_{mk}|\sum_{m\neq n}\frac{\langle m^0|\delta\hat{H}|n^0\rangle}{(E^0_m-E^0_n)}|m^0\rangle\\
+    &=\langle n^1|\delta \hat H|n^1\rangle-E_1\\
+    \end{aligned}$$
+> 这说明计算三阶能量修正只需要用到一阶态矢量修正和一阶能量修正。
+
 
 
 ## Degenerate Perturbation
@@ -197,357 +197,364 @@ $$\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
 > 实际上不需要死记硬背，对于非简并微扰，本质上是解关于修正能量和修正波函数的矩阵方程（n+1个方程确定n+1个未知数，其中n个方程为波函数各维度的线性方程，另外加上波函数的归一化方程）；对于简并微扰，本质上是解关于修正能量、修正波函数和“Good State”的矩阵方程（n+m个方程确定n+m个未知数，m为简并数）。
 
 # Example
+电磁场、相对论修正和自旋轨道耦合都可以看作是微扰。根据微扰的不同，可以分为以下效应：
+- 加入外电场：**Stark效应**；
+- 加入外磁场：**Zeeman效应**；
+- 相对论修正和自旋轨道耦合：**精细结构**；
+
+
 ## Stark Effect
 
-考虑一个线性Stark效应：
+考虑将氢原子放入外电场，产生Stark效应：
 $$\delta\hat H=-e\hat r\cdot \hat E=-ez|E|$$
 - 宇称选择定则：这是一个奇宇称的算符，所以只有不同宇称，或者说$l+l'$是奇数之间的态可能；
-- 角动量选择定则：$z=r\cos{\theta}$，所以连接不同轨道角动量数l之间的态；进一步，只有$m=m'$的态可能。
+- 角动量选择定则：$z=r\cos{\theta}=2\sqrt{\dfrac{\pi}{3}}rY_{1,0}(\theta,\phi)$，所以连接不同轨道角动量数l之间的态，且必须满足$m=m'$。
 
 
 
 ### Quadratic Stark Effect
 
-显然根据选择定则，一阶能量修正为0。代入二阶修正：
-$$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle=e^2|E|^2 \sum_{n\neq 1}-\frac{|\langle n,l,m|\delta \hat H|1,0,0\rangle|^2}{E^0_n-E^0_0}=-\frac12\alpha E^2$$
+对于$n=1$的能级，显然根据选择定则，一阶能量修正为0。代入二阶修正：
+$$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle=\sum_{n\neq 1}-\frac{|\langle n,l,m|\delta \hat H|1,0,0\rangle|^2}{E^0_n-E^0_1}=-\frac12\alpha E^2$$
 
-所以外电场使能量降低了。
+所以外电场使能量降低了，这和上面提到的能级互斥是一致的。
 
 
 ### Linear Stark Effect
-
-微扰算符为：
+考虑$n=2$的能级，此时一阶能量修正不一定为0，同时这是一个简并微扰问题，因为在不加外电场和不考虑自旋轨道耦合的情况下，$n=2$能级是四重简并的。根据选择定则写出微扰算符：
 $$\delta\hat H=\begin{pmatrix}0&g|E|&0&0\\g|E|&0&0&0\\0&0&0&0\\0&0&0&0\end{pmatrix}$$
-显然只连接了$|2,0,0\rangle,|2,1,0\rangle$两个态。"Good State"为：
+显然只连接了$|2,0,0\rangle,|2,1,0\rangle$两个态，满足$l\neq l',m=m'$的条件。"Good State"为：
 $$|n^0,a\rangle=\frac{1}{\sqrt{2}}(|2,0,0\rangle+|2,1,0\rangle)$$
 $$|n^0,b\rangle=\frac{1}{\sqrt{2}}(|2,0,0\rangle-|2,1,0\rangle)$$
 那么一阶能量修正为：
 $$E^1_a=g|E|,E^1_b=-g|E|$$
 这意味着4重简并的能级最终分裂。
 
+
+> 由于$n=2$对应的是一阶修正，所以是线性效应；而$n=1$对应的是二阶修正，所以是二次效应。以下是线性Stark效应中，$|n^0,a\rangle$对应的氢原子图。由于概率分布重心靠下，所以能量会降低。
+> 
+> ![Stark Effect](/img/量子力学2/goodstate.png)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.colors import PowerNorm
+from mpl_toolkits.mplot3d import Axes3D
+
+# 定义常数
+a0 = 1.0  # 玻尔半径（单位化）
+
+# 定义波函数
+def psi_200(x, y, z):
+    r = np.sqrt(x**2 + y**2 + z**2)
+    return (1 / (4 * np.sqrt(2 * np.pi) * a0**(3/2))) * (2 - r/a0) * np.exp(-r/(2*a0))
+
+def psi_210(x, y, z):
+    r = np.sqrt(x**2 + y**2 + z**2)
+    theta = np.arccos(z/r)
+    return (1 / (4 * np.sqrt(2 * np.pi) * a0**(3/2))) * (r/a0) * np.exp(-r/(2*a0)) * np.cos(theta)
+
+# 定义Good State波函数
+def psi_good_plus(x, y, z):
+    return (psi_200(x, y, z) + psi_210(x, y, z)) / np.sqrt(2)
+
+# 创建网格
+R = 5
+x = np.linspace(-R*a0, R*a0, 100)
+z = np.linspace(-R*a0, R*a0, 100)
+X, Z = np.meshgrid(x, z)
+Y = 0  # 在y=0平面观察
+
+# 计算概率密度
+density_200 = np.abs(psi_200(X, Y, Z))**2
+density_210 = np.abs(psi_210(X, Y, Z))**2
+density_good_plus = np.abs(psi_good_plus(X, Y, Z))**2
+
+# 找到所有概率密度的最大值和最小值用于归一化
+vmin = min(np.min(density_200[density_200>0]), 
+           np.min(density_210[density_210>0]), 
+           np.min(density_good_plus[density_good_plus>0]))
+vmax = max(np.max(density_200), np.max(density_210), np.max(density_good_plus))
+
+# 创建图形
+fig = plt.figure(figsize=(18, 6))
+gs = fig.add_gridspec(1, 4, width_ratios=[1, 1, 1, 0.05])  # 为颜色条预留空间
+
+# 创建子图
+ax1 = fig.add_subplot(gs[0])
+ax2 = fig.add_subplot(gs[1])
+ax3 = fig.add_subplot(gs[2])
+cax = fig.add_subplot(gs[3])  # 颜色条专用子图
+
+# 使用PowerNorm进行归一化
+norm = PowerNorm(gamma=0.5, vmin=vmin, vmax=vmax)
+
+# 绘制 |2,0,0>
+im1 = ax1.imshow(density_200, extent=[-R*a0, R*a0, -R*a0, R*a0], 
+                origin='lower', cmap='viridis', norm=norm)
+ax1.set_title(r'$|2,0,0\rangle$ Probability Density')
+ax1.set_xlabel('x (a₀)')
+ax1.set_ylabel('z (a₀)')
+
+# 绘制 |2,1,0>
+im2 = ax2.imshow(density_210, extent=[-R*a0, R*a0, -R*a0, R*a0], 
+                origin='lower', cmap='viridis', norm=norm)
+ax2.set_title(r'$|2,1,0\rangle$ Probability Density')
+ax2.set_xlabel('x (a₀)')
+ax2.set_ylabel('z (a₀)')
+
+# 绘制 Good State (|a>)
+im3 = ax3.imshow(density_good_plus, extent=[-R*a0, R*a0, -R*a0, R*a0], 
+                origin='lower', cmap='viridis', norm=norm)
+ax3.set_title(r'Good State $\frac{1}{\sqrt{2}}(|2,0,0\rangle + |2,1,0\rangle)$')
+ax3.set_xlabel('x (a₀)')
+ax3.set_ylabel('z (a₀)')
+
+# 添加统一的颜色条
+cbar = fig.colorbar(im3, cax=cax)
+cbar.set_label('Probability Density')
+
+plt.tight_layout()
+plt.show()
+```
+
+
+
 ## Fine Structure
-氢原子的能级为：
-$$E_n=-\frac12 mc^2\alpha^2\frac{1}{n^2}$$
-更精细的结构为：
-- 相对论修正
-- 自旋轨道耦合
+我们一般把氢原子的非相对论的哈密顿算符写为：
+$$\hat H_0=\frac{\hat p^2}{2m_e}-\frac{e^2}{r}$$
+这样求解出来的氢原子能级为：
+$$E_n=-\frac{m_e e^4}{2\hbar^2 n^2}=-\frac12 mc^2\alpha^2\frac{1}{n^2}$$
+其中$\alpha=\frac{e^2}{\hbar c}$为精细结构常数。
 
-二者都是$mc^2\alpha^4$的量级。
+若考虑相对论效应，则可以将相对论哈密顿算符展开为：
+$$\hat H=\underbrace{\frac{\hat p^2}{2m_e}-\frac{e^2}{r}}_{\hat H_0}-\underbrace{\frac{\hat{p}^4}{8m^3c^2}}_{\hat{H}_{mv}}+\underbrace{\frac{1}{2m_e^2c^2}\frac{1}{r}\frac{dV}{dr}\hat L\cdot \hat S}_{\hat{H}_{SOC}}$$
 
-### Relative Correction
-对于相对论修正：
-$$K=\sqrt{p^2c^2+m^2c^4}-mc^2\approx \frac{p^2}{2m}-\frac{p^4}{8m^3c^2}$$
-所以这里微扰是：
-$$\delta\hat H=-\frac{p^4}{8m^3c^2}$$
-这里本应该使用简并微扰理论，但是由于：
-$$[\hat L,\delta\hat H]=0$$
-意味着$\delta\hat H$已经是对角化的，不会联系不同的轨道角动量数，所以我们可以直接求解：
-$$E^1_{nlm}=\langle nlm|\delta\hat H|nlm\rangle=\cdots=-\alpha^2[-\frac{3}{4n^2}+\frac{1}{n(l+\frac12)}]$$
+### Relative Movement Correction
+$$\hat{H}_{mv}=\sqrt{p^2c^2+m^2c^4}-mc^2-\frac{p^2}{2m}\approx -\frac{p^4}{8m^3c^2}$$
+这部分是由于相对论效应导致的修正。本来由于能级简并需要用到简并微扰理论，但是由于：
+$$[\hat L,\hat{H}_{mv}]=0$$
+这意味着$\hat{H}_{mv}$已经是对角化的，不会联系不同的轨道角动量数，所以我们可以直接求解：
+$$E^1_{mv}=-\frac{1}{8m^3c^2}\langle\psi|p^4|\psi\rangle=-\frac{1}{8m^3c^2}\langle p^2\psi|p^2\psi\rangle$$
+根据薛定谔方程$p^2\psi=2m(E-V)\psi$，代入有：
+$$E^1_{mv}=-\frac{1}{2mc^2}\langle\psi|E^2-2EV+V^2|\psi\rangle=-\frac{1}{2mc^2}\left[E_n^2+2E_n e^2\langle\frac1r\rangle+e^4\langle\frac1{r^2}\rangle\right]$$
+代入：
+$$\langle\frac1r\rangle=\frac{1}{n^2a_0},\quad \langle\frac1{r^2}\rangle=\frac{1}{(l+1/2)n^3a_0^2}$$
+得到：
+$$E^1_{mv}=-\frac{(E_n)^2}{2mc^2}\left[\frac{4n}{l+1/2}-3\right]$$
 
 ### Spin-Orbit Coupling
+$$\hat{H}_{SOC}=\frac{1}{2m_e^2c^2}\frac{1}{r}\frac{dV}{dr}\hat L\cdot \hat S=\frac{1}{2m_e^2c^2}\frac{e^2}{r^3}\hat L\cdot \hat S$$
+是自旋轨道耦合微扰。运动的电荷产生磁场，这本身也是一种相对论效应。这里选择LS耦合表象，即以$n,l,s,j,m_j$为一组好量子数，具体理由请见 {% post_link '原子物理/原子的精细结构' %} 。在该表象下：
+$$\hat L\cdot \hat S=\frac{1}{2}(\hat J^2-\hat L^2-\hat S^2)=\frac{\hbar^2}2\left[j(j+1)-l(l+1)-s(s+1)\right]$$
+$$\langle\frac1{r^3}\rangle=\frac{1}{l(l+1/2)(l+1)n^3a_0}$$
+合起来得到：
+$$E^1_{SOC}=\frac{(E_n)^2}{mc^2}\frac{n\left[j(j+1)-l(l+1)-\frac34\right]}{l(l+1/2)(l+1)}$$
+考虑到耦合后的$j=l+\frac12$和$j=l-\frac12$，可以写成：
+$$E^1_{SOC}=\dfrac{(E_n)^2}{mc^2}\begin{cases}
+\dfrac{n}{(l+\frac12)(l+1)},&j=l+\frac12\\
+\dfrac{-n}{l(l+\frac12)},&j=l-\frac12
+\end{cases}$$
 
-微扰为：
-$$\delta\hat H=\frac{1}{2m_e^2c^2}\frac{1}{r}\frac{dV}{dr}\hat L\cdot \hat S$$
-
-选择$\hat L^2,\hat S^2,\hat J^2,\hat J_z$作为本征态，因为他们和$\hat L\cdot \hat S$对易。
-
-一阶能量修正为：
-$$E^1_{nlj}=\langle nlj|\delta\hat H|nlj\rangle=\cdots=-\frac{\alpha^2}{2nl(l+\frac12)(l+1)}E_n^0\begin{cases}l&j=l+\frac12\\-l-1&j=l-\frac12\end{cases}$$
+> 将两个相对论修正项加在一起，会发现无论是$j=l+\frac12$还是$j=l-\frac12$，都可以写成一个统一的表达式：
+$$E^1_{mv}+E^1_{SOC}=\frac{(E_n)^2}{2mc^2}\left[3-\frac{4n}{j+1/2}\right]=-E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2}-\frac34\right)\right]$$
 
 
 
 ## Zeeman Effect
-考虑外磁场：
-$$\vec{A}=-\frac{1}{2}B(y\hat i-x\hat j)$$
+考虑将氢原子放入外磁场，产生Zeeman效应：
+$$\vec{A}=-\frac{1}{2}B_{ext}(y\hat i-x\hat j)$$
 哈密顿量修正为：
 $$\hat H=\frac{\hat p^2}{2m}+V(r)-\frac{e}{m_e}(\vec{A}\cdot\hat p)+\frac{e^2}{2m_e}\vec{A}^2$$
-此处有两项微扰——一阶塞曼效应和二阶塞曼效应。
-
-### Linear Zeeman Effect
-注意到一阶塞曼效应可以写为：
-$$\delta\hat H=-\frac{e}{2m_e}B\hat L_z$$
-同时考虑自旋磁矩作用：
-$$\delta\hat H=-\frac{e}{2m_e}B(\hat L_z+2\hat S_z)$$
+此处有两项微扰——一阶塞曼效应和二阶塞曼效应。我们一般把一阶塞曼效应部分的哈密顿量写为：
+$$\hat{H}_Z=\frac{e}{2m_e}B_{ext}(\hat L_z+2\hat S_z)$$
+当我们不考虑氢原子的精细结构（如  {% post_link '原子物理/原子的精细结构' %} 所说的双电子独态没有自旋轨道耦合），即为正常塞曼效应，产生三条分裂谱线；当考虑氢原子的精细结构时，即为反常塞曼效应，产生$2j+1$条分裂谱线。此时还需要考虑弱场、强场和中间场情况，分别对应$\hat{H}_Z$为微扰、$\hat{H}_{mv}+\hat{H}_{SOC}$为微扰和简并微扰情况。
 
 
-当外磁场强于内磁场时，自旋轨道耦合未被破坏：
-$$\delta\hat H=-\frac{e}{2m_e}B(\hat J_z+\hat S_z)$$
-能级分裂为：
-$$\Delta=-\frac{e\hbar B m}{2m_e}(1\pm \frac{1}{2l+1})$$
+### Normal Zeeman Effect
+不考虑自旋的影响时，塞曼效应为正常塞曼效应，此时一阶能量修正为：
+$$\hat{H}_Z=\frac{e}{2m_e}B_{ext}\hat L_z$$
+作为微扰，代入一阶能量修正：
+$$E^1_n=\langle nlm_l|\hat{H}_Z|nlm_l\rangle=\frac{e}{2m_e}B_{ext}m_l=m_l\mu_B B_{ext}$$
+这里的正号代表着随着$m_l$的增大，由于磁子反平行于磁场方向，所以能量增大。此时考虑 {% post_link '量子力学/对称性和守恒律' %} 中提到选择定则$\Delta m=0,\pm1$，所以能级分裂为三条谱线。
 
 
-当外磁场弱于内磁场时，即帕刑效应：
-$$\delta\hat H=-\frac{e\hbar}{2m_e}B(m_l+2m_s)$$
+### Weak-Field Zeeman Effect
+当$B_{ext}\ll B_{int}$时，内磁场强于外磁场，氢原子内部的LS耦合未被破坏。此时微扰项为：
+$$\hat{H}_Z=\frac{e}{2m_e}B_{ext}(\hat L_z+2\hat S_z)=\frac{e}{2m_e}B_{ext}(\hat J_z+\hat S_z)$$
+此时的好量子数为$n,l,s,j,m_j$，这意味着$\hat{J}$是容易计算的，但$\hat{S}$却是含时的。用 {% post_link '原子物理/原子的精细结构' %} 中的经典图像看，可以计算出总磁矩$\mu$在总角动量方向的投影$\mu_j$的具体数值（即朗德g因子乘以玻尔磁子$\mu_B$）。现在我们用另一种方法来推导。
+
+在经典图像下，尽管$\hat{S}$是不守恒的（大小不变，绕着$\hat J$进动），但我们可以计算他的时间平均，即投影到$\hat J$方向的平均值：
+$$\langle \hat S\rangle=\langle \frac{\hat{S}\cdot \hat{J}}{J^2}\hat{J}\rangle$$
+利用$\hat{L}=\hat{J}-\hat{S}$，可以得到：
+$$\langle \hat J+\hat S\rangle=\left(1+\frac12\frac{\hat{J}^2+\hat{S}^2-\hat{L}^2}{\hat{J}^2}\right)\langle \hat J\rangle$$
+总磁矩为：
+$$\mu_j=\frac{e}{2m_e}\left(1+\frac12\frac{\hat{J}^2+\hat{S}^2-\hat{L}^2}{\hat{J}^2}\right)\hat J=g_j\sqrt{j(j+1)}\mu_B$$
+其中$g_j=1+\dfrac{j(j+1)+s(s+1)-l(l+1)}{2j(j+1)}$为朗德g因子。算出了总磁矩，再算z方向的就容易得多了，最终得到：
+$$E_Z=\langle nlm_j|\hat{H}_Z|nlm_j\rangle=m_jg_j\mu_bB_{ext}$$
+最终的能量为：
+$$E_{njm_j}=E_{FS}+E_{Z}=-E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2}-\frac34\right)\right]+m_jg_j\mu_BB_{ext}$$
+
+### Strong-Field Zeeman Effect
+当$B_{ext}\gg B_{int}$时，外磁场强于内磁场，氢原子内部的LS耦合被破坏。此时塞曼项为：
+$$\hat{H}_Z=\frac{e}{2m_e}B_{ext}(\hat L_z+2\hat S_z)$$
+对应的能量为：
+$$E_Z=\langle nlm_l|\hat{H}_Z|nlm_l\rangle=\frac{e}{2m_e}B_{ext}(m_l+2m_s)=(m_l+2m_s)\mu_B B_{ext}$$
+此时的微扰项为精细结构：
+$$\hat{H}_{FS}=\hat{H}_{mv}+\hat{H}_{SOC}$$
+相对论运动项修正不变：
+$$E^1_{mv}=-\frac{(E_n)^2}{2mc^2}\left[\frac{4n}{l+1/2}-3\right]$$
+但由于LS耦合被破坏，此时j不再是好量子数，直接计算为：
+$$\hat L\cdot \hat S=\frac{1}{2}(\hat J^2-\hat L^2-\hat S^2)\Rightarrow \hat L\cdot \hat S=\langle L_x\rangle\langle S_x\rangle+\langle L_y\rangle\langle S_y\rangle+\langle L_z\rangle\langle S_z\rangle=\hbar^2m_lm_s$$
+$$E_{SOC}=\frac{(E_n)^2}{mc^2}\frac{2nm_lm_s\hbar^2}{l(l+1/2)(l+1)}$$
+总的能量为：
+$$E_{njm_j}=E_{FS}+E_Z=E_n\left[\frac{\alpha^2}{n^2}\left(\frac34-\frac{n}{l+1/2}+\frac{nm_lm_s}{l(l+1/2)(l+1)}\right)\right]+(m_l+2m_s)\mu_B B_{ext}$$
+
+> 对于$n=2$的氢原子的8个能级，可以根据以上理论计算出能级分裂情况。中间场的情况省略，不过可以参考[知乎回答](https://zhuanlan.zhihu.com/p/669034290) （小时百科参考中文版格里菲斯的书，有错误。英文版无错误）。可以参考以下图像：
+>
+> ![Zeeman Effect](/img/量子力学2/zeeman.png)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.constants import alpha, physical_constants
+
+# 物理常数
+eV = physical_constants['electron volt'][0]
+E2 = -13.6 / 4  # n=2 的 Bohr 能级 (eV)
+mu_B = 5.788e-5  # 玻尔磁子 (eV/T)
+gamma = (alpha**2 / 8**2) * 13.6  # 精细结构常数 (eV)
+
+# 弱场能级公式 (B -> 0)
+def weak_field_energies(B):
+                                                         # |n l j mj>
+    energies = [
+        E2 - (5/16)*alpha**2 * 13.6 / 4 + mu_B * B,      # |2 0 1/2 1/2>
+        E2 - (5/16)*alpha**2 * 13.6 / 4 - mu_B * B,      # |2 0 1/2 -1/2>
+        E2 - (1/16)*alpha**2 * 13.6 / 4 + (6/3)*mu_B * B,# |2 1 3/2 3/2>
+        E2 - (1/16)*alpha**2 * 13.6 / 4 - (6/3)*mu_B * B,# |2 1 3/2 -3/2>
+        E2 - (1/16)*alpha**2 * 13.6 / 4 + (2/3)*mu_B * B,# |2 1 3/2 1/2>
+        E2 - (5/16)*alpha**2 * 13.6 / 4 + (1/3)*mu_B * B,# |2 1 1/2 1/2>
+        E2 - (1/16)*alpha**2 * 13.6 / 4 - (2/3)*mu_B * B,# |2 1 3/2 -1/2>
+        E2 - (5/16)*alpha**2 * 13.6 / 4 - (1/3)*mu_B * B,# |2 1 1/2 -1/2>
+    ]
+    return np.array(energies)
 
 
 
+# 强场能级公式 (B -> ∞)
+def strong_field_energies(B):
+                                                         # |n l ml ms>
+    energies = [
+        E2 - (5/16)*alpha**2 * 13.6 / 4 + mu_B * B,      # |2 0 0 1/2>
+        E2 - (5/16)*alpha**2 * 13.6 / 4 - mu_B * B,      # |2 0 0 -1/2>
+        E2 - (1/16)*alpha**2 * 13.6 / 4 + 2 * mu_B * B,  # |2 1 1 1/2>
+        E2 - (1/16)*alpha**2 * 13.6 / 4 - 2 * mu_B * B,  # |2 1 -1 -1/2>
+        E2 - (7/48)*alpha**2 * 13.6 / 4 + mu_B * B,      # |2 1 0 1/2>
+        E2 - (11/48)*alpha**2 * 13.6 / 4 + 0 * mu_B * B, # |2 1 1 -1/2>
+        E2 - (11/48)*alpha**2 * 13.6 / 4 - 0 * mu_B * B, # |2 1 -1 1/2>
+        E2 - (7/48)*alpha**2 * 13.6 / 4 - mu_B * B,      # |2 1 0 -1/2>
+    ]
+    return np.array(energies)
+
+# 中间场能级公式 (任意 B)
+def intermediate_field_energies(B):
+    beta = mu_B * B
+    sqrt_term1 = np.sqrt(4*gamma**2 + (2/3)*gamma*beta + (beta**2)/4)
+    sqrt_term2 = np.sqrt(4*gamma**2 - (2/3)*gamma*beta + (beta**2)/4)
+    
+    energies = [
+        E2 - 5*gamma + beta,       # ε₁ 1
+        E2 - 5*gamma - beta,       # ε₂ -1
+        E2 - gamma + 2*beta,       # ε₃ 2
+        E2 - gamma - 2*beta,       # ε₄ -2
+        E2 - 3*gamma + beta/2 + sqrt_term1,  # ε₅ 1
+        E2 - 3*gamma + beta/2 - sqrt_term1,  # ε₆ 0
+        E2 - 3*gamma - beta/2 + sqrt_term2,  # ε₇ 0
+        E2 - 3*gamma - beta/2 - sqrt_term2   # ε₈ -1
+    ]
+    return np.array(energies)
+
+# 生成磁场范围
+wb=[0,0.5]
+sb=[0.1,2]
+total=[0,2]
+
+B_weak = np.linspace(wb[0], wb[1], 100)      # 弱场范围 (0 ≤ B ≤ 0.1 T)
+B_intermediate = np.linspace(total[0], total[1], 100)  # 中间场范围 (0.1 ≤ B ≤ 10 T)
+B_strong = np.linspace(sb[0], sb[1], 100)  # 强场范围 (10 ≤ B ≤ 100 T)
 
 
+# 计算能级
+E_weak = np.array([weak_field_energies(B) for B in B_weak])
+E_intermediate_weak = np.array([intermediate_field_energies(B) for B in B_weak])
+E_intermediate = np.array([intermediate_field_energies(B) for B in B_intermediate])
+E_intermediate_strong = np.array([intermediate_field_energies(B) for B in B_strong])
+E_strong = np.array([strong_field_energies(B) for B in B_strong])
 
+# 颜色列表（蓝、绿、红、青、品红、黄、黑、橙）
+colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'orange']
+
+# 绘制能级分裂图
+plt.figure(figsize=(15, 6))
+
+# 固定高斯
+plt.subplot(1, 3, 1)
+for i in range(8):
+    plt.plot(B_intermediate, E_intermediate[:, i], color=colors[i])
+plt.xlabel('Magnetic Field B (T)', fontsize=12)
+plt.ylabel('Energy (eV)', fontsize=12)
+plt.title('Zeeman Splitting of Hydrogen n=2 Level', fontsize=14)
+plt.grid(alpha=0.3)
+
+plt.subplot(1, 3, 2)
+for i in range(8):
+    plt.plot(B_weak, E_weak[:, i], linestyle='--', color=colors[i],alpha=0.5)
+    plt.plot(B_weak, E_intermediate_weak[:, i], color=colors[i],alpha=0.5)
+
+plt.xlabel('Magnetic Field B (T)', fontsize=12)
+plt.ylabel('Energy (eV)', fontsize=12)
+plt.title('Weak-Field Zeeman Effect', fontsize=14)
+plt.grid(alpha=0.3)
+
+plt.subplot(1, 3, 3)
+for i in range(8):
+    plt.plot(B_strong, E_intermediate_strong[:, i], color=colors[i],alpha=0.5)
+    plt.plot(B_strong, E_strong[:, i], linestyle='--', color=colors[i],alpha=0.5)
+
+plt.xlabel('Magnetic Field B (T)', fontsize=12)
+plt.ylabel('Energy (eV)', fontsize=12)
+plt.title('Strong-Field Zeeman Effect', fontsize=14)
+plt.grid(alpha=0.3)
+
+
+plt.tight_layout()
+plt.show()
+```
 
 ### Quadradic Zeeman Effect
 
 二阶塞曼效应为：
 $$\delta\hat H=\frac{e^2}{2m_e}\vec{A}^2=-\frac{e^2}{8m_e}B^2(x^2+y^2)$$
-当一阶塞曼效应为0时，比如说氢原子的基态，二阶塞曼效应凸显为：
+当一阶塞曼效应为0时，比如说某自旋为0的原子的基态，利用$\langle x^2+ y^2\rangle=\frac23\langle r^2\rangle=2a_0^2$，二阶塞曼效应凸显为：
 $$\delta E=\frac{e^2}{8m_e}B^2\langle nlm|\hat x^2+\hat y^2|nlm\rangle=\frac23\frac{e^2}{8m_e}B^2\langle r^2\rangle=\frac{e^2B^2a_0^2}{4m_e}$$
 
 
 ## Van der Waals Interaction
 范德瓦尔斯相互作用表现为两个原子之间的相互吸引，可以用以下物理图像理解：电子云的涨落会导致瞬时偶极子，这些偶极子会相互作用，导致两个原子之间的相互吸引。直白地说，电子靠近产生的吸引力大于电子远离产生的排斥力。
 
-微扰为：
-$$\begin{aligned}\delta\hat H&=-\frac{e^2}{r^3}(x_1x_2+y_1y_2-2z_1z_2)\\&=-\frac{e^2}{r^3}(\sin{\theta_1}\cos{\phi_1}\sin{\theta_2}\cos{\phi_2}+\sin{\theta_1}\sin{\phi_1}\sin{\theta_2}\sin{\phi_2}-2\cos{\theta_1}\cos{\theta_2})
-\end{aligned}$$
-
-显然，一阶能量修正由于选择定则为0，二阶能量修正小于0，这使得两个原子之间的相互作用趋于吸引。
-
-> 总结：氢原子的能级分裂包括：
-> - Stark效应：外电场使能级分裂；
-> - 相对论修正：相对论效应使能级分裂；
-> - 自旋轨道耦合：自旋轨道耦合使能级分裂；
-> - 塞曼效应：外磁场使能级分裂；
-
-# Time-dependet Perturbation
-
-从一阶微扰可以知道：
-$$|n^1\rangle=\sum_k c_k|k\rangle$$
-随时间的演化：
-$$|n^1(t)\rangle=\sum_k c_ke^{-\frac{iE_kt}{\hbar}}|k\rangle$$
-
-当我们考虑和哈密顿量和时间相关的时候
-$$|n^1(t)\rangle=\sum_k c_k(t)e^{-\frac{iE_kt}{\hbar}}|k\rangle$$
-
-我们的问题转化为求$c_k(t)$满足的微分方程。在求解之前，不妨先采用相互作用绘景。
-
-##  Interaction Picture
-上述的一阶修正态矢量在此处的讨论可以推广为任意态矢量：
-$$|\alpha(t)\rangle=\sum_n c_n(t)e^{-\frac{iE_nt}{\hbar}}|n\rangle$$
-
-定义：
-$$|\alpha_I(t)\rangle=e^{\frac{i\hat H_0t}{\hbar}}|\alpha_S(t)\rangle$$
-角标$S$表示薛定谔绘景，$I$表示相互作用绘景。
-
-对算符也有类似的定义：
-$$\hat A_I(t)=e^{\frac{i\hat H_0t}{\hbar}}\hat A_S e^{-\frac{i\hat H_0t}{\hbar}}$$
-势能也是如此：
-$$\hat V_I(t)=e^{\frac{i\hat H_0t}{\hbar}}\hat V_S e^{-\frac{i\hat H_0t}{\hbar}}$$
-
-在相互作用绘景下，薛定谔方程为：
-$$i\hbar\frac{d}{dt}|\alpha_I(t)\rangle=\hat V_I(t)|\alpha_I(t)\rangle$$
-$$i\hbar\frac{d}{dt}\hat A_I(t)=[\hat A_I(t),\hat H_0]$$
-这相当于综合了薛定谔绘景和海森堡绘景的优点：对于薛定谔绘景，薛定谔方程由$\hat H$给出；对于海森堡绘景，矢量不随时间变化，薛定谔方程是关于算符的方程。
-
-表格如下：
-
-|  | 薛定谔绘景 | 海森堡绘景 | 相互作用绘景 |
-| --- | --- | --- | --- |
-| 算符 | $\hat A_S$ | $\hat A_H(t)$ | $\hat A_I(t)$ |
-| 矢量 | $\lvert\alpha_S(t)\rangle$ | $\lvert\alpha_H(t)\rangle$ | $\lvert\alpha_I(t)\rangle$ |
-| 薛定谔矢量方程 | $i\hbar\frac{d}{dt}\lvert\alpha_S(t)\rangle=\hat H_S\lvert\alpha_S(t)\rangle$ | None | $i\hbar\frac{d}{dt}\lvert\alpha_I(t)\rangle=\hat V_I(t)\lvert\alpha_I(t)\rangle$ |
-| 薛定谔算符方程 | None | $i\hbar\frac{d}{dt}\hat A_H(t)=[\hat A_H(t),\hat H_S]$ | $i\hbar\frac{d}{dt}\hat A_I(t)=[\hat A_I(t),\hat H_0]$ |
-
-
-从相互作用绘景的薛定谔方程出发：
-$$i\hbar\frac{d}{dt}|\alpha_I(t)\rangle=\hat V_I(t)|\alpha_I(t)\rangle$$
-所以
-$$i\hbar\frac{d}{dt}\langle n|\alpha_I(t)\rangle=\sum_m\langle n|\hat V_I(t)|m\rangle\langle m|\alpha_I(t)\rangle$$
-也就是说：
-$$i\hbar\frac{d}{dt}c_n(t)=\sum_mV_{nm} c_m(t)e^{i(E_n-E_m)t/\hbar}$$
-
-用矩阵表示：
-$$i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\\\vdots\end{pmatrix}=\begin{pmatrix}V_{11}&V_{12}e^{i\omega_{12}t}&\cdots\\V_{21}e^{i\omega_{21}t}&V_{22}&\cdots\\\vdots&\vdots&\ddots\end{pmatrix}\begin{pmatrix}c_1(t)\\c_2(t)\\\vdots\end{pmatrix}$$
-
-其中
-$$\omega_{nm}=\frac{E_n-E_m}{\hbar}=-\omega_{mn}$$
-
-
-### Example: Nuclear Magnetic Resonance
-一个最简单的相互作用绘景应用例子是核磁共振，一个二能级体系：
-$$\hat H_0=\begin{pmatrix}E_1&0\\0&E_2\end{pmatrix}$$
-$$\hat V=\begin{pmatrix}0&Ve^{i\omega t}\\Ve^{-i\omega t}&0\end{pmatrix}$$
-
-初始条件：$c_1(0)=1,c_2(0)=0$，求解$c_1(t),c_2(t)$。
-
-矩阵形式：
-$$i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\end{pmatrix}=\begin{pmatrix}0&Ve^{i(\omega+\omega_{12}) t}\\Ve^{-i(\omega+\omega_{12})t}&0\end{pmatrix}\begin{pmatrix}c_1(t)\\c_2(t)\end{pmatrix}$$
-
-记
-$$\Omega=\sqrt{\frac{V^2}{\hbar^2}+\frac{(\omega+\omega_{12})^2}{4}}$$
-
-解得：
-$$c_2(t)=-\frac{\gamma}{2\Omega\hbar}e^{i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}+\frac{\gamma}{2\Omega\hbar}e^{-i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}=\frac{i\gamma}{\Omega\hbar}\sin{[\Omega t]}e^{i\frac{\omega+\omega_{12}}{2}t}$$
-$$|c_2(t)|^2=\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
-$$|c_1(t)|^2=1-|c_2(t)|^2=1-\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
-这就是Rabi振荡。
-
-## Time-dependet Perturbation
-### Dyson Series
-处理含时微扰的方法与上面处理非含时微扰的方法有所不同。我们可以通过Dyson级数来求解。
-
-假设系数的近似解为：
-$$c_n(t)=c_n^{(0)}(t)+c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots$$
-知道$c_n^{(0)}(t)=c_n(0)$，是容易求得$c_n^{(1)}(t)$的，将其作为初值重新代入，我们可以不断迭代得到更高阶的近似解。
-
-相互作用中关于时间演化算符的微分方程为：
-$$i\hbar\frac{d}{dt}U_I(t,t_0)=\hat V_I(t)U_I(t,t_0)$$
-初始条件：
-$$U_I(t_0,t_0)=1$$
-得到积分方程：
-$$U_I(t,t_0)=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')U_I(t',t_0)dt'$$
-继续迭代：
+考虑两个氢原子之间的距离为$r$（$r\gg a_0$），电子相对氢原子的位移为$(x_1,y_1,z_1)$和$(x_2,y_2,z_2)$。由于表达式是二重正负求和的（二阶项相消），考虑泰勒展开到三阶：
+$$\left[(r+z)^2+x^2+y^2\right]^{-1/2}=\frac1r\left[1-\frac zr+\frac{2z^2-x^2-y^2}{2r^2}\right]$$
+利用 {% post_link '量子力学/中心力场问题' %} 给出的直角坐标与球谐函数的关系，计算微扰为：
 $$\begin{aligned}
-U_I(t,t_0)&=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')[1-\frac{i}{\hbar}\int_{t_0}^{t'}\hat V_I(t'')U_I(t'',t_0)dt'']dt'\\
-&=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')dt'-\frac{1}{\hbar^2}\int_{t_0}^t\int_{t_0}^{t'}\hat V_I(t')\hat V_I(t'')U_I(t'',t_0)dt''dt'
+\delta\hat H
+&=\frac{e^2}{r}+\frac{e^2}{|r-r_1-r_2|}-\frac{e^2}{|r-r_1|}-\frac{e^2}{|r-r_2|}\\
+&=\frac{e^2}{2r^3}\left[2(z_1+z_2)^2-2z_1^2-2z_2^2-(x_1+x_2)^2+x_1^2+x_2^2-(y_1+y_2)^2+y_1^2+y_2^2\right]\\
+&=\frac{e^2}{r^3}(x_1x_2+y_1y_2-2z_1z_2)\\
+&\propto \frac{e^2}{r^3}\left[(-Y_1^1+Y_{-1}^1)^2-(Y_1^1+Y_{-1}^1)^2-4(Y^0_1)^2\right](\delta r)^2\\
+&=\frac{-2e^2}{r^3}\left[Y_1^1Y_{-1}^1+2(Y^0_1)^2\right](\delta r)^2\\
 \end{aligned}$$
 
-这其中的第n阶项为：
-$$U_I(t,t_0)
-=\sum_{n=0}^\infty(-\frac{i}{\hbar})^n\int_{t_0}^t\cdots\int_{t_0}^{t_{n-1}}\hat V_I(t_1)\cdots\hat V_I(t_n)dt_1\cdots dt_n$$
-
-### Transition Probability
-考虑跃迁的概率：
-$$c_n(t)=\langle n|U_I(t,t_0)|i\rangle$$
-把$U_I(t,t_0)$代入：
-$$c_n(t)=c_n^{(0)}(t)+c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots$$
-其中：
-$$c_n^{(0)}(t)=\langle n|i\rangle$$
-$$c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{t_0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar}\int_{t_0}^te^{i\omega_{ni}t'}V_{ni}(t')dt'$$
-$$c_n^{(2)}(t)=\frac{-1}{\hbar^2}\sum_m\int_{t_0}^t\int_{t_0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'$$
-
-所以跃迁概率为：
-$$P_{ni}(t)=|\sum_{n=0}^\infty c_n(t)|^2$$
-
-### Constant Perturbation
-考虑一个常数微扰：
-$$V(t)=\begin{cases}0&t<0\\V&t\geq 0\end{cases}$$
-假定在$t=0$的时候，体系处于态$|i\rangle$：
-
-#### Zero Order
-$$c_n^{(0)}(t)=\langle n|i\rangle$$
-
-#### First Order
-$$\begin{aligned}c_n^{(1)}(t)&=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'\\&=\frac{-i}{\hbar}\int_{0}^te^{i\omega_{ni}t'}V_{ni}dt'\\&=\frac{V_{ni}}{E_n-E_i}(1-e^{i\omega_{ni}t})\end{aligned}$$
-或者：
-$$|c_n^{(1)}(t)|^2=\frac{4|V_{ni}|^2}{(E_n-E_i)^2}\sin^2[\frac{\omega_{ni}t}{2}]$$
-
-对这个式子可以进行更多的讨论：
-$$|c_n^{(1)}(t)|^2=\frac{4|V_{ni}|^2}{(E_n-E_i)^2}\sin^2[\frac{\omega_{ni}t}{2}]=\frac{|V_{ni}|^2}{\hbar^2}t^2\frac{\sin^2[\frac{\omega_{ni}t}{2}]}{(\frac{\omega_{ni}t}{2})^2}$$
-这意味着，当微扰刚刚打开的时候，能量变化可以很大，跃迁的选择有很多；但微扰打开的时候长了以后，能量变化的区间很窄。
-
-当末态具有不同而相近的能级时，我们可以计算总的跃迁概率：
-$$\sum_n|c_n^{(1)}(t)|^2=\int dE \rho(E)\frac{|V_{ni}|^2}{\hbar^2}t^2\frac{\sin^2[\frac{\omega_{ni}t}{2}]}{(\frac{\omega_{ni}t}{2})^2}=\frac{2\pi t}{\hbar}\overline{|V_{ni}^2}|\rho(E)|_{E_n=E_i},t\rightarrow \infty$$
-所以对于长时间，总的跃迁概率正比于时间。
-
-定义单位时间的跃迁概率——跃迁速率：
-$$W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^2|}\rho(E)|_{E_n=E_i}$$
-该式被称为费米黄金规则。
-
-#### Second Order
-$$\begin{aligned}c_n^{(2)}(t)&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'\\
-&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}V_{nm}e^{-i\omega_{mi}t''}V_{mi}dt''dt'\\
-&=\frac{-1}{\hbar^2}\sum_mV_{nm}V_{mi}\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}e^{-i\omega_{mi}t''}dt''dt'\\
-&=\frac{-1}{\hbar^2}\sum_mV_{nm}V_{mi}\frac{1}{i\omega_{mi}}\int_{0}^t e^{i\omega_{nm}t'}(e^{i\omega_{mi}t'}-1)dt'\\
-&=\frac{i}{\hbar}\sum_m\frac{V_{nm}V_{mi}}{E_m-E_i}\int_{0}^t (e^{i\omega_{ni}t'}-e^{i\omega_{nm}t'})dt'\\\end{aligned}$$
-
-合并一阶修正，跃迁速率：
-$$W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}+\sum_m\frac{V_{nm}V_{mi}}{E_i-E_m}|^2}\rho(E)|_{E_n=E_i}$$
-
-### Harmonic Perturbation
-考虑一个简谐微扰：
-$$V(t)=Ve^{i\omega t}+V^\dagger e^{-i\omega t}$$
-同样的方法：
-$$c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{1}{\hbar}[V_{ni}\frac{1-e^{i(\omega_{ni}+\omega)t}}{\omega_{ni}+\omega}+V_{ni}^\dagger\frac{1-e^{i(\omega_{ni}-\omega)t}}{\omega_{ni}-\omega}]$$
-相比于常数微扰，主要区别在于：
-$$\omega_{ni}\rightarrow \omega_{ni}\pm \omega$$
-这里的$\hbar\omega$让人不禁想到了光子，对应的两种跃迁就是受激发射和吸收：
-$$Emission:W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}|^2}\rho(E)|_{E_n=E_i-\hbar\omega}$$
-$$Absorption:W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^\dagger|^2}\rho(E)|_{E_n=E_i+\hbar\omega}$$
-由：
-$$|V_{ni}|^2=|V_{ni}^\dagger|^2$$
-可以知道吸收和发射的概率是相等的，这叫做细致平衡原理。
-
-### Expotential Decay Perturbation-Energy Shift and Decay Width
-考虑一个指数衰减的微扰：
-$$V(t)=Ve^{-\eta t}$$
-同样的方法：
-$$c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar}V_{ni}\frac{e^{\eta t+i\omega_{ni}t}}{\eta+i\omega_{ni}}$$
-跃迁概率：
-$$|c_n^{(1)}(t)|^2=\frac{|V_{ni}|^2}{\hbar^2}\frac{e^{2\eta t}}{\eta^2+\omega_{ni}^2}$$
-跃迁速率：
-$$W_{ni}=\frac{2|V_{ni}|^2}{\hbar^2}\frac{\eta e^{2\eta t}}{\eta^2+\omega_{ni}^2}$$
-现在要求$t\rightarrow \infty$或者说，$\eta\rightarrow 0^+$，这时候可以得到：
-$$\lim_{\eta\rightarrow 0^+}\frac{\eta}{\eta^2+\omega_{ni}^2}=\pi\delta(\omega_{ni})$$
-$$W_{ni}=\frac{2\pi}{\hbar}|V_{ni}|^2\delta(E_n-E_i)$$
-这同样满足费米黄金规则。
-
-#### First Order
-$$c_i^{(1)}(t)=\frac{-i}{\hbar}\lim_{t_0\rightarrow \infty}\int_{t_0}^t\langle i|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar\eta}V_{ii}e^{\eta t}$$
-
-#### Second Order
-$$c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
-
-合并起来，跃迁概率为：
-$$c_i(t)=1-\frac{i}{\hbar\eta}V_{ii}e^{\eta t}-\frac{1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
-
-$$\frac{\dot{c_i}}{c_i}=\frac{-i}{\hbar\eta}V_{ii}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|}{E_i-E_m+i\hbar \eta}$$
-解得：
-$$c_i(t)=e^{-i\Delta_i t/\hbar},E_i\rightarrow E_i+\Delta_i$$
-
-其中：
-$$\Delta_i^{(1)}=V_{ii}$$
-$$\Re\Delta_i^{(2)}=\Pr.\sum_{m\neq i}\frac{|V_{mi}|^2}{E_i-E_m}$$
-$$\Im\Delta_i^{(2)}=-\pi\sum_{m\neq i}|V_{mi}|^2\delta(E_i-E_m)=-\frac{\hbar}{2}\sum_{m\neq i}W_{im}$$
-
-定义：
-$$\Gamma_i=-2\Im\Delta_i$$
-那么：
-$$|c_i(t)|^2=e^{-\Gamma_i t/\hbar}$$
-这意味着$1/\Gamma_i$是衰减时间，$\Gamma_i$是对应的能级展宽。
-
-
-### Lamb Shift
-经典中的真空无光子涨落，自然不会出现电子光子耦合，但是在量子力学中，真空中的光子涨落会导致电子的能级发生变化，这就是Lamb Shift。
-
-写出微扰项：
-$$\hat \delta H=-\frac{e}{m}\vec{A}\vec{p}+\frac{e^2}{2m}\vec{A}^2$$
-
-
-
-
-# Variantional Method
-
-对于非微扰情况，得不到精确解又得不到近似解，那可以通过变分法来求解。
-
-**定理**：对于任意能量的估计，都大于基态能量——具体来说：
-$$\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}\geq E_0$$
-**证明**：
-$$\begin{aligned}|\tilde0\rangle=\sum_{k}|k\rangle\langle k|\tilde0\rangle\end{aligned}$$
-$$\begin{aligned}
-\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}&=\frac{\sum_{k}\langle \tilde0|k\rangle\langle k|\hat H|k\rangle\langle k|\tilde0\rangle}{\sum_{k}|\langle 0|k\rangle|^2}\\
-&=\frac{\sum_k E_k|\langle 0|k\rangle|^2}{\sum_k |\langle 0|k\rangle|^2}\\
-&\geq E_0
-\end{aligned}$$
-显然，误差来源于$|\tilde0\rangle$和$|0\rangle$的不同。我们可以在$|\tilde0\rangle$加上许多自由度$|\tilde0(\alpha,\beta,\cdots)\rangle$，在最后的估计能量上取极值，就可以找到最佳近似。
-
-## Helium Atom
-对于氦原子，我们可以用变分法求解基态能量。
-
-$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(2/r_1+2/r_2-1/r_{12})$$
-假如忽略电子之间的相互作用，那么基态波函数是
-$$\psi_1(r_1,r_2)=\psi_{1s}(r_1)\psi_{1s}(r_2)=\frac{8}{\pi a^3}e^{-2r_1/a}e^{-2r_2/a}$$
-这时候的能量是：
-$$E_{He_0}=8E_{H_0}+V_{ee}$$
-其中
-$$V_{ee}=\int d^3r_1d^3r_2\frac{|\psi_{1s}(r_1)|^2|\psi_{1s}(r_2)|^2}{r_{12}}=-\frac{5}{2}E_{H_0}$$
-所以：
-$$E_{He_0}=\frac{11}{2}E_{H_0}=-75eV$$
-很接近实验值$-79eV$。
-
-进一步引入参数：
-$$\psi_1(r_1,r_2)=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a}$$
-这时候可以将哈密顿量看成：
-$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(Z/r_1+Z/r_2)+\frac{e^2}{4\pi\epsilon}(\frac{Z-2}{r_1}+\frac{Z-2}{r_2}+1/r_{12})$$
-$$\begin{aligned}E_{He_0}&=2Z^2E_{H_0}+2(Z-2)\frac{e^2}{4\pi\epsilon}\langle \frac1r\rangle+V_{ee}\\&=(2Z^2-4Z(Z-2)-\frac54Z)E_{H_0}\end{aligned}$$
-当$Z=\frac{27}{16}$时，能量最低，为$-77.5eV$。
+显然，一阶能量修正由于选择定则为0，二阶能量修正小于0，这使得两个原子之间的相互作用趋于吸引，且正比于$\dfrac{1}{r^6}$。
 
