@@ -7,6 +7,18 @@ categories: 量子力学2
 cover:
 ---
 
+- [Classic Scattering Theory](#classic-scattering-theory)
+  - [Differential Cross Section](#differential-cross-section)
+  - [Rigid Sphere Scattering](#rigid-sphere-scattering)
+  - [Rutherford Scattering](#rutherford-scattering)
+- [Quamtum Scattering Theory](#quamtum-scattering-theory)
+  - [Scattering Amplitude](#scattering-amplitude)
+  - [Green Function Method](#green-function-method)
+  - [Operator Form](#operator-form)
+  - [Optical Theorem](#optical-theorem)
+  - [Example: Square Well](#example-square-well)
+  - [Example: Yukawa Potential](#example-yukawa-potential)
+
 
 # Classic Scattering Theory
 
