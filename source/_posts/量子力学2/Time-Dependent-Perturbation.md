@@ -7,27 +7,25 @@ categories:
 cover:
 ---
 
-- [Time-dependet Perturbation](#time-dependet-perturbation)
+- [Time-dependent Problem](#time-dependent-problem)
   - [Interaction Picture](#interaction-picture)
-    - [Example: Nuclear Magnetic Resonance](#example-nuclear-magnetic-resonance)
-  - [Time-dependet Perturbation](#time-dependet-perturbation-1)
-    - [Dyson Series](#dyson-series)
-    - [Transition Probability](#transition-probability)
-    - [Constant Perturbation](#constant-perturbation)
-      - [Zero Order](#zero-order)
-      - [First Order](#first-order)
-      - [Second Order](#second-order)
-    - [Harmonic Perturbation](#harmonic-perturbation)
-    - [Expotential Decay Perturbation-Energy Shift and Decay Width](#expotential-decay-perturbation-energy-shift-and-decay-width)
-      - [First Order](#first-order-1)
-      - [Second Order](#second-order-1)
-    - [Lamb Shift](#lamb-shift)
-- [Variantional Method](#variantional-method)
-  - [Helium Atom](#helium-atom)
+  - [Example: Nuclear Magnetic Resonance](#example-nuclear-magnetic-resonance)
+- [Time-dependet Perturbation](#time-dependet-perturbation)
+  - [Dyson Series](#dyson-series)
+  - [Transition Probability](#transition-probability)
+  - [Constant Perturbation](#constant-perturbation)
+    - [Zero Order](#zero-order)
+    - [First Order](#first-order)
+    - [Second Order](#second-order)
+  - [Harmonic Perturbation](#harmonic-perturbation)
+  - [Expotential Decay Perturbation-Energy Shift and Decay Width](#expotential-decay-perturbation-energy-shift-and-decay-width)
+    - [First Order](#first-order-1)
+    - [Second Order](#second-order-1)
+  - [Lamb Shift](#lamb-shift)
 
 
 
-# Time-dependet Perturbation
+# Time-dependent Problem
 
 从一阶微扰可以知道：
 $$|n^1\rangle=\sum_k c_k|k\rangle$$
@@ -40,37 +38,17 @@ $$|n^1(t)\rangle=\sum_k c_k(t)e^{-\frac{iE_kt}{\hbar}}|k\rangle$$
 我们的问题转化为求$c_k(t)$满足的微分方程。在求解之前，不妨先采用相互作用绘景。
 
 ##  Interaction Picture
-上述的一阶修正态矢量在此处的讨论可以推广为任意态矢量：
+从相互作用绘景可以**精确**（而不是使用微扰）求解含时的演化问题，所以我们用任意态矢量代替上文的一阶态矢量修正：
 $$|\alpha(t)\rangle=\sum_n c_n(t)e^{-\frac{iE_nt}{\hbar}}|n\rangle$$
 
-定义：
+定义相互作用绘景下的态矢量：
 $$|\alpha_I(t)\rangle=e^{\frac{i\hat H_0t}{\hbar}}|\alpha_S(t)\rangle$$
-角标$S$表示薛定谔绘景，$I$表示相互作用绘景。
-
-对算符也有类似的定义：
-$$\hat A_I(t)=e^{\frac{i\hat H_0t}{\hbar}}\hat A_S e^{-\frac{i\hat H_0t}{\hbar}}$$
-势能也是如此：
-$$\hat V_I(t)=e^{\frac{i\hat H_0t}{\hbar}}\hat V_S e^{-\frac{i\hat H_0t}{\hbar}}$$
-
-在相互作用绘景下，薛定谔方程为：
-$$i\hbar\frac{d}{dt}|\alpha_I(t)\rangle=\hat V_I(t)|\alpha_I(t)\rangle$$
-$$i\hbar\frac{d}{dt}\hat A_I(t)=[\hat A_I(t),\hat H_0]$$
-这相当于综合了薛定谔绘景和海森堡绘景的优点：对于薛定谔绘景，薛定谔方程由$\hat H$给出；对于海森堡绘景，矢量不随时间变化，薛定谔方程是关于算符的方程。
-
-表格如下：
-
-|  | 薛定谔绘景 | 海森堡绘景 | 相互作用绘景 |
-| --- | --- | --- | --- |
-| 算符 | $\hat A_S$ | $\hat A_H(t)$ | $\hat A_I(t)$ |
-| 矢量 | $\lvert\alpha_S(t)\rangle$ | $\lvert\alpha_H(t)\rangle$ | $\lvert\alpha_I(t)\rangle$ |
-| 薛定谔矢量方程 | $i\hbar\frac{d}{dt}\lvert\alpha_S(t)\rangle=\hat H_S\lvert\alpha_S(t)\rangle$ | None | $i\hbar\frac{d}{dt}\lvert\alpha_I(t)\rangle=\hat V_I(t)\lvert\alpha_I(t)\rangle$ |
-| 薛定谔算符方程 | None | $i\hbar\frac{d}{dt}\hat A_H(t)=[\hat A_H(t),\hat H_S]$ | $i\hbar\frac{d}{dt}\hat A_I(t)=[\hat A_I(t),\hat H_0]$ |
-
-
-从相互作用绘景的薛定谔方程出发：
-$$i\hbar\frac{d}{dt}|\alpha_I(t)\rangle=\hat V_I(t)|\alpha_I(t)\rangle$$
+角标$S$表示薛定谔绘景，$I$表示相互作用绘景。相互作用绘景的具体内容已经在 {% post_link '量子力学/对称性和守恒律' %} 中介绍过了。从相互作用绘景的薛定谔方程出发：
+$$\hat{H}=\hat{H}_0+\hat{V}_I(t),\quad i\hbar\frac{d}{dt}|\alpha_I(t)\rangle=\hat V_I(t)|\alpha_I(t)\rangle$$
 所以
 $$i\hbar\frac{d}{dt}\langle n|\alpha_I(t)\rangle=\sum_m\langle n|\hat V_I(t)|m\rangle\langle m|\alpha_I(t)\rangle$$
+其中：
+$$\langle n|\hat V_I(t)|m\rangle=\langle n|e^{\frac{i\hat H_0t}{\hbar}}\hat V_I e^{-\frac{i\hat H_0t}{\hbar}}|m\rangle=\langle n|\hat V_I|m\rangle e^{i(E_n-E_m)t/\hbar}$$
 也就是说：
 $$i\hbar\frac{d}{dt}c_n(t)=\sum_mV_{nm} c_m(t)e^{i(E_n-E_m)t/\hbar}$$
 
@@ -80,8 +58,11 @@ $$i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\\\vdots\end{pmatrix}=\begin{pm
 其中
 $$\omega_{nm}=\frac{E_n-E_m}{\hbar}=-\omega_{mn}$$
 
+> 这个和 {% post_link '量子力学2/Density-Matrix' %} 中密度矩阵的演化很像，不过密度矩阵的演化是：
+> $$\frac{d}{dt}\rho_{mn}=\frac{1}{i\hbar}(E_m-E_n)\rho_{mn}\Rightarrow \rho_{mn}(t)=\rho_{mn}(0)e^{-i\omega_{mn}t}$$
+> 多了个负号。
 
-### Example: Nuclear Magnetic Resonance
+## Example: Nuclear Magnetic Resonance
 一个最简单的相互作用绘景应用例子是核磁共振，一个二能级体系：
 $$\hat H_0=\begin{pmatrix}E_1&0\\0&E_2\end{pmatrix}$$
 $$\hat V=\begin{pmatrix}0&Ve^{i\omega t}\\Ve^{-i\omega t}&0\end{pmatrix}$$
@@ -100,8 +81,8 @@ $$|c_2(t)|^2=\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
 $$|c_1(t)|^2=1-|c_2(t)|^2=1-\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
 这就是Rabi振荡。
 
-## Time-dependet Perturbation
-### Dyson Series
+# Time-dependet Perturbation
+## Dyson Series
 处理含时微扰的方法与上面处理非含时微扰的方法有所不同。我们可以通过Dyson级数来求解。
 
 假设系数的近似解为：
@@ -124,7 +105,7 @@ U_I(t,t_0)&=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')[1-\frac{i}{\hbar}\int_{t_0
 $$U_I(t,t_0)
 =\sum_{n=0}^\infty(-\frac{i}{\hbar})^n\int_{t_0}^t\cdots\int_{t_0}^{t_{n-1}}\hat V_I(t_1)\cdots\hat V_I(t_n)dt_1\cdots dt_n$$
 
-### Transition Probability
+## Transition Probability
 考虑跃迁的概率：
 $$c_n(t)=\langle n|U_I(t,t_0)|i\rangle$$
 把$U_I(t,t_0)$代入：
@@ -137,15 +118,15 @@ $$c_n^{(2)}(t)=\frac{-1}{\hbar^2}\sum_m\int_{t_0}^t\int_{t_0}^{t'}\langle n|\hat
 所以跃迁概率为：
 $$P_{ni}(t)=|\sum_{n=0}^\infty c_n(t)|^2$$
 
-### Constant Perturbation
+## Constant Perturbation
 考虑一个常数微扰：
 $$V(t)=\begin{cases}0&t<0\\V&t\geq 0\end{cases}$$
 假定在$t=0$的时候，体系处于态$|i\rangle$：
 
-#### Zero Order
+### Zero Order
 $$c_n^{(0)}(t)=\langle n|i\rangle$$
 
-#### First Order
+### First Order
 $$\begin{aligned}c_n^{(1)}(t)&=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'\\&=\frac{-i}{\hbar}\int_{0}^te^{i\omega_{ni}t'}V_{ni}dt'\\&=\frac{V_{ni}}{E_n-E_i}(1-e^{i\omega_{ni}t})\end{aligned}$$
 或者：
 $$|c_n^{(1)}(t)|^2=\frac{4|V_{ni}|^2}{(E_n-E_i)^2}\sin^2[\frac{\omega_{ni}t}{2}]$$
@@ -162,7 +143,7 @@ $$\sum_n|c_n^{(1)}(t)|^2=\int dE \rho(E)\frac{|V_{ni}|^2}{\hbar^2}t^2\frac{\sin^
 $$W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^2|}\rho(E)|_{E_n=E_i}$$
 该式被称为费米黄金规则。
 
-#### Second Order
+### Second Order
 $$\begin{aligned}c_n^{(2)}(t)&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'\\
 &=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}V_{nm}e^{-i\omega_{mi}t''}V_{mi}dt''dt'\\
 &=\frac{-1}{\hbar^2}\sum_mV_{nm}V_{mi}\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}e^{-i\omega_{mi}t''}dt''dt'\\
@@ -172,7 +153,7 @@ $$\begin{aligned}c_n^{(2)}(t)&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}\l
 合并一阶修正，跃迁速率：
 $$W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}+\sum_m\frac{V_{nm}V_{mi}}{E_i-E_m}|^2}\rho(E)|_{E_n=E_i}$$
 
-### Harmonic Perturbation
+## Harmonic Perturbation
 考虑一个简谐微扰：
 $$V(t)=Ve^{i\omega t}+V^\dagger e^{-i\omega t}$$
 同样的方法：
@@ -186,7 +167,7 @@ $$Absorption:W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^\dagger|^2}\rho(E)|_{E_n
 $$|V_{ni}|^2=|V_{ni}^\dagger|^2$$
 可以知道吸收和发射的概率是相等的，这叫做细致平衡原理。
 
-### Expotential Decay Perturbation-Energy Shift and Decay Width
+## Expotential Decay Perturbation-Energy Shift and Decay Width
 考虑一个指数衰减的微扰：
 $$V(t)=Ve^{-\eta t}$$
 同样的方法：
@@ -200,10 +181,10 @@ $$\lim_{\eta\rightarrow 0^+}\frac{\eta}{\eta^2+\omega_{ni}^2}=\pi\delta(\omega_{
 $$W_{ni}=\frac{2\pi}{\hbar}|V_{ni}|^2\delta(E_n-E_i)$$
 这同样满足费米黄金规则。
 
-#### First Order
+### First Order
 $$c_i^{(1)}(t)=\frac{-i}{\hbar}\lim_{t_0\rightarrow \infty}\int_{t_0}^t\langle i|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar\eta}V_{ii}e^{\eta t}$$
 
-#### Second Order
+### Second Order
 $$c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
 
 合并起来，跃迁概率为：
@@ -225,48 +206,11 @@ $$|c_i(t)|^2=e^{-\Gamma_i t/\hbar}$$
 这意味着$1/\Gamma_i$是衰减时间，$\Gamma_i$是对应的能级展宽。
 
 
-### Lamb Shift
+## Lamb Shift
 经典中的真空无光子涨落，自然不会出现电子光子耦合，但是在量子力学中，真空中的光子涨落会导致电子的能级发生变化，这就是Lamb Shift。
 
 写出微扰项：
 $$\hat \delta H=-\frac{e}{m}\vec{A}\vec{p}+\frac{e^2}{2m}\vec{A}^2$$
 
 
-
-
-# Variantional Method
-
-对于非微扰情况，得不到精确解又得不到近似解，那可以通过变分法来求解。
-
-**定理**：对于任意能量的估计，都大于基态能量——具体来说：
-$$\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}\geq E_0$$
-**证明**：
-$$\begin{aligned}|\tilde0\rangle=\sum_{k}|k\rangle\langle k|\tilde0\rangle\end{aligned}$$
-$$\begin{aligned}
-\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}&=\frac{\sum_{k}\langle \tilde0|k\rangle\langle k|\hat H|k\rangle\langle k|\tilde0\rangle}{\sum_{k}|\langle 0|k\rangle|^2}\\
-&=\frac{\sum_k E_k|\langle 0|k\rangle|^2}{\sum_k |\langle 0|k\rangle|^2}\\
-&\geq E_0
-\end{aligned}$$
-显然，误差来源于$|\tilde0\rangle$和$|0\rangle$的不同。我们可以在$|\tilde0\rangle$加上许多自由度$|\tilde0(\alpha,\beta,\cdots)\rangle$，在最后的估计能量上取极值，就可以找到最佳近似。
-
-## Helium Atom
-对于氦原子，我们可以用变分法求解基态能量。
-
-$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(2/r_1+2/r_2-1/r_{12})$$
-假如忽略电子之间的相互作用，那么基态波函数是
-$$\psi_1(r_1,r_2)=\psi_{1s}(r_1)\psi_{1s}(r_2)=\frac{8}{\pi a^3}e^{-2r_1/a}e^{-2r_2/a}$$
-这时候的能量是：
-$$E_{He_0}=8E_{H_0}+V_{ee}$$
-其中
-$$V_{ee}=\int d^3r_1d^3r_2\frac{|\psi_{1s}(r_1)|^2|\psi_{1s}(r_2)|^2}{r_{12}}=-\frac{5}{2}E_{H_0}$$
-所以：
-$$E_{He_0}=\frac{11}{2}E_{H_0}=-75eV$$
-很接近实验值$-79eV$。
-
-进一步引入参数：
-$$\psi_1(r_1,r_2)=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a}$$
-这时候可以将哈密顿量看成：
-$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(Z/r_1+Z/r_2)+\frac{e^2}{4\pi\epsilon}(\frac{Z-2}{r_1}+\frac{Z-2}{r_2}+1/r_{12})$$
-$$\begin{aligned}E_{He_0}&=2Z^2E_{H_0}+2(Z-2)\frac{e^2}{4\pi\epsilon}\langle \frac1r\rangle+V_{ee}\\&=(2Z^2-4Z(Z-2)-\frac54Z)E_{H_0}\end{aligned}$$
-当$Z=\frac{27}{16}$时，能量最低，为$-77.5eV$。
 

@@ -149,7 +149,7 @@ $$\frac{d\langle A\rangle}{d t}=\left\langle\frac{\partial A}{\partial t}\right\
 混合态的演化可以表示为：
 $$\frac{d\hat\rho}{dt}=\frac{\partial\hat\rho}{\partial t}+\frac{1}{i\hbar}[\hat H,\hat \rho]$$
 
-其中
+其中：
 $$\frac{\partial\hat\rho}{\partial t}=\frac{d p_i}{dt}|\psi_i\rangle\langle\psi_i|$$
 
 > 跟Ehrenfest定理和海森堡方程相差一个负号。相关讨论见 {% post_link '量子力学/对称性和守恒律' %} 。

@@ -25,21 +25,6 @@ cover:
     - [Strong-Field Zeeman Effect](#strong-field-zeeman-effect)
     - [Quadradic Zeeman Effect](#quadradic-zeeman-effect)
   - [Van der Waals Interaction](#van-der-waals-interaction)
-- [Time-dependet Perturbation](#time-dependet-perturbation)
-  - [Interaction Picture](#interaction-picture)
-    - [Example: Nuclear Magnetic Resonance](#example-nuclear-magnetic-resonance)
-  - [Time-dependet Perturbation](#time-dependet-perturbation-1)
-    - [Dyson Series](#dyson-series)
-    - [Transition Probability](#transition-probability)
-    - [Constant Perturbation](#constant-perturbation)
-      - [Zero Order](#zero-order)
-      - [First Order](#first-order)
-      - [Second Order](#second-order)
-    - [Harmonic Perturbation](#harmonic-perturbation)
-    - [Expotential Decay Perturbation-Energy Shift and Decay Width](#expotential-decay-perturbation-energy-shift-and-decay-width)
-      - [First Order](#first-order-1)
-      - [Second Order](#second-order-1)
-    - [Lamb Shift](#lamb-shift)
 - [Variantional Method](#variantional-method)
   - [Helium Atom](#helium-atom)
 
@@ -558,3 +543,43 @@ $$\begin{aligned}
 
 显然，一阶能量修正由于选择定则为0，二阶能量修正小于0，这使得两个原子之间的相互作用趋于吸引，且正比于$\dfrac{1}{r^6}$。
 
+
+# Variantional Method
+
+对于非微扰情况，得不到精确解又得不到近似解，那可以通过变分法来求解。
+
+**定理**：对于任意能量的估计，都大于基态能量——具体来说：
+$$\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}\geq E_0$$
+**证明**：
+$$\begin{aligned}|\tilde0\rangle=\sum_{k}|k\rangle\langle k|\tilde0\rangle\end{aligned}$$
+$$\begin{aligned}
+\frac{\langle \tilde{0}|\hat H|\tilde0\rangle}{\langle \tilde{0}|\tilde0\rangle}&=\frac{\sum_{k}\langle \tilde0|k\rangle\langle k|\hat H|k\rangle\langle k|\tilde0\rangle}{\sum_{k}|\langle 0|k\rangle|^2}\\
+&=\frac{\sum_k E_k|\langle 0|k\rangle|^2}{\sum_k |\langle 0|k\rangle|^2}\\
+&\geq E_0
+\end{aligned}$$
+显然，误差来源于$|\tilde0\rangle$和$|0\rangle$的不同。我们可以在$|\tilde0\rangle$加上许多自由度$|\tilde0(\alpha,\beta,\cdots)\rangle$，在最后的估计能量上取极值，就可以找到最佳近似。
+
+## Helium Atom
+对于氦原子，我们可以用变分法求解基态能量。
+
+$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(2/r_1+2/r_2-1/r_{12})$$
+假如忽略电子之间的相互作用，那么基态波函数是
+$$\psi_1(r_1,r_2)=\psi_{1s}(r_1)\psi_{1s}(r_2)=\frac{8}{\pi a^3}e^{-2r_1/a}e^{-2r_2/a}$$
+这时候的能量是：
+$$E_{He_0}=8E_{H_0}+V_{ee}$$
+其中
+$$V_{ee}=\int d^3r_1d^3r_2\frac{|\psi_{1s}(r_1)|^2|\psi_{1s}(r_2)|^2}{r_{12}}=-\frac{5}{2}E_{H_0}$$
+所以：
+$$E_{He_0}=\frac{11}{2}E_{H_0}=-75eV$$
+很接近实验值$-79eV$。
+
+进一步引入参数：
+$$\psi_1(r_1,r_2)=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a}$$
+这时候可以将哈密顿量看成：
+$$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(Z/r_1+Z/r_2)+\frac{e^2}{4\pi\epsilon}(\frac{Z-2}{r_1}+\frac{Z-2}{r_2}+1/r_{12})$$
+$$\begin{aligned}E_{He_0}&=2Z^2E_{H_0}+2(Z-2)\frac{e^2}{4\pi\epsilon}\langle \frac1r\rangle+V_{ee}\\&=(2Z^2-4Z(Z-2)-\frac54Z)E_{H_0}\end{aligned}$$
+当$Z=\frac{27}{16}$时，能量最低，为$-77.5eV$。
+
+> 关于变分法，我还以此为主题写了一份大作业：
+
+{% pdf /pdf/tem.pdf %}
