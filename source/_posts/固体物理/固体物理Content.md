@@ -20,13 +20,13 @@ cover:
 
 研究固体的物理学性质，首先得从其几何学性质出发，这是我们研究 {% post_link '固体物理/晶体结构' %} 的原因。晶体学可以作为一门专门的学科，结合群论来研究。
 
-从经典图像可以得到 {% post_link '固体物理/晶体的结合' %} ：
+从经典图像可以得到 {% post_link '固体物理/晶体的结合' %} 。
 
 我们知道固体的量子力学描述实质上是一个多体问题。假设有N个离子实和NZ个电子，系统的哈密顿量可以写成：
 $$H=\underbrace{\sum_i\frac{\vec{p_i}^2}{2m_e}}_{\text{电子动能}}+\underbrace{\sum_n\frac{\vec{p_n}^2}{2M_n}}_{\text{离子实动能}}+\underbrace{\frac12\sum_{i\neq j}\frac{e^2}{|\vec{r_i}-\vec{r_j}|}}_{\text{电子电子相互作用}}+\underbrace{\frac12\sum_{n\neq m}\frac{Z_nZ_m e^2}{|\vec{R_n}-\vec{R_m}|}}_{\text{离子实相互作用}}+\underbrace{\sum_{i,n}\frac{eZ_n}{|\vec{r_i}-\vec{R_n}|}}_{\text{电子离子相互作用}}$$
-其中$i=1,\cdots,NZ,n=1,\cdots,N$。可以发现三个相互作用项时最为复杂的，因此我们需要对其进行简化。在绝热近似下，电子在任意离子偏移下能迅速变为本征态，因而可以等效研究固定离子实下的电子的运动。离子的哈密顿量为：
+其中$i=1,\cdots,NZ,n=1,\cdots,N$。可以发现三个相互作用项是最为复杂的，因此我们需要对其进行简化。在**绝热近似**下，电子在任意离子偏移下能迅速变为本征态，因而可以等效研究固定离子实下的电子的运动。离子的哈密顿量为：
 $$H_n=\sum_n\frac{\vec{p_n}^2}{2M_n}+\frac12\sum_{n\neq m}\frac{Z_nZ_m e^2}{|\vec{R_n}-\vec{R_m}|}$$
-因而可以忽略电子求解声子的运动： {% post_link '固体物理/晶格动力学' %} 。
+因而可以忽略电子求解声子的运动—— {% post_link '固体物理/晶格动力学' %} ，这时候用到了**简谐近似**。
 
 绝热近似中电子离子相互作用被归为电子的哈密顿项：
 $$H_e=\sum_i\frac{\vec{p_i}^2}{2m_e}+\frac12\sum_{i\neq j}\frac{e^2}{|\vec{r_i}-\vec{r_j}|}+\sum_{i,n}\frac{eZ_n}{|\vec{r_i}-\vec{R_n}|}$$

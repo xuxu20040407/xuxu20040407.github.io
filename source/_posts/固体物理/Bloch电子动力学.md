@@ -76,9 +76,9 @@ $$\left[\frac{1}{m^*}\right]_{ij}=\frac{1}{\hbar^2}\left[\frac{\partial^2 E_n(k)
 $$\frac{1}{m^*}=\frac{1}{\hbar^2}\left[\frac{\partial^2 E_n(k)}{\partial k_x^2},\frac{\partial^2 E_n(k)}{\partial k_y^2},\frac{\partial^2 E_n(k)}{\partial k_z^2}\right]$$
 对于上下延展的能带，从表达式可知有效质量较小；而对于横向延展的能带，有效质量较大。从紧束缚模型的角度看，是因为后者更为局域，就像质量较大的粒子一样。
 
-在 {% post_link '固体物理/金属电子论' %} 中提到了电导的表达式：
+在 {% post_link '固体物理/金属电子论' %} 中提到了电子比热容的表达式：
 $$C_V=\gamma T+\beta T^3,\quad C_V(0)\propto m^{*-1}$$
-所以有效质量可以通过测量电导来得到：
+所以有效质量可以通过测量比热容来得到：
 $$m^*=\frac{\gamma_{exp}}{\gamma_0}m$$
 
 

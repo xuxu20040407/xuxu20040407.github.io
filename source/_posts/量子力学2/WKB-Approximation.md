@@ -2,10 +2,19 @@
 title: WKB-Approximation
 mathjax: true
 date: 2025-08-10 16:27:46
-tags:
-categories:
-cover:
+tags: 量子力学2
+categories: 量子力学2
+cover: '/img/量子力学2/波函数.png'
 ---
+
+- [WKB Approximation](#wkb-approximation)
+  - [From Schrödinger Equation](#from-schrödinger-equation)
+  - [From hbar expansion](#from-hbar-expansion)
+  - [Tunneling](#tunneling)
+  - [Connection Formulas in Crossing Area](#connection-formulas-in-crossing-area)
+  - [Sommerfeld Quantum Condition](#sommerfeld-quantum-condition)
+  - [Example](#example)
+
 
 WKB近似是由Wentzel, Kramers和Brillouin三位科学家提出的，用于求解量子力学中的一维定态薛定谔方程（对于三维薛定谔方程的径向部分也是有帮助的）近似解的技术。其基本思想是，如果势能是一个常数，那么波函数可以写为正弦波动形式：
 $$\psi(x)=Ae^{ikx}+Be^{-ikx},\quad k=\sqrt{\frac{2m(E-V)}{\hbar^2}}$$
@@ -93,10 +102,10 @@ $$\frac{d^2\psi}{dz^2}=z\psi,\quad z=\alpha x,\quad \alpha=\sqrt[3]{\frac{2mV'(0
 这个方程就是艾里方程，具体解见 {% post_link '数学物理方法/特殊函数和方程' %} ，这里直接写出：
 $$\psi(z)=C_1Ai(z)+C_2Bi(z)$$
 其中$Ai(z)$和$Bi(z)$分别是艾里函数的第一类和第二类解。经过与WKB近似解的系数比较，可以得到：
-$$\psi(x)=\begin{dcases}
+$$\psi(x)=\begin{cases}
 \frac{1}{\sqrt{p(x)}}\sin\left[\frac1\hbar\int_{x'}^0 pdx'+\frac\pi4\right],& x<x_0\\
 \frac{1}{2\sqrt{|p(x)|}}\exp\left[\frac1\hbar\int_0^{x'} |p|dx'\right],& x>x_0
-\end{dcases}$$
+\end{cases}$$
 这是对于$x<0,V<<E$的情况。另一种情况也是相似的。
 
 ## Sommerfeld Quantum Condition

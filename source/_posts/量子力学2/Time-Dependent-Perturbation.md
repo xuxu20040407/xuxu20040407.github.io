@@ -2,8 +2,8 @@
 title: Time-Dependent-Perturbation
 mathjax: true
 date: 2025-08-10 14:45:28
-tags:
-categories:
+tags: 量子力学2
+categories: 量子力学2
 cover:
 ---
 
