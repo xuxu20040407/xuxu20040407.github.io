@@ -4,7 +4,7 @@ mathjax: true
 date: 2024-11-21 14:43:00
 tags: 量子力学2
 categories: 量子力学2
-cover:
+cover: '/img/量子力学2/zeeman.png'
 ---
 - [Time-independet Perturbation](#time-independet-perturbation)
   - [Non-degenerate Perturbation](#non-degenerate-perturbation)
@@ -27,6 +27,7 @@ cover:
   - [Van der Waals Interaction](#van-der-waals-interaction)
 - [Variantional Method](#variantional-method)
   - [Helium Atom](#helium-atom)
+  - [Hydrogen Molecular Ion](#hydrogen-molecular-ion)
 
 
 
@@ -579,6 +580,92 @@ $$\psi_1(r_1,r_2)=\frac{Z^3}{\pi a^3}e^{-Z(r_1+r_2)/a}$$
 $$\hat H=-\frac{\hbar^2}{2m}(\nabla_1^2+\nabla_2^2)-\frac{e^2}{4\pi\epsilon}(Z/r_1+Z/r_2)+\frac{e^2}{4\pi\epsilon}(\frac{Z-2}{r_1}+\frac{Z-2}{r_2}+1/r_{12})$$
 $$\begin{aligned}E_{He_0}&=2Z^2E_{H_0}+2(Z-2)\frac{e^2}{4\pi\epsilon}\langle \frac1r\rangle+V_{ee}\\&=(2Z^2-4Z(Z-2)-\frac54Z)E_{H_0}\end{aligned}$$
 当$Z=\frac{27}{16}$时，能量最低，为$-77.5eV$。
+
+## Hydrogen Molecular Ion
+先写出氢离子$H_2^+$的哈密顿量：
+$$\hat H=-\frac{\hbar^2}{2m}\nabla^2-\frac{e^2}{4\pi\epsilon}(1/r_1+1/r_2-1/R)$$
+我们先固定$R$（以其为待变参量）。和变分法计算氦原子基态能量的第一步一样，先取氢原子的基态波函数作为试探波函数，不过不同于氦原子的两个电子一个原子核，氢离子拥有一个电子和两个质子（原子核），因此其波函数应该相加而不是相乘，这也带来了归一化的问题：
+$$\psi_1(r_1,r_2)=A[\psi_{1s}(r_1)\pm\psi_{1s}(r_2)]$$
+这种方法也叫做原子轨道线性组合（LCAO, Linear Combination of Atomic Orbitals）。考虑归一化积分：
+$$\int d^3r_1d^3r_2|\psi_1(r_1,r_2)|^2=2|A|^2\left[1\pm\langle \psi_{1s}(r_1)|\psi_{1s}(r_2)\rangle\right]$$
+式中的$\langle \psi_{1s}(r_1)|\psi_{1s}(r_2)\rangle$是两个氢原子基态波函数的重叠积分，记为：
+$$I(R)=\langle \psi_{1s}(r_1)|\psi_{1s}(r_2)\rangle=\frac{1}{\pi a^3}\int e^{-\frac{r_1+r_2}{a}}d^3r=e^{-\frac{R}{a}}\left[1+\frac{R}{a}+\frac13\left(\frac{R}{a}\right)^2\right],\quad R=|\vec{r}_1-\vec{r}_2|$$
+交叠积分的物理意义很明显，当$R\to 0$的时候，$I(R)\to 1$，这表明两个电子的波函数在空间上是高度重叠的；当$R\to \infty$的时候，$I(R)\to 0$，这表明两个电子的波函数在空间上是完全分离的。
+
+现在我们计算出了归一化常数$|A|=\dfrac{1}{\sqrt{2(1\pm I(R))}}$，就可以计算能量期望了：
+$$\langle \hat H \rangle =2|A|^2\left[\langle\psi_1|\hat H|\psi_1\rangle\pm \langle\psi_1|\hat H|\psi_2\rangle\right]$$
+
+现在的困难变为计算$\langle\psi_1|\hat H|\psi_1\rangle$和$\langle\psi_1|\hat H|\psi_2\rangle$，这里直接给出结果：
+$$\begin{aligned}
+\langle\psi_1|\hat H|\psi_1\rangle
+&=E_{H_0}+\dfrac{e^2}{4\pi\epsilon R}-\dfrac{e^2}{4\pi\epsilon}\langle \psi_1|\dfrac{1}{r_2}|\psi_1\rangle\\
+&=E_{H_0}\left[1-e^{-\frac{2R}{a}}\left(1+\frac{a}{R}\right)\right]\\
+\langle\psi_1|\hat H|\psi_2\rangle
+&=E_{H_0}\times I+\dfrac{e^2}{4\pi\epsilon R}\times I-\dfrac{e^2}{4\pi\epsilon}\langle \psi_1|\dfrac{1}{r_1}|\psi_2\rangle\\
+&=E_{H_0}\left[I(R)-e^{-\frac{R}{a}}\left(\frac{a}{2R}-\frac{2R}{3a}\right)\right]\\
+&=E_{H_0}e^{-\frac{R}{a}}\left[1-\frac{a}{R}+\frac{5R}{3a}+\frac13\left(\frac{R}{a}\right)^2\right]\\
+\end{aligned}$$
+最终的结果为：
+$$E_{\pm} =\frac{\left[1-e^{-\frac{2R}{a}}\left(1+\frac{a}{R}\right)\right]\pm e^{-\frac{R}{a}}\left[1-\frac{a}{R}+\frac{5R}{3a}+\frac13\left(\frac{R}{a}\right)^2\right]}{1\pm e^{-\frac{R}{a}}\left[1+\frac{R}{a}+\frac13\left(\frac{R}{a}\right)^2\right]}E_{H_0}$$
+电子在两个原子之间共享，形成了共价键。其中$E_+$表示成键态能量，$E_-$表示反键态能量。由于自旋是反对称波函数，所以空间对称波函数（即成键态波函数）具有较低的能量。下面的数值计算显示，反键态能量单调递减，不存在稳态。
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import minimize
+
+# 定义E_+和E_-函数
+def E_plus(R):
+    numerator = (1 - np.exp(-2*R) * (1 + 1/R)) + \
+                np.exp(-R) * (1-1/R + (5*R)/3 + (R**2)/3)
+    denominator = 1 + np.exp(-R) * (1 + R + (R**2)/3)
+    return -numerator / denominator
+
+def E_minus(R):
+    numerator = (1 - np.exp(-2*R) * (1 + 1/R)) - \
+                np.exp(-R) * (1-1/R + (5*R)/3 + (R**2)/3)
+    denominator = 1 - np.exp(-R) * (1 + R + (R**2)/3)
+    return -numerator / denominator
+
+bmin=1
+bmax=5
+
+# 寻找E_+的最小值
+result_plus = minimize(E_plus, x0=1.0, bounds=[(bmin, bmax)])
+R_min_plus = result_plus.x[0]
+E_min_plus = result_plus.fun
+
+# 寻找E_-的最小值（注意：E_-是单调递增的，无局部极小值）
+# result_minus = minimize(lambda R: -E_minus(R), x0=1.0, bounds=[(bmin, bmax)])
+# R_extreme_minus = result_minus.x[0]
+# E_extreme_minus = E_minus(R_extreme_minus)
+
+# 绘制曲线
+R_values = np.linspace(bmin, bmax, 300)
+E_plus_values = [E_plus(R) for R in R_values]
+E_minus_values = [E_minus(R) for R in R_values]
+
+plt.figure(figsize=(10, 6))
+plt.plot(R_values, E_plus_values, label=r'$E_+$ (Bonding)', color='blue')
+plt.plot(R_values, E_minus_values, label=r'$E_-$ (Antibonding)', color='red')
+plt.axhline(y=-1, color='gray', linestyle='--', label=r'$E_{H_0}$ (Atomic Limit)')
+
+# 标记极小值点
+plt.scatter(R_min_plus, E_min_plus, color='blue', s=50, 
+            label=f'Min of $E_+$: R={R_min_plus:.2f}, E={E_min_plus:.2f}')
+# plt.scatter(R_extreme_minus, E_extreme_minus, color='red', s=50, 
+#             label=f'Extreme of $E_-$: R={R_extreme_minus:.2f}, E={E_extreme_minus:.2f}')
+
+plt.xlabel('Nuclear Separation $R$ (a.u.)', fontsize=12)
+plt.ylabel('Energy $E_{\pm}$ (a.u.)', fontsize=12)
+plt.title('Energy Curves of $H_2^+$ Molecular Ion', fontsize=14)
+plt.legend(fontsize=10)
+plt.grid(alpha=0.3)
+# plt.ylim(-1.2, 1.0)
+plt.show()
+```
+
+![氢分子离子](/img/量子力学2/氢分子离子.png)
 
 > 关于变分法，我还以此为主题写了一份大作业：
 

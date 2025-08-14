@@ -1,9 +1,9 @@
 ---
-title: EPR佯谬
+title: EPR-Paradox
 mathjax: true
 date: 2024-09-05 15:00:15
-tags: 量子力学
-categories: 量子力学
+tags:  量子力学2
+categories:  量子力学2
 cover:
 ---
 - [Where is the particle?](#where-is-the-particle)
