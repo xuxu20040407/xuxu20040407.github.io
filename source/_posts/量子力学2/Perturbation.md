@@ -12,6 +12,10 @@ cover: '/img/量子力学2/zeeman.png'
     - [Second Order Theory](#second-order-theory)
   - [Degenerate Perturbation](#degenerate-perturbation)
     - [Two-fold Degenerate](#two-fold-degenerate)
+  - [Problem](#problem)
+    - [对角化](#对角化)
+    - [非简并微扰](#非简并微扰)
+    - [简并微扰](#简并微扰)
 - [Example](#example)
   - [Stark Effect](#stark-effect)
     - [Quadratic Stark Effect](#quadratic-stark-effect)
@@ -165,7 +169,7 @@ $$|n^0\rangle=\alpha|n^0,a\rangle+\beta |n^0,b\rangle$$
 $$\langle n^0,a|(\hat H^0-E^0_n)|n^1\rangle=\langle n^0,a|(E^1_n-\delta \hat H)|n^0\rangle$$
 
 显然由于哈密顿算符的简并性和态的正交性，有一些项为0：
-$$0=\alpha E_n^1-\alpha\langle n^0,a|\delta \hat H|n^0,a\rangle-\beta\langle n^0,a|\delta \hat H|n^0,b\rangle$$
+$$0=\alpha E_n^1-\alpha\langle n^0,a|\delta \hat H|n^0,a\rangle-\beta\langle n^0,a|\delta \hat H|n^0,b\rangle\Rightarrow $$
 同样的：
 $$0=\beta E_n^1-\beta\langle n^0,b|\delta \hat H|n^0,b\rangle-\alpha\langle n^0,b|\delta \hat H|n^0,a\rangle$$
 
@@ -180,7 +184,81 @@ E_n^1&=\frac{1}{2}(\langle n^0,a|\delta \hat H|n^0,a\rangle+\langle n^0,b|\delta
 同时也可以求出本征矢量：
 $$\begin{pmatrix}\alpha\\\beta\end{pmatrix}$$
 
-> 实际上不需要死记硬背，对于非简并微扰，本质上是解关于修正能量和修正波函数的矩阵方程（n+1个方程确定n+1个未知数，其中n个方程为波函数各维度的线性方程，另外加上波函数的归一化方程）；对于简并微扰，本质上是解关于修正能量、修正波函数和“Good State”的矩阵方程（n+m个方程确定n+m个未知数，m为简并数）。
+> 实际上不需要死记硬背，用矩阵的表述可以统一两种结果。对于非简并微扰，本质上是解关于修正能量和修正波函数的**矩阵方程**：
+> $$|n^0\rangle=\begin{pmatrix}0\\\vdots\\c^0_n=1\\\vdots\\0\end{pmatrix},\quad |n^1\rangle=\begin{pmatrix}c^1_1\\c^1_2\\\vdots\\c^1_k\end{pmatrix},\quad (\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle$$
+> 这实际上是$k+1$个方程确定$k+1$个未知数，其中$n$个方程为波函数各维度的线性方程，另外加上波函数的归一化方程。未知数分别是原本征能量表象下的$k$维一阶修正波函数$|n^1\rangle$外加未知的一阶能量修正$E^1_n$。简单计算就能知道这个结果和上面的狄拉克符号的推导是一致的。
+> 
+> 对于简并微扰，本质上是解关于修正能量、修正波函数和“Good State”的矩阵方程。我们记具有$m_n$重简并的第$n$类的第$i$个“Good State”写为：
+> $$|n^0,i\rangle=\begin{pmatrix}\vdots\\\boxed{\begin{matrix}c^0_1\\\vdots\\c^0_{m_n}\end{matrix}}_n\\\vdots\end{pmatrix}$$
+> 相比于非简并微扰，就变成解$k+1+\sum_n m_n$个未知数，其中$m_n$来源于“Good State”的构造。这多余的$\sum_n m_n$个未知数需要通过“Good State”的正交性和归一化来约束（这当然是合理的，只要$\hat H+\delta\hat H$仍然是一个厄密算符）。
+
+## Problem
+1. 对角化精确求解本征值和本征波矢；
+2. 非简并微扰求解到二阶能量修正；
+3. 简并微扰求解到二阶能量修正。
+
+$$\hat H_0=\begin{pmatrix}E_1&0&0\\0&E_1&0\\0&0&E_2\end{pmatrix},\quad \hat H'=\begin{pmatrix}E_1&0&a\\0&E_1&b\\a^*&b^*&E_2\end{pmatrix}$$
+
+> 这题很好得考察了对简并微扰的理解，以下的两个特征使你不能直接套公式：
+> 1. 存在非简并能级与简并能级的混合；
+> 2. 一阶修正无法消除简并。
+
+### 对角化
+先对角化求精确的本征值：
+$$\begin{vmatrix}E_1-E&0&a\\0&E_1-E&b\\a^*&b^*&E_2-E\end{vmatrix}=0$$
+
+$$(E_1-E)[(E_1-E)(E_2-E)-(|a|^2+|b|^2)]=0$$
+
+解得：
+$$E_1^\alpha=E_1$$
+$$E_1^\beta=\frac{E_1+E_2+\sqrt{(E_1-E_2)^2+4(|a|^2+|b|^2)}}{2}\approx E_1-\frac{|a|^2+|b|^2}{E_2-E_1}$$
+$$E_2=\frac{E_1+E_2-\sqrt{(E_1-E_2)^2+4(|a|^2+|b|^2)}}{2}\approx E_2+\frac{|a|^2+|b|^2}{E_2-E_1}$$
+
+### 非简并微扰
+显然一阶能量修正为0，本征态修正为：
+$$|0^{(1)}\rangle=-\frac{\langle 2|\delta H|0 \rangle}{E_2-E_1}|2\rangle=-\frac{a^*}{E_2-E_1}|2\rangle$$
+$$|1^{(1)}\rangle=-\frac{\langle 2|\delta H|1 \rangle}{E_2-E_1}|2\rangle=-\frac{b^*}{E_2-E_1}|2\rangle$$
+$$|2^{(1)}\rangle=-\frac{\langle 0|\delta H|2 \rangle}{E_1-E_2}|0\rangle-\frac{\langle 1|\delta H|2 \rangle}{E_1-E_2}|1\rangle=\frac{a}{E_2-E_1}|0\rangle+\frac{b}{E_2-E_1}|1\rangle$$
+
+二阶能量修正为：
+$$E_{|0\rangle}^{(2)}=\langle 0|\delta H|0^{(1)}\rangle=-\frac{|a|^2}{E_2-E_1}$$ 
+$$E_{|1\rangle}^{(2)}=\langle 1|\delta H|1^{(1)}\rangle=-\frac{|b|^2}{E_2-E_1}$$ 
+$$E_{|2\rangle}^{(2)}=\frac{|a|^2}{E_2-E_1}+\frac{|b|^2}{E_2-E_1}$$ 
+这里的第一个能级出现了问题，而第二个没有。
+
+### 简并微扰
+
+我们假设“Good State”为：
+$$|0'\rangle=\alpha|0\rangle+\beta|1\rangle$$
+$$|1'\rangle=\chi|0\rangle+\xi|1\rangle$$
+相应的一阶本征态修正为$(a^{(1)}_i,b^{(1)}_i,c^{(1)}_i)$，代入：
+$$(\hat H^0-E^0_n)|n^1\rangle=(E^1_n-\delta \hat H)|n^0\rangle$$
+得到：
+$$\begin{pmatrix}0\\0\\c^{(1)}_1(E_2-E_1)\end{pmatrix}=(E^{(1)}_{|0'\rangle}-\delta H)|0'^{(0)}\rangle$$
+$$\begin{pmatrix}0\\0\\c^{(1)}_2(E_2-E_1)\end{pmatrix}=(E^{(1)}_{|1'\rangle}-\delta H)|1'^{(0)}\rangle$$
+即
+$$\begin{pmatrix}0\\0\\c^{(1)}_1(E_2-E_1)\end{pmatrix}=\begin{pmatrix}\alpha E_{|0'\rangle}^{(1)}\\\beta E_{|0'\rangle}^{(1)}\\\alpha a^*+\beta b^*\end{pmatrix}$$
+$$\begin{pmatrix}0\\0\\c^{(1)}_2(E_2-E_1)\end{pmatrix}=\begin{pmatrix}\chi E_{|1'\rangle}^{(1)}\\\xi E_{|1'\rangle}^{(1)}\\\chi a^*+\xi b^*\end{pmatrix}$$
+既然$\alpha,\beta$不同时为0，那么$E_1^{(1)}=0$。相应的，可以解出
+
+一阶的态修正：
+$$|0'^{(1)}\rangle=-\frac{\alpha a^*+\beta b^* }{E_2-E_1}|2\rangle$$
+$$|1'^{(1)}\rangle=-\frac{\chi a^*+\xi b^* }{E_2-E_1}|2\rangle$$
+设二阶态修正为$(a^{(2)}_i,b^{(2)}_i,c^{(2)}_i)$，代入二阶方程：
+$$\begin{pmatrix}0\\0\\c_1^{(2)}(E_2-E_1)\end{pmatrix}=-\delta H|0'^{(1)}\rangle+E^{(2)}_{|0'\rangle}|0'\rangle$$
+$$\begin{pmatrix}0\\0\\c_2^{(2)}(E_2-E_1)\end{pmatrix}=-\delta H|1'^{(1)}\rangle+E^{(2)}_{|1'\rangle}|1'\rangle$$
+即：
+$$\begin{pmatrix}0\\0\\c_1^{(2)}(E_2-E_1)\end{pmatrix}=\begin{pmatrix}\frac{\alpha a^*+\beta b^* }{E_2-E_1}a\\\frac{\alpha a^*+\beta b^* }{E_2-E_1}b\\0\end{pmatrix}+\begin{pmatrix}E^{(2)}_{|0'\rangle}\alpha\\E^{(2)}_{|0'\rangle}\beta\\0\end{pmatrix}$$
+$$\begin{pmatrix}0\\0\\c_2^{(2)}(E_2-E_1)\end{pmatrix}=\begin{pmatrix}\frac{\chi a^*+\xi b^* }{E_2-E_1}a\\\frac{\chi a^*+\xi b^* }{E_2-E_1}b\\0\end{pmatrix}+\begin{pmatrix}E^{(2)}_{|1'\rangle}\chi\\E^{(2)}_{|1'\rangle}\xi\\0\end{pmatrix}$$
+
+解得：
+$$E^{(2)}_{|0'\rangle}=-\frac{(\alpha a^*+\beta b^*)a}{\alpha(E_2-E_1)},a\beta=b\alpha\Rightarrow E^{(2)}_{|0'\rangle}=-\frac{|a|^2+|b|^2}{E_2-E_1}$$
+$$E^{(2)}_{|1'\rangle}=-\frac{(\chi a^*+\xi b^*) b}{\xi(E_2-E_1)},a\xi=b\chi \Rightarrow E^{(2)}_{|1'\rangle}=-\frac{|a|^2+|b|^2}{E_2-E_1}$$
+
+但这样算就不对了，因为这样两个"Good State"就一样，这是不对的，检查发现是因为存在第二个解。取：
+$$E^{(2)}_{|1'\rangle}=0,\chi  a^*+\xi b^*=0$$
+这样就解出了正确的微扰解。对于第二个能级，和上述非简并微扰一样。（此处我没有使用正交归一化条件，但是通过方程结合物理意义，用少的方程解出了多的未知数）
+
 
 # Example
 电磁场、相对论修正和自旋轨道耦合都可以看作是微扰。根据微扰的不同，可以分为以下效应：
