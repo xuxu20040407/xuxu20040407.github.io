@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Time-Dependent-Perturbation | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Time-dependent Problem Interaction Picture Example: Nuclear Magnetic Resonance   Time-dependet Perturbation Dyson Series Transition Probability Constant Perturbation Zero Order First Order Second Ord">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Time-Dependent-Perturbation">
+<meta property="og:url" content="https://xuxu20040407.github.io/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Time-Dependent-Perturbation/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="Time-dependent Problem Interaction Picture Example: Nuclear Magnetic Resonance   Time-dependet Perturbation Dyson Series Transition Probability Constant Perturbation Zero Order First Order Second Ord">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover1.jpeg">
+<meta property="article:published_time" content="2025-08-10T06:45:28.000Z">
+<meta property="article:modified_time" content="2025-09-08T09:08:28.236Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子力学2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover1.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Time-Dependent-Perturbation/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Time-Dependent-Perturbation',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2025-09-08 17:08:28'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Time-Dependent-Perturbation</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-10T06:45:28.000Z" title="发表于 2025-08-10 14:45:28">2025-08-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-08T09:08:28.236Z" title="更新于 2025-09-08 17:08:28">2025-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/">量子力学2</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Time-Dependent-Perturbation"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#time-dependent-problem">Time-dependent Problem</a><ul>
+<li><a href="#interaction-picture">Interaction Picture</a></li>
+<li><a href="#example-nuclear-magnetic-resonance">Example: Nuclear Magnetic Resonance</a></li>
+</ul>
+</li>
+<li><a href="#time-dependet-perturbation">Time-dependet Perturbation</a><ul>
+<li><a href="#dyson-series">Dyson Series</a></li>
+<li><a href="#transition-probability">Transition Probability</a></li>
+<li><a href="#constant-perturbation">Constant Perturbation</a><ul>
+<li><a href="#zero-order">Zero Order</a></li>
+<li><a href="#first-order">First Order</a></li>
+<li><a href="#second-order">Second Order</a></li>
+</ul>
+</li>
+<li><a href="#harmonic-perturbation">Harmonic Perturbation</a></li>
+<li><a href="#expotential-decay-perturbation-energy-shift-and-decay-width">Expotential Decay Perturbation-Energy Shift and Decay Width</a><ul>
+<li><a href="#first-order-1">First Order</a></li>
+<li><a href="#second-order-1">Second Order</a></li>
+</ul>
+</li>
+<li><a href="#lamb-shift">Lamb Shift</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id="time-dependent-problem">Time-dependent Problem</span></h1><p>从一阶微扰可以知道：</p>
+<script type="math/tex; mode=display">|n^1\rangle=\sum_k c_k|k\rangle</script><p>随时间的演化：</p>
+<script type="math/tex; mode=display">|n^1(t)\rangle=\sum_k c_ke^{-\frac{iE_kt}{\hbar}}|k\rangle</script><p>当我们考虑和哈密顿量和时间相关的时候</p>
+<script type="math/tex; mode=display">|n^1(t)\rangle=\sum_k c_k(t)e^{-\frac{iE_kt}{\hbar}}|k\rangle</script><p>我们的问题转化为求$c_k(t)$满足的微分方程。在求解之前，不妨先采用相互作用绘景。</p>
+<h2><span id="interaction-picture">Interaction Picture</span></h2><p>从相互作用绘景可以<strong>精确</strong>（而不是使用微扰）求解含时的演化问题，所以我们用任意态矢量代替上文的一阶态矢量修正：</p>
+<script type="math/tex; mode=display">|\alpha(t)\rangle=\sum_n c_n(t)e^{-\frac{iE_nt}{\hbar}}|n\rangle</script><p>定义相互作用绘景下的态矢量：</p>
+<script type="math/tex; mode=display">|\alpha_I(t)\rangle=e^{\frac{i\hat H_0t}{\hbar}}|\alpha_S(t)\rangle</script><p>角标$S$表示薛定谔绘景，$I$表示相互作用绘景。相互作用绘景的具体内容已经在 <a href="/2024/09/05/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E5%AF%B9%E7%A7%B0%E6%80%A7%E5%92%8C%E5%AE%88%E6%81%92%E5%BE%8B/" title="对称性和守恒律">对称性和守恒律</a> 中介绍过了。从相互作用绘景的薛定谔方程出发：</p>
+<script type="math/tex; mode=display">\hat{H}=\hat{H}_0+\hat{V}_I(t),\quad i\hbar\frac{d}{dt}|\alpha_I(t)\rangle=\hat V_I(t)|\alpha_I(t)\rangle</script><p>所以</p>
+<script type="math/tex; mode=display">i\hbar\frac{d}{dt}\langle n|\alpha_I(t)\rangle=\sum_m\langle n|\hat V_I(t)|m\rangle\langle m|\alpha_I(t)\rangle</script><p>其中：</p>
+<script type="math/tex; mode=display">\langle n|\hat V_I(t)|m\rangle=\langle n|e^{\frac{i\hat H_0t}{\hbar}}\hat V_I e^{-\frac{i\hat H_0t}{\hbar}}|m\rangle=\langle n|\hat V_I|m\rangle e^{i(E_n-E_m)t/\hbar}</script><p>也就是说：</p>
+<script type="math/tex; mode=display">i\hbar\frac{d}{dt}c_n(t)=\sum_mV_{nm} c_m(t)e^{i(E_n-E_m)t/\hbar}</script><p>用矩阵表示：</p>
+<script type="math/tex; mode=display">i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\\\vdots\end{pmatrix}=\begin{pmatrix}V_{11}&V_{12}e^{i\omega_{12}t}&\cdots\\V_{21}e^{i\omega_{21}t}&V_{22}&\cdots\\\vdots&\vdots&\ddots\end{pmatrix}\begin{pmatrix}c_1(t)\\c_2(t)\\\vdots\end{pmatrix}</script><p>其中</p>
+<script type="math/tex; mode=display">\omega_{nm}=\frac{E_n-E_m}{\hbar}=-\omega_{mn}</script><blockquote>
+<p>这个和 <a href="/2025/08/08/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Density-Matrix/" title="Density-Matrix">Density-Matrix</a> 中密度矩阵的演化很像，不过密度矩阵的演化是：</p>
+<script type="math/tex; mode=display">\frac{d}{dt}\rho_{mn}=\frac{1}{i\hbar}(E_m-E_n)\rho_{mn}\Rightarrow \rho_{mn}(t)=\rho_{mn}(0)e^{-i\omega_{mn}t}</script><p>多了个负号。</p>
+</blockquote>
+<h2><span id="example-nuclear-magnetic-resonance">Example: Nuclear Magnetic Resonance</span></h2><p>一个最简单的相互作用绘景应用例子是核磁共振，一个二能级体系：</p>
+<script type="math/tex; mode=display">\hat H_0=\begin{pmatrix}E_1&0\\0&E_2\end{pmatrix}</script><script type="math/tex; mode=display">\hat V=\begin{pmatrix}0&Ve^{i\omega t}\\Ve^{-i\omega t}&0\end{pmatrix}</script><p>初始条件：$c_1(0)=1,c_2(0)=0$，求解$c_1(t),c_2(t)$。</p>
+<p>矩阵形式：</p>
+<script type="math/tex; mode=display">i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\end{pmatrix}=\begin{pmatrix}0&Ve^{i(\omega+\omega_{12}) t}\\Ve^{-i(\omega+\omega_{12})t}&0\end{pmatrix}\begin{pmatrix}c_1(t)\\c_2(t)\end{pmatrix}</script><p>记</p>
+<script type="math/tex; mode=display">\Omega=\sqrt{\frac{V^2}{\hbar^2}+\frac{(\omega+\omega_{12})^2}{4}}</script><p>解得：</p>
+<script type="math/tex; mode=display">c_2(t)=-\frac{\gamma}{2\Omega\hbar}e^{i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}+\frac{\gamma}{2\Omega\hbar}e^{-i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}=\frac{i\gamma}{\Omega\hbar}\sin{[\Omega t]}e^{i\frac{\omega+\omega_{12}}{2}t}</script><script type="math/tex; mode=display">|c_2(t)|^2=\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}</script><script type="math/tex; mode=display">|c_1(t)|^2=1-|c_2(t)|^2=1-\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}</script><p>这就是Rabi振荡。</p>
+<h1><span id="time-dependet-perturbation">Time-dependet Perturbation</span></h1><h2><span id="dyson-series">Dyson Series</span></h2><p>处理含时微扰的方法与上面处理非含时微扰的方法有所不同。我们可以通过Dyson级数来求解。</p>
+<p>假设系数的近似解为：</p>
+<script type="math/tex; mode=display">c_n(t)=c_n^{(0)}(t)+c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots</script><p>知道$c_n^{(0)}(t)=c_n(0)$，是容易求得$c_n^{(1)}(t)$的，将其作为初值重新代入，我们可以不断迭代得到更高阶的近似解。</p>
+<p>相互作用中关于时间演化算符的微分方程为：</p>
+<script type="math/tex; mode=display">i\hbar\frac{d}{dt}U_I(t,t_0)=\hat V_I(t)U_I(t,t_0)</script><p>初始条件：</p>
+<script type="math/tex; mode=display">U_I(t_0,t_0)=1</script><p>得到积分方程：</p>
+<script type="math/tex; mode=display">U_I(t,t_0)=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')U_I(t',t_0)dt'</script><p>继续迭代：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+U_I(t,t_0)&=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')[1-\frac{i}{\hbar}\int_{t_0}^{t'}\hat V_I(t'')U_I(t'',t_0)dt'']dt'\\
+&=1-\frac{i}{\hbar}\int_{t_0}^t\hat V_I(t')dt'-\frac{1}{\hbar^2}\int_{t_0}^t\int_{t_0}^{t'}\hat V_I(t')\hat V_I(t'')U_I(t'',t_0)dt''dt'
+\end{aligned}</script><p>这其中的第n阶项为：</p>
+<script type="math/tex; mode=display">U_I(t,t_0)
+=\sum_{n=0}^\infty(-\frac{i}{\hbar})^n\int_{t_0}^t\cdots\int_{t_0}^{t_{n-1}}\hat V_I(t_1)\cdots\hat V_I(t_n)dt_1\cdots dt_n</script><h2><span id="transition-probability">Transition Probability</span></h2><p>考虑跃迁的概率：</p>
+<script type="math/tex; mode=display">c_n(t)=\langle n|U_I(t,t_0)|i\rangle</script><p>把$U_I(t,t_0)$代入：</p>
+<script type="math/tex; mode=display">c_n(t)=c_n^{(0)}(t)+c_n^{(1)}(t)+c_n^{(2)}(t)+\cdots</script><p>其中：</p>
+<script type="math/tex; mode=display">c_n^{(0)}(t)=\langle n|i\rangle</script><script type="math/tex; mode=display">c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{t_0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar}\int_{t_0}^te^{i\omega_{ni}t'}V_{ni}(t')dt'</script><script type="math/tex; mode=display">c_n^{(2)}(t)=\frac{-1}{\hbar^2}\sum_m\int_{t_0}^t\int_{t_0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'</script><p>所以跃迁概率为：</p>
+<script type="math/tex; mode=display">P_{ni}(t)=|\sum_{n=0}^\infty c_n(t)|^2</script><h2><span id="constant-perturbation">Constant Perturbation</span></h2><p>考虑一个常数微扰：</p>
+<script type="math/tex; mode=display">V(t)=\begin{cases}0&t<0\\V&t\geq 0\end{cases}</script><p>假定在$t=0$的时候，体系处于态$|i\rangle$：</p>
+<h3><span id="zero-order">Zero Order</span></h3><script type="math/tex; mode=display">c_n^{(0)}(t)=\langle n|i\rangle</script><h3><span id="first-order">First Order</span></h3><script type="math/tex; mode=display">\begin{aligned}c_n^{(1)}(t)&=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'\\&=\frac{-i}{\hbar}\int_{0}^te^{i\omega_{ni}t'}V_{ni}dt'\\&=\frac{V_{ni}}{E_n-E_i}(1-e^{i\omega_{ni}t})\end{aligned}</script><p>或者：</p>
+<script type="math/tex; mode=display">|c_n^{(1)}(t)|^2=\frac{4|V_{ni}|^2}{(E_n-E_i)^2}\sin^2[\frac{\omega_{ni}t}{2}]</script><p>对这个式子可以进行更多的讨论：</p>
+<script type="math/tex; mode=display">|c_n^{(1)}(t)|^2=\frac{4|V_{ni}|^2}{(E_n-E_i)^2}\sin^2[\frac{\omega_{ni}t}{2}]=\frac{|V_{ni}|^2}{\hbar^2}t^2\frac{\sin^2[\frac{\omega_{ni}t}{2}]}{(\frac{\omega_{ni}t}{2})^2}</script><p>这意味着，当微扰刚刚打开的时候，能量变化可以很大，跃迁的选择有很多；但微扰打开的时候长了以后，能量变化的区间很窄。</p>
+<p>当末态具有不同而相近的能级时，我们可以计算总的跃迁概率：</p>
+<script type="math/tex; mode=display">\sum_n|c_n^{(1)}(t)|^2=\int dE \rho(E)\frac{|V_{ni}|^2}{\hbar^2}t^2\frac{\sin^2[\frac{\omega_{ni}t}{2}]}{(\frac{\omega_{ni}t}{2})^2}=\frac{2\pi t}{\hbar}\overline{|V_{ni}^2}|\rho(E)|_{E_n=E_i},t\rightarrow \infty</script><p>所以对于长时间，总的跃迁概率正比于时间。</p>
+<p>定义单位时间的跃迁概率——跃迁速率：</p>
+<script type="math/tex; mode=display">W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^2|}\rho(E)|_{E_n=E_i}</script><p>该式被称为费米黄金规则。</p>
+<h3><span id="second-order">Second Order</span></h3><script type="math/tex; mode=display">\begin{aligned}c_n^{(2)}(t)&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'\\
+&=\frac{-1}{\hbar^2}\sum_m\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}V_{nm}e^{-i\omega_{mi}t''}V_{mi}dt''dt'\\
+&=\frac{-1}{\hbar^2}\sum_mV_{nm}V_{mi}\int_{0}^t\int_{0}^{t'}e^{i\omega_{nm}t'}e^{-i\omega_{mi}t''}dt''dt'\\
+&=\frac{-1}{\hbar^2}\sum_mV_{nm}V_{mi}\frac{1}{i\omega_{mi}}\int_{0}^t e^{i\omega_{nm}t'}(e^{i\omega_{mi}t'}-1)dt'\\
+&=\frac{i}{\hbar}\sum_m\frac{V_{nm}V_{mi}}{E_m-E_i}\int_{0}^t (e^{i\omega_{ni}t'}-e^{i\omega_{nm}t'})dt'\\\end{aligned}</script><p>合并一阶修正，跃迁速率：</p>
+<script type="math/tex; mode=display">W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}+\sum_m\frac{V_{nm}V_{mi}}{E_i-E_m}|^2}\rho(E)|_{E_n=E_i}</script><h2><span id="harmonic-perturbation">Harmonic Perturbation</span></h2><p>考虑一个简谐微扰：</p>
+<script type="math/tex; mode=display">V(t)=Ve^{i\omega t}+V^\dagger e^{-i\omega t}</script><p>同样的方法：</p>
+<script type="math/tex; mode=display">c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{1}{\hbar}[V_{ni}\frac{1-e^{i(\omega_{ni}+\omega)t}}{\omega_{ni}+\omega}+V_{ni}^\dagger\frac{1-e^{i(\omega_{ni}-\omega)t}}{\omega_{ni}-\omega}]</script><p>相比于常数微扰，主要区别在于：</p>
+<script type="math/tex; mode=display">\omega_{ni}\rightarrow \omega_{ni}\pm \omega</script><p>这里的$\hbar\omega$让人不禁想到了光子，对应的两种跃迁就是受激发射和吸收：</p>
+<script type="math/tex; mode=display">Emission:W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}|^2}\rho(E)|_{E_n=E_i-\hbar\omega}</script><script type="math/tex; mode=display">Absorption:W_{ni}=\frac{2\pi}{\hbar}\overline{|V_{ni}^\dagger|^2}\rho(E)|_{E_n=E_i+\hbar\omega}</script><p>由：</p>
+<script type="math/tex; mode=display">|V_{ni}|^2=|V_{ni}^\dagger|^2</script><p>可以知道吸收和发射的概率是相等的，这叫做细致平衡原理。</p>
+<h2><span id="expotential-decay-perturbation-energy-shift-and-decay-width">Expotential Decay Perturbation-Energy Shift and Decay Width</span></h2><p>考虑一个指数衰减的微扰：</p>
+<script type="math/tex; mode=display">V(t)=Ve^{-\eta t}</script><p>同样的方法：</p>
+<script type="math/tex; mode=display">c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar}V_{ni}\frac{e^{\eta t+i\omega_{ni}t}}{\eta+i\omega_{ni}}</script><p>跃迁概率：</p>
+<script type="math/tex; mode=display">|c_n^{(1)}(t)|^2=\frac{|V_{ni}|^2}{\hbar^2}\frac{e^{2\eta t}}{\eta^2+\omega_{ni}^2}</script><p>跃迁速率：</p>
+<script type="math/tex; mode=display">W_{ni}=\frac{2|V_{ni}|^2}{\hbar^2}\frac{\eta e^{2\eta t}}{\eta^2+\omega_{ni}^2}</script><p>现在要求$t\rightarrow \infty$或者说，$\eta\rightarrow 0^+$，这时候可以得到：</p>
+<script type="math/tex; mode=display">\lim_{\eta\rightarrow 0^+}\frac{\eta}{\eta^2+\omega_{ni}^2}=\pi\delta(\omega_{ni})</script><script type="math/tex; mode=display">W_{ni}=\frac{2\pi}{\hbar}|V_{ni}|^2\delta(E_n-E_i)</script><p>这同样满足费米黄金规则。</p>
+<h3><span id="first-order">First Order</span></h3><script type="math/tex; mode=display">c_i^{(1)}(t)=\frac{-i}{\hbar}\lim_{t_0\rightarrow \infty}\int_{t_0}^t\langle i|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar\eta}V_{ii}e^{\eta t}</script><h3><span id="second-order">Second Order</span></h3><script type="math/tex; mode=display">c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}</script><p>合并起来，跃迁概率为：</p>
+<script type="math/tex; mode=display">c_i(t)=1-\frac{i}{\hbar\eta}V_{ii}e^{\eta t}-\frac{1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}</script><script type="math/tex; mode=display">\frac{\dot{c_i}}{c_i}=\frac{-i}{\hbar\eta}V_{ii}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|}{E_i-E_m+i\hbar \eta}</script><p>解得：</p>
+<script type="math/tex; mode=display">c_i(t)=e^{-i\Delta_i t/\hbar},E_i\rightarrow E_i+\Delta_i</script><p>其中：</p>
+<script type="math/tex; mode=display">\Delta_i^{(1)}=V_{ii}</script><script type="math/tex; mode=display">\Re\Delta_i^{(2)}=\Pr.\sum_{m\neq i}\frac{|V_{mi}|^2}{E_i-E_m}</script><script type="math/tex; mode=display">\Im\Delta_i^{(2)}=-\pi\sum_{m\neq i}|V_{mi}|^2\delta(E_i-E_m)=-\frac{\hbar}{2}\sum_{m\neq i}W_{im}</script><p>定义：</p>
+<script type="math/tex; mode=display">\Gamma_i=-2\Im\Delta_i</script><p>那么：</p>
+<script type="math/tex; mode=display">|c_i(t)|^2=e^{-\Gamma_i t/\hbar}</script><p>这意味着$1/\Gamma_i$是衰减时间，$\Gamma_i$是对应的能级展宽。</p>
+<h2><span id="lamb-shift">Lamb Shift</span></h2><p>经典中的真空无光子涨落，自然不会出现电子光子耦合，但是在量子力学中，真空中的光子涨落会导致电子的能级发生变化，这就是Lamb Shift。</p>
+<p>写出微扰项：</p>
+<script type="math/tex; mode=display">\hat \delta H=-\frac{e}{m}\vec{A}\vec{p}+\frac{e^2}{2m}\vec{A}^2</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Time-Dependent-Perturbation/">https://xuxu20040407.github.io/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Time-Dependent-Perturbation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/">量子力学2</a></div><div class="post_share"><div class="social-share" data-image="/img/cover1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/WKB-Approximation/" title="WKB-Approximation"><img class="cover" src="/img/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E6%B3%A2%E5%87%BD%E6%95%B0.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">WKB-Approximation</div></div></a></div><div class="next-post pull-right"><a href="/2025/08/08/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Density-Matrix/" title="Density-Matrix"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Density-Matrix</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/WKB-Approximation/" title="WKB-Approximation"><img class="cover" src="/img/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E6%B3%A2%E5%87%BD%E6%95%B0.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-10</div><div class="title">WKB-Approximation</div></div></a></div><div><a href="/2025/08/08/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Density-Matrix/" title="Density-Matrix"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-08</div><div class="title">Density-Matrix</div></div></a></div><div><a href="/2025/01/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Relativistic-QM/" title="Relativistic-QM"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-02</div><div class="title">Relativistic-QM</div></div></a></div><div><a href="/2024/12/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Scattering-Theory/" title="Scattering-Theory"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-23</div><div class="title">Scattering-Theory</div></div></a></div><div><a href="/2024/12/14/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62Content/" title="量子力学2Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-14</div><div class="title">量子力学2Content</div></div></a></div><div><a href="/2024/11/21/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Perturbation/" title="Approximation Method"><img class="cover" src="/img/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/zeeman.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-21</div><div class="title">Approximation Method</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Time-dependent Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Interaction Picture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">Example: Nuclear Magnetic Resonance</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Time-dependet Perturbation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">Dyson Series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">Transition Probability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">Constant Perturbation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.1.</span> <span class="toc-text">Zero Order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.2.</span> <span class="toc-text">First Order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.3.</span> <span class="toc-text">Second Order</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">Harmonic Perturbation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">Expotential Decay Perturbation-Energy Shift and Decay Width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.5.1.</span> <span class="toc-text">First Order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.5.2.</span> <span class="toc-text">Second Order</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.6.</span> <span class="toc-text">Lamb Shift</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/08/18/%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%A4%8D%E4%B9%A0/%E6%80%BB%E7%BB%93/" title="总结"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="总结"/></a><div class="content"><a class="title" href="/2025/08/18/%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%A4%8D%E4%B9%A0/%E6%80%BB%E7%BB%93/" title="总结">总结</a><time datetime="2025-08-18T03:51:33.000Z" title="发表于 2025-08-18 11:51:33">2025-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/12/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%8A%9B%E5%AD%A6/" title="相对论力学"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="相对论力学"/></a><div class="content"><a class="title" href="/2025/08/12/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%8A%9B%E5%AD%A6/" title="相对论力学">相对论力学</a><time datetime="2025-08-12T06:11:36.000Z" title="发表于 2025-08-12 14:11:36">2025-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/WKB-Approximation/" title="WKB-Approximation"><img src="/img/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/%E6%B3%A2%E5%87%BD%E6%95%B0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WKB-Approximation"/></a><div class="content"><a class="title" href="/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/WKB-Approximation/" title="WKB-Approximation">WKB-Approximation</a><time datetime="2025-08-10T08:27:46.000Z" title="发表于 2025-08-10 16:27:46">2025-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Time-Dependent-Perturbation/" title="Time-Dependent-Perturbation"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Time-Dependent-Perturbation"/></a><div class="content"><a class="title" href="/2025/08/10/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Time-Dependent-Perturbation/" title="Time-Dependent-Perturbation">Time-Dependent-Perturbation</a><time datetime="2025-08-10T06:45:28.000Z" title="发表于 2025-08-10 14:45:28">2025-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/08/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Density-Matrix/" title="Density-Matrix"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Density-Matrix"/></a><div class="content"><a class="title" href="/2025/08/08/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A62/Density-Matrix/" title="Density-Matrix">Density-Matrix</a><time datetime="2025-08-08T06:43:11.000Z" title="发表于 2025-08-08 14:43:11">2025-08-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
