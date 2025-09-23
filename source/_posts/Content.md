@@ -80,17 +80,22 @@ top: true
 - 《现代量子力学》樱井纯/《Modern Quantum Mechanics》Sakurai。
 
 ### 固体物理与DFT
+
 {% post_link '固体物理/固体物理Content' %}
+
 {% post_link 'DFT/DFT-Content' %}
 
-我没有上过相应的课程，不过自学的时候整理了一些笔记。
+我没有上过相应的课程，不过自学的时候整理了一些笔记。对应的课程有物院的PHY3601固体物理和致远的PHY3762凝聚态物理，以及PHY3757凝聚态物理专题。
+
 
 ### 生物物理
+
 {% post_link '生物物理/生物物理Content' %}
 
 对应的课程为PHY4961生物物理。主要参考书籍为Philips的《细胞的生物物理学》。
 
 ## 托福
+
 {% post_link '托福/托福Content' %}
 
 考托福的时候整理的一些笔记。
