@@ -37,3 +37,9 @@ $$H_e=\sum_i\frac{\vec{p_i}^2}{2m_e}+\frac12\sum_{i\neq j}\frac{e^2}{|\vec{r_i}-
 
 以上考虑的都是零级近似（即离子实固定在平衡位置下）的电子结果，如果考虑一级近似，可以推出更广泛的结论。
 
+# 凝聚态物理专题Content
+
+- {% post_link '固体物理/磁性的来源' %}
+  - {% post_link '固体物理/自旋波' %}
+- {% post_link '固体物理/Hall-Family' %}
+- {% post_link '固体物理/超导电性' %}
