@@ -75,8 +75,8 @@ $$\hat H=\vec{\alpha}\cdot \vec{p}+\beta m=\begin{pmatrix}0&\vec{\sigma}\cdot \v
 $$\psi_1=\begin{pmatrix}1\\0\\\frac{p}{\sqrt{p^2+m^2}+m}\\0\end{pmatrix}e^{i(pz-Et)}$$
 $$\psi_2=\begin{pmatrix}0\\1\\0\\\frac{-p}{\sqrt{p^2+m^2}+m}\end{pmatrix}e^{i(pz-Et)}$$
 - 负能解：
-$$\psi_3=\begin{pmatrix}\frac{-p}{\sqrt{p^2+m^2}-m}\\0\\1\\0\end{pmatrix}e^{i(pz-Et)}$$
-$$\psi_4=\begin{pmatrix}0\\\frac{p}{\sqrt{p^2+m^2}-m}\\0\\1\end{pmatrix}e^{i(pz-Et)}$$
+$$\psi_3=\begin{pmatrix}1\\0\\\frac{-p}{\sqrt{p^2+m^2}-m}\\0\end{pmatrix}e^{i(pz-Et)}$$
+$$\psi_4=\begin{pmatrix}0\\1\\0\\\frac{p}{\sqrt{p^2+m^2}-m}\end{pmatrix}e^{i(pz-Et)}$$
 
 定义螺旋度算符：
 $$\vec{\Sigma}\cdot \hat{e}_p=\begin{pmatrix}\vec{\sigma}&0\\0&\vec{\sigma}\end{pmatrix}\cdot \hat{e}_p$$

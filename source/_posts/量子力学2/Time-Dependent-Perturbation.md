@@ -76,7 +76,7 @@ $$i\hbar\frac{d}{dt}\begin{pmatrix}c_1(t)\\c_2(t)\end{pmatrix}=\begin{pmatrix}0&
 $$\Omega=\sqrt{\frac{V^2}{\hbar^2}+\frac{(\omega+\omega_{12})^2}{4}}$$
 
 解得：
-$$c_2(t)=-\frac{\gamma}{2\Omega\hbar}e^{i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}+\frac{\gamma}{2\Omega\hbar}e^{-i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}=\frac{i\gamma}{\Omega\hbar}\sin{[\Omega t]}e^{i\frac{\omega+\omega_{12}}{2}t}$$
+$$c_2(t)=-\frac{\gamma}{2\Omega\hbar}e^{i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}+\frac{\gamma}{2\Omega\hbar}e^{-i\Omega t}e^{i\frac{\omega+\omega_{12}}{2}t}=-\frac{i\gamma}{\Omega\hbar}\sin{[\Omega t]}e^{i\frac{\omega+\omega_{12}}{2}t}$$
 $$|c_2(t)|^2=\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
 $$|c_1(t)|^2=1-|c_2(t)|^2=1-\frac{\gamma^2}{\hbar^2\Omega^2}\sin^2{[\Omega t]}$$
 这就是Rabi振荡。
@@ -116,7 +116,7 @@ $$c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{t_0}^t\langle n|\hat V_I(t')|i\rangle dt'=\
 $$c_n^{(2)}(t)=\frac{-1}{\hbar^2}\sum_m\int_{t_0}^t\int_{t_0}^{t'}\langle n|\hat V_I(t')|m\rangle\langle m|\hat V_I(t'')|i\rangle dt''dt'$$
 
 所以跃迁概率为：
-$$P_{ni}(t)=|\sum_{n=0}^\infty c_n(t)|^2$$
+$$P_{ni}(t)=|c_n(t)|^2$$
 
 ## Constant Perturbation
 考虑一个常数微扰：
@@ -169,7 +169,7 @@ $$|V_{ni}|^2=|V_{ni}^\dagger|^2$$
 
 ## Expotential Decay Perturbation-Energy Shift and Decay Width
 考虑一个指数衰减的微扰：
-$$V(t)=Ve^{-\eta t}$$
+$$V(t)=Ve^{\eta t}$$
 同样的方法：
 $$c_n^{(1)}(t)=\frac{-i}{\hbar}\int_{0}^t\langle n|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar}V_{ni}\frac{e^{\eta t+i\omega_{ni}t}}{\eta+i\omega_{ni}}$$
 跃迁概率：
@@ -182,15 +182,15 @@ $$W_{ni}=\frac{2\pi}{\hbar}|V_{ni}|^2\delta(E_n-E_i)$$
 这同样满足费米黄金规则。
 
 ### First Order
-$$c_i^{(1)}(t)=\frac{-i}{\hbar}\lim_{t_0\rightarrow \infty}\int_{t_0}^t\langle i|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar\eta}V_{ii}e^{\eta t}$$
+$$c_i^{(1)}(t)=\frac{-i}{\hbar}\lim_{t_0\rightarrow -\infty}\int_{t_0}^t\langle i|\hat V_I(t')|i\rangle dt'=\frac{-i}{\hbar\eta}V_{ii}e^{\eta t}$$
 
 ### Second Order
-$$c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
+$$c_i^{(2)}(t)=\frac{-1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}|^2e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
 
 合并起来，跃迁概率为：
-$$c_i(t)=1-\frac{i}{\hbar\eta}V_{ii}e^{\eta t}-\frac{1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
+$$c_i(t)=1-\frac{i}{\hbar\eta}V_{ii}e^{\eta t}-\frac{1}{\hbar^2}|V_{ii}|^2\frac{e^{2\eta t}}{2\eta^2}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}|^2e^{2\eta t}}{2\eta(E_i-E_m+i\hbar \eta)}$$
 
-$$\frac{\dot{c_i}}{c_i}=\frac{-i}{\hbar\eta}V_{ii}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}^2|}{E_i-E_m+i\hbar \eta}$$
+$$\frac{\dot{c_i}}{c_i}=\frac{-i}{\hbar}V_{ii}+\frac{-i}{\hbar}\sum_{m\neq i}\frac{|V_{mi}|^2}{E_i-E_m+i\hbar \eta}$$
 解得：
 $$c_i(t)=e^{-i\Delta_i t/\hbar},E_i\rightarrow E_i+\Delta_i$$
 

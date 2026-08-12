@@ -68,7 +68,7 @@ cover:
   - Trace of Square: $\begin{cases}Tr(\hat\rho^2)=1&pure~state\\Tr(\hat\rho^2)<1&mixed~state\end{cases}$
   - Hermitian: $\hat\rho^\dagger=\hat\rho$
   - Positive: $\langle\psi|\hat\rho|\psi\rangle\geq 0$
-- **Motion of density matrix**: $\frac{d\hat\rho}{dt}=\frac{i}{\hbar}[\hat H,\hat\rho]+\frac{\partial\hat\rho}{\partial t}$
+- **Motion of density matrix**: $\frac{d\hat\rho}{dt}=\frac{1}{i\hbar}[\hat H,\hat\rho]+\frac{\partial\hat\rho}{\partial t}$
 - **Average value**: $\langle\hat A\rangle=Tr(\hat\rho\hat A)$
 - **Reduced density matrix**: $\hat\rho_A=Tr_B(\hat\rho_{AB})$
   - Average value of partial system: $\langle\hat A\rangle=Tr_A(\hat\rho_{A}\hat A)=Tr_A(Tr_B(\hat\rho_{AB})\hat A)$
@@ -138,7 +138,7 @@ $$\langle m(\lambda(t))|\vec{\nabla_\lambda}|m(\lambda(t))\rangle$$
    - $\sigma_x=\begin{cases}&1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix}\\&-1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}\end{cases}$
    - $\sigma_y=\begin{cases}&1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\i\end{pmatrix}\\&-1&\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-i\end{pmatrix}\end{cases}$
    - $\sigma_z=\begin{cases}&1&\begin{pmatrix}1\\0\end{pmatrix}\\&-1&\begin{pmatrix}0\\1\end{pmatrix}\end{cases}$
-   - $\sigma_n=\begin{cases}&1&\begin{pmatrix}\cos{\frac\theta2}\\\sin{\frac\theta2}e^{i\phi}\end{pmatrix}\\&-1&\begin{pmatrix}\sin{\frac\theta2}e^{i\phi}\\-\cos{\frac\theta2}\end{pmatrix}\end{cases}$
+   - $\sigma_n=\begin{cases}&1&\begin{pmatrix}\cos{\frac\theta2}\\\sin{\frac\theta2}e^{i\phi}\end{pmatrix}\\&-1&\begin{pmatrix}\sin{\frac\theta2}e^{-i\phi}\\-\cos{\frac\theta2}\end{pmatrix}\end{cases}$
 
 
 

@@ -334,7 +334,7 @@ $$\hat \Pi^\dagger\hat p\hat \Pi=-\hat p$$
 - 对角动量算符的变换：
 $$\hat \Pi^\dagger\hat L\hat \Pi=\hat L$$
 - 对平移算符的变换：
-$$\hat \Pi^\dagger\hat T(\vec{dx})\hat \Pi=-\hat T(\vec{dx})$$
+$$\hat \Pi^\dagger\hat T(\vec{dx})\hat \Pi=\hat T(-\vec{dx})$$
 
 还有这些性质：
 - 宇称算符的平方：

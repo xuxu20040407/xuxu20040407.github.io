@@ -37,7 +37,7 @@ $$\langle P(\vec{a},\vec{b})\rangle$$
 对于$\vec{a}=\vec{b}$的情况，显然$\langle P(\vec{a},\vec{b})\rangle=-1$；对于$\vec{a}=-\vec{b}$的情况，显然$\langle P(\vec{a},\vec{b})\rangle=+1$。对于任意夹角的情况，下面给出了一种计算方法：
 
 两个粒子的自旋依照之前文章的约定，记为（省略单位$\frac{\hbar^2}{4}$）：
-$$|\psi\rangle=\frac12\begin{pmatrix}1\\0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}+\frac12\begin{pmatrix}0\\1\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}$$
+$$|\psi\rangle=\frac{1}{\sqrt2}\begin{pmatrix}1\\0\end{pmatrix}\begin{pmatrix}0\\1\end{pmatrix}+\frac{1}{\sqrt2}\begin{pmatrix}0\\1\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}$$
 选取$\vec{a}$为轴，记天顶角夹角为$\theta$，那么测量的平均值为：
 $$\begin{aligned}
 \langle P(\vec{a},\vec{b})\rangle&=\langle\psi|S_z^a(S_z^b\cos{\theta}+S_x^b\sin{\theta})|\psi\rangle\\
@@ -70,7 +70,7 @@ $$\begin{aligned}
 如果量子力学是正确的，那么任意取$\vec{a}\perp\vec{b}$的情况：
 $$\begin{aligned}
 |\langle P(\vec{a},\vec{b})\rangle-\langle P(\vec{a},\vec{c})\rangle|&\leq1+\langle P(\vec{b},\vec{c})\rangle\\
-\Leftrightarrow \cos{\theta}&\leq 1+\sin{\theta}
+\Leftrightarrow \cos{\theta}&\leq 1-\sin{\theta}
 \end{aligned}$$
 这个式子显然不是恒成立的，所以在量子力学正确的假设下，量子力学是不需要隐变量的。
 

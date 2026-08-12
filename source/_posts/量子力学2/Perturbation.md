@@ -106,7 +106,7 @@ $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle=-\sum_{k\neq n}\frac{|\langle k^0
 > 代入$|n^1\rangle$和$E^1_n,E^2_n$的表达式，得到：
 > $$\begin{aligned}
     \langle k^0|n^2\rangle&=\frac{\langle k^0|(E^1_n-\delta \hat H)|n^1\rangle+\delta_{nk}E^2_n}{E_k^0-E^0_n}\\
-    &=\sum_{m\neq n}-\frac{\langle k^0|(E^1_n-\delta \hat H)|\langle m^0|\delta \hat H|n^0\rangle|m^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
+    &=\sum_{m\neq n}-\frac{\langle k^0|(E^1_n-\delta \hat H)|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
     &=\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}-\sum_{m\neq n}\frac{E^1_n\langle m^0|\delta \hat H|n^0\rangle\delta_{mk}}{(E_k^0-E^0_n)(E^0_m-E^0_n)}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
     &=\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)(E^0_m-E^0_n)}-\frac{\langle n^0|\delta \hat H|n^0\rangle\langle k^0|\delta \hat H|n^0\rangle}{(E_k^0-E^0_n)^2}+\frac{\delta_{nk}E^2_n}{{E_k^0-E^0_n}}\\
     \end{aligned}$$
@@ -116,8 +116,8 @@ $$E^2_n=\langle n^0|\delta \hat H|n^{1}\rangle=-\sum_{k\neq n}\frac{|\langle k^0
     E^3_n&=\langle n^0|\delta \hat H|n^{2}\rangle\\
     &=\sum_{k\neq n}\left[\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle}{(E^0_k-E^0_n)(E^0_m-E^0_n)}-\frac{\langle n^0|\delta \hat H|n^0\rangle\langle k^0|\delta \hat H|n^0\rangle}{(E^0_k-E^0_n)^2}\right]\langle n^0|\delta\hat{H}|k^0\rangle\\
     &=\sum_{k\neq n}\left[\sum_{m\neq n}\frac{\langle k^0|\delta \hat H|m^0\rangle\langle m^0|\delta \hat H|n^0\rangle\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)(E^0_m-E^0_n)}-\frac{\langle k^0|\delta \hat H|n^0\rangle\langle n^0|\delta \hat H|n^0\rangle\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)^2}\right]\\
-    &=\sum_{k\neq n}\langle k^0|\frac{\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)}|\delta \hat H|\sum_{m\neq n}\frac{\langle m^0|\delta\hat{H}|n^0\rangle}{(E^0_m-E^0_n)}|m^0\rangle-\sum_{k\neq n}\langle k^0|\frac{\langle n^0|\delta\hat{H}|k^0\rangle}{(E^0_k-E^0_n)}|E_n^1\delta_{mk}|\sum_{m\neq n}\frac{\langle m^0|\delta\hat{H}|n^0\rangle}{(E^0_m-E^0_n)}|m^0\rangle\\
-    &=\langle n^1|\delta \hat H|n^1\rangle-E_1\\
+    &=\sum_{k\neq n}\sum_{m\neq n}\frac{\langle n^0|\delta\hat{H}|k^0\rangle\langle k^0|\delta\hat{H}|m^0\rangle\langle m^0|\delta\hat{H}|n^0\rangle}{(E^0_k-E^0_n)(E^0_m-E^0_n)}-E_n^1\sum_{k\neq n}\frac{\langle n^0|\delta\hat{H}|k^0\rangle\langle k^0|\delta\hat{H}|n^0\rangle}{(E^0_k-E^0_n)^2}\\
+    &=\langle n^1|\delta \hat H|n^1\rangle-E_n^1\langle n^1|n^1\rangle
     \end{aligned}$$
 > 这说明计算三阶能量修正只需要用到一阶态矢量修正和一阶能量修正。
 
@@ -211,8 +211,8 @@ $$(E_1-E)[(E_1-E)(E_2-E)-(|a|^2+|b|^2)]=0$$
 
 解得：
 $$E_1^\alpha=E_1$$
-$$E_1^\beta=\frac{E_1+E_2+\sqrt{(E_1-E_2)^2+4(|a|^2+|b|^2)}}{2}\approx E_1-\frac{|a|^2+|b|^2}{E_2-E_1}$$
-$$E_2=\frac{E_1+E_2-\sqrt{(E_1-E_2)^2+4(|a|^2+|b|^2)}}{2}\approx E_2+\frac{|a|^2+|b|^2}{E_2-E_1}$$
+$$E_1^\beta=\frac{E_1+E_2+\sqrt{(E_1-E_2)^2+4(|a|^2+|b|^2)}}{2}\approx E_2+\frac{|a|^2+|b|^2}{E_2-E_1}$$
+$$E_2=\frac{E_1+E_2-\sqrt{(E_1-E_2)^2+4(|a|^2+|b|^2)}}{2}\approx E_1-\frac{|a|^2+|b|^2}{E_2-E_1}$$
 
 ### 非简并微扰
 显然一阶能量修正为0，本征态修正为：
@@ -412,7 +412,7 @@ $$E^1_{mv}=-\frac{(E_n)^2}{2mc^2}\left[\frac{4n}{l+1/2}-3\right]$$
 $$\hat{H}_{SOC}=\frac{1}{2m_e^2c^2}\frac{1}{r}\frac{dV}{dr}\hat L\cdot \hat S=\frac{1}{2m_e^2c^2}\frac{e^2}{r^3}\hat L\cdot \hat S$$
 是自旋轨道耦合微扰。运动的电荷产生磁场，这本身也是一种相对论效应。这里选择LS耦合表象，即以$n,l,s,j,m_j$为一组好量子数，具体理由请见 {% post_link '原子物理/原子的精细结构' %} 。在该表象下：
 $$\hat L\cdot \hat S=\frac{1}{2}(\hat J^2-\hat L^2-\hat S^2)=\frac{\hbar^2}2\left[j(j+1)-l(l+1)-s(s+1)\right]$$
-$$\langle\frac1{r^3}\rangle=\frac{1}{l(l+1/2)(l+1)n^3a_0}$$
+$$\langle\frac1{r^3}\rangle=\frac{1}{l(l+1/2)(l+1)n^3a_0^3}$$
 合起来得到：
 $$E^1_{SOC}=\frac{(E_n)^2}{mc^2}\frac{n\left[j(j+1)-l(l+1)-\frac34\right]}{l(l+1/2)(l+1)}$$
 考虑到耦合后的$j=l+\frac12$和$j=l-\frac12$，可以写成：
@@ -422,7 +422,7 @@ $$E^1_{SOC}=\dfrac{(E_n)^2}{mc^2}\begin{cases}
 \end{cases}$$
 
 > 将两个相对论修正项加在一起，会发现无论是$j=l+\frac12$还是$j=l-\frac12$，都可以写成一个统一的表达式：
-$$E^1_{mv}+E^1_{SOC}=\frac{(E_n)^2}{2mc^2}\left[3-\frac{4n}{j+1/2}\right]=-E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2}-\frac34\right)\right]$$
+$$E^1_{mv}+E^1_{SOC}=\frac{(E_n)^2}{2mc^2}\left[3-\frac{4n}{j+1/2}\right]=E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2}-\frac34\right)\right]$$
 
 
 
@@ -458,7 +458,7 @@ $$\mu_j=\frac{e}{2m_e}\left(1+\frac12\frac{\hat{J}^2+\hat{S}^2-\hat{L}^2}{\hat{J
 其中$g_j=1+\dfrac{j(j+1)+s(s+1)-l(l+1)}{2j(j+1)}$为朗德g因子。算出了总磁矩，再算z方向的就容易得多了，最终得到：
 $$E_Z=\langle nlm_j|\hat{H}_Z|nlm_j\rangle=m_jg_j\mu_bB_{ext}$$
 最终的能量为：
-$$E_{njm_j}=E_{FS}+E_{Z}=-E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2}-\frac34\right)\right]+m_jg_j\mu_BB_{ext}$$
+$$E_{njm_j}=E_{FS}+E_{Z}=E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{j+1/2}-\frac34\right)\right]+m_jg_j\mu_BB_{ext}$$
 
 ### Strong-Field Zeeman Effect
 当$B_{ext}\gg B_{int}$时，外磁场强于内磁场，氢原子内部的LS耦合被破坏。此时塞曼项为：
@@ -471,9 +471,9 @@ $$\hat{H}_{FS}=\hat{H}_{mv}+\hat{H}_{SOC}$$
 $$E^1_{mv}=-\frac{(E_n)^2}{2mc^2}\left[\frac{4n}{l+1/2}-3\right]$$
 但由于LS耦合被破坏，此时j不再是好量子数，直接计算为：
 $$\hat L\cdot \hat S=\frac{1}{2}(\hat J^2-\hat L^2-\hat S^2)\Rightarrow \hat L\cdot \hat S=\langle L_x\rangle\langle S_x\rangle+\langle L_y\rangle\langle S_y\rangle+\langle L_z\rangle\langle S_z\rangle=\hbar^2m_lm_s$$
-$$E_{SOC}=\frac{(E_n)^2}{mc^2}\frac{2nm_lm_s\hbar^2}{l(l+1/2)(l+1)}$$
+$$E_{SOC}=\frac{(E_n)^2}{mc^2}\frac{2nm_lm_s}{l(l+1/2)(l+1)}$$
 总的能量为：
-$$E_{njm_j}=E_{FS}+E_Z=E_n\left[\frac{\alpha^2}{n^2}\left(\frac34-\frac{n}{l+1/2}+\frac{nm_lm_s}{l(l+1/2)(l+1)}\right)\right]+(m_l+2m_s)\mu_B B_{ext}$$
+$$E_{njm_j}=E_{FS}+E_Z=E_n\left[\frac{\alpha^2}{n^2}\left(\frac{n}{l+1/2}-\frac34-\frac{nm_lm_s}{l(l+1/2)(l+1)}\right)\right]+(m_l+2m_s)\mu_B B_{ext}$$
 
 > 对于$n=2$的氢原子的8个能级，可以根据以上理论计算出能级分裂情况。中间场的情况省略，不过可以参考[知乎回答](https://zhuanlan.zhihu.com/p/669034290) （小时百科参考中文版格里菲斯的书，有错误。英文版无错误）。可以参考以下图像：
 >
@@ -677,14 +677,14 @@ $$\langle \hat H \rangle =2|A|^2\left[\langle\psi_1|\hat H|\psi_1\rangle\pm \lan
 $$\begin{aligned}
 \langle\psi_1|\hat H|\psi_1\rangle
 &=E_{H_0}+\dfrac{e^2}{4\pi\epsilon R}-\dfrac{e^2}{4\pi\epsilon}\langle \psi_1|\dfrac{1}{r_2}|\psi_1\rangle\\
-&=E_{H_0}\left[1-e^{-\frac{2R}{a}}\left(1+\frac{a}{R}\right)\right]\\
+&=E_{H_0}\left[1-2e^{-\frac{2R}{a}}\left(1+\frac{a}{R}\right)\right]\\
 \langle\psi_1|\hat H|\psi_2\rangle
 &=E_{H_0}\times I+\dfrac{e^2}{4\pi\epsilon R}\times I-\dfrac{e^2}{4\pi\epsilon}\langle \psi_1|\dfrac{1}{r_1}|\psi_2\rangle\\
-&=E_{H_0}\left[I(R)-e^{-\frac{R}{a}}\left(\frac{a}{2R}-\frac{2R}{3a}\right)\right]\\
-&=E_{H_0}e^{-\frac{R}{a}}\left[1-\frac{a}{R}+\frac{5R}{3a}+\frac13\left(\frac{R}{a}\right)^2\right]\\
+&=E_{H_0}\left[I(R)-e^{-\frac{R}{a}}\left(\frac{2a}{R}-\frac{4R}{3a}\right)\right]\\
+&=E_{H_0}e^{-\frac{R}{a}}\left[1-\frac{2a}{R}+\frac{7R}{3a}+\frac13\left(\frac{R}{a}\right)^2\right]\\
 \end{aligned}$$
 最终的结果为：
-$$E_{\pm} =\frac{\left[1-e^{-\frac{2R}{a}}\left(1+\frac{a}{R}\right)\right]\pm e^{-\frac{R}{a}}\left[1-\frac{a}{R}+\frac{5R}{3a}+\frac13\left(\frac{R}{a}\right)^2\right]}{1\pm e^{-\frac{R}{a}}\left[1+\frac{R}{a}+\frac13\left(\frac{R}{a}\right)^2\right]}E_{H_0}$$
+$$E_{\pm} =\frac{\left[1-2e^{-\frac{2R}{a}}\left(1+\frac{a}{R}\right)\right]\pm e^{-\frac{R}{a}}\left[1-\frac{2a}{R}+\frac{7R}{3a}+\frac13\left(\frac{R}{a}\right)^2\right]}{1\pm e^{-\frac{R}{a}}\left[1+\frac{R}{a}+\frac13\left(\frac{R}{a}\right)^2\right]}E_{H_0}$$
 电子在两个原子之间共享，形成了共价键。其中$E_+$表示成键态能量，$E_-$表示反键态能量。由于自旋是反对称波函数，所以空间对称波函数（即成键态波函数）具有较低的能量。下面的数值计算显示，反键态能量单调递减，不存在稳态。
 
 ```python
@@ -694,14 +694,14 @@ from scipy.optimize import minimize
 
 # 定义E_+和E_-函数
 def E_plus(R):
-    numerator = (1 - np.exp(-2*R) * (1 + 1/R)) + \
-                np.exp(-R) * (1-1/R + (5*R)/3 + (R**2)/3)
+    numerator = (1 - 2*np.exp(-2*R) * (1 + 1/R)) + \
+                np.exp(-R) * (1-2/R + (7*R)/3 + (R**2)/3)
     denominator = 1 + np.exp(-R) * (1 + R + (R**2)/3)
     return -numerator / denominator
 
 def E_minus(R):
-    numerator = (1 - np.exp(-2*R) * (1 + 1/R)) - \
-                np.exp(-R) * (1-1/R + (5*R)/3 + (R**2)/3)
+    numerator = (1 - 2*np.exp(-2*R) * (1 + 1/R)) - \
+                np.exp(-R) * (1-2/R + (7*R)/3 + (R**2)/3)
     denominator = 1 - np.exp(-R) * (1 + R + (R**2)/3)
     return -numerator / denominator
 
