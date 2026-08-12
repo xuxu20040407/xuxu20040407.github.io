@@ -138,8 +138,8 @@ $$\hat H=\hbar\omega(\hat a\hat a^\dagger-\frac12)$$
 
 升降算符具有以下性质：
 - 能级升降：
-$$\hat H(\hat a^\dagger \psi)=(E+\hbar \omega)\psi$$
-$$\hat H(\hat a \psi)=(E-\hbar \omega)\psi$$
+$$\hat H(\hat a^\dagger \psi)=(E+\hbar \omega)\hat a^\dagger \psi$$
+$$\hat H(\hat a \psi)=(E-\hbar \omega)\hat a \psi$$
 - 基态波函数：
 $$\psi_0(x)=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{m\omega}{2\hbar}x^2}$$
 - 升降系数：
@@ -182,7 +182,7 @@ e^{\lambda \hat a^\dagger}&=e^{\lambda (\sqrt{\frac{2m\omega}{\hbar}}\hat x-\hat
 &=e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\lambda\hat a}e^{-\frac{\lambda^2}2}\\
 \end{aligned}$$
 所以
-$$\lambda(x)=\langle x|\lambda\rangle=e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}\langle x|0\rangle=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{|\lambda|^2-\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\frac{m\omega}{2\hbar}x^2}$$
+$$\lambda(x)=\langle x|\lambda\rangle=e^{-\frac{|\lambda|^2+\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}\langle x|0\rangle=(\frac{m\omega}{\pi\hbar})^{\frac14}e^{-\frac{|\lambda|^2+\lambda^2}{2}}e^{\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x}e^{-\frac{m\omega}{2\hbar}x^2}$$
 相应的概率为：
 $$|\lambda(x)|^2\propto e^{2\lambda \sqrt{\frac{2m\omega}{\hbar}}\hat x-\frac{m\omega}{\hbar}x^2}\propto e^{-(\sqrt{\frac{m\omega}{\hbar}}x-\sqrt{2}\lambda)^2}$$
 
@@ -252,19 +252,19 @@ $$R=\frac{mV}{eB},\omega=\frac{eB}{m}$$
 对于分析力学：
 $$H=\frac{(\vec p-e \vec{A})^2}{2m}$$
 $$\begin{cases}
-\dot{\vec{x}}=\frac{\partial  H}{\partial \vec{p}}=\frac{(\vec p-e \vec{A})}{2m}\\
-\dot{\vec{p}}=-\frac{\partial  H}{\partial \vec{x}}=\frac{-e(\vec p-e \vec{A})_i}{2m}\nabla \vec{A_i}
+\dot{\vec{x}}=\frac{\partial  H}{\partial \vec{p}}=\frac{(\vec p-e \vec{A})}{m}\\
+\dot{\vec{p}}=-\frac{\partial  H}{\partial \vec{x}}=\frac{e(\vec p-e \vec{A})_i}{m}\nabla A_i
 \end{cases}$$
 
-$$\ddot{\vec{x}}=e\vec{v}\times\vec{B}$$
+$$\ddot{\vec{x}}=\frac{e}{m}\vec{v}\times\vec{B}$$
 
 如果还有电场：
-$$\ddot{\vec{x}}=e\vec{v}\times\vec{B}+e\frac{\vec{E}}{m}$$
+$$\ddot{\vec{x}}=\frac{e}{m}\vec{v}\times\vec{B}+\frac{e}{m}\vec{E}$$
 
-假设电场朝x方向且磁场朝y方向，这可以解出：
+假设电场朝x方向且磁场朝z方向，这可以解出：
 $$\begin{cases}
 x(t)=R\cos{\omega t}\\
-y(t)=R\sin{\omega t}-\frac{eE_xt}{m\omega}
+y(t)=-R\sin{\omega t}-\frac{eE_xt}{m\omega}
 \end{cases}$$
 这就是经典霍尔效应。
 
@@ -273,7 +273,7 @@ y(t)=R\sin{\omega t}-\frac{eE_xt}{m\omega}
 $$\hat H=\frac{(\hat p-e \vec{A})^2}{2m}=\frac{\hat\pi_x^2}{2m}+\frac{\hat\pi_y^2}{2m}$$
 遵循上述的分解方法：
 $$[\hat\pi_x,\hat\pi_y]=-e([\hat p_x,A_y]+[A_x,\hat p_y])=i\hbar eB=i\hbar \omega m$$
-$$\hat H=(\hat\pi_x-i\hat\pi_y)(\hat\pi_x+i\hat\pi_y)+\frac{\hbar\omega}{2}=\hbar\omega(\hat a^\dagger\hat a+\frac12)$$
+$$\hat H=\frac{(\hat\pi_x-i\hat\pi_y)(\hat\pi_x+i\hat\pi_y)}{2m}+\frac{\hbar\omega}{2}=\hbar\omega(\hat a^\dagger\hat a+\frac12)$$
 其中
 $$\hat a\equiv \frac{1}{\sqrt{2e\hbar B}}(\hat\pi_x+i\hat\pi_y)=\frac{1}{\sqrt{2e\hbar B}}[(\hat p_x-eA_x)+i(\hat p_y-eA_y)]$$
 $$\hat a^\dagger\equiv \frac{1}{\sqrt{2e\hbar B}}(\hat\pi_x-i\hat\pi_y)=\frac{1}{\sqrt{2e\hbar B}}[(\hat p_x-eA_x)-i(\hat p_y-eA_y)]$$
@@ -313,7 +313,7 @@ $$D_1(E)=\dfrac{L}{\pi\hbar}\sqrt{\dfrac{2m}{E}}$$
 可以对三维自由电子在xy平面上积分后，与朗道能级的态密度比较：
 $$\begin{cases}
 D(E)=\dfrac{eBL}{2\pi^2\hbar^2}\sqrt{2m}\sum_n\left[E-(n+\frac{1}{2})\hbar\omega\right]^{-\frac12}\\
-D(E)=\dfrac{mL}{\pi^2\hbar^3}\sqrt{\dfrac{2m}{E}}\\
+D(E)=\dfrac{mL}{\pi^2\hbar^3}\sqrt{2mE}\\
 \end{cases}$$
 
 ```python
@@ -593,12 +593,12 @@ $$\hat H_0=\vec{h}\cdot\vec{\sigma}=h\begin{pmatrix}\cos{\theta}&\sin{\theta}e^{
 相应的本征态为：
 $$\begin{cases}|+\rangle=\begin{pmatrix}\cos{\frac{\theta}{2}}\\ \sin{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}\\|-\rangle=\begin{pmatrix}\sin{\frac{\theta}{2}}e^{-i\phi}\\-\cos{\frac{\theta}{2}}\end{pmatrix}\end{cases}$$
 取向上态，贝里联络为：
-$${A}_\theta=i\langle +|\vec{\nabla_\theta}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}-\frac12\sin{\frac{\theta}{2}}\\ -\frac12\cos{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=0$$
+$${A}_\theta=i\langle +|\vec{\nabla_\theta}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}-\frac12\sin{\frac{\theta}{2}}\\ \frac12\cos{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=0$$
 $${A}_\phi=i\langle +|\vec{\nabla_\phi}|+\rangle=i\begin{pmatrix}\cos{\frac{\theta}{2}}& \sin{\frac{\theta}{2}}e^{-i\phi}\end{pmatrix}\begin{pmatrix}0\\ i\sin{\frac{\theta}{2}}e^{i\phi}\end{pmatrix}=-\sin^2{\theta/2}$$
 所以贝里联络为：
 $$\vec{A}=-\sin^2{\frac\theta{2}}\vec{e_\phi}$$
 贝里曲率：
-$$\vec{B}=\nabla\times\vec{A}=-\frac{\partial}{\partial\theta}(-\sin^2{\frac\theta{2}})=\frac12\sin{\theta}$$
+$$\vec{B}=\nabla\times\vec{A}=\frac{\partial}{\partial\theta}(-\sin^2{\frac\theta{2}})=-\frac12\sin{\theta}$$
 
 # 量子几何
 
@@ -627,7 +627,7 @@ $$\begin{aligned}
 $$\langle \psi(\lambda)|\partial_\mu\psi(\lambda)\rangle^*=\langle \partial_\mu\psi(\lambda)|\psi(\lambda)\rangle=-\langle \psi(\lambda)|\partial_\mu\psi(\lambda)\rangle $$
 - 第三项$\partial_\mu\langle \psi(\lambda)|\partial_\nu|\psi(\lambda)\rangle$是纯虚的，即$\langle \partial_\mu\psi(\lambda)|\partial_\nu\psi(\lambda)\rangle+ \langle\psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle$，那么
 $$\Re \langle \partial_\mu\psi(\lambda)|\partial_\nu\psi(\lambda)\rangle+ \Re\langle\psi(\lambda)|\partial_\mu\partial_\nu|\psi(\lambda)\rangle=0$$
-记$r_{\mu\nu}\equiv \Re\psi(\lambda)|\partial_\mu\langle\partial_\nu|\psi(\lambda)\rangle$
+记$r_{\mu\nu}\equiv \Re\langle\partial_\mu\psi(\lambda)|\partial_\nu\psi(\lambda)\rangle$
 
 那么可以表示为：
 $$\begin{aligned}
@@ -641,11 +641,11 @@ $$\begin{aligned}
 &=1-\frac12 g_{\mu\nu} d\lambda^\mu d\lambda^\nu
 \end{aligned}$$
 所以$g_{\mu\nu}=r_{\mu\nu}-A_\mu A_\nu$就是量子度规。可以推广为量子几何张量
-$$G_{\mu\nu}=\psi(\lambda)|\partial_\mu\langle\partial_\nu|\psi(\lambda)\rangle-A_\mu A_\nu$$
+$$G_{\mu\nu}=\langle\partial_\mu\psi(\lambda)|\partial_\nu\psi(\lambda)\rangle-A_\mu A_\nu$$
 那么量子度规就是量子几何张量的实部，其虚部是贝里曲率：
 $$\Omega_{\mu\nu}=\partial_\mu A_{\nu}-\partial_\nu A_{\mu}=-2\Im[\langle \partial_\mu\psi(\lambda)|\partial_\nu|\psi(\lambda)\rangle]$$
 
 综上：
-$$G_{\mu\nu}=r_{\mu\nu}-i\Omega_{\mu\nu}$$
+$$G_{\mu\nu}=r_{\mu\nu}-A_\mu A_\nu-\frac{i}{2}\Omega_{\mu\nu}$$
 
 

@@ -156,7 +156,7 @@ $$\begin{aligned}
 &=\frac{4\pi^3m}{\hbar^2}\int\langle \psi_k|\hat V|\vec{k}'\rangle\langle \vec{k}'|\hat T|\vec{k_i}\rangle \delta(E-\frac{\hbar^2k'^2}{2m})d^3k'\\
 &=\frac{4\pi^3m}{\hbar^2}\frac{m}{\hbar^2k}\int_{|k|=|k_i|}\langle \psi_k|\hat V|\vec{k}\rangle\langle \vec{k}|\hat T|\vec{k_i}\rangle k^2d\Omega\\
 &=\frac{4\pi^3m^2}{\hbar^4}k\int_{|k|=|k_i|}|\langle \vec{k}|\hat T|\vec{k}_i\rangle|^2 d\Omega\\
-&=\frac{k}{4\pi}(\frac{4\pi^2 m}{\hbar^2})^2\int d\Omega|f(\theta,\phi)|^2\\
+&=\frac{k}{4\pi}\int d\Omega|f(\theta,\phi)|^2\\
 &=\frac{k}{4\pi}\sigma_{tot}
 \end{aligned}$$
 
@@ -171,7 +171,7 @@ $$f(\theta)=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}_i-\vec{k}_f)\cdot\vec{r}}V(r
 > 这里是这么计算的：默认$\vec{k}_i$朝$\vec{z}$方向，$\vec{k}_f$与$\vec{k}_i$夹角恒为$\theta$，所以：
 > $$(\vec{k}_i-\vec{k}_f)\vec{r}=\vec{q}\vec{r}=qr\cos{\theta'}$$
 > 对定义式积分：
-> $$\begin{aligned}f(\theta)&=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}_i-\vec{k}_f)\cdot\vec{r}}V(r)d\vec{r}\\&=-\frac{mV_0}{2\pi\hbar^2}\int e^{iqr\cos{\theta'}}r^2\sin{\theta'}drd\theta' d\phi\\&=\frac{mV_0}{2\pi\hbar^2}\int e^{iqr\cos{\theta'}}r^2drd\cos{\theta'} d\phi\\&=-\frac{mV_0}{2\pi\hbar^2}\int  \frac{2\pi}{iqr} (e^{iqr}-e^{-iqr})r^2drd\cos{\theta'}\\&=-\frac{2mV_0}{q\hbar^2}\int_0^a   \sin{(qr)}rdr\end{aligned}$$
+> $$\begin{aligned}f(\theta)&=-\frac{m}{2\pi\hbar^2}\int e^{i(\vec{k}_i-\vec{k}_f)\cdot\vec{r}}V(r)d\vec{r}\\&=-\frac{mV_0}{2\pi\hbar^2}\int e^{iqr\cos{\theta'}}r^2\sin{\theta'}drd\theta' d\phi\\&=-\frac{mV_0}{2\pi\hbar^2}\int e^{iqr\cos{\theta'}}r^2drd\cos{\theta'} d\phi\\&=-\frac{mV_0}{2\pi\hbar^2}\int  \frac{2\pi}{iqr} (e^{iqr}-e^{-iqr})r^2dr\\&=-\frac{2mV_0}{q\hbar^2}\int_0^a   \sin{(qr)}rdr\end{aligned}$$
 > 对于势能只和$r$有关的情况，以下式子是通用的：
 > $$f(\theta)=-\frac{2m}{q\hbar^2}\int_0^a rV(r)\sin{(qr)}dr$$
 

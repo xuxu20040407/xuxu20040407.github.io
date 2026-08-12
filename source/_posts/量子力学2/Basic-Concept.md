@@ -58,7 +58,7 @@ cover:
     > $$\hat{\Lambda}(t,t_0)=e^{i\hat{\Omega}(t-t_0)}$$
     > 对演化后的态矢量求导：
     > $$\frac{\partial}{\partial t}|\psi(t)\rangle=i\hat{\Omega}|\psi(t)\rangle$$
-    > 这就有点薛定谔方程的雏形了，令$\hat{H}=-i\hbar\hat{\Omega}$，即可得到
+    > 这就有点薛定谔方程的雏形了，令$\hat{H}=-\hbar\hat{\Omega}$，即可得到
     > $$\mathrm{i}\hbar\frac\partial{\partial t}|\psi(t)\rangle=\hat{H}|\psi(t)\rangle$$
     > 这似乎预示着算符是比方程更根本的东西，我们同样可以定义空间算符，详见 {% post_link '量子力学/对称性和守恒律' %} 。
 
@@ -124,7 +124,7 @@ $$\hat A=|\beta\rangle\langle\alpha|\Rightarrow\hat A^\dagger=|\alpha\rangle\lan
 ## 内积
 
 希尔伯特空间可以定义内积$\langle\beta|\alpha\rangle$。内积具有以下性质和假定：
-- 复共轭：$\langle\beta|\alpha\rangle=\langle\beta|\alpha\rangle^*$
+- 复共轭：$\langle\alpha|\beta\rangle^*=\langle\beta|\alpha\rangle$
 - 长度的实数性：$\langle\alpha|\alpha\rangle\in R$，事实上$\langle\alpha|\alpha\rangle\equiv1$
 - 正定度规假设：$\langle\alpha|\alpha\rangle\geq0$
 - 柯西不等式推论：$|\langle\beta|\alpha\rangle|\leq\sqrt{\langle\alpha|\alpha\rangle\langle\beta|\beta\rangle}=1$
@@ -150,7 +150,7 @@ $$|\alpha\rangle=\sum_{a}c_a|a\rangle$$
 $$|\alpha\rangle=\sum_{a}|a\rangle\langle a|\alpha\rangle=\sum_{a}\langle a|\alpha\rangle|a\rangle$$
 
 这表明$c_a=\langle a|\alpha\rangle$，其模方表示了该态的概率，这是量子力学的基本公设。同时：
-$$\langle\alpha|\alpha\rangle=\langle\alpha|\sum_{a}|a\rangle\langle a|\alpha\rangle=\sum_ac_a^2=1$$
+$$\langle\alpha|\alpha\rangle=\langle\alpha|\sum_{a}|a\rangle\langle a|\alpha\rangle=\sum_a|c_a|^2=1$$
 
 ## 矩阵表示
 
@@ -167,7 +167,7 @@ $$|\alpha\rangle=\hat A|a\rangle$$
 实际上作用前后的右矢我们仍然观测不了，我们真正感兴趣的是态对于算符的平均值，定义为
 $$\langle\hat A\rangle=\langle\alpha|\hat A|\alpha\rangle$$
 这和经典的概率诠释相符。用算符的本征基矢展开：
-$$\begin{aligned}\langle\alpha|\hat A|\alpha\rangle&=\sum_{a_i}\sum_{a_j}\langle\alpha|a_i\rangle\langle a_i|\hat A|a_j\rangle\langle a_j|\alpha\rangle\\&=\sum_{a_i}\sum_{a_j}c_{a_j}\langle\alpha|a_i\rangle\langle a_i|\hat A|a_j\rangle\\&=\sum_{a_j}c_{a_j}c_{a_j}^*\langle a_j|\hat A|a_j\rangle=\sum_{a_j}c_j^2A_j\end{aligned}$$
+$$\begin{aligned}\langle\alpha|\hat A|\alpha\rangle&=\sum_{a_i}\sum_{a_j}\langle\alpha|a_i\rangle\langle a_i|\hat A|a_j\rangle\langle a_j|\alpha\rangle\\&=\sum_{a_i}\sum_{a_j}c_{a_j}\langle\alpha|a_i\rangle\langle a_i|\hat A|a_j\rangle\\&=\sum_{a_j}c_{a_j}c_{a_j}^*\langle a_j|\hat A|a_j\rangle=\sum_{a_j}|c_{a_j}|^2A_j\end{aligned}$$
 
 
 ## 相容可测量量和简并
@@ -181,10 +181,10 @@ $$\hat A|a,b\rangle=a|a,b\rangle,\hat B|a,b\rangle=b|a,b\rangle$$
 ## 不确定性关系
 证明1：由内积的正定性：
 $$\begin{aligned}
-||\psi\rangle|^2&=\langle \psi|\psi\rangle=\langle \phi|(\hat A-i\lambda\hat B)(\hat A+i\lambda\hat B)|\phi\rangle\geq 0\\
+\langle \psi|\psi\rangle&=\langle \phi|(\hat A-i\lambda\hat B)(\hat A+i\lambda\hat B)|\phi\rangle\geq 0\\
 &\Rightarrow \langle \phi|\hat A^2|\phi\rangle+\lambda^2\langle \phi|\hat B^2|\phi\rangle+i\lambda\langle \phi|[\hat A,\hat B]|\phi\rangle\geq 0\\
 &\Rightarrow \langle \hat B^2\rangle\lambda^2+i\lambda\langle [\hat A,\hat B]\rangle+\langle \hat A^2\rangle\geq 0\\
-&\Rightarrow \lambda^2\langle i[\hat A,\hat B]\rangle^2-4\langle \hat A^2\rangle\langle \hat B^2\rangle\leq 0\\
+&\Rightarrow \langle i[\hat A,\hat B]\rangle^2-4\langle \hat A^2\rangle\langle \hat B^2\rangle\leq 0\\
 &\Rightarrow \langle \hat A^2\rangle\langle \hat B^2\rangle\geq |\frac{i}{2}\langle [\hat A,\hat B]\rangle|^2
 \end{aligned}$$
 这个可以约束出更强的式子，取：
@@ -194,7 +194,7 @@ $$(\Delta\hat A)^2(\Delta\hat B)^2\geq |\frac{i}{2}\langle [\hat A,\hat B]\rangl
 
 证明2：由施瓦茨不等式：
 $$\begin{aligned}
-(\Delta\hat A)^2(\Delta\hat B)^2&=\langle \hat A'\rangle^2\langle \hat B'\rangle^2\\
+(\Delta\hat A)^2(\Delta\hat B)^2&=\langle \hat A'^2\rangle\langle \hat B'^2\rangle\\
 &\geq |\langle \hat A'\hat B'\rangle|^2\\
 &=|\langle \frac{1}{2}[\hat A',\hat B']+\frac{1}{2}\{\hat A',\hat B'\} \rangle|^2\\
 &=|\langle \frac{1}{2}[\hat A,\hat B]+\frac{1}{2}\{\hat A',\hat B'\} \rangle|^2\\
@@ -219,12 +219,12 @@ $$|b\rangle=\hat U|a\rangle$$
 对于原来基矢的右矢，在保持系数不变的情况下，可以通过该矩阵进行转换：
 $$\begin{aligned}
 |\beta\rangle&=\sum_i\langle a^i|\alpha\rangle|b^i\rangle\\
-&=\sum_i\sum_j\langle a^i|\alpha\rangle\hat U_{ij}|a^j\rangle\\
+&=\sum_i\sum_j\langle a^i|\alpha\rangle\hat U_{ji}|a^j\rangle\\
 &=\hat U |\alpha\rangle\\
 \end{aligned}$$
 
 反过来，如果要保持右矢不变，那么右矢在新基矢的系数则为：
-$$\langle b^i|\alpha\rangle=\sum_j\langle b^i|a^j\rangle\langle a^j\alpha\rangle=\sum_j\langle a^i|\hat U^\dagger|a^j\rangle\langle a^j\alpha\rangle$$
+$$\langle b^i|\alpha\rangle=\sum_j\langle b^i|a^j\rangle\langle a^j|\alpha\rangle=\sum_j\langle a^i|\hat U^\dagger|a^j\rangle\langle a^j|\alpha\rangle$$
 
 也就是说把共轭矩阵作用在系数向量。
 
@@ -235,7 +235,7 @@ $$\begin{aligned}
 Tr(\hat X)&=\sum_i \langle a^i|\hat X |a^i\rangle\\
 &=\sum_i\sum_j\sum_k \langle a^i|b^j\rangle\langle b^j|\hat X|b^k\rangle\langle b^k| a^i\rangle\\
 &=\sum_i\sum_j\sum_k \langle b^k| a^i\rangle\langle a^i|b^j\rangle\langle b^j|\hat X|b^k\rangle\\
-&=\sum_i\sum_j\sum_k \langle b^k|b^j\rangle\langle b^j|\hat X|b^k\rangle\\
-&=\sum_i\sum_j\sum_k\langle b^j|\hat X|b^k\rangle \langle b^k|b^j\rangle\\
-&=\sum_i\sum_j\sum_k\langle b^j|\hat X|b^j\rangle\\
+&=\sum_j\sum_k \langle b^k|b^j\rangle\langle b^j|\hat X|b^k\rangle\\
+&=\sum_j\sum_k\langle b^j|\hat X|b^k\rangle \langle b^k|b^j\rangle\\
+&=\sum_j\langle b^j|\hat X|b^j\rangle\\
 \end{aligned}$$

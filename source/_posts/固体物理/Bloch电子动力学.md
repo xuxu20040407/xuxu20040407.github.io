@@ -49,9 +49,10 @@ $$\frac{\hbar\left(\hat{p}+\hbar \vec{k}\right)}{m} u_k^n(\vec{r})+\hat{H}_k\nab
 左乘$u_k^{n*}(\vec{r})$，得到：
 $$\frac{\hbar}{m} \langle u_k^{n*}|\left(\hat{p}+\hbar \vec{k}\right)|u_k^n\rangle+ \langle u_k^{n*}|\hat{H}_k\nabla_{\vec{k}}|u_k^n\rangle= \langle u_k^{n*}|\nabla_{\vec{k}}E_n(k)u_k^n\rangle+ \langle u_k^{n*}|E_n(k)\nabla_{\vec{k}}u_k^n\rangle$$
 由$\hat{H}_k$算符的厄密性，得到：
-$$\begin{aligned}\
-\frac{\hbar}{m} \langle u_k^{n*}|\left(\hat{p}+\hbar \vec{k}\right)|u_k^n\rangle+ \langle \hat{H}_k\nabla_{\vec{k}}u_k^{n*}|u_k^n\rangle&= \frac{\hbar}{m} \langle u_k^{n*}|\left(\hat{p}+\hbar \vec{k}\right)|u_k^n\rangle+ \langle E_n(k)u_k^{n*}|\nabla_{\vec{k}}u_k^n\rangle\\
-&= \nabla_{\vec{k}}E_n(k)\langle u_k^{n*}|u_k^n\rangle+ \langle u_k^{n*}|E_n(k)\nabla_{\vec{k}}u_k^n\rangle\\
+$$\begin{aligned}
+\frac{\hbar}{m} \langle u_k^{n}|\left(\hat{p}+\hbar \vec{k}\right)|u_k^n\rangle+ \langle u_k^{n}|\hat{H}_k|\nabla_{\vec{k}}u_k^n\rangle&= \nabla_{\vec{k}}E_n(k)+E_n(k)\langle u_k^{n}|\nabla_{\vec{k}}u_k^n\rangle\\
+\frac{\hbar}{m} \langle u_k^{n}|\left(\hat{p}+\hbar \vec{k}\right)|u_k^n\rangle+E_n(k)\langle u_k^{n}|\nabla_{\vec{k}}u_k^n\rangle&= \nabla_{\vec{k}}E_n(k)+E_n(k)\langle u_k^{n}|\nabla_{\vec{k}}u_k^n\rangle\\
+\Rightarrow \frac{\hbar}{m} \langle u_k^{n}|\left(\hat{p}+\hbar \vec{k}\right)|u_k^n\rangle&= \nabla_{\vec{k}}E_n(k)\\
 \end{aligned}$$
 自然得到速度公式：
 $$\vec{v}=\frac{1}{\hbar} \nabla_{\vec{k}}E_n(k)$$
@@ -86,7 +87,7 @@ $$m^*=\frac{\gamma_{exp}}{\gamma_0}m$$
 
 ## 恒定电场
 
-$$\hbar\dot{\vec{k}}=-e\vec{E}\Rightarrow \dot{\vec{k}}=\vec{k}_0-\frac{e}{\hbar}\vec{E}$$
+$$\hbar\dot{\vec{k}}=-e\vec{E}\Rightarrow \vec{k}(t)=\vec{k}_0-\frac{e}{\hbar}\vec{E}t$$
 对于自由电子，由于$\hbar\vec{k}$就是电子动量，所以电子会被无线加速。
 
 对于Bloch电子，速度的变化为：
@@ -173,7 +174,7 @@ J_y
 E_x\\
 E_y
 \end{pmatrix}$$
-其中$\sigma_0=\dfrac{n\tau e^2}{m}$是零场电导，我们在 {% post_link '固体物理/金属电子论' %} 中推到过。
+其中$\sigma_0=\dfrac{n\tau e^2}{m}$是零场电导，我们在 {% post_link '固体物理/金属电子论' %} 中推导过。
 
 这里的电阻率是一个张量，同理，可以写出电导率的张量：
 $$\begin{pmatrix}
@@ -187,9 +188,9 @@ J_x\\
 J_y
 \end{pmatrix}$$
 当电流只能从$x$方向流动时，$J_y=0$，得到霍尔效应：
-$$E_y=-\frac{\omega_c\tau}{\sigma_0}J_x=\frac{B}{ne}J_x$$
+$$E_y=-\frac{\omega_c\tau}{\sigma_0}J_x=-\frac{B}{ne}J_x$$
 霍尔系数为：
-$$R_H=\frac{E_y}{J_xB}=\frac{1}{ne}$$
+$$R_H=\frac{E_y}{J_xB}=-\frac{1}{ne}$$
 
 与此同时，同方向的电流密度为：
 $$J_x=\sigma_0 E_x$$
@@ -246,12 +247,12 @@ E_y
   解$J_y=0$得到：
   $$E_x=-\frac{\sigma_1+\sigma_2}{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}E_y$$
   霍尔系数为：
-  $$\begin{aligned}R_H&=\frac{E_y}{J_xB}\\&=\frac{E_y}{(\sigma_1+\sigma_2)E_x-(\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2)E_y}\frac{1}{B}\\&=\frac{1}{-\frac{(\sigma_1+\sigma_2)^2}{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}-(\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2)}\frac{1}{B}\\&\approx \frac{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}{B(\sigma_1+\sigma_2)^2}\\&\approx\frac{\sigma_1^2R_1+\sigma_2^2R_2}{(\sigma_1+\sigma_2)^2}\end{aligned}$$
+  $$\begin{aligned}R_H&=\frac{E_y}{J_xB}\\&=\frac{E_y}{(\sigma_1+\sigma_2)E_x-(\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2)E_y}\frac{1}{B}\\&=\frac{1}{-\frac{(\sigma_1+\sigma_2)^2}{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}-(\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2)}\frac{1}{B}\\&\approx -\frac{\sigma_1\omega_1\tau_1+\sigma_2\omega_2\tau_2}{B(\sigma_1+\sigma_2)^2}\\&\approx\frac{\sigma_1^2R_1+\sigma_2^2R_2}{(\sigma_1+\sigma_2)^2}\end{aligned}$$
   这意味着总的霍尔系数是各个能带霍尔系数的加权平均。同理，可以算出此时的电阻率（不给出计算过程）：
   $$\frac{\Delta \rho}{\rho_0}=\frac{\sigma_1\sigma_2(\mu_1-\mu_2)^2B^2}{(\sigma_1+\sigma_2)^2+(\mu_1\sigma_1+\mu_2\sigma_2)^2B^2}$$
   其中，$\mu_i=\frac{e\tau_i}{m_i}$是各个电子的迁移率。当两种电子的迁移率相等的时候，上述式子退化为$\Delta\rho=0$，即没有磁滞电阻。
 - 高磁场情况下，$\omega_1\tau_1\gg 1$，$\omega_2\tau_2\gg 1$，可以得到：
-  $$R_H=\frac{1}{(n_1+n_2)e}=\frac{1}{ne}$$
+  $$R_H=-\frac{1}{(n_1+n_2)e}=-\frac{1}{ne}$$
   这说明在高磁场下，霍尔系数不再是各个能带霍尔系数的加权平均，而是总的载流子浓度的倒数。此时，磁滞电阻为：
   $$\frac{\Delta \rho}{\rho_0}=\frac{\sigma_1\sigma_2(\mu_1-\mu_2)^2}{(\mu_1\sigma_1+\mu_2\sigma_2)^2}$$
   趋向于一个饱和值。
