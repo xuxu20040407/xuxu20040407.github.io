@@ -21,5 +21,4 @@ cover:
 - {% post_link '托福/写作/托福写作' %}
 - {% post_link '托福/写作/托福写作词汇' %}
 - {% post_link '托福/写作/托福写作范文' %}
-- {% post_link '托福/词以类记/词以类记Contend' %}
 - {% post_link '托福/托福首考有感' %}
