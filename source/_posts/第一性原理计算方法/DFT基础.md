@@ -1,11 +1,13 @@
 ---
-title: Introduction
+title: DFT 基础（整合讲义）
 mathjax: true
 date: 2025-03-04 13:00:03
-tags: DFT
-categories: DFT
+tags: 第一性原理计算方法
+categories: 第一性原理计算方法
 cover:
 ---
+
+> 本讲为"第一性原理计算方法"课程的**理论速成参考**，整合自旧 DFT 笔记。它把课程前几讲的框架性内容（多电子系统、Born-Oppenheimer 近似、Hartree/Hartree-Fock、Hohenberg-Kohn 定理、Thomas-Fermi-Dirac、Kohn-Sham 方程、交换关联泛函天梯）浓缩在一篇里，对应新课程的引言、BO 近似、HF 近似、DFT 基础、KS 方程、交换关联泛函等讲次。详细逐讲展开见各讲笔记。
 
 - [多电子系统](#多电子系统)
 - [Born-Oppenheimer近似](#born-oppenheimer近似)
