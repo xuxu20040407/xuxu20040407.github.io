@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>不变神经网络：从SchNet到GemNet | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引言 SchNet：连续滤波卷积 PhysNet：物理先验的回归 DimeNet：方向消息传递 GemNet：两跳消息传递 总结：不变网络的天花板  引言我们在 机器学习分子力场：综述 中提到，2017年消息传递框架的提出解放了原子环境的表示学习。此后四年间，沿着”往网络里塞进更多几何信息”这条主线，出现了四个里程碑式的不变神经网络：SchNet、PhysNet、DimeNet和GemNet。它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不变神经网络：从SchNet到GemNet">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="引言 SchNet：连续滤波卷积 PhysNet：物理先验的回归 DimeNet：方向消息传递 GemNet：两跳消息传递 总结：不变网络的天花板  引言我们在 机器学习分子力场：综述 中提到，2017年消息传递框架的提出解放了原子环境的表示学习。此后四年间，沿着”往网络里塞进更多几何信息”这条主线，出现了四个里程碑式的不变神经网络：SchNet、PhysNet、DimeNet和GemNet。它">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-08-24T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-24T04:47:01.026Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="图神经网络">
+<meta property="article:tag" content="分子力场">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '不变神经网络：从SchNet到GemNet',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-08-24 12:47:01'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">不变神经网络：从SchNet到GemNet</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-24T01:00:00.000Z" title="发表于 2026-08-24 09:00:00">2026-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-24T04:47:01.026Z" title="更新于 2026-08-24 12:47:01">2026-08-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">机器学习分子力场</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="不变神经网络：从SchNet到GemNet"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#引言">引言</a></li>
+<li><a href="#schnet连续滤波卷积">SchNet：连续滤波卷积</a></li>
+<li><a href="#physnet物理先验的回归">PhysNet：物理先验的回归</a></li>
+<li><a href="#dimenet方向消息传递">DimeNet：方向消息传递</a></li>
+<li><a href="#gemnet两跳消息传递">GemNet：两跳消息传递</a></li>
+<li><a href="#总结不变网络的天花板">总结：不变网络的天花板</a></li>
+</ul>
+<h1><span id="引言">引言</span></h1><p>我们在 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA%E7%BB%BC%E8%BF%B0/" title="机器学习分子力场：综述">机器学习分子力场：综述</a> 中提到，2017年消息传递框架的提出解放了原子环境的表示学习。此后四年间，沿着”往网络里塞进更多几何信息”这条主线，出现了四个里程碑式的不变神经网络：SchNet、PhysNet、DimeNet和GemNet。它们全部满足同一个约束——输出在$E(3)$群作用下严格不变：</p>
+<script type="math/tex; mode=display">f(R\vec{r}_i+\vec{t},\ \mathcal{P}\cdot Z)=f(\vec{r}_i,Z)</script><p>其中$R$是任意旋转，$\vec{t}$是平移，$\mathcal{P}$是同种元素间的置换。实现不变性的代价是把所有几何信息压缩为标量，四个模型的差异恰恰在于压缩时保留了多少信息。这篇文章依次解析它们。</p>
+<h1><span id="schnet连续滤波卷积">SchNet：连续滤波卷积</span></h1><p>SchNet（Schütt et al., 2017）是第一个把MPNN框架完整用于力场的模型，它要解决的问题是：如何让卷积对任意旋转不变？</p>
+<p>标准CNN的卷积核在空间上是各向异性的——这正是它能识别方向性特征的原因，但在分子图里邻居没有固定的空间排布，各向异性滤波器会破坏旋转不变性。SchNet的方案干脆利落：<strong>把滤波器做成径向函数</strong>，只依赖原子间距离：</p>
+<script type="math/tex; mode=display">x_i^{(l+1)}=\sum_{j\in\mathcal{N}(i)} x_j^{(l)}\odot W^{(l)}\left(r_{ij}\right),\quad r_{ij}=\left|\vec{r}_j-\vec{r}_i\right|</script><p>其中$\odot$是逐元素乘法，$W^{(l)}(r)$称为连续滤波器，由一个小型全连接网络从距离生成：</p>
+<script type="math/tex; mode=display">W^{(l)}(r)=\mathrm{MLP}^{(l)}\left(\left\{\mathrm{e}^{-\alpha(r-r_k)^2}\right\}_{k=1}^K\right)</script><p>高斯展开保证了滤波器对$r$可微——这一点至关重要，因为力需要通过能量对坐标求导得到。</p>
+<p>SchNet的贡献与其说是精度（以今天的眼光看它的QM9误差并不突出），不如说是范式：端到端、纯数据驱动、无需任何手工描述符。它的缺陷同样明显：只看距离意味着两个夹角不同的三原子构型在网络眼里毫无区别，而化学键的方向性恰恰由角度主导。</p>
+<h1><span id="physnet物理先验的回归">PhysNet：物理先验的回归</span></h1><p>PhysNet（Unke &amp; Meuwly, 2019；常被引用为Unke &amp; Tkatchenko后续工作的基础架构）在架构上与SchNet同源，但它回答的是另一个问题：<strong>纯数据驱动的网络能不能学会正确的长程物理？</strong></p>
+<p>答案是否定的。Unke等人指出，机器学习势有一个系统性缺陷：在分子解离的渐近区，网络给出的能量行为是错误的。原因是训练集里几乎不存在大间距构型，网络只能靠外推，而神经网络的外推臭名昭著。具体来说，两个中性片段分离到无穷远时，相互作用应渐近于色散力：</p>
+<script type="math/tex; mode=display">V_{\mathrm{disp}}(R)\sim -\frac{C_6}{R^6}</script><p>但一个只看局部环境的多项式型网络无法产生这样的标度律。</p>
+<p>PhysNet的解决方案是把物理先验显式写进能量分解中：</p>
+<script type="math/tex; mode=display">E=\sum_i\left(E_i^{\mathrm{rep}}+E_i^{\mathrm{elec}}\right)+\sum_{i<j}\frac{q_iq_j}{4\pi\varepsilon_0 r_{ij}}-\sum_{i<j}\left(\frac{C_{6,ij}}{r_{ij}^{6}f_d(r_{ij})}+\frac{C_{8,ij}}{r_{ij}^{8}f_d(r_{ij})}\right)+E_{\mathrm{corr}}</script><p>其中$q_i$是由网络预测的部分电荷（通过 electronegativity equalization 原理保证电荷守恒），静电项和色散项按物理形式显式计算。这样即使网络部分外推出错，长程行为仍由解析式兜底。</p>
+<p>PhysNet同时预测能量、力、偶极矩和部分电荷的多任务训练方案也成了后来者的标配。它的教训值得铭记：<strong>归纳偏置不是越少越好，该有的物理一项都不能省</strong>。</p>
+<h1><span id="dimenet方向消息传递">DimeNet：方向消息传递</span></h1><p>DimeNet（Klicpera, Gastegger, Gasteiger et al., ICLR 2020）正面攻克了角度问题。它的出发点是一个观察：原子$i$的局部环境中，真正有化学意义的信息藏在键角$\theta_{jk}$——即两条相邻键$\vec{r}_{ij}$与$\vec{r}_{ik}$之间的夹角——里。但MPNN的消息$m_{ij}=M(h_i,h_j,e_{ij})$天然不含角度。</p>
+<p>DimeNet的关键创新是<strong>把消息嵌入到由相邻键定义的局部坐标系中</strong>。对于消息$h_{ij}^{(0)}$（从$j$指向$i$），构造以键$\vec{r}_{ji}$为$z$轴的Bessel坐标系，将另一条键$\vec{r}_{jk}$相对于该坐标系的方位编码进去：</p>
+<script type="math/tex; mode=display">h_{ij}^{(0)}=\mathrm{emb}(Z_j)\oplus \mathrm{df}\left(\mathcal{B}^{-1}_{(k,j,i)}\right)\oplus \mathrm{af}\left(\theta_{ijk},Z_i,Z_j\right)</script><p>这里用到了两组基函数：</p>
+<ul>
+<li>径向部分用<strong>球Bessel函数</strong>$\mathcal{B}_n(r)$替代高斯展开，它在截断半径内正交归一且在边界处平滑归零，避免了高斯基的冗余与不连续；</li>
+<li>角度部分用<strong>球谐函数</strong>$Y_l^m$展开。</li>
+</ul>
+<p>注意球谐函数在这里只是作为一组完备的角度基被使用，展开系数仍是标量，所以整个模型依然旋转不变——这是DimeNet最精巧也最容易误读的地方。</p>
+<p>消息更新规则也随之改为方向感知的形式：</p>
+<script type="math/tex; mode=display">m_{ji}^{(l+1)}=f\left(m_{ji}^{(l)}, m_{jk}^{(l)}, h_{ij}^{(0)}\right)</script><p>即更新$j\to i$的消息时要参考$j\to k$的消息和嵌入的角度信息，故称<strong>方向消息传递</strong>（directional message passing）。</p>
+<p>效果是立竿见影的：在MD17基准上DimeNet比此前最好的GNN力场误差降低76%，在QM9上降低31%。不过方向消息传递的图遍历复杂度是$O(n^3)$级别，计算成本高昂，这也为后来的工程改进埋下伏笔。</p>
+<h1><span id="gemnet两跳消息传递">GemNet：两跳消息传递</span></h1><p>GemNet（Gasteiger et al., NeurIPS 2021）是DimeNet作者团队的收官之作，它做了两件事：理论上的证明和工程上的简化。</p>
+<p><strong>理论证明</strong>：文章首先证明了两个命题——(1) 使用<strong>有向边嵌入</strong>（directed edge embeddings，即区分$h_{ij}$与$h_{ji}$）的消息传递模型是万能逼近器；(2) 在此基础上引入<strong>两跳消息传递</strong>（two-hop message passing，即更新一条边的消息时参考经过中间原子的二阶邻域路径）后，模型对几何配置的表达能力达到该框架下的上限。这为”为什么角度信息必须通过两跳路径进入消息”给出了数学解释。</p>
+<p><strong>架构设计</strong>：基于上述结论，GemNet设计了如下的量子化消息更新：</p>
+<script type="math/tex; mode=display">m_{ji}^{(l+1)}=\sum_{k\in\mathcal{N}(j)\setminus i} f_\mathrm{quad}\left(m_{kj}^{(l)}, \phi\left(m_{kj}^{(l)},h_{ji}^{(0)}\right)\right)</script><p>每条边$(j\to i)$的消息聚合来自所有两跳路径$k\to j\to i$，路径的角度结构由球谐基函数编码。相比DimeNet，GemNet去掉了昂贵的对称化步骤和全局消息聚合，速度更快、参数更省，在COLL、MD17和OC20上分别取得34%、41%、20%的提升。</p>
+<p>到GemNet为止，不变网络的进化到达了逻辑终点：能塞进标量的几何信息已经全部塞进去了。再往前走一步，就必须放弃不变性本身——这就是等变神经网络的起点，详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="等变神经网络：原理与脉络">等变神经网络：原理与脉络</a> 。</p>
+<h1><span id="总结不变网络的天花板">总结：不变网络的天花板</span></h1><p>回望这条进化链，每一代模型都在回答同一个问题：如何在保持旋转不变的前提下保留更多几何信息？</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align:center">距离</th>
+<th style="text-align:center">键角</th>
+<th style="text-align:center">长程物理</th>
+<th style="text-align:center">表达力证明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SchNet</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>PhysNet</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>DimeNet</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>GemNet</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>天花板是结构性的：力是矢量、偶极矩是矢量、极化率是张量，把它们全部经由”标量表示→求导还原”的迂回路径获得，既浪费样本又损失精度。等变神经网络直接让中间表示携带张量属性，从根子上解决了这个问题。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">图神经网络</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">分子力场</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="等变神经网络：原理与脉络"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">等变神经网络：原理与脉络</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA%E7%BB%BC%E8%BF%B0/" title="机器学习分子力场：综述"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">机器学习分子力场：综述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="等变神经网络：原理与脉络"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">等变神经网络：原理与脉络</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/" title="DPA系列：从注意力势到大模型时代的精度-成本前沿"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">DPA系列：从注意力势到大模型时代的精度-成本前沿</div></div></a></div><div><a href="/2026/08/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/12-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-29</div><div class="title">调度器：学习率的时间表</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/09-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C%E5%B1%95%E6%9C%9B/" title="其他哈密顿量网络：DeepH之外的风景"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">其他哈密顿量网络：DeepH之外的风景</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/11-%E4%BC%98%E5%8C%96%E5%99%A8/" title="优化器：从SGD、AdamW到Muon与SOAP"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">优化器：从SGD、AdamW到Muon与SOAP</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/10-%E9%80%9A%E7%94%A8%E5%8A%BF%E6%A8%A1%E5%9E%8B/" title="通用势模型巡礼：从MACE-MP-0到UMA"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">通用势模型巡礼：从MACE-MP-0到UMA</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">SchNet：连续滤波卷积</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">PhysNet：物理先验的回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">DimeNet：方向消息传递</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">GemNet：两跳消息传递</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">总结：不变网络的天花板</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>05 Hartree-Fock 近似 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Wick 定理 Hartree-Fock 近似的基本工作原理 对角表示中的 Hartree-Fock 近似 实空间中的 Hartree-Fock 近似 Hartree-Fock 近似的另一种解释 应用：均匀电子气 Hartree-Fock 态的局域稳定性  Hartree-Fock（HF）近似在历史上是电子液体多体理论（以及第一性原理计算）的出发点。参考：Giuliani &amp; Vigna">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05 Hartree-Fock 近似">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="Wick 定理 Hartree-Fock 近似的基本工作原理 对角表示中的 Hartree-Fock 近似 实空间中的 Hartree-Fock 近似 Hartree-Fock 近似的另一种解释 应用：均匀电子气 Hartree-Fock 态的局域稳定性  Hartree-Fock（HF）近似在历史上是电子液体多体理论（以及第一性原理计算）的出发点。参考：Giuliani &amp; Vigna">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover5.jpeg">
+<meta property="article:published_time" content="2026-09-15T05:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:30:03.553Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="第一性原理计算方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover5.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '05 Hartree-Fock 近似',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-16 13:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover5.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">05 Hartree-Fock 近似</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T05:30:03.553Z" title="更新于 2026-09-16 13:30:03">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">第一性原理计算方法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="05 Hartree-Fock 近似"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#wick-定理">Wick 定理</a></li>
+<li><a href="#hartree-fock-近似的基本工作原理">Hartree-Fock 近似的基本工作原理</a></li>
+<li><a href="#对角表示中的-hartree-fock-近似">对角表示中的 Hartree-Fock 近似</a></li>
+<li><a href="#实空间中的-hartree-fock-近似">实空间中的 Hartree-Fock 近似</a></li>
+<li><a href="#hartree-fock-近似的另一种解释">Hartree-Fock 近似的另一种解释</a></li>
+<li><a href="#应用均匀电子气">应用：均匀电子气</a></li>
+<li><a href="#hartree-fock-态的局域稳定性">Hartree-Fock 态的局域稳定性</a></li>
+</ul>
+<p>Hartree-Fock（HF）近似在历史上是电子液体多体理论（以及第一性原理计算）的出发点。参考：Giuliani &amp; Vignale《Quantum Theory of the Electron Liquid》第 2 章。它的基本思想可以简单描述为：<strong>用有效哈密顿量的基态来近似体系的基态波函数</strong>，该有效哈密顿量对电子产生/湮灭算符是二次的、因而容易对角化。最古老、最常见的版本基于数守恒二次哈密顿量与 Slater 行列式，回答的问题是：<strong>对相互作用多电子体系，什么是最好的独立电子近似？</strong></p>
+<h1><span id="wick-定理">Wick 定理</span></h1><p>Giuliani &amp; Vignale 书附录 3 给出了 Wick 定理清晰自足的入门处理，此处不重复。研究 HF 近似需要附录 3.1-3.3 的知识。其核心：对于 Slater 行列式态，任意多算符乘积的期望值可展开为两两收缩（期望值 $\langle\hat c_\alpha^\dagger\hat c_\beta\rangle$）乘积的和。</p>
+<h1><span id="hartree-fock-近似的基本工作原理">Hartree-Fock 近似的基本工作原理</span></h1><p>从非常一般的哈密顿量出发（$\{\alpha,\beta,\gamma,\delta\}$ 是单粒子基标号）：</p>
+<script type="math/tex; mode=display">
+\hat H = \sum_{\alpha,\beta}T_{\alpha\beta}\hat c_\alpha^\dagger\hat c_\beta + \frac12\sum_{\alpha,\beta,\gamma,\delta}V_{\alpha\beta\gamma\delta}\,\hat c_\alpha^\dagger\hat c_\beta^\dagger\hat c_\gamma\hat c_\delta</script><p>对 Slater 行列式，由 Wick 定理能量为：</p>
+<script type="math/tex; mode=display">
+E = \sum_{\alpha,\beta}T_{\alpha\beta}\langle\hat c_\alpha^\dagger\hat c_\beta\rangle + \frac12\sum_{\alpha,\beta,\gamma,\delta}V_{\alpha\beta\gamma\delta}\left[\langle\hat c_\alpha^\dagger\hat c_\delta\rangle\langle\hat c_\beta^\dagger\hat c_\gamma\rangle - \langle\hat c_\alpha^\dagger\hat c_\gamma\rangle\langle\hat c_\beta^\dagger\hat c_\delta\rangle\right]</script><p>定义<strong>单粒子约化密度矩阵</strong>：</p>
+<script type="math/tex; mode=display">
+\rho_{\beta\alpha} = \langle\hat c_\alpha^\dagger\hat c_\beta\rangle</script><p>能量对 $\rho$ 的变分为：</p>
+<script type="math/tex; mode=display">
+\frac{\delta E}{\delta\rho_{\beta\alpha}} = T_{\alpha\beta} + \sum_{\gamma,\delta}V_{\gamma\alpha\beta\delta}\langle\hat c_\gamma^\dagger\hat c_\delta\rangle - V_{\gamma\alpha\delta\beta}\langle\hat c_\gamma^\dagger\hat c_\delta\rangle \equiv H_{\alpha\beta}^{HF}</script><p>（用到了 $V_{\alpha\beta\gamma\delta} = V_{\beta\alpha\delta\gamma}$，这不限制理论的普遍性。）$H^{HF}$ 称为 <strong>Hartree-Fock（平均场）哈密顿量</strong>。算符形式 $\hat H^{HF} = \sum_{\alpha\beta}H_{\alpha\beta}^{HF}\hat c_\alpha^\dagger\hat c_\beta$，它依赖底下的 Slater 行列式、但独立于基的选择。</p>
+<p>对密度矩阵扰动 $\delta\rho$，能量一阶变化为 $\delta E = \sum_{\alpha\beta}H_{\alpha\beta}^{HF}\delta\rho_{\beta\alpha}$。设 Slater 行列式的轨道为 $\phi_n$，$\rho_{\beta\alpha} = \sum_n\phi_{n\alpha}\phi_{n\beta}^<em>$，则 $\delta\rho_{\beta\alpha} = \sum_n(\delta\phi_{n\alpha}\phi_{n\beta}^</em> + \phi_{n\alpha}\delta\phi_{n\beta}^*)$，从而</p>
+<script type="math/tex; mode=display">
+\delta E = \sum_n\sum_{\alpha,\beta}\delta\phi_{n\alpha}^*H_{\alpha\beta}^{HF}\phi_{n\beta} + c.c.</script><p>目标是找能量极小的 Slater 行列式，其 $\delta E$ 对任意 $\delta\phi_n$ 一阶为零（平稳条件）。由于归一化，$\delta\phi_n$ 与 $\phi_n$ 一阶正交。<strong>若取 Slater 行列式的轨道为 $H^{HF}$ 的本征态，则该行列式平稳</strong>（充分条件；参考书论证了这也是必要条件）。注意 Slater 行列式在其轨道酉变换下不变。</p>
+<p>但式 (4) 中 $H^{HF}$ 显式依赖 $\rho$、即依赖轨道 $\phi$，因此 HF 近似需要<strong>自洽</strong>处理：</p>
+<p><strong>算法 1（自洽循环）</strong>：</p>
+<ol>
+<li>选一组初始轨道 $\{\phi\}$；</li>
+<li>由 $\{\phi\}$ 计算 $\rho$；</li>
+<li>由 $\rho$ 计算 $H^{HF}$；</li>
+<li>把 $\{\phi\}$ 更新为 $H^{HF}$ 的最低 $N$ 个本征态（$N$ 为电子数）。</li>
+</ol>
+<p>循环可从任意处开始（通常从初始 $H^{HF}$ 更方便）。收敛判据：密度矩阵 $\rho$ 或能量 $E$ 在循环中不再变化。取最低 $N$ 个本征态的合法性稍后论证。注意<strong>最终 HF 轨道依赖于初始 $\{\phi\}$ 或 $H^{HF}$ 的假设</strong>。</p>
+<h1><span id="对角表示中的-hartree-fock-近似">对角表示中的 Hartree-Fock 近似</span></h1><p>为揭示 HF 能量的物理意义，把收敛的 HF 轨道取为基。按定义 HF 哈密顿量在此基下对角：</p>
+<script type="math/tex; mode=display">
+H_{nm}^{HF} = \varepsilon_n\delta_{nm}</script><p>即</p>
+<script type="math/tex; mode=display">
+T_{nm} + \sum_{l,k}\left(V_{lnmk}\langle\hat c_l^\dagger\hat c_k\rangle - V_{lnkm}\langle\hat c_l^\dagger\hat c_k\rangle\right) = T_{nm} + \sum_l(V_{lnml}n_l - V_{lnlm}n_l) = \varepsilon_n\delta_{nm}</script><p>其中 $n_l$ 是态 $l$ 的占据数（零温下为 0 或 1）。体系能量为：</p>
+<script type="math/tex; mode=display">
+E = \sum_n n_n T_{nn} + \frac12\sum_{n,m}n_nn_m(V_{nmmn} - V_{nmnm})
+= \sum_n n_n\varepsilon_n - \frac12\sum_{n,m}n_nn_m(V_{nmmn} - V_{nmnm})</script><p><strong>$\sum_n n_n\varepsilon_n$ 不是体系能量</strong>——它把相互作用能算了两次。</p>
+<p><strong>HF 能量的物理意义</strong>：若一个未占据的 HF 轨道 $s$（$n_s=0$）注入一个电子（$n_s=1$），能量差为：</p>
+<script type="math/tex; mode=display">
+\Delta E = T_{ss} + \sum_{m\neq s}(V_{smms}n_m - V_{smsm}n_m) = \varepsilon_s</script><p>即<strong>未占据 HF 轨道的 $\varepsilon_s$ 是在其他电子冻结时向该轨道注入电子的能量代价</strong>；类似地，占据轨道的 $\varepsilon_s$ 是其他电子冻结时移走该轨道电子的能量收益。若把电子从占据轨道 $o$ 移到未占据轨道 $u$，能量代价为：</p>
+<script type="math/tex; mode=display">
+\Delta E = \varepsilon_u - \varepsilon_o - (V_{uoou} - V_{uouo})</script><p>其中</p>
+<script type="math/tex; mode=display">
+V_{uoou} - V_{uouo} = \frac12\int drdr'\,V(\mathbf r-\mathbf r')\left|\phi_u(\mathbf r)\phi_o(\mathbf r') - \phi_o(\mathbf r)\phi_u(\mathbf r')\right|^2</script><p>对排斥相互作用一般<strong>为正</strong>。这证实了此前”取 $H^{HF}$ 最低本征态构造 Slater 行列式”的做法。对稳定 HF 解，$\Delta E = \varepsilon_u-\varepsilon_o-(V_{uoou}-V_{uouo})\geq0$ 对任意占据/未占据对成立；由于 $V_{uoou}-V_{uouo}&gt;0$，<strong>有限体系 HF 解必有能隙</strong>。实践中 HF 近似一般偏好带隙态。</p>
+<h1><span id="实空间中的-hartree-fock-近似">实空间中的 Hartree-Fock 近似</span></h1><p>用 HF 轨道的波函数表达 HF 自洽方程。取位置算符本征态为基，相互作用矩阵元特别简单：</p>
+<script type="math/tex; mode=display">
+V_{\mathbf r_1\mathbf r_2\mathbf r_3\mathbf r_4} = V(\mathbf r_1-\mathbf r_2)\delta_{\mathbf r_1,\mathbf r_4}\delta_{\mathbf r_2,\mathbf r_3}</script><p>HF 哈密顿量由三项组成：单粒子项（熟悉），以及相互作用平均场分解的两项。</p>
+<p><strong>Hartree 哈密顿量</strong> $\hat H^H$：$\sum_{\gamma\delta}V_{\gamma\alpha\beta\delta}\hat c_\gamma^\dagger\hat c_\delta$ 在位置基下为 $\sum_{\mathbf r_3,\mathbf r_4}V_{\mathbf r_4\mathbf r_1\mathbf r_2\mathbf r_3}\hat c_{\mathbf r_3}^\dagger\hat c_{\mathbf r_4}$。它作用在态上：</p>
+<script type="math/tex; mode=display">
+\langle\mathbf r|\hat H^H|\varphi\rangle = \sum_{\mathbf r'}V(\mathbf r-\mathbf r')\sum_j\phi_j^*(\mathbf r')\phi_j(\mathbf r')\,\langle\mathbf r|\varphi\rangle</script><p>就是常规的密度-密度库仑相互作用。</p>
+<p><strong>Fock 哈密顿量</strong> $\hat H^F$：作用在态上：</p>
+<script type="math/tex; mode=display">
+\langle\mathbf r|\hat H^F|\varphi\rangle = \sum_{\mathbf r'}V(\mathbf r-\mathbf r')\sum_j\phi_j^*(\mathbf r')\phi_j(\mathbf r)\,\langle\mathbf r'|\varphi\rangle</script><p>注意 <strong>Fock 哈密顿量是非局域的</strong>，必须写成积分算符。HF 自洽方程（波函数形式）：</p>
+<script type="math/tex; mode=display">
+\langle\mathbf r|\hat T|\phi_i\rangle + \sum_{\mathbf r'}\left[\sum_j\phi_j^*(\mathbf r')\phi_j(\mathbf r')\right]V(\mathbf r-\mathbf r')\phi_i(\mathbf r) - \sum_{\mathbf r'}\left[\sum_j\phi_j^*(\mathbf r')\phi_j(\mathbf r)\right]V(\mathbf r-\mathbf r')\phi_i(\mathbf r') = \varepsilon_i\phi_i(\mathbf r)</script><p>即 $[\hat T + \hat V_H + \hat V_F]\phi_i = \varepsilon_i\phi_i$，其中 Hartree 势局域、Fock 势非局域。这是传统教材和 Wikipedia 中常见的 HF 形式。</p>
+<h1><span id="hartree-fock-近似的另一种解释">Hartree-Fock 近似的另一种解释</span></h1><p>前面把 HF 视为在 Slater 行列式空间中最小化能量。这里从另一个角度出发：<strong>HF 哈密顿量只含双费米算符，我们希望用它近似含四费米算符的完整哈密顿量</strong>。这不能完全一般地做，只能追求更弱的目标：<strong>找一个在某个 Slater 行列式附近近似完整哈密顿量的双费米算符</strong>。</p>
+<p>四费米算符可写为（对未定的 Slater 行列式做正常序）：</p>
+<script type="math/tex; mode=display">
+\hat c_\alpha^\dagger\hat c_\beta^\dagger\hat c_\gamma\hat c_\delta = \hat c_\alpha^\dagger\hat c_\delta\hat c_\beta^\dagger\hat c_\gamma - \hat c_\alpha^\dagger\hat c_\gamma\hat c_\beta^\dagger\hat c_\delta + (\text{正常序的 }:: \text{项})</script><p>最后一项 $:\hat c_\alpha^\dagger\hat c_\beta^\dagger\hat c_\gamma\hat c_\delta:$ 要么湮灭 Slater 行列式、要么产生两个粒子-空穴激发。因此若把希尔伯特空间限制在 Slater 行列式及其单粒子-空穴激发上，忽略这项不影响算符的作用。由于 $\hat c_\alpha^\dagger\hat c_\beta = \langle\hat c_\alpha^\dagger\hat c_\beta\rangle + :\hat c_\alpha^\dagger\hat c_\beta:$，留下的表达式与</p>
+<script type="math/tex; mode=display">
+\hat c_\alpha^\dagger\hat c_\delta\langle\hat c_\beta^\dagger\hat c_\gamma\rangle + \hat c_\beta^\dagger\hat c_\gamma\langle\hat c_\alpha^\dagger\hat c_\delta\rangle - \hat c_\alpha^\dagger\hat c_\gamma\langle\hat c_\beta^\dagger\hat c_\delta\rangle - \hat c_\beta^\dagger\hat c_\delta\langle\hat c_\alpha^\dagger\hat c_\gamma\rangle</script><p>只差一个常数。把 $\hat c^\dagger\hat c^\dagger\hat c\hat c$ 替换成上式代入完整哈密顿量，给出的正是 HF 哈密顿量。这个解耦需自洽确定（需要 Slater 行列式的期望值如 $\langle\hat c_\alpha^\dagger\hat c_\delta\rangle$）。</p>
+<h1><span id="应用均匀电子气">应用：均匀电子气</span></h1><p>电子气通常用 <strong>Jellium 模型</strong>描述：</p>
+<script type="math/tex; mode=display">
+\hat H_{Jellium} = \sum_{\mathbf k,\sigma}\frac{\hbar^2k^2}{2m}\hat c_{\mathbf k\sigma}^\dagger\hat c_{\mathbf k\sigma} + \frac{1}{2L^d}\sum_{\substack{\mathbf k,\mathbf k',\sigma,\sigma'\\ \mathbf q\neq0}}V(\mathbf q)\hat c_{\mathbf k+\mathbf q\sigma}^\dagger\hat c_{\mathbf k'-\mathbf q\sigma'}^\dagger\hat c_{\mathbf k'\sigma'}\hat c_{\mathbf k\sigma}</script><p>其中 $V(q) = 4\pi e^2/q^2$（三维）。Jellium 的 HF 哈密顿量为：</p>
+<script type="math/tex; mode=display">
+\hat H_{Jellium}^{HF} = \sum_{\mathbf k,\sigma}\frac{\hbar^2k^2}{2m}\hat c_{\mathbf k\sigma}^\dagger\hat c_{\mathbf k\sigma} - \frac{1}{L^d}\sum_{\substack{\mathbf k,\mathbf k',\sigma,\sigma'\\ \mathbf q\neq0}}V(\mathbf q)\langle\hat c_{\mathbf k'-\mathbf q\sigma'}^\dagger\hat c_{\mathbf k'\sigma'}\rangle\hat c_{\mathbf k+\mathbf q\sigma}^\dagger\hat c_{\mathbf k\sigma}</script><p>注意 <strong>Hartree 项消失</strong>（Jellium 中排除了 $\mathbf q=0$ 项）。假设电子形成均匀液体：</p>
+<script type="math/tex; mode=display">
+\langle\hat c_{\mathbf k+\mathbf q\sigma}^\dagger\hat c_{\mathbf k'\sigma'}\rangle = n_{\mathbf k'\sigma'}\delta_{\mathbf k+\mathbf q,\mathbf k'}\delta_{\sigma\sigma'}</script><p>则</p>
+<script type="math/tex; mode=display">
+\hat H_{Jellium}^{HF} = \sum_{\mathbf k,\sigma}\left[\frac{\hbar^2k^2}{2m} + \varepsilon_{\mathbf k\sigma}^{ex}\right]\hat c_{\mathbf k\sigma}^\dagger\hat c_{\mathbf k\sigma}, \qquad
+\varepsilon_{\mathbf k\sigma}^{ex} = -\frac1{L^d}\sum_{\mathbf q\neq0}V(\mathbf q)n_{\mathbf k+\mathbf q\sigma}</script><p>相互作用是原色散的<strong>负修正</strong>。若进一步假设自旋非极化（$n_{\mathbf k\uparrow}=n_{\mathbf k\downarrow}$），问题完全求解：Slater 行列式与无相互作用电子相同，费米面包含恰好与电子数相同的态、全部占据。</p>
+<p>色散 $\hbar^2k^2/2m + \varepsilon_{\mathbf k\sigma}^{ex}$（见图 Giuliani-Vignale 2.1）预言<strong>带宽减小</strong>，与实验观测矛盾。但 HF 近似正确预言了相互作用体系能量低于无相互作用电子。具体地，体系能量为：</p>
+<script type="math/tex; mode=display">
+E = \sum_{\mathbf k\sigma}\left[\frac{\hbar^2k^2}{2m} + \frac{\varepsilon_{\mathbf k\sigma}^{ex}}{2}\right]n_{\mathbf k\sigma}</script><p><strong>交换能 $\sum_{\mathbf k\sigma}\varepsilon_{\mathbf k\sigma}^{ex}n_{\mathbf k\sigma}/2$ 偏好自旋极化</strong>，将在低电子密度下驱动体系进入自旋极化态。</p>
+<h1><span id="hartree-fock-态的局域稳定性">Hartree-Fock 态的局域稳定性</span></h1><p>HF 态有两类稳定性：全局稳定性（是否是最低能量的 Slater 行列式，除极简单情形外难以回答）与局域稳定性（在 Slater 行列式空间中是否是局域极小，有明确答案）。</p>
+<p>能量对 HF 轨道的一阶导数为零，因此只需看能量二阶变化。直接讨论单粒子约化密度矩阵 $\rho$ 的变分更便捷。Slater 行列式的密度矩阵是<strong>幂等的</strong>：$\rho^2 = \rho$。为保持这个约束，用 $\rho(\kappa) = e^{-\kappa}\rho_0e^{\kappa}$ 参数化变分（$\kappa$ 为反厄米矩阵生成的幺正旋转）。在 HF 轨道对角基下 $\rho_0 = n_n\delta_{nm}$、$H_{nm}^{HF} = \varepsilon_n\delta_{nm}$。</p>
+<p>展开 $\rho(\kappa) = \rho_0 + [\rho_0,\kappa] + \frac12[[\rho_0,\kappa],\kappa] + \cdots$，一阶变分为 $\delta^{(1)}\rho_{nm} = (n_m-n_n)\kappa_{nm}$。能量二阶变化有两部分：$\frac12\sum_{n,m,l,k}(V_{lnmk}-V_{lnkm})\delta^{(1)}\rho_{mn}\delta^{(1)}\rho_{kl}$ 与 $\frac12\mathrm{Tr}(H^{HF}\delta^{(2)}\rho) = \frac12\sum_{(n|m)}\frac{\varepsilon_m-\varepsilon_n}{n_n-n_m}\delta^{(1)}\rho_{nm}\delta^{(1)}\rho_{mn}$（$(n|m)$ 表示轨道 $n,m$ 位于费米面两侧）。因此 <strong>HF 局域稳定的条件是矩阵</strong></p>
+<script type="math/tex; mode=display">
+\frac{\varepsilon_m-\varepsilon_n}{n_n-n_m}\delta_{nk}\delta_{ml} + V_{lnmk} - V_{lnkm}</script><p><strong>正定</strong>。</p>
+<p>由此可证：”在 HF 近似内，三维电子气的均匀顺磁态对自旋或电荷调制的形成是不稳定的。”电子气的均匀态在<strong>所有密度</strong>下都是 HF 能量的鞍点。至今不知道 Jellium 模型 HF 能量的真正极小态。</p>
+<blockquote>
+<p><strong>思考题</strong></p>
+<ol>
+<li>为什么 $\sum_n n_n\varepsilon_n$ 不是体系总能量？HF 能量与 HF 轨道能量的差是什么？</li>
+<li>Hartree 势是局域的、Fock 势是非局域的——这如何影响求解 HF 方程的计算代价？</li>
+<li>为什么说”有限体系的稳定 HF 解必有能隙”？</li>
+<li>均匀电子气的 HF 色散预言带宽减小，为什么与实验矛盾？这预示 HF 近似在哪类体系失败？</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/">https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">第一性原理计算方法</a></div><div class="post_share"><div class="social-share" data-image="/img/cover5.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">06 密度泛函理论基础</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/" title="04 二次量子化"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04 二次量子化</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">09 交换关联泛函 II</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">08 交换关联泛函 I</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">07 Kohn-Sham 方程</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">06 密度泛函理论基础</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/" title="04 二次量子化"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">04 二次量子化</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/03-Born-Oppenheimer%E8%BF%91%E4%BC%BC/" title="03 Born-Oppenheimer 近似"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">03 Born-Oppenheimer 近似</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Wick 定理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Hartree-Fock 近似的基本工作原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">对角表示中的 Hartree-Fock 近似</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">实空间中的 Hartree-Fock 近似</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">Hartree-Fock 近似的另一种解释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">应用：均匀电子气</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">Hartree-Fock 态的局域稳定性</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DeepH-pack：从论文到工具箱 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="为什么需要软件工程 三步工作流 与DFT软件的对接 数据集设计的原则 结语  为什么需要软件工程一篇方法论文要变成社区真正使用的工具，中间隔着大量脏活：单位换算、文件格式解析、基组变换、并行调度……初代DeepH（ 初代DeepH：用神经网络表示DFT哈密顿量 ）发表后，各课题组纷纷自建流水线，实现碎片化、接口不统一，复现与比较都成了负担。 DeepH-pack就是为解决这一问题而生的官方统一实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepH-pack：从论文到工具箱">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/04-DeepH-pack/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="为什么需要软件工程 三步工作流 与DFT软件的对接 数据集设计的原则 结语  为什么需要软件工程一篇方法论文要变成社区真正使用的工具，中间隔着大量脏活：单位换算、文件格式解析、基组变换、并行调度……初代DeepH（ 初代DeepH：用神经网络表示DFT哈密顿量 ）发表后，各课题组纷纷自建流水线，实现碎片化、接口不统一，复现与比较都成了负担。 DeepH-pack就是为解决这一问题而生的官方统一实">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2026-08-24T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-09T03:24:44.979Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="哈密顿量">
+<meta property="article:tag" content="电子结构">
+<meta property="article:tag" content="开源软件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/04-DeepH-pack/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DeepH-pack：从论文到工具箱',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-09 11:24:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DeepH-pack：从论文到工具箱</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-24T09:00:00.000Z" title="发表于 2026-08-24 17:00:00">2026-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-09T03:24:44.979Z" title="更新于 2026-09-09 11:24:44">2026-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/">机器学习哈密顿量</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DeepH-pack：从论文到工具箱"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#为什么需要软件工程">为什么需要软件工程</a></li>
+<li><a href="#三步工作流">三步工作流</a></li>
+<li><a href="#与dft软件的对接">与DFT软件的对接</a></li>
+<li><a href="#数据集设计的原则">数据集设计的原则</a></li>
+<li><a href="#结语">结语</a></li>
+</ul>
+<h1><span id="为什么需要软件工程">为什么需要软件工程</span></h1><p>一篇方法论文要变成社区真正使用的工具，中间隔着大量脏活：单位换算、文件格式解析、基组变换、并行调度……初代DeepH（ <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/01-%E5%88%9D%E4%BB%A3DeepH/" title="初代DeepH：用神经网络表示DFT哈密顿量">初代DeepH：用神经网络表示DFT哈密顿量</a> ）发表后，各课题组纷纷自建流水线，实现碎片化、接口不统一，复现与比较都成了负担。</p>
+<p>DeepH-pack就是为解决这一问题而生的<strong>官方统一实现</strong>，由deepmodeling社区维护。它把DeepH方法完整落地为一个开源工具箱，并在2026年以《DeepH-pack: a general-purpose neural network package for deep-learning electronic structure calculations》为题发表于 <em>npj Computational Materials</em>——此时它已经从一个方法的配套代码，成长为覆盖”第一性原理计算×深度学习”整条链路的通用平台。对于想上手DeepH系列的读者，这是不二的第一入口。</p>
+<h1><span id="三步工作流">三步工作流</span></h1><p>DeepH-pack把一次完整的建模拆成三步：<strong>Preprocess → Train → Inference</strong>。</p>
+<p><strong>Preprocess</strong>负责把DFT软件输出的原始数据加工成训练可用的形态：转换单位、按结构分文件夹存储文本与HDF5格式的数据、生成局部坐标系、并对哈密顿矩阵执行基变换——把全局系下的矩阵元旋到局部系中，正是 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/01-%E5%88%9D%E4%BB%A3DeepH/" title="初代DeepH：用神经网络表示DFT哈密顿量">初代DeepH：用神经网络表示DFT哈密顿量</a> 中那套”化协变为不变”的操作。</p>
+<p><strong>Train</strong>读取处理好的数据集训练神经网络，建议在GPU上进行。损失函数是哈密顿矩阵元的均方误差，</p>
+<script type="math/tex; mode=display">\mathcal{L}(\theta)=\frac{1}{\lvert\mathcal{D}\rvert}\sum_{k\in\mathcal{D}}\frac{1}{N^{(k)}_{\mathrm{pairs}}}\sum_{ij}\left\|H^{(k)}_{ij}-\hat{H}^{(k)}_{ij}(\theta)\right\|_F^2</script><p>训练配置由ini文件控制，默认参数即对应论文设置。</p>
+<p><strong>Inference</strong>是收获的季节：加载训练好的模型，对大尺度目标结构预测哈密顿矩阵，并直接进行<strong>稀疏对角化</strong>计算物理性质。由于近邻性保证了大哈密顿矩阵的稀疏性——非零子块只占全部原子对的极小比例，</p>
+<script type="math/tex; mode=display">\eta=\frac{\lvert\{(i,j):|\vec{r}_{ij}|<R_c\}\rvert}{\lvert\{(i,j)\}\rvert}\ll 1</script><p>稀疏对角化的代价近似线性于非零元数目，远比稠密对角化的$O(N^3)$便宜——能带等性质可以在不同k点上并行求解，<code>which_k</code>接口专门为此设计。官方演示中，244个原子的扭转双层铋烯能带计算端到端完成；用石墨烯超胞训练的模型预测碳纳米管的ABACUS流程也有现成的示例包。</p>
+<h1><span id="与dft软件的对接">与DFT软件的对接</span></h1><p>深度学习电子结构的特殊之处在于：它无法完全脱离DFT软件而存在——训练集需要DFT自洽计算，推理阶段也有一件事必须借DFT之手完成，那就是大体系的overlap矩阵$S$。</p>
+<p>这里有个容易被忽略的技术点。DeepH预测的是局域基下的哈密顿矩阵，而最终求解本征值问题面对的是广义本征值方程</p>
+<script type="math/tex; mode=display">\sum_{j}H_{ij}c_j=\mathcal{E}\sum_j S_{ij}c_j</script><p>其中overlap矩阵元是两中心积分，</p>
+<script type="math/tex; mode=display">S_{ij}=\langle\phi_i|\phi_j\rangle=\int d\vec{r}\,\phi_i^*(\vec{r})\phi_j(\vec{r})</script><p>它编码了基函数的交叠信息，是大体系输入特征的一部分。好消息是计算$S$不需要自洽迭代——它只依赖原子位置与基组，对上万原子的体系也只是一次轻量的非自洽计算。对周期性体系，只需在Bloch表象下对角化各k点的矩阵对即可得能带：</p>
+<script type="math/tex; mode=display">H(\vec{k})\,c_{n\vec{k}}=\mathcal{E}_{n\vec{k}}\,S(\vec{k})\,c_{n\vec{k}}</script><p>DeepH-pack为此给每个支持的DFT软件都准备了专门的取$S$方案：例如ABACUS中只需在INPUT里设置<code>calculation get_S</code>，OpenMX则有专门的overlap-only工具。</p>
+<p>目前DeepH-pack支持 <strong>ABACUS、OpenMX、FHI-aims、SIESTA</strong> 四种DFT软件的接口（HONPAS在计划中），覆盖了国内主流与国际常用的局域基/数值原子轨道实现。需要注意的原则只有一条：训练集与大体系的overlap必须来自同一软件、同一基组——毕竟网络学到的映射是绑定在这个表示上的。</p>
+<h1><span id="数据集设计的原则">数据集设计的原则</span></h1><p>DeepH类方法是”专用模型”范式：针对一类化学环境相近的目标体系，设计一个小结构数据集。官方文档给出的经验可以浓缩成一句话——<strong>让训练集中的局域环境完整覆盖目标体系中的局域环境</strong>。</p>
+<p>具体操作上：选取与目标体系化学键合环境相近的非扭转小超胞；横向尺寸要足够大，使截断半径内的邻域不受周期镜像干扰；再引入充分多样的层间滑移和随机位置扰动，确保扭转、缺陷等真实构型中出现的局域环境都在训练集中出现过。这套原则在moiré扭转材料上被反复验证，也是后续DDHT数据库（上百种双层材料的预训练模型库）的方法论基础。</p>
+<h1><span id="结语">结语</span></h1><p>DeepH-pack的价值在于把”复现论文”变成了”跑通教程”。Preprocess—Train—Inference的三步流程、四种DFT软件的标准化接口、免自洽的overlap矩阵技巧，共同构成了DeepH系列的地基。此后家族成员的涌现——E3的等变化、DeepH-2的Transformer化、hybrid的泛函升级——都以这个工程框架为参照系。</p>
+<p>不过到目前为止，我们介绍的所有方法都遵循同一条流水线：先跑DFT攒数据，再监督地拟合。下一篇 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/05-DeepH-Zero/" title="DeepH-Zero：当能量泛函成为损失函数">DeepH-Zero：当能量泛函成为损失函数</a> 我们看一个釜底抽薪的想法：能不能干脆不要这条流水线？</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/04-DeepH-pack/">https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/04-DeepH-pack/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/">哈密顿量</a><a class="post-meta__tags" href="/tags/%E7%94%B5%E5%AD%90%E7%BB%93%E6%9E%84/">电子结构</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">开源软件</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/05-DeepH-Zero/" title="DeepH-Zero：当能量泛函成为损失函数"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">DeepH-Zero：当能量泛函成为损失函数</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/03-DeepH-2/" title="DeepH-2：等变局域坐标Transformer"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">DeepH-2：等变局域坐标Transformer</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/09-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C%E5%B1%95%E6%9C%9B/" title="其他哈密顿量网络：DeepH之外的风景"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">其他哈密顿量网络：DeepH之外的风景</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/08-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%94%B5%E5%AD%90%E7%BB%93%E6%9E%84%E5%85%A8%E6%99%AF/" title="深度学习电子结构：全景与展望"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">深度学习电子结构：全景与展望</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/05-DeepH-Zero/" title="DeepH-Zero：当能量泛函成为损失函数"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">DeepH-Zero：当能量泛函成为损失函数</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/03-DeepH-2/" title="DeepH-2：等变局域坐标Transformer"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">DeepH-2：等变局域坐标Transformer</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/02-DeepH-E3/" title="DeepH-E3：彻底的等变化"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">DeepH-E3：彻底的等变化</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/01-%E5%88%9D%E4%BB%A3DeepH/" title="初代DeepH：用神经网络表示DFT哈密顿量"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">初代DeepH：用神经网络表示DFT哈密顿量</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">为什么需要软件工程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">三步工作流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">与DFT软件的对接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">数据集设计的原则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

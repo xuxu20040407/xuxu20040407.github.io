@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>05 微扰论 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微扰论要做什么 正则形式（虚时间） Wick 定理   图解微扰 费曼图的基本规则 频率-动量域 玻色子介导的相互作用 连通图与真空图的相消 Dyson 重求和与自能 多点函数   生成泛函 路径积分 实时间路径积分 相干态路径积分与格拉斯曼数 虚时间路径积分 格林函数与生成泛函的路径积分 路径积分语言下的微扰论    微扰论要做什么多费米子&#x2F;玻色子体系的典型哈密顿量为：  H &#x3D; H_0 +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05 微扰论">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/05-%E5%BE%AE%E6%89%B0%E8%AE%BA/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="微扰论要做什么 正则形式（虚时间） Wick 定理   图解微扰 费曼图的基本规则 频率-动量域 玻色子介导的相互作用 连通图与真空图的相消 Dyson 重求和与自能 多点函数   生成泛函 路径积分 实时间路径积分 相干态路径积分与格拉斯曼数 虚时间路径积分 格林函数与生成泛函的路径积分 路径积分语言下的微扰论    微扰论要做什么多费米子&#x2F;玻色子体系的典型哈密顿量为：  H &#x3D; H_0 +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover2.jpeg">
+<meta property="article:published_time" content="2026-09-14T07:00:03.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:30:03.551Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子多体物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover2.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/05-%E5%BE%AE%E6%89%B0%E8%AE%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '05 微扰论',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-16 13:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">05 微扰论</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-14T07:00:03.000Z" title="发表于 2026-09-14 15:00:03">2026-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T05:30:03.551Z" title="更新于 2026-09-16 13:30:03">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="05 微扰论"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#微扰论要做什么">微扰论要做什么</a></li>
+<li><a href="#正则形式虚时间">正则形式（虚时间）</a><ul>
+<li><a href="#wick-定理">Wick 定理</a></li>
+</ul>
+</li>
+<li><a href="#图解微扰">图解微扰</a><ul>
+<li><a href="#费曼图的基本规则">费曼图的基本规则</a></li>
+<li><a href="#频率-动量域">频率-动量域</a></li>
+<li><a href="#玻色子介导的相互作用">玻色子介导的相互作用</a></li>
+<li><a href="#连通图与真空图的相消">连通图与真空图的相消</a></li>
+<li><a href="#dyson-重求和与自能">Dyson 重求和与自能</a></li>
+<li><a href="#多点函数">多点函数</a></li>
+</ul>
+</li>
+<li><a href="#生成泛函">生成泛函</a></li>
+<li><a href="#路径积分">路径积分</a><ul>
+<li><a href="#实时间路径积分">实时间路径积分</a></li>
+<li><a href="#相干态路径积分与格拉斯曼数">相干态路径积分与格拉斯曼数</a></li>
+<li><a href="#虚时间路径积分">虚时间路径积分</a></li>
+<li><a href="#格林函数与生成泛函的路径积分">格林函数与生成泛函的路径积分</a></li>
+<li><a href="#路径积分语言下的微扰论">路径积分语言下的微扰论</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id="微扰论要做什么">微扰论要做什么</span></h1><p>多费米子/玻色子体系的典型哈密顿量为：</p>
+<script type="math/tex; mode=display">
+H = H_0 + V = \sum_{k\sigma}\xi_{k\sigma}c^\dagger_{k\sigma}c_{k\sigma} + \frac12\sum_{k_1\sigma_1,k_2\sigma_2,q}V_q\,c^\dagger_{k_1-q\sigma_1}c^\dagger_{k_2+q\sigma_2}c_{k_2\sigma_2}c_{k_1\sigma_1}</script><p>其中 $\xi_{k\sigma} = \varepsilon_{k\sigma}-\mu$ 是相对化学势的单粒子能量。自由体系 $H_0$ 的格林函数很容易求，但有相互作用 $V$ 时格林函数几乎不可能精确计算。常规做法是对相互作用 $V$ 做微扰——把格林函数写成相互作用强度的泰勒展开（虽然常常还需要对级数重求和）。这一讲介绍微扰的两种常用语言：<strong>正则形式</strong>（算符语言）和<strong>路径积分</strong>（场语言）。会其中一种往往就够了。</p>
+<h1><span id="正则形式虚时间">正则形式（虚时间）</span></h1><p>对平衡体系，知道推迟格林函数就够了（它蕴含了所有两点格林函数的信息，见第四讲），而推迟格林函数又能由 Matsubara 格林函数解析延拓得到。Matsubara 格林函数天然适用于非零温度，也覆盖零温极限。本节介绍计算它的微扰方法：</p>
+<script type="math/tex; mode=display">
+\mathcal{G}^{T}(\tau) = -\langle T c(\tau)c^\dagger(0)\rangle</script><p>其中 $O(\tau) = e^{\tau H}O(0)e^{-\tau H}$，平均 $\langle\cdot\rangle = \mathrm{Tr}[\hat{\rho}\,\cdot]$，$\rho = e^{-\beta H}/Z$。</p>
+<p>为了对式 (5.0.1) 的相互作用项 $V$ 微扰，定义相互作用绘景：把演化算符分离为 $e^{-\tau H} = U_0(\tau)U_I(\tau)$，其中 $U_0(\tau) = e^{-\tau H_0}$，$U_I(\tau) = T e^{-\int_0^\tau d\tau’ V_I(\tau’)}$。相互作用绘景算符 $O_I(\tau) = e^{\tau H_0}O(0)e^{-\tau H_0}$。可以导出（对 $\tau&gt;0$）：</p>
+<script type="math/tex; mode=display">
+\mathcal{G}^{T}(\tau) = -\frac{\langle T\,U_I(\beta)\,c_I(\tau)c^\dagger_I(0)\rangle_0}{\langle U_I(\beta)\rangle_0}, \qquad U_I(\beta) = Te^{-\int_0^\beta d\tau\,V_I(\tau)}</script><p>这就是微扰的出发点：把 $U_I$ 对 $V_I$ 做泰勒展开。推导中用到 $U_I(\tau_2,\tau_1) = U_I(\tau_2)U_I(\tau_1)^{-1}$、时序符号下重排的自由度，以及 $V$ 是玻色型算符（交换不产生负号）。</p>
+<h2><span id="wick-定理">Wick 定理</span></h2><p>展开 $U_I$ 时会遇到 $\langle T V_I c_I c^\dagger_I\rangle_0$ 这类项，其中典型的是多点时序关联函数 $\langle T c^\dagger(x_1)c^\dagger(x_2)c(x_3)c(x_4)c(x_5)c^\dagger(x_6)\rangle_0$（$x = (m,\tau)$，$m$ 标记单粒子态，如动量 $k$）。计算它要用时序版本的 <strong>Wick 定理</strong>：</p>
+<blockquote>
+<p><strong>Wick 定理</strong>：在某些态下，场算符的时序多点关联函数等于时序两点关联函数乘积的求和（每一项对应一种”收缩”配对）：</p>
+<script type="math/tex; mode=display">
+\langle T c^\dagger(x_{i_1})\cdots c(x_{i_{2n}})\rangle_0 = \sum_{\text{全部配对}}\zeta^P\,\langle T c^\dagger c\rangle_0\,\langle T c^\dagger c\rangle_0\cdots</script><p>对 $n$ 个产生、$n$ 个湮灭算符的关联函数，有 $n!$ 种收缩配对，相位 $\zeta^P$ 由交换符号决定（$P$ 是重排奇偶性）。</p>
+<p>【配图】图 5.1.1：Wick 定理示意。第一行：$2n$ 点关联函数等于对所有两两”收缩”求和（虚线连接配对）；最后一行：每个收缩给出一个自由时序两点关联函数 $\mathcal{G}^{T}_0(x_{i},x_{j})$ 的乘积。</p>
+</blockquote>
+<p><strong>证明思路</strong>：注意密度矩阵是直积 $\rho_0 = \prod_k\rho_k$，且 $\rho_k$ 在占据数表象对角的。要使 $2n$ 点关联函数非零，算符串中每个 $c(k,\tau)$ 必须有对应的 $c^\dagger(k,\tau’)$ 使该态粒子数不变。因此每个非零贡献都可看作 $n$ 对收缩。计算每对收缩要”搬运”三步：①把算符排成时序（去掉时序符号，留下 $\zeta^{P_1}$ 符号）；②把每对算符搬成相邻（加 $\zeta^{P_2}$）；③给每对加时序符号并排成正则序（加 $\zeta^{P_3}$）。最后 $P_{i_1,\ldots,i_{2n}} = P_1+P_2+P_3$。</p>
+<blockquote>
+<p>路径积分语言里，Wick 定理可由高斯积分更直接地证明。</p>
+<p>尝试说服自己：Wick 定理的条件不必那么严格。产生/湮灭算符不必是 $H_0$ 的单粒子本征态，可以是任意单粒子态的产生/湮灭算符，例如空间位置的场算符 $c(r,\tau)$。</p>
+</blockquote>
+<p><strong>例子</strong>：费米子的四点关联函数：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\langle T c^\dagger(x_1)c^\dagger(x_2)c(x_3)c(x_4)\rangle_0 &= \langle T c(x_4)c^\dagger(x_1)\rangle_0\langle T c(x_3)c^\dagger(x_2)\rangle_0 - \langle T c(x_3)c^\dagger(x_1)\rangle_0\langle T c(x_4)c^\dagger(x_2)\rangle_0\\
+&= \mathcal{G}^T_0(x_4,x_1)\mathcal{G}^T_0(x_3,x_2) - \mathcal{G}^T_0(x_3,x_1)\mathcal{G}^T_0(x_4,x_2)
+\end{aligned}</script><p><strong>例子</strong>：验证均匀密度-密度关联函数。对自由费米子 $W = \langle T\hat{n}(\tau)\hat{n}(\tau’)\rangle_0$，直接计算得 $W = (\sum_k n_k)^2 + \sum_k(n_k-n_k^2)$；用 Wick 定理也得同一结果。<strong>对相互作用体系二者还一致吗？</strong>（这正是”连通图”概念出现的动机。）</p>
+<h1><span id="图解微扰">图解微扰</span></h1><p>把式 (5.2.1) 逐阶展开后，高阶项爆炸式增多。为组织计算，用<strong>费曼图</strong>表示求和中的各项。</p>
+<p>两点自由格林函数用连接两点的线表示：</p>
+<script type="math/tex; mode=display">
+G_0(x_1,x_2):\quad \text{从 }x_2\text{ 到 }x_1\text{ 的带箭头线}</script><p>线的箭头从产生算符指向湮灭算符，可理解为在 $x_2$ 创造粒子、在 $x_1$ 湮灭它的过程。</p>
+<p><strong>画图规则</strong>：</p>
+<ul>
+<li>每个点（标号 $x$）代表一个产生/湮灭算符；</li>
+<li>每条连接两点的线代表一次 Wick 收缩（自由格林函数）；</li>
+<li>具有相同时间变量的点（如式 (5.2.1) 中 $V_I(\tau)$ 的四个算符）画在同一位置，形成<strong>顶点</strong>；</li>
+<li>不属于外腿的点总有时间、空间标签需要积分；</li>
+<li>多点关联函数同样规则。</li>
+</ul>
+<p>一阶项 $\int_0^\beta d\tau\langle T V_I(\tau)c_I(x_1)c^\dagger_I(x_2)\rangle_0$ 的收缩归成两类图：<strong>Hartree 型</strong>（两条内线各自闭合，外腿直接相连）和 <strong>Fock/交换型</strong>（外腿经顶点相连）。二阶项同样有若干种图。</p>
+<p><strong>求值规则</strong>：每个费曼图对应一个确定的表达式——每条线是一个自由格林函数（传播子），对顶点的指标积分。虽然每个图有固定的相互作用阶数 $m$，但它对应很多不同的 Wick 收缩，因此每个图要乘一个<strong>组合因子 $R$</strong>。若图有若干互不连通的部分，其值就是各部分的乘积；整图的组合因子等于各连通部分组合因子的乘积。</p>
+<h2><span id="频率-动量域">频率-动量域</span></h2><p>格林函数常在频率-动量域计算：$G_0(k,i\omega_n) = \int_0^\beta d\tau e^{i\omega_n\tau}G_0(k,\tau)$。由于时空平移不变性，把图写进频率-动量域常常能得到简化表达式。每个顶点得到<strong>频率-动量守恒</strong>：进入顶点的频率/动量之和等于离开顶点的频率/动量之和（来自对每个顶点时空积分后的 $\delta$ 函数）。在频率-动量表示中，图的值就是各条线的乘积，对所有<strong>圈</strong>的频率-动量求和。</p>
+<h2><span id="玻色子介导的相互作用">玻色子介导的相互作用</span></h2><p>库仑相互作用可视为由”光子”（动量 $q$）介导的两体相互作用。电子-声子相互作用 $M_{k+q,k}(a_q + a^\dagger_{-q})c^\dagger_{k+q}c_k$ 也是如此。两种情形都常把玻色子明确画进图里（波浪线）。库仑线两端有相同时间 $\tau$（低能密度-密度相互作用是瞬时性的，等效光速无穷大）；电子-声子相互作用线的两端时间不同。</p>
+<p><strong>密度-密度相互作用的求值规则</strong>（式 (5.2.5)）：</p>
+<script type="math/tex; mode=display">
+G = R\cdot\left(\prod\text{相互作用核}\right)\cdot\left(\prod\text{传播子}\right), \qquad R = \frac{(-1)^m\zeta^F(2s+1)^F}{\beta^m p}</script><ul>
+<li>每个相互作用顶点贡献一个相互作用核 $V_q$（可视为动量 $q$ 的光子传播子）；每条实线贡献费米传播子 $G_0(k,i\omega_n)$；</li>
+<li>$R$ 是组合因子，等于该图代表的 Wick 收缩数乘以泰勒展开系数 $(-\frac12)^m/m!$。具体来源：①交换 $V_I$ 顶点给出 $m!$ 重复（消掉 $1/m!$）；每个顶点交换相互作用线两端给出因子 2（消掉 $\frac12$）；虚时积分加傅里叶展开给出 $1/\beta$；②每个独立费米子圈有自由自旋指标求和贡献 $(2s+1)$，费米子圈还带负号（每个圈一个 $\zeta = -1$）；③上面方法多算了 $p$ 倍，$p$ 是使图不变的操作数（图对称群的阶数）。例如图 5.2.3(a)(b) 下面两图 $p=2$，图 (c) $p=1$。</li>
+</ul>
+<p><strong>频率求和</strong>：计算图时会遇到 Matsubara 频率求和。常用技巧是把它化为复平面上的围道积分：</p>
+<script type="math/tex; mode=display">
+\sum_{i\omega_n}g(i\omega_n) = \zeta\beta\oint\frac{dz}{2\pi i}f(z)g(z) - \zeta\beta\sum_i f(z_i)\,\mathrm{Res}[g(z_i)]</script><p>其中 $f(z) = 1/(e^{\beta z}-\zeta)$ 是玻色($\zeta=1$)/费米($\zeta=-1$)占据数，围道是半径为无穷大的大圆，$z_i$ 是 $g(z)$ 的极点。若 $g(z)\to0$ 比 $1/|z|$ 快，围道积分消失，只剩第二项（$g$ 的留数）。</p>
+<blockquote>
+<p>【配图】图 5.2.1/5.2.2/5.2.3：一阶、二阶两点格林函数的费曼图，以及库仑相互作用图与点相互作用的对应关系。</p>
+</blockquote>
+<p><strong>例子</strong>（电子液体的 Hartree 与交换能）：图 5.2.3(a)(b) 下面两图在频率-动量域：</p>
+<script type="math/tex; mode=display">
+V^{(h)} = -\frac12\beta V_{q=0}n^2 \quad\Rightarrow\quad F^{(h)} = \frac12V_{q=0}n^2</script><p>这是电子液体的经典自相互作用能，称为 <strong>Hartree 能</strong>。对库仑相互作用 $V_{q=0}$ 无穷大，对应宏观电荷的无穷大静电相互作用能——真实固体中由正电荷背景（离子）抵消。</p>
+<script type="math/tex; mode=display">
+V^{(ex)} = \beta\sum_{k,k'}V_{k-k'}f(\xi_k)f(\xi_{k'}) \quad\Rightarrow\quad F^{(ex)} = -\sum_{k,k'}V_{k-k'}f(\xi_k)f(\xi_{k'})</script><p>称为<strong>交换能</strong>，对排斥相互作用为负。在经典相互作用能（Hartree 能）之上，交换能是费米统计的负修正：由于泡利不相容，两个电子不太可能彼此靠近。</p>
+<blockquote>
+<p><strong>收敛性问题</strong>：做频率求和时，$G_0(z)f(z) = \frac{f(z)}{z-\xi_k}$ 在左半复平面似乎衰减不够快。为消解此问题，注意实际传播子是 $G_0(z) = \frac{e^{z\delta}}{z-\xi_k}$（$\delta$ 为趋于 0 的正无穷小），其来源是加入时序符号前相互作用项保持正则序 $V_I(\tau) = c^\dagger_1(\tau+\delta)c^\dagger_2(\tau+\delta)c_3(\tau)c_4(\tau)$ 的假设。一个留给大家的问题：若在加时序符号前取 $V_I(\tau) = c^\dagger_1(\tau-\delta)c^\dagger_2(\tau-\delta)c_3(\tau)c_4(\tau)$，Hartree 和交换能是否一样？</p>
+</blockquote>
+<h2><span id="连通图与真空图的相消">连通图与真空图的相消</span></h2><p>式 (5.1.3) 的时序格林函数可图解为（分子各种图 / 分母各种图）。分母代表相互作用使配分函数重正化的因子 $Z^<em>$，由<strong>真空极化图</strong>构成。真空图分连通与不连通两类，可以证明（<em>*连锁团簇定理</em></em>）：</p>
+<script type="math/tex; mode=display">
+Z^* = \exp\left(\sum\text{互不相同的连通真空图}\right) = \exp(-\beta F^*)</script><p>指数上的 $F^*$ 是互不相同的连通图之和，其物理意义是相互作用的自由能修正。</p>
+<p>分子的图也可分为连通与不连通两类，可以因式分解为 $Z^<em>\times(\text{连通图之和})$。因此<em>*分子中的真空极化图被分母精确抵消</em></em>。最终结论：计算格林函数时，只需对互不相同的连通图求和：</p>
+<script type="math/tex; mode=display">
+G(x_1,x_2) = \text{所有连通图之和}</script><h2><span id="dyson-重求和与自能">Dyson 重求和与自能</span></h2><p>观察两点格林函数可发现 Dyson 方程结构：</p>
+<script type="math/tex; mode=display">
+G = G_0 + G_0\Sigma G_0 + G_0\Sigma G_0\Sigma G_0 + \cdots = G_0 + G_0\Sigma G</script><p>其中 $\Sigma$ 是<strong>自能</strong>，为所有<strong>单粒子不可约（1PI）</strong>图之和。</p>
+<ul>
+<li><strong>单粒子可约（1PR）图</strong>：切掉一条（内部）传播子就能分成两个不连通部分；</li>
+<li><strong>单粒子不可约（1PI）图</strong>：不能这样切开。</li>
+</ul>
+<p>解 Dyson 方程得：</p>
+<script type="math/tex; mode=display">
+G = \frac{G_0}{1 - G_0\circ\Sigma} = \frac{1}{G_0^{-1}-\Sigma}</script><p>$\circ$ 表示卷积。在频率表示中卷积变成乘积：</p>
+<script type="math/tex; mode=display">
+G(k,i\omega_n) = \frac{1}{i\omega_n - (\xi_k + \Sigma(k,i\omega_n))}</script><p>自能 $\Sigma$ 表现为<strong>极点位置的移动</strong>——粒子因相互作用获得能移。实际做法：只算 1PI 图，代入上式得到重求和的格林函数。</p>
+<p><strong>例子</strong>（电子液体的领头阶自能）：</p>
+<ul>
+<li><strong>Hartree 自能</strong>（图 5.2.3 左侧）：$\Sigma^{(h)}(k,i\omega_n) = V_0n$，是电子因”均匀”负电荷（所有电子）静电势获得的能移，在固体中由正电荷背景抵消；</li>
+<li><strong>交换自能</strong>（右侧）：$\Sigma^{(ex)}(k,i\omega_n) = -\sum_{k’}V_{k-k’}f(\xi_{k’})$，负号表示有效能量下移。物理意义：与”所有其他电子形成均匀负电荷”的经典图像相比，泡利不相容使该电子靠近其他电子的概率变小。</li>
+</ul>
+<blockquote>
+<p><strong>思考</strong>：若相互作用极短程（两个电子只在接触时相互作用，contact interaction），自旋无（spinless）的电子之间这个相互作用还有效果吗？这个结论如何在 Hartree 与交换自能中体现？</p>
+</blockquote>
+<h2><span id="多点函数">多点函数</span></h2><p>对四点（及更高点）时序格林函数，上述结论大多成立：不应包含真空极化图：</p>
+<script type="math/tex; mode=display">
+G(x_1,x_2,x_3,x_4) = \langle T c(x_1)c(x_2)c^\dagger(x_3)c^\dagger(x_4)\rangle = \text{连通图之和}</script><p>四点函数也有 Dyson 重求和技术，其”自能”是<strong>两点不可约（2PI）图</strong>。</p>
+<h1><span id="生成泛函">生成泛函</span></h1><p>生成泛函是计算格林函数、获得物理理解的好工具。虚时间形式主义中定义：</p>
+<script type="math/tex; mode=display">
+S_{eff}[f(\tau)] = -\ln Z[f(\tau)] = -\ln\mathrm{Tr}\left[T e^{-\int_0^\beta d\tau(H + f(\tau)A + g(\tau)B)}\right]</script><p>这个泛函可理解为外场 $f(\tau),g(\tau)$ 的<strong>有效作用量</strong>。其零场极限就是自由能除以温度。注意：$A,B$ 是玻色算符时外场是普通数（复数/实数），是费米算符时则是<strong>格拉斯曼数</strong>。</p>
+<p>虚时序格林函数是生成泛函在零外场的导数：</p>
+<script type="math/tex; mode=display">
+-\langle T A(\tau_1)B(\tau_2)\rangle = \left.\frac{\partial^2 S_{eff}}{\partial f(\tau_1)\partial g(\tau_2)}\right|_{f,g=0}, \qquad -\langle T A A A A\rangle = \left.\frac{\partial^4 S_{eff}}{\partial f\partial f\partial f\partial f}\right|_{f,g=0}</script><p>注意：等号左边的多点格林函数<strong>只含连通图</strong>。不连通部分因为取 $\ln Z$ 的导数而被消掉。结论：<strong>有效作用量中 $O(f^n)$ 项的系数就是连通 $n$ 点格林函数</strong>。</p>
+<h1><span id="路径积分">路径积分</span></h1><p>路径积分是计算量子力学系统物理量（跃迁幅、格林函数、配分函数）的常用语言。它让量子-经典对应更加透明，物理图像更好。所有物理可观测量都能表示成路径积分，因此体系常直接用某个作用量的路径积分来定义。有些作用量能描述比哈密顿量更一般的体系（如环境自由度被”积掉”的开放系统）。本节用路径积分重述格林函数和微扰论，记号比正则形式简单得多。</p>
+<h2><span id="实时间路径积分">实时间路径积分</span></h2><p><strong>正则基</strong>：考虑单粒子 $H = H(q,p)$。从初始态 $|\psi_i\rangle$ 到末态 $|\psi_f\rangle$ 的跃迁幅为：</p>
+<script type="math/tex; mode=display">
+\langle\psi_f|U(T)|\psi_i\rangle = \int D[q(t),p(t)]\,\exp\left(i\int_0^T dt(p\dot q - H(q,p))\right)\psi_f^*(q_f)\psi_i(q_i)</script><p>即对相空间中满足边界条件的所有路径积分。推导：把时间切成 $N$ 段（$\delta = T/N$），每段插入完备基。当哈密顿量形如 $H = \frac{p^2}{2m} + V(q)$ 时，可完成对 $p(t)$ 的高斯积分，得到<strong>拉格朗日形式</strong>：</p>
+<script type="math/tex; mode=display">
+\langle\psi_f|U(T)|\psi_i\rangle = \int D[q(t)]\,e^{iS[q(t)]/\hbar}\,\psi_f^*(q_f)\psi_i(q_i), \qquad S[q(t)] = \int_0^T dt\,L(q,\dot q,t)</script><p>其中 $L = \frac12 m\dot q^2 - V(q)$。每条路径贡献相位 $e^{iS/\hbar}$。路径平滑变化时相位振荡，相邻路径趋于相消；其中特殊的”鞍点”路径满足 $\delta S/\delta q(t) = 0$，即经典运动方程 $\frac{d}{dt}\partial_{\dot q}L = \partial_q L$（经典路径）。$\hbar\to0$ 极限下只有经典路径及其近邻对路径积分有贡献——这就是经典极限。</p>
+<blockquote>
+<p><strong>高斯积分</strong>：单变量 $\int_{-\infty}^\infty dx\,e^{-ax^2} = \sqrt{\pi/a}$。$N$ 维：$\int d[\phi]e^{-\phi_i A_{ij}\phi_j} = \sqrt{\pi^N/\det(A)}$，复变量 $\int d[\phi^<em>,\phi]e^{-\phi_i^</em>A_{ij}\phi_j} = \pi^N/\det(A)$。带源场 $f_i$：$\int d[\phi]e^{-\phi_iA_{ij}\phi_j+f_i\phi_i} = \sqrt{\frac{\pi^N}{\det A}}e^{\frac14 f_i(A^{-1})_{ij}f_j}$，复变量：$e^{f_i^*(A^{-1})_{ij}f_j}$。</p>
+</blockquote>
+<h2><span id="相干态路径积分与格拉斯曼数">相干态路径积分与格拉斯曼数</span></h2><p>对用产生湮灭算符写的二次量子化哈密顿量，常用相干态作路径积分的基。玻色/费米相干态都可写为：</p>
+<script type="math/tex; mode=display">
+|\psi\rangle = e^{\zeta\psi a^\dagger}|0\rangle</script><p>$\zeta = +1(-1)$ 对应玻色（费米）子。玻色子的 $\psi$ 是普通复数；费米子的 $\psi$ 是<strong>格拉斯曼数</strong>（满足反对易代数）。相干态是湮灭算符的本征态 $a|\psi\rangle = \psi|\psi\rangle$，重叠 $|\langle\psi’|\psi\rangle = e^{\psi’^*\psi}$，单位分解：</p>
+<script type="math/tex; mode=display">
+\hat{I} = \int d(\bar\psi,\psi)\,e^{-\bar\psi\psi}\,|\psi\rangle\langle\psi|</script><p>由此构造相干态路径积分：跃迁幅为</p>
+<script type="math/tex; mode=display">
+\langle f|U(t)|i\rangle = \int D[\bar\psi(t),\psi(t)]\,e^{iS[\bar\psi,\psi]}, \qquad S[\bar\psi,\psi] = \int dt\,L, \quad L = \bar\psi i\partial_t\psi - H(\bar\psi,\psi)</script><p>推广到量子场论只需给相干态变量加上空间标签。典型拉格朗日密度：</p>
+<script type="math/tex; mode=display">
+L = \bar\psi\left(i\partial_t - \omega_0 - \frac{(i\nabla)^2}{2m}\right)\psi - V_{interaction}[\bar\psi,\psi]</script><blockquote>
+<p><strong>格拉斯曼数</strong>：生成元 $\{\psi_i\}$ 构成反对易代数（又称外代数，与微分形式同构）：乘积结合且反对易 $\{\psi_i,\psi_j\}=0 \Rightarrow \psi_i^2=0$。单变量函数展开为 $f(\psi) = a+b\psi$。微分与积分相同：$\partial_{\psi_i}\psi_j = \delta_{ij}$，$\int d\psi = 0$，$\int\psi d\psi = 1$。因此 $\int d\psi\,f(\psi) = b$。格拉斯曼高斯积分：$\int d[\bar\psi,\psi]e^{-\bar\psi_iA_{ij}\psi_j} = \det(A)$，带源 $e^{f_i^*(A^{-1})_{ij}f_j}$（$\bar\psi_i$ 与 $\psi_i$ 相互独立）。格拉斯曼数与费米算符反对易：$\{\psi_i,\hat\psi\}=\{\psi_i,\hat\psi^\dagger\}=0$，与玻色算符或偶费米算符函数对易。</p>
+</blockquote>
+<h2><span id="虚时间路径积分">虚时间路径积分</span></h2><p>虚时间路径积分用于计算热力学函数和虚时间（Matsubara）格林函数。只需把统计物理中的 $e^{-\beta H}$ 视为虚时间、切成无穷小段乘积。</p>
+<p><strong>相干态基</strong>：配分函数：</p>
+<script type="math/tex; mode=display">
+Z = \mathrm{Tr}[e^{-\beta H}] = \int D[\bar\psi,\psi]\,e^{-S[\bar\psi,\psi]}, \qquad S[\bar\psi(\tau),\psi(\tau)] = \int_0^\beta d\tau\left(\bar\psi\partial_\tau\psi + H(\bar\psi,\psi)\right)</script><p>积分对虚时间上所有路径，玻色/费米满足（反）对称边界条件：$\bar\psi(\beta) = \zeta\bar\psi(0)$。换到频率表示（Matsubara 频率 $\omega_n$）：</p>
+<script type="math/tex; mode=display">
+S = \frac1\beta\sum_n\bar\psi_n(-i\omega_n)\psi_n + \int_0^\beta d\tau\,H[\bar\psi,\psi]</script><p><strong>例子</strong>：单粒子 $H = \xi a^\dagger a$，配分函数 $Z = \prod_n[\beta(-i\omega_n+\xi)]^{-\zeta}$。</p>
+<p><strong>正则基</strong>：也可用正则基（$q,p$）构造虚时间路径积分。对单自由度：</p>
+<script type="math/tex; mode=display">
+Z = \int D[q(\tau)]\,e^{-S[q(\tau)]}, \qquad S[q(\tau)] = \int_0^\beta d\tau\left(\frac{1}{2m}(\partial_\tau q)^2 + V(q)\right)</script><p>是”虚时间作用量”。</p>
+<h2><span id="格林函数与生成泛函的路径积分">格林函数与生成泛函的路径积分</span></h2><p>虚时序格林函数天然可写成路径积分关联函数：</p>
+<script type="math/tex; mode=display">
+\mathcal{G}(\tau_1-\tau_2) = -\langle T\hat A(\tau_1)\hat B(\tau_2)\rangle = -\frac1Z\int D[\bar\psi,\psi]\,e^{-S[\bar\psi,\psi]}\,A(\bar\psi(\tau_1),\psi(\tau_1))B(\bar\psi(\tau_2),\psi(\tau_2))</script><p><strong>生成泛函</strong>：</p>
+<script type="math/tex; mode=display">
+Z[f_1,f_2] = \int D[\bar\psi,\psi]\,e^{-S[\bar\psi,\psi] + \int d\tau(f_1(\tau)A(\tau) + f_2(\tau)B(\tau))} = e^{-S_{eff}[f_1,f_2]}</script><p>其中 $f_1,f_2$ 是”源场”，$S_{eff}$ 是源场的有效作用量。若已算出生成泛函，两点格林函数通过对源场求偏导得到：</p>
+<script type="math/tex; mode=display">
+\langle A(\tau_1)B(\tau_2)\rangle = \left.\frac{1}{Z}\frac{\delta^2Z[f_1,f_2]}{\delta f_1(\tau_1)\delta f_2(\tau_2)}\right|_{f=0} = -\left.\frac{\delta^2S_{eff}[f_1,f_2]}{\delta f_1(\tau_1)\delta f_2(\tau_2)}\right|_{f=0}</script><p>更一般地，$S_{eff}$ 对 $f$ 泰勒展开的系数就是 $n$ 点时序格林函数（连通图）。</p>
+<h2><span id="路径积分语言下的微扰论">路径积分语言下的微扰论</span></h2><p><strong>Wick 定理</strong>：对二次型作用量的生成泛函 $Z[f] = \frac1{Z_0}\int D[\phi]e^{-\frac12\phi^T A\phi + f^T\phi} = e^{-\frac12 f^T A^{-1}f}$，两点、四点自由关联函数由求导得到。由于 $Z[f]$ 是 $f$ 的二次型指数，导数必然成对，每对贡献 $A^{-1}(x_1,x_2) = \langle\phi(x_1)\phi(x_2)\rangle = G(x_1,x_2)$——这正是 Wick 定理。</p>
+<blockquote>
+<p><strong>问题 5.4.1</strong>：把上述 Wick 定理推导推广到复场和格拉斯曼场，并跟踪费米子的符号。</p>
+</blockquote>
+<p><strong>两点格林函数</strong>：$-\mathcal{G}(x_1,x_2) = \overline{\phi(x_1)}\phi(x_2) = \frac1Z\int D[\bar\phi,\phi]\bar\phi(x_1)\phi(x_2)e^{-S[\bar\phi,\phi]}$，其中 $S[\bar\phi,\phi] = S_0 + V = \int dx\,\bar\phi(\partial_\tau + \xi_p)\phi + g\bar\phi\bar\phi\phi\phi$。对 $g$ 微扰就是把 $V$ 项的指数做泰勒展开（分子分母同展开，真空图相消）。</p>
+<blockquote>
+<p><strong>思考题</strong></p>
+<ol>
+<li>Wick 定理成立的关键条件是什么？为什么需要”密度矩阵是直积”？</li>
+<li>自能的物理意义是什么？为什么 $G = 1/(i\omega_n - \xi_k - \Sigma)$ 中自能表现为”极点移动”？</li>
+<li>为什么只要对连通图求和？真空图去哪了？</li>
+<li>路径积分与正则形式主义得到的微扰结果如何对应？各自优点是什么？</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/05-%E5%BE%AE%E6%89%B0%E8%AE%BA/">https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/05-%E5%BE%AE%E6%89%B0%E8%AE%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">06 费米液体的微观理论</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/04-%E6%A0%BC%E6%9E%97%E5%87%BD%E6%95%B0/" title="04 格林函数"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04 格林函数</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">量子多体物理Content</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/" title="10 涨落、临界现象与重整化群"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">10 涨落、临界现象与重整化群</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">09 BCS理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/" title="08 超导：唯象理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">08 超导：唯象理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">07 自发对称性破缺</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">06 费米液体的微观理论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">微扰论要做什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">正则形式（虚时间）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">Wick 定理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">图解微扰</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">频率-动量域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">玻色子介导的相互作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">连通图与真空图的相消</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.4.</span> <span class="toc-text">Dyson 重求和与自能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.5.</span> <span class="toc-text">多点函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">生成泛函</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">路径积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">实时间路径积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">相干态路径积分与格拉斯曼数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">虚时间路径积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.4.</span> <span class="toc-text">格林函数与生成泛函的路径积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.5.</span> <span class="toc-text">路径积分语言下的微扰论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

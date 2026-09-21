@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Junction Tree VAE：开创性图生成 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Junction Tree VAE：开创性图生成论文信息 标题: Junction Tree Variational Autoencoder for Molecular Graph Generation 作者: Wengong Jin, Regina Barzilay, Tommi Jaakkola 年份: 2018 会议: ICML 2018 引用量: 2000+   核心思想Junction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Junction Tree VAE：开创性图生成">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/01-Junction-Tree-VAE/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="Junction Tree VAE：开创性图生成论文信息 标题: Junction Tree Variational Autoencoder for Molecular Graph Generation 作者: Wengong Jin, Regina Barzilay, Tommi Jaakkola 年份: 2018 会议: ICML 2018 引用量: 2000+   核心思想Junction">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2026-08-24T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-24T04:20:27.353Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="图神经网络">
+<meta property="article:tag" content="分子生成">
+<meta property="article:tag" content="VAE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/01-Junction-Tree-VAE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Junction Tree VAE：开创性图生成',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-08-24 12:20:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Junction Tree VAE：开创性图生成</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-24T04:00:00.000Z" title="发表于 2026-08-24 12:00:00">2026-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-24T04:20:27.353Z" title="更新于 2026-08-24 12:20:27">2026-08-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/">结构生成</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Junction Tree VAE：开创性图生成"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="junction-tree-vae开创性图生成">Junction Tree VAE：开创性图生成</span></h1><h2><span id="论文信息">论文信息</span></h2><ul>
+<li><strong>标题</strong>: Junction Tree Variational Autoencoder for Molecular Graph Generation</li>
+<li><strong>作者</strong>: Wengong Jin, Regina Barzilay, Tommi Jaakkola</li>
+<li><strong>年份</strong>: 2018</li>
+<li><strong>会议</strong>: ICML 2018</li>
+<li><strong>引用量</strong>: 2000+</li>
+</ul>
+<hr>
+<h2><span id="核心思想">核心思想</span></h2><p>Junction Tree VAE (JT-VAE) 的核心思想是：<strong>分子图的两阶段生成</strong>：</p>
+<ol>
+<li><strong>生成子结构树</strong>：先生成一个树结构，表示化学子结构（如环、官能团）的组装顺序</li>
+<li><strong>组装分子图</strong>：用图消息传递网络将子结构组装成完整的分子图</li>
+</ol>
+<p>这种方法保证了<strong>每一步都产生化学有效的分子</strong>。</p>
+<hr>
+<h2><span id="方法详解">方法详解</span></h2><h3><span id="1-分子图表示">1. 分子图表示</span></h3><p><strong>分子图</strong>：</p>
+<script type="math/tex; mode=display">G = (V, E), \quad V = \{\text{原子}\}, E = \{\text{化学键}\}</script><p><strong>团树分解</strong>：<br>将分子图分解为团（clique）组成的树结构：</p>
+<script type="math/tex; mode=display">G \rightarrow \mathcal{T} = (V_{\mathcal{T}}, E_{\mathcal{T}})</script><h3><span id="2-编码器">2. 编码器</span></h3><p><strong>分子图 → 团树 → 隐空间</strong></p>
+<script type="math/tex; mode=display">q_{\phi}(z | G) = q_{\phi}(z | \mathcal{T}) = \prod_{v \in V_{\mathcal{T}}} q_{\phi}(z_v | \mathcal{T})</script><p>使用图消息传递网络编码团树：</p>
+<script type="math/tex; mode=display">h_v^{(l+1)} = \text{READ}\left(h_v^{(l)}, \{h_u^{(l)} : u \in \mathcal{N}(v)\}\right)</script><h3><span id="3-解码器">3. 解码器</span></h3><p><strong>隐空间 → 团树 → 分子图</strong></p>
+<p><strong>解码团树</strong>：</p>
+<script type="math/tex; mode=display">p_{\theta}(\mathcal{T}) = \prod_{v \in V_{\mathcal{T}}} p_{\theta}(v | \text{parent}(v), z)</script><p><strong>组装分子图</strong>：<br>给定团树，用消息传递网络组装分子图：</p>
+<script type="math/tex; mode=display">m_{ij} = \text{ATT}(h_i, h_j, e_{ij})</script><script type="math/tex; mode=display">h_i^{(l+1)} = \text{UPDATE}(h_i^{(l)}, \sum_j m_{ij})</script><h3><span id="4-训练目标">4. 训练目标</span></h3><p><strong>变分下界（ELBO）</strong>：</p>
+<script type="math/tex; mode=display">\mathcal{L} = \mathbb{E}_{q_{\phi}(z|G)}[\log p_{\theta}(G|z)] - \beta D_{KL}(q_{\phi}(z|G) \| p(z))</script><hr>
+<h2><span id="代码示例">代码示例</span></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch_geometric.nn <span class="keyword">import</span> GINConv, global_add_pool</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MolecularEncoder</span>(nn.Module):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;分子图编码器&quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim, hidden_dim, latent_dim</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 图神经网络</span></span><br><span class="line">        <span class="variable language_">self</span>.gnn = GINConv(</span><br><span class="line">            nn.Sequential(</span><br><span class="line">                nn.Linear(input_dim, hidden_dim),</span><br><span class="line">                nn.ReLU(),</span><br><span class="line">                nn.Linear(hidden_dim, hidden_dim)</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 团池化</span></span><br><span class="line">        <span class="variable language_">self</span>.pool = global_add_pool</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 隐空间映射</span></span><br><span class="line">        <span class="variable language_">self</span>.mu_layer = nn.Linear(hidden_dim, latent_dim)</span><br><span class="line">        <span class="variable language_">self</span>.logvar_layer = nn.Linear(hidden_dim, latent_dim)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x, edge_index, batch</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;编码分子图&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># GNN编码</span></span><br><span class="line">        h = <span class="variable language_">self</span>.gnn(x, edge_index)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 图级表示</span></span><br><span class="line">        h_pool = <span class="variable language_">self</span>.pool(h, batch)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 隐空间参数</span></span><br><span class="line">        mu = <span class="variable language_">self</span>.mu_layer(h_pool)</span><br><span class="line">        logvar = <span class="variable language_">self</span>.logvar_layer(h_pool)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> mu, logvar</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">JunctionTreeDecoder</span>(nn.Module):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Junction Tree解码器&quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, latent_dim, hidden_dim, num_substructures</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 子结构嵌入</span></span><br><span class="line">        <span class="variable language_">self</span>.substructure_embedding = nn.Embedding(</span><br><span class="line">            num_substructures, hidden_dim</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># RNN解码树结构</span></span><br><span class="line">        <span class="variable language_">self</span>.tree_rnn = nn.GRU(</span><br><span class="line">            hidden_dim, hidden_dim, batch_first=<span class="literal">True</span></span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 子结构选择</span></span><br><span class="line">        <span class="variable language_">self</span>.substructure_predictor = nn.Linear(</span><br><span class="line">            hidden_dim, num_substructures</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 图组装网络</span></span><br><span class="line">        <span class="variable language_">self</span>.assembly_gnn = GINConv(</span><br><span class="line">            nn.Sequential(</span><br><span class="line">                nn.Linear(hidden_dim, hidden_dim),</span><br><span class="line">                nn.ReLU(),</span><br><span class="line">                nn.Linear(hidden_dim, hidden_dim)</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decode_tree</span>(<span class="params">self, z, max_nodes=<span class="number">10</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;解码团树&quot;&quot;&quot;</span></span><br><span class="line">        batch_size = z.shape[<span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 初始状态</span></span><br><span class="line">        h = z.unsqueeze(<span class="number">1</span>)  <span class="comment"># (batch, 1, latent_dim)</span></span><br><span class="line">        </span><br><span class="line">        tree_nodes = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(max_nodes):</span><br><span class="line">            <span class="comment"># 预测下一个子结构</span></span><br><span class="line">            logits = <span class="variable language_">self</span>.substructure_predictor(h[:, -<span class="number">1</span>, :])</span><br><span class="line">            probs = torch.softmax(logits, dim=-<span class="number">1</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 采样</span></span><br><span class="line">            next_node = torch.multinomial(probs, <span class="number">1</span>).squeeze(-<span class="number">1</span>)</span><br><span class="line">            tree_nodes.append(next_node)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># RNN更新</span></span><br><span class="line">            next_embed = <span class="variable language_">self</span>.substructure_embedding(next_node)</span><br><span class="line">            h_new, _ = <span class="variable language_">self</span>.tree_rnn(next_embed.unsqueeze(<span class="number">1</span>), h.transpose(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">            h = torch.cat([h, h_new.transpose(<span class="number">0</span>, <span class="number">1</span>)], dim=<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> torch.stack(tree_nodes, dim=<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">assemble_molecule</span>(<span class="params">self, tree_nodes, z</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;组装分子图&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 获取子结构表示</span></span><br><span class="line">        h = <span class="variable language_">self</span>.substructure_embedding(tree_nodes)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 融合隐空间信息</span></span><br><span class="line">        h = h + z.unsqueeze(<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 图组装GNN</span></span><br><span class="line">        <span class="comment"># 这里简化处理，实际需要构建分子图</span></span><br><span class="line">        <span class="keyword">return</span> h</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">JTVAE</span>(nn.Module):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Junction Tree VAE&quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim, hidden_dim, latent_dim, num_substructures</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        </span><br><span class="line">        <span class="variable language_">self</span>.encoder = MolecularEncoder(</span><br><span class="line">            input_dim, hidden_dim, latent_dim</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="variable language_">self</span>.decoder = JunctionTreeDecoder(</span><br><span class="line">            latent_dim, hidden_dim, num_substructures</span><br><span class="line">        )</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reparameterize</span>(<span class="params">self, mu, logvar</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;重参数化技巧&quot;&quot;&quot;</span></span><br><span class="line">        std = torch.exp(<span class="number">0.5</span> * logvar)</span><br><span class="line">        eps = torch.randn_like(std)</span><br><span class="line">        <span class="keyword">return</span> mu + eps * std</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;前向传播&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 编码</span></span><br><span class="line">        mu, logvar = <span class="variable language_">self</span>.encoder(</span><br><span class="line">            data.x, data.edge_index, data.batch</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 重参数化</span></span><br><span class="line">        z = <span class="variable language_">self</span>.reparameterize(mu, logvar)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 解码树结构</span></span><br><span class="line">        tree_nodes = <span class="variable language_">self</span>.decoder.decode_tree(z)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 组装分子</span></span><br><span class="line">        molecule = <span class="variable language_">self</span>.decoder.assemble_molecule(tree_nodes, z)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> molecule, mu, logvar</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">vae_loss</span>(<span class="params">recon, data, mu, logvar, beta=<span class="number">1.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;VAE损失函数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 重构损失</span></span><br><span class="line">    recon_loss = nn.MSELoss()(recon, data.x)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># KL散度</span></span><br><span class="line">    kl_loss = -<span class="number">0.5</span> * torch.<span class="built_in">sum</span>(<span class="number">1</span> + logvar - mu.<span class="built_in">pow</span>(<span class="number">2</span>) - logvar.exp())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> recon_loss + beta * kl_loss</span><br></pre></td></tr></table></figure>
+<hr>
+<h2><span id="关键创新">关键创新</span></h2><h3><span id="1-两阶段生成">1. 两阶段生成</span></h3><ul>
+<li><strong>树生成</strong>：保证子结构有效性</li>
+<li><strong>图组装</strong>：保证化学有效性</li>
+</ul>
+<h3><span id="2-团树分解">2. 团树分解</span></h3><ul>
+<li>处理环状结构</li>
+<li>层次化表示</li>
+<li>简化生成过程</li>
+</ul>
+<h3><span id="3-消息传递组装">3. 消息传递组装</span></h3><ul>
+<li>聚合子结构信息</li>
+<li>保持局部化学规则</li>
+<li>保证分子有效性</li>
+</ul>
+<hr>
+<h2><span id="实验结果">实验结果</span></h2><h3><span id="1-分子生成质量">1. 分子生成质量</span></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>有效性</th>
+<th>新颖性</th>
+<th>多样性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SMILES-RNN</td>
+<td>78.4%</td>
+<td>85.2%</td>
+<td>92.1%</td>
+</tr>
+<tr>
+<td>JT-VAE</td>
+<td>100%</td>
+<td>98.5%</td>
+<td>95.3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>JT-VAE保证100%有效性</strong></p>
+<h3><span id="2-分子优化">2. 分子优化</span></h3><p>在优化任务中（优化logP）：</p>
+<ul>
+<li>JT-VAE提升1.21 logP单位</li>
+<li>基线方法仅提升0.8 logP单位</li>
+</ul>
+<h3><span id="3-类药性">3. 类药性</span></h3><p>生成的分子在类药性指标上与训练集相当。</p>
+<hr>
+<h2><span id="优势与局限">优势与局限</span></h2><h3><span id="优势">优势</span></h3><ol>
+<li><strong>100%有效性</strong>：保证化学有效性</li>
+<li><strong>处理环结构</strong>：团树自然处理环</li>
+<li><strong>可解释性</strong>：树结构有化学意义</li>
+</ol>
+<h3><span id="局限">局限</span></h3><ol>
+<li><strong>预定义子结构</strong>：依赖子结构词典</li>
+<li><strong>生成速度</strong>：两阶段较慢</li>
+<li><strong>3D信息缺失</strong>：仅生成2D图</li>
+</ol>
+<hr>
+<h2><span id="后续发展">后续发展</span></h2><p>JT-VAE启发了大量后续工作：</p>
+<ul>
+<li><strong>GraphVAE</strong>：直接生成图</li>
+<li><strong>GraphAF</strong>：流式自回归生成</li>
+<li><strong>REINVENT</strong>：强化学习分子生成</li>
+<li><strong>EDM</strong>：3D等变扩散</li>
+</ul>
+<hr>
+<h2><span id="参考文献">参考文献</span></h2><ol>
+<li>Jin, W., Barzilay, R. &amp; Jaakkola, T. Junction Tree Variational Autoencoder for Molecular Graph Generation. <em>Proceedings of the 35th International Conference on Machine Learning</em>, 2018, 80, 2323-2332.</li>
+<li>Simonovsky, M. &amp; Komodakis, N. GraphVAE: Towards Generation of Small Graphs Using Variational Autoencoders. <em>arXiv:1802.03480</em>, 2018.</li>
+<li>Shi, C. et al. GraphAF: a Flow-based Autoregressive Model for Molecular Graph Generation. <em>arXiv:2001.09382</em>, 2020.</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/01-Junction-Tree-VAE/">https://xuxu20040407.github.io/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/01-Junction-Tree-VAE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">图神经网络</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E6%88%90/">分子生成</a><a class="post-meta__tags" href="/tags/VAE/">VAE</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/00-%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90%E7%BB%BC%E8%BF%B0/" title="分子结构生成：从序列到三维的深度生成模型"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">分子结构生成：从序列到三维的深度生成模型</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/02-EDM/" title="EDM：等变扩散3D分子生成"><img class="cover" src="/img/cover5.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">EDM：等变扩散3D分子生成</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/09-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C%E5%B1%95%E6%9C%9B/" title="其他哈密顿量网络：DeepH之外的风景"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">其他哈密顿量网络：DeepH之外的风景</div></div></a></div><div><a href="/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/00-%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90%E7%BB%BC%E8%BF%B0/" title="分子结构生成：从序列到三维的深度生成模型"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">分子结构生成：从序列到三维的深度生成模型</div></div></a></div><div><a href="/2026/08/24/%E7%BB%93%E6%9E%84%E7%94%9F%E6%88%90/02-EDM/" title="EDM：等变扩散3D分子生成"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">EDM：等变扩散3D分子生成</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="等变神经网络：原理与脉络"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">等变神经网络：原理与脉络</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="不变神经网络：从SchNet到GemNet"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">不变神经网络：从SchNet到GemNet</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/" title="DPA系列：从注意力势到大模型时代的精度-成本前沿"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">DPA系列：从注意力势到大模型时代的精度-成本前沿</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Junction Tree VAE：开创性图生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">论文信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">核心思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">方法详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 分子图表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 解码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 训练目标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">代码示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">关键创新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 两阶段生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 团树分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 消息传递组装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.6.</span> <span class="toc-text">实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. 分子生成质量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. 分子优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.3.</span> <span class="toc-text">3. 类药性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.7.</span> <span class="toc-text">优势与局限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.1.</span> <span class="toc-text">优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.2.</span> <span class="toc-text">局限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.8.</span> <span class="toc-text">后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.9.</span> <span class="toc-text">参考文献</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

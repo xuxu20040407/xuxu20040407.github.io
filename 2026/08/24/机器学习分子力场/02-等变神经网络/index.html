@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>等变神经网络：原理与脉络 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引言：从不变到等变 数学准备 群与表示 不可约表示与球谐函数 张量积与耦合   等变网络的基本构造 发展简史 代价与收益  引言：从不变到等变我们在 机器学习分子力场：综述 和 不变神经网络：从SchNet到GemNet 的结尾都提到了同一个矛盾：能量是旋转不变的标量，但力是旋转等变的矢量。不变网络把中间表示压成标量，等于强迫所有张量信息走”标量化→存储→求导还原”的迂回路线。等变神经网络的思路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="等变神经网络：原理与脉络">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="引言：从不变到等变 数学准备 群与表示 不可约表示与球谐函数 张量积与耦合   等变网络的基本构造 发展简史 代价与收益  引言：从不变到等变我们在 机器学习分子力场：综述 和 不变神经网络：从SchNet到GemNet 的结尾都提到了同一个矛盾：能量是旋转不变的标量，但力是旋转等变的矢量。不变网络把中间表示压成标量，等于强迫所有张量信息走”标量化→存储→求导还原”的迂回路线。等变神经网络的思路">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2026-08-24T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-09T01:47:36.486Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="图神经网络">
+<meta property="article:tag" content="分子力场">
+<meta property="article:tag" content="群论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '等变神经网络：原理与脉络',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-09 09:47:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">等变神经网络：原理与脉络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-24T02:00:00.000Z" title="发表于 2026-08-24 10:00:00">2026-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-09T01:47:36.486Z" title="更新于 2026-09-09 09:47:36">2026-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">机器学习分子力场</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="等变神经网络：原理与脉络"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#引言从不变到等变">引言：从不变到等变</a></li>
+<li><a href="#数学准备">数学准备</a><ul>
+<li><a href="#群与表示">群与表示</a></li>
+<li><a href="#不可约表示与球谐函数">不可约表示与球谐函数</a></li>
+<li><a href="#张量积与耦合">张量积与耦合</a></li>
+</ul>
+</li>
+<li><a href="#等变网络的基本构造">等变网络的基本构造</a></li>
+<li><a href="#发展简史">发展简史</a></li>
+<li><a href="#代价与收益">代价与收益</a></li>
+</ul>
+<h1><span id="引言从不变到等变">引言：从不变到等变</span></h1><p>我们在 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA%E7%BB%BC%E8%BF%B0/" title="机器学习分子力场：综述">机器学习分子力场：综述</a> 和 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="不变神经网络：从SchNet到GemNet">不变神经网络：从SchNet到GemNet</a> 的结尾都提到了同一个矛盾：能量是旋转不变的标量，但力是旋转等变的矢量。不变网络把中间表示压成标量，等于强迫所有张量信息走”标量化→存储→求导还原”的迂回路线。等变神经网络的思路则截然相反：<strong>既然物理定律在$E(3)$群作用下具有协变性，不如让网络的每一层都保持这种协变性</strong>。</p>
+<p>形式化地说，对群$G$和其表示$\rho$，若映射$f$满足</p>
+<script type="math/tex; mode=display">f\left(\rho_{\mathrm{in}}(g)\,x\right)=\rho_{\mathrm{out}}(g)\,f(x),\quad \forall g\in G</script><p>则称$f$关于$G$<strong>等变</strong>（equivariant）；当$\rho_{\mathrm{out}}$取平凡表示时，它退化为<strong>不变</strong>（invariant）。力场问题恰好同时需要两者：能量头输出不变标量，力头输出等变矢量，而后者可以由前者对坐标求导自动获得——前提是整个网络严格等变。</p>
+<h1><span id="数学准备">数学准备</span></h1><h2><span id="群与表示">群与表示</span></h2><p>分子模拟关心的对称群是欧几里得群$E(3)$：平移、旋转、反射的全体。平移通常通过以相对坐标$\vec{r}_{ij}$为输入来平凡地处理；反射的处理则见仁见智（手性问题需要区分对映异构体时必须破坏镜面对称），多数力场模型选择只对$SO(3)$（真旋转）等变、对宇称做适当标注。所以核心困难集中在$SO(3)$上。</p>
+<p>群的<strong>表示</strong>是把群元映为矩阵的同态：$\rho:G\to GL(V)$。表示可以被分解为<strong>不可约表示</strong>（irreducible representation, irrep）的直和——它们是不能继续分解的最小构件。</p>
+<h2><span id="不可约表示与球谐函数">不可约表示与球谐函数</span></h2><p>$SO(3)$的不可约表示由角动量量子数$l=0,1,2,\dots$标记，维度为$2l+1$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$l$</th>
+<th>维度</th>
+<th>物理对应</th>
+<th>宇称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>标量（能量、电荷）</td>
+<td>偶/奇</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>矢量（力、偶极矩）</td>
+<td>偶/奇</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>二阶张量（极化率）</td>
+<td>偶/奇</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>$l&gt;0$的irrep不是实数数组意义上的向量，而是球谐函数展开系数：任何定义在球面上的函数都可以用球谐函数$Y_l^m(\hat{r})$展开，</p>
+<script type="math/tex; mode=display">f(\hat{r})=\sum_{l=0}^{\infty}\sum_{m=-l}^{l} f_l^m\, Y_l^m(\hat{r})</script><p>旋转作用在系数上的矩阵就是Wigner D矩阵：$\rho_l(R)_{mm’}=D^l_{mm’}(R)$。一个等变特征向量的通用形态是若干irrep的直和：</p>
+<script type="math/tex; mode=display">h_i=\bigoplus_{l} h_i^{(l)},\quad h_i^{(l)}\in\mathbb{R}^{2l+1}</script><p>例如NequIP默认使用到$l_{\max}=1$或$2$的特征，MACE常用到$l_{\max}=2$或$3$，EquiformerV2甚至用到$l_{\max}=8$——阶数越高，角度分辨能力越强，计算量也越大。</p>
+<h2><span id="张量积与耦合">张量积与耦合</span></h2><p>两个irrep如何组合出第三个？答案是Clebsch-Gordan级数（耦合张量积）：</p>
+<script type="math/tex; mode=display">a^{(l_1)}\otimes b^{(l_2)}=\bigoplus_{l=|l_1-l_2|}^{l_1+l_2} c^{(l)},\quad c^{(l_m)}=\sum_{m_1,m_2} C^{(l_m,m)}_{(l_1,m_1)(l_2,m_2)}\,a^{(l_1)}_{m_1}\,b^{(l_2)}_{m_2}</script><p>其中$C$是Clebsch-Gordan系数——本质上就是量子力学里角动量耦合的那套系数。这个运算有一个决定性的优点：<strong>它是天然等变的</strong>，两个等变张量的张量积仍然等变。等变网络的全部积木——卷积、非线性、注意力——最终都要靠它搭出来。</p>
+<p>最简单也最重要的例子：把邻居方向$\hat{r}_{ij}$用球谐函数展开得到等变滤波器$Y_l(\hat{r}_{ij})$，与邻居特征$h_j$做张量积再径向加权求和，就得到一个等变版本的图卷积——这正是Tensor Field Network和NequIP的核心算子。</p>
+<p>还有一个工程上极其重要的恒等式。当两个irrep相同时，耦合张量积可以写成显式的对称形式：</p>
+<script type="math/tex; mode=display">\left(a^{(l)}\otimes b^{(l)}\right)^{(L)}=\frac{(-1)^L}{\sqrt{2L+1}}\sum_m C^{(L,0)}_{(l,m)(l,-m)}\, a^{(l)}_m\,b^{(l)}_{-m}</script><p>eSCN正是利用这类结构把稠密的CG张量积稀疏化，才让高阶$L$的计算变得可行（详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/07-eSCN/" title="eSCN：把SO(3)卷积拆成稀疏矩阵">eSCN：把SO(3)卷积拆成稀疏矩阵</a> ）。</p>
+<h1><span id="等变网络的基本构造">等变网络的基本构造</span></h1><p>有了上面的语言，一个典型的等变消息传递层可以这样组装：</p>
+<ol>
+<li><strong>嵌入层</strong>：原子种类和距离编码为标量特征（$l=0$），坐标$\hat{r}_{ij}$展开为球谐矢量$Y_l(\hat{r}_{ij})$；</li>
+<li><strong>等变卷积</strong>：$h_i^{(l)}\leftarrow \sum_j W(r_{ij})\left(Y^{(l)}(\hat{r}_{ij})\otimes h_j\right)^{(l)}$；</li>
+<li><strong>等变非线性</strong>：难点所在——普通激活函数作用在irrep分量上会破坏等变性。标准方案是<strong>门控</strong>（gating）：用$l=0$的标量特征经sigmoid生成门控信号去缩放高阶分量，或者使用S² Activation（在球面上做傅里叶变换、逐点激活、再变换回来）；</li>
+<li><strong>输出头</strong>：能量取$l=0$分量的聚合；力由$\vec{F}_i=-\partial E/\partial \vec{r}_i$给出，由于全网络等变，求导后的力自动等变，无需任何后处理。</li>
+</ol>
+<p>实践中的实现几乎都依赖<code>e3nn</code>库——它提供了irrep张量的数据结构、CG张量积和Wigner D矩阵的高效计算，是整个等变生态的地基。</p>
+<h1><span id="发展简史">发展简史</span></h1><p>等变网络的思想并非力场领域的发明，这里按时间顺序梳理关键节点：</p>
+<ul>
+<li><strong>2018年，Tensor Field Networks（Thomas et al.）</strong>：奠基之作，首次提出基于球谐函数和张量积的等变点云网络，并在简单的分子能量回归上验证了样本效率优势。</li>
+<li><strong>2019年，SE(3)等变的3D CNN（Weiler et al.）与Cormorant</strong>：将等变卷积推广到体积数据；Cormorant首次用于分子势能面并引入软等变思想。</li>
+<li><strong>2020年，SE(3)-Transformer（Fuchs et al., NeurIPS）</strong>：把等变性与注意力机制结合，注意力权重本身设计为不变标量，从而不破坏等变性。它证明了”等变+Transformer”的兼容性，为后来的Equiformer铺路。</li>
+<li><strong>2021年，NequIP（Batzner et al., Nature Communications）</strong>：第一个在真实力场基准上展示数量级样本效率提升的等变消息传递模型，一锤定音地宣告等变架构的价值，MLIP领域从此转向。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/03-NequIP/" title="NequIP：等变消息传递的开山之作">NequIP：等变消息传递的开山之作</a> 。</li>
+<li><strong>2022年，Allegro（Musaelian et al.）</strong>：strictly-local的等变架构，绕开全局消息传递，为超大规模并行模拟而生。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-Allegro/" title="Allegro：为十亿原子而生的严格局域等变势">Allegro：为十亿原子而生的严格局域等变势</a> 。</li>
+<li><strong>2022年，MACE（Batatia et al., Commun. Physics）</strong>：把多体关联（ACE思想）注入等变框架，用更少的层数达到更高的表达力，后来成为通用大模型时代的主力架构之一。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/05-MACE/" title="MACE：高阶等变消息传递与原子簇展开">MACE：高阶等变消息传递与原子簇展开</a> 。</li>
+<li><strong>2022–2024年，Equiformer系列（Liao et al.）</strong>：等变Transformer的系统化，v1验证可行性，v2借eSCN卷积把可扩展性推到大模型级别，v3完成工程优化与精度收官。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/06-Equiformer%E7%B3%BB%E5%88%97/" title="Equiformer系列：等变Transformer的三级跳">Equiformer系列：等变Transformer的三级跳</a> 。</li>
+<li><strong>2023–2024年，eSCN与eSEN（Passaro &amp; Zitnick；Fu et al.）</strong>：分别解决了高阶张量积的计算瓶颈和力的质量问题，是OC20榜单上两代标杆。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/07-eSCN/" title="eSCN：把SO(3)卷积拆成稀疏矩阵">eSCN：把SO(3)卷积拆成稀疏矩阵</a> 与 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/07-eSEN/" title="eSEN：平滑能量网络与力的质量">eSEN：平滑能量网络与力的质量</a> 。</li>
+</ul>
+<h1><span id="代价与收益">代价与收益</span></h1><p>等变不是免费的午餐。它的代价包括：CG张量积的计算量随$l_{\max}$急剧增长；实现复杂度高、调试困难；对小体系而言可能过度参数化。</p>
+<p>但收益同样是结构性的：<strong>样本效率的数量级提升</strong>（NequIP在MD17上只需千分之一的数据即可匹配不变网络）、<strong>物理量预测的正确归纳偏置</strong>（矢量性质直接输出而非靠求导拼凑）、以及<strong>跨元素、跨化学空间的外推能力</strong>——最后这一点正是通用大模型时代得以开启的技术前提。</p>
+<p>下一篇文章我们从NequIP开始，逐一解析这些模型。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">图神经网络</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">分子力场</a><a class="post-meta__tags" href="/tags/%E7%BE%A4%E8%AE%BA/">群论</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/03-NequIP/" title="NequIP：等变消息传递的开山之作"><img class="cover" src="/img/cover5.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NequIP：等变消息传递的开山之作</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="不变神经网络：从SchNet到GemNet"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">不变神经网络：从SchNet到GemNet</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/01-%E4%B8%8D%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="不变神经网络：从SchNet到GemNet"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">不变神经网络：从SchNet到GemNet</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/" title="DPA系列：从注意力势到大模型时代的精度-成本前沿"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">DPA系列：从注意力势到大模型时代的精度-成本前沿</div></div></a></div><div><a href="/2026/08/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/12-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-29</div><div class="title">调度器：学习率的时间表</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/09-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C%E5%B1%95%E6%9C%9B/" title="其他哈密顿量网络：DeepH之外的风景"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">其他哈密顿量网络：DeepH之外的风景</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/11-%E4%BC%98%E5%8C%96%E5%99%A8/" title="优化器：从SGD、AdamW到Muon与SOAP"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">优化器：从SGD、AdamW到Muon与SOAP</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/10-%E9%80%9A%E7%94%A8%E5%8A%BF%E6%A8%A1%E5%9E%8B/" title="通用势模型巡礼：从MACE-MP-0到UMA"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">通用势模型巡礼：从MACE-MP-0到UMA</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">引言：从不变到等变</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">数学准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">群与表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">不可约表示与球谐函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">张量积与耦合</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">等变网络的基本构造</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">发展简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">代价与收益</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

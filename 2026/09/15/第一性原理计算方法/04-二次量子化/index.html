@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>04 二次量子化 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="置换对称性 Fock 空间、产生与湮灭算符 二次量子化中的算符 费米子 在紧束缚模型中的应用 Hubbard 模型  二次量子化是处理全同粒子的便利方法。参考：Schwabl《Advanced Quantum Mechanics》第 1 章、Altland &amp; Simons《Condensed Matter Field Theory》第 2 章。 置换对称性从初等量子力学我们知道，给全同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="04 二次量子化">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="置换对称性 Fock 空间、产生与湮灭算符 二次量子化中的算符 费米子 在紧束缚模型中的应用 Hubbard 模型  二次量子化是处理全同粒子的便利方法。参考：Schwabl《Advanced Quantum Mechanics》第 1 章、Altland &amp; Simons《Condensed Matter Field Theory》第 2 章。 置换对称性从初等量子力学我们知道，给全同">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-09-15T05:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:30:03.541Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="第一性原理计算方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '04 二次量子化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-16 13:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">04 二次量子化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-15T05:00:00.000Z" title="发表于 2026-09-15 13:00:00">2026-09-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T05:30:03.541Z" title="更新于 2026-09-16 13:30:03">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">第一性原理计算方法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="04 二次量子化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#置换对称性">置换对称性</a></li>
+<li><a href="#fock-空间产生与湮灭算符">Fock 空间、产生与湮灭算符</a></li>
+<li><a href="#二次量子化中的算符">二次量子化中的算符</a></li>
+<li><a href="#费米子">费米子</a></li>
+<li><a href="#在紧束缚模型中的应用">在紧束缚模型中的应用</a></li>
+<li><a href="#hubbard-模型">Hubbard 模型</a></li>
+</ul>
+<p>二次量子化是处理全同粒子的便利方法。参考：Schwabl《Advanced Quantum Mechanics》第 1 章、Altland &amp; Simons《Condensed Matter Field Theory》第 2 章。</p>
+<h1><span id="置换对称性">置换对称性</span></h1><p>从初等量子力学我们知道，给全同粒子贴标签没有意义。但要为全同粒子建立严格的数学基础，先<strong>假设可以贴标签</strong>——即先假设每个粒子都不同。</p>
+<p>对 $N$ 个粒子，量子态一般可写为：</p>
+<script type="math/tex; mode=display">
+|\Psi\rangle = \sum_{\alpha,\beta,\gamma,\ldots}\Psi(\alpha,\beta,\gamma,\ldots)|\alpha\rangle_1|\beta\rangle_2|\gamma\rangle_3\cdots</script><p>$|\alpha\rangle_1|\beta\rangle_2|\gamma\rangle_3\cdots$ 表示粒子 1 处于 $\alpha$ 态、粒子 2 处于 $\beta$ 态……这是直积态，所有直积态张成 $N$ 粒子的希尔伯特空间。</p>
+<p><strong>置换算符</strong> $\hat P$ 循环地置换粒子，例如：</p>
+<script type="math/tex; mode=display">
+\hat P_{12}|\alpha\rangle_1|\beta\rangle_2|\gamma\rangle_3 = |\alpha\rangle_2|\beta\rangle_1|\gamma\rangle_3 = |\beta\rangle_1|\alpha\rangle_2|\gamma\rangle_3</script><p>所有置换都可用循环置换的乘积表示。$N$ 个对象的置换群 $S_N$ 有 $N!$ 个元素。置换算符的性质：</p>
+<ol>
+<li>$\hat P_{ij}^2 = 1$，本征值 $\pm1$；</li>
+<li>$\hat P$ 是酉对称：$\langle\hat P\Psi_i|\hat P\Psi_j\rangle = \langle\Psi_i|\Psi_j\rangle$；</li>
+<li>对每个对称算符 $\hat O$，$\hat P\hat O = \hat O\hat P$——这是对称算符的定义，且 $\langle\hat P\Psi_i|\hat O|\hat P\Psi_j\rangle = \langle\Psi_i|O|\Psi_j\rangle$。<strong>所有物理可观测量（包括哈密顿量）都应是对称算符</strong>；</li>
+<li>若 $|\Psi\rangle$ 是 $\hat H$ 的本征态，$\hat P|\Psi\rangle$ 也是 $\hat H$ 的本征态（本征值相同）。</li>
+</ol>
+<p>从三粒子直积态 $|\alpha\rangle|\beta\rangle|\gamma\rangle$ 出发，作用所有置换得到 6 个态。可以形成置换不变（$S_3$ 不可约表示）的线性空间：</p>
+<ol>
+<li><strong>对称空间</strong>（1 维）：所有 $P_{ij}$ 本征值均为 $+1$ 的态；</li>
+<li><strong>反对称空间</strong>（1 维）：所有 $P_{ij}$ 本征值均为 $-1$ 的态；</li>
+<li><strong>两个二维空间</strong>：在全部置换下封闭，但既不对称也不反对称（这就是第 1 讲 Fock 空间讨论中的”混合对称态”/仲粒子方向）。</li>
+</ol>
+<p>对全同粒子，公认相关的希尔伯特空间是对称空间或反对称空间。构造（反）对称化态的一般方式：</p>
+<script type="math/tex; mode=display">
+\hat S_\pm|i_1,i_2,\ldots,i_N\rangle = \frac{1}{N!}\sum_P(\pm1)^P\hat P|i_1,i_2,\ldots,i_N\rangle</script><p>（$P$ 也滥用记号表示置换所需的交换次数。）$\hat S_+$ 对应玻色子、$\hat S_-$ 对应费米子。<strong>二次量子化就是方便地处理这些态的方法</strong>。$\hat S_\pm$ 的性质：</p>
+<ol>
+<li>若 $\{i_1,\ldots,i_N\}$ 中有任意两个（或更多）态相同，$\hat S_-|i_1,\ldots,i_N\rangle = 0$——<strong>泡利不相容原理</strong>（可由 $\hat P\hat S_- = (-1)^P\hat S_-$ 证明）；</li>
+<li>$\hat S_+|i_1,\ldots\rangle$ 不一定归一化：若态 1 重复 $n_1$ 次、态 2 重复 $n_2$ 次……则 $\langle i_1,\ldots|\hat S_+^\dagger\hat S_+|i_1,\ldots\rangle = n_1!\,n_2!\cdots n_N!$。</li>
+</ol>
+<h1><span id="fock-空间-产生与湮灭算符">Fock 空间、产生与湮灭算符</span></h1><h2><span id="玻色子">玻色子</span></h2><p>对玻色子用 $\hat S_+$。<strong>占据数表示</strong>：</p>
+<script type="math/tex; mode=display">
+|n_1,n_2,\ldots\rangle = \hat S_+|i_1,i_2,\ldots,i_N\rangle\frac{1}{\sqrt{n_1!n_2!\cdots}}</script><p>其中 $n_i\geq0$，$\sum_i n_i = N$。这个表示可行是因为对称态的构造只需占据数信息。$N$ 粒子体系中 $|n_1,n_2,\ldots\rangle$（满足上述约束）是完备正交基。</p>
+<p>允许体系改变粒子数很有用，因此定义 <strong>Fock 空间</strong>为 0、1、2、… 粒子希尔伯特空间的直和。为在不同粒子数空间之间跳转，定义<strong>产生算符</strong>：</p>
+<script type="math/tex; mode=display">
+\hat a_i^\dagger|\ldots,n_i,\ldots\rangle = \sqrt{n_i+1}\,|\ldots,n_i+1,\ldots\rangle</script><p>它把 $N$ 粒子空间连到 $N+1$ 粒子空间。产生算符的厄米共轭是<strong>湮灭算符</strong>（用完备性展开可得）：</p>
+<script type="math/tex; mode=display">
+\hat a_i|\ldots,n_i,\ldots\rangle = \sqrt{n_i}\,|\ldots,n_i-1,\ldots\rangle</script><p>特例 $\hat a_i|\ldots,0,\ldots\rangle = 0$。产生湮灭算符的对易关系非常简单：</p>
+<script type="math/tex; mode=display">
+[\hat a_i,\hat a_j] = 0, \qquad [\hat a_i^\dagger,\hat a_j^\dagger] = 0, \qquad [\hat a_i,\hat a_j^\dagger] = \delta_{ij}</script><p>占据数表示可写为：</p>
+<script type="math/tex; mode=display">
+|n_1,n_2,\ldots\rangle = \frac{1}{\sqrt{n_1!n_2!\cdots}}(\hat a_1^\dagger)^{n_1}(\hat a_2^\dagger)^{n_2}\cdots|0\rangle</script><p>其中 $|0\rangle$ 是<strong>无粒子态</strong> $|0,0,\ldots\rangle$。注意区分 $|0\rangle$ 与数字 0。</p>
+<h1><span id="二次量子化中的算符">二次量子化中的算符</span></h1><p><strong>粒子数算符</strong>：$\hat n_i = \hat a_i^\dagger\hat a_i$，满足 $\hat n_i|\ldots,n_i,\ldots\rangle = n_i|\ldots\rangle$，总粒子数 $\hat N = \sum_i\hat n_i$。</p>
+<p><strong>单体算符</strong>：二次量子化形式的原则是必须与第一量子化的性质一致。占据数表示中，物理可观测量是所有粒子的求和：</p>
+<script type="math/tex; mode=display">
+\hat T = \sum_{i,j}t_{ij}\sum_\alpha|i\rangle_\alpha\langle j|_\alpha, \qquad t_{ij} = \langle i|\hat t|j\rangle</script><p>例如总动能 $\frac1{2m}(\hat p_1^2+\hat p_2^2+\cdots)$。作用在占据数态上（$i\neq j$）：</p>
+<script type="math/tex; mode=display">
+\sum_\alpha|i\rangle_\alpha\langle j|_\alpha|\ldots,n_i,\ldots,n_j,\ldots\rangle = \sqrt{\frac{n_j}{n_i+1}}\sqrt{n_i+1}\frac{n_j}{\sqrt{n_j}}\cdots = \hat a_i^\dagger\hat a_j|\ldots,n_i,\ldots,n_j,\ldots\rangle</script><p>从而<strong>单体算符的一般形式</strong>：</p>
+<script type="math/tex; mode=display">
+\boxed{\ \hat T = \sum_{i,j}t_{ij}\,\hat a_i^\dagger\hat a_j\ }</script><p>也可以从基变换角度论证：若 $\{|i\rangle\}$ 与 $\{|\lambda\rangle\}$ 两组单粒子基满足 $|\lambda\rangle = \sum_i|i\rangle\langle i|\lambda\rangle$，则 $\hat b_\lambda^\dagger = \sum_i\hat a_i^\dagger\langle i|\lambda\rangle$、$\hat b_\lambda = \sum_i\hat a_i\langle\lambda|i\rangle$。若 $\lambda$ 是 $\hat t$ 的本征基，$T = \sum_\lambda t_\lambda\hat b_\lambda^\dagger\hat b_\lambda = \sum_{i,j}t_{ij}\hat a_i^\dagger\hat a_j$。</p>
+<p><strong>两体算符</strong>：最常见的形式是</p>
+<script type="math/tex; mode=display">
+\hat F = \frac12\sum_{\alpha\neq\beta}f(\hat{\mathbf r}_\alpha,\hat{\mathbf r}_\beta) = \frac12\sum_{\substack{\alpha\neq\beta\\ i,j,k,m}}\langle i,j|f|k,m\rangle|i\rangle_\alpha|j\rangle_\beta\langle k|_\alpha\langle m|_\beta</script><p>其中 $\langle i,j|f|k,m\rangle = \int dr\,dr’\varphi_i^<em>(r)\varphi_j^</em>(r’)f(r,r’)\varphi_k(r)\varphi_m(r’)$。利用</p>
+<script type="math/tex; mode=display">
+\sum_{\alpha\neq\beta}|i\rangle_\alpha|j\rangle_\beta\langle k|_\alpha\langle m|_\beta = \hat a_i^\dagger\hat a_j^\dagger\hat a_k\hat a_m</script><p>得<strong>两体算符的一般形式</strong>：</p>
+<script type="math/tex; mode=display">
+\boxed{\ \hat F = \frac12\sum_{i,j,k,m}\langle i,j|f|k,m\rangle\,\hat a_i^\dagger\hat a_j^\dagger\hat a_k\hat a_m\ }</script><h1><span id="费米子">费米子</span></h1><p>费米子有反对称态，与玻色子差一个<strong>符号因子</strong>——这个因子至关重要，因为占据数不再唯一确定态。费米子多体态可写成 Slater 行列式（行列式的性质直接给出 $\hat S_-|i_1,\ldots\rangle = -\hat S_-|i_2,i_1,\ldots\rangle$，即泡利原理的体现）。</p>
+<p>定义产生算符满足 $S_-|i_1,\ldots,i_N\rangle = \hat a_{i_1}^\dagger\hat a_{i_2}^\dagger\cdots\hat a_{i_N}^\dagger|0\rangle$，立即得到<strong>反对易关系</strong> $\{\hat a_i^\dagger,\hat a_j^\dagger\}=0$（$\{\cdot\}$ 表示反对易子），从而 $(\hat a_i^\dagger)^2 = 0$——泡利不相容的又一体现。</p>
+<p>占据数表示依赖单粒子态的特定排序。选定排序后，$|n_1,n_2,\ldots\rangle = (\hat a_1^\dagger)^{n_1}(\hat a_2^\dagger)^{n_2}\cdots|0\rangle$，$n_i\in\{0,1\}$。产生与湮灭算符的作用为：</p>
+<script type="math/tex; mode=display">
+\hat a_i^\dagger|n_1,\ldots\rangle = (1-n_i)(-1)^{\sum_{j<i}n_j}|\ldots,n_i+1,\ldots\rangle, \qquad
+\hat a_i|\ldots,n_i,\ldots\rangle = n_i(-1)^{\sum_{j<i}n_j}|\ldots,n_i-1,\ldots\rangle</script><p>容易验证正则反对易关系：</p>
+<script type="math/tex; mode=display">
+\{\hat a_i^\dagger,\hat a_j^\dagger\} = 0, \qquad \{\hat a_i,\hat a_j\} = 0, \qquad \{\hat a_i,\hat a_j^\dagger\} = \delta_{ij}</script><p>单体与两体算符的形式与玻色子相同（注意产生/湮灭算符的<strong>顺序</strong>）：</p>
+<script type="math/tex; mode=display">
+\hat T = \sum_{i,j}t_{ij}\hat a_i^\dagger\hat a_j, \qquad \hat F = \frac12\sum_{i,j,k,m}\langle i,j|f|k,m\rangle\hat a_i^\dagger\hat a_j^\dagger\hat a_m\hat a_k</script><blockquote>
+<p><strong>问题 1</strong>：可以忽略符号定义 $\hat a_i^\dagger|n_1,\ldots\rangle = (1-n_i)|\ldots,n_i+1,\ldots\rangle$ 吗？<strong>答</strong>：可以，有时甚至有用——这就是 <strong>Jordan-Wigner 变换</strong>。它在 1D 有用，一般高维不适用。</p>
+</blockquote>
+<h1><span id="在紧束缚模型中的应用">在紧束缚模型中的应用</span></h1><p>关注电子（费米子）。无二次量子化时哈密顿量为</p>
+<script type="math/tex; mode=display">
+\hat H = \sum_\alpha\left[\frac{\hat p_\alpha^2}{2m} + V_{ext}(\mathbf r_\alpha)\right] + \sum_{\alpha\neq\beta}V(\mathbf r_\alpha-\mathbf r_\beta)</script><p>（动能 + 外势 + 电子-电子相互作用）。</p>
+<p><strong>紧束缚近似</strong>假设由于强外势，电子主要生活在轨道（大多围绕原子）的希尔伯特空间内。因此单粒子态就是这些轨道。按二次量子化规则，动能与外势写成 $\sum_{i,j}t_{ij}\hat a_i^\dagger\hat a_j$，其中</p>
+<script type="math/tex; mode=display">
+t_{ij} = \int dr\,\varphi_i^*(r)\left[\frac{\hat p^2}{2m} + V(r)\right]\varphi_j(r)</script><p>“紧束缚”得名于轨道非常局域，$t_{ij}\neq0$ 仅当轨道 $i$ 与 $j$ 距离足够小。电子-电子相互作用部分为 $\sum_{i,i’,j,j’}U_{ii’jj’}\hat a_{i\sigma}^\dagger\hat a_{i’\sigma’}^\dagger\hat a_{j’\sigma’}\hat a_{j\sigma}$，其中 $U_{ii’jj’} = \int drdr’\varphi_i^<em>(r)\varphi_{i’}^</em>(r’)V(r-r’)\varphi_j(r)\varphi_{j’}(r’)$（这里给每个轨道加了自旋 $\sigma$）。</p>
+<p>重要的相互作用项：</p>
+<ul>
+<li><strong>直接密度-密度相互作用</strong>：$\sum_{i\neq j}V_{ij}\hat n_i\hat n_j$，其中 $V_{ij} = U_{ijij}$，$\hat n_i = \sum_\sigma\hat a_{i\sigma}^\dagger\hat a_{i\sigma}$；</li>
+<li><strong>交换耦合</strong>：$\sum_{i\neq j,\sigma,\sigma’}U_{ijji}\hat a_{i\sigma}^\dagger\hat a_{j\sigma’}^\dagger\hat a_{i\sigma’}\hat a_{j\sigma} = -\sum_{i\neq j}\frac12 J_{ij}(\hat{\mathbf S}_i\cdot\hat{\mathbf S}_j + \hat n_i\hat n_j)$，诱导相邻轨道间的铁磁相互作用；</li>
+<li><strong>Hubbard 相互作用</strong>：$\sum_{i,\sigma,\sigma’}U_{iiii}\hat a_{i\sigma}^\dagger\hat a_{i\sigma’}^\dagger\hat a_{i\sigma’}\hat a_{i\sigma} = \sum_i U\hat n_{i\uparrow}\hat n_{i\downarrow}$。</li>
+</ul>
+<blockquote>
+<p><strong>问题 2</strong>：上面哪些相互作用大、哪些小？<strong>答</strong>：Hubbard &gt; 密度-密度 &gt; 交换。</p>
+</blockquote>
+<h1><span id="hubbard-模型">Hubbard 模型</span></h1><p>只保留 Hubbard 相互作用，Hubbard 模型为：</p>
+<script type="math/tex; mode=display">
+\hat H = \sum_{i,j}t_{ij}\hat a_i^\dagger\hat a_j + \sum_i U\hat n_{i\uparrow}\hat n_{i\downarrow}</script><p>Hubbard 模型是强关联凝聚态物理中最重要的模型。任意填充下都未求解。半满、大 $U$ 时偏好反铁磁序；半满少一个电子、大 $U$ 时 Nagaoka 证明了（无限大相互作用与一定晶格条件下）体系呈铁磁性。</p>
+<p>半满的反铁磁序很好理解。设只有两个轨道，只有六个态：$|!\uparrow,\downarrow\rangle$、$|!\downarrow,\uparrow\rangle$、$|!\uparrow,\uparrow\rangle$、$|!\downarrow,\downarrow\rangle$、$|2,0\rangle$、$|0,2\rangle$。取大 $U$ 极限，前四个态能量最低，且只有相互作用项时能量相同。但计入动能项后，$|!\uparrow,\downarrow\rangle$、$|!\downarrow,\uparrow\rangle$ 可以连接到 $|2,0\rangle$、$|0,2\rangle$ 来降低能量，而平行自旋的两个态不能——于是<strong>反铁磁</strong>被偏好。（这正是第 5 讲 Hessenberg 交换 $J = 4t^2/U$ 的两格点直觉，也是第 3 讲之后研究项目的基础。）</p>
+<blockquote>
+<p><strong>研究项目</strong>：用 Hartree-Fock 计算证明：三角格子上 Hubbard 模型在大 $U$ 下，$120^\circ$ 反铁磁态是平均场基态。</p>
+<p><strong>思考题</strong></p>
+<ol>
+<li>为什么全同粒子体系要么对称、要么反对称？对称空间与反对称空间的交集是什么？</li>
+<li>费米子产生算符前的 $(-1)^{\sum_{j&lt;i}n_j}$ 因子为什么必要？去掉它会发生什么（Jordan-Wigner）？</li>
+<li>从 Hubbard 模型的两格点图像理解：为什么反平行自旋能通过虚跃迁降低能量，平行自旋不能？</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/">https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">第一性原理计算方法</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img class="cover" src="/img/cover5.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">05 Hartree-Fock 近似</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/03-Born-Oppenheimer%E8%BF%91%E4%BC%BC/" title="03 Born-Oppenheimer 近似"><img class="cover" src="/img/cover2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">03 Born-Oppenheimer 近似</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">09 交换关联泛函 II</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">08 交换关联泛函 I</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">07 Kohn-Sham 方程</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">06 密度泛函理论基础</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">05 Hartree-Fock 近似</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/03-Born-Oppenheimer%E8%BF%91%E4%BC%BC/" title="03 Born-Oppenheimer 近似"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">03 Born-Oppenheimer 近似</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">置换对称性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Fock 空间、产生与湮灭算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">玻色子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">二次量子化中的算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">费米子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">在紧束缚模型中的应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">Hubbard 模型</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

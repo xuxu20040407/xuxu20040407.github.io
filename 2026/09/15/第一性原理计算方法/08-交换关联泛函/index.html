@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>08 交换关联泛函 I | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="精确交换 E_xc 的精确表示 Jellium 模型与密度泛函理论 局域密度近似（LDA）  本讲介绍交换关联泛函 $E_{xc}[n]$ 最常用的近似。参考：Engel &amp; Dreizler 第 4 章、Martin 第 8-9 章、Giuliani &amp; Vignale 第 6 章。 精确交换惯例上把交换关联泛函分解为：  E_{xc}[n] &#x3D; E_x[n] + E_c[n]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08 交换关联泛函 I">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="精确交换 E_xc 的精确表示 Jellium 模型与密度泛函理论 局域密度近似（LDA）  本讲介绍交换关联泛函 $E_{xc}[n]$ 最常用的近似。参考：Engel &amp; Dreizler 第 4 章、Martin 第 8-9 章、Giuliani &amp; Vignale 第 6 章。 精确交换惯例上把交换关联泛函分解为：  E_{xc}[n] &#x3D; E_x[n] + E_c[n]">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover1.jpeg">
+<meta property="article:published_time" content="2026-09-15T07:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:30:03.516Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="第一性原理计算方法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover1.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '08 交换关联泛函 I',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-16 13:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">08 交换关联泛函 I</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T05:30:03.516Z" title="更新于 2026-09-16 13:30:03">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">第一性原理计算方法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="08 交换关联泛函 I"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#精确交换">精确交换</a></li>
+<li><a href="#e_xc-的精确表示">E_xc 的精确表示</a></li>
+<li><a href="#jellium-模型与密度泛函理论">Jellium 模型与密度泛函理论</a></li>
+<li><a href="#局域密度近似lda">局域密度近似（LDA）</a></li>
+</ul>
+<p>本讲介绍交换关联泛函 $E_{xc}[n]$ 最常用的近似。参考：Engel &amp; Dreizler 第 4 章、Martin 第 8-9 章、Giuliani &amp; Vignale 第 6 章。</p>
+<h1><span id="精确交换">精确交换</span></h1><p>惯例上把交换关联泛函分解为：</p>
+<script type="math/tex; mode=display">
+E_{xc}[n] = E_x[n] + E_c[n]</script><p>其中 $E_x$ 是交换泛函、$E_c$ 是关联泛函。显然这种分解原则上是任意的。</p>
+<h2><span id="从-slater-行列式出发的交换泛函">从 Slater 行列式出发的交换泛函</span></h2><p>通过联系 Hartree-Fock 计算探索 $E_x[n]$ 的自然定义。定义 <strong>Hartree-Fock 泛函</strong>：</p>
+<script type="math/tex; mode=display">
+F^{HF}[n] = \min_{\Psi\in Slater,\ \Psi\to n}\langle\Psi|\hat T + \hat V_{ee}|\Psi\rangle</script><p>与 Levy-Lieb 泛函几乎相同，但约束搜索限制在 Slater 行列式内。HF 泛函再分解：</p>
+<script type="math/tex; mode=display">
+F^{HF}[n] = T_s[n] + E_H[n] + E_x[n]</script><p>其中 $T_s = \min_{\Psi\to n}\langle\Psi|\hat T|\Psi\rangle$ 是非相互作用动能、$E_H$ 是 Hartree 能。式 (I.3) 即交换泛函 $E_x[n]$ 的定义。对 $E_{ext}[n] = \int d\mathbf rV_{ext}(\mathbf r)n(\mathbf r)$，$F^{HK}[n] + E_{ext}[n]$ 由 HF 计算给出的密度 $n^{HF}$ 最小化，极小值也是 HF 能量。但用 $F^{HK}[n]$ 得到的 KS 轨道<strong>不是</strong> HF 轨道：KS 方程只含局域势，而 HF 方程含非局域势。</p>
+<p>$E_x[n]$ 尚无显式表达。</p>
+<h2><span id="用-kohn-sham-轨道表达的交换泛函">用 Kohn-Sham 轨道表达的交换泛函</span></h2><p>DFT 中已成为标准的另一种定义：</p>
+<script type="math/tex; mode=display">
+E_x[n] = -\frac12\sum_{i,j}\Theta_i\Theta_j\int d\mathbf r d\mathbf r'\,\frac{\phi_i^*(\mathbf r)\phi_j^*(\mathbf r')\phi_i(\mathbf r')\phi_j(\mathbf r)}{|\mathbf r-\mathbf r'|}</script><p>其中 $\{\phi_i\}$ 是 KS 轨道、$\{\Theta_i\}$ 是占据数。$\{\phi_i\}$ 通过非相互作用 V 可表示性视为密度的泛函。用 KS 轨道表达的仅交换能量泛函为 $E_{x-only}[n] = T_s[n] + E_{ext}[n] + E_H[n] + E_x[n]$。</p>
+<p>若用 KS 轨道表达，式 (I.6) 与 HF 用 HF 轨道表达的能量相同。但 KS 轨道由局域势生成，HF 轨道在无限制空间中搜索，因此 $E^{HF}\leq\min_n E_{x-only}[n]$；HF 基态密度 $n^{HF}$ 也不一定最小化 $E_{x-only}$。对”仅交换”泛函，$E^{HF} - E_{x-only}$ 与 $E_{x-only}$ 处密度误差 $n_0-n_0^{x-only}$ 一般很小。</p>
+<p><strong>自相互作用</strong>是 DFT 的重要话题之一。Hartree 能 $E_H[n] = \frac12\int d\mathbf rd\mathbf r’\frac{n(\mathbf r)n(\mathbf r’)}{|\mathbf r-\mathbf r’|}$ 由经典电动力学启发，但忽略了”电子不可再分”的事实：$E_H[n]$ 含有电子与自身的库仑排斥。用 KS 轨道求值：</p>
+<script type="math/tex; mode=display">
+E_H[n] = \frac12\sum_{i,j}\Theta_i\Theta_j\int d\mathbf rd\mathbf r'\frac{|\phi_i(\mathbf r)|^2|\phi_j(\mathbf r')|^2}{|\mathbf r-\mathbf r'|}</script><p>其中 $i=j$ 的自相互作用项被式 (I.5) 中的 $i=j$ 项<strong>精确抵消</strong>（若用精确交换泛函）。若不用精确交换泛函，自相互作用不会抵消，成为误差来源。</p>
+<p>对共线自旋 DFT，KS 轨道有确定的 $s_z$ 量子数，$E_x[n_\uparrow,n_\downarrow] = E_x[n_\uparrow] + E_x[n_\downarrow]$。</p>
+<p><strong>问题</strong>：氢原子的 KS 方程是什么？精确关联势 $V_x$ 的长距离行为告诉我们什么？<br><strong>答</strong>：交换势对任何有限体系有 $V_x(\mathbf r)\xrightarrow{|\mathbf r|\to\infty}-\frac{1}{|\mathbf r|}$，反映 Hartree 泛函与交换泛函之间自相互作用的抵消。</p>
+<h1><span id="e_xc-的精确表示">E_xc 的精确表示</span></h1><p>与精确交换泛函 $E_x[n]$ 一起，若已知 $E_{xc}[n]$ 的精确形式即可得关联泛函 $E_c[n]$ 的精确形式。但 $E_{xc}[n]$ 的精确泛函形式预计既非解析也非数值可算——否则就意味着困难的多体问题可被完全求解。然而，形式上精确的表示是系统性近似的理想出发点。</p>
+<h2><span id="响应函数">响应函数</span></h2><p>先理解响应函数。量子多体理论中，响应函数量化相互作用体系对弱外探针的反应，通过线性响应把微扰与可观测量变化联系起来。数学上它是算符（流、密度、自旋）的时序或推迟关联函数，Kubo 公式把磁化率与平衡中对易子联系起来。下面聚焦密度-密度响应。</p>
+<p><strong>时序密度-密度响应函数</strong>：</p>
+<script type="math/tex; mode=display">
+\chi(\mathbf r,t,\mathbf r',t') = -\mathrm i\langle\Psi_0|\mathbb T\,\delta\hat n(\mathbf r,t)\delta\hat n(\mathbf r',t')|\Psi_0\rangle</script><p>其中 $\mathbb T$ 是时序符号（$\mathbb T A(t)B(t’) = \Theta(t-t’)A(t)B(t’) + \Theta(t’-t)B(t’)A(t)$，注意费米子反对易符号），$\delta\hat n(\mathbf r,t) = \hat n(\mathbf r,t) - n_0(\mathbf r)$，算符在 Heisenberg 绘景。<strong>推迟响应函数</strong>为：</p>
+<script type="math/tex; mode=display">
+\chi^R(\mathbf r,t,\mathbf r',t') = -\mathrm i\Theta(t-t')\langle\Psi_0|[\delta\hat n(\mathbf r,t),\delta\hat n(\mathbf r',t')]|\Psi_0\rangle</script><p>含时哈密顿量下两者只依赖时间差 $t-t’$，可变换到频率域。时序响应函数数学上更易处理，推迟响应函数由 Kubo 公式更直接联系物理可观测量，因此常需知道两者的关系。<strong>Lehmann 表示</strong>揭示：时序与推迟响应只差极点位置（推迟的极点在实轴下方，时序上下方都有）：</p>
+<script type="math/tex; mode=display">
+\chi^R(\mathbf r,\mathbf r',\omega) = \sum_{n\neq0}\frac{\langle\Psi_0|\hat n(\mathbf r)|\Psi_n\rangle\langle\Psi_n|\hat n(\mathbf r')|\Psi_0\rangle}{\omega - (E_n-E_0) + \mathrm i0^+} - \sum_{n\neq0}\frac{\langle\Psi_0|\hat n(\mathbf r')|\Psi_n\rangle\langle\Psi_n|\hat n(\mathbf r)|\Psi_0\rangle}{\omega + (E_n-E_0) + \mathrm i0^+}</script><p>由此有对称性 $\chi^R(\mathbf r,\mathbf r’,-\omega) = \chi^{R*}(\mathbf r,\mathbf r’,\omega)$、$\chi(\mathbf r,\mathbf r’,-\omega) = \chi(\mathbf r’,\mathbf r,\omega)$，且</p>
+<script type="math/tex; mode=display">
+\lim_{t,t'\to0}\chi(\mathbf r,\mathbf r',t-t') = -\mathrm i[\langle\Psi_0|\hat n(\mathbf r)\hat n(\mathbf r')|\Psi_0\rangle - n_0(\mathbf r)n_0(\mathbf r')]</script><h2><span id="量子多体微扰论速成">量子多体微扰论速成</span></h2><p>推导 $E_{xc}[n]$ 精确表达的方法之一是 <strong>Kohn-Sham 微扰论</strong>（大致与量子多体微扰论相同，但以 KS 基态为起点）。细节参考 Giuliani-Vignale 第 6.2 章。要点：</p>
+<ol>
+<li><strong>连接无相互作用与相互作用基态</strong>：引入 $\hat H(t) = \hat H_0 + \hat V e^{-\eta|t|}$（$\eta\to0^+$），假设 $t\to-\infty$ 处于 $|\Phi_0\rangle$ 会演化到 $t\sim0$ 的相互作用基态，$|\Psi_0\rangle\propto U(0,-\infty)|\Phi_0\rangle$，其中 $U(t_2,t_1) = \mathbb T\exp[-\mathrm i\int_{t_1}^{t_2}\hat H(t’)dt’]$ 是完整演化算符（时序指数）；</li>
+<li><strong>引入相互作用绘景</strong>：$\hat A_I(t) = e^{\mathrm i\hat H_0t}\hat Ae^{-\mathrm i\hat H_0t}$，$U(t,0) = e^{-\mathrm i\hat H_0t}U_I(t,0)$，$U_I$ 是 $\hat V_I$ 的时序指数，若 $\hat V_I$ 小只需取前几项；</li>
+<li><strong>表述响应函数</strong>：响应函数化为 $\langle\Phi_0|\mathbb T\{\hat A_I(t)\hat B_I(0)U_I(\infty,-\infty)\}|\Phi_0\rangle/\langle\Phi_0|U_I(\infty,-\infty)|\Phi_0\rangle$；</li>
+<li><strong>构造费曼图</strong>：用 Wick 定理把 $U_I$ 的展开化为自由格林函数 $G^{\gamma\alpha}(t’,t) = -\mathrm i\langle\Phi_0|\mathbb T\hat a_{I(\beta,t’)}\hat a_{I(\alpha,t)}^\dagger|\Phi_0\rangle$ 的乘积，得到费曼图。由<strong>连锁团簇定理</strong>，分母的真空图相消，只剩连通收缩：$\chi^T_{AB}(t) = -\mathrm i\langle\Phi_0|\mathbb T\{\hat A_I(t)\hat B_I(0)U_I(\infty,-\infty)\}|\Phi_0\rangle_c$。</li>
+</ol>
+<h2><span id="kohn-sham-微扰论">Kohn-Sham 微扰论</span></h2><p>KS 微扰论从分解出发：</p>
+<script type="math/tex; mode=display">
+\hat H = \hat H_s + \hat H_1, \qquad \hat H_s = \sum_i\frac{\nabla_i^2}{2} + V_s(\mathbf r_i), \qquad \hat H_1 = \hat V_{ee} - \int d\mathbf r\,\hat n(\mathbf r)V_{Hxc}(\mathbf r)</script><p>其中 $V_{Hxc}(\mathbf r) = V_s(\mathbf r) - V_{ext}(\mathbf r) = V_H(\mathbf r) + V_{xc}(\mathbf r)$。引入从 KS 哈密顿量到完整哈密顿量的插值 $\hat H(\lambda) = \hat H_s + \lambda\hat H_1$（$\lambda:0\to1$）。基态能量也依赖 $\lambda$。由力定理（Hellmann-Feynman 的推广）：</p>
+<script type="math/tex; mode=display">
+E_0(\lambda=1) - E_0(\lambda=0) = \int_0^1d\lambda\langle\Psi_0(\lambda)|\hat H_1|\Psi_0(\lambda)\rangle</script><p>其中 $E_s = \sum_i\Theta_i\varepsilon_i$ 是 KS 体系基态能量。$\langle\Psi_0(\lambda)|\hat H_1|\Psi_0(\lambda)\rangle$ 用多体微扰论计算（以 KS 基态为参考、$\lambda\hat H_1$ 为微扰）。结果：</p>
+<script type="math/tex; mode=display">
+E_0 - E_s = \frac12\int d\mathbf rd\mathbf r'w(\mathbf r-\mathbf r')[\langle\Psi_0^{KS}|\hat\psi^\dagger(\mathbf r)\hat\psi^\dagger(\mathbf r')\hat\psi(\mathbf r')\hat\psi(\mathbf r)|\Psi_0^{KS}\rangle - n(\mathbf r)n(\mathbf r')] + \text{更高阶连通图}</script><p>第二项是精确交换 $E_x$，于是更高阶图构成关联能 $E_c$。这些结果后面有用。</p>
+<h2><span id="绝热连接-a">绝热连接 (a)</span></h2><p>也可以直接计算 $\langle\Psi_0(\lambda)|\hat H_1|\Psi_0(\lambda)\rangle$，用响应函数表达相互作用体系与 KS 体系的能量差：</p>
+<script type="math/tex; mode=display">
+E_{xc} = \frac12\int d\mathbf rd\mathbf r'\frac{1}{|\mathbf r-\mathbf r'|}\int_0^1d\lambda\left[\mathrm i\chi_\lambda(\mathbf r,\mathbf r',\Delta t\to0) - \delta(\mathbf r-\mathbf r')n_\lambda(\mathbf r)\right] + E_H[n_\lambda] - E_H[n_0] + \int d\mathbf r[V_s(\mathbf r)-V_{ext}(\mathbf r)][n_0(\mathbf r)-n_\lambda(\mathbf r)]</script><p>但这个表达式用处不大，因为它显式提及任意 $\lambda$ 的基态密度 $n_\lambda(\mathbf r)$。</p>
+<h2><span id="绝热连接-b">绝热连接 (b)</span></h2><p>另一条插值方案<strong>假设 $n_0(\mathbf r)$ 对电子-电子相互作用的任意标度都 V 可表示</strong>。外势记为 $u_\lambda$：$\lambda=0$ 时 $u_\lambda = V_s$；$\lambda=1$ 时 $u_\lambda = V_{ext}$；其他 $\lambda$ 未知。总哈密顿量：</p>
+<script type="math/tex; mode=display">
+\hat H(\lambda) = \hat T + \int u_\lambda(\mathbf r)\hat n(\mathbf r) + \lambda\hat V_{ee}</script><p>优势：基态密度 $n_0(\mathbf r)$ 与 $\lambda$ 无关；代价：中间哈密顿量没有显式表达。用力定理得：</p>
+<script type="math/tex; mode=display">
+E_{xc} = \frac12\int d\mathbf rd\mathbf r'w(\mathbf r-\mathbf r')\int_0^1d\lambda\left[\mathrm i\chi_\lambda(\mathbf r,\mathbf r',\Delta t=0) - n(\mathbf r)\delta(\mathbf r-\mathbf r')\right]</script><p>频率空间（利用对称性把积分限制到正频并移到虚轴）：</p>
+<script type="math/tex; mode=display">
+E_{xc} = \frac12\int d\mathbf rd\mathbf r'w(\mathbf r-\mathbf r')\int_0^1d\lambda\int_0^\infty\frac{d\omega}{\pi}\left[\chi_\lambda(\mathbf r,\mathbf r',\mathrm i\omega) - \chi_s(\mathbf r,\mathbf r',\mathrm i\omega)\right]</script><p>而精确交换：</p>
+<script type="math/tex; mode=display">
+E_x = \frac12\int d\mathbf rd\mathbf r'w(\mathbf r-\mathbf r')\int_0^\infty\frac{d\omega}{\pi}\mathrm i\chi_s(\mathbf r,\mathbf r',\mathrm i\omega)</script><p>（$\chi_s$ 是 KS 体系的密度-密度响应）。这些”绝热连接公式”把 $E_{xc}$ 化为耦合常数积分与响应函数的组合，是系统性近似的出发点。</p>
+<p><strong>交换关联空穴</strong>：引入对关联函数 $g(\mathbf r,\mathbf r’) = \frac{\langle\Psi_0|\hat n(\mathbf r)\hat n(\mathbf r’)|\Psi_0\rangle - n(\mathbf r)\delta(\mathbf r-\mathbf r’)}{n(\mathbf r)n(\mathbf r’)}$ 与耦合常数平均交换关联空穴 $h_{xc}(\mathbf r,\mathbf r’) = n(\mathbf r’)\int_0^1d\lambda[g_\lambda(\mathbf r,\mathbf r’) - 1]$，则</p>
+<script type="math/tex; mode=display">
+E_{xc} = \frac12\int d\mathbf r\,n(\mathbf r)\int d\mathbf r'\,\frac{h_{xc}(\mathbf r,\mathbf r')}{|\mathbf r-\mathbf r'|}</script><p>交换关联空穴满足求和规则 $\int d\mathbf r’\,h_{xc}(\mathbf r,\mathbf r’) = -1$，$h_x(\mathbf r,\mathbf r’)\leq0$（交换部分 $\int h_x = -1$、关联部分 $\int h_c = 0$）。交换关联空穴是构造泛函的核心对象（下一讲详述）。</p>
+<blockquote>
+<p><strong>问题 1</strong>：$g(\mathbf r,\mathbf r’)$ 在 $\mathbf r\approx\mathbf r’$ 时大于还是小于 1，为什么？<br><strong>问题 2</strong>：$\int n_{xc}(\mathbf r,\mathbf r’)d\mathbf r’ = -1$ 只反映”固定一个电子后少一个电子”——经典独立粒子也满足。那么交换与关联效应如何在 $n_{xc}$ 中体现？</p>
+</blockquote>
+<h1><span id="jellium-模型与密度泛函理论">Jellium 模型与密度泛函理论</span></h1><p>$E_{xc}[n]$ 的精确表示对解析或数值求值不实用。为构造有用的近似，回到 Thomas-Fermi 的构造、但从 DFT 视角研究 Jellium 模型。</p>
+<h2><span id="密度-密度响应">密度-密度响应</span></h2><p>Jellium（均匀电子气 HEG）哈密顿量（盒归一化，周期边界）：</p>
+<script type="math/tex; mode=display">
+\hat H_{HEG} = \sum_{\mathbf k,\sigma}\frac{k^2}{2}\hat a_{\mathbf k\sigma}^\dagger\hat a_{\mathbf k\sigma} + \frac{1}{2L^d}\sum_{\mathbf k,\mathbf k',\sigma,\sigma',\mathbf q\neq0}w(\mathbf q)\hat a_{\mathbf k+\mathbf q\sigma}^\dagger\hat a_{\mathbf k'-\mathbf q\sigma'}^\dagger\hat a_{\mathbf k'\sigma'}\hat a_{\mathbf k\sigma}</script><p>三维中 $w(\mathbf q) = 4\pi/|\mathbf q|^2$。$\mathbf q=0$ 项因均匀正电荷背景被移除；不确定时引入屏蔽 $w(\mathbf q) = 4\pi/(|\mathbf q|^2+\kappa^2)$（实空间 $e^{-\kappa|\mathbf r|}/|\mathbf r|$），最后取 $\kappa\to0^+$。</p>
+<p>足够高密度下 Jellium 基态均匀。中心物理对象是时序密度-密度响应 $\chi(\mathbf r-\mathbf r’,t-t’)$。傅里叶到动量空间（密度算符 $\hat n(\mathbf q) = \frac1{L^d}\sum_{\sigma,\mathbf k}\hat a_{\mathbf k\sigma}^\dagger\hat a_{\mathbf k+\mathbf q\sigma}$）。用多体微扰论构造费曼图级数，Dyson 方程为：</p>
+<script type="math/tex; mode=display">
+\chi(\mathbf q,\omega) = \Pi(\mathbf q,\omega) + \Pi(\mathbf q,\omega)w(\mathbf q)\chi(\mathbf q,\omega)</script><p>其中 $\Pi(\mathbf q,\omega)$ 是 $\chi$ 的<strong>proper（不可约）部分</strong>（不可约费曼图之和）。</p>
+<h2><span id="交换能">交换能</span></h2><p>高密度下 Jellium 的 KS 方程特别简单：基态密度 $n_0$ 恒定，自由电子气即 KS 体系（由第一 HK 定理唯一）。KS 基态 $|\Phi_0\rangle$ 是费米球。按精确 DFT 交换定义，均匀电子气的交换能即 $|\Phi_0\rangle$ 的交换能：</p>
+<script type="math/tex; mode=display">
+e_x = -\frac{1}{2L^d}\sum_{\mathbf q,\mathbf k}w(\mathbf q)\Theta(k_F-|\mathbf k|)\Theta(k_F-|\mathbf k+\mathbf q|)</script><p>是<strong>两个费米球重叠的加权求和</strong>。解析求值得：</p>
+<script type="math/tex; mode=display">
+\boxed{\ e_x = -\frac{3}{4\pi}(3\pi^2)^{1/3}n_0^{4/3}\ }</script><p>即交换能密度 $\propto n_0^{4/3}$（Dirac 交换，第 6 讲 TFD 中的 $C_2$ 项）。</p>
+<h2><span id="随机相位近似rpa">随机相位近似（RPA）</span></h2><p>$\chi_\lambda$ 的高阶图难求。<strong>随机相位近似（RPA）</strong>选择所有图的子集：环（ring）图。原因是环图中内动量求和的相空间（$w(\mathbf q)$ 大）远大于其他图。RPA 给出：</p>
+<script type="math/tex; mode=display">
+\chi_\lambda^{RPA}(\mathbf q,\omega) = \frac{\Pi_0(\mathbf q,\omega)}{1-\lambda w(\mathbf q)\Pi_0(\mathbf q,\omega)}</script><p>其中 $\Pi_0 = \chi_0$ 是 proper 响应的零阶。$\lambda$ 积分可完成，得（已减去零阶交换项）：</p>
+<script type="math/tex; mode=display">
+e_c^{RPA} = \frac{\mathrm i}{2L^d}\sum_{\mathbf q}\int\frac{d\omega}{2\pi}\left[\ln|1-w(\mathbf q)\Pi_0(\mathbf q,\omega)| + w(\mathbf q)\Pi_0(\mathbf q,\omega)\right]</script><p>高密度极限（$n_0\to\infty$）：</p>
+<script type="math/tex; mode=display">
+e_c^{RPA}\to n_0\left[\frac{1-\ln2}{\pi^2}\ln r_s - 0.071+\cdots\right]</script><p>其中 $r_s = \left(\frac{3}{4\pi n_0}\right)^{1/3}$ 是无量纲 <strong>Wigner-Seitz 半径</strong>（以平均每个电子体积为体积的球半径）。若用标准单位，领先项正比于 $e^4\ln e^2$；若用二阶微扰则领先项 $\propto e^4$——反映 <strong>RPA 本质上是非微扰的</strong>。常见 $r_s\in[1,6]$。$r_s=2$ 时 $\frac{1-\ln2}{\pi^2}\ln r_s\approx0.021$ 小于 0.071，不证明 RPA 适用。加入二阶交换（SOX）项后高密度极限为 $e_c^{RPA+SOX}\to n_0[\frac{1-\ln2}{\pi^2}\ln r_s - 0.047+\cdots]$，仍不够准。</p>
+<h2><span id="低密度极限">低密度极限</span></h2><p>极低密度下 Jellium 基态是 <strong>Wigner 晶体</strong>（电子-电子相互作用主导动能）。用 $r_s$ 做长度单位，哈密顿量变为：</p>
+<script type="math/tex; mode=display">
+H_{WS} = -\frac{1}{2r_s^2}\sum_i\nabla_i^2 + \frac{1}{2r_s}\sum_{i\neq j}\frac{1}{|\mathbf r_i-\mathbf r_j|}</script><p>大 $r_s$ 下相互作用主导。Wigner 晶体通常取三角格子，关联能：</p>
+<script type="math/tex; mode=display">
+e_c^{HEG}\to n_0\left(-\frac{0.438}{r_s} + \frac{1.33}{r_s^{3/2}} - \frac{1.47}{r_s^2}+\cdots\right) \quad (n_0\to0)</script><p>均匀电子气到 Wigner 晶体的转变在 $r_s\approx80$，对多数固体/分子不相关。</p>
+<h2><span id="高密度与低密度之间的插值">高密度与低密度之间的插值</span></h2><p>高低密度极限对固体/分子都不太相关，只能在中间密度区做插值——此区间无小参数，只能数值或经验地完成。第一个插值由 Wigner 提出：</p>
+<script type="math/tex; mode=display">
+e_c^{Wigner}(n_0) = -n_0\frac{0.44}{r_s + 7.8}</script><p>该公式既不含高密度的对数领先项，也不反映高低密度对应不同物理相（高密度液态与 Wigner 晶体），但在 $1&lt;r_s&lt;6$ 的密度区间出奇地准。另一个插值是 Vosko-Wilk-Nusair（VWN），大多插值依赖数值蒙特卡罗结果而非解析结果。</p>
+<h1><span id="局域密度近似lda">局域密度近似（LDA）</span></h1><p>局域密度近似可用一个公式概括：</p>
+<script type="math/tex; mode=display">
+\boxed{\ E_{xc}^{LDA}[n] = \int d\mathbf r\,e_{xc}^{Jellium}[n(\mathbf r)]\ }</script><p>其中 $e_{xc}^{Jellium}$ 是精确的 Jellium 交换关联能密度。$e_{xc}^{Jellium}$ 没有闭式形式，需近似（即上面各节的主题）。LDA 的交换关联势特别简单：</p>
+<script type="math/tex; mode=display">
+V_{xc}^{LDA}(\mathbf r) = \left.\frac{de_{xc}^{Jellium}(n)}{dn}\right|_{n=n_0(\mathbf r)}</script><p>只依赖局域密度，与”局域”之名相符。</p>
+<p>精确交换 $e_x = -\frac{3}{4\pi}(3\pi^2)^{1/3}n_0^{4/3}$ 已知，故 LDA 交换势：</p>
+<script type="math/tex; mode=display">
+V_x^{LDA}(\mathbf r) = -\frac{(3\pi^3)^{1/3}}{\pi}n_0^{1/3}(\mathbf r)</script><p>对有限体系，密度指数衰减 $n_0(\mathbf r)\sim e^{-\alpha|\mathbf r|}$，故 $V_x^{LDA}\sim e^{-\alpha|\mathbf r|/3}$——与精确交换势的 $1/|\mathbf r|$ 行为<strong>矛盾</strong>。由于 $e^{-\alpha|\mathbf r|}$ 弱于 $1/|\mathbf r|$，<strong>LDA 一般不利于束缚态</strong>，直接后果是 LDA 预言负离子没有束缚态（与现实不符）。</p>
+<p>文献中也用其他交换形式。一是 Slater Xα：$V_x(\mathbf r) = \frac32\alpha V_x^{LDA}(\mathbf r)$，$\alpha$ 视为可调参数（第 6 讲已见）。二是 <strong>Latter 修正</strong>：人为恢复 $1/|\mathbf r|$ 渐进行为，</p>
+<script type="math/tex; mode=display">
+V_x^{Latter} = \begin{cases}-1/|\mathbf r| & |\mathbf r|>R(\theta,\varphi)\\ V_x^{LDA}(\mathbf r) & |\mathbf r|\leq R(\theta,\varphi)\end{cases}</script><p>$R(\theta,\varphi)$ 由 $V_x^{LDA}(\mathbf r) = -1/|\mathbf r|$ 确定。</p>
+<p><strong>LDA 相对准确</strong>（原子中的例子见 Engel-Dreizler 表 4.4/4.5），几个观察：(1) LDA 系统性地<strong>低估</strong>交换能；(2) LDA 系统性地<strong>高估</strong>关联能，交换与关联之间存在误差抵消；(3) 交换能一般比关联能大一个量级。</p>
+<p>对共线自旋 DFT，<strong>局域自旋密度近似（LSDA）</strong>思想与 LDA 相同：</p>
+<script type="math/tex; mode=display">
+E_{xc}^{LSDA}[n_\uparrow,n_\downarrow] = \int d\mathbf r\,e_{xc}^{Jellium}[n_\uparrow(\mathbf r),n_\downarrow(\mathbf r)]</script><p>其中 $e_{xc}^{Jellium}(n_\uparrow,n_\downarrow)$ 数值求值。</p>
+<blockquote>
+<p><strong>思考题</strong></p>
+<ol>
+<li>自相互作用误差是什么？为什么精确交换泛函能抵消它、而 LDA 不能？</li>
+<li>绝热连接公式把 $E_{xc}$ 化为响应函数积分——为什么说这是”精确表示但不实用”？</li>
+<li>LDA 交换势指数衰减为什么不利于束缚态？这与负离子问题有什么关系？</li>
+<li>RPA 为什么是非微扰的？它与二阶微扰的差异（$e^4\ln e^2$ vs $e^4$）说明了什么？</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/">https://xuxu20040407.github.io/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">第一性原理计算方法</a></div><div class="post_share"><div class="social-share" data-image="/img/cover1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">09 交换关联泛函 II</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img class="cover" src="/img/cover2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">07 Kohn-Sham 方程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">09 交换关联泛函 II</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">07 Kohn-Sham 方程</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">06 密度泛函理论基础</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">05 Hartree-Fock 近似</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/04-%E4%BA%8C%E6%AC%A1%E9%87%8F%E5%AD%90%E5%8C%96/" title="04 二次量子化"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">04 二次量子化</div></div></a></div><div><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/03-Born-Oppenheimer%E8%BF%91%E4%BC%BC/" title="03 Born-Oppenheimer 近似"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">03 Born-Oppenheimer 近似</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">精确交换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">从 Slater 行列式出发的交换泛函</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">用 Kohn-Sham 轨道表达的交换泛函</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">E_xc 的精确表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">响应函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">量子多体微扰论速成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">Kohn-Sham 微扰论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">绝热连接 (a)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">绝热连接 (b)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">Jellium 模型与密度泛函理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">密度-密度响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">交换能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">随机相位近似（RPA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.4.</span> <span class="toc-text">低密度极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.5.</span> <span class="toc-text">高密度与低密度之间的插值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">局域密度近似（LDA）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

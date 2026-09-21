@@ -1,0 +1,405 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>01 多体问题 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="经典多体问题 相空间与运动方程 混沌：计算上的绝路   量子多体问题 希尔伯特空间之爆炸 为什么量子问题是线性的   全同粒子与第二量子化 三种”量子化” 从置换对称到 Fock 空间 玻色子的产生湮灭算符 费米子的产生湮灭算符 单体算符的第二量子化 两体算符的第二量子化    宏观物体由数目极其庞大的粒子构成，比如一杯水里有 $N\sim 10^{23}$ 个相互作用的分子。要描述这样的体系，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01 多体问题">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/01-%E5%A4%9A%E4%BD%93%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="经典多体问题 相空间与运动方程 混沌：计算上的绝路   量子多体问题 希尔伯特空间之爆炸 为什么量子问题是线性的   全同粒子与第二量子化 三种”量子化” 从置换对称到 Fock 空间 玻色子的产生湮灭算符 费米子的产生湮灭算符 单体算符的第二量子化 两体算符的第二量子化    宏观物体由数目极其庞大的粒子构成，比如一杯水里有 $N\sim 10^{23}$ 个相互作用的分子。要描述这样的体系，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover1.jpeg">
+<meta property="article:published_time" content="2026-09-14T05:00:03.000Z">
+<meta property="article:modified_time" content="2026-09-21T06:01:46.445Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子多体物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover1.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/01-%E5%A4%9A%E4%BD%93%E9%97%AE%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '01 多体问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-21 14:01:46'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">01 多体问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-14T05:00:03.000Z" title="发表于 2026-09-14 13:00:03">2026-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-21T06:01:46.445Z" title="更新于 2026-09-21 14:01:46">2026-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="01 多体问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#经典多体问题">经典多体问题</a><ul>
+<li><a href="#相空间与运动方程">相空间与运动方程</a></li>
+<li><a href="#混沌计算上的绝路">混沌：计算上的绝路</a></li>
+</ul>
+</li>
+<li><a href="#量子多体问题">量子多体问题</a><ul>
+<li><a href="#希尔伯特空间之爆炸">希尔伯特空间之爆炸</a></li>
+<li><a href="#为什么量子问题是线性的">为什么量子问题是线性的</a></li>
+</ul>
+</li>
+<li><a href="#全同粒子与第二量子化">全同粒子与第二量子化</a><ul>
+<li><a href="#三种量子化">三种”量子化”</a></li>
+<li><a href="#从置换对称到-fock-空间">从置换对称到 Fock 空间</a></li>
+<li><a href="#玻色子的产生湮灭算符">玻色子的产生湮灭算符</a></li>
+<li><a href="#费米子的产生湮灭算符">费米子的产生湮灭算符</a></li>
+<li><a href="#单体算符的第二量子化">单体算符的第二量子化</a></li>
+<li><a href="#两体算符的第二量子化">两体算符的第二量子化</a></li>
+</ul>
+</li>
+</ul>
+<p>宏观物体由数目极其庞大的粒子构成，比如一杯水里有 $N\sim 10^{23}$ 个相互作用的分子。要描述这样的体系，我们面临的第一个困难就是”多”——自由度太多了，我们根本不可能（也没有必要）跟踪每一个粒子的运动。这一讲我们先看清楚多体问题到底难在哪里，然后介绍描述多体系统最趁手的语言：第二量子化。</p>
+<h1><span id="经典多体问题">经典多体问题</span></h1><h2><span id="相空间与运动方程">相空间与运动方程</span></h2><p>在经典力学的哈密顿体系中，我们用每个粒子的坐标和动量 $(q_i, p_i),\ i=1,2,\cdots,N$ 来描述运动，这些量称为体系的<strong>自由度</strong>。一个 $N \sim 10^{23}$ 粒子体系的状态，就是 $2N$ 维<strong>相空间</strong>中的一个点。</p>
+<blockquote>
+<p>【配图】图 1.1.1：经典相空间示意图。横轴为坐标 $q$、纵轴为动量 $p$，画出一维（或二维）情形的相空间，体系中每个粒子的状态是其中的一个点，时间演化用一条流线表示。</p>
+</blockquote>
+<p>体系随时间的演化由哈密顿函数 $H(q_1,p_1,q_2,p_2,\cdots,q_N,p_N)$ 决定的运动方程给出，写成紧凑的辛形式：</p>
+<script type="math/tex; mode=display">
+\partial_t
+\begin{pmatrix} p_i \\ q_i \end{pmatrix}
+=
+\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+\begin{pmatrix} \partial_{p_i} \\ \partial_{q_i} \end{pmatrix}
+H(q_1,p_1,q_2,p_2,\cdots,q_N,p_N)</script><p>这是牛顿定律的哈密顿形式，相空间中的每一个初始点对应一条确定的轨道（运动方程的解）。</p>
+<h2><span id="混沌计算上的绝路">混沌：计算上的绝路</span></h2><p><strong>问题 1.1.1</strong>：如果我们要用计算机模拟这样的动力学，需要多少算力？</p>
+<p><strong>答</strong>：$10^{23}$ 个粒子需要 $10^{23}\,\mathrm{B}\sim 10^{11}\,\mathrm{TB}$ 的内存；每一步时间步进需要 $M\times 10^{23}\sim 10^{46}$ 次浮点运算。这不是今天能负担的量级。</p>
+<p><strong>问题 1.1.2</strong>：那只有 $\sim 100$ 个粒子的纳米体系呢？（显然可行，但依然有下面的问题。）</p>
+<p>算力只是问题的一个方面。真正让人绝望的是<strong>混沌</strong>（chaos）——真实世界几乎所有体系都有混沌现象。在混沌动力学中，相空间中两个初始位置的微小差异，会随着时间呈<strong>指数增长</strong>，最终变成巨大的差异。</p>
+<blockquote>
+<p>【配图】图 1.1.2：混沌系统中误差的指数增长。两条起始很接近的相空间轨迹，经过一段时间后完全分开，误差 $\Delta(t)\sim \Delta_0 e^{\lambda t}$ 按指数增长，$\lambda&gt;0$ 为 Lyapunov 指数。</p>
+</blockquote>
+<p>因此，随着模拟时间的增长，即使是不可避免的微小误差（来自初始条件的测量误差、计算机有限位数带来的舍入误差）也会导致完全错误的结果。连<strong>三体问题</strong>都无法精确模拟；天气预报超过 10 天的准确率不到 50%，也是同一个原因。</p>
+<p><strong>问题 1.1.3</strong>：那我们该怎么办？</p>
+<p><strong>答</strong>：放弃对完整微观信息的精确预测，转而关注<strong>统计量</strong>并做<strong>近似</strong>。这正是统计物理的出发点，也是我们这门课全部内容的起点。</p>
+<h1><span id="量子多体问题">量子多体问题</span></h1><p>一克水中含有 $N\sim 10^{23}$ 个相互作用的量子分子。在量子力学中，体系的状态是希尔伯特空间 $\mathcal{H}$ 中的矢量 $|\psi\rangle$，而这个希尔伯特空间是每个粒子希尔伯特空间的<strong>直积</strong>：</p>
+<script type="math/tex; mode=display">
+\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \cdots \otimes \mathcal{H}_{10^{23}}</script><p>若每个粒子的希尔伯特空间是 $D_1$ 维的，则总空间的维度是 $D = D_1^{10^{23}}$。在坐标表象下，态可以写为波函数：</p>
+<script type="math/tex; mode=display">
+|\psi\rangle = \sum_{q_1,q_2,\cdots,q_N} \phi(q_1,q_2,\cdots,q_N)\, |q_1\rangle \otimes |q_2\rangle \otimes \cdots \otimes |q_N\rangle</script><p>动力学由薛定谔方程支配：</p>
+<script type="math/tex; mode=display">
+i\hbar\,\partial_t |\psi\rangle = \hat{H}|\psi\rangle, \qquad \hat{H} = H(\hat{q}_1,\hat{p}_1,\hat{q}_2,\hat{p}_2,\cdots,\hat{q}_N,\hat{p}_N)</script><h2><span id="希尔伯特空间之爆炸">希尔伯特空间之爆炸</span></h2><p><strong>问题 1.2.1</strong>：考虑一块质量为 1 克的磁铁，其中含有 $N\sim 10^{23}$ 个自旋 $1/2$ 的电子。要模拟它需要多少算力？</p>
+<p><strong>答</strong>：需要 $2^{10^{23}}\,\mathrm{B}\sim 10^{3\times 10^{22}}\,\mathrm{TB}$ 的内存；每一步需要 $2^{10^{23}}\sim 10^{6\times 10^{22}}$ 次浮点运算。即使用<strong>整个宇宙的原子</strong>来做一台经典数字计算机，也远远不够。这是指数墙（exponential wall），比经典的 $2N$ 维相空间困难得多。</p>
+<p><strong>问题 1.2.2</strong>：经典运动方程通常是非线性微分方程，导致混沌；为什么量子的版本变成了线性的？这是否意味着量子问题更容易？</p>
+<p><strong>提示</strong>：薛定谔方程是线性的，因为量子力学是叠加原理的直接体现；但”线性”并不代表”容易”——上面的指数墙说明量子多体问题远比经典问题更困难。经典混沌的困难在于单条轨道的不可预测，而量子多体的困难在于态空间维度随粒子数指数爆炸。二者本质上是两种不同的”难”。</p>
+<h2><span id="为什么量子问题是线性的">为什么量子问题是线性的</span></h2><p>（承接问题 1.2.2。）量子力学的基本框架是线性的：态矢量构成线性空间，演化由幺正算符作用。线性意味着波函数可以叠加，而叠加原理是一切量子干涉现象（包括我们在后续章节遇到的费米子符号、泡利原理等）的根源。但线性并不保证”可解”，多体波函数 $\phi(q_1,\cdots,q_N)$ 是 $3N$ 个变量的函数，其复杂度仍然是指数级的。</p>
+<h1><span id="全同粒子与第二量子化">全同粒子与第二量子化</span></h1><p>描述大量<strong>全同粒子</strong>（identical particles）时，最方便的语言是<strong>第二量子化</strong>（second quantization）。这一节我们简要引入它的结构，详细内容可参考 Altland &amp; Simons 的《Condensed Matter Field Theory》第二章。</p>
+<h2><span id="三种量子化">三种”量子化”</span></h2><p>先理清几个术语，它们容易混淆：</p>
+<ul>
+<li><strong>第一量子化</strong>：把经典力学模型变成量子力学版本，通常用于自由度可数的系统（谐振子、自由粒子等）。对单粒子做第一量子化就得到单粒子量子力学。</li>
+<li><strong>场量子化</strong>：把经典<strong>场论</strong>变成量子场论。经典场论的自由度是”场”，以连续空间为标记，自由度不可数。在这个语言里，位于不同位置的量子粒子是<strong>同一个场</strong>的激发，因此它们天然是不可区分的。</li>
+<li><strong>第二量子化</strong>：一个等价的做法——从单粒子量子力学出发，把粒子视为全同的，对单粒子的希尔伯特空间进行”第二次量子化”。</li>
+</ul>
+<blockquote>
+<p>【配图】图 1.3.1：几种理论之间的关系图。四个方块：经典力学（右上）和量子力学（右下）通过第一量子化联系；经典力学和经典场论（左上）通过”场化”（取连续极限、自由度无限化）联系；量子力学和量子场论（左下）通过第二量子化联系；经典场论和量子场论通过场量子化联系。</p>
+</blockquote>
+<h2><span id="从置换对称到-fock-空间">从置换对称到 Fock 空间</span></h2><p>先考虑<strong>可区分</strong>粒子的希尔伯特空间。设单粒子希尔伯特空间 $\mathcal{H}$ 的基为 $\{|\psi_1\rangle,|\psi_2\rangle,\cdots,|\psi_m\rangle\}$：</p>
+<ul>
+<li>单粒子：$\mathcal{H}$，有 $m$ 个基矢；</li>
+<li>两个可区分粒子：$\mathcal{H}\otimes\mathcal{H}$，有 $m^2$ 个基矢；</li>
+<li>三个粒子：$\mathcal{H}\otimes\mathcal{H}\otimes\mathcal{H}$，基矢继续直积；</li>
+<li>$\cdots$</li>
+</ul>
+<p>所有这些不同粒子数空间的直和称为<strong>总希尔伯特空间</strong>：</p>
+<script type="math/tex; mode=display">
+\mathcal{H}_{tot} = \mathcal{H}_1 \oplus \mathcal{H}_2 \oplus \mathcal{H}_3 \oplus \cdots = \mathcal{H} \oplus (\mathcal{H}\otimes\mathcal{H}) \oplus (\mathcal{H}\otimes\mathcal{H}\otimes\mathcal{H}) \oplus \cdots</script><p>如果粒子<strong>不可区分</strong>呢？可以在 $\mathcal{H}_{tot}$ 上定义幺正<strong>交换算符</strong> $\hat{P}_{ij}$，它交换第 $i$ 和第 $j$ 个粒子的状态：</p>
+<script type="math/tex; mode=display">
+\hat{P}_{ij}|\phi_1\rangle|\phi_2\rangle\cdots|\phi_i\rangle\cdots|\phi_j\rangle\cdots|\phi_N\rangle
+=
+|\phi_1\rangle|\phi_2\rangle\cdots|\phi_j\rangle\cdots|\phi_i\rangle\cdots|\phi_N\rangle</script><p>由定义 $\hat{P}_{ij}^2 = 1$，故 $\hat{P}_{ij}$ 的本征值只能是 $+1$ 或 $-1$。在总希尔伯特空间中存在两个子空间：</p>
+<ul>
+<li><strong>玻色 Fock 空间</strong>：对所有的 $i\neq j$，$\hat{P}_{ij}=+1$；</li>
+<li><strong>费米 Fock 空间</strong>：对所有的 $i\neq j$，$\hat{P}_{ij}=-1$。</li>
+</ul>
+<p>由于全同粒子的所有可观测量（包括哈密顿量）在交换两个粒子下不变，即与所有 $\hat{P}_{ij}$ 对易，因此这两个子空间对一切可观测量和动力学都是<strong>封闭</strong>的。我们定义玻色 Fock 空间描述玻色子、费米 Fock 空间描述费米子。<strong>选取这两个子空间，就是第二量子化。</strong></p>
+<blockquote>
+<p>数学上，这两个子空间是置换群 $S_N$ 的表示：它们是一维不可约表示的直和。$S_N$ 还可能存在高维不可约表示，对应”仲粒子”（paraparticles）。至今没有基本仲粒子的实验证据。特别地，在空间维数 $D=2$ 时，粒子交换对应的是辫子群（braiding group），比置换群更丰富——在二维还存在玻色子和费米子之外的全同粒子，称为<strong>任意子</strong>（anyons），理论上可以作为凝聚态系统中的涌现粒子存在（例如强磁场下的二维电子气）。</p>
+<p><strong>注：两个 Fock 空间并不互补</strong>。玻色/费米 Fock 空间并不是 $\mathcal{H}_{tot}$ 的直和分解：</p>
+<p><strong>它们的交集</strong>是真空与单粒子空间：</p>
+<script type="math/tex; mode=display">
+\mathcal{F}_{+}\cap\mathcal{F}_{-} = \mathcal{F}_0 \oplus \mathcal{F}_1</script><p>$N=0$（真空）和 $N=1$（单粒子态）时没有可交换的粒子对，$\hat P_{ij}$ 恒为恒等算符，”对称”与”反对称”是同一回事，这些态同时属于两个空间。对 $N\geq2$ 则严格不相交：一个态若同时满足 $\hat P_{ij}|\psi\rangle=+|\psi\rangle$ 与 $\hat P_{ij}|\psi\rangle=-|\psi\rangle$，两式相加即得 $|\psi\rangle=0$。</p>
+<p><strong>$\mathcal{H}_{tot}$ 中两个 Fock 空间都不包含的余集</strong>是 $N\geq2$ 的<strong>混合对称态</strong>——$\mathcal{H}^{\otimes N}$ 中既不对称也不反对称的部分，对应 $S_N$ 除恒等表示（对称）与符号表示（反对称）之外的高维不可约表示，即上文提到的”仲粒子”态。要点：</p>
+<ul>
+<li>$N=2$ 没有余集：$\mathcal{H}\otimes\mathcal{H} = S^2\mathcal{H}\oplus\Lambda^2\mathcal{H}$，任意两粒子态总能分解为对称+反对称，玻色/费米二分是完备的；</li>
+<li>$N\geq3$ 有余集：例如 $S_3$ 有一个二维不可约表示（Young 图 $(2,1)$），对应混合对称的三粒子态；</li>
+<li>这些态<strong>物理上不可达</strong>：所有可观测量与所有 $\hat P_{ij}$ 对易，玻色/费米子空间对动力学封闭，物理态永远不会演化进混合对称方向——这正是”选取这两个子空间就是第二量子化”的含义；</li>
+<li>注意 $\mathcal{H}_{tot}$ 严格大于两个 Fock 空间的并（单粒子空间维数 $\dim\mathcal{H}\geq2$ 时）。</li>
+</ul>
+</blockquote>
+<p>在第一量子化语言中，多玻色子体系的波函数是对称的，多费米子体系的波函数是反对称的（斯莱特行列式）。在第二量子化语言中，我们不再描述每个粒子的状态，而只<strong>数一数每个单粒子态上有多少粒子</strong>。于是基矢可以写成<strong>占据数表象</strong>：</p>
+<script type="math/tex; mode=display">
+|N_1, N_2, \cdots, N_m\rangle \equiv |N_1\rangle \otimes |N_2\rangle \otimes \cdots \otimes |N_m\rangle</script><p>其中 $m$ 是单粒子态的数目，$N_i$ 是第 $i$ 个态上的粒子数。固定粒子数 $N$ 的全同粒子子空间记为 $\mathcal{F}_N$，其基为 $\{|N_1,N_2,\cdots\rangle \mid \sum_i N_i = N\}$。没有粒子的空间 $\mathcal{F}_0$ 称为<strong>真空空间</strong>。总的 Fock 空间是它们的直和：</p>
+<script type="math/tex; mode=display">
+\mathcal{F} = \mathcal{F}_0 \oplus \mathcal{F}_1 \oplus \mathcal{F}_2 \oplus \cdots</script><blockquote>
+<p>【配图】图 1.3.2：总希尔伯特空间 $\mathcal{H}_{tot}$ 与两个子空间。一个大圆代表 $\mathcal{H}_{tot}$，其中两个部分重叠的圆分别代表玻色 Fock 空间（$\hat{P}=+1$，对称波函数）和费米 Fock 空间（$\hat{P}=-1$，反对称波函数）。</p>
+</blockquote>
+<h2><span id="玻色子的产生湮灭算符">玻色子的产生湮灭算符</span></h2><p>对于玻色子，对称波函数对占据数没有限制：$N_i = 0,1,2,\cdots$。为了方便，我们仿照量子谐振子定义<strong>产生算符</strong> $a_i^\dagger$ 和<strong>湮灭算符</strong> $a_i$。产生算符把第 $i$ 个态上的粒子数加一：</p>
+<script type="math/tex; mode=display">
+a_i^\dagger |N_1,N_2,\cdots,N_i,\cdots\rangle = \sqrt{N_i+1}\, |N_1,N_2,\cdots,N_i+1,\cdots\rangle</script><p>湮灭算符 $a_i = (a_i^\dagger)^\dagger$ 把第 $i$ 个态上的粒子数减一。它们满足<strong>对易关系</strong>：</p>
+<script type="math/tex; mode=display">
+[a_i, a_j^\dagger] = \delta_{ij}, \qquad [a_i, a_j] = [a_i^\dagger, a_j^\dagger] = 0</script><p>Fock 空间的基矢可以用产生算符作用在真空 $|0\rangle$ 上生成：</p>
+<script type="math/tex; mode=display">
+|N_1, N_2, \cdots\rangle = \prod_i \frac{1}{\sqrt{N_i!}} (a_i^\dagger)^{N_i} |0\rangle</script><h2><span id="费米子的产生湮灭算符">费米子的产生湮灭算符</span></h2><p>对于费米子，注意当某个态的占据数大于 1 时，不可能构造反对称波函数，因此<strong>泡利不相容</strong>是自动实现的：$N_i$ 只能是 0 或 1。我们定义费米子的产生、湮灭算符为：</p>
+<script type="math/tex; mode=display">
+c_i^\dagger |N_1,N_2,\cdots,N_i,\cdots\rangle =
+\begin{cases}
+(-1)^{\sum_{a=1}^{i-1} N_a} |N_1,N_2,\cdots,1,\cdots\rangle, & N_i = 0 \\[0.3em]
+0, & N_i = 1
+\end{cases}</script><p>相位因子 $(-1)^{\sum_{a=1}^{i-1}N_a}$ 是为了让物理算符用产生湮灭算符写出时与玻色子有同样简单的形式（正是它携带了反对称性的全部信息——它等于把前面 $i-1$ 个粒子依次搬动所产生的置换符号）。它们满足<strong>反对易关系</strong>：</p>
+<script type="math/tex; mode=display">
+\{c_i, c_j^\dagger\} = \delta_{ij}, \qquad \{c_i, c_j\} = \{c_i^\dagger, c_j^\dagger\} = 0</script><p>其中 $\{A,B\} = AB + BA$ 是反对易子。注意 $c_i^\dagger c_i^\dagger = 0$，这正是泡利原理：同一个态不能占据两个费米子。</p>
+<p><strong>证明（反对易关系的严格推导）</strong>：占据数基 $\{|n_1,n_2,\cdots\rangle\}$ 是完备正交的，因此只需验证三个反对易关系在任意基矢上成立。为记号简洁记相位因子 $\phi_i \equiv (-1)^{\sum_{a&lt;i}n_a}$，它是”排在第 $i$ 个轨道前面的已占据轨道数”所带的符号；每次作用算符后，它随占据数实时更新。</p>
+<p><strong>① $\{c_i^\dagger,c_j^\dagger\}=0$</strong>。先看 $c_i^\dagger c_i^\dagger = 0$：第一次作用使 $n_i$ 从 0 变 1，第二次再作用遇到 $n_i=1$ 而按定义给出 0（泡利原理来自定义本身）。再看 $i\neq j$，设 $i&lt;j$，对任意基矢 $|n\rangle$：</p>
+<script type="math/tex; mode=display">
+c_j^\dagger c_i^\dagger |n\rangle = \underbrace{(-1)^{\sum_{a<i}n_a}}_{c_i^\dagger \text{的相位}}\underbrace{(-1)^{\sum_{a<j}n_a}}_{c_j^\dagger \text{的相位}}|n_i=1,n_j=1\rangle</script><p>（先作用 $c_i^\dagger$ 再作用 $c_j^\dagger$；$c_j^\dagger$ 的相位求和包含第 $i$ 项，但此时 $n_i$ 尚未被翻转，故相位就是 $\sum_{a&lt;j}n_a$。）而</p>
+<script type="math/tex; mode=display">
+c_i^\dagger c_j^\dagger |n\rangle = \underbrace{(-1)^{\sum_{a<j}n_a}}_{c_j^\dagger \text{的相位}}\underbrace{(-1)^{\sum_{a<i}n_a + 1}}_{c_i^\dagger \text{的相位：此时 }n_i\text{ 已被 }c_j^\dagger\text{ 从 0 变 1}}|n_i=1,n_j=1\rangle = -c_j^\dagger c_i^\dagger |n\rangle</script><p>（先作用 $c_j^\dagger$ 再作用 $c_i^\dagger$；$c_i^\dagger$ 的相位求和仍只到 $i-1$，不受 $n_j$ 影响，但 $c_j^\dagger$ 已把 $n_i$ 翻转成 1，而 $i&lt;j$ 使 $n_i$ 计入 $\sum_{a&lt;j}n_a$——注意这里求和是从 $c_j^\dagger$ 的相位出发再叠加 $c_i^\dagger$ 的相位，两种次序共差一个负号。）对任意 $|n\rangle$ 有 $(c_i^\dagger c_j^\dagger + c_j^\dagger c_i^\dagger)|n\rangle = 0$，故 $\{c_i^\dagger,c_j^\dagger\}=0$。</p>
+<p><strong>② $\{c_i,c_j\}=0$</strong>。对式 $\{c_i^\dagger,c_j^\dagger\}=0$ 取厄米共轭即得（$(c_i^\dagger c_j^\dagger)^\dagger = c_jc_i$，$(c_j^\dagger c_i^\dagger)^\dagger = c_ic_j$），于是 $c_ic_j + c_jc_i = 0$。</p>
+<p><strong>③ $\{c_i,c_j^\dagger\}=\delta_{ij}$</strong>。分两种情形。</p>
+<ul>
+<li><p><strong>$i=j$</strong>：若 $n_i=0$，$c_i^\dagger$ 把 $|n\rangle$ 变成 $(-1)^{\phi_i}|n_i=1\rangle$，$c_i$ 再把它还原（相位 $\sum_{a&lt;i}n_a$ 不受 $n_i$ 翻转影响），故 $c_ic_i^\dagger|n\rangle = |n\rangle$，而 $c_i^\dagger c_i|n\rangle = 0$；若 $n_i=1$，同理 $c_i^\dagger c_i|n\rangle = |n\rangle$ 而 $c_ic_i^\dagger|n\rangle = 0$。两种情况下 $(c_ic_i^\dagger + c_i^\dagger c_i)|n\rangle = |n\rangle$，即 $\{c_i,c_i^\dagger\}=1$。</p>
+</li>
+<li><p><strong>$i\neq j$</strong>（设 $i&lt;j$）：仿照 ①，</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+c_j^\dagger c_i\,|n\rangle = (-1)^{\sum_{a<i}n_a}(-1)^{\sum_{a<j}n_a + 1}|n_i=1,n_j=1\rangle, \qquad
+c_i c_j^\dagger\,|n\rangle = (-1)^{\sum_{a<i}n_a}(-1)^{\sum_{a<j}n_a}|n_i=1,n_j=1\rangle</script><p>（前者先作用 $c_i$、再作用 $c_j^\dagger$，$c_j^\dagger$ 的相位因 $n_i$ 被翻转而多一个 $-1$；后者先作用 $c_j^\dagger$ 再作用 $c_i$，$c_i$ 的相位不受 $n_j$ 影响。）两者相加为 0，即 $\{c_i,c_j^\dagger\}=0\ (i\neq j)$。三个关系全部得证。</p>
+<blockquote>
+<p>这个证明的关键在于<strong>相位因子的记账规则</strong>：$(-1)^{\sum_{a&lt;i}n_a}$ 在每次作用算符后都必须用更新后的占据数重新计算——多出的那个负号，正是反对易关系与泡利原理的数学根源。</p>
+<p><strong>注：为什么必须带符号因子——从单体算符的构造看</strong>。相位因子不是额外规定，而是”单体算符保持与玻色子同样简单的形式 + 波函数反对称”这两个要求的唯一自洽解。</p>
+<p>在第二量子化中，任何单体算符都取与玻色子完全相同的形式（这正是讲义和上面式 $\hat O_1 = \sum_{\mu\nu}o_{\mu\nu}a_\mu^\dagger a_\nu$ 的动机）：</p>
+<script type="math/tex; mode=display">
+\hat O = \sum_{\mu\nu} o_{\mu\nu}\,c^\dagger_\mu c_\nu, \qquad o_{\mu\nu} = \langle\mu|\hat o|\nu\rangle</script><p>多体算符只用单粒子矩阵元 $o_{\mu\nu}$ 这一个数据、不再添加额外结构。这个”简单形式”必须精确复现第一量子化中 $\hat O = \sum_\alpha\hat o_\alpha$ 在反对称子空间上的全部矩阵元：</p>
+<ul>
+<li><strong>对角元</strong>：$\langle\Phi|\hat O|\Phi\rangle = \sum_{\text{占据 }i}o_{ii}$（$c^\dagger_ic_i$ 给出占据数，天然为 $o_{ii}$；$\mu\neq\nu$ 且两者都占据时 $c^\dagger_\mu c_\nu$ 为零）；</li>
+<li><strong>非对角元</strong>：把占据轨道 $\nu$ 替换为未占据轨道 $\mu$，$\langle\Phi^\mu_\nu|\hat O|\Phi\rangle = o_{\mu\nu}$。</li>
+</ul>
+<p>问题出在非对角元：<strong>Slater 行列式替换轨道时的相对符号不是任意的</strong>。$c^\dagger_\mu c_\nu$ 先湮灭 $\nu$ 再产生 $\mu$，在排序固定的占据数表象中必须”跨过”位于 $\nu$ 与 $\mu$ 之间的已占据轨道，每跨一个出一个负号：</p>
+<script type="math/tex; mode=display">
+c^\dagger_\mu c_\nu|\Phi\rangle = (-1)^{\sum_{\nu<k<\mu}n_k}|\Phi^\mu_\nu\rangle</script><p>这正好是行列式中”把第 $\nu$ 列换到第 $\mu$ 个位置”的置换符号。相位因子 $(-1)^{\sum_{a&lt;i}n_a}$ 就是这段相对符号的记账规则——它让 $\sum_{\mu\nu}o_{\mu\nu}c^\dagger_\mu c_\nu$ 在反对称子空间上精确等于 $\sum_\alpha\hat o_\alpha$。</p>
+<p><strong>去掉符号因子会怎样</strong>？若定义不带符号的 $\tilde c$（仍强制 $n_i\in\{0,1\}$），它成为”硬核玻色子”：不同格点对易 $\tilde c^\dagger_i\tilde c^\dagger_j = \tilde c^\dagger_j\tilde c^\dagger_i$，产生的多体态是对称的，替换轨道时不带相对符号。以三态两费米子为例：</p>
+<ul>
+<li>带符号：$c^\dagger_3c_1|1,1,0\rangle = -|0,1,1\rangle$（跨过已占据的轨道 2，出一负号）；</li>
+<li>去符号：$\tilde c^\dagger_3\tilde c_1|1,1,0\rangle = +|0,1,1\rangle$。</li>
+</ul>
+<p>而第一量子化的行列式替换 $\mathcal{A}(|1\rangle|2\rangle)\to\mathcal{A}(|3\rangle|2\rangle) = -|2,3\rangle$ 要求的是<strong>负号</strong>。因此去符号的算符构造不出正确的单体算符矩阵元——只有带 $(-1)^{\sum_{a&lt;i}n_a}$ 的 $c^\dagger,c$ 才能让”与玻色子同样简单的形式”对费米子也成立。</p>
+</blockquote>
+<h2><span id="单体算符的第二量子化">单体算符的第二量子化</span></h2><p>现在介绍算符的第二量子化形式。原则上，只需要把它们投影到玻色或费米 Fock 空间，即写出它们在基矢下的矩阵元。</p>
+<p>先看<strong>单体算符</strong> $\hat{O}_1 = \sum_{i=1}^{N}\hat{o}_i$，它是单粒子算符的直和。先定义<strong>占据数算符</strong> $\hat{n}_i = a_i^\dagger a_i$，它数出第 $i$ 个态上的粒子数。容易看出在占据数表象（取 $\hat{o}_i$ 的本征态为基）中有 $\hat{O}_1 = \sum_\lambda o_\lambda \hat{n}_\lambda = \sum_\lambda \langle\lambda|\hat{o}|\lambda\rangle a_\lambda^\dagger a_\lambda$。换到非对角基下，可以写成一般形式：</p>
+<script type="math/tex; mode=display">
+\hat{O}_1 = \sum_{\mu\nu} o_{\mu\nu} a_\mu^\dagger a_\nu = \sum_{\mu\nu} \langle\mu|\hat{o}|\nu\rangle\, a_\mu^\dagger a_\nu</script><p><strong>理解</strong>：$a_\mu^\dagger a_\nu$ 先把 $\nu$ 态上的粒子”消灭”再在 $\mu$ 态上”产生”——即把一个粒子从 $\nu$ 态<strong>散射</strong>到 $\mu$ 态，矩阵元 $\langle\mu|\hat{o}|\nu\rangle$ 是单粒子跃迁振幅。</p>
+<p><strong>例子</strong>：对一个只有两个态 $\{|1\rangle,|2\rangle\}$ 的体系，单粒子算符 $H = h_{11}|1\rangle\langle1| + h_{12}|1\rangle\langle2| + h_{21}|2\rangle\langle1| + h_{22}|2\rangle\langle2|$ 的作用是 $H|2\rangle = h_{12}|1\rangle$（把 $|2\rangle$ 变成 $|1\rangle$）。相应的第二量子化形式为：</p>
+<script type="math/tex; mode=display">
+H' = h_{11}a_1^\dagger a_1 + h_{12}a_1^\dagger a_2 + h_{21}a_2^\dagger a_1 + h_{22}a_2^\dagger a_2</script><h2><span id="两体算符的第二量子化">两体算符的第二量子化</span></h2><p>描述粒子间的两两相互作用需要<strong>两体算符</strong> $\hat{O}_2$。可以验证其一般形式为：</p>
+<script type="math/tex; mode=display">
+\hat{O}_2 = \sum_{\mu\mu'\nu\nu'} O_{\mu\mu'\nu\nu'}\, a_\mu^\dagger a_{\mu'}^\dagger a_{\nu'} a_\nu
+= \sum_{\mu\mu'\nu\nu'} \langle\mu\mu'|\hat{o}_2|\nu\nu'\rangle\, a_\mu^\dagger a_{\mu'}^\dagger a_{\nu'} a_\nu</script><p>一个典型的两体算符是库仑相互作用 $V = \iint dr\,dr’\, V(r,r’)\,|r,r’\rangle\langle r,r’|$。在坐标表象下矩阵元是对角的，相应的第二量子化形式为：</p>
+<script type="math/tex; mode=display">
+V = \iint dr\,dr'\, V(r,r')\, a_r^\dagger a_{r'}^\dagger a_{r'} a_r</script><blockquote>
+<p><strong>注意产生、湮灭算符的顺序</strong>：习惯上按”先湮灭后产生”且湮灭顺序与产生顺序相反来写，即 $a^\dagger a^\dagger a\,a$。这个顺序不是随意的——对于费米子，交换相邻算符会引入 $-1$ 因子，顺序不同对应完全不同的物理。</p>
+</blockquote>
+<p>到此，我们有了描述多体系统的完整语言：Fock 空间 + 产生湮灭算符 + 算符的第二量子化形式。下一讲我们将用它研究最简单但最重要的多体体系——<strong>费米气体</strong>：先回顾统计物理的基本设定，然后从自由费米气体出发，建立”费米海 + 激发”的图像，并计算它的热力学性质。</p>
+<blockquote>
+<p><strong>思考题</strong></p>
+<ol>
+<li>经典体系的运动方程通常是非线性微分方程，导致混沌；为什么量子版本（薛定谔方程）是线性的？”线性”是否意味着量子问题更容易？（提示：回顾希尔伯特空间的指数墙。）</li>
+<li>第二量子化中，费米子产生算符前面的相位因子 $(-1)^{\sum_{a&lt;i}N_a}$ 为什么是必要的？如果去掉它会发生什么？</li>
+<li>在二维空间中，全同粒子可以是任意子（anyons）。为什么三维空间没有任意子？（提示：辫子群与置换群的区别。）</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/01-%E5%A4%9A%E4%BD%93%E9%97%AE%E9%A2%98/">https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/01-%E5%A4%9A%E4%BD%93%E9%97%AE%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/02-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E4%B8%8E%E8%B4%B9%E7%B1%B3%E6%B0%94%E4%BD%93/" title="02 统计物理与费米气体"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">02 统计物理与费米气体</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/" title="DPA系列：从注意力势到大模型时代的精度-成本前沿"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">DPA系列：从注意力势到大模型时代的精度-成本前沿</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">量子多体物理Content</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/" title="10 涨落、临界现象与重整化群"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">10 涨落、临界现象与重整化群</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">09 BCS理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/" title="08 超导：唯象理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">08 超导：唯象理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">07 自发对称性破缺</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">06 费米液体的微观理论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">经典多体问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">相空间与运动方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">混沌：计算上的绝路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">量子多体问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">希尔伯特空间之爆炸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">为什么量子问题是线性的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">全同粒子与第二量子化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">三种”量子化”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">从置换对称到 Fock 空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">玻色子的产生湮灭算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.4.</span> <span class="toc-text">费米子的产生湮灭算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.5.</span> <span class="toc-text">单体算符的第二量子化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.6.</span> <span class="toc-text">两体算符的第二量子化</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

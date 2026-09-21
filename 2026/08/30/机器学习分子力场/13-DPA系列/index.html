@@ -1,0 +1,487 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DPA系列：从注意力势到大模型时代的精度-成本前沿 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引言：一条贯穿四代的演进线 DPA-1：注意力机制的试水（2022） DPA-2：双网络架构（2024） DPA-3：LiGS与Scaling Law（2025&#x2F;2026） DPA-4：EMFA SO(2)卷积与机器精度等变（2026） DPA-4 vs eSEN：两条平滑路线的对决 DPA-4的训练栈：HybridMuon + WSD 参考  引言：一条贯穿四代的演进线DPA（Deep Pot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DPA系列：从注意力势到大模型时代的精度-成本前沿">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="引言：一条贯穿四代的演进线 DPA-1：注意力机制的试水（2022） DPA-2：双网络架构（2024） DPA-3：LiGS与Scaling Law（2025&#x2F;2026） DPA-4：EMFA SO(2)卷积与机器精度等变（2026） DPA-4 vs eSEN：两条平滑路线的对决 DPA-4的训练栈：HybridMuon + WSD 参考  引言：一条贯穿四代的演进线DPA（Deep Pot">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2026-08-30T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-09T01:50:27.831Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="分子力场">
+<meta property="article:tag" content="通用势">
+<meta property="article:tag" content="DPA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DPA系列：从注意力势到大模型时代的精度-成本前沿',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-09 09:50:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DPA系列：从注意力势到大模型时代的精度-成本前沿</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-30T02:00:00.000Z" title="发表于 2026-08-30 10:00:00">2026-08-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-09T01:50:27.831Z" title="更新于 2026-09-09 09:50:27">2026-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">机器学习分子力场</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DPA系列：从注意力势到大模型时代的精度-成本前沿"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#引言一条贯穿四代的演进线">引言：一条贯穿四代的演进线</a></li>
+<li><a href="#dpa-1注意力机制的试水2022">DPA-1：注意力机制的试水（2022）</a></li>
+<li><a href="#dpa-2双网络架构2024">DPA-2：双网络架构（2024）</a></li>
+<li><a href="#dpa-3ligs与scaling-law20252026">DPA-3：LiGS与Scaling Law（2025/2026）</a></li>
+<li><a href="#dpa-4emfa-so2卷积与机器精度等变2026">DPA-4：EMFA SO(2)卷积与机器精度等变（2026）</a></li>
+<li><a href="#dpa-4-vs-esen两条平滑路线的对决">DPA-4 vs eSEN：两条平滑路线的对决</a></li>
+<li><a href="#dpa-4的训练栈hybridmuon--wsd">DPA-4的训练栈：HybridMuon + WSD</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+<h1><span id="引言一条贯穿四代的演进线">引言：一条贯穿四代的演进线</span></h1><p>DPA（Deep Potential for All）是 DeepModeling / AI for Science Institute / DP Technology 推出的通用原子势家族，目标是”一个模型覆盖元素周期表”。从 DPA-1 到 DPA-4，这条线展现了清晰的演进逻辑：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代</th>
+<th>年份</th>
+<th>核心贡献</th>
+<th>关键词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPA-1</td>
+<td>2022</td>
+<td>注意力机制试水，初步通用</td>
+<td>attention, pretraining</td>
+</tr>
+<tr>
+<td>DPA-2</td>
+<td>2024</td>
+<td>双网络架构，多源数据</td>
+<td>summary + fitting</td>
+</tr>
+<tr>
+<td>DPA-3</td>
+<td>2025/26</td>
+<td>LiGS 线图级数，Scaling Law</td>
+<td>line graph, scaling</td>
+</tr>
+<tr>
+<td>DPA-4</td>
+<td>2026</td>
+<td>EMFA 卷积 + WBN，精度-成本前沿</td>
+<td>SO(2), Wigner, ZBL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>前三代把 DPA 从”能用”推向”通用”；DPA-4 则在精度、速度、平滑性三个维度同时登顶——尤其是它用纯保守训练击败了 eSEN 的”直接力预训练拐杖”路线，这条对比值得单独讲透。</p>
+<h1><span id="dpa-1注意力机制的试水2022">DPA-1：注意力机制的试水（2022）</span></h1><p>DPA-1 首次把注意力机制引入 Deep Potential 框架，用自注意力建模原子间的远程关联，在 56 种元素的 MP 数据上预训练出初步的通用模型。它的意义在于证明了”注意力+预训练”这条路线可行——为后续的架构升级奠定了范式基础。这一代模型在今天看精度有限，更多是路线验证。</p>
+<h1><span id="dpa-2双网络架构2024">DPA-2：双网络架构（2024）</span></h1><p>DPA-2 的核心创新是<strong>双网络 + 多任务学习</strong>：一个”汇总网络”（summary network）学习整个体系的平均物理（整体的排斥/吸引基线），一个”拟合网络”（fitting network）只学残差修正。这样做的直接收益是<strong>可迁移性</strong>——拟合网络的任务从”从头学整个势能面”简化为”学小残差”，对陌生元素体系的迁移更鲁棒。DPA-2 把自己定位为<strong>大原子模型（LAM）的原型</strong>，在多学科数据上用多任务方式预训练，再通过微调和蒸馏适配下游任务。它在多种数据源（晶体、表面、团簇、分子）上联合训练，把 DPA 从”材料通用”推向”跨域通用”。</p>
+<h1><span id="dpa-3ligs与scaling-law20252026">DPA-3：LiGS与Scaling Law（2025/2026）</span></h1><p>DPA-3（Duo Zhang et al., arXiv:2506.01686, “A Graph Neural Network for the Era of Large Atomistic Models”）是为大原子模型（LAM）时代设计的架构，三大贡献：</p>
+<p><strong>1. LiGS（Line Graph Series）线图级数</strong>。对原子图 $G^{(1)}$ 递归做线图变换，得到 $G^{(2)}, G^{(3)}, \dots$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>阶</th>
+<th>顶点对应</th>
+<th>几何实体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$G^{(1)}$</td>
+<td>原子</td>
+<td>原子本身</td>
+</tr>
+<tr>
+<td>$G^{(2)}$</td>
+<td>键（原子对）</td>
+<td>两体距离</td>
+</tr>
+<tr>
+<td>$G^{(3)}$</td>
+<td>角（三体）</td>
+<td>键角</td>
+</tr>
+<tr>
+<td>$G^{(4)}$</td>
+<td>二面角（四体）</td>
+<td>二面角</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>关键：$G^{(k)}$ 的顶点特征 = $G^{(k-1)}$ 的边特征，消息在相邻图上互相传递。消融显示 $K=2$（到键角为止）最优——二面角（$K=3$）信息冗余且训练更慢。这让 DPA-3 能<strong>显式编码高阶几何结构</strong>，而非靠等变表示的隐式耦合。</p>
+<p><strong>2. Scaling Law</strong>。在 OMat24 上验证了模型参数、数据量、计算预算三者的幂律——<strong>加层不退化</strong>（得益于 SiLUT 激活 + 残差更新，可堆到 24 层不出 oversmoothing）。这是”同数据下把信息榨得更干”的基础。</p>
+<p><strong>3. 数据集编码</strong>。用 one-hot 标识训练数据集，拼进描述符后再进拟合头——多任务训练多个数据集时不增加拟合头数量，开销不随数据集数增长。DPA-3.1-3M（OpenLAM-v1，31 个数据集，128 GPU×400 万步）在此框架下训练，在 12 个下游任务的 zero-shot 力场预测上取得最低平均误差。</p>
+<h1><span id="dpa-4emfa-so2卷积与机器精度等变2026">DPA-4：EMFA SO(2)卷积与机器精度等变（2026）</span></h1><p>DPA-4（Tiancheng Li et al., arXiv:2606.02419, “DPA4: Pushing the Accuracy-Cost Frontier of Interatomic Potentials with EMFA SO(2) Convolution”）是这条线的集大成者。它跨越 0.48M 到 25M 六个规模档，核心架构创新有四项：</p>
+<p><strong>A1. 低秩边-节点 SO(2) 等变阶耦合</strong>。eSCN 把 SO(3) 卷积降到边局部 SO(2) 后，边特征只对角调制节点（第 $l$ 阶边只乘第 $l$ 阶节点）；DPA-4 用低秩分解让<strong>每条边的每个角动量阶都耦合所有节点阶</strong>——把 eSCN 丢掉的那些跨阶耦合捡了回来，找回表达力。这正是 eSCN 那个”稀疏化”动作的代价补偿（见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/07-eSCN/" title="eSCN：把SO(3)卷积拆成稀疏矩阵">eSCN：把SO(3)卷积拆成稀疏矩阵</a>）。</p>
+<p><strong>A2. Multi-Focus 消息非线性</strong>。把隐藏宽度切成 $F$ 条并行 focus 流，各自过独立的 SO(2) 栈，再经跨 focus softmax 竞争加权——用更少参数达到单 focus 基线的精度。</p>
+<p><strong>A3. 包络门控注意力</strong>。聚合邻居消息时用 $l=0$ 标量片算注意力权重，配合截断包络让边贡献在 $r_{ij}\to r_c$ 时 $C^3$ 平滑归零。</p>
+<p><strong>A4. Wigner 双线性网络（WBN）</strong>。等变 FFN 的实现方式：把节点特征展开为 SO(3) 旋转群上的两个标量函数、逐点相乘、再投影回不可约系数。一个乘法耦合所有角动量阶，无需枚举 CG 耦合路径、无需存储 CG 表。积分用 <strong>Lebedev 正交</strong>（74 点 × 4 角度 = 296 采样/原子），等变误差降到 $10^{-14}$（机器精度），而 Equiformer 的经纬网格只有 $10^{-6}$。保留 $k_{\max}=1$ 帧，重新打开了奇宇称耦合（如叉积 $\vec r_1\times\vec r_2$，这是 $k=0$ 纯球谐做不到的）。</p>
+<p>在这四项之上，DPA-4 还解决了一个此前所有模型绕开的问题——<strong>近距物理</strong>。</p>
+<h2><span id="zbl-原生桥接消灭切换力">ZBL 原生桥接：消灭”切换力”</span></h2><p>DPA-4 把能量分解为解析分支 + 学习分支：</p>
+<script type="math/tex; mode=display">E = E_\Theta^{\text{NN}} + E^{\text{ZBL}},\qquad E_{ij}^{\text{ZBL}}(r) = \frac{k_e Z_i Z_j}{r}\,\Phi(r/a_{ij})</script><p>其中 $E^{\text{ZBL}}$ 是 Ziegler-Biersack-Littmark 屏蔽库仑对势（高能辐照、近距碰撞场景的物理正确形式）。传统做法是后验把 ZBL 拼到能量上，但坐标依赖的 splice 权重会引入一个”切换力”（正比于两分支能量差，没有物理对应）。DPA-4 的解法是<strong>原生桥接</strong>：</p>
+<ul>
+<li><strong>clamped distance</strong> $\tilde r(r)$：当 $r &lt; r_{\text{in}}$ 时 $\tilde r$ 冻结为常数，学习分支对 $r$ 无梯度；</li>
+<li><strong>source-freeze gate</strong> $\eta_j$：邻居进入内区时，该邻居发出的消息被平滑冻结。</li>
+</ul>
+<p>结果是内区纯 ZBL 力、外区纯学习力、桥接区无伪影切换力——C–Si 双原子扫描证实了这一点。这层处理让 DPA-4 既能做常规 MD，也能做辐照损伤、近距碰撞模拟。</p>
+<h2><span id="纯保守训练不需要直接力预训练拐杖">纯保守训练：不需要直接力预训练拐杖</span></h2><p>eSEN 用”直接力预训练 60 ep → 保守微调 40 ep”绕开 double-backward 的高成本；DPA-4 的回应是<strong>让保守训练本身变快</strong>：用 torch.compile 编译 force-loss 的双重反向传播路径，得到 3.1× 训练加速、峰值显存降到 FP32 基线的 40%。于是全部 DPA-4 变体<strong>只用保守能量梯度路径训练，不用 DeNS、不用直接力预训练</strong>——架构够好，就不需要拐杖。</p>
+<h1><span id="dpa-4-vs-esen两条平滑路线的对决">DPA-4 vs eSEN：两条平滑路线的对决</span></h1><p>eSEN 与 DPA-4 是当前”平滑 + 保守”路线的两个代表，但策略截然不同：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>eSEN</th>
+<th>DPA-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平滑阶数</td>
+<td>$C^2$（多项式包络）</td>
+<td><strong>$C^3$</strong>（septic Hermite 包络 $s_5, s_7$ + 桥接窗口 $h_c, h_w$）</td>
+</tr>
+<tr>
+<td>力的来源</td>
+<td>保守（微调后）</td>
+<td>保守（全程）</td>
+</tr>
+<tr>
+<td>训练协议</td>
+<td>直接力预训练 60ep → 保守微调 40ep</td>
+<td><strong>纯保守训练</strong>（torch.compile 加速 3.1×）</td>
+</tr>
+<tr>
+<td>去噪辅助</td>
+<td>DeNS</td>
+<td>无</td>
+</tr>
+<tr>
+<td>非线性</td>
+<td>SiLU 等变 Gated（球谐空间）</td>
+<td><strong>Wigner 双线性网络</strong>（机器精度等变）</td>
+</tr>
+<tr>
+<td>近距物理</td>
+<td>无专门处理</td>
+<td><strong>ZBL 原生桥接</strong></td>
+</tr>
+<tr>
+<td>优化器</td>
+<td>AdamW + cosine</td>
+<td><strong>HybridMuon + WSD</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>$\kappa_\text{SRME}$（热导率误差，越低越好）是这场对决的裁判</strong>——它衡量声子热导率预测，对势能面的平滑性和保守性极其敏感：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>$\kappa_\text{SRME}$↓</th>
+<th>CPS↑</th>
+<th>参数</th>
+<th>训练算力(GPU-day)</th>
+<th>DeNS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DPA4-Pro</strong></td>
+<td><strong>0.227</strong></td>
+<td><strong>0.842</strong></td>
+<td>25.2M</td>
+<td>233</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>DPA4-Plus</td>
+<td>0.240</td>
+<td>0.829</td>
+<td>8.8M</td>
+<td>31</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>DPA4-Air</td>
+<td>0.267</td>
+<td>0.816</td>
+<td>5.1M</td>
+<td>16</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>EquiformerV3+DeNS</td>
+<td>0.275</td>
+<td>0.830</td>
+<td>30.3M</td>
+<td>157</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>eSEN-30M-MP</strong></td>
+<td>0.340</td>
+<td>0.797</td>
+<td>30.1M</td>
+<td>335</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>DPA4-Neo</td>
+<td>0.353</td>
+<td>0.782</td>
+<td>1.1M</td>
+<td>8.6</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>eqV2-S-DeNS（直接力）</td>
+<td>1.676</td>
+<td>0.522</td>
+<td>31.2M</td>
+<td>228</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Orb v2（直接力）</td>
+<td>1.726</td>
+<td>0.470</td>
+<td>25.2M</td>
+<td>—</td>
+<td>✗</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>几个值得咀嚼的点：</p>
+<ol>
+<li><strong>DPA4-Pro 用更少参数、更少算力、不靠预训练，$\kappa_\text{SRME}$ 反而比 eSEN 低 33%</strong>——说明 $C^3$ 平滑 + 机器精度等变带来的收益，超过了”直接力预训练 + $C^2$ 平滑”的组合。</li>
+<li><strong>DPA4-Plus（8.8M）只用一个零头算力（31 GPU-day）就追平了 EquiformerV3+DeNS（0.240 vs 0.275）</strong>——架构红利被放大了。</li>
+<li><strong>直接力模型（eqV2、Orb）的 $\kappa_\text{SRME}$ 是保守模型的 5-7 倍</strong>——再次印证 eSEN 论文的核心论点：test MAE 好 ≠ 物理好。三阶力常数靠有限差分，直接力在小位移下的力噪声直接毁掉声子。</li>
+<li><strong>DPA4 的 C–Si 双原子近距扫描与声子验证</strong>证实：$C^3$ 平滑让四阶导数也连续（声子-声子散射的关联量），这是 $C^2$ 的 eSEN 不具备的额外保障。</li>
+</ol>
+<h1><span id="dpa-4的训练栈hybridmuon-wsd">DPA-4的训练栈：HybridMuon + WSD</span></h1><p>DPA-4 的训练配置恰好是我们前两章（<a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/11-%E4%BC%98%E5%8C%96%E5%99%A8/" title="优化器：从SGD、AdamW到Muon与SOAP">优化器：从SGD、AdamW到Muon与SOAP</a> 与 <a href="/2026/08/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/12-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表">调度器：学习率的时间表</a>）讲的两件套的落地实践：</p>
+<p><strong>HybridMuon 优化器</strong>：</p>
+<ul>
+<li><strong>矩阵参数走 Muon</strong>：Nesterov 动量 + Newton-Schulz 极化迭代（8 次快迭代 $a,b,c=(3.4445,-4.7750,2.0315)$ + 2 次 Newton 抛光），更新 RMS 对齐到 $\gamma=0.18$（正是上一章说的”RMS 对齐到 Adam 尺度”）；</li>
+<li><strong>slice mode</strong>：等变张量的 leading 维按不可约表示的度/阶切块，每块独立做 Muon，避免把不同表示层混进一个大矩阵；</li>
+<li><strong>标量/归一化/1D 参数走 AdamW</strong>：这正是 ch11 的”混合方案”铁律——Muon 只管 2D 矩阵，1D 参数留 Adam 家族；</li>
+<li><strong>Magma-lite 阻尼</strong>：按动量对齐度对 Muon 更新做连续阻尼（而非随机跳过），下限 $s_{\min}=0.1$ 防止块被冻结——这是对 Muon 在等变场景下梯度块间方差大的适配。</li>
+</ul>
+<p><strong>WSD 学习率调度</strong>：warmup → stable（常数 lr，主阶段）→ cosine decay（末尾）。消融显示 WSD 比全程 cosine 的能源和力 MAE 都更低——因为稳定期保持全速探索、末尾短促衰减压住振荡。这正是 ch12 里 WSD 那条曲线的工业验证。</p>
+<p><strong>一句话</strong>：DPA-4 把我们博客讲的”先进优化器（Muon/HybridMuon）+ 先进调度（WSD）”完整落地，并证明它们能实打实提高精度。当预条件够强、调度够巧时，连”直接力预训练”这个行业拐杖都可以扔掉。</p>
+<h1><span id="参考">参考</span></h1><ol>
+<li>Zhang, D., Bi, H., Dai, F.-Z. et al. <em>DPA-1: Pretraining of Attention-based Deep Potential Model for Molecular Simulation</em>. arXiv:2208.08236, 2022.</li>
+<li>Zhang, D., Liu, X., Zhang, X. et al. <em>DPA-2: a large atomic model as a multi-task learner</em>. arXiv:2312.15492, 2023; npj Comput. Mater. 10, 293 (2024).</li>
+<li>Zhang, D., Peng, A., Cai, C. et al. <em>A Graph Neural Network for the Era of Large Atomistic Models</em> (DPA-3). arXiv:2506.01686, 2025/2026.</li>
+<li>Li, T., Li, W., Peng, A. et al. <em>DPA4: Pushing the Accuracy-Cost Frontier of Interatomic Potentials with EMFA SO(2) Convolution</em>. arXiv:2606.02419, 2026.</li>
+<li>Fu, X. et al. <em>Learning Smooth and Expressive Interatomic Potentials for Physical Property Prediction</em> (eSEN). arXiv:2502.12147, 2025.</li>
+<li>Ziegler, J. F., Biersack, J. P. &amp; Littmark, U. <em>The Stopping and Range of Ions in Solids</em>. Pergamon, 1985.</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/">https://xuxu20040407.github.io/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/13-DPA%E7%B3%BB%E5%88%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">分子力场</a><a class="post-meta__tags" href="/tags/%E9%80%9A%E7%94%A8%E5%8A%BF/">通用势</a><a class="post-meta__tags" href="/tags/DPA/">DPA</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/01-%E5%A4%9A%E4%BD%93%E9%97%AE%E9%A2%98/" title="01 多体问题"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">01 多体问题</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/12-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">调度器：学习率的时间表</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/10-%E9%80%9A%E7%94%A8%E5%8A%BF%E6%A8%A1%E5%9E%8B/" title="通用势模型巡礼：从MACE-MP-0到UMA"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">通用势模型巡礼：从MACE-MP-0到UMA</div></div></a></div><div><a href="/2026/08/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/12-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-29</div><div class="title">调度器：学习率的时间表</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/11-%E4%BC%98%E5%8C%96%E5%99%A8/" title="优化器：从SGD、AdamW到Muon与SOAP"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">优化器：从SGD、AdamW到Muon与SOAP</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/09-%E9%80%9A%E7%94%A8%E5%8A%BFbenchmark/" title="通用势的竞技场：MatBench Discovery与OC20"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">通用势的竞技场：MatBench Discovery与OC20</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/08-%E9%80%9A%E7%94%A8%E5%8A%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" title="通用势的数据集版图"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">通用势的数据集版图</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/07-eSCN/" title="eSCN：把SO(3)卷积拆成稀疏矩阵"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">eSCN：把SO(3)卷积拆成稀疏矩阵</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">引言：一条贯穿四代的演进线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">DPA-1：注意力机制的试水（2022）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">DPA-2：双网络架构（2024）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">DPA-3：LiGS与Scaling Law（2025&#x2F;2026）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">DPA-4：EMFA SO(2)卷积与机器精度等变（2026）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">ZBL 原生桥接：消灭”切换力”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">纯保守训练：不需要直接力预训练拐杖</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">DPA-4 vs eSEN：两条平滑路线的对决</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">DPA-4的训练栈：HybridMuon + WSD</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

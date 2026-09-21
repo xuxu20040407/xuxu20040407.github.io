@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>机器学习哈密顿量：综述 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引言：DFT的精度—效率困境 为什么偏偏是哈密顿量 无限维度与规范协变性 DeepH家族：一条主线的五个里程碑 从专用到通用：应用与延伸 全景与其他路线 结语  引言：DFT的精度—效率困境我们在晶格动力学中提到过，固体的诸多性质由电子结构决定。要严格地解决这个问题，需要求解多电子薛定谔方程，这仍然是一个多体问题，为了解决它，我们通常借助密度泛函理论（DFT），具体可以参考 第一性原理计算方法C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习哈密顿量：综述">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F%E7%BB%BC%E8%BF%B0/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="引言：DFT的精度—效率困境 为什么偏偏是哈密顿量 无限维度与规范协变性 DeepH家族：一条主线的五个里程碑 从专用到通用：应用与延伸 全景与其他路线 结语  引言：DFT的精度—效率困境我们在晶格动力学中提到过，固体的诸多性质由电子结构决定。要严格地解决这个问题，需要求解多电子薛定谔方程，这仍然是一个多体问题，为了解决它，我们通常借助密度泛函理论（DFT），具体可以参考 第一性原理计算方法C">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-08-24T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-15T07:25:51.216Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="哈密顿量">
+<meta property="article:tag" content="电子结构">
+<meta property="article:tag" content="DFT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F%E7%BB%BC%E8%BF%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '机器学习哈密顿量：综述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-15 15:25:51'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">机器学习哈密顿量：综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-24T04:00:00.000Z" title="发表于 2026-08-24 12:00:00">2026-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-15T07:25:51.216Z" title="更新于 2026-09-15 15:25:51">2026-09-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/">机器学习哈密顿量</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器学习哈密顿量：综述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#引言dft的精度效率困境">引言：DFT的精度—效率困境</a></li>
+<li><a href="#为什么偏偏是哈密顿量">为什么偏偏是哈密顿量</a></li>
+<li><a href="#无限维度与规范协变性">无限维度与规范协变性</a></li>
+<li><a href="#deeph家族一条主线的五个里程碑">DeepH家族：一条主线的五个里程碑</a></li>
+<li><a href="#从专用到通用应用与延伸">从专用到通用：应用与延伸</a></li>
+<li><a href="#全景与其他路线">全景与其他路线</a></li>
+<li><a href="#结语">结语</a></li>
+</ul>
+<h1><span id="引言dft的精度效率困境">引言：DFT的精度—效率困境</span></h1><p>我们在<a href="/2025/02/22/晶格动力学/">晶格动力学</a>中提到过，固体的诸多性质由电子结构决定。要严格地解决这个问题，需要求解多电子薛定谔方程，这仍然是一个多体问题，为了解决它，我们通常借助密度泛函理论（DFT），具体可以参考 <a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95Content/" title="第一性原理计算方法Content">第一性原理计算方法Content</a> 。Kohn-Sham框架把相互作用多体问题改写成一个等效的单粒子问题，KS方程写作</p>
+<script type="math/tex; mode=display">\left(-\frac{1}{2}\nabla^2+V_{\mathrm{eff}}[\rho](\vec{r})\right)\psi_i(\vec{r})=\varepsilon_i\,\psi_i(\vec{r})</script><p>其中有效势是电荷密度的泛函，</p>
+<script type="math/tex; mode=display">V_{\mathrm{eff}}[\rho]=V_{\mathrm{ext}}+V_{\mathrm{H}}[\rho]+V_{\mathrm{xc}}[\rho],\qquad \rho(\vec{r})=\sum_i f_i\,|\psi_i(\vec{r})|^2</script><p>代价是必须通过自洽场（SCF）迭代反复求解——由$\rho$构造$V_{\mathrm{eff}}$，解出$\{\psi_i\}$后重组$\rho$，如此循环直到电荷密度与有效势相互自洽。这个过程的计算量随体系原子数以三次方以上的速度增长（典型地$O(N^3)$），能够处理的体系不过上百至上千个原子。</p>
+<p>另一方面，真实材料中的大量有趣物理恰恰发生在更大的尺度上：含有位错、晶界、掺杂的无序体系，动辄上万原子的moiré扭转超胞，缺陷与界面的复合结构。线性标度方法虽然把计算量降到了$O(N)$，但通常以牺牲精度和普适性为代价。这就是第一性原理计算由来已久的精度—效率困境。</p>
+<p>机器学习分子力场的读者对这个困境应该并不陌生： <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA%E7%BB%BC%E8%BF%B0/" title="机器学习分子力场：综述">机器学习分子力场：综述</a> 中我们讲到，MLIP用神经网络学出势能面$E(\{\vec{R}_i\})$，让分子动力学模拟以经典力场的成本获得DFT的精度。这一篇开始，我们把同样的思想推进一层——不再停留在原子尺度上拟合标量能量，而是直接深入电子结构层面，<strong>用神经网络表示DFT哈密顿量本身</strong>。这条路线以清华徐勇、段文晖团队提出的DeepH方法为代表，本专栏将沿着这条主线展开。</p>
+<h1><span id="为什么偏偏是哈密顿量">为什么偏偏是哈密顿量</span></h1><p>电子结构领域可供学习的对象很多：电荷密度、能带、波函数、态密度……为什么DeepH家族偏偏选中了哈密顿量？</p>
+<p>答案在于它的”基础性”。在单粒子图像下，几乎所有电子相关的物理量都可以从DFT哈密顿量导出——解一个广义本征值问题就能得到电荷密度、能带结构、Berry相位以及对电磁场的各种响应。如果逐个学习这些物理量，每种性质都要单独设计网络、单独准备数据；而学会哈密顿量之后，一切都成了后处理。DeepH原文把这个策略称为两步策略：</p>
+<script type="math/tex; mode=display">\{\mathcal{R}\}\ \xrightarrow{\ \text{学习}\ }\ \hat{H}_{\mathrm{DFT}}\ \xrightarrow{\ \text{对角化}\ }\ \{\varepsilon_n,|\psi_n\rangle\}\ \longrightarrow\ \text{性质}</script><p>第一步学哈密顿量，第二步从哈密顿量推性质。相比之下，能带和波函数这类量本身不满足近邻性原理（k空间的色散由整个原胞甚至更大范围决定），直接学习它们反而更困难。</p>
+<p>于是问题的核心变成：给定原子结构$\{\mathcal{R}\}$，学出映射</p>
+<script type="math/tex; mode=display">\{\mathcal{R}\}\mapsto \hat{H}_{\mathrm{DFT}}(\{\mathcal{R}\})</script><p>Hohenberg-Kohn定理保证了这个映射的存在性与唯一性——外势由原子结构决定，而基态下外势与哈密顿量一一对应：</p>
+<script type="math/tex; mode=display">\hat{H}_{\mathrm{DFT}}[\{\mathcal{R}\}]=\hat{T}+\hat{V}_{\mathrm{ext}}[\{\mathcal{R}\}]+\hat{V}_{\mathrm{ee}}</script><p>配合能量变分原理$E_0=\min_\rho E[\rho]$，外势由电荷密度唯一决定，哈密顿量自然也是结构的函数。剩下的问题是怎么学。</p>
+<h1><span id="无限维度与规范协变性">无限维度与规范协变性</span></h1><p>在局域原子轨道基组下，哈密顿量写成矩阵元$[H_{ij}]_{p_1p_2}$的形式，其中$i,j$标记原子，$p_1,p_2$标记轨道。这里横着两座大山。</p>
+<p>第一座山是<strong>维度</strong>。宏观晶体包含无穷多个原子，哈密顿矩阵有无穷多个独立变量。好在量子力学有一条近邻性原理（nearsightedness）：由于不同本征态之间的相消干涉，局域基下的哈密顿矩阵元$h_{ij}$随原子间距增大而迅速衰减，超过截断半径$R_c$即可忽略：</p>
+<script type="math/tex; mode=display">[H_{ij}]_{p_1p_2}\approx 0,\qquad |\vec{r}_i-\vec{r}_j|>R_c</script><p>无穷大的矩阵由此被切成无数个有限的局域小块，每个小块只依赖半径$R_c$内的化学环境——这与MLIP中”原子能量由局域环境决定”的分解如出一辙，消息传递神经网络（MPNN）正好是表达这种局域性的自然载体。</p>
+<p>第二座山才是真正棘手的：<strong>规范协变性</strong>。能量是标量，在任何旋转下不变；而哈密顿矩阵不是。改变坐标系的朝向、旋转或混合基函数（规范变换），矩阵元会跟着变换。具体地说，在局域基的规范变换$\phi_p\to\sum_{p’}U_{p’p}\phi_{p’}$下，</p>
+<script type="math/tex; mode=display">H_{ij}\ \longmapsto\ U_i^\dagger H_{ij}U_j</script><p>网络必须学会这种变换行为——输入结构转多少，输出的哈密顿矩阵就按相应的表示跟着变。这比学习不变量难得多，也是早期工作（统计学习拟合铜的哈密顿量、小分子的固定原子数网络）始终无法推广到大体系的根本原因。</p>
+<p>整个DeepH家族的技术史，本质上就是翻越这第二座山的三种尝试：</p>
+<ol>
+<li><strong>初代DeepH</strong>：为每对原子构造确定的局部坐标系，在局部坐标里矩阵元是不变的，于是可以用不变网络——简单直接，但局部坐标依赖最近邻选取，存在不平滑的隐患；</li>
+<li><strong>DeepH-E3</strong>：彻底放弃局部坐标技巧，所有特征按E(3)群的不可约表示严格等变——数学上最优雅，但张量积的计算量在高角动量下爆炸；</li>
+<li><strong>DeepH-2</strong>：两条路线的调和——只沿键方向取一个z轴，把非阿贝尔的SO(3)约化成阿贝尔的SO(2)，兼顾简洁与优雅。</li>
+</ol>
+<p>等变神经网络的数学准备（不可约表示、球谐函数、Clebsch-Gordan系数）我们在 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/02-%E7%AD%89%E5%8F%98%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="等变神经网络：原理与脉络">等变神经网络：原理与脉络</a> 中已经详细介绍过，本专栏将大量用到。</p>
+<h1><span id="deeph家族一条主线的五个里程碑">DeepH家族：一条主线的五个里程碑</span></h1><p><strong>初代DeepH</strong>（2022）确立了整个范式：近邻性原理化解无限维度，局部坐标变换化解规范协变性，MPNN作为骨架。它在moiré扭转材料上的表现堪称惊艳——魔角双层石墨烯的超胞含11164个原子，传统DFT完全无法企及，DeepH不仅轻松算出其哈密顿量，还精确复现了标志性的平带结构。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/01-%E5%88%9D%E4%BB%A3DeepH/" title="初代DeepH：用神经网络表示DFT哈密顿量">初代DeepH：用神经网络表示DFT哈密顿量</a> 。</p>
+<p><strong>DeepH-E3</strong>（2023）把对称性要求贯彻到底：输入、内部、输出特征全部按E(3)不可约表示变换，哈密顿子块借助Wigner-Eckart定理由等变特征构造，连自旋轨道耦合情形也能保持欧几里得对称性。精度达到亚meV级，可处理上万原子的超胞，并催生了moiré扭转材料数据库。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/02-DeepH-E3/" title="DeepH-E3：彻底的等变化">DeepH-E3：彻底的等变化</a> 。</p>
+<p><strong>DeepH-2</strong>（2024）直面前两者的局限：引入等变局域坐标Transformer（ELCT），每条边只取沿键方向的z轴，SO(3)退化为阿贝尔SO(2)，不同角动量通道可以直接混合，计算量从$O(L^6)$降到$O(L^3)$。Transformer架构带来更强的表达力，为通用大模型铺路。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/03-DeepH-2/" title="DeepH-2：等变局域坐标Transformer">DeepH-2：等变局域坐标Transformer</a> 。</p>
+<p><strong>DeepH-pack</strong>是初代方法的官方软件实现，把Preprocess—Train—Inference三步流程标准化，对接ABACUS、OpenMX、FHI-aims、SIESTA等主流DFT软件，是复现与上手的第一入口。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/04-DeepH-pack/" title="DeepH-pack：从论文到工具箱">DeepH-pack：从论文到工具箱</a> 。</p>
+<p><strong>DeepH-Zero</strong>（2024）则是一次换范式的尝试：不再”先跑DFT攒数据、再监督训练”，而是把总能量泛函本身定义为损失函数，让神经网络在变分极小化中自己逼近自洽解（代码AI2DFT）。物理信息驱动的无监督学习，思想上与神经网络量子态一脉相承。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/05-DeepH-Zero/" title="DeepH-Zero：当能量泛函成为损失函数">DeepH-Zero：当能量泛函成为损失函数</a> 。</p>
+<h1><span id="从专用到通用应用与延伸">从专用到通用：应用与延伸</span></h1><p>方法论成熟之后，战场转向两个方向：更高的精度，以及更大的适用范围。</p>
+<p><strong>杂化泛函与通用模型</strong>：DeepH-hybrid把可学习的对象从半局域泛函推广到杂化泛函的广义Kohn-Sham哈密顿量，首次研究了魔角石墨烯平带如何被精确交换修正；UMM（Universal Materials Model）则在万级材料结构的数据库上训练出覆盖大半个周期表的通用模型，并演示了微调技术——这是通往”大材料模型”的关键一步。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/06-DeepH-hybrid%E4%B8%8EUMM/" title="DeepH的应用：杂化泛函与通用模型">DeepH的应用：杂化泛函与通用模型</a> 。</p>
+<p><strong>磁性体系</strong>：xDeepH把输入从原子结构扩展到”原子结构+磁结构”，对称群相应升级为E(3)×$\{1,\mathcal{T}\}$（加入时间反演），使磁超胞、自旋螺旋乃至磁性skyrmion的大规模第一性原理研究成为可能。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/07-xDeepH%E7%A3%81%E6%80%A7%E8%B6%85%E8%83%9E/" title="xDeepH：磁性超胞的等变网络">xDeepH：磁性超胞的等变网络</a> 。</p>
+<h1><span id="全景与其他路线">全景与其他路线</span></h1><p>DeepH家族之外，深度学习电子结构还有另一条完全不同的路线：不做任何近似地直解多体薛定谔方程，用FermiNet、PsiFormer这类神经波函数配合量子蒙特卡洛采样——深度学习QMC。2025年的综述《Deep-learning electronic structure calculations》把这两条路线放在同一个框架下总结：深度学习DFT负责大规模高效模拟，深度学习QMC负责强关联电子的精确求解，共同破解着那个精度—效率困境。收官篇我们将借这篇综述俯瞰全局，比较”学单粒子哈密顿量”与”学多体波函数”两条路线的取舍。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/08-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%94%B5%E5%AD%90%E7%BB%93%E6%9E%84%E5%85%A8%E6%99%AF/" title="深度学习电子结构：全景与展望">深度学习电子结构：全景与展望</a> 。</p>
+<p>最后，HamGNN、QHNet等非DeepH系的等变哈密顿量网络同样精彩，它们在分子哈密顿量预测、SU(2)对称性处理等方面各有独到之处，我们留一篇推文统一介绍。详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/09-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C%E5%B1%95%E6%9C%9B/" title="其他哈密顿量网络：DeepH之外的风景">其他哈密顿量网络：DeepH之外的风景</a> 。</p>
+<h1><span id="结语">结语</span></h1><p>回顾一下本专栏的结构：从DFT的自洽迭代瓶颈出发（本文），经初代DeepH确立范式、DeepH-E3完成等变化、DeepH-2调和效率与优雅、DeepH-pack完成工程化、DeepH-Zero探索无监督新范式，再到杂化泛函与通用模型的应用延伸、磁性体系的拓展，最后以DL-DFT与DL-QMC的双支柱全景收尾。十篇文章构成一条完整的叙事线，而它们的共同起点都是那个朴素的观察：哈密顿量知道一切。</p>
+<p>下一篇我们从 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/01-%E5%88%9D%E4%BB%A3DeepH/" title="初代DeepH：用神经网络表示DFT哈密顿量">初代DeepH：用神经网络表示DFT哈密顿量</a> 讲起。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F%E7%BB%BC%E8%BF%B0/">https://xuxu20040407.github.io/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/00-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F%E7%BB%BC%E8%BF%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/">哈密顿量</a><a class="post-meta__tags" href="/tags/%E7%94%B5%E5%AD%90%E7%BB%93%E6%9E%84/">电子结构</a><a class="post-meta__tags" href="/tags/DFT/">DFT</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/06-Equiformer%E7%B3%BB%E5%88%97/" title="Equiformer系列：等变Transformer的三级跳"><img class="cover" src="/img/cover2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Equiformer系列：等变Transformer的三级跳</div></div></a></div><div class="next-post pull-right"><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/05-MACE/" title="MACE：高阶等变消息传递与原子簇展开"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MACE：高阶等变消息传递与原子簇展开</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/01-%E5%88%9D%E4%BB%A3DeepH/" title="初代DeepH：用神经网络表示DFT哈密顿量"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">初代DeepH：用神经网络表示DFT哈密顿量</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/09-%E5%85%B6%E4%BB%96%E5%B7%A5%E4%BD%9C%E5%B1%95%E6%9C%9B/" title="其他哈密顿量网络：DeepH之外的风景"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">其他哈密顿量网络：DeepH之外的风景</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/08-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%94%B5%E5%AD%90%E7%BB%93%E6%9E%84%E5%85%A8%E6%99%AF/" title="深度学习电子结构：全景与展望"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">深度学习电子结构：全景与展望</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/05-DeepH-Zero/" title="DeepH-Zero：当能量泛函成为损失函数"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">DeepH-Zero：当能量泛函成为损失函数</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/04-DeepH-pack/" title="DeepH-pack：从论文到工具箱"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">DeepH-pack：从论文到工具箱</div></div></a></div><div><a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%93%88%E5%AF%86%E9%A1%BF%E9%87%8F/03-DeepH-2/" title="DeepH-2：等变局域坐标Transformer"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-24</div><div class="title">DeepH-2：等变局域坐标Transformer</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">引言：DFT的精度—效率困境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">为什么偏偏是哈密顿量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">无限维度与规范协变性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">DeepH家族：一条主线的五个里程碑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">从专用到通用：应用与延伸</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">全景与其他路线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

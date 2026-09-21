@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>08 超导：唯象理论 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="超导的历史 Ginzburg-Landau 理论 U(1) 对称性与规范不变性 U(1) 的自发破缺   电动力学 电磁响应与 London 方程 Meissner 效应 临界磁场：第一类与第二类超导体    超导的历史超导于 1911 年被荷兰物理学家卡末林·昂内斯（Heike Kamerlingh Onnes）发现：用他发明的液氦低温技术把汞冷却到 4.2 K 以下时，固态汞的电阻骤降到零。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08 超导：唯象理论">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="超导的历史 Ginzburg-Landau 理论 U(1) 对称性与规范不变性 U(1) 的自发破缺   电动力学 电磁响应与 London 方程 Meissner 效应 临界磁场：第一类与第二类超导体    超导的历史超导于 1911 年被荷兰物理学家卡末林·昂内斯（Heike Kamerlingh Onnes）发现：用他发明的液氦低温技术把汞冷却到 4.2 K 以下时，固态汞的电阻骤降到零。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover1.jpeg">
+<meta property="article:published_time" content="2026-09-14T08:30:03.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:30:03.545Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子多体物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover1.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '08 超导：唯象理论',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-16 13:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">08 超导：唯象理论</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-14T08:30:03.000Z" title="发表于 2026-09-14 16:30:03">2026-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T05:30:03.545Z" title="更新于 2026-09-16 13:30:03">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="08 超导：唯象理论"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#超导的历史">超导的历史</a></li>
+<li><a href="#ginzburg-landau-理论">Ginzburg-Landau 理论</a><ul>
+<li><a href="#u1-对称性与规范不变性">U(1) 对称性与规范不变性</a></li>
+<li><a href="#u1-的自发破缺">U(1) 的自发破缺</a></li>
+</ul>
+</li>
+<li><a href="#电动力学">电动力学</a><ul>
+<li><a href="#电磁响应与-london-方程">电磁响应与 London 方程</a></li>
+<li><a href="#meissner-效应">Meissner 效应</a></li>
+<li><a href="#临界磁场第一类与第二类超导体">临界磁场：第一类与第二类超导体</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id="超导的历史">超导的历史</span></h1><p>超导于 1911 年被荷兰物理学家卡末林·昂内斯（Heike Kamerlingh Onnes）发现：用他发明的液氦低温技术把汞冷却到 4.2 K 以下时，固态汞的电阻骤降到零。这开启了低温物理领域。1933 年发现 <strong>Meissner 效应</strong>：超导体完全排斥磁场。它随后被伦敦兄弟（Fritz &amp; Heinz London）用超流响应假设（London 方程）解释。1950 年金兹堡和朗道提出了较为系统的超导唯象理论。1957 年，在发现超导近半个世纪后，Bardeen、Cooper 和 Schrieffer 找到了以<strong>吸引相互作用的电子</strong>为基础的微观理论——<strong>BCS 理论</strong>。</p>
+<blockquote>
+<p>【配图】图 8.0.1：超导的历史时间线：1911 年 Hg（$T_c=4.2$ K，Onnes）→ 1933/1935 年 London 方程与 Meissner 效应 → 1950 年 Ginzburg-Landau 理论 → 1957 年 BCS 理论 → 1986 年高温铜氧化物 → 2005 年铁基 → 2015 年高压 H$_2$S（$T_c=80$ K）→ 2019 年镍基。</p>
+</blockquote>
+<p>1986 年，Bednorz 和 Müller 发现 $La_{2-x}Ba_xCuO_4$ 在 $T_c = 35$ K 超导，开启高温铜氧化物时代。此后铁基（2005）、镍基（2019）超导相继被发现，标志着 BCS 理论无法理解的非常规超导的历史不断前进。</p>
+<p>超导的重要性部分体现在：上述每个发现几乎都获得诺贝尔奖。两个定义性质指向两个诱人的应用：无损电力传输和磁悬浮。零电阻也意味着超导芯片不用担心发热问题。阻碍这些应用的头号因素是低温。全世界正投入巨大努力提高临界温度：铜氧化物常压最高约 150 K，LaH10 在 170 GPa 下达 250 K。虽然室温超导尚未实现，已有超导体已用作医疗设备与聚变装置的高磁场线圈（高温铜氧化物）、SQUID 中的磁场探测器。</p>
+<h1><span id="ginzburg-landau-理论">Ginzburg-Landau 理论</span></h1><p>在朗道二级相变理论框架下，1950 年金兹堡-朗道提出了超导的唯象理论。<strong>Ginzburg-Landau 自由能（密度）泛函</strong>：</p>
+<script type="math/tex; mode=display">
+F = E_c\int d^dr\left[\alpha|\psi|^2 + \xi_0^2\left|\left(\nabla + i\frac{2e}{c\hbar}A\right)\psi\right|^2 + |\psi|^4\right]</script><p>符号定义同第七讲式 (7.1.1)：$E_c$ 是典型凝聚能量密度，$\alpha\approx(T-T_c)/T_c$ 是含温无量纲系数，$\xi_0&gt;0$ 是裸”相干长度”。新的东西是：<strong>序参量现在是复数</strong> $\psi(r) = |\psi(r)|e^{i\theta(r)}$，并以规范不变形式与电磁场矢势 $A(r,t)$ 耦合。超导语境中序参量 $\psi(r)$ 可理解为超流（凝聚体）的”波函数”（虽然这不完全准确），序参量还量化”超流密度”：$n_s \propto |\psi|^2$。</p>
+<h2><span id="u1-对称性与规范不变性">U(1) 对称性与规范不变性</span></h2><p>自由能泛函显然在序参量相位的整体改变 $\psi(r)\to\psi(r)e^{i\varphi}$ 下不变。这个操作有群结构，叫 <strong>$U(1)$</strong>（由 $0\sim2\pi$ 之间的角度参数化），称式 (8.1.1) 具有整体 $U(1)$ 对称性。</p>
+<blockquote>
+<p>【配图】图 8.1.1：自由能对复数 $\psi$ 的函数（墨西哥帽形）。$T&lt;T_c$ 时极小在 $\psi_m = \sqrt{-\alpha/2}e^{i\theta}$，任何相位都等价；选择其中一个相位即自发破缺整体 $U(1)$ 对称性。</p>
+</blockquote>
+<p>除此之外，式 (8.1.1) 还在局域变换 $\psi(r)\to\psi(r)e^{i\varphi(r)}$、$A(r)\to A(r)-\frac{c\hbar}{2e}\nabla\varphi$ 下不变，这叫<strong>规范变换</strong>，电磁场是规范场。模型具有局域 $U(1)$ 规范不变性。但要注意：<strong>规范不变性不是对称性</strong>，而是我们描述物理世界所用自由度的<strong>冗余</strong>。</p>
+<h2><span id="u1-的自发破缺">U(1) 的自发破缺</span></h2><p>对 $\psi$ 最小化 $F$ 得平均场序参量：</p>
+<script type="math/tex; mode=display">
+\psi_m =
+\begin{cases}
+0, & T>T_c\\
+\sqrt{-\alpha/2}\,e^{i\theta}, & T<T_c
+\end{cases}, \qquad
+F =
+\begin{cases}
+0, & T>T_c\\
+-E_c\alpha^2/4, & T<T_c
+\end{cases}</script><p>自由能及其导数与式 (7.2.3) 相同。虽然序参量的模长由参数（如 $\alpha$）固定，其相位可取 $0\sim2\pi$ 之间任意值，但平均场解必须挑一个——因此状态<strong>自发破缺整体 $U(1)$ 对称性</strong>。</p>
+<h1><span id="电动力学">电动力学</span></h1><h2><span id="电磁响应与-london-方程">电磁响应与 London 方程</span></h2><p>考虑超导体对静态电磁场（由矢势 $A$ 描述）的电流响应。电流为：</p>
+<script type="math/tex; mode=display">
+J(r) = -c\partial_A F = -E_c\xi_0^2\left[\psi^*\left(-i\nabla + \frac{2e}{\hbar c}A\right)\psi + c.c.\right] = -\frac{8e^2}{c\hbar^2}E_c\xi_0^2|\psi|^2\left(A + \frac{\hbar c}{2e}\nabla\theta\right)</script><p>称为<strong>超流</strong>（super current）。</p>
+<blockquote>
+<p>【配图】图 8.2.1：(a) 纵向（上）与横向（下）矢势示意；(b) Meissner 效应中磁场剖面（穿透深度被夸张），蓝色标度代表超流密度。</p>
+</blockquote>
+<p>先考虑静态<strong>纵向</strong>矢势 $A(r) = \nabla\varphi(r)$。若序参量保持均匀不响应，自由能中的”动能”项 $K = \xi_0^2|\psi_m|^2(\nabla\varphi)^2 &gt; 0$，显然不是最优构型。最优的是序参量做规范变换为 $|\psi_m|e^{-i\frac{2e}{\hbar c}\varphi(r)}$，使动能重新为零：$K = \xi_0^2|\psi_m|^2(\nabla\varphi-\nabla\varphi)^2 = 0$。自由能不变，电流响应为零。这与”静态纵向矢势 $A=\nabla\varphi$ 规范等价于零”（它描述零电场零磁场）一致。一般地，式 (8.2.1) 的电流是规范不变的：给矢势加 $\nabla\varphi(r)$ 会被相位的响应 $\theta(r)\to\theta(r)-\frac{2e}{\hbar c}\varphi(r)$ 精确抵消。</p>
+<p>现在施加<strong>横向</strong>矢势 $A(r) = A_\perp\cos(k\cdot r)$（$A_\perp\cdot k = 0$）。静态下这代表静态磁场 $B(r) = -(k\times A_\perp)\sin(k\cdot r)$。它无法通过改变序参量相位来减少动能，因此相位保持均匀（$\nabla\theta = 0$），响应电流为：</p>
+<script type="math/tex; mode=display">
+J = -E_c\xi_0^2\frac{8e^2}{\hbar^2c}|\psi_m|^2A = -\frac{n_se^2}{mc}A</script><p>其中 $m$ 是电子有效质量，定义<strong>超流密度</strong> $n_s = \frac{8mE_c\xi_0^2}{\hbar^2}|\psi_m|^2$。这就是 <strong>London 方程</strong>。</p>
+<p>有两种方式看出体系是超导的：</p>
+<ol>
+<li><p><strong>绝热地</strong>打开横向矢势，使每时刻电流 $J = -\frac{n_se^2}{mc}A$，并有弱电场 $E = -\frac1c\partial_tA$，则：</p>
+<script type="math/tex; mode=display">
+\partial_t J = -\frac{n_se^2}{mc}\partial_t A = \frac{n_se^2}{m}E</script><p>电场加速电流；电场撤走后电流按式 (8.2.2) 一直保持，无限持续——这就是超导。</p>
+</li>
+<li><p><strong>动力学响应</strong>：式 (8.2.2) 在静态极限得到。若横向矢势 $A(r,t) = A_\perp\cos(k\cdot r)\cos(\omega t)$ 含时，响应需由含时 Ginzburg-Landau 理论或微观理论计算。结论是：只要 $k\ll1/\xi_0$、$\omega\ll\Delta$（$\Delta$ 是超导能隙），式 (8.2.2) 仍成立。取 $k\to0$ 而非零 $\omega$ 极限，矢势代表振荡电场 $E = -\frac1c\partial_tA$，电流响应 $J = -\frac{n_se^2}{mc}A = \frac{n_se^2}{m}\frac{i}{\omega}E$：电流在恒定均匀 $A_\perp$ 下也不衰减，静态极限下电导率发散——即超导。</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>问题 8.2.1</strong>：对清洁电子液施加横向静态矢势 $A(r) = A_\perp\cos(k\cdot r)$，电流响应是什么？体系超导吗？它与 Ginzburg-Landau 理论的关键区别是什么？</p>
+</blockquote>
+<h2><span id="meissner-效应">Meissner 效应</span></h2><p>London 方程 (8.2.2) 说超导体<strong>完美抗磁</strong>：完全把磁场排斥出去，即 <strong>Meissner 效应</strong>。只需联立 Maxwell 方程与 London 方程：</p>
+<script type="math/tex; mode=display">
+B = \nabla\times A, \qquad \nabla\times B = \frac{4\pi}{c}J, \qquad J = -\frac{n_se^2}{mc}A_\perp</script><p>对第二式取旋度并利用第一、三式：</p>
+<script type="math/tex; mode=display">
+\nabla\times(\nabla\times B) = -\frac{4\pi n_se^2}{mc^2}B \quad\Rightarrow\quad \nabla^2B = \lambda_L^{-2}B</script><p>其中 $\lambda_L = \sqrt{\frac{c^2m}{4\pi n_se^2}}$ 是<strong>磁穿透深度</strong>。设 $B\parallel\hat z$ 只随 $x$ 变化，解得 $B(r) = B_0e^{-x/\lambda_L}$。对超导圆柱施加均匀外磁场，总磁场在穿透深度内衰减，见上图 8.2.1(b)。圆柱表面有一层 $\lambda_L$ 厚的超流环绕，恰好抵消外磁场，使超导体深处磁场为零。因此<strong>超导体是磁场的完美屏蔽者</strong>。</p>
+<p>穿透深度 $\lambda_L$ 和相干长度 $\xi = \xi_0/\sqrt{-\alpha}$ 是 Ginzburg-Landau 理论的两个特征长度。常规超导体的穿透深度量级为几十到几百纳米：</p>
+<script type="math/tex; mode=display">
+\frac{1}{\lambda_L} = \sqrt{\frac{4\pi n_se^2}{c^2m}} \sim \frac{e^2v_F}{\hbar c^2}k_F \sim \alpha\frac{v_F}{c}k_F \sim \frac{k_F}{100}</script><p>例如块体铝在近零温的磁穿透深度约 270 nm。</p>
+<h2><span id="临界磁场第一类与第二类超导体">临界磁场：第一类与第二类超导体</span></h2><p>外磁场太大时超导被破坏，磁场得以进入。存在破坏超导的<strong>临界磁场 $H_c$</strong>。注意实验可控制的是外磁场 $H = \nabla\times A_{ext}$（由外部电流施加），不是总场 $B = H + B_{res} = \nabla\times A_{tot}$，因为响应场 $B_{res}$ 由材料自由度（超流）决定。考虑理想螺线管中的超导圆柱，螺线管通过 $A_{ext}$ 进入超导体的自由能：</p>
+<script type="math/tex; mode=display">
+G = F[\psi,A_{tot}] + \frac{B_{res}^2}{8\pi} =
+\begin{cases}
+0, & \text{正常态}\\
+-E_c\alpha^2/4 + \frac{H^2}{8\pi}, & \text{超导态}
+\end{cases}</script><p>（推导中分别假设体系处于正常/超导态对 $\psi$ 最小化；忽略表面电流动能项——它正比于圆周，大体系极限下趋于零；第二项是超流响应场增加的磁场能。）物理上：温度低于 $T_c$ 时选超导态降低能量 $\frac14\alpha^2$，但超导态在螺线管中有 Meissner 效应、不可避免地产生响应场，使能量增加 $\frac{B_{res}^2}{8\pi}$。这是个权衡。</p>
+<p>由此得到临界磁场：</p>
+<script type="math/tex; mode=display">
+\frac{H_c^2}{8\pi} = \frac14E_c\alpha^2(T) = f_{normal} - f_{SC}</script><p>$H<h_c$ 时超导态（带 meissner 效应）能量更低；$h>H_c$ 时正常态（$|\psi_m|=0$）能量更低，超导被破坏。由于序参量在 $H_c$ 处从 $\sqrt{-\alpha/2}$ 跳到 0，这是一级相变。</h_c$></p>
+<blockquote>
+<p>【配图】图 8.2.2：(a) 第一类超导体的相图（$H$-$T$ 平面，$H_c(T)$ 线分隔超导与正常态），红色圆柱面是施加外场 $H$ 的螺线管；(b) 左上——磁通量子化；右与下——第二类超导体相图（$H_{c1}$、$H_{c2}$ 与磁通量子化、Abrikosov 涡旋晶格）。</p>
+</blockquote>
+<p><strong>磁通量子化</strong>：考虑带中心孔的圆环超导体，设法在孔中插入磁通 $\Phi$。矢势 $A = \hat\varphi\frac{\Phi}{2\pi r}$（$\hat\varphi$ 是角向单位矢量）。式 (8.1.1) 第二项（超流动能）为 $K = E_c|\psi|^2\int d\vec r(\nabla\theta + \frac{2e}{\hbar c}A)^2$。若相位 $\theta$ 为常数，动能在大半径极限发散（$K\propto\int^\infty dr/r$）。若相位绕孔缠绕以抵消矢势：$\nabla\theta = -\frac{2e}{\hbar c}A$，超流消失、动能为零。平衡时体系选择这样的相位缠绕态。但相位绕孔只能缠绕整数个 $2\pi$：$\oint d\varphi\,\partial_\varphi\theta = N2\pi$，能完美抵消的矢势也满足 $\oint d\varphi\,r\frac{2e}{\hbar c}A = N2\pi$。即磁通必须是：</p>
+<script type="math/tex; mode=display">
+\Phi = N\Phi_0, \qquad \Phi_0 = \frac{ch}{2e}</script><p>$\Phi_0$ 是<strong>磁通量子</strong>。否则超导体内会有巨大动能。</p>
+<blockquote>
+<p><strong>问题 8.2.6</strong>：若在孔中插入固定磁通 $\Phi = 0.9\Phi_0$ 的螺线管呢？<strong>答</strong>：超导体内表面会发展出自发环流产生额外磁通，使总磁通恰好 $\Phi_0$，从而避免体内巨大动能。</p>
+</blockquote>
+<p><strong>第二类超导体</strong>：更仔细的分析表明并非所有超导体都能完全排斥磁场。关键是无量纲参数——磁穿透深度与相干长度之比：</p>
+<script type="math/tex; mode=display">
+\kappa = \lambda_L/\xi</script><ul>
+<li>当 $\kappa &lt; \frac{1}{\sqrt2}$：<strong>第一类超导体</strong>，行为如上所述；</li>
+<li>当 $\kappa &gt; \frac{1}{\sqrt2}$（超流密度低的材料，如高温超导）：<strong>第二类超导体</strong>，有两个临界场 $H_{c1}$ 和 $H_{c2}$。低于 $H_{c1}$ 完美抗磁；$H_{c1}&lt;H&lt;H_{c2}$ 时磁场可通过磁通线进入材料，每条携带一个磁通量子 $\Phi_0 = \frac{hc}{2e}$，磁通线形成三角形点阵，叫 <strong>Abrikosov 涡旋晶格</strong>；高于 $H_{c2}$ 进入正常态。</li>
+</ul>
+<blockquote>
+<p><strong>思考题</strong></p>
+<ol>
+<li>为什么超导态必然有 Meissner 效应、必然排斥磁场？它能选择不排斥磁场吗？</li>
+<li>为什么式 (8.2.7) 中的电磁场能是 $\frac{B_{res}^2}{8\pi}$？</li>
+<li>对第一类超导体的磁场诱导一级相变，潜热是多少？</li>
+<li>磁通量子化的推导中，相位缠绕整数个 $2\pi$ 的拓扑条件起什么作用？</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/">https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">09 BCS理论</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">07 自发对称性破缺</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">量子多体物理Content</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/" title="10 涨落、临界现象与重整化群"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">10 涨落、临界现象与重整化群</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">09 BCS理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">07 自发对称性破缺</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">06 费米液体的微观理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/05-%E5%BE%AE%E6%89%B0%E8%AE%BA/" title="05 微扰论"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">05 微扰论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">超导的历史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Ginzburg-Landau 理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">U(1) 对称性与规范不变性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">U(1) 的自发破缺</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">电动力学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">电磁响应与 London 方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">Meissner 效应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">临界磁场：第一类与第二类超导体</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>10 涨落、临界现象与重整化群 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="为什么涨落如此重要 经典与量子统计模型 涨落 Ginzburg 判据 案例研究：BCS 超导体   Wilson 动量壳重整化群 RG 变换 RG 流与 Wilson-Fisher 不动点   标度函数与临界现象 连续对称性与 BKT 相变 红外涨落、Mermin-Wagner 定理与下临界维数 二维 Berezinskii-Kosterlitz-Thouless 相变    为什么涨落如此重要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10 涨落、临界现象与重整化群">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="为什么涨落如此重要 经典与量子统计模型 涨落 Ginzburg 判据 案例研究：BCS 超导体   Wilson 动量壳重整化群 RG 变换 RG 流与 Wilson-Fisher 不动点   标度函数与临界现象 连续对称性与 BKT 相变 红外涨落、Mermin-Wagner 定理与下临界维数 二维 Berezinskii-Kosterlitz-Thouless 相变    为什么涨落如此重要">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover2.jpeg">
+<meta property="article:published_time" content="2026-09-14T09:30:03.000Z">
+<meta property="article:modified_time" content="2026-09-16T05:30:03.561Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子多体物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover2.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '10 涨落、临界现象与重整化群',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-16 13:30:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">10 涨落、临界现象与重整化群</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-14T09:30:03.000Z" title="发表于 2026-09-14 17:30:03">2026-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-16T05:30:03.561Z" title="更新于 2026-09-16 13:30:03">2026-09-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="10 涨落、临界现象与重整化群"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#为什么涨落如此重要">为什么涨落如此重要</a></li>
+<li><a href="#经典与量子统计模型">经典与量子统计模型</a></li>
+<li><a href="#涨落">涨落</a><ul>
+<li><a href="#ginzburg-判据">Ginzburg 判据</a></li>
+<li><a href="#案例研究bcs-超导体">案例研究：BCS 超导体</a></li>
+</ul>
+</li>
+<li><a href="#wilson-动量壳重整化群">Wilson 动量壳重整化群</a><ul>
+<li><a href="#rg-变换">RG 变换</a></li>
+<li><a href="#rg-流与-wilson-fisher-不动点">RG 流与 Wilson-Fisher 不动点</a></li>
+</ul>
+</li>
+<li><a href="#标度函数与临界现象">标度函数与临界现象</a></li>
+<li><a href="#连续对称性与-bkt-相变">连续对称性与 BKT 相变</a><ul>
+<li><a href="#红外涨落mermin-wagner-定理与下临界维数">红外涨落、Mermin-Wagner 定理与下临界维数</a></li>
+<li><a href="#二维-berezinskii-kosterlitz-thouless-相变">二维 Berezinskii-Kosterlitz-Thouless 相变</a></li>
+</ul>
+</li>
+</ul>
+<h1><span id="为什么涨落如此重要">为什么涨落如此重要</span></h1><p>前面的章节用平均场研究自发对称性破缺和超导。但真实宏观体系应由场论描述——有无数自由度的空间和时间涨落，包括高温热涨落和零温量子涨落。要把握涨落的图像，可记住固体中晶格位移的热涨落（它们贡献热容的声子部分）。</p>
+<p>二级相变临界点附近，<strong>红外涨落</strong>如此之强，常常完全改变可观测量。例如顺磁→铁磁相变中，热涨落改变了磁化率、比热、关联长度随温度的发散方式，还产生临界点的自相似现象（不同长度标度下看体系长得一样）。这些临界点附近的行为叫<strong>临界现象</strong>。更戏剧性的是，涨落可能强到完全禁止平均场预言的对称破缺相。本章目标是把握涨落的基本图像，并学习系统性计算其效应的方法：<strong>重整化群</strong>。</p>
+<h1><span id="经典与量子统计模型">经典与量子统计模型</span></h1><p>典型统计场论的配分函数是泛函场积分：</p>
+<script type="math/tex; mode=display">
+Z = \int D[\phi]e^{-S[\phi]/T}, \qquad S[\phi] = \int dr\,\mathcal{L}[\phi(r)], \qquad \mathcal{L}[\phi] = E_c\left(\alpha\phi^2 + \xi_0^2(\nabla\phi)^2 + \phi^4\right)</script><p>作用量 $S$ 是 Ginzburg-Landau”自由能”泛函（见 7.1 节）。式 (10.1.1) 和 Ising 模型都是<strong>经典统计模型</strong>：状态由概率分布泛函 $\rho[\phi] = e^{-S[\phi]/T}/Z$ 描述，配分函数对所有场构型求和，模型中没有动力学或动能。</p>
+<blockquote>
+<p>【配图】图 10.1.1：量子”φ⁴”模型（式 10.1.2）的示意相图。横轴 $r$（驱动参数）、纵轴 $T$：高温无序区（经典临界，$z&gt;1$）、有序区、以及 $T=0$ 的量子临界点（QCP）。</p>
+</blockquote>
+<p>真实世界的情形当然有动力学。例如图 7.1.1 的绳子会随时间运动，实际拉格朗日量可写为”φ⁴ 理论”：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_0[\phi] = (\partial_t\phi)^2 + (\nabla\phi)^2 + r\phi^2 + \lambda\phi^4</script><p>（已换成 $\phi$ 无量纲的常规记号。）例如 $\phi$ 表示晶格局域位移时描述固体晶格振动（声子），色散 $\omega_k^2 = r+k^2$；$r&lt;0$ 指示铁电失稳。</p>
+<p><strong>当作经典体系</strong>：配分函数 $Z = \int D[p(r),\phi(r)]e^{-H/T}$，$H = \int dr\left[p^2+(\nabla\phi)^2+r\phi^2+\lambda\phi^4\right]$。对 $p$ 的高斯积分可积掉（$Z_0\sim e^{-\frac12N\ln T}$，$N$ 是自由度总数），只是说动量涨落作为二次自由度按能量均分定理贡献 $\frac12NT$。剩下结构就是式 (10.1.1)——这就是式 (10.1.1) 被称为”经典统计模型”的原因。</p>
+<p><strong>当作量子体系</strong>：虚时间路径积分：</p>
+<script type="math/tex; mode=display">
+Z = \int D[\phi(r,\tau)]e^{-S_0[\phi]}, \qquad S_0[\phi] = \int_0^\beta d\tau\int dr\left[(\partial_\tau\phi)^2+(\nabla\phi)^2+r\phi^2+\lambda\phi^4\right]</script><p>零温（$\tau\in[0,\infty]$）下式 (10.1.4) 与 $d+1$ 维（无穷大）经典统计系统<strong>数学结构相同</strong>。</p>
+<blockquote>
+<p><strong>第一个结论</strong>：$d$ 维空间零温量子体系的行为与 $d+1$ 维经典体系相似——$d$ 维体系的量子涨落在数学上类似 $d+1$ 维体系的热涨落。</p>
+</blockquote>
+<p>高温（$T\gg m$）下虚时间区间 $[0,1/T]$ 很小。考虑路径积分中 $\phi(0) = \phi(1/T)$ 的约束，虚”时间”涨落很难发生，权重远小于时间均匀（但空间涨落）的构型。因此可忽略时间涨落，只对空间依赖构型求和——回到 $d$ 维经典统计系统（式 10.1.1）。</p>
+<blockquote>
+<p><strong>第二个结论</strong>：$d$ 维空间量子体系的高温热力学行为由同维数经典统计模型描述——高温下量子体系涨落以热涨落为主。</p>
+</blockquote>
+<p>总之，泛函场积分统一了量子和经典体系配分函数（及生成泛函）的数学表述。人们常把场积分当作数学模型、专注于如何求解，但永远值得问一句：它代表什么物理系统？</p>
+<blockquote>
+<p><strong>问题 10.1.1</strong>：定义式 (10.1.2) 中二次项系数（”质量” $m^2$）原则上不依赖温度。为什么它的高温有效统计模型式 (7.1.1) 有剧烈温度依赖的 $\alpha(T)$？</p>
+</blockquote>
+<h1><span id="涨落">涨落</span></h1><p>超越”平均场 + 高斯涨落”的图像后，<strong>涨落倾向于破坏有序相</strong>，把临界温度从 $T_c$ 移到更低的 $T_c^*$。物理上：双阱势太浅时，大涨落使场感觉不到两个极小，体系可能保持无序态。</p>
+<p>定量一点：在 $T = T_c$（$\alpha = 0$）考虑 $\phi^4$ 项通过单圈自能给 $\phi$ 产生的额外正质量：</p>
+<script type="math/tex; mode=display">
+\alpha^* = \alpha + \int d^Dk\frac{T/E_c}{\alpha+\xi_0^2k^2}</script><p>两点关联函数 $C_k\sim T/(\alpha+\xi_0^2k^2)$ 重正化为 $C_k\sim T/(\alpha^<em>+\xi_0^2k^2)$。因此 $T_c$ 处 $\phi$ 还没有趋向非零的倾向，SSB 的临界温度应是更低的 $T_c^</em>$。</p>
+<h2><span id="ginzburg-判据">Ginzburg 判据</span></h2><p>判断平均场理论是否好的自洽标准是 <strong>Ginzburg 判据</strong>：序参量的涨落应小于其本身：$\langle(\delta\phi)^2\rangle/|\phi_m|^2 &lt; 1$。$T$ 在 $T_c$ 之下不远处，平均场值 $|\phi_m|^2 = -\alpha/2$，高斯涨落作用量 $\mathcal{L}[\delta\phi] = E_c(-2\alpha\delta\phi^2+\xi_0^2(\nabla\delta\phi)^2)$。局域涨落 $\langle\delta\phi^2\rangle = \frac{T}{E_c}\int d^Dk\frac{1}{-2\alpha+\xi_0^2k^2}$。</p>
+<blockquote>
+<p>【配图】图 10.2.1：”独立域近似”估计 Ginzburg 参数。把体系划分成大小为关联长度 $\xi = \xi_0/\sqrt{-\alpha}$ 的独立域，域内场均匀涨落；$\delta\phi$ 表示单个域内的涨落幅度。</p>
+</blockquote>
+<p>在算紫外截断前，可用<strong>独立域</strong>方式估计（图 10.2.1）：把体系划分成关联长度大小的独立域。域内场均匀涨落，能量成本 $\delta S = -2\alpha E_c\xi^D(\delta\phi)^2$，能量均分给出 $\langle(\delta\phi)^2\rangle = T/(-2\alpha E_c\xi^D)$。因此涨落与平均场值之比：</p>
+<script type="math/tex; mode=display">
+\frac{\langle(\delta\phi)^2\rangle}{|\phi_m|^2} \sim \frac{T}{\alpha^2E_c\xi^D} = \frac{T}{E_c\xi_0^D}\alpha^{D/2-2} \equiv G\alpha^{D/2-2} = \zeta</script><p>无量纲参数 $\zeta$ 是 <strong>Ginzburg 参数</strong>，控制涨落的小小性。Ginzburg 判据：若 Ginzburg 参数远小于 1，平均场自洽。还定义了无量纲参数 $G = \frac{T_c}{E_c\xi_0^D}$。若 $G\ll1$，称此场论”弱关联”。典型弱关联体系：常规超导体、电荷/自旋密度波、BCS 弱耦合区的激子绝缘体。典型强关联体系：磁体。</p>
+<p>但局域涨落 $C(0)\sim\int dk\frac{1}{\alpha+\xi_0^2k^2}$ 常随紫外截断 $\Lambda\to\infty$ 正式发散（截断有时未知），如何量化？出路是借用粒子物理的<strong>重整化</strong>思想：用实验可测量表达一切。例如 $\alpha$ 的单圈修正式 (10.2.1) 按 $\Lambda^{d-2}$ 发散。用重正化（物理）”质量” $\alpha^<em>$ 而非裸 $\alpha$ 表达更有意义，$\alpha^</em>=0$ 是相变点。比较两个情形（恰在相变点，以及离相变点某处）的涨落修正之差：</p>
+<script type="math/tex; mode=display">
+\delta\alpha^* = \int d^Dk\frac{T/E_c}{\alpha^*+\xi_0^2k^2} - \int d^Dk\frac{T/E_c}{\xi_0^2k^2} = -\alpha^*\int d^Dk\frac{T}{E_c}\frac{1}{(\alpha^*+\xi_0^2k^2)\xi_0^2k^2} \sim -\alpha^*G\alpha^{*(D/2-2)} = -\alpha^*\zeta</script><p>$D<4$ 时紫外发散被消掉，重要的是**红外涨落**。若 $\zeta\ll1$，平均场图像（用物理参数）很好。对 $d<4$，越靠近临界点（$\alpha^*\to0$）涨落越重要——$d="4$" 叫此理论的**上临界维数**。$d<4$ 时无论 $g$ 多小，在 $|\alpha|<g^{1 (2-d 2)}$ 区域都有 $\zeta>1$：这是”<strong>临界区</strong>“，平均场定性失效。系统性处理涨落需要重整化群。</4$></p>
+<h2><span id="案例研究bcs-超导体">案例研究：BCS 超导体</span></h2><p>BCS 超导体临界温度附近推导出的（无量纲）GL 作用量：</p>
+<script type="math/tex; mode=display">
+S[\Delta] = \frac1T\int dr\left[\alpha(T)|\Delta|^2 + c_\xi|\nabla\Delta|^2 + \beta(T)|\Delta|^4 + \cdots\right]</script><p>这是式 (10.1.1) 形式的经典统计场论（$\Delta(r)$ 为涨落场；暂时把它当实场、忽略无能隙相位涨落，稍后讨论）。系数（见 9.4.1/9.5.1 节）$\alpha(T)\approx\nu(T-T_c)/T_c$，$c_\xi = \frac{c_s n}{mT^2}$，$\beta(T) = \frac{c_\beta\nu}{T^2}$。凝聚能量密度 $E_c\sim\nu T_c^2\sim n\Delta_0^2/E_F$，裸相干长度 $\xi_0\sim v_F/\Delta_0$（约零温 Cooper 对大小），超流密度 $n_s\sim n\Delta^2/T_c^2$。此场论的参数：</p>
+<script type="math/tex; mode=display">
+G = \frac{T_c}{E_c\xi_0^D} \sim \frac{T_c}{n(\Delta_0^2/E_F)(v_F/\Delta_0)^D} \sim \left(\frac{\Delta_0}{E_F}\right)^{D-1}</script><p>典型 BCS 超导体 $\Delta_0\sim0.1\sim1$ meV、$E_F\sim1$ eV，三维下 $G$ 从 $10^{-8}$ 到 $10^{-6}$。这解释了<strong>为什么 BCS 平均场理论对常规超导体如此成功</strong>。要看到偏离平均场的表现需进入临界区 $|\alpha| = |T-T_c|/T_c &lt; G^{1/(2-D/2)}\sim10^{-16}\sim10^{-12}$——温度要靠近 $T_c$ 到 $10^{-12}$ K 量级！高温（强关联）超导体相干长度小得多（$\sim$ nm），$G$ 可能为量级 1，预计能看到强涨落。</p>
+<p>零温下超导场论成为式 (10.1.4) 的量子统计模型（实际情形更复杂：势能无法在 $\Delta=0$ 附近泰勒展开，见式 9.4.12，但可用式 10.1.4 粗略理解）。量子涨落仍由小参数 $G$ 控制。</p>
+<blockquote>
+<p><strong>问题 10.2.1</strong>：超导 GL 场论（式 10.2.4）的紫外截断是什么？<strong>答</strong>：频率方向约零温能隙 $\Delta_0$，动量方向约裸相干长度的倒数 $\Delta_0/v_F$。</p>
+</blockquote>
+<h1><span id="wilson-动量壳重整化群">Wilson 动量壳重整化群</span></h1><p>本节介绍处理涨落的<strong>动量壳重整化群（RG）</strong>方法，由 Wilson 等人在 1970 年代开创。用 φ⁴ 模型（也叫 Ginzburg-Landau-Wilson 作用量）示范：</p>
+<script type="math/tex; mode=display">
+Z = \int D[\varphi]e^{-S[\varphi]}, \qquad S[\varphi] = \int d^Dr\left[\frac12r\varphi^2 + \frac12(\nabla\varphi)^2 + \frac{\lambda}{4!}\varphi^4 - h\varphi\right], \qquad \varphi(r) = \int_{|k|<\Lambda}\frac{d^Dk}{(2\pi)^D}\varphi_k e^{ik\cdot r}</script><p>（$r$ 是耦合常数不是空间坐标。）此模型描述顺磁→易轴铁磁相变（Ising 模型的场论版本）、临界点附近的液-气相变等；$\varphi$ 推广为复场/矢量场后还描述超导、超流、Heisenberg/易面铁磁的临界行为。</p>
+<p>真实世界理论有紫外截断 $\Lambda$：不含极高波矢涨落。实空间即短距离截断（晶格常数 $1/\Lambda$）。真实材料中自然有紫外截断：式 (10.3.1) 是 $|k|&lt;\Lambda$ 涨落的低能有效理论，高能涨落的作用量一般很难看。对超导体短距离截断约裸相干长度，对晶格磁体是晶格常数。临界行为由红外（长波）涨落主导，对截断建模方式不敏感。</p>
+<p>大多数时候我们只关心大尺度（低能）行为，即超长波涨落的性质（如直流电导率——材料宏观大，探测场和响应的空间尺度都很大，只关心 $k\approx0$ 的关联函数）。但 $\varphi^4$ 项使不同模相互作用，所有高能（短波）涨落都影响低能（长波）性质。原则上应严格积掉式 (10.3.1) 中所有高能模、只留 $k\approx0$ 模，得到后者的有效作用量再算关联函数。可惜直接”积掉”不可行。</p>
+<p><strong>RG 方法</strong>是对”积掉”过程的良好近似。物理上：从越来越远的距离看体系，逐渐忽略微观细节、聚焦大尺度行为。RG 不仅最终得到直流电导率，还从过程学到相变点附近的临界行为。</p>
+<blockquote>
+<p>【配图】图 10.3.1：每个 RG 步的两个子步骤，实空间（上）与动量空间（下）。”积掉”：把薄动量壳 $\Lambda/b&lt;k&lt;\Lambda$（中间图的蓝色壳）的快模 $\varphi_k$ 在场积分中积掉。”重标度”：把长度单位从 $l$ 放大到 $bl$，使新单位下截断又变回 $\Lambda$；实空间图像变小。</p>
+</blockquote>
+<p><strong>工程维数</strong>：式 (10.3.1) 只有长度一个单位。把场重定义后物理单位被并入无量纲数；若来自量子体系零温配分函数，通常设特征速度=1，时间单位也是长度单位。场和耦合常数 $(r,\lambda,h)$ 的工程维数是它们在式 (10.3.1) 中的能量维数。因为 $(\nabla\varphi)^2$ 系数设为 1，由作用量无量纲得 $[\varphi] = D/2-1$，耦合常数的工程维数：</p>
+<script type="math/tex; mode=display">
+[\lambda] = 4-D, \qquad [r] = 2, \qquad [h] = D/2+1</script><p>其他未显示的项（高阶梯度项 $r_m(\partial^m\varphi)^2$、相互作用项 $\lambda_n\varphi^n$）的工程维数 $[r_m] = 2(1-m)$、$[\lambda_n] = D+n(1-D/2)$。</p>
+<h2><span id="rg-变换">RG 变换</span></h2><p>RG 过程逐步积掉高能模，得到有效作用量耦合常数随紫外截断降低的<strong>微分方程（流方程）</strong>。每个 RG 步两个子步骤：</p>
+<p><strong>第一步：积掉</strong>。积掉薄动量壳 $\Lambda/b<k<\lambda$（$b = e^{dl}>1$）的高能（快）模，得到低能（慢）模 $k&lt;\Lambda/b$ 的有效作用量。把场分离 $\varphi = \varphi_s + \varphi_f$，作用量 $S = S_s + S_f + S_c$（$S_c$ 是慢-快耦合，含 $\lambda(6\varphi_s^2\varphi_f^2 + 4\varphi_s\varphi_f^3 + 4\varphi_s^3\varphi_f)$ 项）。积掉 $\varphi_f$ 得有效作用量 $S_{eff}[\varphi_s] = S_s[\varphi_s] + \delta S_s[\varphi_s]$，其中</k<\lambda$（$b></p>
+<script type="math/tex; mode=display">
+\exp\{-\delta S_s[\varphi_s]\} = \frac1{Z_f}\int D[\varphi_f]e^{-(S_f+S_c)} = \exp\left[-\int d^Dr\left(\frac12\delta r\,\varphi_s^2 + \frac1{4!}\delta\lambda\,\varphi_s^4 + \delta r_1(\nabla\varphi_s)^2 + \cdots\right)\right]</script><p>$\delta S_s$ 来自慢快模的相互作用 $S_c$。$\lambda=0$ 时快模完全不影响慢模，积掉过程平凡。<strong>RG 步的本质就是算式 (10.3.6) 的 $\delta S_s$：积掉快模时慢模耦合常数的修正</strong>。</p>
+<p>先算 $\delta r$ 项（$\varphi_s^2$ 的修正）。对均匀 $\varphi_s$ 求导，得两部分的期望：$\frac{12}{4!}\lambda\int d^Dr\varphi_f^2$ 和 $\frac{16}{4!}\lambda^2(\int d^Dr\varphi_f^3)^2$。前者来自图 10.3.2(a)，后者来自图 (c)。注意 $\lambda\varphi_f^4$ 诱导的真空极化图不应包含（被 $Z_f$ 分母抵消）。图 (a) 的贡献：</p>
+<script type="math/tex; mode=display">
+\delta r = \frac{12}{4!}\lambda\int_{1/b<|k|<1}d^Dk\frac{1}{r+k^2} \xrightarrow{O(dl)} \frac{\lambda}{2}\Omega_D\frac{1}{r+1}dl</script><p>$\Omega_D = (2\pi)^{-D}2\pi^{D/2}/\Gamma(D/2)$ 是 $D$ 维单位球面积除以 $(2\pi)^D$。图 (c) 含两个独立圈、$O((dl)^2)$，对 $\delta r/dl$ 无贡献。因此这种 RG 只需<strong>单圈图</strong>。此项为正号有简单物理来源：快模涨落通过 $\lambda\varphi^4$ 排斥增加了慢模的质量。</p>
+<p>再算 $\delta\lambda\varphi_s^4$ 项。唯一的单圈贡献来自图 10.3.2(b)：</p>
+<script type="math/tex; mode=display">
+\delta\lambda = -\left(\frac{12}{4!}\right)^2 6\lambda^2\int_{1/b<|k|<1}d^Dk\frac{1}{(r+k^2)^2} \xrightarrow{O(dl)} -\frac32\lambda^2\Omega_D\frac{1}{(r+1)^2}dl</script><p>负号：积掉快模使慢模之间出现额外吸引耦合（把 $\delta S_s$ 看作快模在 $\varphi_s$ 外扰下的”自由能”，二阶微扰总降低能量）。</p>
+<blockquote>
+<p>【配图】图 10.3.2：可能贡献慢模有效作用量的图。(a) 慢-慢-快-快顶点（两外腿慢模）给出 $\delta r$；(b) 四慢模外腿给出 $\delta\lambda$；(c) 六慢模外腿（$\lambda^3$ 阶）；(d) 产生 $\delta r_1(\nabla\varphi_s)^2$ 的图；(e) 上：$D\geq4$ 的 RG 流（只有 Gaussian 不动点）；下：$D&lt;4$ 的 RG 流（Gaussian 与 Wilson-Fisher 不动点）。</p>
+</blockquote>
+<p><strong>第二步：重标度</strong>。把 $S_{eff}[\varphi_s]$ 的长度单位放大 $b = e^{dl}$ 倍，截断重新变回 1。耦合常数按工程维数变化：</p>
+<script type="math/tex; mode=display">
+r \to rb^2, \qquad \lambda \to \lambda b^{4-D}, \qquad h \to hb^{D/2+1}</script><h2><span id="rg-流与-wilson-fisher-不动点">RG 流与 Wilson-Fisher 不动点</span></h2><p>综合”积掉”（式 10.3.8、10.3.9）与”重标度”（式 10.3.10）两步，得 Ginzburg-Landau 模型的 RG 流方程：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{dr}{dl} &= 2r + \frac{\lambda}{2}\Omega_D\frac{1}{r+1} \xrightarrow{r\ll1} 2r + \frac12\Omega_D\lambda\\
+\frac{d\lambda}{dl} &= \epsilon\lambda - \frac32\lambda^2\Omega_D\frac{1}{(r+1)^2} \xrightarrow{r\ll1} \epsilon\lambda - \frac32\Omega_D\lambda^2\\
+\frac{dh}{dl} &= \left(\frac{D}{2}+1\right)h
+\end{aligned}</script><p>其中 $\epsilon = 4-D$。耦合常数空间的一个点 $g$ 流过后到达 $g’$：$g$ 体系的低能性质看起来像 $g’$ 体系以放大 $e^l$ 的长度标度测量的性质。例如约化自由能密度 $f = F/(TL^D)$ 有关系 $f[g] = e^{-Dl}f[g’]$。</p>
+<p>耦合常数空间中，RG 流的不动点是所有方向 $dg/dl = 0$ 的点。</p>
+<ul>
+<li><strong>$D\geq4$（$\epsilon\leq0$）</strong>：只有 $(r,\lambda,h) = (0,0,0)$ 一个不动点，叫 <strong>Gaussian 不动点</strong>（无非线性相互作用，涨落严格高斯）。</li>
+<li><strong>$D&lt;4$</strong>：两个不动点。Gaussian 不动点现在三个方向都流出，是不稳定不动点。第二个是非高斯不动点：</li>
+</ul>
+<script type="math/tex; mode=display">
+(r^*,\lambda^*,h^*) = \left(-\frac{\epsilon}{6(1+\epsilon/6)},\ \frac{2\epsilon}{3\Omega_D(1+\epsilon/6)},\ 0\right)</script><p>叫 <strong>Wilson-Fisher（WF）不动点</strong>。从 WF 不动点出发，$r$ 方向相关（流出），倾斜方向（红线）无关（流入）。红线是典型”<strong>临界曲面</strong>“，分隔耦合常数空间的有序与无序相。</p>
+<p>不动点附近，耦合常数的小偏离服从线性化流方程 $\frac{d}{dl}(g-g^<em>) = W(g-g^</em>)$。选线性化流的正则坐标 $v_a$，有 $\frac{d}{dl}v_a = y_av_a$，$y_a$ 是耦合的”维数”。WF 不动点处取 $v_a = (t,\delta\lambda,h)$（$t = r-r^<em>$ 是到临界的距离，$\delta\lambda$ 沿红线参数化离开不动点）。可得 $y_t = 2-\epsilon/3$（$\epsilon$ 阶）——“2”来自 $t$ 的工程维数，”$\epsilon/3$”来自积掉快模的非平凡效应。与工程维数不同，$y_t$ 有时叫 $t$ 的”<em>*反常维数</em></em>“。类似地 $y_\lambda = -\epsilon$、$y_h = 1+D/2 = 3-\epsilon/2$。三维下 $t$、$h$ 是相关耦合，$\delta\lambda$ 无关。</p>
+<p>为什么可以忽略 RG 过程中产生的高阶梯度项和相互作用项？它们的耦合常数 $r_m$、$\lambda_n$ 比 $(r,\lambda,h)$ 的能量维数低、因此更不相关。若限制在 $\lambda$ 小的参数区，这些项的产生速率在高 $\lambda$ 阶，扰动很小。但 WF 不动点 $\lambda^<em> = \frac{2\epsilon}{3\Omega_D(1+\epsilon/6)}$ 看起来不小。要使它小，须假设 $\epsilon = 4-D\ll1$，于是可在 $\epsilon$ 中微扰计算流动——即”<em>*$\epsilon$ 展开</em></em>“。奇妙的是，这个方法即使在 $\epsilon = 1,2$ 也相当好。</p>
+<blockquote>
+<p><strong>问题 10.3.1</strong>：式 (10.3.1) 的耦合参数与式 (10.1.1) 的更物理的参数如何对应？（这对接 RG 结果于物理体系很重要）<strong>答</strong>：做场变量代换 $\phi = \sqrt{2E_c/T}\xi_0\varphi$，式 (10.1.1) 的场积分变为 $Z = Z_0\int D[\varphi]e^{-S[\varphi]}$，其中 $S[\varphi] = \int d^Dr\left[\frac{\xi_0^2}{2}\frac{\alpha}{T}\varphi^2 + \frac12(\nabla\varphi)^2 + \frac{T}{4E_c\xi_0^D}\varphi^4\right]$，正是式 (10.3.1) 形式。用 $1/\Lambda$ 作长度单位，得 $r = \alpha/N^2$、$\lambda = 3!N^{D-4}G$（$N = \xi_0\Lambda$，$G = T_c/(E_c\xi_0^D)$）。对三维弱耦合 BCS 超导体，$\lambda\sim10^{-8}/N\ll1$，远离非高斯不动点。</p>
+</blockquote>
+<h1><span id="标度函数与临界现象">标度函数与临界现象</span></h1><p><strong>临界现象</strong>指大体系临界点附近发生的现象。列举几例：</p>
+<ol>
+<li><p><strong>临界点的自相似性</strong>：若体系耦合参数恰在 WF 不动点上，RG 流意味着用更大长度标度测量时体系长得像自己——自相似（像花椰菜），其涨落没有特征长度。临界线（临界曲面）上的体系也一样：从临界线上任一点出发，用越来越大长度单位时参数流向不动点，靠近后几乎不再变化。关联函数呈幂律形式 $C(r)\sim r^{-a}$。离开临界曲面，涨落有特征长度（关联长度 $\xi$）：$C(r)\sim e^{-r/\xi}$（$r\gg\xi$），并交叉到 $r\ll\xi$ 的幂律。参数接近临界曲面时关联长度发散。</p>
+</li>
+<li><p><strong>临界指数</strong>：临界点附近物理量幂律行为的指数。所有物理体系的临界行为可归入少数几个<strong>普适类</strong>。式 (10.3.1) 的实场版本常叫”Ising 普适类”。普适类有一组临界指数（表 10.1）：</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指数</th>
+<th>含义</th>
+<th>平均场</th>
+<th>Gaussian</th>
+<th>$\epsilon$ 展开</th>
+<th>实验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\alpha$</td>
+<td>$C\sim</td>
+<td>t</td>
+<td>^{-\alpha}$</td>
+<td>0</td>
+<td>1/2</td>
+<td>1/6</td>
+<td>0–0.14</td>
+</tr>
+<tr>
+<td>$\beta$</td>
+<td>$M\sim(-t)^\beta$</td>
+<td>1/2</td>
+<td>1/4</td>
+<td>1/3</td>
+<td>0.32–0.39</td>
+</tr>
+<tr>
+<td>$\gamma$</td>
+<td>$\chi = \partial_hM\sim</td>
+<td>t</td>
+<td>^{-\gamma}$</td>
+<td>1</td>
+<td>1</td>
+<td>7/6</td>
+<td>1.3–1.4</td>
+</tr>
+<tr>
+<td>$\delta$</td>
+<td>临界点 $M\sim</td>
+<td>h</td>
+<td>^{1/\delta}$</td>
+<td>3</td>
+<td>5</td>
+<td>4</td>
+<td>4–5</td>
+</tr>
+<tr>
+<td>$\nu$</td>
+<td>$\xi\sim</td>
+<td>t</td>
+<td>^{-\nu}$</td>
+<td>N/A</td>
+<td>1/2</td>
+<td>7/12</td>
+<td>0.6–0.7</td>
+</tr>
+<tr>
+<td>$\eta$</td>
+<td>临界点 $C(r)\sim r^{2-D-\eta}$</td>
+<td>N/A</td>
+<td>0</td>
+<td>0</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表 10.1：临界指数定义及 Ising 普适类的取值（$t$ 是到临界的距离，$h$ 是外场，动力学指数 $z$ 未列出）。数据来自 Altland &amp; Simons 和 Huang。</p>
+<p><strong>标度函数与临界指数</strong>：RG 流把耦合参数 $g$ 的体系与同一流线上的 $g’$ 联系。对物理量 $C(g)$ 有 $C(g) = e^{nl}C(g’)$（$e^l$ 是 RG 重标度因子，$n$ 是 $C$ 的长度维数）。这样函数的独立变量至少减少一个。令人惊奇的是，只要知道相关耦合的维数，就能用标度关系找到临界点附近的所有临界指数。</p>
+<p>例如约化自由能密度有标度关系 $f[g] = e^{-Dl}f[g’]$。$g$ 很靠近 WF 不动点时，两个相关耦合 $t,h$ 流为 $te^{y_tl}$、$he^{y_hl}$，无关耦合 $\delta\lambda$ 流到 0。流足够久（$te^{y_tl}=1$）后：</p>
+<script type="math/tex; mode=display">
+f(t,h,\delta\lambda) = e^{-Dl}f(1,he^{y_hl},0) = t^{D/y_t}f_0(ht^{-y_h/y_t})</script><p>$f_0(x)\equiv f(1,x,0)$。式 (10.4.1) 是典型的<strong>标度函数</strong>。只要 $g$ 靠近临界线（不必靠近 WF 不动点）标度函数就成立：初点会在有限时间内流到 WF 不动点附近，用式 (10.4.1) 反推即得同样的标度关系。这体现了”整条临界曲面及其近邻被其上的稳定不动点控制”这一说法。此标度关系成立的区域叫”<strong>临界区</strong>“。</p>
+<blockquote>
+<p>【配图】图 10.4.1：临界区示意。红色阴影区是”临界区”；两条水平虚线分别对应 $G$ 大和小（$G = T_c/(E_c\xi_0^D)$）的体系。</p>
+</blockquote>
+<p>由标度关系得表 10.1 的临界指数：</p>
+<script type="math/tex; mode=display">
+\alpha = 2-\frac{D}{y_t}, \qquad \beta = \frac{D-y_h}{y_t}, \qquad \gamma = \frac{-D+2y_h}{y_t}, \qquad \delta = \frac{y_h}{D-y_h}, \qquad \nu = \frac1{y_t}, \qquad \eta = 2+D-2y_h</script><p>关联长度指数由 $\xi(t) = e^l\xi(e^{y_tl}t) = t^{-1/y_t}\xi(1)$ 得到；关联函数的反常维数 $\eta$ 由 $\chi = \int d^Dr\,C(r)$ 得 <strong>Fisher 标度律</strong>：$\gamma = \nu(2-\eta)$。把 $y_t = 2-\epsilon/3$、$y_h = 3-\epsilon/2$ 代入式 (10.4.1) 得表 10.1 倒数第二列（$\epsilon$ 线性阶）。相比平均场，与实验的吻合明显改善。</p>
+<blockquote>
+<p><strong>问题 10.4.1</strong>：实验中磁体的临界指数常被测量。但超导体的指数似乎符合平均场而非 RG 结果（如能隙 $\Delta(T)\propto\sqrt{T_c-T}$）。如何理解？<br><strong>答</strong>：可粗略用实场 GL 模型的 RG 流理解。因为超导的 $G\sim10^{-8}$ 非常小，临界区非常窄（$G\ll1$ 线以下）。要看到 RG 预言的真正临界指数，需极度靠近 $T_c$。临界区在温度方向有多窄？从 $g$ 到 $g’$ 的流中 $g’ = (t’,h’,\lambda’)\approx(te^{2l_0},he^{y_hl_0},\lambda e^{\epsilon l_0})$（用 $t$、$\lambda$ 的工程维数，因为流到 $g’$ 的大部分时间 $g$ 靠近 Gaussian 不动点）。若 $\lambda’\sim1$ 使 $g’$ 靠近 WF 不动点，则 $t’\sim te^{2l_0}\sim t(1/\lambda)^{2/\epsilon}$。要求此时 $t’\ll1$ 才保证标度关系成立，即 $t\ll\lambda^{2/\epsilon}\sim G^{2/\epsilon}$——正是式 (10.2.3)、(10.2.5) 后估计的区域。相比而言磁体是典型强关联体系（$G$ 大），临界区宽得多。</p>
+</blockquote>
+<h1><span id="连续对称性与-bkt-相变">连续对称性与 BKT 相变</span></h1><p>到目前为止我们关注式 (10.1.1) 的单分量实场 $\phi$。若 $\phi$ 换成复场 $\psi$（等价地二分量实场），式 (10.1.1) 就是超导、超流、易面磁性、非公度电荷/自旋密度波的场论。拉格朗日密度：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}[\psi] = E_c\left(\alpha|\psi|^2 + \xi_0^2|\nabla\psi|^2 + |\psi|^4\right)</script><p>它整体 $U(1)$ 对称：$\psi(r)\to\psi(r)e^{i\theta}$，是<strong>连续对称性</strong>。平均场层 $\alpha&lt;0$ 时自发对称破缺。从平均场构型 $\psi_m = \sqrt{-\alpha/2}$（不失一般性取实）出发，场写为平均场加涨落：$\psi(r) = (\psi_m+\delta(r))e^{i\theta(r)}$。涨落到二阶：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}[\delta,\theta] = E_c\left(4\psi_m^2\delta^2 + \xi_0^2|\nabla\delta|^2 + \psi_m^2\xi_0^2|\nabla\theta|^2\right)</script><p>相位涨落是”<strong>无能隙</strong>“的：空间均匀的相位涨落不增加能量。这是典型的 <strong>Goldstone 模</strong>。</p>
+<blockquote>
+<p><strong>Goldstone 定理</strong>：体系自发破缺连续对称性时，序参量的某些涨落必然”软”（无能隙），这个无能隙集体模叫 <strong>Nambu-Goldstone 模（Goldstone 模）</strong>。例如晶体自发破缺空间平移对称性，有声学声子作 Goldstone 模。这是因为对场做整体对称操作对应零波矢（均匀）涨落，而能量在此操作下不变，均匀涨落不费能量、必然软。注意即使有自发对称破缺，哈密顿量本身始终有该对称性，Noether 定理仍给出守恒律（晶体仍遵守总动量守恒）。</p>
+</blockquote>
+<h2><span id="红外涨落-mermin-wagner-定理与下临界维数">红外涨落、Mermin-Wagner 定理与下临界维数</span></h2><p>计算式 (10.5.2) 与 (10.1.1) 的相位高斯涨落的局域大小：</p>
+<script type="math/tex; mode=display">
+\langle\theta(r)^2\rangle = \int d^Dk\,\frac{T/2}{E_c\psi_m^2}\frac{1}{\xi_0^2k^2} = \psi_m^{-2}G\Omega_D\int_0^{\Lambda'}dk'\,k'^{D-3}, \qquad k' = \xi_0k</script><p>其中 $G = T/(E_c\xi_0^D)$。$D\leq2$ 时小 $k$ 的贡献发散——<strong>红外发散</strong>。物理上：Goldstone 模无能隙，长波热涨落很大（每个动量模仍应有 $\frac12k_BT$ 热能量）。低维时小动量区域的体积相对重要，红外涨落发散。此发散意味着涨落可能破坏有序态——此体系可能根本没有自发对称性破缺。</p>
+<p>更定量地计算诊断长程有序的关联函数 $\langle\psi(0)^*\psi(r)\rangle$，聚焦发散相位涨落的效应：</p>
+<script type="math/tex; mode=display">
+\langle\psi(0)^*\psi(r)\rangle \approx \psi_m^2\langle e^{i(\theta(r)-\theta(0))}\rangle \xrightarrow{\text{Gaussian}} \psi_m^2 e^{C(r)-C(0)}</script><p>“Gaussian”近似忽略 $\theta\in[0,2\pi)$ 的约束，把对 $\theta$ 的场积分精确作高斯积分。$C(r)$ 是二次无能隙作用量的逆核。$C(0)-C(r)$ 从 $r=0$ 的 0 增到 $r\to\infty$ 的 $\langle\theta(0)^2\rangle$。因此 $D\leq2$ 时 $r\to\infty$ 关联函数衰减到零——没有严格长程有序。</p>
+<p>2D 中考察衰减方式：</p>
+<script type="math/tex; mode=display">
+C(0)-C(r) = \frac1{4\pi}\psi_m^{-2}G\ln(\Lambda'r') \quad\Rightarrow\quad \langle\psi(0)^*\psi(r)\rangle \sim \left(\frac ar\right)^{G/(4\pi\psi_m^2)}</script><p>$a = 1/\Lambda$ 是短距离截断。虽然没有严格长程有序，幂律衰减（定性慢于指数）叫”<strong>代数序</strong>“或”<strong>准长程有序</strong>“。</p>
+<p>这就是 <strong>Mermin-Wagner 定理</strong>的实质：<strong>短程相互作用体系在 $D\leq2$ 的非零温度下，连续对称性不能（严格）自发破缺</strong>。假设对称破缺，Goldstone 模的长波热涨落就会破坏长程有序。空间维数 2 是连续对称性破缺的<strong>下临界维数</strong>。</p>
+<blockquote>
+<p><strong>问题 10.5.1</strong>：$D=1$ 时 $\langle\psi(0)^<em>\psi(r)\rangle$ 如何衰减？<strong>答</strong>：以关联长度 $\xi_0\psi_m^2/G$ 指数衰减。<br><strong>问题 10.5.2</strong>：零温量子体系能在二维自发破缺连续对称性吗？<strong>答</strong>：由”$D+1$ 维经典非零温系统与 $D$ 维量子零温系统的数学等价”，量子体系的下临界维数是 1。<br><strong>问题 10.5.3</strong>：为什么二维材料存在？<br><em>*问题 10.5.4</em></em>：非零温度下一维能自发破缺离散对称性吗？二维呢？</p>
+</blockquote>
+<h2><span id="二维-berezinskii-kosterlitz-thouless-相变">二维 Berezinskii-Kosterlitz-Thouless 相变</span></h2><p>红外相位涨落发散，必须认真对待。聚焦式 (10.5.2) 的相位涨落，配分函数 $Z = \int D[\theta]e^{-S[\theta]}$，作用量简化为：</p>
+<script type="math/tex; mode=display">
+S[\theta] = \frac J2\int d^Dr(\nabla\theta)^2</script><p>$J = 2\psi_m^2/G = 2\psi_m^2E_c\xi_0^D/T = 1/\zeta$ 叫”<strong>刚度</strong>“（用 $\xi_0$ 作长度单位；$\zeta$ 是式 (10.2.2) 的 Ginzburg 参数）。超导/超流语境中 $J$ 正比于超流密度。刚度越大相位越难涨落。式 (10.5.8) 也是经典 XY 模型（面内自旋）的连续版本，$\theta$ 是局域自旋的面内角。</p>
+<blockquote>
+<p>【配图】图 10.5.1：(a) 涡旋示意：箭头代表 $\nabla\theta$（左）与 $\nabla\phi$（中、右，涡旋对）；(b) XY 模型到涡旋”库仑等离子体”模型的映射。</p>
+</blockquote>
+<p>若放宽 $\theta\in[0,2\pi)$ 约束，作用量是自由的，Gaussian 层级的关联函数 (10.5.5) 精确，2D 得到式 (10.5.7) 的幂律衰减（代数序）。但考虑 $\theta\in[0,2\pi)$ 的约束后，除 Gaussian 积分包含的规则相位涨落，还有<strong>不规则涨落：涡旋</strong>（$\theta$ 绕中心缠绕整数个 $2\pi$）。足够高温时随机涡旋的热激发必然使关联函数指数衰减。因此二维超导/超流等的统计物理（式 10.5.8）需要非平凡地处理涡旋激发。本节研究此问题的 RG 方法，揭示低温<strong>涡旋-反涡旋束缚对</strong>相与高温<strong>自由涡旋</strong>相之间的 <strong>Berezinskii-Kosterlitz-Thouless 相变</strong>。</p>
+<p><strong>涡旋</strong>是式 (10.5.8) 相位的拓扑稳定激发。但式 (10.5.8) 不含涡旋的细结构（$\theta(r)$ 在其中心奇异），细结构在复场 GL 模型 (10.5.1) 中：其鞍点解给出给定绕数（拓扑荷）下的优化涡旋。涡旋核心区场振幅在 $\sim\xi = \xi_0/\sqrt{-\alpha}$ 长度内趋于零；远离核心振幅趋于 $\psi_m$。</p>
+<p>估荷-1 涡旋激发（无量纲）能量：</p>
+<script type="math/tex; mode=display">
+S_1 = S_c + \pi J\ln\frac{L}{\xi}</script><p>核心区贡献 $S_c\sim\xi^DE_c(\alpha^2/4)/T\sim1/\zeta$（Ginzburg 参数的倒数）；第二项是核心外贡献，直接用式 (10.5.8) 算：$S_J\approx J\pi\int_\xi^L dr\,r(1/r)^2 = \pi J\ln(L/\xi)$，$L$ 是系统尺寸。超流语境中可理解为超流动能（局域流速 $\propto\nabla\theta$）。远距离部分对系统尺寸对数发散——无限大体系中涡旋激发费无穷能量。但熵增益也发散，$J$ 小时热激发并不被禁止。</p>
+<p>更可能的激发是<strong>涡旋-反涡旋对</strong>（图 10.5.1(a) 右）。距对很远（$R$）处两涡旋流场因抵消而衰减快于 $1/R$，大尺寸发散消失；靠近每个涡旋处场形如单涡旋。对能量粗略估计 $S_{pair} = 2S_c + J\ln(r/\xi)$，$r$ 是两涡旋距离。第二项意味着两涡旋通过二维”库仑”势相互吸引。</p>
+<p><strong>映射到库仑等离子体模型</strong>：把超流分离为 $\nabla\theta = \nabla\theta_0 + \hat z\times(\nabla\phi)$，$\theta_0$ 正则无涡旋，涡旋在 $\hat z\times(\nabla\phi)$ 中，$\phi$ 满足二维高斯定律 $\nabla^2\varphi(r) = 2\pi\rho(r)$，$\rho(r) = \sum_iq_i\delta(r-r_i)$ 是涡旋”电荷”密度。含 $N$ 个荷 $\pm1$ 涡旋的构型总作用量：</p>
+<script type="math/tex; mode=display">
+S = \frac J2\int d^Dr(\nabla\theta_0)^2 + S_{vortices}, \qquad S_{vortices} = N S_c - 2\pi J\sum_{i<j}q_iq_j\ln(|r_i-r_j|)</script><p>涡旋间相互作用能来自非规则流场的流动能（分部积分得最后等式）。物理意义类比 3D 静电学：电场能即电荷间相互作用能。两个涡旋即二维库仑相互作用。（涡旋有非零核大小 $\xi$，$\ln|r_i-r_j|$ 在 $|r_i-r_j|\to0$ 的发散不物理，应换为常数极限；但此修正不影响 RG 分析。）</p>
+<p>第一项是自由场作用量不诱导相变，可忽略。配分函数只含涡旋：</p>
+<script type="math/tex; mode=display">
+Z = \int D[\varphi]e^{-S_{vortices}[\varphi]} = \sum_{N=0}^\infty\frac{y_0^{2N}}{(N!)^2}\int dr_1dr_2\cdots dr_{2N}\exp\left(2\pi J\sum_{i<j}q_iq_j\ln|r_i-r_j|\right)</script><p>$q_i = \pm1$，$y_0 = e^{-S_c}$ 是<strong>涡旋逃逸度</strong>（fugacity）：核心能越高涡旋激发越少。此式限制 $N$ 正 $N$ 负电荷（整体电中性），是最可能的激发。式 (10.5.11) 是二维电荷以二维库仑势相互作用的经典体系配分函数，即<strong>库仑等离子体模型</strong>。</p>
+<p><strong>RG 分析</strong>：式 (10.5.11) 的 RG 过程有实空间物理诠释。”积掉”即平均掉电荷的短波涨落（如短距离正负对），问它们如何影响剩余电荷的长程力。定量上先算被其他涡旋热涨落屏蔽的两电荷有效相互作用，以 $J^{-1}$ 展开：</p>
+<script type="math/tex; mode=display">
+J_{eff}^{-1} = J^{-1} + 4\pi^3y_0^2\int_1^\infty dx\,x^{3-2\pi J} + O(y_0^4)</script><p>$x$ 是以 $\xi$ 为单位的距离。虽然积分看似发散，无需真算 $J_{eff}$，只需从中提取 $J$、$y_0$ 的 RG 流。把积分分成 $\int_1^\infty = \int_1^{e^{dl}} + \int_{e^{dl}}^\infty$（$dl\ll1$ 是小 RG 步），式 (10.5.12) 改写为 $J_{eff}^{-1} = J’^{-1} + 4\pi^3y_0’^2\int_1^\infty dx\,x^{3-2\pi J}$，其中 $J’^{-1} = J^{-1}+4\pi^3y_0^2dl$。再放大长度单位 $x = e^{dl}x’$，得 $J_{eff}^{-1} = \tilde J^{-1} + 4\pi^3\tilde y_0^2\int_1^\infty dxx^{3-2\pi J}$，其中 $\tilde J^{-1} = J’^{-1}$、$\tilde y_0 = y_0e^{(2-\pi J)dl}$。注意不同标度有运行耦合 $\tilde J$，式中的 $J$ 也应换成 $\tilde J$。最终 RG 流方程（最低 $y_0$ 阶）：</p>
+<script type="math/tex; mode=display">
+\frac{dJ^{-1}}{dl} = 4\pi^3y_0^2, \qquad \frac{dy_0}{dl} = (2-\pi J)y_0</script><blockquote>
+<p>【配图】图 10.5.2：库仑等离子体模型的 RG 流。红线是分隔两相的临界线；其左侧所有点流到 $y_0=0$ 的固定线（粗黑线，对应无穷大涡旋核心能、无涡旋激发，关联为式 10.5.7 的幂律——准长程有序）；右侧所有点流向大 $y_0$、大 $J^{-1}$（涡旋易激发，自由随机涡旋，指数衰减——无序相）。</p>
+</blockquote>
+<p>流图如 10.5.2。红线是分隔两相的临界线。红线左侧所有点流向 $y_0=0$ 的固定线（粗黑线）。固定线上的点对应无穷大涡旋核心能，似乎无涡旋激发，关联应是式 (10.5.7) 的幂律——体系有<strong>准长程有序</strong>。此相中确实有涡旋激发，但全部是紧束缚的涡旋-反涡旋对，越看越远时它们有效消失。红线右侧所有点流向大 $y_0$ 和 $J^{-1}$：涡旋易激发，物理图像是自由随机涡旋，关联指数衰减——无序相。</p>
+<p>回到物理参数：温度 $T$ 下降时 $y_0$、$J^{-1}$ 朝有序相方向减小（图 10.5.2 中黑色虚线是典型轨迹）。$T$ 到达临界温度 $T_c$ 时 $y_0$、$J^{-1}$ 撞上红线，体系经历 <strong>Berezinskii-Kosterlitz-Thouless（BKT）相变</strong>，$T_c$ 叫 <strong>BKT 温度</strong>。</p>
+<blockquote>
+<p><strong>问题 10.5.5</strong>：BKT 温度比平均场预言的临界温度高还是低？<br><strong>问题 10.5.6</strong>：用 BCS 平均场计算的必要参数，你能估计常规二维清洁超导体的 BKT 温度吗？</p>
+</blockquote>
+<p><strong>临界性</strong>：$J^{-1} = \pi/2$、$y_0=0$ 附近，流近似为 $\frac{dt}{dl} = 4\pi^3y_0^2$、$\frac{dy_0}{dl} = \frac4\pi ty_0$（$t = J^{-1}-\pi/2$）。$c = t^2-\pi^4y_0^2$ 被流守恒，$c=0$ 在分离线（红蓝粗线）上。红线是分隔相变的临界线，可把 $c = c_0^2(T_c-T)$ 看作到临界的距离。</p>
+<ul>
+<li><strong>第一个重要结果：BKT 相变处有效超流刚度 $J_{eff}$ 的普适跳跃</strong>。对比虚线曲线上 $T_c$ 上下两点的流：$T_c$ 之上流向无穷大 $J^{-1}$，即 $J_{eff} = 0$（此相自由涡旋耗散流动，有效超流密度为零）；$T_c$ 之下流到 $t=-\sqrt c$ 的固定线点，$J_{eff}\approx\frac2\pi + c_0’\sqrt{T_c-T}$。即冷却跨过 BKT 相变时，有效超流刚度从零跳到 $2/\pi$。注意到刚度与超流（数）密度 $J_{eff} = \hbar^2n_s/(mk_BT)$ 相关（2D 超流/清洁超导体），这表示 BKT 温度正下方有效超流密度取普适值 $n_s = \frac{\pi}{2}\frac{mk_BT_c}{\hbar^2}$。</li>
+<li><strong>第二个结果：关联长度指数发散</strong>。从 $T_c$ 上方的灰点 $(t,y_0)$ 出发求解流方程（$\frac{dt}{dl} = 4\pi^3y_0^2 = \frac4\pi[t^2+c_0^2(T-T_c)]$），显式解出流”时间”。在 $t^<em>\sim1$ 处终止（近似流方程失效处），对应流时间 $l^</em>\approx\frac{\pi^2}{8c_0\sqrt{T-T_c}}$。设 $g^*$ 处关联长度为 $a$，则 $g$ 处的关联长度：</li>
+</ul>
+<script type="math/tex; mode=display">
+\xi \sim ae^{l^*} \sim a\exp\left(\frac{\pi^2}{8c_0\sqrt{T-T_c}}\right)</script><p>温度趋近 $T_c$ 时关联长度<strong>指数发散而非幂律</strong>。类似地，约化自由能密度 $f\propto\xi^{-2}\propto e^{-\pi^2/(4c_0\sqrt{T-T_c})}$。自由能在相变处无穷光滑（每阶导数连续）——热力学意义上 BKT 相变是<strong>无穷级相变</strong>。</p>
+<blockquote>
+<p><strong>sine-Gordon 模型</strong>：库仑等离子体 (10.5.11) 的热力学等价于 2D sine-Gordon 模型：</p>
+<script type="math/tex; mode=display">
+S[\phi] = \int d^2r\left[\frac{J_0}{2}(\nabla\phi)^2 - g\cos\phi\right]</script><p>$\phi\in(-\infty,\infty)$ 不是角度。把场积分在 $g$ 中展开（$\cos\phi$ 的各次幂），取 $J_0 = 1/(8\pi^2J)$、$g = 2y_0$，就得到与式 (10.5.11) 相同形式的配分函数。低温（大 $J_0$ 大 $g$）相中 $\phi$ 被余弦势困在某个极小 $\phi_N = 2\pi N$，自发破缺 $Z$ 对称性；高温（小 $J_0$ 小 $g$）无序。对 sine-Gordon 模型做动量壳 RG 很直接，给出与式 (10.5.15) 相同的流方程。</p>
+<p><strong>思考题</strong></p>
+<ol>
+<li>为什么 $D=4$ 是上临界维数？Ginzburg 参数 $\zeta = G\alpha^{D/2-2}$ 如何体现这一点？</li>
+<li>RG 的”积掉”和”重标度”两步各自的意义是什么？为什么积掉只需单圈图？</li>
+<li>为什么常规超导的临界指数符合平均场？临界区有多窄？</li>
+<li>Mermin-Wagner 定理的物理本质是什么？为什么连续对称性比离散对称性更容易被涨落破坏？</li>
+<li>BKT 相变为什么是”无穷级”的？有效超流刚度的普适跳跃 $2/\pi$ 从哪里来？</li>
+</ol>
+</blockquote>
+<p>到此，本课程的十讲笔记全部完成。这门课建立的基本图像——费米液体、响应函数、对称性破缺、超导、涨落与重整化群——是继续阅读凝聚态物理经典专著（Altland &amp; Simons、Coleman、Mahan、Tinkham 等）的出发点。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/">https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">量子多体物理Content</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">09 BCS理论</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">量子多体物理Content</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">09 BCS理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/" title="08 超导：唯象理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">08 超导：唯象理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">07 自发对称性破缺</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">06 费米液体的微观理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/05-%E5%BE%AE%E6%89%B0%E8%AE%BA/" title="05 微扰论"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">05 微扰论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">为什么涨落如此重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">经典与量子统计模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">涨落</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">Ginzburg 判据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">案例研究：BCS 超导体</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">Wilson 动量壳重整化群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">RG 变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">RG 流与 Wilson-Fisher 不动点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">标度函数与临界现象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">连续对称性与 BKT 相变</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">红外涨落、Mermin-Wagner 定理与下临界维数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">二维 Berezinskii-Kosterlitz-Thouless 相变</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

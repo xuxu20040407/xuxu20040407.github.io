@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>03 朗道费米液体 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="相互作用的费米子与费米液体思想 费米海中粒子的寿命 准粒子 绝热对应 准粒子图像何时成立   朗道能量泛函与朗道参数 零温情形 非零温度   相互作用对热力学量的修正 比热 电荷磁化率 自旋磁化率与 Stoner 失稳 一般多极失稳：Pomeranchuk 失稳   有效质量与 F₁ᵈ：伽利略不变性 中性费米液体中的集体模式 无碰撞区：零声    上一讲我们讲了自由费米气体：无相互作用时，基态是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03 朗道费米液体">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/03-%E6%9C%97%E9%81%93%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="相互作用的费米子与费米液体思想 费米海中粒子的寿命 准粒子 绝热对应 准粒子图像何时成立   朗道能量泛函与朗道参数 零温情形 非零温度   相互作用对热力学量的修正 比热 电荷磁化率 自旋磁化率与 Stoner 失稳 一般多极失稳：Pomeranchuk 失稳   有效质量与 F₁ᵈ：伽利略不变性 中性费米液体中的集体模式 无碰撞区：零声    上一讲我们讲了自由费米气体：无相互作用时，基态是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-09-14T06:00:03.000Z">
+<meta property="article:modified_time" content="2026-09-21T06:19:29.754Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子多体物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/03-%E6%9C%97%E9%81%93%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '03 朗道费米液体',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-21 14:19:29'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">03 朗道费米液体</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-14T06:00:03.000Z" title="发表于 2026-09-14 14:00:03">2026-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-21T06:19:29.754Z" title="更新于 2026-09-21 14:19:29">2026-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="03 朗道费米液体"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#相互作用的费米子与费米液体思想">相互作用的费米子与费米液体思想</a></li>
+<li><a href="#费米海中粒子的寿命">费米海中粒子的寿命</a></li>
+<li><a href="#准粒子">准粒子</a><ul>
+<li><a href="#绝热对应">绝热对应</a></li>
+<li><a href="#准粒子图像何时成立">准粒子图像何时成立</a></li>
+</ul>
+</li>
+<li><a href="#朗道能量泛函与朗道参数">朗道能量泛函与朗道参数</a><ul>
+<li><a href="#零温情形">零温情形</a></li>
+<li><a href="#非零温度">非零温度</a></li>
+</ul>
+</li>
+<li><a href="#相互作用对热力学量的修正">相互作用对热力学量的修正</a><ul>
+<li><a href="#比热">比热</a></li>
+<li><a href="#电荷磁化率">电荷磁化率</a></li>
+<li><a href="#自旋磁化率与-stoner-失稳">自旋磁化率与 Stoner 失稳</a></li>
+<li><a href="#一般多极失稳pomeranchuk-失稳">一般多极失稳：Pomeranchuk 失稳</a></li>
+</ul>
+</li>
+<li><a href="#有效质量与-fᵈ伽利略不变性">有效质量与 F₁ᵈ：伽利略不变性</a></li>
+<li><a href="#中性费米液体中的集体模式">中性费米液体中的集体模式</a><ul>
+<li><a href="#无碰撞区零声">无碰撞区：零声</a></li>
+</ul>
+</li>
+</ul>
+<p>上一讲我们讲了自由费米气体：无相互作用时，基态是填满的费米海，激发是一目了然的粒子、空穴。但真实体系有相互作用。这一讲介绍朗道（Landau）1956 年提出的<strong>费米液体理论</strong>——一种把强相互作用的费米子系统用费米气体的语言来理解的唯象理论。它描述了 $^3\text{He}$ 和几乎所有已知金属中的电子系统，是量子多体理论的基石之一。</p>
+<h1><span id="相互作用的费米子与费米液体思想">相互作用的费米子与费米液体思想</span></h1><p>典型的相互作用费米子哈密顿量是：</p>
+<script type="math/tex; mode=display">
+H = H_0 + V_{ee} = \sum_{k\sigma}\varepsilon_{k\sigma}c^\dagger_{k\sigma}c_{k\sigma} + \sum_{k_1\sigma_1,k_2\sigma_2,q} V_q\, c^\dagger_{k_1-q\sigma_1}c^\dagger_{k_2+q\sigma_2}c_{k_2\sigma_2}c_{k_1\sigma_1}</script><p>其中 $V_q$ 是相互作用势的傅里叶变换。对库仑相互作用，在三维空间中 $V_q = \dfrac{4\pi e^2}{q^2}$，对嵌入三维空间的二维系统 $V_q = \dfrac{2\pi e^2}{q}$。下面我们用”电子”泛指费米子（凝聚态中最常见）。</p>
+<p>没有相互作用时，基态是填满的费米球。对于有相互作用、且电子数和总动量守恒的体系，基态 $|\psi_0\rangle$ 必须是电子气体能量本征态的叠加（在总电子数 $N$、总动量 $p=0$ 的子空间内）：</p>
+<script type="math/tex; mode=display">
+|\psi_0\rangle = C_1\,|\text{费米海}\rangle + C_2\,|\text{费米海 + 粒子-空穴对}\rangle + C_3\,|\text{费米海 + 两个粒子-空穴对}\rangle + \cdots</script><blockquote>
+<p>【配图】图 3.0.1：基态的叠加示意。费米海中挖去一个空位称为”空穴”（hole），图示为基态中的各种涨落成分。</p>
+<p>为什么没有单粒子-空穴激发？动量守恒//为什么动量=0是基态？能量最低？</p>
+</blockquote>
+<p>$|\psi_0\rangle$ 中有无穷多项，激发态更难描述。我们怎么对相互作用电子做预言？答案就是费米液体理论：它表明，我们可以用费米气体的同一种语言来理解强相互作用的费米子体系。</p>
+<h1><span id="费米海中粒子的寿命">费米海中粒子的寿命</span></h1><p>先做一些背景知识：费米面附近一个电子的寿命。用 $|G\rangle$ 表示费米气体基态。在费米海之上、费米面附近加一个动量 $k$、能量 $\varepsilon$ 的电子：$c^\dagger_k|G\rangle$。在 $t=0$ 时刻突然打开相互作用，之后初始态会演化成别的东西：</p>
+<script type="math/tex; mode=display">
+|\psi(t)\rangle = c^\dagger_k|G\rangle + \underbrace{|\text{一阶散射项}\rangle}_{t \text{不太长时是主体}} + |\text{二阶项}\rangle + \cdots</script><p>一阶散射项主要是激发单个电子-空穴对：初粒子散射到 $k_1$，同时另一个粒子从 $k_3$（费米面以下）被激发到 $k_2$（费米面以上）。后者是动量为 $k_2$、能量为 $\xi_{k_2}$ 的粒子激发和动量为 $-k_3$、能量为 $-\xi_{k_3}$ 的空穴激发。定义 $\xi_k \equiv \varepsilon_k - E_F$ 为相对费米能的单粒子能量。</p>
+<p>用费米黄金规则估算衰变率：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\gamma_\xi &= \frac{2\pi}{\hbar}\sum_{\substack{k_1+k_2-k_3=k\\ k_1,k_2>k_F;\ k_3<k_F}} |a(0;1,2,3)|^2\, \delta(\xi - (\xi_{k_1}+\xi_{k_2}-\xi_{k_3}))\\
+&\sim \langle|a|^2\rangle\,\nu^3 \int_0^\infty d\xi_1 d\xi_2 d\xi_3\, \delta(\xi-(\xi_1+\xi_2-\xi_3))\\
+&\sim \langle|a|^2\rangle\,\nu^3 \int_0^\xi d\xi_1 \int_0^{\xi_1} d\xi_2 \sim c_a\, \xi^2
+\end{aligned}</script><p>其中 $a$ 是散射振幅（相互作用矩阵元），$\nu$ 是单电子态密度。第二步把动量守恒替换为对散射振幅的适当平均，并把动量积分换成三个（能量都为正的）末态电子/空穴的能量积分，假定态密度为常数——只要初电子靠近费米面，这相当合理。第三步的积分范围来自能量守恒：末态电子与空穴的能量不能超过初粒子的能量。虽然近似看起来草率，但足以得到正确的标度 $\gamma_\xi \sim \xi^2$，这正是费米液体理论的动机。</p>
+<p><strong>结论：靠近费米面的电子衰变得非常慢。随着 $\xi \to 0$，其寿命发散！</strong></p>
+<blockquote>
+<p>这个估算太”快而糙”了：它在 3D 给出正确的 $\gamma_\xi \sim \xi^2$ 标度，但在 2D 会漏掉一个 $\ln(E_F/\xi)$ 因子。更精细的计算见 Giuliani &amp; Vignale 的 §8.4 或 Coleman 的 §6.7.2。</p>
+<p>对于长程相互作用的费米子（如金属中的库仑电子），散射振幅 $a$ 应当是<strong>被所有电子屏蔽</strong>后的相互作用矩阵元 $V_q/\epsilon(q) \sim 1/\nu$，几乎与原始相互作用强度无关（详见第六讲介电函数）。考虑到 $\gamma_\xi$ 具有能量量纲，且只应涉及初电子能量 $\xi$ 和费米面性质（$k_F, v_F$），由上面的估算可得 3D 下</p>
+<script type="math/tex; mode=display">
+\gamma_\xi = c_\gamma \frac{v_F \xi^2}{k_F} \sim \frac{\xi^2}{E_F}</script><p>奇妙的是，屏蔽相互作用算出的衰变率对相互作用强度几乎是<strong>非微扰</strong>的、与其无关。可以这样记忆：费米面越大，屏蔽使有效相互作用越弱，超过了散射相空间增大的效应。</p>
+</blockquote>
+<h1><span id="准粒子">准粒子</span></h1><h2><span id="绝热对应">绝热对应</span></h2><p><strong>绝热定理</strong>（Born-Fock）：如果哈密顿量随时间足够缓慢地变化，且体系初始处于其本征态，那么演化后的状态仍是哈密顿量对应的本征态——只要本征值与谱的其余部分有能隙。例如无限深势阱缓慢变为谐振子阱时，单粒子本征态光滑地演化到新本征态，节点数（标签）不变。</p>
+<blockquote>
+<p>【配图】图 3.2.1：绝热对应示意。(a) 单粒子势阱缓慢变形，本征态平滑演化；(b) 费米气体与费米液体谱之间的绝热对应：在时间 $T$ 内缓慢打开相互作用 $V_{ee}$，费米气体的基态演化成费米液体的基态（费米面变得模糊），单粒子激发态对应含一个额外费米子的激发态。</p>
+</blockquote>
+<p>朗道受此启发：如果我们<strong>缓慢地打开</strong>相互作用 $V_{ee}$，非相互作用体系（费米气体）的能量本征态也会演化成相互作用体系（费米液体）的本征态，从而在两者之间建立一一对应。形式上，定义打开相互作用过程中的时间演化算符 $\hat{U}(T)$：</p>
+<script type="math/tex; mode=display">
+|\psi_0\rangle = \hat{U}(T)|G\rangle</script><p>对多一个电子的情形：</p>
+<script type="math/tex; mode=display">
+|\psi_1\rangle = \hat{U}c^\dagger_k|G\rangle = \hat{U}c^\dagger_k\hat{U}^\dagger \hat{U}|G\rangle = \Psi^\dagger_k|\psi_0\rangle</script><p>这里我们定义了<strong>新费米子</strong>的产生算符 $\Psi^\dagger_k$——这就是<strong>准粒子</strong>（quasi-particle）。可以验证幺正变换不改变对易/反对易关系。准粒子描述费米液体中”加一个粒子”的激发态（准空穴类似），是费米气体中普通粒子的绝热对应，具有相同的电荷、自旋 $\sigma$ 和动量 $k$（这些量在绝热打开过程中守恒）。</p>
+<h2><span id="准粒子图像何时成立">准粒子图像何时成立</span></h2><blockquote>
+<p>【配图】图 3.2.2：准粒子成立的条件。纵轴为能量 $\xi$，画两条线：$\gamma_\xi \sim \xi^2/E_F$（粒子衰变率）和 $\Gamma = 1/T$（相互作用打开速率）。蓝色区域满足 $\gamma_\xi \ll \Gamma \ll \xi$。</p>
+</blockquote>
+<p>假设相互作用在时间 $T$ 内逐渐打开，打开速率为 $\Gamma = 1/T$。打开过程给末态引入约 $\Gamma$ 量级的能量不确定度。要成为好的能量本征态，需要 $\Gamma \ll \xi_k$。但如 3.1 节所述，$c^\dagger_k|G\rangle$ 在此过程中以 $\gamma_\xi \sim \xi^2$ 的速率衰变；若演化时间无穷长，我们找不到具有确定动量 $k$ 的粒子，因此还需 $\Gamma \gg \gamma_\xi$。综上：</p>
+<script type="math/tex; mode=display">
+\gamma_\xi \ll \Gamma \ll \xi_k</script><p>这对靠近费米面的粒子没有问题，因为 $\gamma_\xi \sim \xi^2/E_F \ll \xi$。固定一个打开协议 $\Gamma$，只有能量在蓝色区域的粒子能变成良定义的准粒子；若对不同粒子用不同 $\Gamma$，则每个满足 $\gamma_\xi \ll \xi$ 的粒子都有良定义的准粒子对应（但这时它们没有良定义的费米反对易关系）。</p>
+<h1><span id="朗道能量泛函与朗道参数">朗道能量泛函与朗道参数</span></h1><h2><span id="零温情形">零温情形</span></h2><p>既然费米液体的本征谱由基态 $|G\rangle$ 之上的准粒子激发标记，能量必是准粒子占据数的泛函。准粒子密度低时，把能量按偏离基态的占据数 $\delta n_{k\sigma} = n_{k\sigma} - n^{(0)}_{k\sigma}$ 展开（$n^{(0)}_{k\sigma} = \Theta(k_F - k)$）：</p>
+<script type="math/tex; mode=display">
+E = E_G + \sum_{k\sigma}\xi_{k\sigma}\delta n_{k\sigma} + \frac{1}{2}\sum_{\substack{k_1k_2\\ \sigma_1\sigma_2}} f_{k_1\sigma_1,k_2\sigma_2}\delta n_{k_1\sigma_1}\delta n_{k_2\sigma_2} + \cdots</script><p>其中 $k&gt;k_F$ 时 $\delta n_{k\sigma}&gt;0$，$k&lt;k_F$ 时 $\delta n_{k\sigma}&lt;0$。这就是<strong>朗道能量泛函</strong>。</p>
+<p><strong>第二项</strong>是单粒子贡献，系数就是单准粒子能量。由此定义准粒子的费米速度、有效质量和态密度：</p>
+<script type="math/tex; mode=display">
+v_F^* \equiv \left.\partial_k\xi_k\right|_{k=k_F}, \qquad m^* \equiv \frac{k_F}{v_F^*}, \qquad \nu^* \equiv g_s\Omega_{D-1}k_F^{D-1}\frac{dk}{d\xi} = g_s\Omega_{D-1}k_F^{D-1}\frac{1}{v_F^*} = \frac{m^*}{m}\,\nu</script><p>费米液体效应（相互作用效应）对单粒子激发的作用，仅仅是<strong>把费米速度 $v_F$ 重正化为 $v_F^*$</strong>。</p>
+<p><strong>第三项</strong>是两个准粒子之间的”相互作用”（注意它不同于式 (3.0.1) 中的相互作用项）。由自旋旋转对称性，相互作用强度一般可写成：</p>
+<script type="math/tex; mode=display">
+f_{k\sigma,k'\sigma'} = f_{kk'}^s + f_{kk'}^a\,\sigma\sigma'</script><p>第一项是自旋对称部分，第二项是自旋反对称部分。对费米面附近的准粒子，可忽略 $f$ 对 $|k|$ 的依赖、只保留角度依赖。由旋转不变性，$f$ 只依赖 $k$ 与 $k’$ 的夹角 $\theta$。定义无量纲相互作用强度 $F^{s,a}(\cos\theta) = \nu^* f^{s,a}(\cos\theta)$，用勒让德多项式展开：</p>
+<script type="math/tex; mode=display">
+F^{s,a}(\cos\theta) = \sum_l (2l+1)\,F_l^{s,a}\,P_l(\cos\theta)</script><p>其中 $P_l(x)$ 满足 $\int_{-1}^1 dx\,P_l(x)P_m(x) = \frac{2}{2l+1}\delta_{lm}$。系数 $F_l^{s,a}$ 就是<strong>朗道参数</strong>：</p>
+<script type="math/tex; mode=display">
+F_l^{s,a} = \langle F^{s,a}(\Omega)P_l(\Omega)\rangle_\Omega \equiv \frac{1}{4\pi}\int \sin\theta\,d\theta d\varphi\, F^{s,a}(\cos\theta)P_l(\cos\theta) = \frac{1}{2}\int_{-1}^1 d\cos\theta\, F^{s,a}(\cos\theta)P_l(\cos\theta)</script><p>$F_l^s$（自旋对称）参数化相互作用的非磁性部分，$F_l^a$（自旋反对称）定义磁性部分。利用 $\delta(\xi_k)$ 相当于向费米面的投影、$\sum_k g_s\delta(\xi_k) = \nu^*$，可写为：</p>
+<script type="math/tex; mode=display">
+F_l^{s,a} = \frac{g_s}{\nu^*}\sum_{k'} F_{kk'}^{s,a}P_l(\cos\theta_{kk'})\delta(\xi_{k'}) = g_s\sum_{k'} f_{kk'}^{s,a}P_l(\cos\theta_{kk'})\delta(\xi_{k'})</script><p><strong>例子</strong>：对式 (3.0.1) 定义的体系，计算 $V_{ee}$ 对朗道参数的领头阶贡献（忽略费米速度重正化）。两体相互作用系数为</p>
+<script type="math/tex; mode=display">
+f_{k_1\sigma_1,k_2\sigma_2} = \langle\Phi|\hat{V}_{ee}|\Phi\rangle = \sum_q V_q\langle\Phi|c^\dagger_{k_1+q\sigma_1}c^\dagger_{k_2+q\sigma_2}c_{k_2\sigma_2}c_{k_1\sigma_1}|\Phi\rangle = V(0) - V(k_1-k_2)\delta_{\sigma_1\sigma_2}</script><p>其中 $|\Phi\rangle = c^\dagger_{k_1\sigma_1}c^\dagger_{k_2\sigma_2}|G\rangle$。两项分别称为”直接”（Hartree）和”交换”（Fock）项。对自旋 $1/2$，利用 $\delta = \frac12\begin{pmatrix}1&amp;1\\1&amp;1\end{pmatrix} + \frac12\begin{pmatrix}1&amp;-1\-1&amp;1\end{pmatrix}$（自旋对称/反对称分解），得</p>
+<script type="math/tex; mode=display">
+f_{k_1k_2}^s = V(0) - \frac12 V(k_1-k_2), \qquad f_{k_1k_2}^a = -\frac12 V(k_1-k_2)</script><p>于是朗道参数（费米面上 $\cos\theta = \dfrac{k_1\cdot k_2}{k_F^2}$，$|k_1-k_2| = 2k_F\sin\frac{\theta}{2}$）：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+F_0^s = \nu\int_{-1}^{1}d\cos\theta\left[V(0) - \frac12 V(2k_F\sin\frac{\theta}{2})\right]\\[0.4em]
+F_1^s = \nu\int_{-1}^{1}d\cos\theta\left[V(0) - \frac12 V(2k_F\sin\frac{\theta}{2})\right]\cos\theta\\[0.4em]
+F_0^a = \nu\int_{-1}^{1}d\cos\theta\left[-\frac12 V(2k_F\sin\frac{\theta}{2})\right]\\[0.4em]
+\cdots
+\end{cases}</script><p>对屏蔽库仑势 $V(q) = \dfrac{4\pi e^2}{q^2+q_{TF}^2}$（$q_{TF}^2 \sim 4\pi e^2 2\nu \sim \alpha_M k_F^2$）：</p>
+<script type="math/tex; mode=display">
+F_0^s = 1 - \frac{\alpha_M}{8}\ln\left(1+\frac{4}{\alpha_M}\right), \qquad F_0^a = -\frac{\alpha_M}{8}\ln\left(1+\frac{4}{\alpha_M}\right)</script><p>$F_0^a$ 的负号意味着什么？请思考（提示：它使自旋方向上的响应被增强，有利于磁性）。</p>
+<h2><span id="非零温度">非零温度</span></h2><p>有了式 (3.3.1) 的本征谱，非零温度下能量 $E$ 的状态概率是玻尔兹曼因子 $\frac1Z e^{-E}$。但这是个不平凡的统计问题：不同 $k$ 之间存在关联，密度矩阵不再是各子系统 $\hat{\rho}_{k\sigma}$ 的直积。做<strong>平均场近似</strong>（假设密度矩阵仍是乘积态），自由能可写成准粒子占据数期望值的简单泛函：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F &= \langle E\rangle_{\hat{\rho}} - TS = E_G + \sum_{k\sigma}\xi_{k\sigma}\delta n_{k\sigma} + \frac12\sum_{\substack{k_1k_2\\\sigma_1\sigma_2}} f_{k_1\sigma_1,k_2\sigma_2}\delta n_{k_1\sigma_1}\delta n_{k_2\sigma_2} + \cdots\\
+&\qquad + T\sum_{k\sigma}\left(n_{k\sigma}\ln n_{k\sigma} + (1-n_{k\sigma})\ln(1-n_{k\sigma})\right)
+\end{aligned}</script><p>对 $\delta n_{k\sigma}$ 最小化（$\partial_{\delta n_{k\sigma}}F = 0$），得平衡条件：</p>
+<script type="math/tex; mode=display">
+\xi_{k\sigma} + k_B T\ln\frac{n_{k\sigma}}{1-n_{k\sigma}} = 0 \quad\Rightarrow\quad n_{k\sigma} = \frac{1}{e^{\xi_{k\sigma}/k_BT}+1} = f_F(\xi_{k\sigma})</script><p>其中</p>
+<script type="math/tex; mode=display">
+\xi_{k\sigma} = \frac{\partial\langle E\rangle_{\hat{\rho}}}{\partial\delta n_{k\sigma}} = \xi^{(0)}_{k\sigma} + \sum_{k'\sigma'} f_{k\sigma,k'\sigma'}\delta n_{k'\sigma'} + \cdots</script><p>是被其他激发准粒子通过相互作用项重正化后的<strong>有效准粒子能量</strong>。注意这个 $\xi_{k\sigma}$ 与第二章费米气体中的记号相同但含义不同。结论：准粒子的热分布仍是费米-狄拉克分布，但其中的有效能量包含了相互作用的反馈效应。</p>
+<h1><span id="相互作用对热力学量的修正">相互作用对热力学量的修正</span></h1><h2><span id="比热">比热</span></h2><p>与费米气体相比，相互作用通过态密度的同一个因子改变比热：</p>
+<script type="math/tex; mode=display">
+C_V = \sum_{k\sigma}\xi_{k\sigma}\partial_T n_{k\sigma} \xrightarrow{T\ll\varepsilon_F} \nu^*\int d\xi\,\xi\,\partial_T f(\xi,T) = \nu^*\int d\xi\,(-\partial_\xi f) \sim \nu^* T</script><h2><span id="电荷磁化率">电荷磁化率</span></h2><p>电荷磁化率指化学势增加 $\delta\mu$ 引起的粒子数增加 $\delta N$。更方便的做法是已知 $\delta N$ 反求 $\delta\mu$。有效准粒子能量由于反馈势被修正：</p>
+<script type="math/tex; mode=display">
+\delta\mu = \xi = \delta\mu^{(0)} + \sum_{k'}f_{kk'}^s g_s\delta n_{k'} \xrightarrow{T\to 0} (1+F_0^s)\delta\mu^{(0)} = (1+F_0^s)\frac{\delta N}{\nu^*}</script><p>其中 $\delta\mu^{(0)}$ 由 $\delta N = \nu^*\delta\mu^{(0)}$ 定义，$F_0^s$ 项反映费米球整体膨胀对单准粒子能量的修正（反馈势）。因此电荷磁化率为：</p>
+<script type="math/tex; mode=display">
+\chi_c = \frac{\delta N}{\delta\mu} = \frac{\nu^*}{1+F_0^s}</script><blockquote>
+<p>【配图】图 3.4.1：(a) 电荷磁化率与 $F_0^s$：粒子数增加 $\delta N$（红色区域）使费米能级从 0 升到 $\xi$；(b) 自旋磁化率与 $F_0^a$：磁场使自旋上、下的能级相对移动。</p>
+</blockquote>
+<p>$F_0^s&gt;0$（排斥相互作用）使液体变”硬”，更难压缩。例如 $^3\text{He}$ 在某个区域 $F_0^s = 10.8$。</p>
+<h2><span id="自旋磁化率与-stoner-失稳">自旋磁化率与 Stoner 失稳</span></h2><p>有磁场 $B$ 时，自旋上与下的能量移动等大反号。对自旋向下电子：</p>
+<script type="math/tex; mode=display">
+\delta\xi_\downarrow = \mu_b B + \sum_{k'}f_{k\downarrow,k'\sigma'}\delta n_{k'\sigma'} = \mu_b B - \delta\xi_\downarrow F_0^a</script><p>因此自旋磁化率：</p>
+<script type="math/tex; mode=display">
+\chi_s = \frac{\delta M}{B} = \frac{\mu_b\nu^*\delta\xi_\downarrow}{B} = \frac{\nu^*\mu_b^2}{1+F_0^a}</script><p>$F_0^a$ 反映自旋极化对准粒子的反馈场。当 $F_0^a \to -1$，$\chi \to \infty$，表明<strong>铁磁失稳</strong>，即 <strong>Stoner 失稳</strong>。</p>
+<h2><span id="一般多极失稳pomeranchuk-失稳">一般多极失稳：Pomeranchuk 失稳</span></h2><p>一般地，考虑对具有某种多极对称性的准粒子施加外势，使裸准粒子能量改变 $\delta\xi^{(0)}_{p\sigma} = v_l Y_{lm}(\hat{p})$。准粒子分布响应并达到自洽稳定态后，总势 $\delta\xi_{p\sigma} = t_l Y_{lm}(\hat{p})$ 与裸势通过朗道参数联系：反馈势为 $-F_l t_l$，于是</p>
+<script type="math/tex; mode=display">
+t_l = v_l - F_l t_l \quad\Leftrightarrow\quad t_l = \frac{v_l}{1+F_l}</script><p>$F_l&gt;0$ 时总势被抑制（排斥相互作用），$F_l&lt;0$ 时被增强（吸引）。临界情形 $F_l = -1$ 时费米球对某种形变失稳，称为 <strong>Pomeranchuk 失稳</strong>。</p>
+<h1><span id="有效质量与-f1d伽利略不变性">有效质量与 F₁ᵈ：伽利略不变性</span></h1><p>费米液体参数并非全部独立。例如在有<strong>伽利略不变性</strong>的体系中，$F_1^s$ 与费米面上的有效质量有密切关系（朗道最先讨论）。伽利略不变性指式 (3.0.1) 中的裸粒子具有二次色散 $\varepsilon_k = k^2/(2m)$，在移动参考系（$t’ = t,\ x’ = x + vt$）中服从相同的物理规律。</p>
+<p>考虑处于基态的费米液体，在以速度 $v = p/m$ 运动的参考系中观察，它表现为费米面发生形变的激发态。用两种方式计算其激发能：</p>
+<ol>
+<li><strong>质心动能</strong>（唯一可能的宏观答案）：</li>
+</ol>
+<script type="math/tex; mode=display">
+\Delta E_G = \frac12 nmv^2 = n\frac{p^2}{2m}</script><ol>
+<li><strong>朗道能量泛函</strong>：把准粒子激发数展开到 $p$ 的二阶：</li>
+</ol>
+<script type="math/tex; mode=display">
+\Delta E_L = \frac{p^2}{2m^*}n\,(1+F_1^s)</script><p>（推导中用到 $\nu^<em>v_F^{</em>2}/D = n/m^*$。）</p>
+<p>两者应相等，于是得到有效质量重正化与 $F_1^s$ 的关系：</p>
+<script type="math/tex; mode=display">
+\frac{m^*}{m} = \frac{\nu^*}{\nu} = \frac{v_F}{v_F^*} = 1 + F_1^s</script><blockquote>
+<p>【配图】图 3.5.1：(a) 伽利略不变性示意：实验室系（左）与移动参考系（右）中的费米液体，上下分别是实空间与动量空间（准粒子占据）图；(b) 有空间涨落的费米液体实空间示意：每个空间位置的小圆代表该处的费米面形变。</p>
+</blockquote>
+<p>理解：$F_1^s$ 是费米面 $l=1$ 形变对准粒子的反馈势。当 $F_1^s&gt;0$ 使 $m^<em>&gt;m$ 时，朗道泛函的单准粒子能量项给出 $n\frac{p^2}{2m^</em>}$，低估了实际能量 $n\frac{p^2}{2m}$；激发准粒子之间的正 $F_1^s$ 相互作用能恰好补上差额。</p>
+<p>另一个理解角度是电荷流。伽利略不变性要求总电流 $j = np/m$；但单准粒子能量 $\xi^{(0)}_k$ 给出群速度 $k/m$ 和电流 $j = np/m^*$，低估了电流。解释是相互作用项 $F_1^s p\cos\theta_k$ 的反馈势给整个液体额外速度，恰好补上差额。</p>
+<blockquote>
+<p><strong>问题 3.5.1</strong>：单个准电子态 $\Psi^\dagger_k|G\rangle$ 的电荷流是多少？是 $k/m$ 还是 $k/m^*$？</p>
+</blockquote>
+<h1><span id="中性费米液体中的集体模式">中性费米液体中的集体模式</span></h1><p>前面我们处理的是空间均匀的费米液体。现在允许它有时空依赖，讨论大尺度动力学。若空间变化相对粒子间距足够缓慢（特征波矢 $q\ll k_F$），每个空间位置的局域液体都可以用前面均匀费米液体的准粒子占据函数描述（见上图 3.5.1(b)）。</p>
+<p>在大尺度（$q\ll k_F$）、慢（$\omega\ll\varepsilon_F$）动力学中，每个准粒子可看作位置和动量都相对确定的小波包，在平均场中按经典运动方程运动。体系动力学由<strong>玻尔兹曼动力学方程</strong>描述：</p>
+<script type="math/tex; mode=display">
+\frac{d}{dt}n_{k\sigma} = I[n_{k\sigma}]</script><p>其中 $n_{k\sigma}(r,t)$ 是空间-时间依赖的分布函数，$I[n]$ 是碰撞积分。全导数 $d_t = \partial_t + \dot{r}\cdot\partial_r + \dot{k}\cdot\partial_k$，其中群速度 $\dot{r} = \partial_k\xi_k(r)$，受力 $\dot{k} = -\partial_r\varepsilon_k(r)$。</p>
+<h2><span id="无碰撞区零声">无碰撞区：零声</span></h2><p>关注碰撞项可忽略的情形（频率 $\omega$ 远大于典型准粒子散射率 $\gamma_{ee}$）。考虑均匀平衡费米液体上的小涨落：</p>
+<script type="math/tex; mode=display">
+n_k(r) = f_F(\xi_k) + \delta n_k(r,t)</script><p>（为简单起见只考虑自旋对称通道 $\delta n_{k,\sigma} = \delta n_k$。）涨落描述在自身反馈场中集体运动的准粒子。代入并保留 $\delta n_k$ 的一阶项，得到线性化输运方程：</p>
+<script type="math/tex; mode=display">
+(\partial_t + \dot{r}\cdot\partial_r)\delta n_k + (\partial_k f_F)\cdot\dot{k} = 0</script><p>速度与力为：</p>
+<script type="math/tex; mode=display">
+\dot{r} = \partial_k\xi^{(0)}_k = v_k^*, \qquad \dot{k} = -\partial_r\varepsilon_{k,\sigma} = -\partial_r\sum_{k',\sigma'}f_{k\sigma,k'\sigma'}\delta n_{k'\sigma'}(r)</script><p>力来自小涨落的反馈势，对 $\delta n_k(r)$ 线性。由平移对称性，取平面波解 $\delta n_k(r) = \alpha_k e^{i(q\cdot r-\omega t)}$。由于准粒子占据涨落只在费米面附近，可写 $\alpha_k = \eta_{\hat{k}}(-\partial_{\xi_k}f_F)$。定义无量纲波速 $s = \omega/(v_F^*q)$ 和 $\cos\theta_k = \hat{k}\cdot\hat{q}$，得本征模方程：</p>
+<script type="math/tex; mode=display">
+\eta_{\hat{k}} = \frac{\cos\theta_k}{s-\cos\theta_k}\int d\hat{k}'\,F_{kk'}\,\eta_{\hat{k}'}</script><p>若朗道参数中只有 $F_0^s$ 非零（$F_{kk’} = F_0^s$），则积分 $\int d\hat{k}’F_{kk’}\eta_{k’}$ 必为常数，本征模的角度分布为 $\eta_{\hat{k}} = A\frac{\cos\theta_k}{s-\cos\theta_k}$。代入得：</p>
+<script type="math/tex; mode=display">
+1 = F_0^s\int_{-1}^{1}\frac{d\cos\theta}{2}\frac{\cos\theta}{s-\cos\theta}
+\quad\Rightarrow\quad
+\frac{1}{F_0^s} = -1 + \frac{s}{2}\ln\frac{s+1}{s-1}
+\quad\Rightarrow\quad
+\begin{cases}
+\frac{1}{3s^2}, & s\gg 1\\[0.3em]
+\frac12\ln\frac{2}{s-1}, & s\to 1^+
+\end{cases}</script><p>这个波叫<strong>零声</strong>（zero sound），是中性费米液体在无碰撞区的集体模式：准粒子之间的相互作用使费米面整体集体振动。当 $F_0^s\gg 1$ 使 $s\gg 1$ 时，零声速度</p>
+<script type="math/tex; mode=display">
+u = sv_F^* = \sqrt{\frac{F_0^s}{3}}v_F^*</script><p>相互作用很弱时 $F_0^s\to 0^+$，零声速度趋近费米速度 $u\to v_F^<em>$。当 $s&lt;1$，集体模被 <em>*朗道阻尼</em></em>（Landau damping）强烈衰减（集体模共振激发粒子-空穴对，把能量耗散掉，寿命极短，不再是良定义的集体模）。</p>
+<blockquote>
+<p>【配图】图 3.6.1：零声在实空间某一时刻的快照。每个空间位置的圆代表该处的费米面形变 $\delta n_k(r,t) \propto -\partial_\xi f\cdot\frac{\cos\theta_k}{s-\cos\theta_k}\cos(qx-\omega t)$；局域流动造成压缩-稀疏，密度涨落产生的反馈场又加速流体，维持流动。</p>
+<p><strong>碰撞与一声</strong>：准粒子以 $\gamma_{ee} \sim T^2/\varepsilon_F$ 的速率彼此散射。在超大尺度、低频区（$\omega\ll\gamma_{ee}$，$q\ll\gamma_{ee}/v_F$），碰撞使体系始终保持局域平衡，称为<strong>流体力学区</strong>。此时局域密度矩阵是热的：</p>
+<script type="math/tex; mode=display">
+\hat{\rho}(r) = \frac1Z e^{-\frac1{T(r)}(\hat{H}-\mu(r)\hat{N}-\mathbf{u}(r)\cdot\hat{\mathbf{p}})}</script><p>自由度缩减为几个”碰撞零模”（碰撞下守恒的量）：局域温度 $T(r)$、化学势 $\mu(r)$ 和流速 $\mathbf{u}(r)$。忽略温度涨落，动力学由封闭的流体力学方程描述：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\partial_t\rho + \nabla\cdot\mathbf{j} = 0\\
+(\partial_t + \mathbf{u}\cdot\nabla)\mathbf{u} = -\frac1\rho\nabla P + \frac13(\xi+\nu)\nabla(\nabla\cdot\mathbf{u}) + \nu\nabla^2\mathbf{u}
+\end{cases}</script><p>第二式是 <strong>Navier-Stokes 方程</strong>。流体力学方程有密度涨落的声波解，即<strong>一声</strong>（first sound，类比水中的声波），速度：</p>
+<script type="math/tex; mode=display">
+u_1^2 = \frac{\kappa}{\rho} = \frac{v_F^{*2}}{D}(1+F_0^s)(1+F_1^s)</script><p>其中 $\kappa = -V\partial_V P = n^2/\chi_c$ 是体弹模量。$1+F_0^s$ 因子纯粹来自费米液体效应使体弹模量（电荷磁化率的倒数）增强——排斥相互作用使流体更难压缩。弱相互作用极限下 $u_1 = v_F/\sqrt D$ 小于费米速度。因此从低频到高频，声模从一声过渡到零声。</p>
+<p>【配图】图 3.6.2：中性费米液体中的集体模式。横轴 $q$，纵轴 $\omega$：$q\ll\gamma_{ee}/v_F$ 处为一声（声速 $u_1$），高频处为无阻尼的零声（$u_0 = \sqrt{F_0^s/3}v_F^*$），两者之间是朗道阻尼区；在 $q\sim 2k_F$ 附近是粒子-空穴对激发区。</p>
+<p><strong>思考题</strong></p>
+<ol>
+<li>单个准电子态 $\Psi^\dagger_k|G\rangle$ 的电荷流是 $k/m$ 还是 $k/m^*$？</li>
+<li>如何从动力学方程出发推导流体力学方程，从而理解 $\chi_c = \nu^<em>/(1+F_0^s)$ 和 $m^</em>/m = 1+F_1^s$？（即讲义式 3.6.14）</li>
+<li>$F_0^a&lt;0$ 的物理含义是什么？当 $F_0^a\to-1$ 时体系会发生什么？</li>
+<li>零声与一声有什么区别？什么时候”声速”大于费米速度？</li>
+</ol>
+</blockquote>
+<hr>
+<h1><span id="附第一次作业解答题-2费米气中库仑相互作用的一阶微扰">附：第一次作业解答（题 2：费米气中库仑相互作用的一阶微扰）</span></h1><p>本题是对相互作用的第一次接触——在费米海上计算库仑相互作用的一阶能量修正，得到 Hartree 与 Fock（交换）两项，为理解朗道费米液体中相互作用的作用做准备。</p>
+<h2><span id="a-库仑相互作用的第二量子化形式">(a) 库仑相互作用的第二量子化形式</span></h2><p><strong>实空间</strong>：第一量子化中 $\hat H_{ee}=\frac{\kappa}{2}\sum_{i\neq j}\frac{1}{|\mathbf r_i-\mathbf r_j|}$（$\kappa=e^2$ 为原子/高斯单位，SI 中 $\kappa=e^2/4\pi\varepsilon_0$；因子 $\frac12$ 避免同一对算两遍）。一般二体势 $v(\mathbf r-\mathbf r’)$ 的第二量子化形式为</p>
+<script type="math/tex; mode=display">
+\hat H_{ee} = \frac{\kappa}{2}\sum_{\sigma,\sigma'}\int d^3r\,d^3r'\,
+\frac{\hat\psi_\sigma^\dagger(\mathbf r)\hat\psi_{\sigma'}^\dagger(\mathbf r')\hat\psi_{\sigma'}(\mathbf r')\hat\psi_\sigma(\mathbf r)}{|\mathbf r-\mathbf r'|}</script><p>算符顺序”先湮灭后产生”（从右往左作用：先在 $\mathbf r,\mathbf r’$ 移除两个电子，再放回），因此测量的是两体概率密度。</p>
+<p><strong>动量空间</strong>：场算符 $\hat\psi_\sigma(\mathbf r)=\frac1{\sqrt\Omega}\sum_ke^{i\mathbf k\cdot\mathbf r}\hat c_{\mathbf k\sigma}$，三维库仑势的傅里叶变换为 $v(\mathbf q)=4\pi\kappa/|\mathbf q|^2$（用收敛因子 $e^{-\eta r}$ 正则化后取 $\eta\to0^+$）。代入并对 $\mathbf r,\mathbf r’$ 积分（$\int_\Omega d^3r\,e^{i(\mathbf k-\mathbf p)\cdot\mathbf r}=\Omega\delta_{\mathbf k,\mathbf p}$），得</p>
+<script type="math/tex; mode=display">
+\boxed{\ \hat H_{ee} = \frac{1}{2\Omega}\sum_{\mathbf k,\mathbf k',\mathbf q}\sum_{\sigma,\sigma'} v(\mathbf q)\,\hat c_{\mathbf k+\mathbf q,\sigma}^\dagger\hat c_{\mathbf k'-\mathbf q,\sigma'}^\dagger\hat c_{\mathbf k',\sigma'}\hat c_{\mathbf k,\sigma},\qquad v(\mathbf q)=\frac{4\pi\kappa}{|\mathbf q|^2}\ }</script><p>物理图像：动量 $\mathbf k,\mathbf k’$ 的两个电子散射成 $\mathbf k+\mathbf q,\mathbf k’-\mathbf q$，总动量守恒。</p>
+<blockquote>
+<p><strong>补充：用泊松方程 + 高斯定理算库仑势的傅里叶变换</strong>。上面用收敛因子正则化后直接做径向积分，还有一个更优雅的”课上版”做法：把库仑势当拉普拉斯算符的格林函数，用高斯定理绕开积分。</p>
+<p><strong>三维</strong>：库仑势满足泊松方程</p>
+<script type="math/tex; mode=display">
+\nabla^2\frac{1}{|\mathbf r|} = -4\pi\delta(\mathbf r)</script><p>两边做傅里叶变换。右边 $\int d^3r\,e^{-i\mathbf q\cdot\mathbf r}(-4\pi\delta(\mathbf r)) = -4\pi$。左边用高斯定理（散度定理 $\int_V\nabla\cdot\mathbf F\,d^3r=\oint_{\partial V}\mathbf F\cdot d\mathbf S$）把拉普拉斯算符一步步”搬到”平面波上（边界项在 $R\to\infty$ 时消失，可用收敛因子 $e^{-\eta r}$ 严格化）：</p>
+<script type="math/tex; mode=display">
+\int d^3r\,e^{-i\mathbf q\cdot\mathbf r}\nabla^2\frac{1}{|\mathbf r|}
+= \int d^3r\,\frac{1}{|\mathbf r|}\nabla^2e^{-i\mathbf q\cdot\mathbf r}
+= -q^2\int d^3r\,\frac{e^{-i\mathbf q\cdot\mathbf r}}{|\mathbf r|}
+= -q^2 v(\mathbf q)</script><p>其中用了 $\nabla^2 e^{-i\mathbf q\cdot\mathbf r} = -q^2e^{-i\mathbf q\cdot\mathbf r}$。两式联立即得</p>
+<script type="math/tex; mode=display">
+v(\mathbf q) = \frac{4\pi\kappa}{|\mathbf q|^2}</script><p>高斯定理在这里的用武之地，是证明 $\nabla^2(1/r) = -4\pi\delta$：对半径为 $\varepsilon$ 的小球积分 $\int_{V_\varepsilon}\nabla^2\frac1r\,d^3r = \oint_{S_\varepsilon}\nabla\frac1r\cdot d\mathbf S = \oint\left(-\frac{\hat r}{r^2}\right)\cdot\hat r\,dS = -4\pi$，这正是 $\delta$ 函数的归一化。</p>
+<p><strong>二维</strong>：两种情况要分清。</p>
+<ul>
+<li><strong>二维体系嵌入三维空间</strong>（本课程第 3 讲式 3.0.1 的约定）：相互作用仍是 $\kappa/r$（$r$ 为面内距离），其二维傅里叶变换为<script type="math/tex; mode=display">
+v(\mathbf q) = \int d^2r\,e^{-i\mathbf q\cdot\mathbf r}\frac{\kappa}{r} = 2\pi\kappa\int_0^\infty dr\,J_0(qr) = \frac{2\pi\kappa}{q}</script>（用了 $\int_0^\infty J_0(x)dx=1$）。注意这里的 $1/r$ <strong>不是</strong>二维拉普拉斯算符的格林函数，所以不能直接套泊松方程 + 高斯定理。一个偷懒的等价做法是”维数约化”：对三维结果沿 $q_z$ 积分 $\int\frac{dq_z}{2\pi}\frac{4\pi\kappa}{q^2+q_z^2} = \frac{2\pi\kappa}{q}$。</li>
+<li><strong>真正的二维库仑势（对数势）</strong>：二维拉普拉斯算符的格林函数是 $\nabla^2\ln\frac{a}{r} = -2\pi\delta(\mathbf r)$（用二维高斯定理验证：$\oint\nabla\ln(a/r)\cdot d\mathbf l = \oint\left(-\frac{\hat r}{r}\right)\cdot\hat r\,d\ell = -2\pi$），对应的二维泊松方程给<script type="math/tex; mode=display">
+v(\mathbf q) = \frac{2\pi\kappa}{|\mathbf q|^2}</script>注意它与”嵌入三维的 2D”结果 $2\pi\kappa/q$ 差一个 $1/q$ 的幂——二者物理不同，不要混淆。</li>
+</ul>
+</blockquote>
+<h2><span id="b-一阶能量密度修正">(b) 一阶能量密度修正</span></h2><p>写 $\hat H(\lambda)=\hat H_0+\lambda\hat H_{ee}$、$|\Psi(\lambda)\rangle=|\Psi_0\rangle+\lambda|\Psi_1\rangle+\cdots$、$E(\lambda)=E^{(0)}+\lambda E^{(1)}+\cdots$，代入薛定谔方程取 $\lambda$ 一阶并左乘 $\langle\Psi_0|$，含 $|\Psi_1\rangle$ 的两项相消，得<strong>一阶修正即取期望值</strong>：</p>
+<script type="math/tex; mode=display">
+E^{(1)} = \langle\Psi_0|\hat H_{ee}|\Psi_0\rangle</script><p>对零温无自旋极化电子气，基态是费米海 $|FS\rangle$（$n_{\mathbf k\sigma}=\Theta(k_F-k)$，$n=k_F^3/3\pi^2$）。关键是四费米算符的期望值：为让末态与费米海有非零重叠，两个湮灭算符制造的空穴必须被两个产生算符补回，只有两种配对：</p>
+<script type="math/tex; mode=display">
+\langle\hat c_a^\dagger\hat c_b^\dagger\hat c_c\hat c_d\rangle_0 = n_an_b\left(\delta_{ad}\delta_{bc}-\delta_{ac}\delta_{bd}\right)</script><p>直接配对（$d=a,c=b$）给 $+n_an_b$；交换配对（$c=a,d=b$）因 $\hat c_a\hat c_b=-\hat c_b\hat c_a$ 给 $-n_an_b$——负号来自反对易关系。代回动量指标：</p>
+<script type="math/tex; mode=display">
+\langle\hat c_{\mathbf k+\mathbf q,\sigma}^\dagger\hat c_{\mathbf k'-\mathbf q,\sigma'}^\dagger\hat c_{\mathbf k',\sigma'}\hat c_{\mathbf k,\sigma}\rangle_0
+= n_{\mathbf k\sigma}n_{\mathbf k'\sigma'}\left(\delta_{\mathbf q,0}-\delta_{\sigma\sigma'}\delta_{\mathbf q,\mathbf k'-\mathbf k}\right)</script><p>于是 $E^{(1)}=E_H+E_x$：</p>
+<p><strong>Hartree（直接）项</strong>：要求 $\mathbf q=0$，自旋任意，</p>
+<script type="math/tex; mode=display">
+E_H = \frac{v(0)}{2\Omega}\sum_{\mathbf k,\mathbf k',\sigma,\sigma'}n_{\mathbf k\sigma}n_{\mathbf k'\sigma'} = \frac{v(0)N^2}{2\Omega}</script><p>$v(0)=4\pi\kappa/q^2|_{q=0}$ 发散——这是全体电子与自身的长程静电自能。均匀<strong>正电背景</strong>（jellium）使体系电中性：电子-电子、电子-背景、背景-背景三项能量密度系数分别为 $+\frac12n^2,\ -n^2,\ +\frac12n^2$，之和为零，恰好抵消 Hartree 项。物理上 $q=0$ 模必须结合电中性条件处理，不能无解释地删除。</p>
+<p><strong>Fock（交换）项</strong>：要求 $\mathbf q=\mathbf k’-\mathbf k$ 且 $\sigma=\sigma’$（<strong>交换项只发生在同自旋之间</strong>），</p>
+<script type="math/tex; mode=display">
+E_x = -\frac{1}{2\Omega}\sum_{\mathbf k,\mathbf k',\sigma}v(\mathbf k-\mathbf k')n_{\mathbf k\sigma}n_{\mathbf k'\sigma}</script><p>无自旋极化时 $\sum_\sigma$ 给出因子 2、恰好抵消 $\frac12$。取热力学极限并做积分（交换积分中的 $1/q^2$ 奇点在 3D 可积：$\int_{q&lt;\delta}d^3q/q^2=4\pi\delta&lt;\infty$；先角积分 $8\pi^2$，再令 $p=kx$ 做径向二重积分），得</p>
+<script type="math/tex; mode=display">
+\frac{E_x}{\Omega} = -\int_{k<k_F}\frac{d^3k}{(2\pi)^3}\int_{k'<k_F}\frac{d^3k'}{(2\pi)^3}\frac{4\pi\kappa}{|\mathbf k-\mathbf k'|^2}
+= -\frac{\kappa}{2\pi^3}\int_0^{k_F}\!dk\int_0^{k_F}\!dp\,kp\ln\frac{k+p}{|k-p|}
+= -\frac{\kappa k_F^4}{4\pi^3}</script><p><strong>最终答案</strong>：电中性均匀电子气的一阶能量密度修正就是交换能：</p>
+<script type="math/tex; mode=display">
+\boxed{\ \frac{E^{(1)}}{\Omega}=\frac{E_x}{\Omega}=-\frac{\kappa k_F^4}{4\pi^3}
+= -\frac34\left(\frac3\pi\right)^{1/3}\kappa\,n^{4/3}\ }</script><p>每粒子的交换能：</p>
+<script type="math/tex; mode=display">
+\frac{E^{(1)}}{N} = -\frac{3\kappa k_F}{4\pi}</script><p>若再计入无相互作用动能 $E_0/\Omega=\hbar^2k_F^5/(10\pi^2m)$：</p>
+<script type="math/tex; mode=display">
+\frac{E}{\Omega}=\frac{\hbar^2k_F^5}{10\pi^2m}-\frac{\kappa k_F^4}{4\pi^3}+O(\kappa^2), \qquad
+\frac{E}{N}=\frac35E_F-\frac{3\kappa k_F}{4\pi},\quad E_F=\frac{\hbar^2k_F^2}{2m}</script><blockquote>
+<p><strong>为什么结果是负的？</strong> 库仑势本身始终是排斥的（$\kappa/|\mathbf r-\mathbf r’|&gt;0$）。负的交换能<strong>不是</strong>电子间相互作用变吸引，而是费米统计的量子效应：同自旋电子因波函数反对称形成”交换洞”（exchange hole），彼此靠近的概率被压低，平均库仑排斥能低于经典平均场估计。<strong>Fock 项的负号来自反对易关系，不是库仑力变吸引。</strong></p>
+<p><strong>易错清单</strong>：① 忘了 $\frac12$（二体项会把电子对算两遍）；② 忘了自旋指标（交换项只在同自旋）；③ 把 $\hat\psi(\mathbf r)$ 当普通波函数（它是场算符）；④ 无解释删掉 $q=0$ 项（正确理由是电中性背景抵消）；⑤ 把交换能负号解释为吸引相互作用（错）；⑥ 混淆能量密度 $E/\Omega$ 与每粒子能量 $E/N$（$E=\Omega n\varepsilon$）。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/03-%E6%9C%97%E9%81%93%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93/">https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/03-%E6%9C%97%E9%81%93%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/04-%E6%A0%BC%E6%9E%97%E5%87%BD%E6%95%B0/" title="04 格林函数"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">04 格林函数</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/02-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E4%B8%8E%E8%B4%B9%E7%B1%B3%E6%B0%94%E4%BD%93/" title="02 统计物理与费米气体"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">02 统计物理与费米气体</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">量子多体物理Content</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/" title="10 涨落、临界现象与重整化群"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">10 涨落、临界现象与重整化群</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">09 BCS理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/" title="08 超导：唯象理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">08 超导：唯象理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">07 自发对称性破缺</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">06 费米液体的微观理论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">相互作用的费米子与费米液体思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">费米海中粒子的寿命</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">准粒子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">绝热对应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">准粒子图像何时成立</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">朗道能量泛函与朗道参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">零温情形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">非零温度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">相互作用对热力学量的修正</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">比热</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">电荷磁化率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">自旋磁化率与 Stoner 失稳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.4.</span> <span class="toc-text">一般多极失稳：Pomeranchuk 失稳</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">有效质量与 F₁ᵈ：伽利略不变性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">中性费米液体中的集体模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.1.</span> <span class="toc-text">无碰撞区：零声</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">附：第一次作业解答（题 2：费米气中库仑相互作用的一阶微扰）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.1.</span> <span class="toc-text">(a) 库仑相互作用的第二量子化形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.2.</span> <span class="toc-text">(b) 一阶能量密度修正</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

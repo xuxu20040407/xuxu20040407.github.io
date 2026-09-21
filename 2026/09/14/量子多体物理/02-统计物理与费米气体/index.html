@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>02 统计物理与费米气体 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="统计物理基础 微正则、正则与巨正则系综 从统计物理到多体物理   自由费米气体 哈密顿量与费米海 费米动量与粒子密度的关系   激发的图像 热力学性质 1. 比热 2. 熵 3. 电荷磁化率 4. 自旋磁化率：泡利顺磁   相互作用会带来什么？  上一讲我们建立了描述多体系统的语言（第二量子化）。这一讲我们来”练兵”：先用统计物理的框架（系综、密度矩阵）描述宏观体系的平衡性质，然后研究量子多体物">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02 统计物理与费米气体">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/02-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E4%B8%8E%E8%B4%B9%E7%B1%B3%E6%B0%94%E4%BD%93/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="统计物理基础 微正则、正则与巨正则系综 从统计物理到多体物理   自由费米气体 哈密顿量与费米海 费米动量与粒子密度的关系   激发的图像 热力学性质 1. 比热 2. 熵 3. 电荷磁化率 4. 自旋磁化率：泡利顺磁   相互作用会带来什么？  上一讲我们建立了描述多体系统的语言（第二量子化）。这一讲我们来”练兵”：先用统计物理的框架（系综、密度矩阵）描述宏观体系的平衡性质，然后研究量子多体物">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-09-14T05:30:03.000Z">
+<meta property="article:modified_time" content="2026-09-21T06:02:23.529Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子多体物理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/02-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E4%B8%8E%E8%B4%B9%E7%B1%B3%E6%B0%94%E4%BD%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '02 统计物理与费米气体',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-21 14:02:23'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">02 统计物理与费米气体</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-14T05:30:03.000Z" title="发表于 2026-09-14 13:30:03">2026-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-21T06:02:23.529Z" title="更新于 2026-09-21 14:02:23">2026-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="02 统计物理与费米气体"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#统计物理基础">统计物理基础</a><ul>
+<li><a href="#微正则正则与巨正则系综">微正则、正则与巨正则系综</a></li>
+<li><a href="#从统计物理到多体物理">从统计物理到多体物理</a></li>
+</ul>
+</li>
+<li><a href="#自由费米气体">自由费米气体</a><ul>
+<li><a href="#哈密顿量与费米海">哈密顿量与费米海</a></li>
+<li><a href="#费米动量与粒子密度的关系">费米动量与粒子密度的关系</a></li>
+</ul>
+</li>
+<li><a href="#激发的图像">激发的图像</a></li>
+<li><a href="#热力学性质">热力学性质</a><ul>
+<li><a href="#1-比热">1. 比热</a></li>
+<li><a href="#2-熵">2. 熵</a></li>
+<li><a href="#3-电荷磁化率">3. 电荷磁化率</a></li>
+<li><a href="#4-自旋磁化率泡利顺磁">4. 自旋磁化率：泡利顺磁</a></li>
+</ul>
+</li>
+<li><a href="#相互作用会带来什么">相互作用会带来什么？</a></li>
+</ul>
+<p>上一讲我们建立了描述多体系统的语言（第二量子化）。这一讲我们来”练兵”：先用统计物理的框架（系综、密度矩阵）描述宏观体系的平衡性质，然后研究量子多体物理最基本的出发点——<strong>自由费米气体</strong>（Fermi gas），建立起”费米海 + 激发”的图像，并计算它的热力学性质。</p>
+<h1><span id="统计物理基础">统计物理基础</span></h1><p>由于多体问题，我们无法对一个大体系的精确微观状态做预测。幸好，我们可以对其<strong>统计性质</strong>做出预测，即压强、热容、电导率这类热力学量。这一节只是快速回顾，如果哪里不清楚，请翻经典统计物理教材的相应章节。</p>
+<h2><span id="微正则-正则与巨正则系综">微正则、正则与巨正则系综</span></h2><p><strong>微正则系综</strong>（孤立体系，固定能量 $E$）：统计物理的基本假设是——如果我们只关心一个处于”平衡”的典型孤立大体系的统计性质，那么它就等价于对所有具有相同能量的微观态求平均。满足这个性质的体系称为<strong>遍历的</strong>（ergodic）。在量子力学的语言里，平衡孤立体系等价地由密度矩阵描述：</p>
+<script type="math/tex; mode=display">
+\hat{\rho}_m = \frac{1}{Z_m}\delta(\hat{H}-E)</script><p>注意：体系的实际状态（比如一杯水）完全可以是一个纯态或某个不同的混合态，但它所有的（局域）热力学量都恰好等于微正则密度矩阵所预言的值。这正是”遍历性”的定义，人们相信几乎所有真实的多体体系都满足它。</p>
+<p><strong>正则系综</strong>（与热库交换能量）：如果体系与一个交换能量的环境耦合，可以用微正则密度矩阵描述”体系+环境”整体，再对环境自由度求迹，得到体系的<strong>正则系综密度矩阵</strong>：</p>
+<script type="math/tex; mode=display">
+\hat{\rho} = \frac{1}{Z}e^{-\beta\hat{H}}, \qquad Z = \mathrm{Tr}[e^{-\beta\hat{H}}]</script><p>$Z$ 称为<strong>配分函数</strong>，温度由参数 $\beta = 1/(k_B T)$ 定义。可以验证，在所有可能的密度矩阵中，正则系综密度矩阵使自由能最小：</p>
+<script type="math/tex; mode=display">
+F \equiv E - TS = \mathrm{Tr}[\hat{\rho}\hat{H} + T\hat{\rho}\ln\hat{\rho}]</script><p><strong>巨正则系综</strong>（与热库交换能量和粒子）：类似地，如果体系还能与环境交换粒子，则有巨正则系综密度矩阵：</p>
+<script type="math/tex; mode=display">
+\hat{\rho} = \frac{1}{Z}e^{-\beta(\hat{H}-\mu\hat{N})}</script><p>其中配分函数 $Z = \mathrm{Tr}[e^{-\beta(\hat{H}-\mu\hat{N})}]$，$\hat{N}$ 是粒子数算符，$\mu$ 是<strong>化学势</strong>。类似的，如果体系有更多的守恒量，还可以构造更一般的系综。压强、热容、电导率等热力学量都可以基于这些密度矩阵计算出来。</p>
+<blockquote>
+<p><strong>问题 2.1.1</strong>：这些系综的经典版本是什么？（提示：微正则对应等能量面上的均匀分布，即刘维尔定理下的微正则分布；正则对应玻尔兹曼分布 $e^{-\beta H}/Z$；巨正则则再乘以粒子数的玻尔兹曼因子。）</p>
+</blockquote>
+<h2><span id="从统计物理到多体物理">从统计物理到多体物理</span></h2><p>统计物理本身是一个丰富而深刻的学科，这门课没有时间展开。在后续课程中，如果遇到属于基础统计物理的疑问，请查阅经典教材的相应章节。现在，我们带着三个系综（尤其是巨正则系综）进入本讲的主角——费米气体。</p>
+<h1><span id="自由费米气体">自由费米气体</span></h1><p>描述自由费米气体的模型哈密顿量为：</p>
+<script type="math/tex; mode=display">
+\hat{H}_0 = \sum_{k\sigma}\varepsilon_k\, c_{k\sigma}^\dagger c_{k\sigma}</script><p>其中 $c_{k\sigma}^\dagger/c_{k\sigma}$ 是动量为 $k$、自旋为 $\sigma$ 的费米子的产生/湮灭算符，$\varepsilon_k$ 是单粒子能量。费米气体是量子多体物理最基本的出发点：</p>
+<ul>
+<li>对于 $^3\text{He}$（液态氦三），$\varepsilon_k = \dfrac{k^2}{2m}$（此后如无特别说明都取 $\hbar = 1$），$m$ 是 $^3\text{He}$ 原子的质量；</li>
+<li>在凝聚态物理中，最常见的量子多体体系是固体中的多电子系统，此时 $\varepsilon_k$ 是晶体动量 $k$ 处电子 Bloch 态的能量。对于靠近带边的电子，色散常可近似为二次型 $\varepsilon_k = \dfrac{k^2}{2m^<em>}$，其中 $m^</em>$ 是<strong>带有效质量</strong>（band effective mass），不是电子的真空质量 $m_e$。</li>
+</ul>
+<h2><span id="哈密顿量与费米海">哈密顿量与费米海</span></h2><p>固定粒子数 $N$（或粒子密度 $n = N/V$）时，费米气体的基态是把所有 $k&lt;k_F$ 的单粒子态填满：</p>
+<script type="math/tex; mode=display">
+|G\rangle = \prod_{k<k_F,\sigma} c_{k\sigma}^\dagger |0\rangle</script><p>其中 $|0\rangle$ 是没有粒子的真空。$k_F$ 称为<strong>费米动量</strong>，对应的<strong>费米能</strong>为 $E_F = \dfrac{k_F^2}{2m}$。基态中，能量低于费米能的态全部占据、高于费米能的态全部空着，形成一个费米球（或称<strong>费米海</strong>，Fermi sea）。</p>
+<blockquote>
+<p>【配图】图 2.2.1：费米海示意图。上方：$T=0$ 的色散曲线 $\varepsilon_k$，占据态（费米海）填到费米能 $\varepsilon_F$ 为止，费米面位置在 $k_F$；下方：非零温度 $T&gt;0$ 的费米海，费米面附近的占据出现涂抹，化学势记为 $\mu$。</p>
+</blockquote>
+<h2><span id="费米动量与粒子密度的关系">费米动量与粒子密度的关系</span></h2><p>费米动量与粒子密度直接相关。密度可以写为动量空间中的占据计数：</p>
+<script type="math/tex; mode=display">
+n(k_F) = \sum_{k<k_F,\sigma} 1 = g\int_{|k|<k_F}\frac{d^d k}{(2\pi)^d} = g \times
+\begin{cases}
+\dfrac{k_F}{\pi}, & d=1 \\[0.6em]
+\dfrac{k_F^2}{4\pi}, & d=2 \\[0.6em]
+\dfrac{k_F^3}{6\pi^2}, & d=3
+\end{cases}</script><p>其中 $g$ 是自旋简并度。</p>
+<blockquote>
+<p>讲义中 $d=2$ 一项写为 $k_F^2/(2\pi)$，这应该是笔误（$\int_{|k|&lt;k_F} d^2k/(2\pi)^2 = k_F^2/(4\pi)$）。正确的二维结果（以 $g=2$ 为例）是 $n = k_F^2/(2\pi)$，即 $k_F = \sqrt{2\pi n}$，这是二维电子气（2DEG）的标准结果。</p>
+</blockquote>
+<h1><span id="激发的图像">激发的图像</span></h1><p>为了方便描述激发，我们把哈密顿量换成 $\hat{H}_0 - \mu\hat{N}$，其中 $\hat{N} = \sum_{k\sigma}\hat{n}_{k\sigma} = \sum_{k\sigma}c_{k\sigma}^\dagger c_{k\sigma}$ 是总粒子数算符。激发态可以分为两类：<strong>粒子数不同于基态</strong>的，以及<strong>粒子数与基态相同</strong>的。</p>
+<p><strong>单粒子激发</strong>：在费米海之上加一个粒子 $c_{k\sigma}^\dagger|G\rangle$（$\varepsilon_k &gt; \mu$），激发能为</p>
+<script type="math/tex; mode=display">
+\xi_k = \varepsilon_k - \mu</script><p>这里 $\xi_k$ 是常用的记号，表示相对费米面的单粒子能量。</p>
+<p><strong>单空穴激发</strong>：从费米海中拿走一个粒子 $c_{k\sigma}|G\rangle$（$\varepsilon_k &lt; \mu$），激发能为正的</p>
+<script type="math/tex; mode=display">
+-\xi_k = -(\varepsilon_k - \mu)</script><p><strong>粒子-空穴激发</strong>：$c_{k_1\sigma_1}^\dagger c_{k_2\sigma_2}|G\rangle$ 保粒子数，激发能为</p>
+<script type="math/tex; mode=display">
+\xi_{k_1} - \xi_{k_2} = \varepsilon_{k_1} - \varepsilon_{k_2}</script><p>直观地说：费米海就像一个”大海”，最低能的激发要么是从海面上扔进一个粒子（粒子激发），要么是从海面下捞出一个粒子（空穴激发），要么是在海面附近”一升一降”（粒子-空穴激发）。这个图像在下一讲（费米液体）中会反复用到。</p>
+<h1><span id="热力学性质">热力学性质</span></h1><p>在非零温度 $T$ 下，费米面附近的费米子被”热激发”：每个单粒子态的占据数不再是严格 0 或 1，尤其是在费米面附近的态。多体状态不再是纯态，而由混合态密度矩阵描述：</p>
+<script type="math/tex; mode=display">
+\hat{\rho} = \frac{1}{Z}e^{-\beta(\hat{H}_0-\mu\hat{N})} = \frac{1}{Z}\prod_{k\sigma}e^{-\beta(\varepsilon_k-\mu)c_{k\sigma}^\dagger c_{k\sigma}}</script><blockquote>
+<p>注意这里我们放宽了固定粒子数的约束，使用了<strong>巨正则系综</strong>——在热力学极限（大体系极限）下它与固定粒子数的体系等价。</p>
+</blockquote>
+<p>在第二量子化的语言里，把每个单粒子态 $(k,\sigma)$ 看成一个<strong>子系统</strong>是方便的做法。这时密度矩阵是直积 $\hat{\rho} = \prod_{k\sigma}\hat{\rho}_{k\sigma}$，每个子系统的密度矩阵为</p>
+<script type="math/tex; mode=display">
+\hat{\rho}_{k\sigma} = \frac{e^{-\beta(\varepsilon_k-\mu)c_{k\sigma}^\dagger c_{k\sigma}}}{Z_{k\sigma}}, \qquad \mathrm{Tr}[\hat{\rho}_{k\sigma}] = 1</script><p>于是 $(k,\sigma)$ 态的占据数为：</p>
+<script type="math/tex; mode=display">
+f_{k\sigma} = \mathrm{Tr}[\hat{n}_{k\sigma}\hat{\rho}] = \mathrm{Tr}[\hat{n}_{k\sigma}\hat{\rho}_{k\sigma}] = \frac{e^{-\beta(\varepsilon_k-\mu)}}{Z_{k\sigma}} = \frac{1}{e^{\beta(\varepsilon_k-\mu)}+1}</script><p>这就是<strong>费米分布函数</strong>。</p>
+<blockquote>
+<p>【配图】图 2.2.2：费米分布函数 $f(\varepsilon)$ 随能量 $\varepsilon$ 的变化。$T=0$ 时是阶梯函数（$\varepsilon&lt;\mu$ 时为 1，$\varepsilon&gt;\mu$ 时为 0）；非零温度下在费米能附近被”涂抹”开，涂抹宽度约 $\sim k_B T$。</p>
+</blockquote>
+<p>下面我们在”温度远低于费米能”（$T \ll E_F$）的低温条件下，熟悉费米气体的几个热力学性质。</p>
+<h2><span id="1-比热">1. 比热</span></h2><p>热力学的第一步常常是从配分函数算自由能：</p>
+<script type="math/tex; mode=display">
+F(T,\mu) = -k_B T\ln Z = -k_B T\sum_{k\sigma}\ln\left(1 + e^{-\beta(\varepsilon_k-\mu)}\right)</script><p>比热为</p>
+<script type="math/tex; mode=display">
+C_v = T\partial_T S = -T\partial_T^2 F</script><p>低温下可以用物理图像快速估算：在低温 $T$ 下，只有费米面附近的电子被激发，与零温态相比，被激发的费米子数目约为 $\sim \nu T$，其中</p>
+<script type="math/tex; mode=display">
+\nu = g_s\,\Omega_{D-1}\,k_F^{D-1}/v_F</script><p>是费米能级处的<strong>态密度</strong>（DOS，已含自旋简并），$g_s = 2s+1$ 是自旋简并度。每个粒子的平均激发能约为 $\sim T$，因此相对零温费米海的总激发能约为 $\sim \nu T^2$。比热是激发能对温度的导数：</p>
+<script type="math/tex; mode=display">
+C_v \sim \partial_T(\nu T^2) \sim \nu T</script><p>比热简单地等于态密度乘以温度 $T$。这就是费米气体的线性比热（Sommerfeld 比热），与玻尔兹曼”每个自由度 $\frac12 k_B T$”的经典图像完全不同——因为只有费米面附近的一小部分电子能吸收能量。</p>
+<h2><span id="2-熵">2. 熵</span></h2><p>由上面的定性分析以及熵与热的关系 $dS = dQ/T = c_v dT/T$，立刻得到：</p>
+<script type="math/tex; mode=display">
+S \sim \nu T</script><p>熵也是线性的（零温时熵为零，符合热力学第三定律）。需要指出的是，$\nu T$ 只是量级估计，其正确系数（如 $\gamma = \frac{\pi^2}{3}k_B^2\nu$ 给出 $C_v = \gamma T$）需要严格计算费米积分得到，我们这里关注物理图像。</p>
+<h2><span id="3-电荷磁化率">3. 电荷磁化率</span></h2><p>电荷磁化率（更准确地说是”电荷响应”）是<strong>保持体系体积不变时</strong>，粒子密度对化学势的变化率。显然，化学势改变 $d\mu$ 会对应地放大费米面，粒子数变化为 $dn = g_s\nu d\mu$，即化学势变化乘以费米面附近的态密度。因此</p>
+<script type="math/tex; mode=display">
+\chi_c = \left.\frac{\partial n}{\partial \mu}\right|_V \xrightarrow{T\to 0} \nu</script><p>这对应热力学中的等温压缩率 $\kappa_T = -\frac{1}{V}\left.\frac{\partial V}{\partial p}\right|_{TN}$。可以尝试用热力学公式推导 $\chi_c = n^2\kappa_T$。</p>
+<h2><span id="4-自旋磁化率泡利顺磁">4. 自旋磁化率：泡利顺磁</span></h2><p>考虑自旋 $s = \frac12$ 的费米子。施加外磁场后，磁场与自旋磁矩耦合使自旋能级劈裂，能量移动为 $\delta\varepsilon_\sigma = \sigma\mu_B B$，即<strong>塞曼效应</strong>。</p>
+<blockquote>
+<p>【配图】图 2.2.3：泡利顺磁示意图。磁场 $B$ 使自旋向上和自旋向下的能带相对移动 $2\mu_B B$，自旋向上与自旋向下的费米面发生分离；为了保持单一化学势，部分自旋向下的费米子翻转为自旋向上。</p>
+</blockquote>
+<p>为了维持平衡时的单一化学势，一部分自旋向下的费米子会变成自旋向上，导致不同自旋的费米子数目不等，产生净磁矩。低温弱场下，受影响的电子仍是费米面附近的电子，于是 $\delta(n_\uparrow - n_\downarrow) = \nu\mu_B B$，自旋磁化率为：</p>
+<script type="math/tex; mode=display">
+\chi_s = \frac{\delta n\,\mu_B}{B} \xrightarrow{T\to 0} \nu\mu_B^2</script><p>这种现象称为<strong>泡利顺磁</strong>（Pauli paramagnetism）。注意它是弱磁性：只有费米面附近的电子对磁化有贡献，而经典图像中所有自旋都应取向——又是费米统计带来的典型”费米海抑制”效应。</p>
+<h1><span id="相互作用会带来什么">相互作用会带来什么？</span></h1><p>以上是自由费米气体（无相互作用）的全部内容。真实体系当然有电子-电子相互作用。讲义提出了两个问题：</p>
+<p><strong>问题 2.2.1</strong>：费米气体的<strong>实空间</strong>图像是什么？（提示：费米海在动量空间是一个球，那么它在实空间长什么样？这要求你思考局域密度分布、关联函数等。）</p>
+<p><strong>问题 2.2.2</strong>：粒子间相互作用有什么效应？</p>
+<ol>
+<li>密度矩阵不再是直积（波函数不再是斯莱特行列式），因此自由能 $F$ 变得难以计算；</li>
+<li>想象一个粒子在其余所有粒子产生的力场中运动——也就是说，它们彼此散射；</li>
+<li>对库仑相互作用的电子系统，比较每个电子的特征动能 $K \sim \dfrac{\hbar^2 k_F^2}{2m}$ 与库仑势能 $V_{ee} \sim e^2 k_F$，可以定义一个小参数：</li>
+</ol>
+<script type="math/tex; mode=display">
+\alpha_M = \frac{V_{ee}}{K} = \frac{e^2}{\hbar v_F} \approx \frac{\lambda_F}{a_0} \equiv r_s</script><p>其中 $\lambda_F = 2\pi/k_F$ 是费米波长，$a_0 = \hbar^2/(me^2)$ 是玻尔半径。这个参数是固体中的”精细结构常数”。注意真空中的精细结构常数 $\alpha = \dfrac{e^2}{\hbar c} \approx \dfrac{1}{137}$ 是个小量，但固体电子气中 $v_F = 10^5\sim 10^6\,\mathrm{m/s} \ll c$，所以 $\alpha_M$ 的量级是 1。这似乎说明相互作用效应是显著的。</p>
+<p>有意思的是极端情形：</p>
+<ul>
+<li><strong>高密度极限</strong>：$\alpha_M$ 变小，自由电子气模型很好用；</li>
+<li><strong>低密度极限</strong>：$\alpha_M$ 变大，相互作用主导体系，电子会形成<strong>维格纳晶体</strong>（Wigner crystal）。</li>
+</ul>
+<p>反直觉的是：电子气越<strong>稀薄</strong>，相互作用反而越重要——这是费米统计与长程相互作用的共同结果（密度越低，$k_F$ 越小，动能 $\sim k_F^2$ 比势能 $\sim k_F$ 下降得更快）。那么<strong>中等密度</strong>下会发生什么？这正是下一讲的主题——<strong>朗道费米液体理论</strong>。</p>
+<blockquote>
+<p><strong>思考题</strong></p>
+<ol>
+<li>微正则、正则、巨正则系综的经典版本分别是什么？</li>
+<li>费米气体在实空间的图像是什么？（考虑粒子密度的局域关联。）</li>
+<li>为什么费米气体的比热和磁化率都远小于经典值？”只有费米面附近的电子参与响应”这句话的定量含义是什么？</li>
+<li>试着用热力学公式推导 $\chi_c = n^2\kappa_T$。</li>
+</ol>
+</blockquote>
+<hr>
+<h1><span id="附第一次作业解答题-1理想玻色气体与-bec">附：第一次作业解答（题 1：理想玻色气体与 BEC）</span></h1><p>巨正则密度矩阵 $\hat\rho = \frac1Z e^{-\beta(\hat H-\mu\hat N)}$，其中</p>
+<script type="math/tex; mode=display">
+\hat H = \sum_k\varepsilon_k\hat a_k^\dagger\hat a_k, \qquad \hat N = \sum_k\hat a_k^\dagger\hat a_k</script><p>由于 $\hat H-\mu\hat N = \sum_k(\varepsilon_k-\mu)\hat n_k$ 对动量模对角，密度矩阵在每个模上因子化：$Z=\prod_kZ_k$，$Z_k = \sum_{n=0}^{\infty}e^{-\beta(\varepsilon_k-\mu)n}$。几何级数收敛要求 $\varepsilon_k-\mu&gt;0$，即 $\mu&lt;\varepsilon_{k=0}=0$——这就是题目中 $\mu&lt;0$ 的由来。</p>
+<h2><span id="a-玻色分布函数">(a) 玻色分布函数</span></h2><script type="math/tex; mode=display">
+n_k \equiv \langle\hat a_k^\dagger\hat a_k\rangle = \frac{1}{Z_k}\sum_{n=0}^{\infty}n\,e^{-\beta(\varepsilon_k-\mu)n} = \frac{1}{e^{\beta(\varepsilon_k-\mu)}-1}</script><p>即<strong>玻色-爱因斯坦分布</strong>（利用 $\sum_n nx^n = x/(1-x)^2$，$x=e^{-\beta(\varepsilon_k-\mu)}$）。</p>
+<h2><span id="b-数密度-ntmu-与渐近行为">(b) 数密度 $n(T,\mu)$ 与渐近行为</span></h2><script type="math/tex; mode=display">
+n(T,\mu) = \frac1\Omega\sum_k n_k \xrightarrow{\Omega\to\infty} \int\frac{d^3k}{(2\pi)^3}\frac{1}{e^{\beta(\hbar^2k^2/2m-\mu)}-1}
+= \left(\frac{mT}{2\pi\hbar^2}\right)^{3/2}\mathrm{Li}_{3/2}(e^{\beta\mu}), \qquad \mu<0</script><p>其中 $\mathrm{Li}_s(z)=\sum_{n\geq1}z^n/n^s$ 是多重对数函数。当 $\mu\to0^-$（固定 $T$）时 $e^{\beta\mu}\to1$，利用 $\mathrm{Li}_{3/2}(1)=\zeta(3/2)\approx2.612$ 及小 $|\mu|$ 展开 $\mathrm{Li}_{3/2}(e^{\beta\mu}) = \zeta(3/2) - 2\sqrt{\pi}(\beta|\mu|)^{1/2}+\cdots$，得：</p>
+<script type="math/tex; mode=display">
+n(T,\mu) \approx \left(\frac{mT}{2\pi\hbar^2}\right)^{3/2}\left[\zeta(3/2) - 2\sqrt{\pi}\sqrt{\beta|\mu|} + \cdots\right]</script><p><strong>关键结论</strong>：$n(T,\mu)$ 在 $\mu\to0^-$ 时以有限上限饱和：</p>
+<script type="math/tex; mode=display">
+n_c(T) = \left(\frac{mT}{2\pi\hbar^2}\right)^{3/2}\zeta(3/2)</script><p>对固定密度的玻色气体，温度降低使 $n_c(T)$ 减小；当 $n&gt;n_c(T)$ 时激发态”装不下”所有粒子，多余粒子必须进入 $k=0$ 基态，形成<strong>宏观占据</strong>——这就是 BEC。由 $n=n_c(T_c)$ 得临界温度</p>
+<script type="math/tex; mode=display">
+T_c = \frac{2\pi\hbar^2}{m}\left(\frac{n}{\zeta(3/2)}\right)^{2/3}, \qquad
+\frac{n_0}{n} = 1 - \left(\frac{T}{T_c}\right)^{3/2}\quad (T<T_c)</script><p>$n_0$ 是 $k=0$ 态上的粒子密度。</p>
+<h2><span id="为什么-3d-有-bec-2d-没有">为什么 3D 有 BEC、2D 没有</span></h2><p>一般地，$d$ 维自由玻色气体的饱和密度正比于（$\mu=0$ 处）</p>
+<script type="math/tex; mode=display">
+n_c \propto \int d^dk\,\frac{1}{e^{\beta\hbar^2k^2/2m}-1}</script><p>小 $k$ 处被积函数行为 $\dfrac{k^{d-1}dk}{\beta\hbar^2k^2/2m}\propto k^{d-3}dk$，在 $k\to0$ 处积分有限<strong>需要 $d&gt;2$</strong>：</p>
+<ul>
+<li><strong>3D</strong>：$k\to0$ 处积分收敛，$n_c(T)$ 有限 → 存在有限 $T_c$，低温出现 BEC；</li>
+<li><strong>2D</strong>：被积函数在 $k\to0$ 处对数发散，$n_c(T)\to\infty$；精确计算给出 $n(T,\mu\to0^-)\sim\frac{mT}{2\pi\hbar^2}\ln\frac{1}{\beta|\mu|}\to\infty$——激发态在任何温度下都能容纳任意密度的粒子，因此<strong>二维有限温度无 BEC</strong>。</li>
+</ul>
+<p>（一维 $k^{d-3}=k^{-2}$ 发散更强，同样无 BEC。故理想玻色气体的 BEC 下临界维数是 2。）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/02-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E4%B8%8E%E8%B4%B9%E7%B1%B3%E6%B0%94%E4%BD%93/">https://xuxu20040407.github.io/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/02-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E4%B8%8E%E8%B4%B9%E7%B1%B3%E6%B0%94%E4%BD%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/">量子多体物理</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/03-%E6%9C%97%E9%81%93%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93/" title="03 朗道费米液体"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">03 朗道费米液体</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/01-%E5%A4%9A%E4%BD%93%E9%97%AE%E9%A2%98/" title="01 多体问题"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">01 多体问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86Content/" title="量子多体物理Content"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">量子多体物理Content</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/10-%E6%B6%A8%E8%90%BD%E4%B8%B4%E7%95%8C%E7%8E%B0%E8%B1%A1%E4%B8%8E%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4/" title="10 涨落、临界现象与重整化群"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">10 涨落、临界现象与重整化群</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/09-BCS%E7%90%86%E8%AE%BA/" title="09 BCS理论"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">09 BCS理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/08-%E8%B6%85%E5%AF%BC%E5%94%AF%E8%B1%A1%E7%90%86%E8%AE%BA/" title="08 超导：唯象理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">08 超导：唯象理论</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/07-%E8%87%AA%E5%8F%91%E5%AF%B9%E7%A7%B0%E6%80%A7%E7%A0%B4%E7%BC%BA/" title="07 自发对称性破缺"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">07 自发对称性破缺</div></div></a></div><div><a href="/2026/09/14/%E9%87%8F%E5%AD%90%E5%A4%9A%E4%BD%93%E7%89%A9%E7%90%86/06-%E8%B4%B9%E7%B1%B3%E6%B6%B2%E4%BD%93%E7%9A%84%E5%BE%AE%E8%A7%82%E7%90%86%E8%AE%BA/" title="06 费米液体的微观理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-14</div><div class="title">06 费米液体的微观理论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">175</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">统计物理基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">微正则、正则与巨正则系综</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">从统计物理到多体物理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">自由费米气体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">哈密顿量与费米海</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">费米动量与粒子密度的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">激发的图像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">热力学性质</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">1. 比热</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">2. 熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">3. 电荷磁化率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">4. 自旋磁化率：泡利顺磁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">相互作用会带来什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">附：第一次作业解答（题 1：理想玻色气体与 BEC）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">(a) 玻色分布函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">(b) 数密度 $n(T,\mu)$ 与渐近行为</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.3.</span> <span class="toc-text">为什么 3D 有 BEC、2D 没有</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="07 Kohn-Sham 方程"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/07-Kohn-Sham%E6%96%B9%E7%A8%8B/" title="07 Kohn-Sham 方程">07 Kohn-Sham 方程</a><time datetime="2026-09-15T06:30:00.000Z" title="发表于 2026-09-15 14:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06 密度泛函理论基础"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/06-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" title="06 密度泛函理论基础">06 密度泛函理论基础</a><time datetime="2026-09-15T06:00:00.000Z" title="发表于 2026-09-15 14:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 Hartree-Fock 近似"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/05-Hartree-Fock%E8%BF%91%E4%BC%BC/" title="05 Hartree-Fock 近似">05 Hartree-Fock 近似</a><time datetime="2026-09-15T05:30:00.000Z" title="发表于 2026-09-15 13:30:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
