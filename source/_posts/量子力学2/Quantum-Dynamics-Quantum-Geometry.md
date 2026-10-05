@@ -306,9 +306,9 @@ $$n_{max}=\frac{A}{\frac{2\hbar}{eB}\pi}=\frac{\phi}{\phi_0}$$
 对于三维自由电子，其态密度为：
 $$D(E)=\dfrac{V}{2\pi^2}(\dfrac{2m}{\hbar^2})^\frac32\sqrt{E}$$
 对于朗道能级，态密度可以视为一维自由电子（$\vec{k}_z$方向）对量子数$n$的求和：
-$$D(E)=\dfrac{L}{\pi\hbar}\sqrt{2m}\sum_n\left[E-(n+\frac{1}{2})\hbar\omega\right]^{-\frac12}$$
-其中，一维自由电子的态密度由 {% post_link '热力学与统计物理/近独立粒子的最概然分布' %} 给出：
-$$D_1(E)=\dfrac{L}{\pi\hbar}\sqrt{\dfrac{2m}{E}}$$
+$$D(E)=\dfrac{L}{2\pi\hbar}\sqrt{2m}\sum_n\left[E-(n+\frac{1}{2})\hbar\omega\right]^{-\frac12}$$
+其中，一维自由电子的态密度由 {% post_link '热力学与统计物理/05-近独立粒子的最概然分布' %} 给出：
+$$D_1(E)=\dfrac{L}{2\pi\hbar}\sqrt{\dfrac{2m}{E}}$$
 
 可以对三维自由电子在xy平面上积分后，与朗道能级的态密度比较：
 $$\begin{cases}

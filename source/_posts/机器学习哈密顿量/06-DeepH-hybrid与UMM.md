@@ -49,7 +49,7 @@ $$\hat{H}^{\mathrm{DFThyb}}=f_\theta(\{\mathcal{R}\}),\qquad \theta^*=\arg\min_\
 
 # UMM：一个模型走遍周期表
 
-如果说DeepH-hybrid解决的是"精度"，那么UMM（Universal Materials Model）瞄准的是"广度"。此前所有DeepH模型都是专用的：为一种材料（或一类化学环境相近的材料）准备数据集、训练专属网络。通用势领域的读者会立刻认出这个局面—— {% post_link '机器学习分子力场/08-通用势数据集' %} 与 {% post_link '机器学习分子力场/10-通用势模型' %} 中MACE-MP-0们面对的是同一个问题。
+如果说DeepH-hybrid解决的是"精度"，那么UMM（Universal Materials Model）瞄准的是"广度"。此前所有DeepH模型都是专用的：为一种材料（或一类化学环境相近的材料）准备数据集、训练专属网络。通用势领域的读者会立刻认出这个局面—— {% post_link '机器学习分子力场/04-01-通用势数据集' %} 与 {% post_link '机器学习分子力场/04-03-通用势综述' %} 中MACE-MP-0们面对的是同一个问题。
 
 UMM（Wang等，*Science Bulletin* 69, 2514, 2024）给出了DeepH阵营的答卷，配方有三味：
 
