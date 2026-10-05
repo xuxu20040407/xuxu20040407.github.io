@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一句话定位 背景：数据集先验的极限 架构：Multi-Cutoff Spectral Decomposition Prophet-Spin：把自旋变成显式变量 训练数据：ELEMENTA 与三亿构型 榜单成绩 局限与影响 参考文献  一句话定位Prophet（Kairos Materials, 2026）是当前 MatBench Discovery 的榜首（CPS 0.912），也是首个把”谱分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="一句话定位 背景：数据集先验的极限 架构：Multi-Cutoff Spectral Decomposition Prophet-Spin：把自旋变成显式变量 训练数据：ELEMENTA 与三亿构型 榜单成绩 局限与影响 参考文献  一句话定位Prophet（Kairos Materials, 2026）是当前 MatBench Discovery 的榜首（CPS 0.912），也是首个把”谱分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover4.jpeg">
+<meta property="article:published_time" content="2026-09-23T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-23T08:52:17.443Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="分子力场">
+<meta property="article:tag" content="通用势">
+<meta property="article:tag" content="Prophet">
+<meta property="article:tag" content="自旋">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover4.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-23 16:52:17'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-23T08:52:17.443Z" title="更新于 2026-09-23 16:52:17">2026-09-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">机器学习分子力场</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#一句话定位">一句话定位</a></li>
+<li><a href="#背景数据集先验的极限">背景：数据集先验的极限</a></li>
+<li><a href="#架构multi-cutoff-spectral-decomposition">架构：Multi-Cutoff Spectral Decomposition</a></li>
+<li><a href="#prophet-spin把自旋变成显式变量">Prophet-Spin：把自旋变成显式变量</a></li>
+<li><a href="#训练数据elementa-与三亿构型">训练数据：ELEMENTA 与三亿构型</a></li>
+<li><a href="#榜单成绩">榜单成绩</a></li>
+<li><a href="#局限与影响">局限与影响</a></li>
+<li><a href="#参考文献">参考文献</a></li>
+</ul>
+<h1><span id="一句话定位">一句话定位</span></h1><p><strong>Prophet（Kairos Materials, 2026）是当前 MatBench Discovery 的榜首</strong>（CPS 0.912），也是首个把”谱分解等变骨干 + 显式自旋变量”放进同一框架的原子级基础模型。它以 62.3M 参数、三亿级构型训练，把对称相对热导率误差压到 0.065——比最强基线再低约 30%。</p>
+<p>它代表了一个新方向：<strong>基础模型的”规模”不再只靠堆数据，而是把覆盖维度从”化学空间”扩到”构型分辨率 + 物理自由度（自旋）”。</strong></p>
+<h1><span id="背景数据集先验的极限">背景：数据集先验的极限</span></h1><p>论文的出发点是一个清醒的观察：<strong>现有通用势的”通用”其实很偏</strong>。训练数据普遍来自已知晶体结构、原型替换和稳定性筛选（MPtrj、Alexandria 都是如此），这带来两个问题：</p>
+<ol>
+<li><strong>先验偏置</strong>：模型在”熟悉的化学空间”里越练越熟，但从未见过的新组合、竞争结构附近的分辨率很差；</li>
+<li><strong>物理自由度缺失</strong>：同样的原子构型可以有不同的局域磁矩和自旋序，能量、力、热力学行为截然不同——但标准模型把能量写成”原子种类 + 几何”的函数，这个坐标根本没有表示。<strong>无论几何分辨率多高，都救不回来一个模型里不存在的自由度。</strong></li>
+</ol>
+<p>CHGNet 曾用局域磁矩做中间表示（见 <a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-11-CHGNet/" title="CHGNet：电荷感知的先行者">CHGNet：电荷感知的先行者</a>），但它的能量仍是”结构条件化”而非”显式自旋条件化”。Prophet 要做的，是把自旋从”副产品”变成”输入变量”。</p>
+<h1><span id="架构multi-cutoff-spectral-decomposition">架构：Multi-Cutoff Spectral Decomposition</span></h1><p>Prophet 的基础骨干是一个<strong>谱分解的等变图神经网络</strong>。核心思路是 MCSD（Multi-Cutoff Spectral Decomposition，来自其配套工作）：</p>
+<p><strong>邻居聚合本质上是空间滤波</strong>。一个特征加权原子密度 $\varrho$ 通过径向核 $g$ 做卷积：$\hat u_{\text{out}} \simeq \hat\varrho\,\hat g$。如果核的高频响应衰减太快，就会抹掉径向的精细差异。MCSD 用一族不同支撑尺度的径向滤波器线性叠加：</p>
+<script type="math/tex; mode=display">g_{\text{eff}}(r)=\sum_k \gamma_k g_k(r),</script><p>其中 $g_k$ 有自己的径向支撑范围，$\gamma_k$ 是学习到的混合系数。<strong>短尺度滤波器提供精细变化，外层滤波器保留更宽的环境</strong>——类似多分辨率小波。实现上用嵌套截断半径 $c_1&lt;\cdots&lt;c_K$，外层建图、内层各自聚合，每个截断一个独立的等变分支。</p>
+<p>关键的正则性设计：</p>
+<ul>
+<li><strong>截断包络连前两阶导数一起消失</strong>（二阶连续，$C^2$）；</li>
+<li><strong>径向网络无偏置且 $W(0)=0$</strong>——边离开截断时相互作用平滑归零；</li>
+<li>力和应力都来自同一个标量能量的梯度（<strong>全程保守力</strong>，公式见论文 Eq. 1）。</li>
+</ul>
+<p>结果：能量在截断边界处二阶可导，力和应力由同一个势能面导出——这是它 $\kappa_\text{SRME}$ 极低的架构基础。</p>
+<h1><span id="prophet-spin把自旋变成显式变量">Prophet-Spin：把自旋变成显式变量</span></h1><p>磁学部分是 Prophet 最激进的设计。用户通常只知道初始磁矩猜测，而不是自洽收敛的磁态。Prophet-Spin 分两步解决：</p>
+<p><strong>1. 自旋条件化的能量模型</strong>：磁矩幅值 $a_i=|\mathbf S_i|$ 通过高斯编码进初始标量节点与边特征；方向信息走独立的<strong>交换读出（exchange readout）</strong>：</p>
+<script type="math/tex; mode=display">E_{\theta_s}^{\text{spin}}(X,\mathbf M)=E_{\text{trunk}}(X,a)+\tfrac12\sum_{(j\to i)} J_{ji}(X,a)\,\mathbf S_j\cdot\mathbf S_i\,f_{\text{ex}}(r_{ji}).</script><p>关键性质：<strong>固定几何与磁矩幅值时，能量关于自旋方向恰好是双线性的——模型精确退化为经典 Heisenberg 哈密顿量</strong>。于是磁态搜索、大规模自旋模拟成为同一框架的原生推理能力，而不是后处理。</p>
+<p><strong>2. Seed Denoising（种子去噪）恢复头</strong>：用便宜的初始猜测 $\tilde{\mathbf m}_0$ 学一个恢复映射到 DFT 收敛磁矩 $\mathbf m^*$，能量模型冻结不动。这样不需要昂贵的约束 DFT 全程监督，只需要从收敛端点做带噪恢复。</p>
+<p>配合时间反演约束（整体翻转所有磁矩能量不变），模型能区分并搜索结构无关模型完全无法触及的磁态：在 188 个未见磁学材料上，能量误差从基线 63-72 meV/atom 降到 19.2 meV/atom（DFT 收敛磁矩）/ 30.7 meV/atom（去噪磁矩）。无需微调即可复现 LiMnAs 反铁磁基态、bcc Fe 的 Curie 转变、铁的压致 bcc→hcp 转变。</p>
+<h1><span id="训练数据elementa-与三亿构型">训练数据：ELEMENTA 与三亿构型</span></h1><p>Prophet 在六个一性原理数据集上训练，合计超过 <strong>3 亿标记构型</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>规模</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OMat24</td>
+<td>≈1.08 亿</td>
+<td>主预训练，宽采样平衡/非平衡几何</td>
+</tr>
+<tr>
+<td>ELEMENTA</td>
+<td>≈2.10 亿</td>
+<td>主预训练，84 元素、随机结构搜索、无原型模板</td>
+</tr>
+<tr>
+<td>MPtrj + sAlex</td>
+<td>1.58M + 10.4M</td>
+<td>能量参考对齐</td>
+</tr>
+<tr>
+<td>ELEMENTA Vib</td>
+<td>&gt;800 万</td>
+<td>近平衡力/应力细化</td>
+</tr>
+<tr>
+<td>ELEMENTA Spin</td>
+<td>470 万</td>
+<td>磁态监督（DFT 收敛自旋）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>ELEMENTA 是整条路线的灵魂</strong>：约 190 万还原式、970 万弛豫多形体、跨 84 元素，随机结构搜索生成且不用已知晶体原型作模板，且每个组分配对多个弛豫极小值——直接监督竞争结构的相对能量。这让模型对”竞争相之间的细微能量差”有第一手的监督信号，而非只见过稳定结构。</p>
+<p>训练是分阶段推进的：OMat24 预训练 → ELEMENTA 继续预训练（得到 Prophet-OE）→ MPtrj/sAlex 参考对齐（得到 MP 兼容能量标度）→ ELEMENTA Vib 细化（得到登榜的 Prophet-OAME-MBD）。注意：<strong>没有用任何 WBM 标签或榜单信息做训练或选模型。</strong></p>
+<h1><span id="榜单成绩">榜单成绩</span></h1><p>在 MatBench Discovery 榜单上（数据截至 2026-09-23）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>Prophet-OAME-MBD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPS</td>
+<td><strong>0.912（榜首）</strong></td>
+</tr>
+<tr>
+<td>F1（稳定性分类）</td>
+<td>0.928</td>
+</tr>
+<tr>
+<td>精度 / 召回</td>
+<td>0.927 / 0.928</td>
+</tr>
+<tr>
+<td>准确率</td>
+<td>0.978</td>
+</tr>
+<tr>
+<td>κSRME</td>
+<td><strong>0.065（榜首）</strong></td>
+</tr>
+<tr>
+<td>能量 MAE</td>
+<td>0.018 eV/atom</td>
+</tr>
+<tr>
+<td>RMSD</td>
+<td>0.059</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>62.3M</td>
+</tr>
+<tr>
+<td>训练数据</td>
+<td>MPtrj+OMat24+sAlex+ELEMENTA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>三个维度的解读：</p>
+<ol>
+<li><strong>$\kappa_\text{SRME}=0.065$ 全场最低</strong>——约比最强基线（TECE 的 0.093）再低 30%，谱分解 + $C^2$ 平滑 + 保守力的组合在声子热导率上拉开了一个身位；</li>
+<li><strong>CPS 0.912 综合登顶</strong>，且没有牺牲稳定性分类（F1 0.928，前四）与几何优化（RMSD 0.059，前四）——是”全能型”而不是”偏科型”榜首；</li>
+<li><strong>三亿构型 + 62.3M 参数</strong>：数据量比标准 OAM 配方（约 1.13 亿）多出近两倍，但参数只比 eSEN（30M）大两倍——数据驱动的精度红利在这里被完整兑现。</li>
+</ol>
+<h1><span id="局限与影响">局限与影响</span></h1><p>局限：</p>
+<ol>
+<li><strong>训练数据的可得性</strong>——ELEMENTA 是 Kairos Materials 自建语料（210M 构型），外部团队难以复现；</li>
+<li><strong>榜单外性能未知</strong>——目前公开的评估集中在 MatBench Discovery 与其自报磁学任务，OC20/分子域的系统性对比尚未放出；</li>
+<li><strong>CMDS 0.578（MD 单项中游）</strong>——大规模动力学稳定性并未随 CPS 登顶而封神，仍属可优化空间。</li>
+</ol>
+<p>影响：</p>
+<ol>
+<li><strong>把”物理自由度”拉回基础模型议程</strong>——自旋显式化 + Heisenberg 精确退化，让”磁态搜索”成为通用势的原生能力，这是 M3GNet/CHGNet 世代想都不敢想的事；</li>
+<li><strong>数据策略的范式转移</strong>——用”无原型模板的随机结构搜索语料”（ELEMENTA）对抗”已知结构的密度堆积”，直接挑战了 MPtrj 一家独大的数据格局（详见 <a href="/2026/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-01-%E9%80%9A%E7%94%A8%E5%8A%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" title="通用势的数据集版图">通用势的数据集版图</a>）；</li>
+<li><strong>给”精度-平滑-自旋”三线并进的综合模型立了标杆</strong>——后续 EquFlashV2、Prophet 变体都在这条路上竞争。</li>
+</ol>
+<h1><span id="参考文献">参考文献</span></h1><ol>
+<li>Kairos Materials. <em>Prophet: Scaling Atomistic Foundation Models Across Composition, Configuration, and Spin</em>. 2026. <a target="_blank" rel="noopener" href="https://www.kairosmaterials.com/papers/Prophet.pdf">https://www.kairosmaterials.com/papers/Prophet.pdf</a></li>
+<li>Tan, et al. <em>Multi-Cutoff Spectral Decomposition</em>（MCSD，配套工作）.</li>
+<li>Deng, B., et al. <em>CHGNet as a pretrained universal neural network potential for charge-informed atomistic modelling</em>. arXiv:2302.14231（自旋/电荷感知的先行者）.</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/">https://xuxu20040407.github.io/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/">分子力场</a><a class="post-meta__tags" href="/tags/%E9%80%9A%E7%94%A8%E5%8A%BF/">通用势</a><a class="post-meta__tags" href="/tags/Prophet/">Prophet</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E6%97%8B/">自旋</a></div><div class="post_share"><div class="social-share" data-image="/img/cover4.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img class="cover" src="/img/cover2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">03 迭代对角化与谱函数</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">02 精确对角化</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-12-MatterSim/" title="MatterSim：高温高压相空间覆盖的独一档"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">MatterSim：高温高压相空间覆盖的独一档</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-17-UMA/" title="UMA：跨域基础模型，力场界的GPT"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">UMA：跨域基础模型，力场界的GPT</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-15-SevenNet%E4%B8%8ESevenNet-Omni/" title="SevenNet 与 SevenNet-Omni：从 MPtrj 到 COSMOS 数据配方"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">SevenNet 与 SevenNet-Omni：从 MPtrj 到 COSMOS 数据配方</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-18-PET%E4%B8%8EORB/" title="PET 与 ORB：放弃等变约束的非等变路线"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">PET 与 ORB：放弃等变约束的非等变路线</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-20-GRACE%E4%B8%8ETACE/" title="GRACE &#x2F; TACE &#x2F; TECE：等变 ACE 系与高阶张量积系"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">GRACE &#x2F; TACE &#x2F; TECE：等变 ACE 系与高阶张量积系</div></div></a></div><div><a href="/2026/08/30/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-16-eSEN/" title="eSEN：平滑能量网络，平滑 + 保守力路线的常青树"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="title">eSEN：平滑能量网络，平滑 + 保守力路线的常青树</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">一句话定位</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">背景：数据集先验的极限</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">架构：Multi-Cutoff Spectral Decomposition</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">Prophet-Spin：把自旋变成显式变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">训练数据：ELEMENTA 与三亿构型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">榜单成绩</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">局限与影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

@@ -1,0 +1,2274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>02 精确对角化 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="精确对角化：总览 为什么做 ED 希尔伯特空间有多大 ED 能做什么 今天的规模极限 ED 程序的结构   约定警告：格点编号方向与第一讲相反 基矢的比特表示 自旋态 ↔ 二进制 ↔ 十进制 按位运算 四个基本操作 三个进阶操作   哈密顿量矩阵的构造 对角元 非对角元 稀疏三元组：COO 格式 完整代码与验证清单   对称性与基矢查找 块对角化：最便宜的加速 U(1) 对称性 Lin 表：两次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02 精确对角化">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="精确对角化：总览 为什么做 ED 希尔伯特空间有多大 ED 能做什么 今天的规模极限 ED 程序的结构   约定警告：格点编号方向与第一讲相反 基矢的比特表示 自旋态 ↔ 二进制 ↔ 十进制 按位运算 四个基本操作 三个进阶操作   哈密顿量矩阵的构造 对角元 非对角元 稀疏三元组：COO 格式 完整代码与验证清单   对称性与基矢查找 块对角化：最便宜的加速 U(1) 对称性 Lin 表：两次">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-09-22T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-28T15:25:28.156Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子物理计算方法选讲">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '02 精确对角化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-28 23:25:28'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">02 精确对角化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-28T15:25:28.156Z" title="更新于 2026-09-28 23:25:28">2026-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/">量子物理计算方法选讲</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="02 精确对角化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#精确对角化：总览">精确对角化：总览</a><ul>
+<li><a href="#为什么做-ED">为什么做 ED</a></li>
+<li><a href="#希尔伯特空间有多大">希尔伯特空间有多大</a></li>
+<li><a href="#ED-能做什么">ED 能做什么</a></li>
+<li><a href="#今天的规模极限">今天的规模极限</a></li>
+<li><a href="#ED-程序的结构">ED 程序的结构</a></li>
+</ul>
+</li>
+<li><a href="#约定警告：格点编号方向与第一讲相反">约定警告：格点编号方向与第一讲相反</a></li>
+<li><a href="#基矢的比特表示">基矢的比特表示</a><ul>
+<li><a href="#自旋态-↔-二进制-↔-十进制">自旋态 ↔ 二进制 ↔ 十进制</a></li>
+<li><a href="#按位运算">按位运算</a></li>
+<li><a href="#四个基本操作">四个基本操作</a></li>
+<li><a href="#三个进阶操作">三个进阶操作</a></li>
+</ul>
+</li>
+<li><a href="#哈密顿量矩阵的构造">哈密顿量矩阵的构造</a><ul>
+<li><a href="#对角元">对角元</a></li>
+<li><a href="#非对角元">非对角元</a></li>
+<li><a href="#稀疏三元组：COO-格式">稀疏三元组：COO 格式</a></li>
+<li><a href="#完整代码与验证清单">完整代码与验证清单</a></li>
+</ul>
+</li>
+<li><a href="#对称性与基矢查找">对称性与基矢查找</a><ul>
+<li><a href="#块对角化：最便宜的加速">块对角化：最便宜的加速</a></li>
+<li><a href="#U-1-对称性">U(1) 对称性</a></li>
+<li><a href="#Lin-表：两次内存读取">Lin 表：两次内存读取</a></li>
+<li><a href="#一个完整的例子：6-格点-3-上-3-下">一个完整的例子：6 格点 3 上 3 下</a></li>
+</ul>
+</li>
+<li><a href="#费米子系统">费米子系统</a><ul>
+<li><a href="#Hubbard-模型与算符顺序约定">Hubbard 模型与算符顺序约定</a></li>
+<li><a href="#带符号的基矢操作">带符号的基矢操作</a></li>
+<li><a href="#单一全局比特串：更稳的写法">单一全局比特串：更稳的写法</a></li>
+</ul>
+</li>
+<li><a href="#求解与测量">求解与测量</a><ul>
+<li><a href="#怎么把矩阵解出来：完全对角化-vs-迭代对角化">怎么把矩阵解出来：完全对角化 vs 迭代对角化</a></li>
+<li><a href="#有限温度：白送的热平均">有限温度：白送的热平均</a></li>
+<li><a href="#例子：4-格点环-Hubbard-的填充曲线">例子：4 格点环 Hubbard 的填充曲线</a></li>
+<li><a href="#磁化与磁化率">磁化与磁化率</a></li>
+<li><a href="#图里的物理：居里定律">图里的物理：居里定律</a></li>
+</ul>
+</li>
+<li><a href="#实时演化">实时演化</a><ul>
+<li><a href="#形式解与-Krylov-加速">形式解与 Krylov 加速</a></li>
+<li><a href="#实例一：高斯波包与色散">实例一：高斯波包与色散</a></li>
+<li><a href="#实例二：非扩散波包与飞行量子比特">实例二：非扩散波包与飞行量子比特</a></li>
+<li><a href="#实例三：自干涉与量子复兴">实例三：自干涉与量子复兴</a></li>
+</ul>
+</li>
+<li><a href="#非厄米哈密顿量">非厄米哈密顿量</a></li>
+<li><a href="#作业与评分">作业与评分</a></li>
+<li><a href="#附：复现用的代码工具箱">附：复现用的代码工具箱</a></li>
+<li><a href="#附：ED-代码自查清单">附：ED 代码自查清单</a></li>
+<li><a href="#附：常见错误清单">附：常见错误清单</a></li>
+<li><a href="#附：延伸阅读">附：延伸阅读</a></li>
+</ul>
+<h1><span id="精确对角化总览">精确对角化：总览</span></h1><p>第一讲把整门课的地图铺开了：一个方程（定态薛定谔方程 $\hat H|\Psi\rangle = E|\Psi\rangle$）、四类方法（精确对角化、密度矩阵重整化群与矩阵乘积态、张量网络、量子蒙特卡罗，另有 NRG/DMFT/机器学习），以及三个格点模型。本讲开始兑现地图上的第一块——<strong>精确对角化</strong>（Exact Diagonalization, ED），也就是课程大纲第 1 章的上半场（ED I）。</p>
+<p>一句话概括本讲：<strong>把一个 $2^N$ 维的量子多体问题，变成一个稀疏矩阵的本征值问题</strong>。ED 的全部技术含量都在”怎么把算符翻译成矩阵”这件事上。</p>
+<h2><span id="为什么做-ed">为什么做 ED</span></h2><p>ED 是四类方法里<strong>唯一不做任何物理近似</strong>的方法。它只有两种误差：有限尺寸（格子太小）和浮点舍入（$10^{-15}$ 量级）。正因为它诚实，它才成为其它所有方法的裁判。幻灯片给了四条理由，从”理想”到”功利”：</p>
+<ol>
+<li><p><strong>完备性</strong>。一旦拿到全部本征对 $\{E_n,|\psi_n\rangle\}$，你就拥有了一切：</p>
+<ul>
+<li>基态能量与基态波函数；</li>
+<li>静态关联函数 $\langle\psi_0|S^z_iS^z_j|\psi_0\rangle$；</li>
+<li>动力学谱函数 $A(\mathbf k,\omega) = \sum_n |\langle\psi_n|S^z_{\mathbf k}|\psi_0\rangle|^2\,\delta(\omega - (E_n - E_0))$；</li>
+<li>有限温度期望值 $\langle O\rangle = \mathrm{Tr}(e^{-\beta\hat H}O)/\mathrm{Tr}(e^{-\beta\hat H})$；</li>
+<li>实时间演化 $e^{-i\hat Ht}|\psi_0\rangle$。</li>
+</ul>
+<p><strong>这是 ED 与 DMRG/QMC 最大的差别</strong>：DMRG 通常只给基态（加几个受截断控制的低能态），QMC 用抽样代替显式求和；而 ED 给你<strong>整个谱</strong>（在能算得动的维数内）。</p>
+</li>
+<li><strong>洞察</strong>。小格子上的精确解经常直接给出物理图像：自旋液体、拓扑序、分数化激发、简并的基态多重态——这些概念很多是先在小簇的 ED 里看清楚，再推广的。</li>
+<li><strong>裁判</strong>。这是 ED 在当代最不可替代的角色。DMRG、QMC、张量网络、神经网络量子态都有各自的近似/系统误差（键维数、符号问题、抽样噪声、表达力），而 $N = 16\sim24$ 的 ED 结果是精确的，可以直接拿来对答案。做新方法的人第一件事几乎都是”先和 ED 对上”。</li>
+<li><strong>学习量子力学</strong>。ED 强迫你把波函数、算符、对称性、守恒量全部具体化：<strong>基矢是整数、算符是比特翻转、对称性是块对角</strong>。上完这一章，第一讲的二次量子化、张量积、纠缠那些抽象概念都会”落地”。</li>
+</ol>
+<blockquote>
+<p>不要把 ED 想成”只能算玩具”。下面会看到，今天自旋模型的 ED 已经能做到 40–48 个格点、$10^9$ 量级的基矢维数——这足以回答很多二维阻挫磁体的真问题。</p>
+</blockquote>
+<h2><span id="希尔伯特空间有多大">希尔伯特空间有多大</span></h2><p>这是第一讲”指数墙”的量化版。$N$ 个自旋-1/2 张成 $2^N$ 维空间：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$N$</th>
+<th>$2^N$</th>
+<th>一个复态矢量（16 B/分量）</th>
+<th>稠密哈密顿量元素数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>1024</td>
+<td>16 KB</td>
+<td>$1.0\times10^6$</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1048576</td>
+<td>17 MB</td>
+<td>$1.1\times10^{12}$</td>
+</tr>
+<tr>
+<td>30</td>
+<td>$1.07\times10^9$</td>
+<td>17 GB</td>
+<td>$1.15\times10^{18}$</td>
+</tr>
+<tr>
+<td>40</td>
+<td>$1.10\times10^{12}$</td>
+<td>17.6 TB</td>
+<td>不可能</td>
+</tr>
+<tr>
+<td>50</td>
+<td>$1.13\times10^{15}$</td>
+<td>18 PB</td>
+<td>不可能</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>仅仅存放 $N=40$ 的<strong>一个</strong>波函数就要 17.6 TB 内存，比一台机器的内存大三个数量级。哈密顿量如果稠密存（$2^N\times2^N$ 个元素）更是完全不可能。</p>
+<p>“波函数是指数维空间里的一个矢量”这句话要背下来：<strong>后面所有方法的差别，都在于”怎么表示这个矢量”</strong>——ED 用完整矢量、DMRG/MPS 用张量、QMC 用抽样。</p>
+<p>于是 ED 只有三条活路：</p>
+<ol>
+<li><strong>只存基矢中真正用到的部分</strong>——用对称性切扇区（U(1) / 平移 / 点群）；</li>
+<li><strong>只存矩阵的非零元</strong>——稀疏。Heisenberg 模型每个基矢只和”每条键的一个伙伴”相连，非零元个数 $\sim N\cdot2^N$，而不是 $2^{2N}$；</li>
+<li><strong>完全不存矩阵</strong>（matrix-free）——只保留”矩阵-矢量乘法”这个能力。</li>
+</ol>
+<p>第 2 条是稀疏的用武之地，第 3 条是 Lanczos 家族的动机。</p>
+<h2><span id="ed-能做什么">ED 能做什么</span></h2><p>按”算的是什么量”分类：</p>
+<ul>
+<li><strong>量子磁体</strong>（ED 的主战场）：阻挫磁体的基态是”有序”还是”自旋液体”？一维链的临界指数；二维方格子/三角格子/笼目格子的低能谱与低能隙；动力学结构因子 $S(\mathbf k,\omega)$——<strong>可以直接和中子散射实验比</strong>。</li>
+<li><strong>费米子模型</strong>（Hubbard、$t$–$J$）：电荷能隙 / 自旋能隙、超导配对关联 $\langle\Delta_i^\dagger\Delta_j\rangle$、关联函数的幂律指数。这类模型需要处理费米子符号。</li>
+<li><strong>分数量子霍尔</strong>：在球面/环面几何上对角化（最多 16–20 个电子），算能隙、与 Laughlin / Moore–Read 等模型波函数的重叠、以及<strong>纠缠谱</strong>。</li>
+<li><strong>受约束模型</strong>：量子二聚体模型（每条键上恰好一个二聚体）需要自定义基矢生成，希尔伯特空间不是简单的 $2^N$——这是 ED 灵活性的体现。</li>
+<li><strong>量子化学 / 核结构</strong>：”full configuration interaction”（全组态相互作用）就是化学家对 ED 的叫法：在给定的单粒子轨道基里做完全对角化。区别只是轨道数少（十几个），但每个轨道的相互作用更复杂。</li>
+<li><strong>量子场论</strong>：把连续场论离散到格点上（如 $1+1$ 维 $\phi^4$、Ising 场论），用 ED 做小格子的精确基准。</li>
+</ul>
+<blockquote>
+<p>幻灯片强调 quantum magnets 里的 “dynamical correlation functions in 1D &amp; 2D”：一维其实 DMRG 能做到上千格点，<strong>ED 的独特价值在二维</strong>（DMRG 在二维很吃力）。</p>
+</blockquote>
+<h2><span id="今天的规模极限">今天的规模极限</span></h2><p>这一页给出的是”今天”（2026 年）的实际能力边界：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>体系</th>
+<th>做到的规模</th>
+<th>最大基矢维数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自旋 $S=1/2$ 模型</td>
+<td>方格子 $N=40$；三角格子 $N=39$；蜂窝格子 $N=42$；笼目格子 $N=48$</td>
+<td>15 亿</td>
+</tr>
+<tr>
+<td>分数量子霍尔</td>
+<td>不同填充因子，最多 16–20 个电子</td>
+<td>35 亿</td>
+</tr>
+<tr>
+<td>Hubbard 模型</td>
+<td>半满方格子 $N=20$；三角格子 $N=21$；蜂窝格子 $N=24$；量子点 $N=20$</td>
+<td>30 亿</td>
+</tr>
+<tr>
+<td>Holstein 模型</td>
+<td>链 $N=14$ + 声子赝格点</td>
+<td>300 亿</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>逐条理解”为什么是这个数”：</p>
+<ul>
+<li><strong>自旋模型为什么能到 40–48 个格点？</strong> 每个格点只有 2 个态，而且对称性特别多。以 40 格点方格子为例：仅用 $S^z=0$ 扇区，维数是 $\binom{40}{20} = 1.38\times10^{11}$；再除以平移群（40 个元素）和点群（4 个元素），就降到<script type="math/tex; mode=display">
+\frac{\binom{40}{20}}{40\times 4} = 8.6\times10^8</script>与幻灯片说的”15 亿”同一量级（具体数字取决于用了哪几种对称性、是哪个格子）。<strong>对称性是这里最大的加速来源。</strong></li>
+<li><strong>Hubbard 为什么只能到 20–24 个格点？</strong> 每个格点有 4 个态（空、$\uparrow$、$\downarrow$、双占），所以单是格点数 $N$ 就对应 $2N$ 个自旋轨道、全空间 $2^{2N}$ 维；半满时还要限制在 $(N_\uparrow,N_\downarrow) = (N/2, N/2)$ 的块里，该块维数是 $\binom{N}{N/2}^2$（$N=20$ 时 $\binom{20}{10}^2 = 3.4\times10^{10}$），<strong>比同尺寸自旋模型的 $\binom{N}{N/2}$ 大了一个平方</strong>。再叠上平移与点群、以及费米子符号的开销，就落到幻灯片说的 30 亿量级。</li>
+<li><strong>Holstein 为什么基矢维数反而最大？</strong> 因为声子是玻色子，每个格点有多个声子态，需要用截断的声子赝格点（pseudo-site）。基矢维数大但每个基矢的非零元很少，且可以用 Lanczos 只求少数低能态。</li>
+<li><strong>FQH 的 16–20 个电子</strong>：电子在最低朗道能级里的态数是 $N_\phi+1$，在固定总角动量/动量扇区里做 ED，维数可达 35 亿。</li>
+</ul>
+<blockquote>
+<p><strong>易错</strong>：这一页的数字都是”<strong>最大基矢维数</strong>“，不是”总希尔伯特空间维数”——前者是<strong>用了对称性之后实际对角化的那个矩阵的大小</strong>，两者可能差好几个数量级。另外表格里的 $N$ 是格点数，Hubbard 半满时电子数 $=N$。”$N=48$ 的笼目格子”是 ED 的标志性成果（笼目格子的自旋液体问题），值得记住这个数字。</p>
+</blockquote>
+<h2><span id="ed-程序的结构">ED 程序的结构</span></h2><p>这是本讲（也应该是你自己代码）的<strong>程序流程图</strong>。强烈建议把文件也按这四块组织：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ed.py</span><br><span class="line">├── basis        : 生成基矢、比特运算、扇区划分、查找表</span><br><span class="line">├── hamiltonian  : 由基矢生成 (row, col, value) 三元组 → scipy.sparse</span><br><span class="line">├── solver       : eigh（完全）/ eigsh（迭代）/ expm_multiply（时间演化）</span><br><span class="line">└── measure      : 关联函数、磁化、谱函数、热平均</span><br></pre></td></tr></table></figure>
+<p>对应幻灯片上的四层：</p>
+<ol>
+<li><strong>Hilbert space</strong>（希尔伯特空间）：基矢表示、查找技术、对称性；</li>
+<li><strong>Hamiltonian matrix</strong>：稀疏矩阵表示（内存/磁盘）、matrix-free（实时重算）；</li>
+<li><strong>Linear algebra</strong>：LAPACK 完全对角化、<strong>Lanczos 型对角化（只需要”算符作用”）</strong>；</li>
+<li><strong>Observables</strong>：静态量、动力学量、实时间演化。</li>
+</ol>
+<p>两个关键词必须理解透：</p>
+<ul>
+<li><p><strong>sparse（稀疏）</strong>。以 $N$ 格点的 Heisenberg <strong>环</strong>为例：每个基矢有 1 个对角元，加上”相邻自旋相反”的键贡献的非对角元（平均 $N/2$ 条），所以</p>
+<script type="math/tex; mode=display">
+\mathrm{nnz} \approx \left(1 + \frac{N}{2}\right)2^N .</script><p>$N=4$ 环：$(1+2)\times16 = 48$，与后面数出来的完全一致。实测（$J=1$）：</p>
+<p>| $N$ | 矩阵维数 $2^N$ | 非零元 nnz | 非对角元 | 密度 nnz/$2^{2N}$ |<br>|—-|—-|—-|—-|—-|<br>| 4 | 16 | 48 | 32 | 18.8% |<br>| 6 | 64 | 256 | 192 | 6.3% |<br>| 8 | 256 | 1280 | 1024 | 2.0% |<br>| 10 | 1024 | 6144 | 5120 | 0.6% |</p>
+<p>非对角元总数严格等于 $N\cdot2^{N-1}$（每条键上恰好一半的基矢满足”两自旋相反”），密度的<strong>指数</strong>下降来自 $2^{-N}$。$N\le24$（维数 $10^6\sim10^7$）时完全可行。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">12.5</span>, <span class="number">4.6</span>))</span><br><span class="line"><span class="keyword">for</span> j, Ns <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">4</span>, <span class="number">6</span>]):</span><br><span class="line">    a1 = fig.add_subplot(<span class="number">1</span>, <span class="number">3</span>, j + <span class="number">1</span>)</span><br><span class="line">    H = HeisenbergCOO(Ns, periodic=<span class="literal">True</span>)          <span class="comment"># 前面那段三元组代码</span></span><br><span class="line">    a1.spy(H.toarray(), markersize=<span class="number">4</span>, color=<span class="string">&quot;#d62728&quot;</span>)</span><br><span class="line">    a1.set_title(<span class="string">&quot;$N=%d$ ring\nH.nnz = %d, density = %.1f%%&quot;</span></span><br><span class="line">                 % (Ns, H.nnz, <span class="number">100</span> * H.nnz / (<span class="number">2</span> ** Ns) ** <span class="number">2</span>), fontsize=<span class="number">11</span>)</span><br><span class="line">    a1.set_xlabel(<span class="string">&quot;column (col)&quot;</span>); a1.set_ylabel(<span class="string">&quot;row (row)&quot;</span>)</span><br><span class="line">a2 = fig.add_subplot(<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">Ns_a = np.arange(<span class="number">4</span>, <span class="number">15</span>)</span><br><span class="line">nnz = np.array([HeisenbergCOO(<span class="built_in">int</span>(n), periodic=<span class="literal">True</span>).nnz <span class="keyword">for</span> n <span class="keyword">in</span> Ns_a], <span class="built_in">float</span>)</span><br><span class="line">a2.plot(Ns_a, (<span class="number">2.0</span> ** Ns_a) ** <span class="number">2</span>, <span class="string">&quot;s--&quot;</span>, color=<span class="string">&quot;#c0c0c0&quot;</span>, label=<span class="string">r&quot;dense $4^N$&quot;</span>)</span><br><span class="line">a2.plot(Ns_a, nnz, <span class="string">&quot;o-&quot;</span>, color=<span class="string">&quot;#d62728&quot;</span>, label=<span class="string">r&quot;sparse nnz $=(1+N/2)\,2^N$&quot;</span>)</span><br><span class="line">a2.set_yscale(<span class="string">&quot;log&quot;</span>); a2.set_xlabel(<span class="string">&quot;$N$ (ring)&quot;</span>); a2.set_ylabel(<span class="string">&quot;matrix elements&quot;</span>)</span><br><span class="line">a2.legend(fontsize=<span class="number">9</span>); a2.grid(alpha=<span class="number">.3</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_sparsity.png&quot;</span>, dpi=<span class="number">190</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_sparsity.png" alt="Heisenberg 环的稀疏矩阵结构与 nnz 随 N 的增长"></p>
+<p><strong>读图</strong>：</p>
+<ul>
+<li><strong>左两幅</strong>（<code>spy</code> 图）把非零元画出来。$N=4$ 环只有 48 个非零元，$N=6$ 环 256 个——<strong>注意那些”斜线”</strong>：它们正是”翻转两个比特”的非对角元，每个基矢的伙伴数等于”相邻自旋相反的键数”。$N=4$ 时能清楚看到 4 条对角线，对应 4 条键。</li>
+<li><strong>右图</strong>：红线的斜率是 $2^N$（线性），灰线是 $4^N$（指数）。<strong>这就是”稀疏”这两个字的全部价值</strong>——把指数墙从”矩阵元素数”上拿掉了。</li>
+</ul>
+<p>密度从 $N=4$ 的 18.8% 一路掉到 $N=14$ 的 0.05%：<strong>“稀疏”不是”稍微少一点”，而是渐近意义上完全不同的一类矩阵</strong>。</p>
+<ul>
+<li><strong>matrix-free（无矩阵）</strong>。连稀疏矩阵都不存，只写一个 <code>apply_H(v) -&gt; H @ v</code>。内存只要 $O(2^N)$（几个矢量），代价是每次”作用”都现场算一遍。</li>
+</ul>
+<blockquote>
+<p><strong>“Lanczos type diagonalization (needs only operations)”</strong> 这句是整页的钥匙：Lanczos 不需要矩阵元，只需要 $\hat H$ 对矢量的作用。这正是 matrix-free 的动机。</p>
+<p><strong>易错</strong>：不要把”完全对角化”和”迭代对角化”混用。完全对角化（<code>eigh</code>）给全部本征值，代价 $O(D^3)$、内存 $O(D^2)$；迭代对角化（<code>eigsh</code>）只给少数极值本征值，内存降到 $O(D)$。</p>
+</blockquote>
+<h1><span id="约定警告格点编号方向与第一讲相反">约定警告：格点编号方向与第一讲相反</span></h1><p>这是本讲<strong>唯一一个会让人白写一天代码</strong>的坑，必须先讲。</p>
+<p>第一讲的”全局约定表”写的是：<strong>格点 0 在最左边</strong>，$n = \sum_i s_i 2^{N-1-i}$（格点 0 是最高位）——那是用 <code>np.kron</code> 逐个张量积的自然写法。</p>
+<p>本讲的幻灯片与示例代码用的是<strong>相反的标签</strong>：<strong>格点 $i$ 就是第 $i$ 位，格点 0 在最右边（最低位）</strong>，</p>
+<script type="math/tex; mode=display">
+n = \sum_{i=0}^{N-1} n_i 2^i .</script><p>两个证据：① 幻灯片把 $|0000\rangle$ 的<strong>最左边</strong>标为”第 3 位”、<strong>最右边</strong>标为”第 0 位”；② 费米子的例子里，$\uparrow$ 的比特串 $1101$ 恰好对应格点 $\{0,2,3\}$，$\downarrow$ 的 $1010$ 对应 $\{1,3\}$——只有”格点 $i$ = 第 $i$ 位”才成立。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>第一讲（<code>np.kron</code>）</th>
+<th>本讲（比特运算）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>格点 0 的位置</td>
+<td>最左因子</td>
+<td><strong>最右位</strong>（最低位）</td>
+</tr>
+<tr>
+<td>基矢编码</td>
+<td>$n=\sum_i s_i2^{N-1-i}$</td>
+<td>$n=\sum_i s_i2^i$</td>
+</tr>
+<tr>
+<td>比特串的排版</td>
+<td>左 = 格点 0</td>
+<td><strong>右 = 格点 0</strong></td>
+</tr>
+<tr>
+<td>$n=1$（比特串 <code>0001</code>）代表的状态</td>
+<td>格点 3 向上</td>
+<td><strong>格点 0</strong> 向上</td>
+</tr>
+<tr>
+<td>$n=2$（比特串 <code>0010</code>）代表的状态</td>
+<td>格点 2 向上</td>
+<td><strong>格点 1</strong> 向上</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这<strong>只是标签约定，不改变任何物理</strong>（相当于把格点编号整体反了个方向）。但<strong>在同一份代码里必须二选一</strong>：如果你把第一讲用 <code>np.kron</code> 写的矩阵和本讲用比特运算写的矩阵混在一起，格点顺序会反，所有局域量（关联函数、结构因子、边界项）都会错，而且<strong>不会报错</strong>。</p>
+<p>本讲义全部采用<strong>本讲（比特）约定</strong>。</p>
+<h1><span id="基矢的比特表示">基矢的比特表示</span></h1><h2><span id="自旋态-二进制-十进制">自旋态 ↔ 二进制 ↔ 十进制</span></h2><p><strong>为什么可以用一个整数代表一个多体基矢？</strong> 因为自旋-1/2 每个格点只有两个状态，正好对应一个二进制位（bit）。$N$ 个格点 $\leftrightarrow$ $N$ 位二进制数 $\leftrightarrow$ $[0, 2^N-1]$ 的整数。这个对应关系是整章的地基：<strong>“基矢”就是一个 <code>int</code>，”波函数”就是一个长度为 $2^N$ 的复数数组</strong>。</p>
+<p>$N=4$ 的完整对照表（$\uparrow\to|1\rangle$，$\downarrow\to|0\rangle$）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>自旋态</th>
+<th>比特串</th>
+<th>十进制</th>
+<th>哪些格点是 $\uparrow$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\lvert \downarrow\downarrow\downarrow\downarrow\rangle$</td>
+<td>0000</td>
+<td>0</td>
+<td>（无）</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\downarrow\downarrow\uparrow\rangle$</td>
+<td>0001</td>
+<td>1</td>
+<td>$\{0\}$</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\downarrow\uparrow\downarrow\rangle$</td>
+<td>0010</td>
+<td>2</td>
+<td>$\{1\}$</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\downarrow\uparrow\uparrow\rangle$</td>
+<td>0011</td>
+<td>3</td>
+<td>$\{0,1\}$</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\uparrow\downarrow\downarrow\rangle$</td>
+<td>0100</td>
+<td>4</td>
+<td>$\{2\}$</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\uparrow\downarrow\uparrow\rangle$</td>
+<td>0101</td>
+<td>5</td>
+<td>$\{0,2\}$</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\uparrow\uparrow\downarrow\rangle$</td>
+<td>0110</td>
+<td>6</td>
+<td>$\{1,2\}$</td>
+</tr>
+<tr>
+<td>$\lvert \downarrow\uparrow\uparrow\uparrow\rangle$</td>
+<td>0111</td>
+<td>7</td>
+<td>$\{0,1,2\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\downarrow\downarrow\downarrow\rangle$</td>
+<td>1000</td>
+<td>8</td>
+<td>$\{3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\downarrow\downarrow\uparrow\rangle$</td>
+<td>1001</td>
+<td>9</td>
+<td>$\{0,3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\downarrow\uparrow\downarrow\rangle$</td>
+<td>1010</td>
+<td>10</td>
+<td>$\{1,3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\downarrow\uparrow\uparrow\rangle$</td>
+<td>1011</td>
+<td>11</td>
+<td>$\{0,1,3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\uparrow\downarrow\downarrow\rangle$</td>
+<td>1100</td>
+<td>12</td>
+<td>$\{2,3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\uparrow\downarrow\uparrow\rangle$</td>
+<td>1101</td>
+<td>13</td>
+<td>$\{0,2,3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\uparrow\uparrow\downarrow\rangle$</td>
+<td>1110</td>
+<td>14</td>
+<td>$\{1,2,3\}$</td>
+</tr>
+<tr>
+<td>$\lvert \uparrow\uparrow\uparrow\uparrow\rangle$</td>
+<td>1111</td>
+<td>15</td>
+<td>$\{0,1,2,3\}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>最后一列就是本讲约定的自检器</strong>：把比特串里为 1 的位号读出来，就是 $\uparrow$ 的格点编号。看第 10 行和第 14 行——<code>1010</code> 的 $\uparrow$ 在 $\{1,3\}$、<code>1101</code> 的 $\uparrow$ 在 $\{0,2,3\}$，正是后面费米子那一节要用的两个例子。</p>
+<p>三个要点：</p>
+<ul>
+<li><strong>比特位与格点的对应</strong>：$n = \sum_{i=0}^{N-1} n_i2^i$，$n_i = 1$ 表示格点 $i$ 是 $\uparrow$。所以表里 <code>0001</code> $= 1$ 表示<strong>格点 0</strong> 向上、格点 1–3 向下（第 0 位是最右边那一位，权重 $2^0=1$）。</li>
+<li><strong>“从左到右是第 $N-1$ 位到第 0 位”</strong>——这是写给人看的排版约定，与”格点 $i$ = 第 $i$ 位”是同一件事的两种说法。<strong>看表时先找比特串的位标注，不要从左边开始数格点。</strong></li>
+<li>表中 16 个态按整数递增排列，这正好就是”字典序”。后面 $U(1)$ 对称性要做的事，就是<strong>把这张表按”$\uparrow$ 的个数”重新分桶</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>易错</strong>：$|\downarrow\downarrow\downarrow\uparrow\rangle$ 是 1 还是 8？按本讲约定是 <strong>1</strong>（最右边是格点 0，权重 1）。如果你从第一讲的 <code>np.kron</code> 路线过来，直觉会给出 8。两者都对，但必须全篇统一。</p>
+<p><strong>易错</strong>：$\uparrow\to1$ 这个映射是人为选择；选 $\uparrow\to0$ 也完全可以，只是所有公式里的 $-0.5$ 要改成 $+0.5$。</p>
+<p><strong>调试建议</strong>：永远用 <code>np.binary_repr(n, width=N)</code> 打印，不要靠脑子做二进制心算。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 把讲义第 8 页的对照表画出来：每一格是一个基矢</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">Ns = <span class="number">4</span></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">8</span>, figsize=(<span class="number">13.5</span>, <span class="number">5.6</span>))</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    r, c = <span class="built_in">divmod</span>(k, <span class="number">8</span>)</span><br><span class="line">    ax = axes[r][c]; ax.set_facecolor(<span class="string">&quot;#f7f7f7&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(Ns):                     <span class="comment"># site s = bit s</span></span><br><span class="line">        up = ReadBit(k, s)</span><br><span class="line">        ax.plot([s], [<span class="number">0</span>], marker=<span class="string">&quot;^&quot;</span> <span class="keyword">if</span> up <span class="keyword">else</span> <span class="string">&quot;v&quot;</span>, ms=<span class="number">13</span>,</span><br><span class="line">                color=<span class="string">&quot;#d62728&quot;</span> <span class="keyword">if</span> up <span class="keyword">else</span> <span class="string">&quot;#9e9e9e&quot;</span>, zorder=<span class="number">3</span>)</span><br><span class="line">        ax.text(s, -<span class="number">0.62</span>, <span class="built_in">str</span>(s), ha=<span class="string">&quot;center&quot;</span>, va=<span class="string">&quot;top&quot;</span>, fontsize=<span class="number">7.5</span>, color=<span class="string">&quot;#aaaaaa&quot;</span>)</span><br><span class="line">    ax.set_xlim(-<span class="number">.7</span>, Ns - <span class="number">.3</span>); ax.set_ylim(-<span class="number">1.05</span>, <span class="number">.4</span>); ax.set_xticks([]); ax.set_yticks([])</span><br><span class="line">    ax.text(<span class="number">.5</span>, <span class="number">1.36</span>, <span class="string">&quot;%d&quot;</span> % k, transform=ax.transAxes, ha=<span class="string">&quot;center&quot;</span>, va=<span class="string">&quot;bottom&quot;</span>,</span><br><span class="line">            fontsize=<span class="number">13</span>, family=<span class="string">&quot;monospace&quot;</span>, weight=<span class="string">&quot;bold&quot;</span>)</span><br><span class="line">    ax.text(<span class="number">.5</span>, <span class="number">1.10</span>, <span class="built_in">format</span>(k, <span class="string">&quot;04b&quot;</span>), transform=ax.transAxes, ha=<span class="string">&quot;center&quot;</span>, va=<span class="string">&quot;bottom&quot;</span>,</span><br><span class="line">            fontsize=<span class="number">10</span>, family=<span class="string">&quot;monospace&quot;</span>, color=<span class="string">&quot;#1f77b4&quot;</span>)</span><br><span class="line">    ups = [s <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(Ns) <span class="keyword">if</span> ReadBit(k, s)]</span><br><span class="line">    lab = <span class="string">r&quot;$\uparrow:\&#123;%s\&#125;$&quot;</span> % <span class="string">&quot;,&quot;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, ups)) <span class="keyword">if</span> ups <span class="keyword">else</span> <span class="string">r&quot;$\uparrow:\varnothing$&quot;</span></span><br><span class="line">    ax.text(<span class="number">.5</span>, -<span class="number">.17</span>, lab, transform=ax.transAxes, ha=<span class="string">&quot;center&quot;</span>, va=<span class="string">&quot;top&quot;</span>,</span><br><span class="line">            fontsize=<span class="number">8.5</span>, color=<span class="string">&quot;#2ca02c&quot;</span>)</span><br><span class="line">fig.subplots_adjust(hspace=<span class="number">1.15</span>, wspace=<span class="number">.12</span>, top=<span class="number">.70</span>, bottom=<span class="number">.17</span>)</span><br><span class="line">fig.suptitle(<span class="string">&quot;One basis state = one integer:  spin config &lt;-&gt; bit string &lt;-&gt; decimal&quot;</span>,</span><br><span class="line">             fontsize=<span class="number">14</span>, y=<span class="number">.975</span>)</span><br><span class="line">fig.text(<span class="number">.5</span>, <span class="number">.035</span>, <span class="string">r&quot;$\blacktriangle=\uparrow$ (bit 1)   $\blacktriangledown=\downarrow$ (bit 0)&quot;</span></span><br><span class="line">         <span class="string">r&quot;    check: $13=1101_2\Rightarrow\uparrow$ on $\&#123;0,2,3\&#125;$&quot;</span>,</span><br><span class="line">         ha=<span class="string">&quot;center&quot;</span>, fontsize=<span class="number">10</span>, color=<span class="string">&quot;#1f77b4&quot;</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_basis_bits.png&quot;</span>, dpi=<span class="number">190</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_basis_bits.png" alt="自旋组态与比特串、十进制数的一一对应"></p>
+<p><strong>读图</strong>：每一格就是一个基矢。三行信息从上到下分别是十进制 $n$、比特串、四个箭头（红 $\uparrow$ = 1，灰 $\downarrow$ = 0）。注意小灰字是<strong>格点编号</strong>：红色的箭头永远出现在”比特串里为 1 的位号”上——这正是本讲约定（格点 $i$ = 第 $i$ 位）的自检器。</p>
+<p>把 $n=13$ 那一格单独拎出来：$1101_2$ 里有三个 1，分别在第 0、2、3 位，所以 $\uparrow$ 在格点 $\{0,2,3\}$。如果你的代码给出的是 $\{1,2,3\}$，那就是格点编号方向搞反了（见前文的约定警告）。</p>
+<h2><span id="按位运算">按位运算</span></h2><p>四种按位运算在 ED 里各有分工：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>记法</th>
+<th>在 ED 里的用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td><code>x &amp; y</code></td>
+<td>读位 <code>x &amp; (1&lt;&lt;n)</code>；取掩码 <code>x &amp; mask</code></td>
+</tr>
+<tr>
+<td>OR</td>
+<td>`x \</td>
+<td>y`</td>
+<td>置位 `x \</td>
+<td>(1&lt;&lt;n)`</td>
+</tr>
+<tr>
+<td>XOR</td>
+<td><code>x ^ y</code></td>
+<td>翻位 <code>x ^ (1&lt;&lt;n)</code>（<strong>自旋翻转 = $S^\pm$</strong>）</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td><code>~x</code></td>
+<td>配合 AND 做清零 <code>x &amp; ~(1&lt;&lt;n)</code></td>
+</tr>
+<tr>
+<td>左移</td>
+<td><code>x &lt;&lt; n</code></td>
+<td>把第 $i$ 位搬到第 $i+n$ 位</td>
+</tr>
+<tr>
+<td>右移</td>
+<td><code>x &gt;&gt; n</code></td>
+<td>把第 $i$ 位搬到第 $i-n$ 位</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>幻灯片给的例子 $201\ \&amp;\ 15 = 9$ 其实就是”取低 4 位”：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">201 = 1100 1001₂</span><br><span class="line"> 15 = 0000 1111₂</span><br><span class="line">----------------</span><br><span class="line">AND  = 0000 1001₂ =  9</span><br></pre></td></tr></table></figure>
+<p><strong>关于 Python 的 <code>~</code></strong>：Python 整数是任意精度且用补码语义，所以 <code>~x = -x-1</code>（例如 <code>~5 = -6</code>），看起来”很怪”。但 <code>x &amp; ~(1&lt;&lt;n)</code> 是安全的：<code>~(1&lt;&lt;n)</code> 的二进制是”除了第 $n$ 位以外全是 1”，AND 上去正好把第 $n$ 位清零，高位不受影响。<strong>只要不单独使用 <code>~x</code> 就没问题。</strong></p>
+<blockquote>
+<p><strong>易错（优先级陷阱）</strong>：在 Python 里 <code>&amp;</code> 的优先级<strong>低于</strong> <code>==</code> 和 <code>+</code>，所以 <code>x &amp; 1 == 1</code> 会被解析成 <code>x &amp; (1 == 1)</code>！写代码时永远加括号：<code>(x &amp; 1) == 1</code>。</p>
+<p><strong>易错</strong>：<code>np.binary_repr(n, width=4)</code> 给固定宽度（前面补 0），<code>np.base_repr(n, base=2)</code> 不给前导 0。调试时用前者，因为<strong>位对齐</strong>很重要。</p>
+<p><strong>易错</strong>：幻灯片上的真值表是<strong>按位</strong>运算，不是逻辑运算（<code>and</code>/<code>or</code>/<code>not</code>）；在 numpy 数组上要区分 <code>&amp;</code>（按位）和 <code>np.logical_and</code>（逻辑）。</p>
+</blockquote>
+<h2><span id="四个基本操作">四个基本操作</span></h2><p>这四个函数就是整个 ED 的”指令集”——后面所有哈密顿量项，全部由它们拼出来。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\text{SetBit}(i,n) &= i \mid (1\ll n) && \text{把第 } n \text{ 位置 1} \\
+\text{ClearBit}(i,n) &= i \mathbin{\&} \sim(1\ll n) && \text{把第 } n \text{ 位清 0} \\
+\text{FlipBit}(i,n) &= i \mathbin{\mathrm{XOR}} (1\ll n) && \text{翻转第 } n \text{ 位} \\
+\text{ReadBit}(i,n) &= (i \mathbin{\&} (1\ll n)) \gg n && \text{读取第 } n \text{ 位}
+\end{aligned}</script><p>逐个看：</p>
+<ul>
+<li><strong>SetBit</strong>：<code>1&lt;&lt;n</code> 只有第 $n$ 位是 1，OR 上去就把它强制置 1，其余位不变。</li>
+<li><strong>ClearBit</strong>：<code>~(1&lt;&lt;n)</code> 是”除了第 $n$ 位全是 1”的掩码，AND 上去就把第 $n$ 位强制清 0。</li>
+<li><strong>FlipBit</strong>：XOR 与 1 相遇就翻转，与 0 相遇不变。<strong>这是自旋翻转 $S^\pm$ 的全部内容</strong>——后面非对角元就是”翻转两个比特”。</li>
+<li><strong>ReadBit</strong>：先 AND 取出第 $n$ 位（结果要么是 0、要么是 $2^n$），再右移 $n$ 位归一化成 0 或 1。<strong>返回的是整数 0/1，不是布尔值。</strong></li>
+</ul>
+<p>用 $i = 5 = 0101_2$ 逐个验证：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>计算</th>
+<th>结果</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SetBit(5,1)</code></td>
+<td>$5\mid 2 = 7$</td>
+<td>7</td>
+<td>0111</td>
+</tr>
+<tr>
+<td><code>ClearBit(5,2)</code></td>
+<td>$5\ \&amp;\ \sim4 = 1$</td>
+<td>1</td>
+<td>0001</td>
+</tr>
+<tr>
+<td><code>FlipBit(5,1)</code></td>
+<td>$5\ \mathrm{XOR}\ 2 = 7$</td>
+<td>7</td>
+<td>0111</td>
+</tr>
+<tr>
+<td><code>ReadBit(5,2)</code></td>
+<td>$(5\ \&amp;\ 4)\gg 2 = 1$</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>自旋与比特的换算</strong>：</p>
+<script type="math/tex; mode=display">
+S^z_i = \mathrm{ReadBit}(i, \text{site}) - \frac{1}{2},</script><p>即 $\uparrow\to+\frac12$、$\downarrow\to-\frac12$。</p>
+<blockquote>
+<p><strong>易错（最典型的 bug）</strong>：<code>ReadBit</code> 的返回值<strong>必须归一化到 0/1</strong>。如果你忘了 <code>&gt;&gt; n</code>，得到的是 0 或 $2^n$，于是 $S^z_i = \mathrm{ReadBit} - 0.5$ 变成 $-0.5$ 或 $2^n - 0.5$——能量错得离谱但<strong>代码不报错</strong>。务必用”基态能量是否等于已知值”来验证。</p>
+<p>在 C/C++ 里要用 <code>1u &lt;&lt; n</code> 或 <code>1LL &lt;&lt; n</code> 防止溢出；Python 没有这个问题（任意精度整数），但也因此更慢，大规模 ED 里常用 numpy 的 <code>uint64</code> 数组做批量位运算。</p>
+</blockquote>
+<h2><span id="三个进阶操作">三个进阶操作</span></h2><script type="math/tex; mode=display">
+\begin{aligned}
+\text{PopCntBit}(i) &= \mathrm{bin}(i).\mathrm{count}(\text{"1"}) && \text{数 1 的个数} \\
+\text{PickBit}(i,k,n) &= \big(i \mathbin{\&} ((2^n-1)\ll k)\big) \gg k && \text{从第 } k \text{ 位起取 } n \text{ 位} \\
+\text{RotLBit}(i,L,n) &= \big(\text{PickBit}(i,0,L-n) \ll n\big) + (i \gg (L-n)) && \text{循环左移} \\
+\text{RotRBit}(i,L,n) &= \big(\text{PickBit}(i,0,n) \ll (L-n)\big) + (i \gg n) && \text{循环右移}
+\end{aligned}</script><p>各自对应一个物理用途：</p>
+<ol>
+<li><strong><code>PopCntBit</code> = 数自旋向上的格点数</strong>。因为 $\uparrow\to1$，所以 popcount 就是 $N_\uparrow$，而<script type="math/tex; mode=display">
+S^z_{tot} = \sum_i S^z_i = N_\uparrow - \frac{N}{2}.</script><strong>这是 $U(1)$ 扇区划分的依据。</strong></li>
+<li><strong><code>PickBit</code> = 取出比特串的一段</strong>。掩码 $(2^n-1)\ll k$ 是”从第 $k$ 位起连续 $n$ 个 1”，AND 之后右移 $k$ 位就把它对齐到低位。用途：把整数拆成”前段/后段”——这正是 Lin 表的关键。</li>
+<li><strong><code>RotLBit</code> / <code>RotRBit</code> = 环上的平移</strong>。在周期性边界的环上，把整个自旋构型沿环平移一格就是循环移位。用途：实现平移对称性，或生成一个动量扇区里的全部基矢。注意这里 $L$ 是<strong>总比特数</strong>，$n$ 是平移的格点数。</li>
+</ol>
+<p>用幻灯片参数（$L=4$，$n=1$）验算，取 $i = 13 = 1101_2$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>计算</th>
+<th>结果</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PopCntBit(13)</code></td>
+<td><code>bin(13).count(&quot;1&quot;)</code></td>
+<td>3</td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>PickBit(13,1,2)</code></td>
+<td>$(13\ \&amp;\ 6)\gg1 = 4\gg1$</td>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>RotLBit(13,4,1)</code></td>
+<td>$(5\ll1) + (13\gg3) = 10+1$</td>
+<td>11</td>
+<td>1011</td>
+</tr>
+<tr>
+<td><code>RotRBit(13,4,1)</code></td>
+<td>$(1\ll3) + (13\gg1) = 8+6$</td>
+<td>14</td>
+<td>1110</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>对照：$1101$ 循环左移 1 位得 $1011$ ✓，循环右移 1 位得 $1110$ ✓。</p>
+<blockquote>
+<p><strong>易错（循环移位 ≠ 普通移位）</strong>：普通移位会”丢掉”移出去的位并补 0；循环移位把丢掉的位补到另一端。<strong>只有循环移位才是环上的平移</strong>。用 <code>&lt;&lt;</code>/<code>&gt;&gt;</code> 做平移会让边界上的基矢变成”自旋跑出去了”的非法态，而且会丢掉真正的边界项。</p>
+<p><strong>易错</strong>：<code>RotLBit</code> 里的 $L$ 必须等于比特串的总长度。用 $L=4$ 去处理 6 格点的态，平移会把第 4、5 位搅乱。</p>
+<p><strong>性能</strong>：<code>bin(i).count(&quot;1&quot;)</code> 在 Python 里是”优雅但慢”的写法。要在 $10^7$ 个基矢上反复调用，用查表（把 16 位一块的 popcount 预先存好）或 numpy 的 <code>np.bitwise_count</code>（NumPy ≥ 2.0）会快几十倍。Python ≥ 3.10 也可以用内置的 <code>int.bit_count()</code>。</p>
+</blockquote>
+<h1><span id="哈密顿量矩阵的构造">哈密顿量矩阵的构造</span></h1><p>以<strong>环上的自旋-1/2 反铁磁 Heisenberg 模型</strong>为主角：</p>
+<script type="math/tex; mode=display">
+\hat H = \sum_{i=0}^{N-1} S_i\cdot S_{i+1}, \qquad S_N \equiv S_0</script><p>把 $S_i\cdot S_{i+1}$ 拆成对角与非对角两部分（第一讲已给）：</p>
+<script type="math/tex; mode=display">
+\hat H = \sum_i \Big[\underbrace{S^z_iS^z_{i+1}}_{\text{对角}} + \underbrace{\tfrac12\big(S^+_iS^-_{i+1} + S^-_iS^+_{i+1}\big)}_{\text{非对角}}\Big]</script><p><strong>这就是 ED 构造矩阵的全部内容</strong>：对角元用 <code>ReadBit</code> 算，非对角元用 <code>FlipBit</code> 造。</p>
+<h2><span id="对角元">对角元</span></h2><p>$S^z_i$ 是<strong>对角算符</strong>：它在每个基矢上的作用就是乘一个数 $\pm\frac12$。因此</p>
+<script type="math/tex; mode=display">
+\langle\text{col}|S^z_iS^z_{i+1}|\text{col}\rangle
+= \big(\mathrm{ReadBit}(\text{col},i)-\tfrac12\big)\big(\mathrm{ReadBit}(\text{col},i+1)-\tfrac12\big) \in \{+\tfrac14, -\tfrac14\}.</script><ul>
+<li>两个自旋平行（↑↑ 或 ↓↓）：$+\frac14$；</li>
+<li>两个自旋反平行：$-\frac14$。</li>
+</ul>
+<p>对反铁磁（$J&gt;0$），反平行的键能量更低——<strong>这就是反铁磁性的微观起源</strong>。把所有 $N$ 条键加起来：</p>
+<script type="math/tex; mode=display">
+\boxed{\;H_{\text{col},\text{col}} = \sum_{i=0}^{N-1} \big(\mathrm{ReadBit}(\text{col},i)-\tfrac12\big)\big(\mathrm{ReadBit}(\text{col},i+1)-\tfrac12\big)\;}</script><p>环上取 $i+1 \to (i+1)\bmod N$（幻灯片里写的 $S_N = S_0$ 就是周期性边界）。</p>
+<p><strong>为什么这个式子这么值钱？</strong> 因为它说明<strong>对角元不需要任何”矩阵”</strong>：对每个基矢（一个整数），做 $N$ 次 <code>ReadBit</code> 就得到对角元。内存 $O(1)$（只存一个数），时间 $O(N)$。这是 ED 高效的核心原因之一。</p>
+<blockquote>
+<p><strong>易错</strong>：环上最后一条键是 $(N-1, 0)$，不要漏。（后面那份示例代码用的是<strong>开链</strong>，正好少了这一条——不是矛盾，是两个不同的模型。）</p>
+<p><strong>易错</strong>：对角元<strong>必须写在 <code>if</code> 外面</strong>。不管两个自旋是否相同，每条键都贡献对角项。如果误把对角项也放进”两自旋不同”的 <code>if</code> 里，就只有”自旋相反”的基矢有对角元，漏掉了 $+\frac14$ 的贡献，能量完全错。</p>
+<p><strong>易错</strong>：<code>Nl = 2**Ns</code> 不要写成 <code>2*Ns</code>。这是最经典的笔误。</p>
+</blockquote>
+<h2><span id="非对角元">非对角元</span></h2><p>升降算符的矩阵（$S^\alpha = \frac12\sigma^\alpha$）：</p>
+<script type="math/tex; mode=display">
+S^+ = \begin{pmatrix}0&1\\0&0\end{pmatrix}, \qquad S^- = \begin{pmatrix}0&0\\1&0\end{pmatrix}, \qquad S^+|\!\downarrow\rangle = |\!\uparrow\rangle, \quad S^-|\!\uparrow\rangle = |\!\downarrow\rangle .</script><p>于是 $\frac12(S^+_iS^-_{i+1} + S^-_iS^+_{i+1})$ 的作用是<strong>交换一对反平行的自旋</strong>：</p>
+<script type="math/tex; mode=display">
+|\!\uparrow\downarrow\rangle \longleftrightarrow |\!\downarrow\uparrow\rangle</script><p>矩阵元为什么是 1（于是公式里给出 0.5）？因为 $S^+$ 把 $\downarrow$ 变成 $\uparrow$ 时系数恰好是 1（自旋-1/2 的特殊性），再乘公式里的因子 $\frac12$。</p>
+<p>用比特语言说，这个过程是：</p>
+<script type="math/tex; mode=display">
+\text{col} = \cdots 1_i 0_{i+1}\cdots
+\;\xrightarrow{\ \text{FlipBit}(i)\,\text{和}\,\text{FlipBit}(i+1)\ }\;
+\cdots 0_i 1_{i+1}\cdots = \text{row}</script><p>两个判据：</p>
+<ol>
+<li><strong>第 $i$ 与第 $i+1$ 个自旋必须不同</strong>。如果 $n_i = n_{i+1}$，那么 $S^+S^-$ 和 $S^-S^+$ 都作用为零（因为 $S^+|!\uparrow\rangle = 0$、$S^-|!\downarrow\rangle = 0$）。</li>
+<li><strong>必须同时翻转两个比特</strong>，矩阵元 $0.5$。</li>
+</ol>
+<blockquote>
+<p><strong>易错</strong>：矩阵元是 <strong>0.5 不是 1</strong>。这是 $\frac12$ 因子 + 自旋-1/2 的”巧合”共同造成的。对自旋-1 就不成立了（那时 $S^+$ 的矩阵元是 $\sqrt2$）。</p>
+<p><strong>易错</strong>：别把 $S^+S^-$ 写成 $S^+S^+$。前者守恒 $S^z$，后者不守恒——写错了 $S^z_{tot}$ 就不守恒，$U(1)$ 扇区立刻不成立（而且表现为”本征矢串扇区”这种很难查的现象）。</p>
+<p><strong>易错</strong>：幻灯片上 $\langle\cdots|S^+_iS^-_{i+1}|\cdots\rangle$ 的写法容易看漏下标顺序：是”第 $i$ 个的 $S^+$，第 $i+1$ 个的 $S^-$”。</p>
+</blockquote>
+<h2><span id="稀疏三元组coo-格式">稀疏三元组：COO 格式</span></h2><p>幻灯片给了一张 32 行的表，把 4 格点环上<strong>全部</strong>非零的非对角元列出来。表头是 $(\text{col})_{10}\;|\;(\text{col})_2\;|\;i\;|\;i+1\;|\;(\text{row})_2\;|\;(\text{row})_{10}\;|\;\text{value}$，$value$ 列全是 0.5。底部一句话点题：<strong>“sparse matrix, only keep: row, column, value”</strong>。</p>
+<p>这张表就是 <code>scipy.sparse</code> 的 <strong>COO 格式</strong>：三个等长数组 <code>row</code>、<code>col</code>、<code>data</code>。<strong>ED 的哈密顿量构造本质上就是”生成这三个数组”</strong>。例如前几行：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$(\text{row})_{10}$</th>
+<th>$(\text{row})_2$</th>
+<th>$i$</th>
+<th>$i+1$</th>
+<th>$(\text{col})_{10}$</th>
+<th>$(\text{col})_2$</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0001</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1000</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0001</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0010</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>0010</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>几个可以直接读出来的规律：</p>
+<ul>
+<li><strong>非对角元总数严格等于 $N\cdot2^{N-1}$</strong>。环上有 $N$ 条键，每条键上有 $2^{N-1}$ 个”两自旋相反”的基矢。$N=4$ 时 $4\times8 = 32$ ✓，与表格吻合。加上 16 个对角元，总非零元 <strong>48</strong> 个，而矩阵有 $16\times16=256$ 个元素——<strong>稀疏度约 19%</strong>。</li>
+<li><strong>对角线上的对称性</strong>：如果 $(\text{row},\text{col})$ 有一个非零元，那么 $(\text{col},\text{row})$ 也一定有一个<strong>同样大小</strong>的元（$\hat H$ 厄米，$S^+_iS^-_{i+1}$ 的厄米共轭是 $S^-_iS^+_{i+1}$）。表里能直接看到这种”成对出现”：第 1 行（$1\to2,\ i=0$）与第 3 行（$2\to1,\ i=0$）。<strong>这是校验代码的免费测试</strong>：构造完 $\hat H$ 后检查 <code>(H - H.T).nnz == 0</code>。</li>
+<li><strong>每个基矢的非对角伙伴个数 = “相邻自旋相反的键数”</strong>，可以是 $0\sim N$。$(\text{col})_{10} = 5$（$0101$）有<strong>四个</strong>伙伴（4 条键上自旋都相反），而 $(\text{col})_{10}=1$（$0001$）只有两个。</li>
+<li>表里 $i=3,\ i+1=0$ 的行就是<strong>周期性边界的标志</strong>（键 $(3,0)$）。做开链时这些行必须删掉，矩阵会变成块结构。</li>
+</ul>
+<blockquote>
+<p><strong>易错</strong>：<code>value</code> 列全是 0.5 是<strong>自旋-1/2 的特例</strong>。换成 XXZ 模型（$\Delta\neq1$）非对角元仍是 0.5，但<strong>对角元要乘上 $\Delta$</strong>；换成 XY 模型则对角元全为 0。</p>
+<p><strong>易错（行、列写反）</strong>：矩阵元是 $\langle\text{row}|\hat H|\text{col}\rangle$。所以”翻转比特得到的那个态”是 <strong>row</strong>，”原来的态”是 <strong>col</strong>。对厄米且矩阵元为实数的 $\hat H$（本例即是），写反了矩阵完全不变（$\hat H^T = \hat H$），<strong>谱不会错</strong>；但如果 $\hat H$ 是复厄米的（$\hat H^T = \hat H^<em>\neq\hat H$），写反就等于用了 $\hat H^</em>$，关联函数、时间演化都会错。养成”先想清楚行列”的习惯。</p>
+</blockquote>
+<p><strong>完整谱</strong>（$N=4$ 环，实测）：$\{E\in\{-2,-1,0,+1\}\}$，简并度依次 $1,3,7,5$。</p>
+<script type="math/tex; mode=display">
+E_0 = -2J, \qquad \frac{E_0}{N} = -0.5\,J</script><p>这个结果可以和第一讲的严格论证互相印证：4 个 $s=1/2$ 自旋总共含 2 个单重态（$S=0$）、3 个三重态（$S=1$）、1 个五重态（$S=2$）。完全对称的五重态是精确本征态、每条键给 $+\frac14J$，故 $E=+J$；基态是<strong>唯一的 $S=0$ 单重态</strong>（$E=-2J$），符合第一讲提到的 <strong>Marshall 定理</strong>（二分格子上 $N$ 偶数时基态是单态）。谱的迹也是 0：$-2 - 3 + 0 + 5 = 0$ ✓，与后面验证清单里的 $\mathrm{Tr}\,\hat H = 0$ 一致。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 左：4 格点环的完整谱 + 自旋多重态标注（谱是解析已知的）</span></span><br><span class="line">levels = [(-<span class="number">2.0</span>, <span class="number">1</span>, <span class="string">&quot;$S=0$ singlet   (ground state)&quot;</span>, <span class="number">.30</span>, <span class="string">&quot;#2ca02c&quot;</span>),</span><br><span class="line">          (-<span class="number">1.0</span>, <span class="number">3</span>, <span class="string">&quot;$S=1$ triplet&quot;</span>, <span class="number">0.</span>, <span class="string">&quot;#d62728&quot;</span>),</span><br><span class="line">          ( <span class="number">0.0</span>, <span class="number">1</span>, <span class="string">&quot;$S=0$ singlet&quot;</span>, <span class="number">.26</span>, <span class="string">&quot;#d62728&quot;</span>),</span><br><span class="line">          ( <span class="number">0.0</span>, <span class="number">6</span>, <span class="string">r&quot;$2\times(S=1)$ triplets&quot;</span>, -<span class="number">.34</span>, <span class="string">&quot;#d62728&quot;</span>),</span><br><span class="line">          ( <span class="number">1.0</span>, <span class="number">5</span>, <span class="string">&quot;$S=2$ quintet (fully polarised)&quot;</span>, <span class="number">0.</span>, <span class="string">&quot;#d62728&quot;</span>)]</span><br><span class="line">fig, (a1, a2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">12.5</span>, <span class="number">4.5</span>))</span><br><span class="line"><span class="keyword">for</span> (E, mult, lab, dy, c) <span class="keyword">in</span> levels:</span><br><span class="line">    a1.hlines(E, <span class="number">0</span>, mult, color=c, lw=<span class="number">3.2</span>); a1.plot(mult, E, <span class="string">&quot;o&quot;</span>, color=c, ms=<span class="number">7</span>)</span><br><span class="line">    a1.text(mult + <span class="number">.3</span>, E + dy, <span class="string">&quot;$E=%+.0f$, dim %d\n%s&quot;</span> % (E, mult, lab),</span><br><span class="line">            va=<span class="string">&quot;center&quot;</span>, fontsize=<span class="number">8.5</span>, color=c)</span><br><span class="line">a1.set_xlim(<span class="number">0</span>, <span class="number">16</span>); a1.set_ylim(-<span class="number">2.9</span>, <span class="number">2.1</span>)</span><br><span class="line">a1.set_xlabel(<span class="string">&quot;degeneracy&quot;</span>); a1.set_ylabel(<span class="string">&quot;$E/J$&quot;</span>); a1.grid(alpha=<span class="number">.25</span>)</span><br><span class="line">a1.set_title(<span class="string">r&quot;exact spectrum, $E_0=-2J$&quot;</span>, fontsize=<span class="number">10.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 右：E0/N 随 N 收敛到 Bethe ansatz</span></span><br><span class="line">Ns_a = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>, <span class="number">14</span>]</span><br><span class="line">e0n = [np.atleast_1d(eigsh(HeisenbergCOO(n, periodic=<span class="literal">True</span>), k=<span class="number">1</span>, which=<span class="string">&#x27;SA&#x27;</span>,</span><br><span class="line">                           return_eigenvectors=<span class="literal">False</span>))[<span class="number">0</span>] / n <span class="keyword">for</span> n <span class="keyword">in</span> Ns_a]</span><br><span class="line">a2.plot(Ns_a, e0n, <span class="string">&quot;o-&quot;</span>, color=<span class="string">&quot;#1f77b4&quot;</span>, label=<span class="string">&quot;ED, periodic ring&quot;</span>)</span><br><span class="line">a2.axhline(-<span class="number">0.25</span>, color=<span class="string">&quot;#d62728&quot;</span>, ls=<span class="string">&quot;--&quot;</span>, label=<span class="string">r&quot;Neel classical $-J/4$&quot;</span>)</span><br><span class="line">a2.axhline(-<span class="number">0.443147</span>, color=<span class="string">&quot;#2ca02c&quot;</span>, ls=<span class="string">&quot;-.&quot;</span>, label=<span class="string">r&quot;Bethe ansatz: $J(\frac14-\ln2)$&quot;</span>)</span><br><span class="line">a2.set_xlabel(<span class="string">&quot;$N$ (ring)&quot;</span>); a2.set_ylabel(<span class="string">r&quot;$E_0/N$&quot;</span>); a2.legend(fontsize=<span class="number">8.5</span>)</span><br><span class="line">a2.grid(alpha=<span class="number">.3</span>); a2.set_ylim(-<span class="number">.52</span>, -<span class="number">.21</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_heisenberg_spectrum.png&quot;</span>, dpi=<span class="number">190</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_heisenberg_spectrum.png" alt="4 格点 Heisenberg 环的精确谱与量子涨落"></p>
+<p><strong>左图读法</strong>：横轴是简并度（= 那一能级的态数），纵轴是能量。绿色的 $E=-2$ 是唯一的单重态基态；$E=+1$ 的五重态就是<strong>完全极化态</strong>，每条键给 $+\frac14J$、四条键共 $+J$——它是<strong>精确本征态</strong>（$S^z_iS^z_j$ 与 $S^\pm$ 都作用为零式的组合）。图下那行 “check” 是免费的检验：$2$ 个单重态 $+$ $3$ 个三重态 $+$ $1$ 个五重态 $= 2\times1+3\times3+1\times5 = 16$ 个态 ✓，迹 $=0$ ✓。</p>
+<p><strong>右图是”数值 $\to$ 物理”的桥梁</strong>：ED 逐点给出 $E_0/N$，在 $N=4\sim14$ 上从 $-0.500$ 收敛到 $-0.443$——<strong>正是第一讲给的严格解 $J(\frac14-\ln2)=-0.4431J$</strong>。而 Néel 变分线在 $-0.25$，<strong>比精确值高 77%</strong>。这张图把第一讲那句”量子涨落把能量降低了 77%”从一句话变成了可以看见的曲线。</p>
+<h2><span id="完整代码与验证清单">完整代码与验证清单</span></h2><p>把上面所有零件拼起来，就是本讲的中心。<strong>开边界</strong>的一维反铁磁 Heisenberg 链：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">GetHopList</span>(<span class="params">Ns, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成键表。开链共 Ns-1 条键；periodic=True 时加上 (Ns-1, 0)。&quot;&quot;&quot;</span></span><br><span class="line">    HopList = [[i, i + <span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(Ns - <span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">if</span> periodic:</span><br><span class="line">        HopList.append([Ns - <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> HopList</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">HeisenbergCOO</span>(<span class="params">Ns, J=<span class="number">1.0</span>, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;用 (row, col, value) 三元组构造 Heisenberg 环/链的稀疏矩阵。&quot;&quot;&quot;</span></span><br><span class="line">    HopList = GetHopList(Ns, periodic)</span><br><span class="line">    Nl = <span class="number">2</span> ** Ns                      <span class="comment"># 注意：是 2**Ns，不是 2*Ns</span></span><br><span class="line">    HI, HJ, HV = [], [], []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i0 <span class="keyword">in</span> <span class="built_in">range</span>(Nl):              <span class="comment"># i0 = col（列，即&quot;原始态&quot;）</span></span><br><span class="line">        <span class="keyword">for</span> (Pos0, Pos1) <span class="keyword">in</span> HopList:</span><br><span class="line">            <span class="comment"># --- 非对角元：只有两自旋不同才贡献 ---</span></span><br><span class="line">            <span class="keyword">if</span> ReadBit(i0, Pos0) != ReadBit(i0, Pos1):</span><br><span class="line">                i1 = FlipBit(FlipBit(i0, Pos0), Pos1)   <span class="comment"># i1 = row（行）</span></span><br><span class="line">                HI.append(i1); HJ.append(i0); HV.append(<span class="number">0.5</span> * J)</span><br><span class="line">            <span class="comment"># --- 对角元：无条件累加（必须在 if 外面）---</span></span><br><span class="line">            HI.append(i0); HJ.append(i0)</span><br><span class="line">            HV.append(J * (ReadBit(i0, Pos0) - <span class="number">0.5</span>) * (ReadBit(i0, Pos1) - <span class="number">0.5</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># COO 是&quot;构造格式&quot;；转成 CSC/CSR 才能做矩阵-矢量乘法</span></span><br><span class="line">    <span class="keyword">return</span> sparse.coo_matrix((HV, (HI, HJ)), shape=(Nl, Nl)).tocsc()</span><br></pre></td></tr></table></figure>
+<p>逐块拆开：</p>
+<ol>
+<li><strong>基矢编号</strong>：<code>Nl = 2**Ns</code>，<code>i0</code> 遍历所有基矢（<code>col</code>），<code>i1</code> 是伙伴基矢（<code>row</code>）。</li>
+<li><strong>键表</strong>：<code>GetHopList</code> 返回 <code>[[0,1],[1,2],...,[Ns-2,Ns-1]]</code>。做环只需在末尾加 <code>[Ns-1, 0]</code>。</li>
+<li><strong>非对角块</strong>：若 <code>Pos0</code>、<code>Pos1</code> 两位不同，就同时翻转它们得到 <code>i1</code>，追加一条 <code>(row=i1, col=i0, value=0.5*J)</code>。</li>
+<li><strong>对角块</strong>：无论是否翻转，都对每个键累加 $(S^z_{Pos0})(S^z_{Pos1})$ 到 $(i0,i0)$。因为循环遍历所有键，<strong>重复的 $(i0,i0)$ 会被 COO 自动求和</strong>——这正是 $\sum_i$ 的代码实现，也是这段代码优雅的地方。</li>
+<li><strong>组装</strong>：COO 是”构造格式”（可以随便重复累加），CSC/CSR 才是”计算格式”（可以参与运算）。对 $\hat H y = x$ 这种矩阵-矢量乘法，CSR 更自然（按行取内积）；对 $\hat H^T y$ 或按列操作，CSC 更自然。两者都可以，<code>eigsh</code> 内部会自己选。</li>
+</ol>
+<p><strong>验证清单</strong>（这是本讲的”考试重点”，务必全部跑一遍）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>检验</th>
+<th>期望值</th>
+<th>实测</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$N=2$ 单键 $E_0$</td>
+<td>$-0.75$（单重态，第一讲已证）</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>$N=4$ <strong>开链</strong> $E_0$</td>
+<td>$\approx-1.6160254$</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>$N=4$ <strong>环</strong> $E_0$</td>
+<td>$-2$（精确）</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>$N=4$ 环的谱</td>
+<td>$\{-2(\times1),-1(\times3),0(\times7),+1(\times5)\}$</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>迹</td>
+<td>$\mathrm{Tr}\,\hat H = 0$</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>厄米性</td>
+<td><code>(H - H.T).nnz == 0</code></td>
+<td>✓</td>
+</tr>
+<tr>
+<td>非零元个数（$N=4$ 环）</td>
+<td>$32 + 16 = 48$</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中 $\mathrm{Tr}\,\hat H = 0$ 值得单独一说：每条键的 $S^z_iS^z_{i+1}$ 在 $\uparrow\uparrow$ 和 $\downarrow\downarrow$ 上给 $+\frac14$、在 $\uparrow\downarrow/\downarrow\uparrow$ 上给 $-\frac14$，两种组态数目相同，正负恰好抵消。这是一个<strong>不需要算就已知</strong>的严格结果——<strong>用已知结果检验代码，是 ED 的基本素养</strong>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> Ns, per <span class="keyword">in</span> [(<span class="number">4</span>, <span class="literal">True</span>), (<span class="number">4</span>, <span class="literal">False</span>), (<span class="number">10</span>, <span class="literal">False</span>)]:</span><br><span class="line">    H = HeisenbergCOO(Ns, periodic=per)</span><br><span class="line">    e0 = eigsh(H, k=<span class="number">1</span>, which=<span class="string">&#x27;SA&#x27;</span>, return_eigenvectors=<span class="literal">False</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(Ns, <span class="string">&quot;periodic&quot;</span> <span class="keyword">if</span> per <span class="keyword">else</span> <span class="string">&quot;open&quot;</span>, <span class="string">&quot;E0 =&quot;</span>, <span class="built_in">round</span>(<span class="built_in">float</span>(e0), <span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>易错</strong>：本页代码是<strong>开链</strong>，而前面三节讲的是<strong>环</strong>。两者只差一条键，但物理差别不小（开链有边界自旋，环是平移不变的）。读幻灯片时不要以为前后矛盾。</p>
+<p><strong>性能</strong>：对 $N\ge20$，这段”逐基矢逐键”的 Python 双重循环会变慢。下一步的优化是（a）只遍历 $S^z$ 扇区、（b）用 numpy 向量化位运算、（c）用 Lin 表做查找。</p>
+<p><strong>推广</strong>：代码把 $J$ 做成了参数（默认 $J=1$，幻灯片里是硬编码的 1），所以改 $J$ 只要调 <code>HeisenbergCOO(Ns, J=2.0)</code>。推广到 $XXZ$（$\Delta$）只要给对角元乘 $\Delta$；推广到自旋-$s$ 则 $S^\pm$ 的矩阵元不再等于 1（$s=1$ 时是 $\sqrt2$），”一位比特 + 一次 FlipBit”这套也要重写。</p>
+</blockquote>
+<h1><span id="对称性与基矢查找">对称性与基矢查找</span></h1><h2><span id="块对角化最便宜的加速">块对角化：最便宜的加速</span></h2><p><strong>对称性是 ED 里”最便宜的加速”——不需要任何近似，只需要一点群论。</strong></p>
+<p>原理很简单：如果 $\hat H$ 与某个算符 $\hat G$ 对易（$[\hat H,\hat G] = 0$），那么可以在 $\hat G$ 的本征基里把 $\hat H$ 写成<strong>块对角</strong>形式：</p>
+<script type="math/tex; mode=display">
+\hat H = \bigoplus_{\alpha} \hat H^{(\alpha)}, \qquad \dim \hat H = \sum_\alpha d_\alpha\,\dim \hat H^{(\alpha)}</script><p>只对角化目标扇区，维数降低 $d_\alpha$ 倍、时间降低 $d_\alpha^3$ 倍。逐个看：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>对称性</th>
+<th>守恒量 / 量子数</th>
+<th>扇区数</th>
+<th>典型加速</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$U(1)$（粒子数 / $S^z_{tot}$）</td>
+<td>$N_\uparrow - N_\downarrow$</td>
+<td>$N+1$</td>
+<td>最大扇区维数 $\approx 2^N/\sqrt{\pi N/2}$，即 $\times\sqrt{\pi N/2}$</td>
+</tr>
+<tr>
+<td>平移 $T$</td>
+<td>动量 $\mathbf k = 2\pi\mathbf m/N$</td>
+<td>$N$</td>
+<td>$\times N$</td>
+</tr>
+<tr>
+<td>点群 $PG$（反射、旋转）</td>
+<td>不可约表示</td>
+<td>$\lvert PG\rvert$</td>
+<td>$\times\lvert PG\rvert$</td>
+</tr>
+<tr>
+<td>自旋反演（$\uparrow\leftrightarrow\downarrow$）</td>
+<td>宇称 $\pm$</td>
+<td>2</td>
+<td>$\times2$</td>
+</tr>
+<tr>
+<td>$SU(2)$</td>
+<td>总自旋 $S$</td>
+<td>$\sim N/2$</td>
+<td>只对”多重态”加速</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>幻灯片上给了两个例子，说明”能用的对称性取决于几何”：</p>
+<ul>
+<li><strong>40 格点方格子</strong>：平移群 $T$ 有 40 个元素，点群 $PG$ 有 4 个元素，乘积群 $40\times4=160$。于是 $\binom{40}{20}/160 \approx 8.6\times10^8$。注意：<strong>只有当你选的团簇本身具有这些对称性时才能用得上</strong>——幻灯片画面上那个倾斜的红方框就是在展示”怎么在格子里挑一个对称性好的团簇”。</li>
+<li><strong>二十-十二面体（30 顶点）</strong>：这是富勒烯/多面体分子磁性模型的代表，其对称群 $I_h$ 有 120 个元素。在分子问题上，对称性带来的加速比平移群更大。</li>
+</ul>
+<blockquote>
+<p><strong>易错</strong>：对称性越多越好，但”能用的对称性”取决于几何。三角格子/笼目格子的团簇往往只能保留<strong>部分</strong>平移对称性（例如 $N=39$ 的三角格子，不能整除成方格子形状）；选团簇是 ED 研究的一门手艺，选错了要么用不上对称性，要么引入严重的有限尺寸效应。</p>
+<p><strong>$U(1)$ vs $SU(2)$</strong>：$U(1)$ 只固定 $S^z_{tot}$；$SU(2)$ 还固定 $S_{tot}$，能把同一多重态里的态合并。用 $SU(2)$ 更省内存，但代码复杂得多（要处理 Clebsch–Gordan 系数）。<strong>本讲只要求用 $U(1)$</strong>（作业评分表里有”没用 $U(1)$ 扣 20 分”）。</p>
+<p><strong>易错</strong>：自旋反演对称性只有在<strong>零磁场</strong>、且扇区 $S^z$ 与 $-S^z$ 对称时才能用。</p>
+</blockquote>
+<h2><span id="u1-对称性">U(1) 对称性</span></h2><p>$U(1)$ 对称性 $= S^z_{tot}$ 守恒。因为 Heisenberg 模型（和 Hubbard 模型）的每一项都不改变自旋向上的格点数，所以 $N_\uparrow$ 是好量子数。于是可以<strong>按 $N_\uparrow$ 把基矢分桶</strong>。$N=4$ 的例子：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>扇区</th>
+<th>基矢（全局标号）</th>
+<th>维数 $=\binom{N_\uparrow}{N}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$N_\uparrow = 0$</td>
+<td>$\{0\}$</td>
+<td>1</td>
+</tr>
+<tr>
+<td>$N_\uparrow = 1$</td>
+<td>$\{1, 2, 4, 8\}$</td>
+<td>4</td>
+</tr>
+<tr>
+<td>$N_\uparrow = 2$</td>
+<td>$\{3, 5, 6, 9, 10, 12\}$</td>
+<td>6</td>
+</tr>
+<tr>
+<td>$N_\uparrow = 3$</td>
+<td>$\{7, 11, 13, 14\}$</td>
+<td>4</td>
+</tr>
+<tr>
+<td>$N_\uparrow = 4$</td>
+<td>$\{15\}$</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>和为 16 ✓。一般地 $\sum_{i=0}^{N}\binom{N}{i} = 2^N$——<strong>这不是巧合，而是”分桶”的必然结果</strong>：所有桶加起来就是原来的 $2^N$ 个基矢（这就是二项式定理）。所以一般有 $N+1$ 个子空间。</p>
+<p><strong>“局部下标从 0 重新编号”是这一节的技术核心</strong>。以 $N_\uparrow=2$ 为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">全局基矢标号：   3      5      6      9     10     12</span><br><span class="line">局部下标：       0      1      2      3      4      5      ← 扇区内的新编号</span><br></pre></td></tr></table></figure>
+<p>这样<strong>每个扇区都是一个独立的、维数小得多的 ED 问题</strong>。$N=4$ 时最大扇区是 $\binom42 = 6$，比 $2^4=16$ 小；$N=40$ 时最大扇区是 $\binom{40}{20} = 1.38\times10^{11}$，比 $2^{40}\approx1.1\times10^{12}$ 小约 8 倍——<strong>加速比就是</strong>：</p>
+<script type="math/tex; mode=display">
+\frac{2^N}{\binom{N}{N/2}} \approx \sqrt{\frac{\pi N}{2}} \qquad (N=40:\ \approx 7.9)</script><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 左：4 格点按 N_up 分桶（就是讲义第 17 页那张表）</span></span><br><span class="line">sectors = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span> ** <span class="number">4</span>):</span><br><span class="line">    sectors.setdefault(PopCntBit(n), []).append(n)</span><br><span class="line">fig, (a1, a2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">12.5</span>, <span class="number">4.4</span>))</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">sorted</span>(sectors):</span><br><span class="line">    a1.bar([k], [<span class="built_in">len</span>(sectors[k])], color=plt.get_cmap(<span class="string">&quot;viridis&quot;</span>)(k / <span class="number">4</span>), edgecolor=<span class="string">&quot;k&quot;</span>)</span><br><span class="line">    a1.text(k, <span class="built_in">len</span>(sectors[k]) + <span class="number">.15</span>, <span class="string">&quot;$N_\\uparrow=%d$\n%s&quot;</span></span><br><span class="line">            % (k, <span class="built_in">str</span>(sectors[k]).replace(<span class="string">&quot; &quot;</span>, <span class="string">&quot;&quot;</span>)), ha=<span class="string">&quot;center&quot;</span>, fontsize=<span class="number">7.6</span>)</span><br><span class="line">a1.set_xlabel(<span class="string">&quot;$N_\\uparrow$ (sector label)&quot;</span>); a1.set_ylim(<span class="number">0</span>, <span class="number">10.5</span>)</span><br><span class="line">a1.set_title(<span class="string">r&quot;$\sum_k\binom&#123;4&#125;&#123;k&#125;=2^4=16$&quot;</span>, fontsize=<span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 右：最大扇区 vs 全空间，加速比 sqrt(pi N / 2)</span></span><br><span class="line">Ns_a = np.arange(<span class="number">4</span>, <span class="number">41</span>, <span class="number">2</span>)</span><br><span class="line">a2.plot(Ns_a, <span class="number">2.0</span> ** Ns_a, <span class="string">&quot;s--&quot;</span>, color=<span class="string">&quot;#c0c0c0&quot;</span>, label=<span class="string">r&quot;full space $2^N$&quot;</span>)</span><br><span class="line">a2.plot(Ns_a, [comb(<span class="built_in">int</span>(n), <span class="built_in">int</span>(n) // <span class="number">2</span>) <span class="keyword">for</span> n <span class="keyword">in</span> Ns_a], <span class="string">&quot;o-&quot;</span>,</span><br><span class="line">        color=<span class="string">&quot;#1f77b4&quot;</span>, label=<span class="string">r&quot;largest sector $\binom&#123;N&#125;&#123;N/2&#125;$&quot;</span>)</span><br><span class="line">a2.set_yscale(<span class="string">&quot;log&quot;</span>); a2.legend(fontsize=<span class="number">9</span>); a2.grid(alpha=<span class="number">.3</span>)</span><br><span class="line">a3 = a2.twinx()</span><br><span class="line">a3.plot(Ns_a, np.sqrt(np.pi * Ns_a / <span class="number">2</span>), <span class="string">&quot;^:&quot;</span>, color=<span class="string">&quot;#d62728&quot;</span>, label=<span class="string">r&quot;speedup $\sqrt&#123;\pi N/2&#125;$&quot;</span>)</span><br><span class="line">a3.set_ylim(<span class="number">2.2</span>, <span class="number">12</span>)</span><br><span class="line">a2.set_title(<span class="string">r&quot;$U(1)$ buys $\sqrt&#123;\pi N/2&#125;$ -- polynomial, not exponential&quot;</span>, fontsize=<span class="number">11</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_u1_sectors.png&quot;</span>, dpi=<span class="number">190</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_u1_sectors.png" alt="U(1) 扇区划分与加速比"></p>
+<p><strong>读图</strong>：</p>
+<ul>
+<li><strong>左</strong>：五个桶的大小正好是二项式系数 $1,4,6,4,1$。$N_\uparrow=2$ 那个桶最大（6 个态），<strong>它就是你要对角化的那个小问题</strong>。桶里括号中的数字是全局基矢标号，桶内要重新编号 $0\sim5$。</li>
+<li><strong>右</strong>：两条线在对数坐标下<strong>几乎平行</strong>——因为加速比是常数因子而不是指数。红三角给出这个因子：$N=40$ 时约 7.9 倍。</li>
+</ul>
+<p><strong>一个必须记住的清醒判断</strong>：$\sqrt{\pi N/2}$ 是<strong>多项式</strong>收益，$N=40$ 也只有 8 倍。<strong>它救不了指数墙</strong>。它之所以重要，是因为它是”免费”的（只要求 $S^z$ 守恒，不损失精度），而且<strong>在它之上还能叠</strong>平移（$\times N$）和点群（$\times4$）——$40$ 格点方格子上 $8\times40\times4\approx1280$ 倍，这才是那几个百亿维数能被算出来的真正原因。</p>
+<p>实现要点（三步）：</p>
+<ol>
+<li>生成全部 $2^N$ 个基矢，按 <code>PopCntBit(i)</code> 分桶；</li>
+<li>每个桶内部按<strong>整数升序</strong>排序（这样局部下标就是”桶内秩”）；</li>
+<li>建一个<strong>查找表</strong>：给定全局整数 $i$，返回它在所属扇区里的局部下标。</li>
+</ol>
+<blockquote>
+<p><strong>易错</strong>：”$\uparrow$ 的个数”与 $S^z_{tot}$ 的关系是 $S^z_{tot} = N_\uparrow - N/2$。所以 $N_\uparrow$ 扇区也常被叫做”$S^z$ 扇区”，编号方式有两种（$N_\uparrow$ 或 $S^z$），看代码里怎么定义。</p>
+<p><strong>易错</strong>：每个扇区的维数 $\binom{N}{N_\uparrow}$ 是”<strong>基矢个数</strong>“，不是”矩阵大小”；若按稠密存，矩阵大小是它的平方。</p>
+<p><strong>易错（什么时候能分桶）</strong>：只有 $S^z$ 守恒的模型才能这么分桶。加轴向磁场 $h\sum_iS^z_i$ <strong>仍然可以</strong>（磁场只改变对角元，不改变扇区）；但加<strong>横场</strong> $h\sum_iS^x_i$ 就不行了，因为 $S^x$ 不守恒 $S^z$——第一讲的横场 Ising 模型就是这种情况，它的 $U(1)$ 扇区划分要靠费米子变换（Jordan–Wigner）之后才恢复。</p>
+</blockquote>
+<h2><span id="lin-表两次内存读取">Lin 表：两次内存读取</span></h2><p><strong>问题是什么？</strong> 在 ED 里你会反复问同一个问题：<strong>“给定基矢的整数 $i$，它在当前扇区里排第几号（局部下标）？”</strong> 例如非对角元 <code>(row, col)</code> 里的 <code>row</code> 是一个整数，但你构造稀疏矩阵时需要的是它在扇区内的行号。</p>
+<p>朴素做法是开一个长度 $2^N$ 的查找数组：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = -np.ones(<span class="number">2</span> ** N, dtype=<span class="built_in">int</span>)     <span class="comment"># -1 表示不在这个扇区</span></span><br><span class="line"><span class="keyword">for</span> k, i <span class="keyword">in</span> <span class="built_in">enumerate</span>(basis):</span><br><span class="line">    index[i] = k</span><br></pre></td></tr></table></figure>
+<p>对 $N\le24$ 没问题（$2^{24} = 1.6\times10^7$ 个整数，约 128 MB）；但 $N=40$ 时 $2^{40}$ 个整数要 <strong>8 TB</strong>，内存就爆了。</p>
+<p><strong>Lin 表</strong>（H. Q. Lin, <em>Phys. Rev. B</em> <strong>42</strong>, 6561 (1990)）的想法：既然基矢本身是 $N$ 个比特，把它<strong>切成两半</strong>（各 $N/2$ 位），分别记为配置 A 和配置 B。那么”查找”就变成</p>
+<script type="math/tex; mode=display">
+\boxed{\;\text{局部下标} = J_a(I_a) + J_b(I_b)\;}</script><p>其中 $J_a$、$J_b$ 是<strong>两张小表</strong>（各约 $2^{N/2}$ 项）。<strong>两次内存读取就得到答案</strong>，而且表的大小是 $O(2^{N/2})$ 而不是 $O(2^N)$——对 $N=40$，$2^{20}$ 项的表格只要 <strong>4 MB</strong>。这就是”time and memory efficient”的含义。</p>
+<h2><span id="一个完整的例子6-格点-3-上-3-下">一个完整的例子：6 格点 3 上 3 下</span></h2><p>把格点切成 A（前 3 个）和 B（后 3 个），于是 $N_\uparrow = N^A_\uparrow + N^B_\uparrow$。扇区总维数是 $\binom63 = 20$。</p>
+<p><strong>表 $J_a(I_a)$：A 段内部的名次。</strong> 把 A 的 8 种配置按”$\uparrow$ 的个数”分组，组内按整数升序排名，<strong>名次从 1 开始</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$I_a$</th>
+<th>配置 A</th>
+<th>$J_a$</th>
+<th>$\uparrow$ 数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>111</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>011</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>010</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>000</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>表 $J_b(I_b)$：B 段之前的”累积偏移”。</strong> 它等于”在 $I_b$ 之前的所有 B 配置，各自能配多少个 A 配置”的总和：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$I_b$</th>
+<th>配置 B</th>
+<th>$\uparrow$ 数</th>
+<th>需配 $\uparrow$ 数</th>
+<th>可配 A 配置数 $=\binom{3}{3-n_b}$</th>
+<th>$J_b$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>000</td>
+<td>0</td>
+<td>3</td>
+<td>$\binom33 = 1$</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>001</td>
+<td>1</td>
+<td>2</td>
+<td>$\binom32 = 3$</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>010</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<td>3</td>
+<td>011</td>
+<td>2</td>
+<td>1</td>
+<td>$\binom31 = 3$</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>13</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>16</td>
+</tr>
+<tr>
+<td>7</td>
+<td>111</td>
+<td>3</td>
+<td>0</td>
+<td>$\binom30 = 1$</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>于是 $J = J_a + J_b$ 给出 $1\sim20$ 的全局下标。这正是幻灯片上那四张表的来源（行是 A 配置、列是 B 配置，每张表只对应一种 $N^A_\uparrow$）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>B=000</th>
+<th>B=001</th>
+<th>B=010</th>
+<th>B=100</th>
+<th>B=111</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A=111</strong></td>
+<td>1 = 1+0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>A=011</strong></td>
+<td></td>
+<td>2 = 1+1</td>
+<td>5 = 1+4</td>
+<td>8 = 1+7</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>A=101</strong></td>
+<td></td>
+<td>3 = 2+1</td>
+<td>6 = 2+4</td>
+<td>9 = 2+7</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>A=110</strong></td>
+<td></td>
+<td>4 = 3+1</td>
+<td>7 = 3+4</td>
+<td>10 = 3+7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>完整 20 行（与 Lin 论文 Table II 逐项一致，已数值验证）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$J$</th>
+<th>A</th>
+<th>$I_a$</th>
+<th>$J_a$</th>
+<th>B</th>
+<th>$I_b$</th>
+<th>$J_b$</th>
+<th></th>
+<th>$J$</th>
+<th>A</th>
+<th>$I_a$</th>
+<th>$J_a$</th>
+<th>B</th>
+<th>$I_b$</th>
+<th>$J_b$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>111</td>
+<td>7</td>
+<td>1</td>
+<td>000</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>11</td>
+<td>011</td>
+<td>3</td>
+<td>1</td>
+<td>100</td>
+<td>4</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>011</td>
+<td>3</td>
+<td>1</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>12</td>
+<td>101</td>
+<td>5</td>
+<td>2</td>
+<td>100</td>
+<td>4</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>101</td>
+<td>5</td>
+<td>2</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>13</td>
+<td>110</td>
+<td>6</td>
+<td>3</td>
+<td>100</td>
+<td>4</td>
+<td>10</td>
+</tr>
+<tr>
+<td>4</td>
+<td>110</td>
+<td>6</td>
+<td>3</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>14</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+<td>101</td>
+<td>5</td>
+<td>13</td>
+</tr>
+<tr>
+<td>5</td>
+<td>011</td>
+<td>3</td>
+<td>1</td>
+<td>010</td>
+<td>2</td>
+<td>4</td>
+<td></td>
+<td>15</td>
+<td>010</td>
+<td>2</td>
+<td>2</td>
+<td>101</td>
+<td>5</td>
+<td>13</td>
+</tr>
+<tr>
+<td>6</td>
+<td>101</td>
+<td>5</td>
+<td>2</td>
+<td>010</td>
+<td>2</td>
+<td>4</td>
+<td></td>
+<td>16</td>
+<td>100</td>
+<td>4</td>
+<td>3</td>
+<td>101</td>
+<td>5</td>
+<td>13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>110</td>
+<td>6</td>
+<td>3</td>
+<td>010</td>
+<td>2</td>
+<td>4</td>
+<td></td>
+<td>17</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+<td>110</td>
+<td>6</td>
+<td>16</td>
+</tr>
+<tr>
+<td>8</td>
+<td>001</td>
+<td>1</td>
+<td>1</td>
+<td>011</td>
+<td>3</td>
+<td>7</td>
+<td></td>
+<td>18</td>
+<td>010</td>
+<td>2</td>
+<td>2</td>
+<td>110</td>
+<td>6</td>
+<td>16</td>
+</tr>
+<tr>
+<td>9</td>
+<td>010</td>
+<td>2</td>
+<td>2</td>
+<td>011</td>
+<td>3</td>
+<td>7</td>
+<td></td>
+<td>19</td>
+<td>100</td>
+<td>4</td>
+<td>3</td>
+<td>110</td>
+<td>6</td>
+<td>16</td>
+</tr>
+<tr>
+<td>10</td>
+<td>100</td>
+<td>4</td>
+<td>3</td>
+<td>011</td>
+<td>3</td>
+<td>7</td>
+<td></td>
+<td>20</td>
+<td>000</td>
+<td>0</td>
+<td>1</td>
+<td>111</td>
+<td>7</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>结构一目了然</strong>：排序是外层按 $I_b$ 升序、内层按 $I_a$ 升序；每个 $I_b$ 块的大小 $=\binom{3}{3-n^B_\uparrow}$（能配上它的 A 配置数，即从前 3 个 A 位里选 $3-n^B_\uparrow$ 个放 $\uparrow$）。幻灯片把 $J=2,3,4$ 标成粉色、$J=11,12,13$ 标成蓝色——这两组正好是”同一个 B 配置（分别是 001 和 100）配三个 A 配置”。</p>
+<p><strong>怎么用</strong>：给定一个 6 位基矢整数 $i$：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Ia = PickBit(i, <span class="number">0</span>, <span class="number">3</span>)      <span class="comment"># 低 3 位 = 配置 A</span></span><br><span class="line">Ib = PickBit(i, <span class="number">3</span>, <span class="number">3</span>)      <span class="comment"># 高 3 位 = 配置 B</span></span><br><span class="line">J = Ja[Ia] + Jb[Ib]        <span class="comment"># 两次内存读取 -&gt; 扇区内下标（1..20）</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">NA = <span class="number">3</span>                                   <span class="comment"># N = 6, N_up = 3</span></span><br><span class="line">Ja = &#123;&#125;                                  <span class="comment"># A 段内的名次（从 1 开始）</span></span><br><span class="line"><span class="keyword">for</span> na <span class="keyword">in</span> <span class="built_in">range</span>(NA + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> r, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">sorted</span>(c <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>) <span class="keyword">if</span> <span class="built_in">bin</span>(c).count(<span class="string">&quot;1&quot;</span>) == na), <span class="number">1</span>):</span><br><span class="line">        Ja[c] = r</span><br><span class="line">Jb, off, order_b = &#123;&#125;, <span class="number">0</span>, []              <span class="comment"># B 段前的累积偏移（从 0 开始）</span></span><br><span class="line"><span class="keyword">for</span> nb <span class="keyword">in</span> <span class="built_in">range</span>(NA + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">sorted</span>(c <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>) <span class="keyword">if</span> <span class="built_in">bin</span>(c).count(<span class="string">&quot;1&quot;</span>) == nb):</span><br><span class="line">        Jb[c] = off; off += comb(NA, NA - nb); order_b.append(c)</span><br><span class="line"></span><br><span class="line">fig, (a1, a2) = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">12.5</span>, <span class="number">4.5</span>))</span><br><span class="line"><span class="keyword">for</span> x, c <span class="keyword">in</span> <span class="built_in">enumerate</span>(order_b):           <span class="comment"># 按&quot;建表顺序&quot;堆叠</span></span><br><span class="line">    nb = <span class="built_in">bin</span>(c).count(<span class="string">&quot;1&quot;</span>); h = comb(NA, NA - nb)</span><br><span class="line">    a1.bar(x, h, bottom=Jb[c], color=plt.get_cmap(<span class="string">&quot;Spectral&quot;</span>)(nb / NA), edgecolor=<span class="string">&quot;k&quot;</span>)</span><br><span class="line">    a1.text(x, Jb[c] + h / <span class="number">2</span>, <span class="built_in">format</span>(c, <span class="string">&quot;03b&quot;</span>) + <span class="string">&quot;\n$J_b$=%d&quot;</span> % Jb[c],</span><br><span class="line">            ha=<span class="string">&quot;center&quot;</span>, fontsize=<span class="number">7.6</span>)</span><br><span class="line">a1.set_ylabel(<span class="string">&quot;sector index $J$&quot;</span>); a1.set_ylim(-<span class="number">2.2</span>, <span class="number">22</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整个 J 表：行 = I_a，列 = I_b，格子里写 J</span></span><br><span class="line">M = np.full((<span class="number">8</span>, <span class="number">8</span>), np.nan)</span><br><span class="line"><span class="keyword">for</span> ia <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">    <span class="keyword">for</span> ib <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">bin</span>(ia).count(<span class="string">&quot;1&quot;</span>) + <span class="built_in">bin</span>(ib).count(<span class="string">&quot;1&quot;</span>) == <span class="number">3</span>:</span><br><span class="line">            M[ia][ib] = Ja[ia] + Jb[ib]</span><br><span class="line">a2.imshow(np.where(np.isnan(M), np.nan, M), cmap=<span class="string">&quot;viridis&quot;</span>, vmin=<span class="number">1</span>, vmax=<span class="number">20</span>,</span><br><span class="line">          origin=<span class="string">&quot;lower&quot;</span>, aspect=<span class="string">&quot;auto&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> ia <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">    <span class="keyword">for</span> ib <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">        txt = (<span class="string">&quot;%d&quot;</span> % M[ia][ib]) <span class="keyword">if</span> <span class="keyword">not</span> np.isnan(M[ia][ib]) <span class="keyword">else</span> <span class="string">&quot;-&quot;</span></span><br><span class="line">        a2.text(ib, ia, txt, ha=<span class="string">&quot;center&quot;</span>, fontsize=<span class="number">8.5</span>,</span><br><span class="line">                color=<span class="string">&quot;white&quot;</span> <span class="keyword">if</span> <span class="keyword">not</span> np.isnan(M[ia][ib]) <span class="keyword">else</span> <span class="string">&quot;#cccccc&quot;</span>)</span><br><span class="line">a2.set_xticks(<span class="built_in">range</span>(<span class="number">8</span>)); a2.set_xticklabels([<span class="built_in">format</span>(i, <span class="string">&quot;03b&quot;</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)], fontsize=<span class="number">9</span>)</span><br><span class="line">a2.set_yticks(<span class="built_in">range</span>(<span class="number">8</span>)); a2.set_yticklabels([<span class="built_in">format</span>(i, <span class="string">&quot;03b&quot;</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)], fontsize=<span class="number">9</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_lin_table.png&quot;</span>, dpi=<span class="number">190</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_lin_table.png" alt="Lin 表的块结构与 J 表"></p>
+<p><strong>右图这张 $8\times8$ 的表就是讲义第 19–20 页那四张小表的合并版</strong>：行是 $I_a$、列是 $I_b$、格子里是 $J$；短横线表示”这个组合凑不出 3 个 $\uparrow$，不合法”。可见 $J$ 从 1 排到 20，<strong>而且是按块整齐排列的</strong>——同一个 $I_b$ 的三个格子（$J=2,3,4$ 或 $11,12,13$）在图上正好并排，这就是讲义里被标成粉/蓝的那两组。</p>
+<p><strong>左图</strong>把”块”的来历画了出来：$J_b$ 就是<strong>前面所有块的大小累加</strong>，块的大小 $=\binom{3}{3-n^B_\uparrow}$。例如 $I_b=001$（含 1 个 $\uparrow$）要配 2 个 $\uparrow$ 的 A 段，所以块大小是 $\binom32=3$。</p>
+<p><strong>怎么用</strong>（$O(1)$ 的查找）：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Ia = PickBit(i, <span class="number">0</span>, <span class="number">3</span>)      <span class="comment"># 低 3 位</span></span><br><span class="line">Ib = PickBit(i, <span class="number">3</span>, <span class="number">3</span>)      <span class="comment"># 高 3 位</span></span><br><span class="line">J  = Ja[Ia] + Jb[Ib]       <span class="comment"># 两次内存读取</span></span><br></pre></td></tr></table></figure>
+<p>对照讲义 Table II 逐项检查：$J=1$ 对应 $(111,000)$、$J=20$ 对应 $(000,111)$、中间 $J=2,3,4$ 是 $I_b=001$ 的三连块——全部吻合。</p>
+<p><strong>为什么这样能”两次读取”？</strong> 因为 $J_a$ 只依赖 A 段（一张 $2^3=8$ 项的表），$J_b$ 只依赖 B 段（另一张 8 项的表）。表的总大小是 $2\times2^{N/2}$，而不是 $2^N$。</p>
+<blockquote>
+<p><strong>易错（最容易差 1 的地方）</strong>：<strong>$J_a$ 从 1 开始，$J_b$ 从 0 开始</strong>——这个”不对称”是故意的：$J_b$ 是”前面的块有多大”（偏移），$J_a$ 是”块内第几个”（名次），两者相加才是从 1 开始的名次。</p>
+<p><strong>易错（off-by-one）</strong>：论文用的是 <strong>1-based</strong> 下标（$J = 1,\dots,20$）；写代码时通常要减 1 变成 0-based。这是 Lin 表实现里最常见的 bug。</p>
+<p><strong>易错</strong>：四张表的行是 A 配置、列是 B 配置（或反之），<strong>每张表只对应一种 $N^A_\uparrow$ 的取值</strong>。不要试图用一张表覆盖所有情况。</p>
+<p><strong>性能</strong>：Lin 表只解决”查找”这一件事。它不改变矩阵的稀疏性，也不改变对角化的复杂度；它省的是<strong>每次矩阵-矢量乘法里查表的时间</strong>。在 $10^9$ 维的问题里，这一项是主要开销。</p>
+<p><strong>优化</strong>：A/B 的切分点不一定要在正中间。最优切分要平衡两张表的大小和查找次数，常见做法是让 $2^{N_A}\approx2^{N_B}$（即 $N_A\approx N_B$）。</p>
+<p><strong>推广</strong>（幻灯片底部留的思考题”how about higher spins? bosons?”）：</p>
+<ul>
+<li><strong>高自旋</strong>（$S=1,3/2,\dots$）：每个格点有 $2S+1$ 个态，不再是”一位比特”，需要多个比特或”混合进制”表示；$J_a$、$J_b$ 的构造要推广为”按每段的占据数分布分块”。思路一样，但表要多几维。</li>
+<li><strong>玻色子</strong>（Holstein 模型的声子）：每个格点的声子数原则上无上限，必须截断到 $n_{\max}$；”粒子数守恒”仍然是 $U(1)$，所以分块思路仍然适用，但”每段能配多少种 A 配置”要重新算。</li>
+</ul>
+</blockquote>
+<h1><span id="费米子系统">费米子系统</span></h1><h2><span id="hubbard-模型与算符顺序约定">Hubbard 模型与算符顺序约定</span></h2><script type="math/tex; mode=display">
+\hat H = -t\sum_{\langle i,j\rangle,\sigma}c^\dagger_{i\sigma}c_{j\sigma} + U\sum_i n_{i\uparrow}n_{i\downarrow}, \qquad n_{i,\sigma} = c^\dagger_{i\sigma}c_{i\sigma}</script><p>（第一讲已给；严格说还有 $-\mu\sum_{i\sigma}n_{i\sigma}$。）费米子算符满足<strong>反对易关系</strong>：</p>
+<script type="math/tex; mode=display">
+\{c_{i\sigma}, c^\dagger_{i'\sigma'}\} = \delta_{ii'}\delta_{\sigma\sigma'}, \qquad \{c^\dagger_{i\sigma},c^\dagger_{i'\sigma'}\} = \{c_{i\sigma}, c_{i'\sigma'}\} = 0</script><p><strong>为什么要”固定约定”？</strong> 因为反对易关系使得<strong>算符的顺序有物理意义</strong>：交换两个产生算符会多出一个 $-1$。为了在代码里唯一地确定这个符号，必须事先约定一个标准的算符顺序。本讲选的约定是：<strong>所有 $\uparrow$ 的产生算符放在 $\downarrow$ 的产生算符的左边</strong>，同一自旋内按格点编号升序。于是 $N=4$ 的例子可以写成</p>
+<script type="math/tex; mode=display">
+c^\dagger_{0\uparrow}c^\dagger_{2\uparrow}c^\dagger_{3\uparrow}c^\dagger_{1\downarrow}c^\dagger_{3\downarrow}|0\rangle</script><p>前三个是 $\uparrow$（格点 0, 2, 3），后两个是 $\downarrow$（格点 1, 3）。</p>
+<p><strong>比特布局</strong>：把整个 $2N$ 位整数分成两段——<strong>低 $N$ 位放 $\uparrow$，高 $N$ 位放 $\downarrow$</strong>：</p>
+<script type="math/tex; mode=display">
+n = n_\uparrow + 2^N n_\downarrow, \qquad n_\sigma = \sum_{i=0}^{N-1}\mathrm{occ}_{i,\sigma}\,2^i</script><p>验证幻灯片的例子：</p>
+<ul>
+<li>$\uparrow$ 在格点 $\{0,2,3\}$：$n_\uparrow = 2^0+2^2+2^3 = 1+4+8 = 13 = 1101_2$ ✓</li>
+<li>$\downarrow$ 在格点 $\{1,3\}$：$n_\downarrow = 2^1+2^3 = 2+8 = 10 = 1010_2$ ✓</li>
+<li>$n = 13 + 16\times10 = 13+160 = 173 = (10101101)_2$ ✓</li>
+</ul>
+<p><strong>这解释了幻灯片上”$\downarrow$ 写在左边、$\uparrow$ 写在右边”的排版</strong>：整数写成二进制时高位在左，而高 $N$ 位正是 $\downarrow$。</p>
+<blockquote>
+<p><strong>易错（最容易搞混的一对）</strong>：<strong>“算符串里 $\uparrow$ 在左”</strong> 和 <strong>“比特串里 $\downarrow$ 在左”</strong> 恰好相反，一个是符号约定、一个是整数编码，幻灯片刻意把两者并排展示。不要记混。</p>
+<p><strong>重要</strong>：Hubbard 模型有<strong>两个</strong> $U(1)$ 守恒量——$N_\uparrow$ 与 $N_\downarrow$ <strong>分别守恒</strong>（跃迁项 $c^\dagger_{i\sigma}c_{j\sigma}$ 保持 $\sigma$ 不变）。所以扇区数是 $(N+1)^2$，比自旋模型的 $N+1$ 多得多。<strong>这也解释了为什么 Hubbard 的 ED 只能做到 20–24 个格点</strong>（前面”规模极限”一节）。</p>
+</blockquote>
+<h2><span id="带符号的基矢操作">带符号的基矢操作</span></h2><p>这是本讲<strong>最容易写错</strong>的一页。核心思想只有一条：</p>
+<blockquote>
+<p><strong>在费米子基矢里插入或删除一个算符时，要数一数”它左边有几个占据的算符”，每有一个就乘一个 $-1$。</strong></p>
+</blockquote>
+<p>这条规则的来源是 <strong>Jordan–Wigner 变换</strong>（第一讲的二次量子化一节）：<strong>费米子算符 = 自旋算符 × 一条”符号弦”</strong>。</p>
+<p>$N$ 格点系统里”有用”的四条操作：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+c^\dagger_{i\uparrow}[\cdots 0_{i\uparrow}\cdots|0\rangle] &= (-1)^{\sum_{k<i}n_{k\uparrow}}[\cdots c^\dagger_{i\uparrow}\cdots|0\rangle] \\
+c_{i\uparrow}[\cdots c^\dagger_{i\uparrow}\cdots|0\rangle] &= (-1)^{\sum_{k<i}n_{k\uparrow}}[\cdots 0_{i\uparrow}\cdots|0\rangle] \\
+c^\dagger_{i\downarrow}[\cdots 0_{i\downarrow}\cdots|0\rangle] &= (-1)^{\sum_{k<i}n_{k\downarrow}+\sum_{k=0}^{N-1}n_{k\uparrow}}[\cdots c^\dagger_{i\downarrow}\cdots|0\rangle] \\
+c_{i\downarrow}[\cdots c^\dagger_{i\downarrow}\cdots|0\rangle] &= (-1)^{\sum_{k<i}n_{k\downarrow}+\sum_{k=0}^{N-1}n_{k\uparrow}}[\cdots 0_{i\downarrow}\cdots|0\rangle]
+\end{aligned}</script><p><strong>粉色方框突出的是 $\downarrow$ 情形里多出来的那一项 $\sum_{k=0}^{N-1}n_{k\uparrow}$。</strong> 逐条看：</p>
+<ul>
+<li><strong>$\uparrow$ 的插入/删除</strong>：只数 $\uparrow$ 的占据数。因为按约定所有 $\uparrow$ 都在最左边，插入/删除 $\uparrow$ 时只需要跨过它左边的 $\uparrow$。$c^\dagger_{i\uparrow}$ 插入到第 $i$ 位时，左边有 $\sum_{k&lt;i}n_{k\uparrow}$ 个 $\uparrow$，所以要乘 $(-1)^{\sum_{k&lt;i}n_{k\uparrow}}$。</li>
+<li><strong>$\downarrow$ 的插入/删除</strong>：除了跨过左边的 $\downarrow$，<strong>还要跨过全部的 $\uparrow$</strong>（因为 $\uparrow$ 全部在 $\downarrow$ 的左边），所以要多乘一个 $(-1)^{\sum_k n_{k\uparrow}}$。</li>
+</ul>
+<p>用比特语言说：</p>
+<script type="math/tex; mode=display">
+\text{符号} = (-1)^{\#\{\text{第 } i \text{ 位左边（不含）已占据的同自旋位}\}}\ (\uparrow), \qquad
+\text{符号} = (-1)^{\#\{\text{第 } i \text{ 位左边已占据的 }\downarrow\} + \#\{\text{全部已占据的 }\uparrow\}}\ (\downarrow)</script><p><strong>$\hat H$ 本身也可能带来额外符号</strong>。幻灯片给了一个很好的例子：</p>
+<script type="math/tex; mode=display">
+[c^\dagger_{3\downarrow}c_{0\downarrow}]\,[c^\dagger_{0\downarrow}c^\dagger_{1\downarrow}|0\rangle]
+= c^\dagger_{3\downarrow}c^\dagger_{1\downarrow}|0\rangle = -\,c^\dagger_{1\downarrow}c^\dagger_{3\downarrow}|0\rangle</script><p>第一个等号是把 $c_{0\downarrow}$ 作用在 $c^\dagger_{0\downarrow}|0\rangle$ 上（抵消，系数 1）；第二个等号是<strong>交换两个产生算符要出负号</strong>——这正是”标准顺序”约定的意义：<strong>只要你把算符重排成标准顺序，符号就自动对了。</strong></p>
+<blockquote>
+<p><strong>易错（最常见的症状）</strong>：忘记 $\downarrow$ 的那个额外因子 $\sum_k n_{k\uparrow}$。症状是：$\hat H$ 的本征值不对、或者不同扇区之间”看起来”不守恒。</p>
+<p><strong>怎么验证</strong>：用一个已知答案的小例子。比如 $2$ 格点 Hubbard 的 $U=0$ 极限——单粒子能级必须是单键的 $\pm t$；四格点环 $U=0$ 极限的单粒子能级必须是 $\{-2,0,0,+2\}$（每档 2 个自旋态）。任何符号错误都会立刻破坏它。</p>
+<p><strong>易错</strong>：”数左边有几个”里的”左边”是指<strong>格点编号更小</strong>（在标准顺序下），不是指”比特串里更靠左”。本讲约定：算符串顺序是 $\uparrow$ 在前、$\downarrow$ 在后；同一自旋内按格点编号升序。</p>
+<p><strong>性能</strong>：<code>PopCntBit</code> 在这里再次派上用场——$\sum_{k}n_{k\uparrow}$ 就是”$\uparrow$ 段整段的 popcount”，用一次 <code>PopCntBit(n &amp; ((1&lt;&lt;N)-1))</code> 就得到。</p>
+<p><strong>重要</strong>：<strong>符号必须在”每一次矩阵元计算”里都算一遍，不能只在构造基矢时算一次</strong>——因为符号依赖于具体的算符（哪个格点、哪个自旋）。</p>
+</blockquote>
+<h2><span id="单一全局比特串更稳的写法">单一全局比特串：更稳的写法</span></h2><p>上面那套”$\uparrow$ 在左、$\downarrow$ 在右 + 额外因子”的约定，正确但<strong>容易记错</strong>。实践中有一个更稳的写法：<strong>用一条全局的 $2N$ 位比特串表示全部自旋轨道</strong>，把轨道按全局编号排序。</p>
+<p>设自旋轨道编号 $p = i + N\sigma$（$\sigma=0$ 为 $\uparrow$，$1$ 为 $\downarrow$），即 bit $0\sim N-1$ 是各格点的 $\uparrow$、bit $N\sim2N-1$ 是各格点的 $\downarrow$。Fock 态按<strong>轨道编号递增</strong>填充，于是任何产生/湮灭算符携带的符号统一为</p>
+<script type="math/tex; mode=display">
+\boxed{\;(-1)^{\mathrm{popcount}\big(n \mathbin{\&} (2^p - 1)\big)}\;}</script><p>即”<strong>排在轨道 $p$ 前面的已占据轨道数的奇偶性</strong>“。代码就三行：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">create</span>(<span class="params">n, p</span>):        <span class="comment"># c_p^+ 作用在 |n&gt;，返回 (新态, 符号)</span></span><br><span class="line">    <span class="keyword">if</span> (n &gt;&gt; p) &amp; <span class="number">1</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> (n | (<span class="number">1</span> &lt;&lt; p)), (-<span class="number">1</span>) ** popcount(n &amp; ((<span class="number">1</span> &lt;&lt; p) - <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">annihilate</span>(<span class="params">n, p</span>):    <span class="comment"># c_p 作用在 |n&gt;，返回 (新态, 符号)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> ((n &gt;&gt; p) &amp; <span class="number">1</span>): <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> (n &amp; ~(<span class="number">1</span> &lt;&lt; p)), (-<span class="number">1</span>) ** popcount(n &amp; ((<span class="number">1</span> &lt;&lt; p) - <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>为什么这个写法更好？</strong> 因为<strong>跨自旋的相对符号由同一个公式自动给出</strong>，不需要手工在张量积里拆分 $S^+S^-$ 时拆正负号——而那正是最容易出错的地方。U(1) 扇区也直接由 <code>popcount(n &amp; 0x3F)</code> 和 <code>popcount(n &gt;&gt; 6)</code> 给出。</p>
+<blockquote>
+<p>两个约定<strong>在数学上完全等价</strong>（都能给出正确的 $\hat H$），但会给出<strong>相差整体符号或扇区内重排</strong>的本征矢。<strong>同一份代码里必须固定用一种</strong>，混用会导致关联函数（$\langle S_i\cdot S_j\rangle$ 这类需要 $S^+S^-$ 的量）符号错乱。</p>
+<p>本课程的作业（$2\times3$ 梯子上的扩展 Hubbard 模型）用的就是这个”单一全局比特串”方案。</p>
+</blockquote>
+<h1><span id="求解与测量">求解与测量</span></h1><h2><span id="怎么把矩阵解出来完全对角化-vs-迭代对角化">怎么把矩阵解出来：完全对角化 vs 迭代对角化</span></h2><p>拿到 $\hat H$ 的 $(row,col,value)$ 三元组之后，剩下的问题就是<strong>线性代数</strong>。这里只讲”选哪种、代价多少”；具体的迭代算法（Lanczos、变分法、格林函数）是第 1 章下半场（ED II）的内容，见下一讲 <a href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a>。</p>
+<p><strong>完全对角化</strong>：求出矩阵全部 $D$ 个本征值与全部本征矢。算法是 Householder 三对角化 + 隐式 QR 迭代，代价<strong>时间 $O(D^3)$、内存 $O(D^2)$</strong>（因为要存下 $D\times D$ 的本征矢矩阵）。</p>
+<p><strong>迭代对角化</strong>：只求少数几个本征值。核心是”矩阵-矢量乘法 + 子空间迭代”，<strong>不需要矩阵元，只需要 $\hat H$ 对矢量的作用</strong>——这正是前面”程序结构”里 <code>needs only operations</code> 的含义。迭代次数通常只有几十到几百，每次矩阵-矢量乘法 $O(\mathrm{nnz})$，总时间大致 $O(D)$ 到 $O(D^2)$，而<strong>内存降到 $O(D)$</strong>。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>完全对角化</th>
+<th>迭代对角化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td>$O(D^3)$</td>
+<td>$O(D)\sim O(D^2)$</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>$O(D^2)$</td>
+<td>$O(D)$</td>
+</tr>
+<tr>
+<td>得到什么</td>
+<td>全部 $D$ 对 $(\{E_n\},\{\lvert\psi_n\rangle\})$</td>
+<td>指定的少数几个（如最低 $k$ 个）</td>
+</tr>
+<tr>
+<td>适用</td>
+<td>$D\lesssim10^4$</td>
+<td>$D\lesssim10^{9}$（配合对称性与稀疏性）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>具体的内存账</strong>：$D=2^{12}=4096$ 时，本征矢矩阵要 $4096^2 = 1.7\times10^7$ 个复数（双精度 16 字节）约 <strong>270 MB</strong>，时间是秒级。$D=2^{16}=65536$ 时，本征矢矩阵要 $65536^2\times16\ \mathrm{B} = \mathbf{68\ GB}$——内存就爆了。所以”完全”对角化只适用于小系统。</p>
+<p><strong>什么时候需要全谱？</strong> 这决定了前面”完备性”那条理由的实际价值：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>你想算什么</th>
+<th>需要全谱吗</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基态能量、基态关联函数</td>
+<td>✗ 只要最低几个本征对</td>
+</tr>
+<tr>
+<td>有限温度、态密度、力学量比热</td>
+<td><strong>✓ 必须全谱</strong>（$Z$ 要遍历所有本征值）</td>
+</tr>
+<tr>
+<td>动力学谱函数 $A(\mathbf k,\omega)$</td>
+<td><strong>✓ 全谱</strong>（除非只算低能部分）</td>
+</tr>
+<tr>
+<td>实时演化 $e^{-i\hat Ht}$（谱分解）</td>
+<td><strong>✓ 全谱</strong>（或用 Krylov 近似）</td>
+</tr>
+<tr>
+<td>熵、自由能</td>
+<td><strong>✓ 全谱</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>matrix-free：只保留 $\hat H v$ 这个操作</strong>。连稀疏矩阵都不存，只写一个 <code>apply_H(v) -&gt; H @ v</code>。内存只要 $O(D)$（几个矢量），代价是每次”作用”都现场算一遍。这在 $D=10^9$ 时是<strong>生死之别</strong>，而且允许把 $\hat H$ 按对称性扇区分块作用、或用矩阵乘积算符（MPO）的形式给出——这是 DMRG 与 ED 的接口。</p>
+<blockquote>
+<p><strong>易错（matrix-free 最大的风险）</strong>：没有矩阵可以检查厄米性。如果 <code>apply_H</code> 写错了，求解器会给出<strong>看起来正常但实际错误</strong>的结果。<strong>对策</strong>：先在小系统上用稀疏/稠密版本验证同一个 <code>apply_H</code> 是对的（对 $\hat H v$ 逐元素比对），再上大系统。</p>
+<p><strong>易错</strong>：迭代求基态要用<strong>代数最小</strong>（smallest algebraic）作为收敛判据。用”最小模”（smallest magnitude）对最小本征值收敛极慢甚至失败——这是初学者最常见的性能坑。</p>
+<p><strong>易错</strong>：迭代算法默认用<strong>随机初值</strong>，所以每次运行结果会有 $10^{-12}$ 量级的微小差异。要完全可复现，给它一个固定的初始矢量。</p>
+</blockquote>
+<h2><span id="有限温度白送的热平均">有限温度：白送的热平均</span></h2><p>有限温度在 ED 里是”<strong>白送</strong>“的——因为你已经拿到了全部本征值与本征矢：</p>
+<script type="math/tex; mode=display">
+\langle O\rangle = \frac{\sum_n e^{-\beta E_n}\langle\psi_n|O|\psi_n\rangle}{\sum_n e^{-\beta E_n}}, \qquad O_n = \langle\psi_n|O|\psi_n\rangle</script><p><strong>这是 ED 相对于 DMRG/QMC 的一大优势</strong>：DMRG 只能给低能态，QMC 在有限温度要做虚时间演化，而 ED 只要谱在手，<strong>任意温度、任意观测量都是几行代码</strong>。</p>
+<h2><span id="例子4-格点环-hubbard-的填充曲线">例子：4 格点环 Hubbard 的填充曲线</span></h2><p>用</p>
+<script type="math/tex; mode=display">
+\hat H = -J\sum_{\langle ij\rangle,\sigma}\big(c^\dagger_{i\sigma}c_{j\sigma}+\mathrm{h.c.}\big) + U\sum_i n_{i\uparrow}n_{i\downarrow} - \mu\sum_{i,\sigma}n_{i,\sigma}</script><p>（注意这里的 $J$ 是<strong>跃迁振幅</strong>，一般文献写成 $t$——<strong>同一个字母在前面”哈密顿量矩阵的构造”一节是 Heisenberg 交换、在这一节是 Hubbard 跃迁</strong>，看公式里有没有 $c^\dagger c$ 就能区分。）</p>
+<p>电荷密度：</p>
+<script type="math/tex; mode=display">
+\langle n\rangle = \frac1N\sum_{i=1}^{N}\big(\langle n_{i\uparrow}\rangle + \langle n_{i\downarrow}\rangle\big)</script><p><strong>$U=0$ 时阶梯为什么出现在 $\mu = -2, 0, +2$？</strong> 4 格点环的紧束缚能级是 $\varepsilon_k = -2J\cos(2\pi k/4)$，$k=0,1,2,3$，</p>
+<script type="math/tex; mode=display">
+\Rightarrow\quad \varepsilon = -2,\ 0,\ 0,\ +2</script><p>（实测确认）。每个能级带 2 个自旋自由度，所以：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$\mu$ 区间</th>
+<th>填充的电子数</th>
+<th>$\langle n\rangle$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\mu &lt; -2$</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>$-2 &lt; \mu &lt; 0$</td>
+<td>2（$k=0$ 能级）</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>$0 &lt; \mu &lt; 2$</td>
+<td>$2+4 = 6$（加上简并能级）</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>$\mu &gt; 2$</td>
+<td>8</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>这就是幻灯片上那个三级阶梯，跳跃位置正好是能带边 $\pm2$ 和简并能级 0</strong>（已数值验证）。右侧的能带示意图画的就是这个图像。</p>
+<p><strong>$U$ 增大后发生了什么？</strong> 库仑排斥把能级推开、产生关联能隙。数值验证（4 格点环，$T\to0$，$J=1$）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$U$</th>
+<th>$\langle n\rangle = 1$（半满）的平台范围</th>
+<th>平台宽度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>（无平台）</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$\mu\in[0.5,\ 1.5]$</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$\mu\in[0.75,\ 3.25]$</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>10</td>
+<td>$\mu\in[1.25,\ 5.0]$</td>
+<td>3.75</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>平台宽度随 $U$ 单调增长、趋向带宽 $W = 4J = 4$（有限尺寸效应）。<strong>半满时的 Mott 平台就是第一讲讲的 Mott 绝缘体：$\mu$ 在能隙里变化时填充不变。</strong> 对应的电荷能隙（固定 $N$ 扇区的精确结果）：</p>
+<script type="math/tex; mode=display">
+\Delta_c = E_0(N{+}1) + E_0(N{-}1) - 2E_0(N)</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$U$</th>
+<th>$E_0(3)$</th>
+<th>$E_0(4)$</th>
+<th>$E_0(5)$</th>
+<th>$\Delta_c$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>$-4.0000$</td>
+<td>$-4.0000$</td>
+<td>$-4.0000$</td>
+<td><strong>0.0000</strong>（金属）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$-3.2093$</td>
+<td>$-2.8284$</td>
+<td>$-1.2093$</td>
+<td>1.2384</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$-2.7522$</td>
+<td>$-2.1027$</td>
+<td>$+1.2478$</td>
+<td>2.7012</td>
+</tr>
+<tr>
+<td>8</td>
+<td>$-2.3246$</td>
+<td>$-1.3202$</td>
+<td>$+5.6754$</td>
+<td>5.9914</td>
+</tr>
+<tr>
+<td>12</td>
+<td>$-2.1407$</td>
+<td>$-0.9391$</td>
+<td>$+9.8593$</td>
+<td>9.5967</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>$U=0$ 时能隙<strong>严格为零</strong>（4 格点环半满确实是金属，费米面落在 $\varepsilon=0$ 的简并能级上），$U$ 一开就出现正能隙并趋于 $U$。<strong>这在 4 个格点上就完整复现了第一讲的”Mott 绝缘体”物理。</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">NS, bonds = <span class="number">4</span>, [(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">2</span>), (<span class="number">2</span>, <span class="number">3</span>), (<span class="number">3</span>, <span class="number">0</span>)]</span><br><span class="line">Nop = np.array([<span class="built_in">bin</span>(n).count(<span class="string">&quot;1&quot;</span>) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; (<span class="number">2</span> * NS))], <span class="built_in">float</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">thermal</span>(<span class="params">mu, U, T</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;&lt;n&gt; = sum_n p_n &lt;n&gt;_n，其中 &lt;n&gt;_n 要用本征矢算（不能直接当本征值用）。&quot;&quot;&quot;</span></span><br><span class="line">    w, v = np.linalg.eigh(make_hubbard(NS, bonds, <span class="number">1.0</span>, U, mu))</span><br><span class="line">    p = np.exp(-(w - w[<span class="number">0</span>]) / T); p /= p.<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">float</span>(p @ ((v ** <span class="number">2</span>).T @ Nop)) / NS, w</span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots(<span class="number">4</span>, <span class="number">1</span>, figsize=(<span class="number">12.5</span>, <span class="number">8.6</span>), sharex=<span class="literal">True</span>)</span><br><span class="line">mus = np.arange(-<span class="number">4</span>, <span class="number">5.001</span>, <span class="number">0.02</span>)</span><br><span class="line"><span class="keyword">for</span> k, U <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">0.0</span>, <span class="number">2.0</span>, <span class="number">4.0</span>]):</span><br><span class="line">    <span class="keyword">for</span> T, ls <span class="keyword">in</span> [(<span class="number">0.02</span>, <span class="string">&quot;-&quot;</span>), (<span class="number">0.1</span>, <span class="string">&quot;--&quot;</span>)]:</span><br><span class="line">        axs[k].plot(mus, [thermal(<span class="built_in">float</span>(m), U, T)[<span class="number">0</span>] <span class="keyword">for</span> m <span class="keyword">in</span> mus], ls,</span><br><span class="line">                    color=<span class="string">&quot;#1f77b4&quot;</span> <span class="keyword">if</span> T &lt; <span class="number">.05</span> <span class="keyword">else</span> <span class="string">&quot;#7fb2e5&quot;</span>, lw=<span class="number">1.8</span>,</span><br><span class="line">                    label=<span class="string">&quot;$T=%g$&quot;</span> % T <span class="keyword">if</span> k == <span class="number">0</span> <span class="keyword">else</span> <span class="literal">None</span>)</span><br><span class="line">    axs[k].axhline(<span class="number">1</span>, color=<span class="string">&quot;#d62728&quot;</span>, ls=<span class="string">&quot;:&quot;</span>); axs[k].set_ylim(-<span class="number">.05</span>, <span class="number">2.08</span>)</span><br><span class="line">    axs[k].set_ylabel(<span class="string">r&quot;$\langle n\rangle$&quot;</span>); axs[k].text(-<span class="number">3.9</span>, <span class="number">1.93</span>, <span class="string">&quot;$U=%g$&quot;</span> % U)</span><br><span class="line">    <span class="keyword">if</span> U &gt; <span class="number">0</span>:                                        <span class="comment"># 标出 Mott 平台</span></span><br><span class="line">        pl = [m <span class="keyword">for</span> m <span class="keyword">in</span> mus <span class="keyword">if</span> <span class="built_in">abs</span>(thermal(<span class="built_in">float</span>(m), U, <span class="number">.02</span>)[<span class="number">0</span>] - <span class="number">1</span>) &lt; <span class="number">1e-3</span>]</span><br><span class="line">        axs[k].axvspan(<span class="built_in">min</span>(pl), <span class="built_in">max</span>(pl), color=<span class="string">&quot;#2ca02c&quot;</span>, alpha=<span class="number">.13</span>)</span><br><span class="line">        axs[k].text(np.mean([<span class="built_in">min</span>(pl), <span class="built_in">max</span>(pl)]), <span class="number">.12</span>, <span class="string">&quot;Mott plateau&quot;</span>, color=<span class="string">&quot;#2ca02c&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最下面：电荷能隙随 U 的变化（固定 N 扇区）</span></span><br><span class="line">Us = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>], <span class="built_in">float</span>); gaps = []</span><br><span class="line"><span class="keyword">for</span> U <span class="keyword">in</span> Us:</span><br><span class="line">    H0 = make_hubbard(NS, bonds, <span class="number">1.0</span>, U, <span class="number">0.0</span>); eN = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(NS + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(NS + <span class="number">1</span>):</span><br><span class="line">            idx = [n <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; (<span class="number">2</span> * NS))</span><br><span class="line">                   <span class="keyword">if</span> <span class="built_in">bin</span>(n &amp; <span class="number">0xF</span>).count(<span class="string">&quot;1&quot;</span>) == a <span class="keyword">and</span> <span class="built_in">bin</span>(n &gt;&gt; <span class="number">4</span>).count(<span class="string">&quot;1&quot;</span>) == b]</span><br><span class="line">            eN[a + b] = <span class="built_in">min</span>(eN.get(a + b, <span class="number">1e9</span>),</span><br><span class="line">                            <span class="built_in">float</span>(np.linalg.eigvalsh(H0[np.ix_(idx, idx)])[<span class="number">0</span>]))</span><br><span class="line">    gaps.append(eN[<span class="number">5</span>] + eN[<span class="number">3</span>] - <span class="number">2</span> * eN[<span class="number">4</span>])</span><br><span class="line">axs[<span class="number">3</span>].plot(Us, gaps, <span class="string">&quot;o-&quot;</span>, color=<span class="string">&quot;#d62728&quot;</span>,</span><br><span class="line">            label=<span class="string">r&quot;$\Delta_c=E_0(5)+E_0(3)-2E_0(4)$&quot;</span>)</span><br><span class="line">axs[<span class="number">3</span>].plot(Us, Us, <span class="string">&quot;:&quot;</span>, color=<span class="string">&quot;#888888&quot;</span>, label=<span class="string">&quot;$y=U$&quot;</span>)</span><br><span class="line">axs[<span class="number">3</span>].set_xlabel(<span class="string">&quot;$U$&quot;</span>); axs[<span class="number">3</span>].legend(fontsize=<span class="number">8.5</span>); axs[<span class="number">3</span>].grid(alpha=<span class="number">.3</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_mu_n_chargegap.png&quot;</span>, dpi=<span class="number">185</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_mu_n_chargegap.png" alt="4 格点环 Hubbard 的填充曲线、Mott 平台与电荷能隙"></p>
+<p><strong>上面三幅</strong>就是讲义第 23 页那三张图（$U=0,2,4$），实线 $T=0.02$、虚线 $T=0.1$：</p>
+<ul>
+<li><strong>$U=0$</strong>：三级阶梯，跳跃点在 $\mu=-2,\ 0,\ +2$，平台高度 $0,\ 0.5,\ 1.5,\ 2$。这是<strong>能带论</strong>的答案：能级是 $-2,0,0,+2$，每个带 2 个自旋态。虚线（$T=0.1$）把阶梯抹圆——<strong>这就是”有没有能隙”的实验判据</strong>。</li>
+<li><strong>$U=2$</strong>：台阶变多、变平，半满处出现一个 $\langle n\rangle=1$ 的平台。</li>
+<li><strong>$U=4$</strong>：平台拉长到 $\mu\in[0.75,\ 3.25]$，宽度 2.5，向 $U$ 靠拢但受带宽 $W=4J$ 限制。</li>
+</ul>
+<p><strong>最下面</strong>把这件事翻译成能量：电荷能隙 $\Delta_c$ 在 $U=0$ 时<strong>严格为零</strong>（半满 4 环确实是金属，费米面就落在 $\varepsilon=0$ 的简并能级上），$U$ 一开就变正并趋向 $U$。<strong>第一讲说”Mott 绝缘体的能隙完全来自相互作用”，这 4 个格点就是完整的证明</strong>。</p>
+<blockquote>
+<p><strong>一个容易写错的地方</strong>（我在写这段代码时踩到了）：$\langle n\rangle$ 是对角算符 $N=\hat n$ 在<strong>本征态</strong>里的期望值，<strong>不是</strong> $\hat H$ 的本征值。所以要写 $\sum_n p_n\sum_m |v_{mn}|^2 n_m$，代码里就是 <code>p @ ((v**2).T @ Nop)</code>——<strong>那个 <code>.T</code> 不能省</strong>。省掉它算出来的是”用 Fock 态编号当权重”的垃圾，但对角线那一项看起来还挺合理，很容易蒙混过关。</p>
+</blockquote>
+<p><strong>“温度”的作用</strong>：虚线（$T=0.1$）把阶梯”抹圆”了。在 $\beta\Delta E\gg1$ 时 $T=0.01$ 的实线几乎就是 $T=0$ 的阶梯；温度升高后热激发越过能隙，阶梯变成平滑曲线。<strong>这是区分”能隙”和”无能隙”的一个实验判据。</strong></p>
+<blockquote>
+<p><strong>易错</strong>：$\langle n\rangle$ 的取值在 $[0, 2]$（每格点最多 2 个电子），<strong>不是</strong> $[0,1]$。算出来超过 2，一定是算符定义错了。</p>
+<p><strong>易错</strong>：<strong>完全对角化才”白送”有限温度</strong>。如果只做 Lanczos（只求少数低能态），高温下需要很多态才收敛，这时要改用<strong>有限温度 Lanczos</strong>（FTLM）或典型态方法（TPQ）。</p>
+<p><strong>易错</strong>：加化学势 $\mu$ <strong>只改变对角元</strong>（$-\mu\sum n$），不改变扇区结构，所以可以在每个 $(N_\uparrow,N_\downarrow)$ 扇区里独立算，然后按 $\mu$ 加权汇总。</p>
+</blockquote>
+<h2><span id="磁化与磁化率">磁化与磁化率</span></h2><p>$a$、$b$ 两个子格的总磁化：</p>
+<script type="math/tex; mode=display">
+M_{a(b)} = \sum_{i\in a(b)}S^z_i = \sum_{i\in a(b)}\frac{n_{i\uparrow} - n_{i\downarrow}}{2}</script><p><strong>均匀磁化</strong>（铁磁序的序参量）与<strong>交错磁化</strong>（反铁磁序的序参量）：</p>
+<script type="math/tex; mode=display">
+m_u = \frac{1}{N}\big(\langle M_a\rangle + \langle M_b\rangle\big), \qquad m_s = \frac{1}{N}\big(\langle M_a\rangle - \langle M_b\rangle\big)</script><ul>
+<li>$m_u$ 是整个体系的<strong>净磁矩</strong>，对应均匀外场 $h\sum_iS^z_i$ 的响应；</li>
+<li>$m_s$ 是 $a$、$b$ 子格的反号之和，对应交错场 $h\sum_i(-1)^iS^z_i$ 的响应。</li>
+</ul>
+<p><strong>磁化率</strong> $\chi = \left.\frac{dm}{dh}\right|_{h=0}$。幻灯片给的是用<strong>涨落</strong>表示的公式（涨落–耗散定理的特例）：</p>
+<script type="math/tex; mode=display">
+\chi_u = \frac{\beta}{N}\Big[\langle(M_a+M_b)^2\rangle - \langle M_a+M_b\rangle^2\Big], \qquad
+\chi_s = \frac{\beta}{N}\Big[\langle(M_a-M_b)^2\rangle - \langle M_a-M_b\rangle^2\Big]</script><p>即一般地 $\chi = \frac{\beta}{N}\mathrm{Var}(M)$。<strong>这个公式极其有用</strong>：它把”对外场的响应”变成了”零场下的涨落”，不需要真的加磁场，只要在 $h=0$ 下算 $M^2$ 的热平均即可。推导（一行）：</p>
+<script type="math/tex; mode=display">
+Z(h) = \mathrm{Tr}\,e^{-\beta(\hat H - h\hat M)},\quad m = \frac{1}{\beta N}\partial_h\ln Z,\quad \chi = \partial_h m|_{h=0} = \frac{\beta}{N}\mathrm{Var}(M).</script><h2><span id="图里的物理居里定律">图里的物理：居里定律</span></h2><p>幻灯片的图是 $2\times2$ Hubbard 模型（4 个格点的最小方格）、$J=1$、$U=30$、$\mu=1.5$，画的是 $1/\chi$ 对 $T$。强 $U$ + 接近半满 $\Rightarrow$ <strong>每个格点近似有一个局域磁矩</strong>。局域磁矩的标志就是<strong>居里定律</strong> $\chi = C/T$，即 $1/\chi \propto T$（直线）。数值验证：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$T$</th>
+<th>$1/\chi_u$</th>
+<th>$1/\chi_s$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5</td>
+<td>2.51</td>
+<td>2.14</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>5.02</td>
+<td>4.55</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>10.39</td>
+<td>9.90</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>16.06</td>
+<td>15.58</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>27.77</td>
+<td>27.33</td>
+</tr>
+<tr>
+<td>7.0</td>
+<td>39.82</td>
+<td>39.41</td>
+</tr>
+<tr>
+<td>10.0</td>
+<td><strong>58.61</strong></td>
+<td>58.25</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>线性拟合 $1/\chi \approx 5.91\,T - 1.18$，即 $C \approx 0.169$、$\Theta_{CW} \approx +0.20$。与幻灯片的图一致：$1/\chi$ 随 $T$ 近似线性上升，$T=10$ 时约 57–59，<strong>两条曲线几乎重合</strong>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">NS, bonds = <span class="number">4</span>, [(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">2</span>), (<span class="number">2</span>, <span class="number">3</span>), (<span class="number">3</span>, <span class="number">0</span>)]</span><br><span class="line">w, v = np.linalg.eigh(make_hubbard(NS, bonds, <span class="number">1.0</span>, <span class="number">30.0</span>, <span class="number">1.5</span>))</span><br><span class="line"><span class="comment"># 子格 a = &#123;0,2&#125;, b = &#123;1,3&#125;</span></span><br><span class="line">Sz = np.array([[<span class="number">0.5</span> * (((n &gt;&gt; (i + NS * <span class="number">0</span>)) &amp; <span class="number">1</span>) - ((n &gt;&gt; (i + NS * <span class="number">1</span>)) &amp; <span class="number">1</span>))</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(NS)] <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; (<span class="number">2</span> * NS))])</span><br><span class="line">Ma, Mb = Sz[:, <span class="number">0</span>::<span class="number">2</span>].<span class="built_in">sum</span>(axis=<span class="number">1</span>), Sz[:, <span class="number">1</span>::<span class="number">2</span>].<span class="built_in">sum</span>(axis=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 注意转置：d[k] = &lt;psi_k| O |psi_k&gt; = sum_m |v[k,m]|^2 O[m]</span></span><br><span class="line">dMu, dMs, dM2 = (v ** <span class="number">2</span>).T @ (Ma + Mb), (v ** <span class="number">2</span>).T @ (Ma - Mb), (v ** <span class="number">2</span>).T @ (Ma + Mb) ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Ts = np.linspace(<span class="number">0.4</span>, <span class="number">10</span>, <span class="number">400</span>); iu, isus = [], []</span><br><span class="line"><span class="keyword">for</span> T <span class="keyword">in</span> Ts:</span><br><span class="line">    p = np.exp(-(w - w[<span class="number">0</span>]) / T); p /= p.<span class="built_in">sum</span>()</span><br><span class="line">    m1, m2, m1s = <span class="built_in">float</span>(p @ dMu), <span class="built_in">float</span>(p @ dM2), <span class="built_in">float</span>(p @ dMs)</span><br><span class="line">    iu.append(<span class="number">1.</span> / ((<span class="number">1.</span> / T) / NS * (m2 - m1 ** <span class="number">2</span>)))       <span class="comment"># chi_u</span></span><br><span class="line">    isus.append(<span class="number">1.</span> / ((<span class="number">1.</span> / T) / NS * (m2 - m1s ** <span class="number">2</span>)))     <span class="comment"># chi_s</span></span><br><span class="line">fig, a = plt.subplots(figsize=(<span class="number">7.4</span>, <span class="number">5.0</span>))</span><br><span class="line">a.plot(Ts, iu, <span class="string">&quot;-&quot;</span>, color=<span class="string">&quot;k&quot;</span>, lw=<span class="number">2</span>, label=<span class="string">r&quot;$1/\chi_u$&quot;</span>)</span><br><span class="line">a.plot(Ts, isus, <span class="string">&quot;o&quot;</span>, ms=<span class="number">3.5</span>, mfc=<span class="string">&quot;none&quot;</span>, color=<span class="string">&quot;#d62728&quot;</span>, label=<span class="string">r&quot;$1/\chi_s$&quot;</span>)</span><br><span class="line">sl, ic = np.polyfit(Ts, iu, <span class="number">1</span>)</span><br><span class="line">a.plot(Ts, sl * Ts + ic, <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;#888888&quot;</span>, label=<span class="string">r&quot;fit: $%.2f\,T%+.2f$&quot;</span> % (sl, ic))</span><br><span class="line">a.set_xlabel(<span class="string">&quot;$T$&quot;</span>); a.set_ylabel(<span class="string">r&quot;$1/\chi$&quot;</span>); a.legend(); a.grid(alpha=<span class="number">.3</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_susceptibility.png&quot;</span>, dpi=<span class="number">190</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_susceptibility.png" alt="2x2 Hubbard 的 1/chi 随温度：居里定律"></p>
+<p><strong>读图</strong>：$1/\chi$ 是一条<strong>直线</strong>——这就是居里定律 $\chi=C/T$，直线的斜率是 Curie 常数（拟合得 $C\approx0.169$），截距给出 Curie–Weiss 温度（$\approx+0.2$，弱铁磁倾向）。$T=10$ 时 $1/\chi\approx58$，与讲义图上的”约 57”一致。</p>
+<p><strong>为什么这条直线是”强关联”的证据？</strong> $U=30$ 配 $\mu=1.5$ 让每个格点近似带一个局域磁矩，而 $\chi=\beta\mathrm{Var}(M)/N$ 里 $\chi\propto1/T$ 等价于”<strong>$\mathrm{Var}(M)$ 不随温度变</strong>“——这正是<strong>自由局域磁矩</strong>的定义。——对比 $U=0$：那时电子是 itinerant 的，$\chi$ 趋于 Pauli 常数，$1/\chi$ 会趋于 0 而不是直线上升。</p>
+<p><strong>黑线与红圈几乎重合</strong>，说明在这个小簇上均匀与交错磁化率差别很小（$2\times2$ 太小，反铁磁关联还没长出来）。<strong>在大格子上两者才会分开</strong>：$1/\chi_s$ 外推到正截距（Néel 温度 $T_N$），$1/\chi_u$ 外推到负截距（$\Theta_{CW}&lt;0$）。</p>
+<p><strong>为什么 $\chi_u$ 与 $\chi_s$ 几乎重合？</strong> 因为 $2\times2$ 太小，反铁磁关联还没来得及”长出来”。在大格子上，$1/\chi_s$ 会外推到<strong>正</strong>的截距（Néel 温度 $T_N$），而 $1/\chi_u$ 外推到<strong>负</strong>的截距（Curie–Weiss 温度 $\Theta_{CW}&lt;0$）。</p>
+<p><strong>这就是 ED 算磁化率的套路</strong>：小簇上算 $\langle M^2\rangle$，得到 $1/\chi(T)$，再外推（或做有限尺寸标度）到热力学极限。</p>
+<blockquote>
+<p><strong>易错</strong>：$1/\chi$ 的<strong>斜率</strong>给出 Curie 常数 $C$，<strong>截距</strong>给出 Curie–Weiss 温度。判断”是否形成长程序”看<strong>截距的符号</strong>：正截距 = 反铁磁（$\chi_s$），负截距 = 铁磁（$\chi_u$）。</p>
+<p><strong>易错</strong>：公式里的 $\beta = 1/(k_BT)$，所以 $\chi\propto1/T$ 的居里定律在 $\chi = \beta\,\mathrm{Var}(M)/N$ 里就是”<strong>$\mathrm{Var}(M)$ 不随 $T$ 变化</strong>“——这正是”自由局域磁矩”的特征。</p>
+<p><strong>易错</strong>：$M_a$、$M_b$ 的定义<strong>依赖二分格子</strong>。三角格子、笼目格子不是二分格，”交错磁化”要用更一般的波矢（例如 $\sqrt3\times\sqrt3$ 序）。</p>
+</blockquote>
+<h1><span id="实时演化">实时演化</span></h1><h2><span id="形式解与-krylov-加速">形式解与 Krylov 加速</span></h2><p>含时薛定谔方程支配演化：</p>
+<script type="math/tex; mode=display">
+i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat H|\psi(t)\rangle</script><p>$\hat H$ 不显含时间时，”积分”一次得到<strong>形式解</strong>：</p>
+<script type="math/tex; mode=display">
+|\psi(t)\rangle = e^{-i\hat Ht/\hbar}|\psi(0)\rangle</script><p><strong>关键观察：指数算符 $e^{-i\hat Ht/\hbar}$ 在能量本征基里是对角的！</strong> 把初态按本征态展开 $|\psi(0)\rangle = \sum_n C_n|\psi_n\rangle$，每个分量只是乘上一个相位：</p>
+<script type="math/tex; mode=display">
+\boxed{\;|\psi(t)\rangle = \sum_n C_n\,e^{-iE_nt/\hbar}|\psi_n\rangle,\qquad C_n = \langle\psi_n|\psi(0)\rangle\;}</script><p>这就是”ED 做实时演化”的全部原理：<strong>一旦有谱，演化就是”给每个分量转相位”</strong>。</p>
+<p><strong>但为什么还要 Lanczos？</strong> 因为对 $D=10^9$ 的系统，既不能完全对角化，也不能直接把 $e^{-i\hat Ht}$ 的矩阵作用上去。这时用 <strong>Krylov 方法</strong>：</p>
+<ol>
+<li>以 $|\psi(0)\rangle$ 为起点，构造 Krylov 空间 $\mathcal K_m = \mathrm{span}\{|\psi_0\rangle, \hat H|\psi_0\rangle, \hat H^2|\psi_0\rangle, \ldots, \hat H^{m-1}|\psi_0\rangle\}$；</li>
+<li>在这个 $m$ 维小空间里把 $\hat H$ 三对角化（Lanczos），得到一个小矩阵 $T_m$；</li>
+<li>在小空间里做 $e^{-iT_mt}$（$m\times m$ 矩阵，<strong>$m\le20$ 就够</strong>）；</li>
+<li>投影回去得到 $|\psi(t)\rangle$。</li>
+</ol>
+<p><strong>为什么 $m\le20$ 就够？</strong> 因为短时间演化只需要低能谱的信息，而 Krylov 空间天然地”捕获”了与初态耦合最强的那些本征分量。<strong>时间越长需要的 $m$ 越大</strong>；但即使如此 $m\sim10^2$ 也远小于 $D$。</p>
+<blockquote>
+<p><strong>易错</strong>：$e^{-i\hat Ht/\hbar}$ 是<strong>幺正</strong>的（$\hat H$ 厄米时），所以总概率守恒：$\big|\,|\psi(t)\rangle\big| = 1$。如果你的数值结果范数漂移，说明算法不稳——这是一个免费的检查。</p>
+<p><strong>易错</strong>：注意 $C_n = \langle\psi_n|\psi(0)\rangle$ 的<strong>共轭顺序</strong>：”本征态在左、初态在右”。写反了相当于算 $\langle\psi(0)|\psi_n\rangle = C_n^<em>$，<em>*相位方向反了</em></em>。</p>
+<p><strong>易错</strong>：时间步长——用谱分解时 $t$ 可以任意大（相位是精确的）；用时间步进（Crank–Nicolson、Runge–Kutta）时，步长受 $\Delta t\lesssim1/|\hat H|$ 限制。</p>
+</blockquote>
+<h2><span id="实例一高斯波包与色散">实例一：高斯波包与色散</span></h2><p>一维紧束缚环（玻色/单自旋费米都行）：</p>
+<script type="math/tex; mode=display">
+\hat H = -\sum_j (a^\dagger_{j\sigma}a_{j+1,\sigma}+\mathrm{h.c.})</script><p>初态是一个<strong>高斯波包</strong>：</p>
+<script type="math/tex; mode=display">
+|\psi(t{=}0)\rangle = \frac{1}{\sqrt{\Omega}}\sum_j \underbrace{e^{-(\alpha^2/2)(j-N_0)^2}}_{\text{实空间包络}}\underbrace{e^{ik_0j}}_{\text{动量}}a^\dagger_{j\sigma}|0\rangle</script><p>（$N_0$ 是包中心，$\alpha$ 控制宽度——$\alpha$ 小则包宽、$\alpha$ 大则包窄，$\Omega$ 是归一化常数。）</p>
+<p>傅里叶变换后色散为 $\varepsilon_k = -2J\cos k$，$k = 2\pi m/N$，带宽 $W = 4J$。<strong>群速度</strong>：</p>
+<script type="math/tex; mode=display">
+v_g(k) = \frac{d\varepsilon_k}{dk} = 2J\sin k</script><p>这解释了幻灯片上两幅图的全部差别：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>初态 $k_0$</th>
+<th>$v_g$</th>
+<th>物理图像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0$（带底）</td>
+<td>$0$</td>
+<td>波包<strong>不动</strong>，但会<strong>扩散</strong>（色散）</td>
+</tr>
+<tr>
+<td>$\pi/2$（拐点）</td>
+<td>$2J$（最大）</td>
+<td>波包以<strong>最大速度弹道传播</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>实空间越窄 ⇒ 动量空间越宽</strong>（傅里叶变换的不确定性关系），这正是中间那两张”棒棒糖”图宽度不同的原因。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 注意：单粒子在 N 个格点上，希尔伯特空间只有 N 维 -&gt; 完全对角化是白送的</span></span><br><span class="line">N, alpha = <span class="number">200</span>, <span class="number">0.45</span></span><br><span class="line">k = <span class="number">2</span> * np.pi * np.arange(N) / N</span><br><span class="line">ts = np.linspace(<span class="number">0</span>, <span class="number">45</span>, <span class="number">400</span>)</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">13</span>, <span class="number">8.0</span>))</span><br><span class="line">gs = fig.add_gridspec(<span class="number">3</span>, <span class="number">2</span>, height_ratios=[<span class="number">1.05</span>, <span class="number">1</span>, <span class="number">1</span>], hspace=<span class="number">.45</span>, wspace=<span class="number">.28</span>)</span><br><span class="line"></span><br><span class="line">a = fig.add_subplot(gs[<span class="number">0</span>, <span class="number">0</span>])                      <span class="comment"># 色散</span></span><br><span class="line">a.plot(k / np.pi, -np.cos(k), <span class="string">&quot;-&quot;</span>, color=<span class="string">&quot;#333333&quot;</span>, lw=<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> kk, cc <span class="keyword">in</span> [(<span class="number">0.0</span>, <span class="string">&quot;#7f7f7f&quot;</span>), (np.pi / <span class="number">2</span>, <span class="string">&quot;#d62728&quot;</span>)]:</span><br><span class="line">    a.plot([kk / np.pi], [-np.cos(kk)], <span class="string">&quot;o&quot;</span>, ms=<span class="number">12</span>, mfc=<span class="string">&quot;none&quot;</span>, mec=cc, mew=<span class="number">2.4</span>)</span><br><span class="line">a.set_title(<span class="string">r&quot;dispersion $\varepsilon_k=-2J\cos k$&quot;</span>, fontsize=<span class="number">10.5</span>)</span><br><span class="line">a = fig.add_subplot(gs[<span class="number">0</span>, <span class="number">1</span>])                      <span class="comment"># 群速度</span></span><br><span class="line">a.plot(k / np.pi, np.sin(k), <span class="string">&quot;-&quot;</span>, color=<span class="string">&quot;#1f77b4&quot;</span>, lw=<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> kk, cc <span class="keyword">in</span> [(<span class="number">0.0</span>, <span class="string">&quot;#7f7f7f&quot;</span>), (np.pi / <span class="number">2</span>, <span class="string">&quot;#d62728&quot;</span>)]:</span><br><span class="line">    a.plot([kk / np.pi], [np.sin(kk)], <span class="string">&quot;o&quot;</span>, ms=<span class="number">12</span>, mfc=<span class="string">&quot;none&quot;</span>, mec=cc, mew=<span class="number">2.4</span>)</span><br><span class="line">a.set_yticks([-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]); a.set_title(<span class="string">r&quot;group velocity $v_g=2J\sin k$&quot;</span>, fontsize=<span class="number">10.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> row, k0 <span class="keyword">in</span> <span class="built_in">enumerate</span>([<span class="number">0.0</span>, np.pi / <span class="number">2</span>]):       <span class="comment"># 两种初动量</span></span><br><span class="line">    c = fig.add_subplot(gs[row + <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">    psi0 = gwp(N, N / <span class="number">2</span>, k0, alpha)</span><br><span class="line">    pk = np.<span class="built_in">abs</span>(np.fft.fft(psi0) / np.sqrt(N)) ** <span class="number">2</span></span><br><span class="line">    c.plot(k / np.pi, pk, <span class="string">&quot;-&quot;</span>, color=<span class="string">&quot;#2ca02c&quot;</span>, lw=<span class="number">1.8</span>)</span><br><span class="line">    c.set_title(<span class="string">&quot;initial $|\psi(k,0)|^2$,  $k_0=%s$&quot;</span> % (<span class="string">&quot;0&quot;</span> <span class="keyword">if</span> k0 == <span class="number">0</span> <span class="keyword">else</span> <span class="string">&quot;pi/2&quot;</span>), fontsize=<span class="number">10</span>)</span><br><span class="line">    d = fig.add_subplot(gs[row + <span class="number">1</span>, <span class="number">1</span>])             <span class="comment"># 实时演化热图</span></span><br><span class="line">    d.imshow((np.<span class="built_in">abs</span>(evolve(ring_H(N), psi0, ts)) ** <span class="number">2</span>).T, aspect=<span class="string">&quot;auto&quot;</span>, origin=<span class="string">&quot;lower&quot;</span>,</span><br><span class="line">             cmap=<span class="string">&quot;viridis&quot;</span>, extent=[ts[<span class="number">0</span>], ts[-<span class="number">1</span>], <span class="number">0</span>, N - <span class="number">1</span>], vmax=<span class="number">.03</span>,</span><br><span class="line">             interpolation=<span class="string">&quot;nearest&quot;</span>)</span><br><span class="line">    d.set_title(<span class="string">r&quot;$|\Psi(i,t)|^2$,  $k_0=%s$&quot;</span> % (<span class="string">&quot;0&quot;</span> <span class="keyword">if</span> k0 == <span class="number">0</span> <span class="keyword">else</span> <span class="string">&quot;pi/2&quot;</span>), fontsize=<span class="number">10</span>)</span><br><span class="line">    d.set_xlabel(<span class="string">&quot;$t$ ($J=1$)&quot;</span>); d.set_ylabel(<span class="string">&quot;site $i$&quot;</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_dispersion_wavepacket.png&quot;</span>, dpi=<span class="number">180</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_dispersion_wavepacket.png" alt="色散、群速度与波包的实时演化"></p>
+<p><strong>这里有一个漂亮的”数值 $\to$ 物理”闭环</strong>：单粒子在 $N$ 个格点上，希尔伯特空间只有 <strong>$N$ 维</strong>（不是 $2^N$！），所以 $N=200$ 的”完全对角化”是白送的——$200\times200$ 的稠密矩阵，毫秒级。<strong>实时演化的每一步都是精确的，没有任何数值误差。</strong></p>
+<p><strong>读图（四行两列）</strong>：</p>
+<ol>
+<li><strong>第一行左</strong>：色散 $\varepsilon_k=-2J\cos k$，红圈在 $k_0=\pi/2$（拐点，$\varepsilon=0$），灰圈在 $k_0=0$（带底，$\varepsilon=-2J$）。</li>
+<li><strong>第一行右</strong>：群速度 $v_g=2J\sin k$。灰圈 $v_g=0$、红圈 $v_g=2J$（最大）。</li>
+<li><strong>第二行</strong>：$k_0=0$。动量分布窄而高、<strong>集中在带底</strong>；热图上波包<strong>原地不动</strong>、但随时间从亮线慢慢摊开。</li>
+<li><strong>第三行</strong>：$k_0=\pi/2$。动量分布宽而矮；热图上波包以最大速度<strong>斜着跑过去</strong>，而且<strong>几乎不散开</strong>。</li>
+</ol>
+<p><strong>物理解读</strong>：散不散开只取决于包在动量空间有多窄 + 色散有多弯。$k_0=0$ 处色散有<strong>极大曲率</strong>（$d^2\varepsilon/dk^2=2J\cos0=2J\neq0$），包内不同 $k$ 的速度差 $\sim2J\,\delta k$ 把它撕开；$k_0=\pi/2$ 处<strong>曲率恰为零</strong>（$\cos\pi/2=0$），色散在拐点附近是<strong>线性</strong>的，所有分量速度相同 $\Rightarrow$ <strong>刚性平移</strong>。</p>
+<blockquote>
+<p><strong>易错</strong>：幻灯片图上 $\varepsilon_k$ 的纵轴只画到 $\pm1$，而公式给出 $\varepsilon_k = -2J\cos k$。也就是说图里画的是 $\varepsilon_k/2J = -\cos k$（纵轴以带宽的一半为单位）。<strong>关键不是刻度，而是形状</strong>：最小值在 $k=0$、最大值在 $k=\pm\pi$、拐点在 $k=\pm\pi/2$。</p>
+</blockquote>
+<h2><span id="实例二非扩散波包与飞行量子比特">实例二：非扩散波包与飞行量子比特</span></h2><p>环上穿一个磁通 $\Phi$（Peierls 替换）：</p>
+<script type="math/tex; mode=display">
+\hat H[\Phi] = -J\sum_{j,\sigma}\big(e^{i2\pi\Phi/N}a^\dagger_{j\sigma}a_{j+1,\sigma}+\mathrm{h.c.}\big)</script><p>沿环走一圈相位累积 $2\pi\Phi$，效果<strong>等价于给波包一个动量</strong> $k_0 = 2\pi\Phi/N$。</p>
+<p><strong>“非扩散波包”</strong>（non-spreading wave packet）是这一页的核心物理。一般的高斯波包会扩散（不同 $k$ 分量的群速度不同，包会越变越宽）。但在这条余弦能带上，如果初态是”动量空间的高斯包”并选择合适的 $k_0$，波包在传播过程中<strong>几乎不扩散</strong>：</p>
+<ul>
+<li>在<strong>拐点附近</strong>（$k_0\approx\pi/2$），色散近似线性：$k=\pi/2$ 处展开 $\varepsilon_k = -2J\cos k \approx 2J(k-\pi/2)$，<strong>线性色散意味着所有分量速度相同</strong>（$v_g = 2J$）$\Rightarrow$ 不扩散；</li>
+<li>更准确地说，这是一个”自相似”的相干态，其形状在演化中保持不变。</li>
+</ul>
+<p>幻灯片上的 3D 曲面图 $|\Psi(i,t)|^2$ 画得很清楚：一条沿对角线的窄脊，波包从 $i\approx1$ 出发随时间平移到 $i\approx100$，<strong>脊的宽度几乎不变</strong>。</p>
+<p><strong>“固态飞行量子比特”</strong>（solid-state flying qubit）是把这件事推向应用的设想：用一个不扩散的波包（例如自旋 $\uparrow/\downarrow$ 两个分量）在固体里传输量子信息。这是本讲授课教师本人的 2006 年工作（S. Yang, Z. Song, C. P. Sun, <em>Phys. Rev. A</em> <strong>73</strong>, 022317 (2006)）。</p>
+<blockquote>
+<p><strong>量级估计</strong>：$v_g = 2J\sin k$ 在 $k_0=\pi/2$ 处是 $2J$（格点/单位时间）。绕 100 格点的环跑一圈需要 $100/2J = 50/J$，对应图上 $t=0.5$。所以 $t\in[0,1]$ 大致是”绕环两圈”的演化，波包会与自身相遇、干涉。</p>
+<p><strong>易错</strong>：幻灯片的图注写的是 “zero-momentum GWP”（$k_0=0$），但同一图注又给了 $\Phi = N/4$，而正文 $k_0 = 2\pi\Phi/N$ 会把 $\Phi=N/4$ 换算成 $k_0 = \pi/2$。<strong>这两者不自洽</strong>，很可能是引用论文图注时把另一幅图的文字一起抄了过来。读图时以 $\Phi=N/4$、$k_0=\pi/2$ 为准（图里那个波包明显在跑，不是静止的）。</p>
+<p><strong>概念辨析</strong>：磁通的作用<strong>不是”只改一个相位”</strong>。Peierls 替换把跃迁相位 $e^{i2\pi\Phi/N}$ 引进哈密顿量，<strong>等价于把能带整体在动量空间平移</strong>，于是波包的中心动量变成 $k_0 = 2\pi\Phi/N$，群速度随之改变。（单粒子概率密度确实对规范变换不变，但那是”换规范”，不是”换磁通”——<strong>换磁通是换物理</strong>。）</p>
+</blockquote>
+<h2><span id="实例三自干涉与量子复兴">实例三：自干涉与量子复兴</span></h2><p>开边界条件下，波包演化会产生三个现象：</p>
+<ol>
+<li><strong>开边界的反射与 $\pi$ 相移</strong>。在开边界处波包被反射。对这条链（$\varepsilon_k = -2J\cos k$，$k_0 = \pi/2$），反射会带来一个 $\pi$ 的相位跳变——示意图里那个<strong>倒置的</strong>波包就是它。这个 $\pi$ 相移是”硬壁边界条件”的普遍特征（与无限深势阱里波函数在壁上为零同理）。</li>
+<li><strong>自干涉</strong>（self interference）。因为系统有限，波包绕一圈（或反射回来）后会与”自己”相遇并干涉，于是 $|\Psi(i,t)|^2$ 出现振荡条纹。</li>
+<li><strong>量子复兴</strong>（quantum revival）。有限系统的能谱是<strong>离散</strong>的，所以演化是<strong>准周期</strong>的：经过一段时间后各个相位 $e^{-iE_nt}$ 重新对齐，波包恢复到初始形状。复兴时间由能谱的（近似）等间距决定：<script type="math/tex; mode=display">
+T_{\text{revival}} \sim \frac{2\pi}{\Delta E}\qquad(\Delta E = \text{相邻能级间距})</script>面板 (c) 的时间范围（$0\sim8$，单位 $100/J$）比 (a)(b) 大一个量级，正是为了看到复兴。</li>
+</ol>
+<p><strong>物理意义</strong>：</p>
+<ul>
+<li>三者都是<strong>有限尺寸效应的直接可视化</strong>，也是”为什么小系统不能用热力学极限的语言描述”最好的例子；</li>
+<li><strong>量子复兴</strong>在冷原子、超导量子比特、离子阱里都已经被实验观测到，是”量子相干性”的漂亮演示；</li>
+<li>反射的 $\pi$ 相移 + 自干涉合起来说明：<strong>在有限链上，”飞行量子比特”必须考虑边界的相干反射</strong>——这是把上一节的设想变成器件时要解决的问题。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N, k0, alpha = <span class="number">100</span>, np.pi / <span class="number">3</span>, <span class="number">20.0</span></span><br><span class="line">j = np.arange(N); k = <span class="number">2</span> * np.pi * np.arange(N) / N</span><br><span class="line">d = np.minimum(np.<span class="built_in">abs</span>(j), N - np.<span class="built_in">abs</span>(j))</span><br><span class="line">Hring, Hchain = ring_H(N), chain_H(N)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 非扩散初态：动量空间的 1/sin^2 k0 高斯（Yang-Song-Sun 2006）</span></span><br><span class="line">f = np.exp(-(alpha ** <span class="number">2</span>) * (k - k0) ** <span class="number">2</span> / (<span class="number">4</span> * np.sin(k0) ** <span class="number">2</span>))</span><br><span class="line">psi_ns = np.fft.ifft(f) * N; psi_ns /= np.linalg.norm(psi_ns)</span><br><span class="line"><span class="comment"># 对照：同样初始宽度、同样载波的位置空间高斯</span></span><br><span class="line">psi_pl = np.exp(-(<span class="number">0.061</span> ** <span class="number">2</span> / <span class="number">2</span>) * d ** <span class="number">2</span>) * np.exp(<span class="number">1j</span> * k0 * j)</span><br><span class="line">psi_pl /= np.linalg.norm(psi_pl)</span><br><span class="line"></span><br><span class="line">ts = np.linspace(<span class="number">0</span>, <span class="number">50</span>, <span class="number">260</span>)</span><br><span class="line">circ_sig = <span class="keyword">lambda</span> p: np.sqrt(-<span class="number">2</span> * np.log(<span class="built_in">abs</span>(  <span class="comment"># 环上的圆标准差</span></span><br><span class="line">    (np.<span class="built_in">abs</span>(p) ** <span class="number">2</span> / (np.<span class="built_in">abs</span>(p) ** <span class="number">2</span>).<span class="built_in">sum</span>() *</span><br><span class="line">     np.exp(<span class="number">2j</span> * np.pi * j / N)).<span class="built_in">sum</span>()))) * N / (<span class="number">2</span> * np.pi)</span><br><span class="line">sig = <span class="keyword">lambda</span> psi: [circ_sig(evolve(Hring, psi, np.array([t]))[<span class="number">0</span>]) <span class="keyword">for</span> t <span class="keyword">in</span> ts]</span><br><span class="line"></span><br><span class="line">fig, axs = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">13.5</span>, <span class="number">8.6</span>))</span><br><span class="line">axs[<span class="number">0</span>][<span class="number">0</span>].imshow((np.<span class="built_in">abs</span>(evolve(Hring, psi_ns, ts)) ** <span class="number">2</span>).T, aspect=<span class="string">&quot;auto&quot;</span>,</span><br><span class="line">                 origin=<span class="string">&quot;lower&quot;</span>, cmap=<span class="string">&quot;viridis&quot;</span>, extent=[ts[<span class="number">0</span>], ts[-<span class="number">1</span>], <span class="number">0</span>, N - <span class="number">1</span>],</span><br><span class="line">                 vmax=<span class="number">.04</span>, interpolation=<span class="string">&quot;nearest&quot;</span>)</span><br><span class="line">axs[<span class="number">0</span>][<span class="number">0</span>].set_title(<span class="string">r&quot;non-spreading packet, $k_0=\pi/3$&quot;</span>, fontsize=<span class="number">10.5</span>)</span><br><span class="line">a = axs[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">a.plot(ts, sig(psi_ns), <span class="string">&quot;-&quot;</span>, color=<span class="string">&quot;#2ca02c&quot;</span>, lw=<span class="number">2.4</span>, label=<span class="string">&quot;non-spreading&quot;</span>)</span><br><span class="line">a.plot(ts, sig(psi_pl), <span class="string">&quot;--&quot;</span>, color=<span class="string">&quot;#d62728&quot;</span>, lw=<span class="number">2.4</span>, label=<span class="string">&quot;plain, same width&quot;</span>)</span><br><span class="line">a.set_ylabel(<span class="string">r&quot;width $\sigma$ [sites]&quot;</span>); a.legend(fontsize=<span class="number">9</span>); a.grid(alpha=<span class="number">.3</span>)</span><br><span class="line"></span><br><span class="line">psi0 = np.exp(-(<span class="number">0.15</span> ** <span class="number">2</span> / <span class="number">2</span>) * d ** <span class="number">2</span>) * np.exp(<span class="number">1j</span> * np.pi / <span class="number">2</span> * j)</span><br><span class="line">psi0 /= np.linalg.norm(psi0)</span><br><span class="line">axs[<span class="number">1</span>][<span class="number">0</span>].imshow((np.<span class="built_in">abs</span>(evolve(Hchain, psi0, np.linspace(<span class="number">0</span>, <span class="number">100</span>, <span class="number">500</span>))) ** <span class="number">2</span>).T,</span><br><span class="line">                 aspect=<span class="string">&quot;auto&quot;</span>, origin=<span class="string">&quot;lower&quot;</span>, cmap=<span class="string">&quot;viridis&quot;</span>, extent=[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, N - <span class="number">1</span>],</span><br><span class="line">                 interpolation=<span class="string">&quot;nearest&quot;</span>)</span><br><span class="line">axs[<span class="number">1</span>][<span class="number">0</span>].set_title(<span class="string">&quot;open boundary: reflection + self-interference&quot;</span>, fontsize=<span class="number">10.5</span>)</span><br><span class="line">dE = np.diff(np.sort(np.linalg.eigvalsh(Hchain))); dE = dE[dE &gt; <span class="number">1e-12</span>]</span><br><span class="line">Trev = <span class="number">2</span> * np.pi / np.median(dE)</span><br><span class="line">axs[<span class="number">1</span>][<span class="number">1</span>].imshow((np.<span class="built_in">abs</span>(evolve(Hchain, psi0, np.linspace(<span class="number">0</span>, <span class="number">2</span> * Trev, <span class="number">800</span>))) ** <span class="number">2</span>).T,</span><br><span class="line">                 aspect=<span class="string">&quot;auto&quot;</span>, origin=<span class="string">&quot;lower&quot;</span>, cmap=<span class="string">&quot;viridis&quot;</span>, extent=[<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, N - <span class="number">1</span>],</span><br><span class="line">                 interpolation=<span class="string">&quot;nearest&quot;</span>)</span><br><span class="line">axs[<span class="number">1</span>][<span class="number">1</span>].set_xlabel(<span class="string">r&quot;$t/T_&#123;rev&#125;$&quot;</span>); axs[<span class="number">1</span>][<span class="number">1</span>].set_title(<span class="string">&quot;quantum revival&quot;</span>, fontsize=<span class="number">10.5</span>)</span><br><span class="line">fig.savefig(<span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲\fig_wavepacket_evolution.png&quot;</span>, dpi=<span class="number">180</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_wavepacket_evolution.png" alt="非扩散波包、开边界自干涉与量子复兴"></p>
+<p><strong>左上（a）+ 右上</strong>：这张图把”非扩散波包”讲清楚了，而且给了一个<strong>它到底为什么成立</strong>的解释：</p>
+<ul>
+<li>热图上是一条宽度几乎不变的斜脊，速度正好 $v_g=2J\sin(\pi/3)=1.73$（$t=50$ 走了 86.5 个格点 ✓）。</li>
+<li>右上把两种初态的<strong>包宽 $\sigma(t)$</strong> 画在一起：绿色（非扩散构造）从 $11.5$ 变到 $11.7$（<strong>涨了 1.7%</strong>），红色（同样初始宽度的普通高斯）从 $11.5$ 变到 $15.1$（<strong>涨了 31%</strong>）。</li>
+<li>蓝线（$k_0=\pi/2$ 的任意波包）是<strong>完全不动</strong>的——因为那里色散是线性的，<strong>根本不需要任何技巧</strong>。</li>
+</ul>
+<p><strong>所以论文那个 $1/\sin^2k_0$ 因子的作用是</strong>：把动量分布预先拉宽/压窄 $\propto1/\sin k_0$，<strong>恰好抵消掉色散的二阶项</strong> $\frac12\varepsilon’’(k_0)\,\delta k^2$。$1/\sin^2k_0$ 这个 $\sin$ 正是 $\varepsilon’’$ 的倒数。<strong>这才是”非扩散”的机制，而不是某种神秘的自相似态。</strong></p>
+<p><strong>左下（b）开边界</strong>：波包撞墙、反射、<strong>与自己干涉</strong>——图中那两个 X 形交叉点就是”正波包”和”反射波包”相遇的地方，交叉点上细密的条纹是干涉。<strong>反射带一个 $\pi$ 相位跳变</strong>（硬壁边界的普遍特征），但注意：<strong>模方 $|\Psi|^2$ 看不见这个 $\pi$</strong>——相位只影响干涉条纹的位置，不影响强度。</p>
+<p><strong>右下（c）量子复兴</strong>：能谱是<strong>离散</strong>的，所以演化<strong>准周期</strong>。图里能看到波包碎裂成多个极大、又重新聚拢，周期约 $T_{\rm rev}\approx142$（用 $2\pi/\mathrm{median}(\Delta E)$ 粗估，$J=1$、$N=100$ 开链）。<strong>量子相干性在这里是可以被看见的</strong>，而且已在冷原子与超导比特实验中被观测到。</p>
+<blockquote>
+<p><strong>易错</strong>：三张 3D 图的纵轴刻度不同（(a) 到 0.15、(b) 到 0.2、(c) 到 0.05）。<strong>不要直接比较峰高，要看”包是否保持形状”。</strong></p>
+<p><strong>易错</strong>：$\pi$ 相移在 $|\Psi|^2$ 上<strong>看不出来</strong>（相位不影响模方），它只体现在波函数本身（以及干涉条纹的位置）上。所以示意图用”倒置的波包”来表示相位的反号，而不是模方的变化。</p>
+</blockquote>
+<h1><span id="非厄米哈密顿量">非厄米哈密顿量</span></h1><p>厄米哈密顿量（$\hat H = \hat H^\dagger$）的本征态是正交归一的：$\langle\psi_m|\psi_n\rangle = \delta_{mn}$，单位算符是 $\sum_n|\psi_n\rangle\langle\psi_n|$。<strong>非厄米哈密顿量</strong>（$\hat H \neq \hat H^\dagger$）破坏了这个性质：</p>
+<ul>
+<li><strong>左右本征矢不同</strong>：右本征矢 $|F_n\rangle$ 满足 $\hat H|F_n\rangle = \omega_n|F_n\rangle$，左本征矢 $\langle G_n|$ 满足 $\langle G_n|\hat H = \omega_n\langle G_n|$（等价地 $\hat H^\dagger|G_n\rangle = \omega_n^*|G_n\rangle$）。</li>
+<li><strong>本征值可以是复数</strong>：$\omega_n\in\mathbb{C}$。<strong>虚部有明确的物理意义</strong>：$\mathrm{Im}\,\omega_n &lt; 0$ 表示<strong>衰减</strong>（耗散），$&gt;0$ 表示<strong>增益</strong>。</li>
+<li><strong>本征矢不正交</strong>：$\langle F_m|F_n\rangle \neq 0$（$m\neq n$），而且可能出现<strong>例外点</strong>（exceptional point）——本征值与本征矢同时简并，本征矢塌缩成一个（Jordan 块）。</li>
+</ul>
+<p><strong>“双正交基”的解决办法</strong>：把左右本征矢配对使用。定义双正交归一化 $\langle G_m|F_n\rangle = \delta_{mn}\langle G_n|F_n\rangle$，就得到</p>
+<script type="math/tex; mode=display">
+\mathbb{1} = \sum_n \frac{|F_n\rangle\langle G_n|}{\langle G_n|F_n\rangle}, \qquad
+e^{-i\hat Ht} = \sum_n |F_n\rangle\,e^{-i\omega_nt}\,\frac{\langle G_n|}{\langle G_n|F_n\rangle}</script><p>第二个公式就是非厄米版的”谱分解演化”，与厄米公式<strong>逐项对应</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>厄米</th>
+<th>非厄米</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本征方程</td>
+<td>$\hat H\lvert \psi_n\rangle = E_n\lvert \psi_n\rangle$</td>
+<td>$\hat H\lvert F_n\rangle = \omega_n\lvert F_n\rangle$，$\langle G_n\rvert\hat H = \langle G_n\rvert\omega_n$</td>
+</tr>
+<tr>
+<td>本征值</td>
+<td>$E_n$ 实</td>
+<td>$\omega_n$ 复</td>
+</tr>
+<tr>
+<td>正交性</td>
+<td>$\langle\psi_m\lvert \psi_n\rangle = \delta_{mn}$</td>
+<td>$\langle G_m\rvert F_n\rangle = \delta_{mn}\langle G_n\rvert F_n\rangle$</td>
+</tr>
+<tr>
+<td>单位算符</td>
+<td>$\sum_n\lvert \psi_n\rangle\langle\psi_n\rvert$</td>
+<td>$\sum_n\lvert F_n\rangle\langle G_n\rvert/\langle G_n\rvert F_n\rangle$</td>
+</tr>
+<tr>
+<td>时间演化</td>
+<td>$\sum_n\lvert \psi_n\rangle e^{-iE_nt}\langle\psi_n\rvert$</td>
+<td>$\sum_n\lvert F_n\rangle e^{-i\omega_nt}\langle G_n\rvert/\langle G_n\rvert F_n\rangle$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>“<strong>this in principle solves all the dynamics</strong>“——这就是它值得一讲的理由。非厄米哈密顿量在今天非常活跃：</p>
+<ul>
+<li><strong>耗散系统</strong>：开放量子系统、冷原子中的粒子损失、光子晶体、波导 QED；</li>
+<li><strong>$\mathcal{PT}$ 对称系统</strong>：本征值可以是实的（$\mathcal{PT}$ 对称破缺相变），以及例外点附近的奇异响应（传感器、单向传输）；</li>
+<li><strong>非厄米趋肤效应</strong>：开边界下本征态<strong>全部</strong>局域在边界上（体-边对应被破坏）；</li>
+<li><strong>物理实现</strong>：光学/声学超材料、电路、冷原子。</li>
+</ul>
+<blockquote>
+<p><strong>易错</strong>：$\omega_n^<em>$ 里的星号来自 $(\langle G_n|\hat H)^\dagger = \hat H^\dagger|G_n\rangle = (\omega_n\langle G_n|)^\dagger = \omega_n^</em>|G_n\rangle$。<strong>别漏掉星号。</strong></p>
+<p><strong>易错</strong>：$\langle G_n|F_n\rangle \neq 0$ 是必需的（非简并时通常成立），否则分母为零、双正交基失效——<strong>这正是例外点附近的困难</strong>。</p>
+<p><strong>极好的自动检查</strong>：本征值是复数时，”能量”不再是可观测量。如果你是在做一个<strong>封闭系统</strong>的 ED 却得到了复数本征值，<strong>多半是 $\hat H$ 写错了</strong>（不厄米）——例如费米子符号漏了、或者矩阵元行列写反了。</p>
+<p><strong>特例</strong>：厄米情形下 $|G_n\rangle = |F_n\rangle$，分母变成 1，一切回到前面的公式。</p>
+</blockquote>
+<h1><span id="作业与评分">作业与评分</span></h1><p>本次作业是在 <strong>$2\times3$ 梯子（6 格点，开边界）上的扩展 Hubbard 模型</strong>上做精确对角化：</p>
+<script type="math/tex; mode=display">
+\hat H = -t\sum_{\langle ij\rangle,\sigma}\big(c^\dagger_{i\sigma}c_{j\sigma}+\mathrm{h.c.}\big) + U\sum_i n_{i\uparrow}n_{i\downarrow} + V\sum_{\langle ij\rangle}n_in_j - \mu\sum_{i\sigma}n_{i,\sigma}</script><p>固定参数 $t=1$、$U=4$、$V=1$、$\mu=4$。要点：</p>
+<ul>
+<li><strong>对称性</strong>：利用 $[\hat H,\hat N_\uparrow] = [\hat H,\hat N_\downarrow] = 0$，按 $(N_\uparrow,N_\downarrow)$ 分块。$N_\uparrow,N_\downarrow$ 各可取 $0\sim6$，所以共 $(6+1)^2 = 49$ 个块，<strong>每个块的维数都非零</strong>（$\binom{6}{N_\uparrow}\binom{6}{N_\downarrow}$）；最大块 $(3,3)$ 的维数是 $20\times20 = 400$，而 $\sum_{\text{所有块}}\dim = 4^6 = 2^{12} = 4096$ ✓。<strong>直接对角化 $4096\times4096$ 稠密矩阵是被禁止的</strong>，必须逐块做。</li>
+<li><strong>费米子符号</strong>：用”单一全局 12 位比特串”（轨道 $p = i + 6\sigma$），符号统一为 $(-1)^{\mathrm{popcount}(n\ \&amp;\ (2^p-1))}$。</li>
+<li>要计算的量包括：$(3,3)$ 块最低 8 个本征值与简并度、全系统最低 20 个本征值、$\langle n_i\rangle$ 与 $\langle S^z_i\rangle$、$\langle n_{i\uparrow}n_{i\downarrow}\rangle$ 与平均双占据 $D$、键上 $\langle\vec S_i\cdot\vec S_j\rangle$、键上 $\langle n_in_j\rangle$ 与连通关联、$\langle \hat S^2_{tot}\rangle$、以及自旋能隙与电荷能隙。</li>
+</ul>
+<p><strong>提交三样东西</strong>（通过清华网络学堂）：源码 + 详细说明（基本原理 / 源码解释 / 结果分析）+ <strong>与 AI 的对话记录</strong>。截止时间 9 月 27 日 23:00。</p>
+<p><strong>评分标准</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>源码可执行</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>源码给出正确结果</td>
+<td>+20</td>
+</tr>
+<tr>
+<td>源码可读性高</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>说明文档：基本原理</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>说明文档：源码解释</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>说明文档：结果分析</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>说明文档写得清楚易懂</td>
+<td>+10</td>
+</tr>
+<tr>
+<td>与 AI 的对话记录</td>
+<td>+20</td>
+</tr>
+<tr>
+<td><strong>未使用 $U(1)$ 对称性</strong></td>
+<td><strong>−20</strong></td>
+</tr>
+<tr>
+<td>时间分：当天交 / 迟交</td>
+<td>+5 / 每天 −1</td>
+</tr>
+<tr>
+<td>自驱分：新想法或额外结果</td>
+<td>+10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>几个观察：</p>
+<ol>
+<li>总分基数 100，再加上时间分（+5）与自驱分（+10）作为加分，减去 $U(1)$ 的 −20。</li>
+<li>“正确结果 +20” 与 “AI 记录 +20” 并列最大单项——<strong>这门课最看重的还是算对</strong>。而”算对”的标准就是前面那张验证清单（已知极限、对称性、求和规则、两种方法对照）。</li>
+<li><strong>说明文档总共 40 分，与源码的 40 分恰好相等</strong>。传达的信息很清楚：”<strong>能跑”只完成了一半，”讲清楚”才算完成。</strong></li>
+<li>$U(1)$ 是硬性要求（−20）。不做 $U(1)$ 的代价是维数大 $\sqrt{\pi N/2}$ 倍（$N=40$ 时约 8 倍）；若用完全对角化，时间还要再乘 $(\pi N/2)^{3/2}$（约 500 倍），在大系统上根本跑不动。</li>
+<li><strong>自驱分 [+$10$]</strong>：鼓励你多做一点——多算一个物理量、做一次有限尺寸标度、加一个对称性、和文献对比。<strong>这是”从完成作业到做研究”的那一步。</strong></li>
+</ol>
+<blockquote>
+<p><strong>易错</strong>：”did not use $U(1)$ symmetry [−20]”是<strong>扣分</strong>不是”不加分”。也就是说，即使代码完全正确，只要没有用 $U(1)$，<strong>最高只能拿 80 分</strong>。</p>
+<p><strong>易错</strong>：自驱分需要在说明文档里<strong>明确写出</strong>你额外做了什么，否则老师可能看不到。</p>
+</blockquote>
+<h1><span id="附复现用的代码工具箱">附：复现用的代码工具箱</span></h1><p>上面每张图的代码都调用了下面这些函数。<strong>把它们抄到一个文件里</strong>（例如 <code>ed.py</code>），后面所有图就都能直接跑。整份工具箱只有八十来行，却撑起了本讲全部 9 张图。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;ED toolbox shared by every reproduction in this lecture.&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.use(<span class="string">&quot;Agg&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> sparse</span><br><span class="line"><span class="keyword">from</span> scipy.sparse.linalg <span class="keyword">import</span> eigsh</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> comb</span><br><span class="line"></span><br><span class="line">OUT = <span class="string">r&quot;D:\Blog\xuxu20040407.github.io\source\img\量子物理计算方法选讲&quot;</span></span><br><span class="line">os.makedirs(OUT, exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ============================== TOOLBOX ==============================</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">SetBit</span>(<span class="params">i, n</span>):    <span class="keyword">return</span> i | (<span class="number">1</span> &lt;&lt; n)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ClearBit</span>(<span class="params">i, n</span>):  <span class="keyword">return</span> i &amp; ~(<span class="number">1</span> &lt;&lt; n)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">FlipBit</span>(<span class="params">i, n</span>):   <span class="keyword">return</span> i ^ (<span class="number">1</span> &lt;&lt; n)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ReadBit</span>(<span class="params">i, n</span>):   <span class="keyword">return</span> (i &amp; (<span class="number">1</span> &lt;&lt; n)) &gt;&gt; n</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">PopCntBit</span>(<span class="params">i</span>):    <span class="keyword">return</span> <span class="built_in">bin</span>(i).count(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">PickBit</span>(<span class="params">i, k, n</span>): <span class="keyword">return</span> (i &amp; (((<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>) &lt;&lt; k)) &gt;&gt; k</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">RotLBit</span>(<span class="params">i, L, n</span>): <span class="keyword">return</span> (PickBit(i, <span class="number">0</span>, L - n) &lt;&lt; n) + (i &gt;&gt; (L - n))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">GetHopList</span>(<span class="params">Ns, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    Hop = [[i, i + <span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(Ns - <span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">if</span> periodic: Hop.append([Ns - <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> Hop</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">HeisenbergCOO</span>(<span class="params">Ns, J=<span class="number">1.0</span>, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    HopList = GetHopList(Ns, periodic); Nl = <span class="number">2</span> ** Ns</span><br><span class="line">    HI, HJ, HV = [], [], []</span><br><span class="line">    <span class="keyword">for</span> i0 <span class="keyword">in</span> <span class="built_in">range</span>(Nl):</span><br><span class="line">        <span class="keyword">for</span> (P0, P1) <span class="keyword">in</span> HopList:</span><br><span class="line">            <span class="keyword">if</span> ReadBit(i0, P0) != ReadBit(i0, P1):</span><br><span class="line">                i1 = FlipBit(FlipBit(i0, P0), P1)</span><br><span class="line">                HI.append(i1); HJ.append(i0); HV.append(<span class="number">0.5</span> * J)</span><br><span class="line">            HI.append(i0); HJ.append(i0)</span><br><span class="line">            HV.append(J * (ReadBit(i0, P0) - <span class="number">.5</span>) * (ReadBit(i0, P1) - <span class="number">.5</span>))</span><br><span class="line">    <span class="keyword">return</span> sparse.coo_matrix((HV, (HI, HJ)), shape=(Nl, Nl)).tocsc()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_hubbard</span>(<span class="params">NS, bonds, t, U, mu, V=<span class="number">0.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Single global 2NS-bit string; orbital p = i + NS*sigma.&quot;&quot;&quot;</span></span><br><span class="line">    FULL = <span class="number">1</span> &lt;&lt; (<span class="number">2</span> * NS)</span><br><span class="line">    orb = <span class="keyword">lambda</span> i, s: i + NS * s</span><br><span class="line">    pc = <span class="keyword">lambda</span> x: <span class="built_in">bin</span>(<span class="built_in">int</span>(x)).count(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">create</span>(<span class="params">n, p</span>):</span><br><span class="line">        <span class="keyword">if</span> (n &gt;&gt; p) &amp; <span class="number">1</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> (n | (<span class="number">1</span> &lt;&lt; p)), (-<span class="number">1</span>) ** pc(n &amp; ((<span class="number">1</span> &lt;&lt; p) - <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">annihilate</span>(<span class="params">n, p</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ((n &gt;&gt; p) &amp; <span class="number">1</span>): <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> (n &amp; ~(<span class="number">1</span> &lt;&lt; p)), (-<span class="number">1</span>) ** pc(n &amp; ((<span class="number">1</span> &lt;&lt; p) - <span class="number">1</span>))</span><br><span class="line">    H = np.zeros((FULL, FULL))</span><br><span class="line">    <span class="keyword">for</span> (i, j) <span class="keyword">in</span> bonds:</span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">            pi, pj = orb(i, s), orb(j, s)</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(FULL):</span><br><span class="line">                r = annihilate(n, pj)</span><br><span class="line">                <span class="keyword">if</span> r:</span><br><span class="line">                    n1, s1 = r; r2 = create(n1, pi)</span><br><span class="line">                    <span class="keyword">if</span> r2: n2, s2 = r2; H[n2, n] += -t * s1 * s2</span><br><span class="line">                r = annihilate(n, pi)</span><br><span class="line">                <span class="keyword">if</span> r:</span><br><span class="line">                    n1, s1 = r; r2 = create(n1, pj)</span><br><span class="line">                    <span class="keyword">if</span> r2: n2, s2 = r2; H[n2, n] += -t * s1 * s2</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(FULL):</span><br><span class="line">        nu = [(n &gt;&gt; orb(i, <span class="number">0</span>)) &amp; <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(NS)]</span><br><span class="line">        nd = [(n &gt;&gt; orb(i, <span class="number">1</span>)) &amp; <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(NS)]</span><br><span class="line">        d = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(NS): d += U * nu[i] * nd[i] - mu * (nu[i] + nd[i])</span><br><span class="line">        <span class="keyword">for</span> (i, j) <span class="keyword">in</span> bonds: d += V * (nu[i] + nd[i]) * (nu[j] + nd[j])</span><br><span class="line">        H[n, n] += d</span><br><span class="line">    <span class="keyword">return</span> H</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">J = <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ring_H</span>(<span class="params">N, phi=<span class="number">0.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;1-particle tight-binding ring with Peierls phase (flux phi, in flux quanta).&quot;&quot;&quot;</span></span><br><span class="line">    H = np.zeros((N, N), dtype=<span class="built_in">complex</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        H[j, (j + <span class="number">1</span>) % N] += -J * np.exp(<span class="number">1j</span> * <span class="number">2</span> * np.pi * phi / N)</span><br><span class="line">        H[(j + <span class="number">1</span>) % N, j] += -J * np.exp(-<span class="number">1j</span> * <span class="number">2</span> * np.pi * phi / N)</span><br><span class="line">    <span class="keyword">return</span> H</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chain_H</span>(<span class="params">N</span>):</span><br><span class="line">    H = np.zeros((N, N))</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N - <span class="number">1</span>):</span><br><span class="line">        H[j, j + <span class="number">1</span>] = H[j + <span class="number">1</span>, j] = -J</span><br><span class="line">    <span class="keyword">return</span> H</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">evolve</span>(<span class="params">H, psi0, ts</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Exact real-time propagation: psi(t) = sum_k e^&#123;-i eps_k t&#125; &lt;k|psi0&gt; |k&gt;.&quot;&quot;&quot;</span></span><br><span class="line">    eps, K = np.linalg.eigh(H)</span><br><span class="line">    <span class="keyword">return</span> (np.exp(-<span class="number">1j</span> * np.outer(ts, eps)) * (K.conj().T @ psi0)[<span class="literal">None</span>, :]) @ K.conj().T</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gwp</span>(<span class="params">N, j0, k0, a, periodic=<span class="literal">True</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Gaussian wave packet: envelope exp(-a^2/2 (j-j0)^2) times carrier e^&#123;i k0 j&#125;.&quot;&quot;&quot;</span></span><br><span class="line">    j = np.arange(N); d = np.<span class="built_in">abs</span>(j - j0)</span><br><span class="line">    <span class="keyword">if</span> periodic: d = np.minimum(d, N - d)</span><br><span class="line">    p = np.exp(-(a ** <span class="number">2</span> / <span class="number">2.0</span>) * d ** <span class="number">2</span>) * np.exp(<span class="number">1j</span> * k0 * j)</span><br><span class="line">    <span class="keyword">return</span> p / np.linalg.norm(p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">circ_sigma</span>(<span class="params">psi, N</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Circular standard deviation of |psi|^2 on a ring (sites).&quot;&quot;&quot;</span></span><br><span class="line">    p = np.<span class="built_in">abs</span>(psi) ** <span class="number">2</span>; p = p / p.<span class="built_in">sum</span>()</span><br><span class="line">    z = (p * np.exp(<span class="number">2j</span> * np.pi * np.arange(N) / N)).<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">return</span> np.sqrt(<span class="built_in">max</span>(-<span class="number">2</span> * np.log(<span class="built_in">abs</span>(z)), <span class="number">0</span>)) * N / (<span class="number">2</span> * np.pi)</span><br></pre></td></tr></table></figure>
+<p><strong>用法</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">exec</span>(<span class="built_in">open</span>(<span class="string">&quot;ed.py&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>).read())   <span class="comment"># 或把 ed.py 放在同目录直接 import</span></span><br><span class="line">fig_basis_bits()</span><br></pre></td></tr></table></figure>
+<p><strong>三点提醒</strong>：</p>
+<ol>
+<li><strong>比特约定全部集中在这里</strong>：<code>ReadBit</code> 忘了 <code>&gt;&gt; n</code>、<code>SetBit</code>/<code>ClearBit</code> 的掩码、以及 $n=\sum_i n_i2^i$（格点 $i$ = 第 $i$ 位）。<strong>改任何一处都会同时影响所有图</strong>——这也是为什么把它抽成一个工具箱而不是每张图各写一遍。</li>
+<li><code>HeisenbergCOO</code> 把 $J$ 做成了参数（默认 1），所以换耦合只要改调用。<code>make_hubbard</code> 的自旋轨道编号是 $p=i+NS\sigma$，<strong>费米子符号统一由 <code>create</code>/<code>annihilate</code> 里那一句 <code>popcount(n &amp; ((1&lt;&lt;p)-1))</code> 给出</strong>——这就是”单一全局比特串”方案，跨自旋的相对符号不需要手工拆。</li>
+<li><code>circ_sigma</code> 是<strong>环上的圆标准差</strong>（用 $\left|\sum_j p_j e^{i2\pi j/N}\right|$ 定义），只有在周期边界上才对。<strong>用普通的 $\sqrt{\mathrm{Var}}$ 在环上会算出完全错误的宽度</strong>，因为波包绕回来时那个”方差”会被算成 $\sim N^2$——我在做非扩散波包那张图时就先踩了这个坑。</li>
+</ol>
+<h1><span id="附ed-代码自查清单">附：ED 代码自查清单</span></h1><p>写完 ED 代码，按这个顺序过一遍。<strong>每一条都是免费的</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查</th>
+<th>怎么做</th>
+<th>期望</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>已知极限</td>
+<td>$N=2$ 单键</td>
+<td>$E_0 = -3/4$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>已知极限</td>
+<td>$N=4$ 环 Heisenberg</td>
+<td>$E_0 = -2$，谱 $\{-2,-1,0,+1\}$，简并 $1,3,7,5$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>已知极限</td>
+<td>Hubbard $U=0$，4 格点环</td>
+<td>单粒子能级 $\{-2,0,0,+2\}$；$\mu$–$n$ 阶梯在 $\mu=-2,0,2$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>已知极限</td>
+<td>Heisenberg $N=4$ 环的 $E_0/N$</td>
+<td>$-0.5J$（对比第一讲 Bethe ansatz 的一维极限 $-0.4431J$）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>求和规则</td>
+<td>$\mathrm{Tr}\,\hat H$</td>
+<td>$=0$</td>
+</tr>
+<tr>
+<td>6</td>
+<td>厄米性</td>
+<td><code>(H - H.T).nnz</code></td>
+<td><code>== 0</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>稀疏度</td>
+<td><code>H.nnz</code> vs $N\cdot2^{N-1} + 2^N$</td>
+<td>环上严格相等</td>
+</tr>
+<tr>
+<td>8</td>
+<td>扇区守恒</td>
+<td>每个 $(N_\uparrow,N_\downarrow)$ 块内 $N_\uparrow$、$N_\downarrow$ 是否恒定</td>
+<td>恒定</td>
+</tr>
+<tr>
+<td>9</td>
+<td>维数守恒</td>
+<td>各扇区维数求和</td>
+<td>$=2^N$（自旋）或 $=2^{2N}$（Hubbard）</td>
+</tr>
+<tr>
+<td>10</td>
+<td>幺一性</td>
+<td>$\lVert\psi(t)\rVert$ 随 $t$</td>
+<td>恒为 1</td>
+</tr>
+<tr>
+<td>11</td>
+<td>两种方法对照</td>
+<td>稠密 <code>eigh</code> vs 稀疏 <code>eigsh</code></td>
+<td>本征值一致到 $10^{-12}$</td>
+</tr>
+<tr>
+<td>12</td>
+<td>交叉验证</td>
+<td>ED vs 第一讲的严格解（3 格点 Heisenberg：$E_0=-J$，二重简并，$S=\frac12$）</td>
+<td>一致</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1><span id="附常见错误清单">附：常见错误清单</span></h1><p>写 ED 代码前先读一遍。前 10 条是本讲反复强调的。</p>
+<ol>
+<li><strong>格点编号方向搞反</strong>。本讲：格点 $i$ = 第 $i$ 位，格点 0 在最右边。若与第一讲的 <code>np.kron</code> 路线混用，格点顺序会反，<strong>所有局域量都错且不报错</strong>。</li>
+<li><strong>`Nl = 2</strong>Ns<code>写成</code>2<em>Ns`*</em>（应为 $2^N$）。</li>
+<li><strong><code>ReadBit</code> 忘了 <code>&gt;&gt; n</code></strong>，返回 0 或 $2^n$，导致 $S^z_i = \mathrm{ReadBit} - 0.5$ 变成 $-0.5$ 或 $2^n - 0.5$。</li>
+<li><strong>对角元被错误地放进 <code>if</code> 里</strong>，只有”自旋相反”的基矢才有对角元，漏掉 $+\frac14$ 的贡献。</li>
+<li><strong>环上漏掉最后一条键 $(N-1,0)$</strong>（或反过来，在开链上多加了一条）。</li>
+<li><strong>非对角元的行、列写反</strong>。实厄米 $\hat H$ 时矩阵不变（$\hat H^T = \hat H$），谱不会错；但<strong>复厄米 $\hat H$ 时写反等于用了 $\hat H^*$</strong>，关联函数与时间演化都会错。</li>
+<li><strong><code>eig</code> 与 <code>eigh</code> 混用</strong>。哈密顿量是厄米的，用 <code>eigh</code>/<code>eigsh</code>；<code>eig</code> 返回复数且不排序。</li>
+<li><strong><code>which=&#39;SM&#39;</code> 找基态</strong>。应该用 <code>&#39;SA&#39;</code>（对 <code>eigsh</code>）。</li>
+<li><strong>费米子符号</strong>。$\downarrow$ 的插入/删除多一个 $\sum_k n_{k\uparrow}$ 因子；忘了它，本征值会错。</li>
+<li><strong>Lin 表的 off-by-one</strong>。$J_a$ 从 1 开始、$J_b$ 从 0 开始；论文用 1-based，代码用 0-based。</li>
+<li><strong>用普通移位代替循环移位做平移</strong>，破坏周期性边界。</li>
+<li><strong>位运算优先级</strong>。<code>x &amp; 1 == 1</code> 会被解析成 <code>x &amp; (1 == 1)</code>，永远加括号。</li>
+<li><strong>不检查厄米性</strong>。matrix-free 时没有矩阵可查，建议在构造完后用稠密小系统验证 <code>(H - H.T).nnz == 0</code>。</li>
+<li><strong>不用 $U(1)$ 对称性</strong>。最大扇区维数只有 $2^N/\sqrt{\pi N/2}$，也就是用 $U(1)$ 能省 $\sqrt{\pi N/2}$ 倍（$N=40$ 时约 8 倍）——<strong>这正是作业里”不用 $U(1)$ 扣 20 分”的原因</strong>。</li>
+<li><strong>不写验证</strong>。只算出一个数就交作业。必须做上面那张自查清单。</li>
+</ol>
+<h1><span id="附延伸阅读">附：延伸阅读</span></h1><p><strong>精确对角化的方法综述</strong></p>
+<ul>
+<li>H. Q. Lin, <em>Exact diagonalization of quantum-spin models</em>, <strong>Phys. Rev. B 42</strong>, 6561 (1990). —— Lin 表的原始论文。</li>
+<li>J. Schnack, <em>Exact diagonalization techniques</em>, in <em>Computational Many-Particle Physics</em>, LNP 739, Springer (2008). —— 综述章节。</li>
+<li>A. Weiße, H. Fehske, <em>Exact diagonalization techniques</em>, <strong>Rev. Comput. Chem. 23</strong>, 529 (2008). —— 另一种综述，含大量实现细节。</li>
+<li>N. Laflorencie, D. Poilblanc, <em>Algorithms for spin systems</em>, in <em>Strongly Correlated Systems: Numerical Methods</em>, Springer (2013).</li>
+</ul>
+<p><strong>Krylov / Lanczos</strong></p>
+<ul>
+<li>C. Lanczos, <strong>J. Res. Natl. Bur. Stand. 45</strong>, 255 (1950).</li>
+<li>R. B. Lehoucq, D. C. Sorensen, C. Yang, <em>ARPACK Users’ Guide</em>, SIAM (1998). —— <code>eigs</code>/<code>eigsh</code> 的底层。</li>
+<li>T. J. Park, J. C. Light, <em>Unitary quantum time evolution by iterative Lanczos reduction</em>, <strong>J. Chem. Phys. 85</strong>, 5870 (1986).</li>
+</ul>
+<p><strong>费米子符号与 Hubbard 模型</strong></p>
+<ul>
+<li>J. Hubbard, <strong>Proc. R. Soc. Lond. A 276</strong>, 238 (1963).</li>
+<li>E. H. Lieb, F. Y. Wu, <strong>Phys. Rev. Lett. 20</strong>, 1445 (1968).</li>
+<li>J. E. Hirsch, <strong>Phys. Rev. B 31</strong>, 4403 (1985). —— 早期 ED + QMC。</li>
+</ul>
+<p><strong>非厄米物理</strong></p>
+<ul>
+<li>C. M. Bender, S. Boettcher, <strong>Phys. Rev. Lett. 80</strong>, 5243 (1998). —— $\mathcal{PT}$ 对称的开创性工作。</li>
+<li>Y. Ashida, Z. Gong, M. Ueda, <em>Non-Hermitian physics</em>, <strong>Adv. Phys. 69</strong>, 249 (2020). —— 综述。</li>
+<li>E. J. Bergholtz, J. C. Budich, F. K. Kunst, <strong>Rev. Mod. Phys. 93</strong>, 015005 (2021).</li>
+</ul>
+<p><strong>实时演化 / 波包</strong></p>
+<ul>
+<li>S. Yang, Z. Song, C. P. Sun, <em>Non-spreading wave packet and solid-state flying qubit</em>, <strong>Phys. Rev. A 73</strong>, 022317 (2006). —— 本讲实例的原始工作。</li>
+<li>A. Weichselbaum, S. Capponi, P. Lecheminant, A. M. Tsvelik, A. Delft, <em>Unified approach to the time evolution of one-dimensional quantum systems</em>（综述）。</li>
+</ul>
+<p><strong>参考书</strong></p>
+<ul>
+<li>H. Fehske, R. Schneider, A. Weiße (eds.), <em>Computational Many-Particle Physics</em>, LNP 739, Springer (2008).</li>
+<li>A. Avella, F. Mancini (eds.), <em>Strongly Correlated Systems: Numerical Methods</em>, Springer SSS 176 (2013).</li>
+</ul>
+<hr>
+<p>第三讲（ED II）会接着讲：如何用 $U(1)$ / 平移对称性把维数再压下去（动量空间 ED）、如何做动力学关联函数与谱函数、如何用有限尺寸标度把结果外推到热力学极限。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/">https://xuxu20040407.github.io/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/">量子物理计算方法选讲</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</div></div></a></div><div class="next-post pull-right"><a href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">09 交换关联泛函 II</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-28</div><div class="title">03 迭代对角化与谱函数</div></div></a></div><div><a href="/2026/09/15/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/01-%E8%AF%BE%E7%A8%8B%E5%AF%BC%E8%AE%BA%E4%B8%8E%E6%A0%BC%E7%82%B9%E6%A8%A1%E5%9E%8B/" title="01 课程导论与格点模型"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">01 课程导论与格点模型</div></div></a></div><div><a href="/2026/09/15/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2Content/" title="量子物理计算方法选讲Content"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">量子物理计算方法选讲Content</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">精确对角化：总览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">为什么做 ED</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">希尔伯特空间有多大</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">ED 能做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">今天的规模极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">ED 程序的结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">约定警告：格点编号方向与第一讲相反</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">基矢的比特表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">自旋态 ↔ 二进制 ↔ 十进制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.2.</span> <span class="toc-text">按位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.3.</span> <span class="toc-text">四个基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.4.</span> <span class="toc-text">三个进阶操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">哈密顿量矩阵的构造</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">对角元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">非对角元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">稀疏三元组：COO 格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">完整代码与验证清单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">对称性与基矢查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">块对角化：最便宜的加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">U(1) 对称性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">Lin 表：两次内存读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.4.</span> <span class="toc-text">一个完整的例子：6 格点 3 上 3 下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">费米子系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">Hubbard 模型与算符顺序约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">带符号的基矢操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.3.</span> <span class="toc-text">单一全局比特串：更稳的写法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">求解与测量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.1.</span> <span class="toc-text">怎么把矩阵解出来：完全对角化 vs 迭代对角化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.2.</span> <span class="toc-text">有限温度：白送的热平均</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.3.</span> <span class="toc-text">例子：4 格点环 Hubbard 的填充曲线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.4.</span> <span class="toc-text">磁化与磁化率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.5.</span> <span class="toc-text">图里的物理：居里定律</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">实时演化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.1.</span> <span class="toc-text">形式解与 Krylov 加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.2.</span> <span class="toc-text">实例一：高斯波包与色散</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.3.</span> <span class="toc-text">实例二：非扩散波包与飞行量子比特</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.4.</span> <span class="toc-text">实例三：自干涉与量子复兴</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">非厄米哈密顿量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">作业与评分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">附：复现用的代码工具箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">附：ED 代码自查清单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">附：常见错误清单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">附：延伸阅读</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>

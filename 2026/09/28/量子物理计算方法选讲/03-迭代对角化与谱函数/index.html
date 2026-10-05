@@ -1,0 +1,1324 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>03 迭代对角化与谱函数 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本讲在课程中的位置 约定表 隐形主线：有限精度会骗你 变分原理：能量泛函与梯度 二维极小化与 2×2 矩阵 变分上界：一份免费的 bug 检测器   幂法与 Krylov 空间 幂法的陷阱   Lanczos 方法：三项递推 递推系数与三对角矩阵 核心校检：HV 的上标 T 等于 V 上标 T 乘 T 起始向量必须归一化   为什么三项递推能保持正交 收敛性：Ritz 值是变分上界 陷阱一：正交">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03 迭代对角化与谱函数">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="本讲在课程中的位置 约定表 隐形主线：有限精度会骗你 变分原理：能量泛函与梯度 二维极小化与 2×2 矩阵 变分上界：一份免费的 bug 检测器   幂法与 Krylov 空间 幂法的陷阱   Lanczos 方法：三项递推 递推系数与三对角矩阵 核心校检：HV 的上标 T 等于 V 上标 T 乘 T 起始向量必须归一化   为什么三项递推能保持正交 收敛性：Ritz 值是变分上界 陷阱一：正交">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover2.jpeg">
+<meta property="article:published_time" content="2026-09-28T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-28T15:25:28.158Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子物理计算方法选讲">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover2.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '03 迭代对角化与谱函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-09-28 23:25:28'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">03 迭代对角化与谱函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-09-28T15:25:28.158Z" title="更新于 2026-09-28 23:25:28">2026-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/">量子物理计算方法选讲</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="03 迭代对角化与谱函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#本讲在课程中的位置">本讲在课程中的位置</a></li>
+<li><a href="#约定表">约定表</a></li>
+<li><a href="#隐形主线：有限精度会骗你">隐形主线：有限精度会骗你</a></li>
+<li><a href="#变分原理：能量泛函与梯度">变分原理：能量泛函与梯度</a><ul>
+<li><a href="#二维极小化与-2×2-矩阵">二维极小化与 2×2 矩阵</a></li>
+<li><a href="#变分上界：一份免费的-bug-检测器">变分上界：一份免费的 bug 检测器</a></li>
+</ul>
+</li>
+<li><a href="#幂法与-Krylov-空间">幂法与 Krylov 空间</a><ul>
+<li><a href="#幂法的陷阱">幂法的陷阱</a></li>
+</ul>
+</li>
+<li><a href="#Lanczos-方法：三项递推">Lanczos 方法：三项递推</a><ul>
+<li><a href="#递推系数与三对角矩阵">递推系数与三对角矩阵</a></li>
+<li><a href="#核心校检：HV-的上标-T-等于-V-上标-T-乘-T">核心校检：HV 的上标 T 等于 V 上标 T 乘 T</a></li>
+<li><a href="#起始向量必须归一化">起始向量必须归一化</a></li>
+</ul>
+</li>
+<li><a href="#为什么三项递推能保持正交">为什么三项递推能保持正交</a></li>
+<li><a href="#收敛性：Ritz-值是变分上界">收敛性：Ritz 值是变分上界</a></li>
+<li><a href="#陷阱一：正交性丢失与鬼本征值">陷阱一：正交性丢失与鬼本征值</a><ul>
+<li><a href="#重正交化">重正交化</a></li>
+<li><a href="#两种重启方案">两种重启方案</a></li>
+</ul>
+</li>
+<li><a href="#收敛判据的陷阱：能量快、谱形慢">收敛判据的陷阱：能量快、谱形慢</a></li>
+<li><a href="#第二条链：格林函数">第二条链：格林函数</a><ul>
+<li><a href="#经典格林函数与传播子">经典格林函数与传播子</a></li>
+<li><a href="#量子格林函数与五种排序">量子格林函数与五种排序</a></li>
+<li><a href="#含时关联函数与谱函数">含时关联函数与谱函数</a></li>
+<li><a href="#局域态密度与-Lehmann-展开">局域态密度与 Lehmann 展开</a></li>
+</ul>
+</li>
+<li><a href="#谱函数：Lanczos-连分数">谱函数：Lanczos + 连分数</a><ul>
+<li><a href="#第二次-Lanczos">第二次 Lanczos</a></li>
+<li><a href="#陷阱二：alpha-上标-2-必须乘回来">陷阱二：alpha 上标 2 必须乘回来</a></li>
+<li><a href="#连分数：分块矩阵求逆">连分数：分块矩阵求逆</a></li>
+<li><a href="#陷阱三：连分数必须反向递归">陷阱三：连分数必须反向递归</a></li>
+<li><a href="#减法谱的符号">减法谱的符号</a></li>
+<li><a href="#收敛快慢由什么决定">收敛快慢由什么决定</a></li>
+</ul>
+</li>
+<li><a href="#一维-Hubbard-环：态密度与-Mott-绝缘体">一维 Hubbard 环：态密度与 Mott 绝缘体</a><ul>
+<li><a href="#U-等于-0-的解析基准">U 等于 0 的解析基准</a></li>
+<li><a href="#U-等于-4-的上下-Hubbard-带">U 等于 4 的上下 Hubbard 带</a></li>
+<li><a href="#Mott-转变">Mott 转变</a></li>
+</ul>
+</li>
+<li><a href="#陷阱四：简并与求和规则">陷阱四：简并与求和规则</a></li>
+<li><a href="#物理与实验：自旋-电荷分离">物理与实验：自旋-电荷分离</a></li>
+<li><a href="#研究前沿">研究前沿</a></li>
+<li><a href="#校检清单">校检清单</a></li>
+<li><a href="#附：复现用的代码工具箱">附：复现用的代码工具箱</a></li>
+</ul>
+<h1><span id="本讲在课程中的位置">本讲在课程中的位置</span></h1><p>上一讲（<a href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a>，ED I）把整个问题变成了线性代数：基矢是整数、哈密顿量是稀疏三元组、对称性分块、基矢查找。但它留下了两个悬而未决的问题：</p>
+<ol>
+<li><strong>矩阵造好了，怎么把它对角化？</strong> 完全对角化是 $O(D^3)$ 时间、$O(D^2)$ 内存，当维数是 $4^{12}\approx1.7\times10^7$、$4^{14}\approx2.7\times10^8$ 甚至更大时，这条路直接死掉。</li>
+<li><strong>就算算不动全谱，能不能只算我需要的那部分？</strong> 特别是当我要的是局域的、实验直接测量的量——谱函数 $\rho(\omega)$、动量分辨谱 $A(\mathbf k,\omega)$。</li>
+</ol>
+<p>本讲（ED II）回答这两个问题。它的<strong>主线是 Lanczos 方法</strong>，落点是<strong>谱函数</strong>。</p>
+<p>用讲义自己的话说，第二讲解决”怎么把一个量子多体问题变成一个可以交给计算机的稀疏矩阵”，本讲解决”矩阵造好了，怎么把它对角化”。课程大纲第 1 章”精确对角化：哈密顿量的矩阵表示、Lanczos 方法、时间演化、动量空间精确对角化”里，<strong>第二讲覆盖了”哈密顿量的矩阵表示”，本讲覆盖”Lanczos 方法”</strong>。</p>
+<p>为什么 Lanczos 值得单独占一次课？因为它是唯一一个能在 $D\sim10^7\sim10^9$ 的希尔伯特空间里、只存几十个矢量就把基态和低激发态算准的方法——比完全对角化<strong>便宜四到五个数量级</strong>。</p>
+<h2><span id="两条链">两条链</span></h2><p>本讲有两条互相独立、最后合流的逻辑链：</p>
+<p><strong>第一条链（求本征值）</strong></p>
+<script type="math/tex; mode=display">
+\text{变分原理}\ \Rightarrow\ \text{梯度}\ \Rightarrow\ \text{二维极小化}
+\ \Rightarrow\ \text{幂法与 Krylov 空间}
+\ \Rightarrow\ \text{Lanczos 三项递推}
+\ \Rightarrow\ \text{三对角矩阵 } T</script><p><strong>第二条链（求谱）</strong></p>
+<script type="math/tex; mode=display">
+\text{格林函数}\ \Rightarrow\ \text{含时关联函数}\ \Rightarrow\ \text{谱函数}
+\ \Rightarrow\ \text{Lanczos + 连分数}
+\ \Rightarrow\ \text{自旋-电荷分离与实验}</script><p>两条链在”Lanczos + 连分数”这里汇合：同一个三项递推，既用来求基态（第一条链），又用来求谱函数（第二条链）。</p>
+<h1><span id="约定表">约定表</span></h1><p>讲义没有集中列约定，但公式和示例默认了下面这套。承接第二讲，新增部分用<strong>粗体</strong>标出。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>本讲约定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单位</td>
+<td>$\hbar=1$，$k_B=1$，晶格常数 $a=1$；能量以跳跃积分 $t$ 为单位</td>
+</tr>
+<tr>
+<td>哈密顿量（Hubbard）</td>
+<td>$\hat H=-t\sum_{j,\sigma}\left(c^\dagger_{j\sigma}c_{j+1,\sigma}+\mathrm{h.c.}\right)+U\sum_j n_{j\uparrow}n_{j\downarrow}-\mu\sum_j(n_{j\uparrow}+n_{j\downarrow})$</td>
+</tr>
+<tr>
+<td>基矢表示</td>
+<td>沿用第二讲：格点 $i$ 就是第 $i$ 位，格点 0 是最低位；费米子低 $N$ 位放 $\uparrow$、高 $N$ 位放 $\downarrow$</td>
+</tr>
+<tr>
+<td>自旋基</td>
+<td>$\lvert\uparrow\rangle=(1,0)^T$，$\lvert\downarrow\rangle=(0,1)^T$</td>
+</tr>
+<tr>
+<td>边界条件</td>
+<td>Hubbard 链是<strong>环</strong>（周期性边界）</td>
+</tr>
+<tr>
+<td><strong>Lanczos 基</strong></td>
+<td>$\{\lvert\phi_0\rangle,\lvert\phi_1\rangle,\cdots,\lvert\phi_n\rangle\}$，要求 $\langle\phi_m\vert\phi_m\rangle=1$，$\lvert\phi_{-1}\rangle=0$，$b_{-1}=0$</td>
+</tr>
+<tr>
+<td><strong>Lanczos 系数</strong></td>
+<td>$a_m=\langle\phi_m\vert\hat H\vert\phi_m\rangle$（实数），$b_m=\lVert\hat H\lvert\phi_m\rangle-a_m\lvert\phi_m\rangle-b_{m-1}\lvert\phi_{m-1}\rangle\rVert\ \ge 0$</td>
+</tr>
+<tr>
+<td><strong>三对角矩阵</strong></td>
+<td>$T=\mathrm{tridiag}(b_{m-1},a_m,b_m)$，对角元 $a_m$、上下次对角元 $b_m$</td>
+</tr>
+<tr>
+<td><strong>谱函数</strong></td>
+<td>$z=\omega+i\eta+E_0$（$\eta&gt;0$ 是展宽）；$\rho(\omega)=-\frac{1}{\pi}\lim_{\eta\to0^+}\mathrm{Im}\langle\Psi_0\vert\frac{1}{z-\hat H}\lvert\Psi_0\rangle$</td>
+</tr>
+<tr>
+<td><strong>起始向量的归一化</strong></td>
+<td>$\lvert\Psi_0\rangle=\hat A\lvert\Phi_0\rangle$，$\alpha^2=\langle\Psi_0\vert\Psi_0\rangle$，$\lvert\phi_0\rangle=\lvert\Psi_0\rangle/\alpha$</td>
+</tr>
+<tr>
+<td><strong>化学势</strong></td>
+<td>半满 Hubbard 模型取 $\mu=\big[E_0(N+1)-E_0(N-1)\big]/2=U/2$</td>
+</tr>
+<tr>
+<td>时间约定</td>
+<td>$C(t)=-i\langle\Phi_0\vert\hat A(t)\hat A^\dagger(0)\lvert\Phi_0\rangle$，其中 $\hat A(t)=e^{i\hat Ht}\hat A(0)e^{-i\hat Ht}$（海森堡绘景）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>提示：有两套”看起来很像”的递推，不要混。</strong> 讲义第 5 页（变分原理）和第 9 页（Lanczos）给出的是同一个三项递推的两个版本：第 5 页只做到 $\{\lvert\phi_0\rangle,\lvert\phi_1\rangle\}$ 两个矢量，然后对角化 $2\times2$ 矩阵得到新起点；第 9 页才是完整的 $m\to m+1$ 通项。<strong>第 5 页是”热身”，第 9 页才是要写进代码的东西。</strong></p>
+</blockquote>
+<h1><span id="隐形主线有限精度会骗你">隐形主线：有限精度会骗你</span></h1><p>本讲有一条贯穿始终的”隐形主线”：<strong>数值方法在有限精度下会骗你</strong>。</p>
+<p>讲义里有四处专门讲这个，都是”代码能跑、结果看着也像样、但其实是错的”的典型场景：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>陷阱</th>
+<th>症状</th>
+<th>抓它的办法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正交性丢失</td>
+<td>出现<strong>重复的鬼本征值</strong></td>
+<td>看 Ritz 值有没有成对重复</td>
+</tr>
+<tr>
+<td>忘了乘 $\alpha^2$</td>
+<td>谱形<strong>完全正确</strong>，只是整条曲线幅度差一个常数</td>
+<td>求和规则 $\int\rho\,\mathrm d\omega$</td>
+</tr>
+<tr>
+<td>连分数方向搞反</td>
+<td>极点位置<strong>系统性漂移</strong></td>
+<td>与直接解 $(z-\hat H)x=e_0$ 对比</td>
+</tr>
+<tr>
+<td>$z=\omega+i\eta+E_0$ 的符号错</td>
+<td>极点在 $E_n$ 而不是 $E_n-E_0$</td>
+<td>看清 $+$ 号</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这四处也是最容易失分的地方。下面每一处我都会给出<strong>可运行的复现代码 + 一张图 + 一个能抓住它的校检</strong>。</p>
+<h1><span id="变分原理能量泛函与梯度">变分原理：能量泛函与梯度</span></h1><p>一切从一个不等式开始。设 $\hat H$ 的本征解为 $\hat H\lvert n\rangle=E_n\lvert n\rangle$，$E_0\le E_1\le\cdots$。对<strong>任意</strong>试探态 $\lvert\phi\rangle$，瑞利–商原理给出</p>
+<script type="math/tex; mode=display">
+E_0\ \le\ \frac{\langle\phi\vert\hat H\vert\phi\rangle}{\langle\phi\vert\phi\rangle}\ =:\ E[\phi]</script><p><strong>证明</strong>（三行）：把 $\lvert\phi\rangle=\sum_n c_n\lvert n\rangle$ 代进去，$E[\phi]=\sum_n|c_n|^2E_n/\sum_n|c_n|^2\ge E_0$。等号成立当且仅当 $\lvert\phi\rangle$ 是基态。</p>
+<p>于是 $E[\lvert\phi\rangle]$ 是一个关于 $\lvert\phi\rangle$ 的<strong>泛函</strong>，最小值在基态处取到。求 $\frac{\delta E}{\delta\lvert\phi\rangle^*}=0$：</p>
+<script type="math/tex; mode=display">
+\frac{\partial}{\partial\lvert\phi\rangle^*}\left[\frac{\langle\phi\vert\hat H\vert\phi\rangle}{\langle\phi\vert\phi\rangle}\right]=0
+\ \Longrightarrow\
+\hat H\lvert\phi\rangle=E[\phi]\lvert\phi\rangle</script><p><strong>这正是本征值方程</strong>。所以”求本征值”和”最小化一个泛函”是同一件事，而后者可以用<strong>梯度下降</strong>做。</p>
+<p>梯度的形式（变分 $\lvert\phi\rangle\to\lvert\phi\rangle+\epsilon\lvert\delta\phi\rangle$）：</p>
+<script type="math/tex; mode=display">
+\delta E = 2\,\mathrm{Re}\left[\frac{\langle\delta\phi\vert(\hat H-E[\phi])\lvert\phi\rangle}{\langle\phi\vert\phi\rangle}\right]</script><p><strong>梯度方向给出一个”更好的”试探态</strong>：</p>
+<script type="math/tex; mode=display">
+\lvert\delta\phi\rangle\ \propto\ -(\hat H-E[\phi])\lvert\phi\rangle
+\ \propto\ -\hat H\lvert\phi\rangle\ \ (\text{若 } E[\phi]\text{ 是常数})</script><p>也就是说，<strong>$\lvert\phi\rangle$ 和 $\lvert\phi\rangle\pm\hat H\lvert\phi\rangle$ 的线性组合能给出更低的能量</strong>。这就是整个 Lanczos 方法的种子。</p>
+<h2><span id="二维极小化与-22-矩阵">二维极小化与 2×2 矩阵</span></h2><p>既然线性组合能改进，就系统地做：在<strong>二维子空间</strong> $\mathrm{span}\{\lvert\phi_0\rangle,\lvert\phi_1\rangle\}$ 上求 $\hat H$ 的最小本征值。</p>
+<p>矩阵元（$b_1=\lVert(\hat H-a_0)\lvert\phi_0\rangle\rVert$）：</p>
+<script type="math/tex; mode=display">
+T=\begin{pmatrix}
+a_0 & b_1\\
+b_1 & a_1
+\end{pmatrix},
+\qquad
+a_m=\langle\phi_m\vert\hat H\vert\phi_m\rangle,\quad
+b_1=\lVert\hat H\lvert\phi_0\rangle-a_0\lvert\phi_0\rangle\rVert</script><p>本征值 $E_\pm=\frac{a_0+a_1\pm\sqrt{(a_0-a_1)^2+4b_1^2}}{2}$，本征矢给出新的 $\lvert\phi_\pm\rangle$。取<strong>低的那个</strong> $E_-$，就完成了一次改进。这就是讲义第 5 页的全部内容。</p>
+<p>把它做 $m$ 次，子空间从 2 维长到 $m+1$ 维，矩阵从 $2\times2$ 长成<strong>三对角</strong>——这就是 Lanczos。</p>
+<h2><span id="变分上界一份免费的-bug-检测器">变分上界：一份免费的 bug 检测器</span></h2><p>$E_\pm$ 是 $2\times2$ 矩阵的本征值，也就是子空间上的最小值，所以</p>
+<script type="math/tex; mode=display">
+E_-\ \ge\ E_0</script><p><strong>永远成立</strong>。这个不等式是免费的 bug 检测器：</p>
+<blockquote>
+<p><strong>如果你的”Lanczos 能量”低于稠密对角化给出的精确值，那一定是算错了</strong>——要么试探态/递推写错，要么哈密顿量矩阵元填错。<strong>变分原理永远不可能被”超越”。</strong></p>
+</blockquote>
+<p>本讲后面所有数字都会反复用这条来把关。</p>
+<h1><span id="幂法与-krylov-空间">幂法与 Krylov 空间</span></h1><p>最朴素的迭代：反复作用 $\hat H$，</p>
+<script type="math/tex; mode=display">
+\lvert\phi\rangle\ \to\ \frac{\hat H\lvert\phi\rangle}{\lVert\hat H\lvert\phi\rangle\rVert}\ \to\ \cdots</script><p>展开后 $\lvert\phi\rangle_k\propto\hat H^k\lvert\phi_0\rangle$。</p>
+<h2><span id="幂法的陷阱">幂法的陷阱</span></h2><p><strong>幂法收敛到 $|\lambda|$ 最大的本征值，不是代数上最小的那个。</strong> 对 $\hat H$，”最大”意味着 $E_{\max}$（代数上最大），而我们要的是 $E_0$（最小）。</p>
+<p>要救回来只有两个办法：</p>
+<ol>
+<li>平移：$\hat H\to\hat H-\sigma\hat I$，让目标变成”最大模”；</li>
+<li><strong>Krylov 空间</strong>——把所有 $\hat H^k\lvert\phi_0\rangle$ <strong>一起</strong>留着，让 $T$ 的本征值<strong>自己</strong>按大小排出来。</li>
+</ol>
+<p>第 2 条就是 Lanczos。这里的要点是：<strong>我们不”选”本征值，我们构造一个小的三对角矩阵，让它替我们选。</strong></p>
+<p>Krylov 空间：</p>
+<script type="math/tex; mode=display">
+\mathcal K_m=\mathrm{span}\big\{\lvert\phi_0\rangle,\ \hat H\lvert\phi_0\rangle,\ \ldots,\ \hat H^{m-1}\lvert\phi_0\rangle\big\},
+\qquad \dim\mathcal K_m\ \le\ m\ \ll\ D</script><h1><span id="lanczos-方法三项递推">Lanczos 方法：三项递推</span></h1><p>Lanczos 就是<strong>在 Krylov 空间上把 $\hat H$ 精确地表示成三对角矩阵</strong>。</p>
+<h2><span id="递推系数与三对角矩阵">递推系数与三对角矩阵</span></h2><p>从归一化的 $\lvert\phi_0\rangle$ 出发，递推</p>
+<script type="math/tex; mode=display">
+b_{m+1}\lvert\phi_{m+1}\rangle=\hat H\lvert\phi_m\rangle-a_m\lvert\phi_m\rangle-b_m\lvert\phi_{m-1}\rangle,
+\qquad a_m=\langle\phi_m\vert\hat H\lvert\phi_m\rangle</script><p>于是</p>
+<script type="math/tex; mode=display">
+\boxed{\ \hat H\lvert\phi_m\rangle=b_m\lvert\phi_{m-1}\rangle+a_m\lvert\phi_m\rangle+b_{m+1}\lvert\phi_{m+1}\rangle\ }</script><p>$lvert\phi_m\rangle$ 在 $\{\lvert\phi_0\rangle,\ldots,\lvert\phi_{m-1}\rangle\}$ 上的投影<strong>只可能落在 $\lvert\phi_{m-1}\rangle$ 上</strong>（这正是三对角结构的来源，见下一节）。而三对角矩阵</p>
+<script type="math/tex; mode=display">
+T_m=\mathrm{tridiag}(b_0,b_1,\ldots,b_{m-1};\ a_0,\ldots,a_{m-1};\ b_1,\ldots,b_{m-1})</script><p>的<strong>最低本征值就是基态能量的上界</strong>，且<strong>单调下降</strong>。</p>
+<p><strong>代价</strong>：每一步只要<strong>一次矩阵-矢量乘法</strong>，内存 $O(mD)$。这就是”比完全对角化便宜四到五个数量级”的来源。</p>
+<p><strong>实现</strong>（本讲工具箱 <code>ed3.lanczos</code>）：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">lanczos</span>(<span class="params">matvec, v0, M, reorth=<span class="literal">False</span>, tol=<span class="number">1e-12</span></span>):</span><br><span class="line">    v0 = np.asarray(v0, dtype=np.complex128 <span class="keyword">if</span> np.iscomplexobj(v0) <span class="keyword">else</span> np.float64)</span><br><span class="line">    V = np.zeros((v0.size, M), dtype=v0.dtype)</span><br><span class="line">    a = np.zeros(M); b = np.zeros(M + <span class="number">1</span>)</span><br><span class="line">    V[:, <span class="number">0</span>] = v0 / np.linalg.norm(v0)</span><br><span class="line">    Meff = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">        w = matvec(V[:, m])</span><br><span class="line">        a[m] = np.vdot(V[:, m], w).real</span><br><span class="line">        w = w - a[m] * V[:, m]</span><br><span class="line">        <span class="keyword">if</span> m &gt; <span class="number">0</span>: w = w - b[m] * V[:, m - <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> reorth:</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):                 <span class="comment"># &quot;two passes are enough&quot;</span></span><br><span class="line">                <span class="keyword">for</span> kk <span class="keyword">in</span> <span class="built_in">range</span>(m + <span class="number">1</span>):</span><br><span class="line">                    w -= (V[:, kk] @ w) * V[:, kk]</span><br><span class="line">        b[m + <span class="number">1</span>] = np.linalg.norm(w)</span><br><span class="line">        Meff = m + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> b[m + <span class="number">1</span>] &lt; tol: <span class="keyword">break</span>               <span class="comment"># Krylov space closed</span></span><br><span class="line">        <span class="keyword">if</span> m + <span class="number">1</span> &lt; M: V[:, m + <span class="number">1</span>] = w / b[m + <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> a[:Meff], b[:Meff + <span class="number">1</span>], V[:, :Meff]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意下标。</strong> 返回的 <code>b</code> 长度是 <code>Meff+1</code>，其中 <code>b[Meff]</code> 是<strong>耦合到尚未构造的</strong> $\lvert\phi_{M_{\rm eff}}\rangle$ 的那一项。组装 $T$ 时只用到 <code>b[1:Meff]</code>——<strong>最后那个 <code>b[Meff]</code> 不进矩阵</strong>。这是最容易错的下标。</p>
+</blockquote>
+<h2><span id="核心校检hv-的上标-t-等于-v-上标-t-乘-t">核心校检：HV 的上标 T 等于 V 上标 T 乘 T</span></h2><p>递推式说 $\hat H\lvert\phi_m\rangle$ 在已构造的基里就是 $T$ 的第 $m$ 列。写成矩阵就是</p>
+<script type="math/tex; mode=display">
+\boxed{\ \hat H V = V\,T\ }\qquad (V=[\lvert\phi_0\rangle\cdots\lvert\phi_{m-1}\rangle])</script><p>这是<strong>唯一</strong>能证明递推系数算对了的检查，而且它逐列独立可查。在 $N=8$、$t=1$、$U=4$ 的 $(4,4)$ 块上，块维度 $\binom84^2=4900$，从随机向量 <code>default_rng(7)</code> 出发做 plain Lanczos，前 6 个系数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$m$</th>
+<th>$a_m$</th>
+<th>$b_m$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>7.9013363043</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8.0169272334</td>
+<td>4.3328169188</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8.3262082978</td>
+<td>5.4636041796</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8.5526115388</td>
+<td>5.9403199058</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8.1051242498</td>
+<td>6.2933703999</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7.6528334995</td>
+<td>6.0374585318</td>
+</tr>
+<tr>
+<td>6</td>
+<td>—</td>
+<td>6.3348963630（耦合到未构造的 $\lvert\phi_6\rangle$）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>逐列残差 $\lVert\hat H\lvert\phi_m\rangle-(TV)_m\rVert$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>列</th>
+<th>残差</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–4</td>
+<td>$\le2\times10^{-15}$</td>
+<td>递推<strong>严格成立</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>$6.334896$</td>
+<td>$=b_6$，因为 $\lvert\phi_6\rangle$ 还没构造</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>读法</strong>：最后一列的残差<strong>恰好等于 $b_6$</strong>，不是 bug，而是”还差一个基矢”的正确表现。$\hat HV=VT$ 精确成立的地方是 $V$ 构成的子空间，末尾那一列的残差垂直于整个子空间。</p>
+<h2><span id="起始向量必须归一化">起始向量必须归一化</span></h2><p>$a_0,b_0$ 的定义都依赖 $\langle\phi_0\vert\phi_0\rangle=1$。不归一化，递推立刻失效。</p>
+<p>一个有意思的对照：<strong>如果起始向量恰好是基态，递推在第 1 步就停</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">psi0 = 精确基态</span><br><span class="line">a, b, V = lanczos(<span class="keyword">lambda</span> v: H @ v, psi0, <span class="number">6</span>)</span><br><span class="line"><span class="comment"># Meff = 1, b = [0.0, 8.1e-15]</span></span><br></pre></td></tr></table></figure>
+<p>因为 $\hat H\lvert\psi_0\rangle=E_0\lvert\psi_0\rangle$ 仍然在一维 Krylov 空间 $\mathrm{span}\{\lvert\psi_0\rangle\}$ 内，<strong>无法生成新的正交方向</strong>。这个”平凡”情形是递推正确性的又一次交叉验证。</p>
+<h1><span id="为什么三项递推能保持正交">为什么三项递推能保持正交</span></h1><p>三对角结构不是假设，是<strong>证明</strong>出来的。设 $\{\lvert\phi_n\rangle,\ \hat H\lvert\phi_n\rangle\}$ 已经正交且已生成 $\lvert\phi_{n+1}\rangle$。那么</p>
+<script type="math/tex; mode=display">
+\langle\phi_m\vert\hat H\vert\phi_n\rangle
+=\langle\hat H\phi_m\vert\phi_n\rangle\ \ (\text{厄米})</script><p>对 $m\le n-2$：$\lvert\phi_m\rangle$ 由 $\lvert\phi_0\rangle,\ldots,\lvert\phi_{m+1}\rangle$ 张成，而 $\hat H\lvert\phi_n\rangle$ 只涉及 $\lvert\phi_0\rangle,\ldots,\lvert\phi_{n+1}\rangle$；两者正交（因为 $m+1\le n-1$），故</p>
+<script type="math/tex; mode=display">
+\langle\phi_m\vert\hat H\vert\phi_n\rangle=0,\qquad m\le n-2</script><p><strong>这就是 $T$ 三对角的来源</strong>：$H$ 的矩阵元只在 $|m-n|\le1$ 处非零。</p>
+<blockquote>
+<p><strong>一句话</strong>：$\hat H$ 三对角 ⟹ 递推只需减去两个相邻矢量；递推只减两个 ⟹ 下一个矢量自动与所有旧的正交。两者互为因果。</p>
+</blockquote>
+<h1><span id="收敛性ritz-值是变分上界">收敛性：Ritz 值是变分上界</span></h1><p>$T_m$ 是 $\hat H$ 在 $\mathcal K_m$ 上的<strong>精确</strong>投影，所以它的本征值 $E_j^{(m)}$（Ritz 值）满足</p>
+<script type="math/tex; mode=display">
+E_j^{(m)}\ \ge\ E_j,\qquad \min_j E_j^{(m)}\ \ge\ E_0</script><p>并且最低 Ritz 值<strong>单调下降</strong>地趋于 $E_0$。</p>
+<p>在 $N=8$、$t=1$、$U=4$ 的 $(4,4)$ 块上（精确 $E_0=-4.6035263000$，非简并，自旋单态），从随机向量出发：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$L$</th>
+<th>$E^{\rm Ritz}_L$</th>
+<th>$\lvert E^{\rm Ritz}_L-E_0\rvert$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8.00653671</td>
+<td>$1.3\times10^{1}$</td>
+</tr>
+<tr>
+<td>5</td>
+<td>−1.89412164</td>
+<td>$2.7\times10^{0}$</td>
+</tr>
+<tr>
+<td>12</td>
+<td>−4.26467242</td>
+<td>$3.4\times10^{-1}$</td>
+</tr>
+<tr>
+<td>20</td>
+<td>−4.56437706</td>
+<td>$3.9\times10^{-2}$</td>
+</tr>
+<tr>
+<td>30</td>
+<td>−4.60310380</td>
+<td>$4.2\times10^{-4}$</td>
+</tr>
+<tr>
+<td>40</td>
+<td>−4.60352597</td>
+<td>$3.3\times10^{-7}$</td>
+</tr>
+<tr>
+<td>60</td>
+<td>−4.60352630</td>
+<td>$2.8\times10^{-14}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>$L=60$ 步就到机器精度。<strong>这就是 Lanczos 的全部卖点</strong>：60 次矩阵-矢量乘法，替代 4900×4900 的完整分解。</p>
+<h1><span id="陷阱一正交性丢失与鬼本征值">陷阱一：正交性丢失与鬼本征值</span></h1><p>上面那段”自动正交”的证明，<strong>隐含假设了精确算术</strong>。有限精度下它会坏。</p>
+<p><strong>机制</strong>：当 $m$ 接近起始向量谱测度中不同本征值的个数时，$b_{m+1}$ 会变得极小，$\lvert\phi_{m+1}\rangle=w/b_{m+1}$ 在舍入误差的放大下<strong>失去与旧向量的正交性</strong>。一个已经收敛的极端本征值对应的方向被”复制”了一次，于是 $T_m$ 里出现<strong>重复的假本征值</strong>——<strong>鬼本征值（ghost eigenvalue）</strong>。</p>
+<p>干净的演示：取一个 $200\times200$ 的随机实对称矩阵，$M=d=200$ 步（跑到 Krylov 空间接近满秩），对比是否重正交。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">d = <span class="number">200</span></span><br><span class="line">X = np.random.default_rng(<span class="number">0</span>).standard_normal((d, d))</span><br><span class="line">A = (X + X.T) / <span class="number">2</span>                       <span class="comment"># 随机厄米矩阵，谱是连续分布</span></span><br><span class="line">v0 = np.random.default_rng(<span class="number">0</span>).standard_normal(d)</span><br><span class="line">a, b, V = lanczos(<span class="keyword">lambda</span> v: A @ v, v0, d, reorth=<span class="literal">False</span>)   <span class="comment"># 附录工具箱</span></span><br><span class="line">T = tridiag(a, b)</span><br><span class="line">ritz = np.linalg.eigvalsh(T)</span><br><span class="line">ghost = np.<span class="built_in">sum</span>(np.<span class="built_in">abs</span>(np.diff(np.sort(ritz))) &lt; <span class="number">1e-6</span>)   <span class="comment"># 近乎重复的 Ritz 值对数</span></span><br><span class="line">G = V.T @ V; np.fill_diagonal(G, <span class="number">0</span>)</span><br><span class="line">orth = np.<span class="built_in">abs</span>(G).<span class="built_in">max</span>()                                     <span class="comment"># 最差的重叠</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>$E_0^{\rm Ritz}$</th>
+<th>鬼本征值对数</th>
+<th>最差重叠 $\max\lvert\langle\phi_m\vert\phi_k\rangle\rvert$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plain</td>
+<td>−19.846765</td>
+<td><strong>24</strong></td>
+<td><strong>$5.9\times10^{-1}$</strong></td>
+</tr>
+<tr>
+<td>重正交</td>
+<td>−19.846765</td>
+<td><strong>0</strong></td>
+<td>$1.5\times10^{-16}$</td>
+</tr>
+<tr>
+<td>精确</td>
+<td>−19.846765</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_ghost.png" alt="正交性丢失与鬼本征值；重正交化修复"></p>
+<p><strong>读图</strong>：</p>
+<ul>
+<li><strong>左图</strong>：Ritz 值对序号。plain（红）在中高能区明显偏离对角线并出现<strong>成堆的重复点</strong>——那 24 个鬼；重正交（黑）是一条干净的直线。<strong>两者的 $E_0$ 完全一样</strong>（都精确）。</li>
+<li><strong>右图</strong>：第 $m$ 个矢量与它之前所有矢量的最大重叠。plain 全程在 $10^{-1}$ 量级上”漏水”，并且<strong>越到后面越严重</strong>（$m&gt;150$ 急剧恶化）；重正交（蓝）平压在 $1\times10^{-16}$。</li>
+</ul>
+<blockquote>
+<p><strong>这张图是本讲最重要的一张。</strong> 它说明：</p>
+<ol>
+<li><strong>鬼本征值不影响你要的那个本征值。</strong> $E_0$ 在两种做法下都是对的。</li>
+<li><strong>但它会污染”多个激发态”和”整个谱”。</strong> 重复的假本征值在你的激发谱里就是<strong>假峰</strong>。</li>
+<li><strong>“代码能跑、结果看着也像样”</strong>——如果只画 $E_0$，你永远发现不了问题；一旦画整个谱，重复峰一眼可见。</li>
+</ol>
+</blockquote>
+<p><strong>判据</strong>：看到 Ritz 值<strong>成对重复</strong>（或激发谱里出现无法解释的重复峰），就是正交性丢了。</p>
+<h2><span id="重正交化">重正交化</span></h2><p>最直接的补救：每生成一个新矢量后，把它对<strong>所有</strong>已构造的矢量再正交化一遍</p>
+<script type="math/tex; mode=display">
+\lvert\phi_{m+1}\rangle\ \leftarrow\ \lvert\phi_{m+1}\rangle-\sum_{k=0}^{m}\big(\langle\phi_k\vert\phi_{m+1}\rangle\big)\lvert\phi_k\rangle</script><p>实践中做<strong>两遍</strong>（”twice is enough”），因为一遍之后残差仍有 $O(\epsilon)$，二遍压到 $O(\epsilon^2)$。</p>
+<p><strong>代价</strong>：从 $O(mD)$ 变成 $O(m^2D)$ 时间，$O(m^2)$ 次内积。<strong>什么时候开？</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只要最低 1–2 个本征值，$m\ll D$</td>
+<td>plain 足够（本讲的谱函数计算就属于这一类）</td>
+</tr>
+<tr>
+<td>要<strong>很多</strong>激发态、很宽的谱、$m\gtrsim$ 不同本征值个数</td>
+<td>开重正交，或用<strong>块 Lanczos</strong></td>
+</tr>
+<tr>
+<td>$m$ 接近 $D$</td>
+<td>必须开</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>本讲的谱函数计算刻意用 plain Lanczos</strong>——因为那里的 $m$（几十到 200）远小于目标块维数（几千），正交性不会丢（实测 $|\hat VV^\dagger-\hat I|\approx4\times10^{-16}$）。<strong>知道什么时候不需要它，和知道什么时候需要它一样重要。</strong></p>
+</blockquote>
+<h2><span id="两种重启方案">两种重启方案</span></h2><p>当 $m$ 必须很大（要很多激发态）而内存受限，就不能只往前走 $m$ 步——用”<strong>走 $k$ 步、对角化、用极端本征矢当新起点</strong>“的外层循环：</p>
+<ul>
+<li><strong>modified Lanczos</strong>：走一步，$2\times2$ 对角化，立即用低本征矢替换 $\lvert\phi_1\rangle$。每步只多 $2\times2$，<strong>但不保留 Ritz 值历史</strong>。</li>
+<li><strong>implicitly restarted Lanczos (IRAM)</strong>：走 $k$ 步，保留若干个极端 Ritz 对（通过位移多项式隐式实现），把它们<strong>回注</strong>成新的起始向量。相当于在 $T$ 内部做”部分重启”，保留 Ritz 值历史。</li>
+</ul>
+<p>两者都是<strong>外层</strong>循环，与三项递推是<strong>两个层次</strong>的事情。读讲义第 15 页时要回头对照第 5 页的二维极小化——<strong>那是同一个想法的最小版本</strong>。</p>
+<h1><span id="收敛判据的陷阱能量快-谱形慢">收敛判据的陷阱：能量快、谱形慢</span></h1><p>这是本讲最容易被忽略、也最有实践价值的一条。</p>
+<p><strong>直觉</strong>：”Ritz 值收敛了，谱就算算好了”——<strong>错</strong>。</p>
+<p>原因：基态在起始向量上的分量<strong>很快</strong>被抓住（极端本征值收敛快），但<strong>完整谱形</strong>要求所有极点、���有谱矩都被分辨，其中包含内层激发、Hubbard 带内部结构等<strong>离基态很远</strong>的精细结构。</p>
+<p>在 $N=8$、$t=1$、$U=4$ 的 $(4,4)$ 块上，同一个 Krylov 空间、同一套系数，看两件事：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a, b, V = ed3.lanczos(<span class="keyword">lambda</span> v: H @ v, v0, <span class="number">60</span>)     <span class="comment"># 60 步</span></span><br><span class="line"><span class="comment"># (a) 能量：T_L 的最低本征值</span></span><br><span class="line">E_ritz = [np.linalg.eigvalsh(ed3.tridiag(a[:L], b[:L+<span class="number">1</span>]))[<span class="number">0</span>] <span class="keyword">for</span> L <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">61</span>)]</span><br><span class="line"><span class="comment"># (b) 谱形：连分数在 L 步截断下重建的 DOS，与 L=200 参考比</span></span><br><span class="line">E0, ch = ed3.all_channels(<span class="number">8</span>, <span class="number">1.0</span>, <span class="number">4.0</span>, <span class="number">200</span>)         <span class="comment"># 200 步的参考谱</span></span><br><span class="line">ref  = ed3.dos(ch, E0, w, eta, <span class="number">200</span>)</span><br><span class="line">dev  = [np.<span class="built_in">abs</span>(ed3.dos(ch, E0, w, eta, L) - ref).<span class="built_in">max</span>()/ref.<span class="built_in">max</span>() <span class="keyword">for</span> L <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">61</span>)]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$L$</th>
+<th>$\lvert E^{\rm Ritz}_L-E_0\rvert$</th>
+<th>$\max\lvert\rho_L-\rho_{200}\rvert/\rho_{\max}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>$1.3\times10^{0}$</td>
+<td>$3.7\times10^{-1}$</td>
+</tr>
+<tr>
+<td>20</td>
+<td>$3.9\times10^{-2}$</td>
+<td>$1.8\times10^{-1}$</td>
+</tr>
+<tr>
+<td>40</td>
+<td>$3.3\times10^{-7}$</td>
+<td>$2.8\times10^{-2}$</td>
+</tr>
+<tr>
+<td><strong>60</strong></td>
+<td><strong>$2.8\times10^{-14}$</strong></td>
+<td><strong>$1.0\times10^{-2}$</strong></td>
+</tr>
+<tr>
+<td>100</td>
+<td>—</td>
+<td>$3.2\times10^{-4}$</td>
+</tr>
+<tr>
+<td>150</td>
+<td>—</td>
+<td>$1.9\times10^{-5}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_ritz.png" alt="Krylov 收敛性：能量快、谱形慢"></p>
+<p><strong>读图</strong>：$L=60$ 时<strong>能量已经收敛到 $10^{-14}$</strong>（机器精度），但<strong>谱形还有 $10^{-2}$ 的偏差</strong>——要 $L\sim150$ 才到 $10^{-5}$。两条曲线差了<strong>十几个数量级</strong>的收敛速度差。</p>
+<blockquote>
+<p><strong>结论（务必记住）</strong>：<strong>收敛判据必须和你真正要的物理量匹配。</strong></p>
+<ul>
+<li>只要基态能量 → $L=60$ 够了；</li>
+<li>要可靠的激发谱 / 完整 $\rho(\omega)$ → 需要多得多的 Krylov 矢量。</li>
+</ul>
+<p>用”能量收敛”当判据，会在 $L$ 很小的时候<strong>过早宣布谱已收敛</strong>。</p>
+</blockquote>
+<h1><span id="第二条链格林函数">第二条链：格林函数</span></h1><p>第一条链求本征值。现在换一条路：<strong>不求本征值，直接求谱</strong>。</p>
+<h2><span id="经典格林函数与传播子">经典格林函数与传播子</span></h2><p>先看单粒子。定义</p>
+<script type="math/tex; mode=display">
+G(z)=\frac{1}{z-\hat H}=\sum_{n=0}^{\infty}\frac{\hat H^n}{z^{n+1}},\qquad |z|>\lVert\hat H\rVert</script><p>它满足<strong>递推关系</strong> $\hat HG+zG=I$，这是所有求逆方法的出发点。</p>
+<p>物理上更有用的是它的矩阵元</p>
+<script type="math/tex; mode=display">
+g_{ij}(z)=\langle i\rvert\frac{1}{z-\hat H}\lvert j\rangle=\sum_n\frac{\langle i\rvert n\rangle\langle n\vert j\rangle}{z-E_n}</script><p><strong>这是一个标量谱分解</strong>：极点就是本征值 $E_n$，留数就是本征矢的乘积。$\lvert z\rvert$ 增大时它收敛得很慢，但<strong>共轭与对称性</strong>给出了高效算法（这正是下一节 Lanczos 的种子）。</p>
+<h2><span id="量子格林函数与五种排序">量子格林函数与五种排序</span></h2><p>在多体系统里，$1$ 换成时间反序的算符，并区分粒子/空穴的排序：</p>
+<script type="math/tex; mode=display">
+G^c(\tau)=\langle\Phi_0\vert\hat A(\tau)\hat A^\dagger(0)\lvert\Phi_0\rangle,\qquad
+G^r(\tau)=-i\theta(\tau)\langle\Phi_0\vert[\hat A(\tau),\hat A^\dagger(0)]\lvert\Phi_0\rangle</script><p>以及超前 $G^a$、小于 $G^&lt;$、大于 $G^&gt;$。区别只在 $\theta$ 函数的因果性：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>格林函数</th>
+<th>排序</th>
+<th>用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$G^r$（推迟）</td>
+<td>$A(\tau)A^\dagger(0)$</td>
+<td>响应、吸收、<strong>因果</strong>（$\tau&lt;0$ 为零）</td>
+</tr>
+<tr>
+<td>$G^a$（超前）</td>
+<td>$A^\dagger(0)A(\tau)$</td>
+<td>推迟的复共轭</td>
+</tr>
+<tr>
+<td>$G^{&lt;}$</td>
+<td>$\langle A^\dagger A\rangle$</td>
+<td>占据、非平衡</td>
+</tr>
+<tr>
+<td>$G^{&gt;}$</td>
+<td>$\langle AA^\dagger\rangle$</td>
+<td>相应</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>因果性（$G^r$ 在 $\tau&lt;0$ 恒为零）是数值分辨能级的关键</strong>：取 $\tau&gt;0$ 就自动只看到”未来”的极点。</p>
+<h2><span id="含时关联函数与谱函数">含时关联函数与谱函数</span></h2><p><strong>含时关联函数</strong>（海森堡绘景，$\hat A(t)=e^{i\hat Ht}\hat A(0)e^{-i\hat Ht}$）：</p>
+<script type="math/tex; mode=display">
+C(t)=-i\langle\Phi_0\vert\hat A(t)\hat A^\dagger(0)\lvert\Phi_0\rangle</script><p>插入完备性 $\{\lvert\Phi_n\rangle\}$ 并用 $\hat H\lvert\Phi_n\rangle=E_n\lvert\Phi_n\rangle$：</p>
+<script type="math/tex; mode=display">
+C(t)=-i\sum_{n\ge1}\lvert\langle\Phi_n\vert\hat A^\dagger\lvert\Phi_0\rangle\rvert^2 e^{-i(E_n-E_0)t}</script><p>（用了 $E_0-E_0=0$ 的项被减掉——<strong>基态的贡献是常数，取 $\hbar=1$ 约定下规范掉</strong>。）</p>
+<p><strong>谱函数</strong>（Lehmann 展开）：</p>
+<script type="math/tex; mode=display">
+\boxed{\ \rho(\omega)=\frac{1}{\pi}\sum_{n\ge1}\lvert\langle\Phi_n\vert\hat A^\dagger\lvert\Phi_0\rangle\rvert^2\,\delta\big(\omega-(E_n-E_0)\big)\ }</script><p><strong>这就是光电子谱（ARPES）、中子散射直接测的量</strong>——本讲最终落点。</p>
+<p><strong>归一化（求和规则）</strong>：</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^\infty\rho(\omega)\,\mathrm d\omega=\langle\hat A^\dagger\hat A\rangle=1-\langle n\rangle</script><h2><span id="局域态密度与-lehmann-展开">局域态密度与 Lehmann 展开</span></h2><p>取 $\hat A=c_{j\sigma}$（局域在格点 $j$、自旋 $\sigma$），就得到<strong>局域态密度</strong> $\rho_{j\sigma}(\omega)$。它在数值上比 $\rho(\omega)$ 便宜，因为只需在<strong>目标块</strong>（$N_\uparrow\pm1$ 或 $N_\downarrow\pm1$）上做 Lanczos——维数小得多。</p>
+<h1><span id="谱函数lanczos-连分数">谱函数：Lanczos + 连分数</span></h1><p>现在把两条链合流。</p>
+<h2><span id="第二次-lanczos">第二次 Lanczos</span></h2><p>要算的是（减法谱为例，$z=\omega+i\eta+E_0$）：</p>
+<script type="math/tex; mode=display">
+\rho(\omega)=-\frac{1}{\pi}\mathrm{Im}\left\langle\Psi_0\Bigg\vert\frac{1}{\omega+i\eta-\hat H+E_0}\Bigg\lvert\Psi_0\right\rangle
+=-\frac{1}{\pi}\mathrm{Im}\left\langle\Psi_0\Bigg\vert\frac{1}{z-\hat H}\Bigg\lvert\Psi_0\right\rangle</script><p>其中 $\lvert\Psi_0\rangle=\hat A\lvert\Phi_0\rangle$。对比第二讲讲过的谱函数定义，<strong>唯一的变化是把 $E_0$ 加进了 $z$</strong>——这样极点在 $E_n-E_0$（<strong>相对能量</strong>）而不是 $E_n$（绝对能量）。</p>
+<p><strong>过程</strong>：</p>
+<ol>
+<li>把 $\lvert\Psi_0\rangle=\hat A\lvert\Phi_0\rangle$ 归一化：$\alpha^2=\langle\Psi_0\vert\Psi_0\rangle$，$\lvert\phi_0\rangle=\lvert\Psi_0\rangle/\alpha$。</li>
+<li>从 $\lvert\phi_0\rangle$ <strong>重新</strong>做一次 Lanczos（在<strong>目标块</strong> $H$ 上），得到新的三对角 $T$。</li>
+<li>求 $[(z-\hat H)^{-1}]_{00}=\langle\phi_0\vert(z-\hat H)^{-1}\lvert\phi_0\rangle$。</li>
+</ol>
+<blockquote>
+<p><strong>⚠ 这是”两次 Lanczos”的连接点——本讲最关键的结构。</strong> 第一次 Lanczos 从基态出发问”基态是什么”；第二次从 $\hat A\lvert\Phi_0\rangle$ 出发问”在基态上加/减一个电子后系统如何响应”。<strong>两个 $T$ 是不同的</strong>（同一个 $H$，不同起点），<strong>不能复用系数</strong>。</p>
+<p>另外：起始矢量 $\lvert\phi_0\rangle$ 一般不是任何本征态，所以不会像前面那样 $b_1=0$ 一步终止。<strong>如果你不小心从基态出发算谱函数，会立刻终止。</strong></p>
+</blockquote>
+<h2><span id="陷阱二alpha-上标-2-必须乘回来">陷阱二：alpha 上标 2 必须乘回来</span></h2><p>由 $\lvert\Psi_0\rangle=\alpha\lvert\phi_0\rangle$，</p>
+<script type="math/tex; mode=display">
+\langle\Psi_0\rvert\frac{1}{z-\hat H}\rvert\Psi_0\rangle=\alpha^2\langle\phi_0\rvert\frac{1}{z-\hat H}\rvert\phi_0\rangle</script><p><strong>为什么必须归一化？</strong> Lanczos 递推要求起始矢量归一化（$a_0,b_0$ 的定义都依赖它）。<strong>为什么 $\alpha^2$ 必须乘回来？</strong> 因为 $\alpha^2$ 是归一化<strong>之外</strong>的权重因子：Lanczos 只告诉你 $\lvert\phi_0\rangle$ 上的矩阵元，物理上要的是 $\lvert\Psi_0\rangle$ 上的，两者差一个 $\alpha^2$。</p>
+<p><strong>漏掉 $\alpha^2$ 的症状</strong>：谱形<strong>完全正确</strong>，只是整条曲线的<strong>幅度</strong>乘错一个常数。峰位全对，只有绝对幅度错——<strong>最阴险的一类 bug</strong>。而幅度正是被求和规则约束的量：</p>
+<script type="math/tex; mode=display">
+\int\rho_{\rm add}\,\mathrm d\omega=w_{\rm add}=\sum_{j,\sigma}\lVert c^\dagger_{j\sigma}\lvert\Phi_0\rangle\rVert^2=2N-N_e</script><blockquote>
+<p><strong>求和规则是抓这个 bug 的唯一办法。</strong> 下面我们会验证：$N=8$ 半满时 $w_{\rm add}=w_{\rm rem}=8$。</p>
+</blockquote>
+<h2><span id="连分数分块矩阵求逆">连分数：分块矩阵求逆</span></h2><p>在 Lanczos 基下，$\lvert\phi_0\rangle$ 就是第一个基矢 $e_1$，所以</p>
+<script type="math/tex; mode=display">
+\langle\phi_0\rvert\frac{1}{z-\hat H}\rvert\phi_0\rangle=\big[(z-T)^{-1}\big]_{00}</script><p><strong>只需要求逆矩阵的左上角一个元素</strong>——不需要整个逆（$n^2$ 个元素），只要一个。</p>
+<p>用分块矩阵求逆公式，对 $z-\hat H$ 的三对角结构反复分块，得到<strong>连分数</strong>：</p>
+<script type="math/tex; mode=display">
+G(z)=\cfrac{1}{z-a_0-\cfrac{b_1^2}{z-a_1-\cfrac{b_2^2}{z-a_2-\cdots-\cfrac{b_{m-1}^2}{z-a_{m-1}}}}}</script><p><strong>为什么全是 $b^2$（正号）？</strong> 因为 $z-\hat H$ 的非对角元是 $-b_m$（$\hat H$ 的是 $+b_m$，取负号），而连分数里用的是 $(-b_m)\times(-b_m)=b_m^2$。<strong>负号被”平方掉”了</strong>——这就是为什么最终形式里看不到负号。</p>
+<p><strong>验证：连分数 vs 直接解</strong>。这是抓”连分数写错”的唯一办法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.sparse.linalg <span class="keyword">import</span> spsolve</span><br><span class="line">H  = ed3.block_H(ed3.Block(<span class="number">8</span>,<span class="number">4</span>,<span class="number">4</span>), <span class="number">1.0</span>, <span class="number">4.0</span>)      <span class="comment"># 4900 x 4900 稀疏</span></span><br><span class="line">e0 = np.zeros(<span class="number">4900</span>); e0[<span class="number">0</span>] = <span class="number">1.0</span>                    <span class="comment"># 起始矢量取基矢</span></span><br><span class="line">a, b, _ = ed3.lanczos(<span class="keyword">lambda</span> v: H @ v, e0, <span class="number">200</span>)</span><br><span class="line"><span class="keyword">for</span> z <span class="keyword">in</span> (<span class="number">0.7</span>+<span class="number">0.11j</span>, -<span class="number">1.3</span>+<span class="number">0.11j</span>, <span class="number">5</span>+<span class="number">0.11j</span>):</span><br><span class="line">    g_cf    = ed3.continued_fraction(a, b, z)       <span class="comment"># 连分数</span></span><br><span class="line">    g_exact = spsolve((z*sp.eye(<span class="number">4900</span>) - H).tocsc(), e0)[<span class="number">0</span>]   <span class="comment"># 直接解 (z-H)x = e0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;z=<span class="subst">&#123;z&#125;</span>: |G_cf - G_exact| = <span class="subst">&#123;<span class="built_in">abs</span>(g_cf - g_exact):<span class="number">.3</span>e&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2><span id="陷阱三连分数必须反向递归">陷阱三：连分数必须反向递归</span></h2><p>连分数第 $m$ 层分母依赖第 $m+1$ 层，所以必须<strong>从最深一层 $z-a_{m-1}$ 往回回代</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">continued_fraction</span>(<span class="params">a, b, z</span>):</span><br><span class="line">    z = np.asarray(z, dtype=np.complex128)</span><br><span class="line">    g = np.zeros_like(z)                            <span class="comment"># 初值 0</span></span><br><span class="line">    M = <span class="built_in">len</span>(a)</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(M - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):                  <span class="comment"># 必须反向</span></span><br><span class="line">        g = <span class="number">1.0</span> / (z - a[m] - (b[m+<span class="number">1</span>]**<span class="number">2</span>) * g)</span><br><span class="line">    <span class="keyword">return</span> g</span><br></pre></td></tr></table></figure>
+<p><strong>两个必须做对的细节</strong>：</p>
+<ol>
+<li><strong>反向递归</strong>。写成从浅到深，得到的是系数顺序<strong>反转</strong>的另一个连分数，<strong>极点会系统性漂移</strong>。</li>
+<li><strong>初值 $g=0$ 使最深处只用到 $a_{m-1}$</strong>（等价于约定 $b_m$ 不进入第 $m$ 步）——但<strong>$a_{m-1}$ 这一层一定要用</strong>。若反向循环漏掉最深一层，偏差是 $O(1)$，一眼就能看出来。</li>
+</ol>
+<p><strong>正向 vs 反向 vs 漏掉最深层的对比</strong>（对 $z$ 求值，与直接解比）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>变体</th>
+<th>与直接解的偏差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>反向、含最深 $a_{m-1}$（正确）</td>
+<td>$\le3\times10^{-16}$</td>
+</tr>
+<tr>
+<td>正向（顺序反了）</td>
+<td>偏差 $O(1)$，极点漂移</td>
+</tr>
+<tr>
+<td>反向但漏最深层</td>
+<td>偏差 $O(1)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>（$z=5$ 的偏差稍大，见下节——那不是实现错误，是 $M$ 还没收敛。）</p>
+<h2><span id="减法谱的符号">减法谱的符号</span></h2><p>对减法（光电子）谱，习惯上取 $z=-\omega+i\eta+E_0$，<strong>并把 $\eta$ 保留为正</strong>（否则破坏解析性）。等价于把 $\omega\to-\omega$。极点在 $E_0-E_m(N-1)$（正）。<strong>这是最容易出错的地方之一</strong>。</p>
+<h2><span id="收敛快慢由什么决定">收敛快慢由什么决定</span></h2><p>连分数近似的是<strong>谱测度</strong> $\mu(\lambda)=\langle e_0\vert\delta(\lambda-\hat H)\rvert e_0\rangle$ 下的</p>
+<script type="math/tex; mode=display">
+[(z-\hat H)^{-1}]_{00}=\int\frac{\mathrm d\mu}{z-\lambda}</script><p><strong>收敛快慢由 $z$ 与”起始向量真正有谱权重的那段能量”的距离决定</strong>，而不是只看完整谱范围。起始矢量的谱权重中心是 $a_0=\langle\phi_0\vert\hat H\vert\phi_0\rangle$，若 $a_0\approx16$（本例 $e_0$ 就是这样），则：</p>
+<ul>
+<li>$z=0.7,\,-1.3$ 远在权重<strong>下方</strong> $\Rightarrow$ 少数步就收敛；</li>
+<li>$z=5$ 落在权重<strong>较密</strong>处 $\Rightarrow$ 需要更多 Krylov 矢量分辨附近谱密度，200 步仍只到 $10^{-5}$。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(figsize=(<span class="number">6.4</span>, <span class="number">4.2</span>))</span><br><span class="line">Ms = [<span class="number">5</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">40</span>,<span class="number">80</span>,<span class="number">120</span>,<span class="number">160</span>,<span class="number">200</span>]</span><br><span class="line"><span class="keyword">for</span> z, c <span class="keyword">in</span> <span class="built_in">zip</span>((<span class="number">0.7</span>+<span class="number">0.11j</span>, -<span class="number">1.3</span>+<span class="number">0.11j</span>, <span class="number">5</span>+<span class="number">0.11j</span>), (<span class="string">&quot;#2ca02c&quot;</span>,<span class="string">&quot;#1f77b4&quot;</span>,<span class="string">&quot;#d62728&quot;</span>)):</span><br><span class="line">    g_exact = spsolve((z*sp.eye(<span class="number">4900</span>) - H).tocsc(), e0)[<span class="number">0</span>]</span><br><span class="line">    dev = [<span class="built_in">abs</span>(<span class="built_in">complex</span>(ed3.continued_fraction(a[:M], b[:M+<span class="number">1</span>], z)) - g_exact) <span class="keyword">for</span> M <span class="keyword">in</span> Ms]</span><br><span class="line">    ax.semilogy(Ms, dev, <span class="string">&quot;o-&quot;</span>, color=c, label=<span class="string">f&quot;$z=<span class="subst">&#123;z.real:g&#125;</span><span class="subst">&#123;z.imag:+<span class="number">.2</span>f&#125;</span>i$&quot;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&quot;Lanczos steps $M$&quot;</span>); ax.set_ylabel(<span class="string">&quot;$|G_M(z)-[(z-H)^&#123;-1&#125;]_&#123;00&#125;|$&quot;</span>)</span><br><span class="line">ax.legend(frameon=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_cf.png" alt="连分数收敛到精确格林函数：快慢由 z 相对谱权重的位置决定"></p>
+<p><strong>读图</strong>：$z=-1.3$（蓝）$M=120$ 就到 $10^{-17}$；$z=0.7$（绿）$M=200$ 到 $10^{-15}$；$z=5$（红）$M=200$ 还在 $10^{-5}$。<strong>“离谱权重近”才是慢的原因</strong>。</p>
+<h1><span id="一维-hubbard-环态密度与-mott-绝缘体">一维 Hubbard 环：态密度与 Mott 绝缘体</span></h1><p>现在做一个完整的物理例子。系统是一维 Hubbard 环（周期边界，$N$ 格点，$t=1$，半满）：</p>
+<script type="math/tex; mode=display">
+\hat H=-t\sum_{j,\sigma}\big(c^\dagger_{j\sigma}c_{j+1,\sigma}+\mathrm{h.c.}\big)+U\sum_j n_{j\uparrow}n_{j\downarrow}</script><p>对 $N=8$、$U=4$，我们前面已经验证 $(4,4)$ 块 $E_0=-4.6035263000$（非简并）。现在算 $\rho(\omega)$：加法谱 $c^\dagger_{j\sigma}$ 作用到基态，落在 $(5,4)/(4,5)$ 块；减法谱 $c_{j\sigma}$ 落在 $(3,4)/(4,3)$ 块。<strong>每个通道做一次 $M=200$ 的 Lanczos，再用连分数在所有 $\omega$ 上求值。</strong></p>
+<h2><span id="u-等于-0-的解析基准">U 等于 0 的解析基准</span></h2><p>$U=0$ 时是自由费米子，有<strong>闭式答案</strong>：</p>
+<script type="math/tex; mode=display">
+\rho(\omega)=2\sum_k\frac{1}{\pi}\frac{\eta}{(\omega-\varepsilon_k)^2+\eta^2},
+\qquad \varepsilon_k=-2t\cos\frac{2\pi k}{N}</script><p>这是<strong>最重要的校检</strong>——它一次性锁定四件事：</p>
+<ul>
+<li><strong>跳跃幅度 $t$</strong>：$\varepsilon_k$ 尺度 $\sim2t$，峰位随 $t$ 整体伸缩；</li>
+<li><strong>边界条件</strong>：周期给出 $\varepsilon_k=-2t\cos(2\pi k/N)$ 的离散动量网格，开边界会得到完全不同的峰位；</li>
+<li><strong>展宽 $\eta$</strong>：每个极点的洛伦兹宽度正比于 $\eta$；</li>
+<li><strong>权重归一</strong>：每个 $k$ 权重为 1、自旋再乘 2，整条曲线积分严格为 $2N$。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">eps = np.array([-<span class="number">2</span>*t*np.cos(<span class="number">2</span>*np.pi*k/<span class="number">8</span>) <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)])   <span class="comment"># = [-2, -√2, -√2, 0, 0, √2, √2, 2]</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">analytic_dos</span>(<span class="params">w</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>*<span class="built_in">sum</span>(<span class="number">1</span>/np.pi*eta/((w-e)**<span class="number">2</span>+eta**<span class="number">2</span>) <span class="keyword">for</span> e <span class="keyword">in</span> eps)</span><br><span class="line">E0, ch = ed3.all_channels(<span class="number">8</span>, <span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">60</span>)</span><br><span class="line">num = ed3.dos(ch, E0, w, eta, <span class="number">60</span>); ana = analytic_dos(w)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>期望</th>
+<th>实测</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$w_{\rm add}=\sum_{j,\sigma}\lVert c^\dagger\lvert\Phi_0\rangle\rVert^2$</td>
+<td>$N=8$</td>
+<td>$8.0000000000$</td>
+</tr>
+<tr>
+<td>$w_{\rm rem}$</td>
+<td>$N=8$</td>
+<td>$8.0000000000$</td>
+</tr>
+<tr>
+<td>$\max\lvert\rho_{\rm num}-\rho_{\rm ana}\rvert/\rho_{\max}$</td>
+<td>0</td>
+<td>$\mathbf{4.5\times10^{-14}}$</td>
+</tr>
+<tr>
+<td>$\lVert\rho_{\rm num}-\rho_{\rm ana}\rVert/\lVert\rho_{\rm ana}\rVert$</td>
+<td>0</td>
+<td>$3.0\times10^{-14}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_u0.png" alt="U=0 基准：谱函数与自由费米子闭式解逐点吻合"></p>
+<p><strong>读图</strong>：两条曲线在图上是<strong>同一条</strong>（红虚线完全压在黑实线上），最大偏差 $4.5\times10^{-14}$，就是机器精度。<strong>能同时抓住 $t$、边界、$\eta$、归一化四个错误</strong>——一条 $U=0$ 基准就够了。</p>
+<blockquote>
+<p>$U=0$ 时每个通道的 Krylov 维数 $\le N+1=9$，$M=60$ 步内<strong>精确</strong>（Krylov 空间饱和）。</p>
+</blockquote>
+<h2><span id="u-等于-4-的上下-hubbard-带">U 等于 4 的上下 Hubbard 带</span></h2><p>$U=4$、$t=1$、$\eta=0.11$、$N=8$。化学势 $\mu=\frac12[E_0(9)-E_0(7)]=U/2=2.0$（粒子-空穴对称，见下面的校检）。总态密度：</p>
+<script type="math/tex; mode=display">
+\rho(\omega)=\sum_{j,\sigma}\big[\rho^{\rm add}_{j\sigma}(\omega)+\rho^{\rm rem}_{j\sigma}(\omega)\big]</script><p><strong>求和规则校检</strong>（分开校验，不只是总和）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>期望</th>
+<th>实测</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$w_{\rm add}$</td>
+<td>$8$</td>
+<td>$8.0000000000$</td>
+</tr>
+<tr>
+<td>$w_{\rm rem}$</td>
+<td>$8$</td>
+<td>$8.0000000000$</td>
+</tr>
+<tr>
+<td>0 阶矩 $\int\rho\,\mathrm d\omega$</td>
+<td>$16$</td>
+<td>$15.899$（$0.6\%$ 差异 = 有限积分窗口的洛伦兹尾部泄漏）</td>
+</tr>
+<tr>
+<td>$\rho(\omega{=}\mu)/\rho_{\max}$</td>
+<td>—</td>
+<td>$0.0275$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_dos.png" alt="U=4 总态密度：上下 Hubbard 带与 Mott 隙"></p>
+<p><strong>读图</strong>：$\omega-\mu=0$ 附近有一个小间隙（黄色）——<strong>Mott 型绝缘体特征</strong>。下方是移除（占满带）谱，上方是添加（上 Hubbard 带）谱。$N=8$ 有限尺寸使每条带呈<strong>离散峰</strong>结构（尖锐的 $\delta$ 峰被 $\eta$ 展宽）。<strong>注意 $\alpha^2$ 已经乘回</strong>——否则这条曲线的幅度会整体差一个常数。</p>
+<h2><span id="mott-转变">Mott 转变</span></h2><p>固定 $\eta=0.11$，$U=0,2,4,6,8$。$\mu(U)$ 由全局基态定出，<strong>全部精确等于 $U/2$</strong>（半满 Hubbard 模型的粒子-空穴对称性，$w_{\rm add}=w_{\rm rem}=8$ 全部通过）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$U$</th>
+<th>$\mu(U)$</th>
+<th>$U/2$</th>
+<th>$\rho(\omega{=}\mu)/\rho_{\max}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>$0.992$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.000000</td>
+<td>1.0</td>
+<td>$0.093$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.000000</td>
+<td>2.0</td>
+<td>$0.0275$</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3.000000</td>
+<td>3.0</td>
+<td>$0.013$</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4.000000</td>
+<td>4.0</td>
+<td>$0.0071$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_mott.png" alt="Mott 转变：DOS 打开能隙，费米面权重随 U 崩塌"></p>
+<p><strong>读图</strong>：</p>
+<ul>
+<li><strong>左图</strong>：$U=0$ 是尖锐的自由费米子峰（在 $\omega-\mu=0$ 有大峰）；$U$ 增大时谱权重<strong>从费米面搬走</strong>，上下 Hubbard 带分离，$\omega=\mu$ 处张开能隙。$U=2$ 已明显离开费米面。</li>
+<li><strong>右图</strong>：$\rho(\omega=\mu)/\rho_{\max}$ <strong>单调下降</strong> $0.992\to0.007$，跨越两个数量级。这就是 <strong>Mott 转变的定量刻画</strong>（有限 $N$ 下”与 Mott 图像一致”，不是热力学极限的证明）。</li>
+</ul>
+<h1><span id="陷阱四简并与求和规则">陷阱四：简并与求和规则</span></h1><p>求和规则 $\sum_j w_j=N$ <strong>永远成立</strong>，与基态是否简并无关。但一个常见的”偷懒”——<strong>用一格点的权重乘 $N$</strong> 来估总和——<strong>只在平移不变（非简并）基态时成立</strong>。</p>
+<p>对 $U=0$ 半满环，$w_{\rm add}^{(j)}=\sum_\sigma\lVert c^\dagger_{j\sigma}\lvert\Phi_0\rangle\rVert^2$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$N$</th>
+<th>$E_0$</th>
+<th>基态简并度</th>
+<th>逐格点 $w_{\rm add}^{(j)}$</th>
+<th>$\sum_j w_j$</th>
+<th>$N\,w^{(0)}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>$-8.00000000$</td>
+<td>1</td>
+<td>$[1,1,1,1,1,1]$</td>
+<td>$6.000$</td>
+<td>$6.000$（<strong>安全</strong>）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>$-9.65685425$</td>
+<td><strong>4</strong></td>
+<td>$[0.91,1.09,0.91,\dots]$</td>
+<td>$8.000$</td>
+<td>$7.258$（<strong>失效</strong>）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/量子物理计算方法选讲/fig_ed3_degen.png" alt="简并陷阱：求和规则恒成立，但一格点乘 N 在简并基态下失效"></p>
+<p><strong>读图</strong>：</p>
+<ul>
+<li><strong>左（$N=6$，非简并）</strong>：逐格点权重<strong>均匀</strong> $=1$，”一格点×$N$” $=6.000$ 正确。</li>
+<li><strong>右（$N=8$，四重简并）</strong>：逐格点权重<strong>不均匀</strong>（$0.91$ 与 $1.09$ 交替），但<strong>总和精确 $=8.000$</strong>。而”一格点×$N$” $=7.258$——<strong>错了</strong>，且依赖你选简并子空间里的哪个组合。</li>
+</ul>
+<p><strong>判据</strong>：看费米面单粒子能级 $\varepsilon_k=-2t\cos(2\pi k/N)$ 是否简并。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$N$</th>
+<th>HOMO</th>
+<th>LUMO</th>
+<th>费米面</th>
+<th>基态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>$-1$</td>
+<td>$+1$</td>
+<td>非简并</td>
+<td>唯一（偷懒安全）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>$0$</td>
+<td>$0$</td>
+<td>简并</td>
+<td>简并（偷懒不安全）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一般地，$N\equiv0\pmod4$ 时半满填充的边界落在一个<strong>二重简并</strong>能级上（基态简并）；$N\equiv2\pmod4$ 时 HOMO/LUMO 之间有隙（唯一基态）。</p>
+<blockquote>
+<p><strong>对比</strong>：$U=4$、$N=8$ 的相互作用基态是<strong>非简并</strong>的（自旋单态，$E_0$ 简并度 1），$\langle n_j\rangle=1$ 均匀，”一格点×$N$” <strong>安全</strong>。</p>
+<p><strong>教训</strong>：<strong>求和规则是基态无关的，”一格点×$N$” 不是。</strong> 在简并子空间里做随机组合，$N\,w^{(0)}$ 会在一个区间内乱跳（如 $[7.50,9.68]$），但 $\sum_j w_j\equiv8$ 纹丝不动。</p>
+</blockquote>
+<h1><span id="物理与实验自旋-电荷分离">物理与实验：自旋-电荷分离</span></h1><p>算出来的 $\rho(\omega)$ 不是玩具——它对应<strong>真实材料</strong>的实验。</p>
+<h2><span id="谱函数-akomega-与-ttf-tcnq">谱函数 $A(k,\omega)$ 与 TTF-TCNQ</span></h2><p>动量分辨的谱函数（ARPES 直接测的量）：</p>
+<script type="math/tex; mode=display">
+A(\mathbf k,\omega)=\frac{1}{\pi}\mathrm{Im}\left\langle\Phi_0\Bigg\rvert\frac{c^\dagger_{\mathbf k\sigma}}{\omega-i\eta+\hat H-E_0}c_{\mathbf k\sigma}\Bigg\rvert\Phi_0\right\rangle</script><p>在<strong>一维 Hubbard 模型</strong>里，自旋-电荷分离表现为 $A(k,\omega)$ 把一个电子峰<strong>劈裂成两个</strong>：</p>
+<ul>
+<li><strong>非相互作用（$U=0$）</strong>：$A(k,\omega)$ 是一个 $\delta$ 峰（在 $\varepsilon_k$）；</li>
+<li><strong>一维相互作用</strong>：劈裂成<strong>两个峰</strong>——一个对应 <strong>holon</strong>（空穴子，携电荷，色散由电荷速度决定），一个对应 <strong>spinon</strong>（自旋子，携自旋，色散由自旋速度决定）。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>激发</th>
+<th>携带</th>
+<th>电荷</th>
+<th>自旋</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>holon</strong>（空穴子）</td>
+<td>电荷</td>
+<td>$+e$（空穴）</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>spinon</strong>（自旋子）</td>
+<td>自旋</td>
+<td>0</td>
+<td>$1/2$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>为什么一维会分离</strong>：一维粒子不能互相绕过。电荷的运动是<strong>所有电子的集体位移</strong>（hopping 驱动，$v_c\sim t$）；自旋的运动是<strong>相邻自旋交换</strong>（超交换驱动，$v_s\sim t^2/U$，$J\sim4t^2/U$）。两者<strong>机制不同、速度不同</strong>，所以会分开。$U\gg t$ 时 $v_c\gg v_s$。</p>
+<p><strong>TTF-TCNQ</strong>（准一维有机导体）的 ARPES 实验在 $\Gamma-k_F-Z-k_F$ 方向上<strong>直接看到了这条劈裂</strong>——标记为 charge (c) 和 spin (s) 的两条色散带。<strong>ED + Lanczos 算出的 $A(k,\omega)$ 能定量重现它。</strong></p>
+<blockquote>
+<p><strong>“长程反铁磁序”的措辞要谨慎。</strong> 讲义第 27 页说一维 Hubbard 基态是”Mott insulator with long-range AF ordering”，但严格的<strong>长程</strong>反铁磁序在一维不存在——连续对称性不能自发破缺（Mermin–Wagner 定理）。它指的是<strong>短程反铁磁关联很强</strong>（$S(q=\pi)$ 有峰），且有限尺寸 ED 里关联长度可能超过系统尺寸而”看起来像”长程序。这是”过度宣称”的风险点。</p>
+</blockquote>
+<h1><span id="研究前沿">研究前沿</span></h1><h2><span id="chebyshev-赝-site-矩阵乘积态电子-声子耦合的谱函数">Chebyshev 赝 site 矩阵乘积态：电子-声子耦合的谱函数</span></h2><p>（Pei-Yuan Zhao, Ke Ding, and Shuo Yang, <em>Phys. Rev. Res.</em> <strong>5</strong>, 023026 (2023)）</p>
+<p>本讲前面讲的全是纯电子的 Hubbard 模型。真实材料里电子与<strong>晶格振动（声子）</strong>耦合，带来新物理：</p>
+<ul>
+<li><strong>极化子（polaron）</strong>：电子带着晶格畸变运动，有效质量变大；</li>
+<li><strong>声子边带（phonon sidebands）</strong>：谱函数上出现<strong>等间距</strong>的额外峰（电子同时激发整数个声子）；</li>
+<li>标注的 <strong>SP / HO / SH</strong> 正是这些结构。</li>
+</ul>
+<p>问题是<strong>希尔伯特空间变成”电子⊗声子”</strong>，维度爆炸（声子截断到 $N_{\rm ph}$），<strong>超出 Lanczos 单打独斗的能力</strong>。这时需要新方法——把谱函数算法和张量网络（MPS，第 2 章）结合的 <strong>Chebyshev 赝 site</strong> 方法。</p>
+<p><strong>Chebyshev 展开是谱函数的另一条经典路线</strong>：</p>
+<script type="math/tex; mode=display">
+\rho(\omega)\approx\frac{1}{\pi\sin\theta}\left[\mu_0+2\sum_{n=1}^{N-1}\mu_n\cos(n\theta)\right],
+\qquad \theta=\arccos\frac{\omega-E_0}{a},\quad \mu_n=\langle\phi_0\vert T_n(\tilde H)\rvert\phi_0\rangle</script><p>它和 Lanczos+连分数的对比：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Lanczos + 连分数</th>
+<th>Chebyshev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基</td>
+<td>Krylov 基 $\{\hat H^k\lvert\phi_0\rangle\}$</td>
+<td>Chebyshev 基 $\{T_n(\tilde H)\lvert\phi_0\rangle\}$</td>
+</tr>
+<tr>
+<td>系数递推</td>
+<td>三项递推 $(a_m,b_m)$</td>
+<td>三项递推（Chebyshev 固定递推）</td>
+</tr>
+<tr>
+<td>收敛</td>
+<td>依赖 $z$（见前节）</td>
+<td>一致（最优一致逼近）</td>
+</tr>
+<tr>
+<td>数值稳定性</td>
+<td>正交性会丢（陷阱一）</td>
+<td>不需要正交基</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><span id="掺杂-mott-绝缘体中的条纹">掺杂 Mott 绝缘体中的条纹</span></h2><p>一维的”spinon/holon 分离”到了二维会变成<strong>条纹（stripe）相</strong>：空穴不是均匀分布，而是聚成<strong>反平行的自旋区域，夹着电荷条</strong>。虽是一维到二维的转变，但”电荷与自旋分离”这个主题是相通的。</p>
+<h1><span id="校检清单">校检清单</span></h1><p>“能跑”不等于”对”。本讲所有结果都用下面这些<strong>校检</strong>把关，任何一条不过就是有 bug：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>校检什么</th>
+<th>期望</th>
+<th>实测</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>哈密顿量厄米 $\lvert\hat H-\hat H^\dagger\rvert$</td>
+<td>0</td>
+<td>$0.000\times10^{0}$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>基态残差 $\lVert\hat H\psi_0-E_0\psi_0\rVert$</td>
+<td>0</td>
+<td>$7.9\times10^{-15}$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$\hat HV=VT$（已构造列）</td>
+<td>0</td>
+<td>$\le2\times10^{-15}$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>最后一列残差</td>
+<td>$=b_m$</td>
+<td>$6.334896=b_6$</td>
+</tr>
+<tr>
+<td>5</td>
+<td>基态作起始 $\Rightarrow$ $b_1=0$</td>
+<td>0</td>
+<td>$8.1\times10^{-15}$</td>
+</tr>
+<tr>
+<td>6</td>
+<td>$(4,4)$ 块维数</td>
+<td>$\binom84^2=4900$</td>
+<td>$4900$</td>
+</tr>
+<tr>
+<td>7</td>
+<td>$U=0$ 块基态</td>
+<td>$-4-4\sqrt2=-9.6568542$（4 重简并）</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>8</td>
+<td>连分数 vs 直接解 $\hat HV=VT$</td>
+<td>0</td>
+<td>$\le3\times10^{-16}$（$z$ 远离谱权重时）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>$w_{\rm add}=w_{\rm rem}=N$（<strong>分开</strong>校检）</td>
+<td>8，8</td>
+<td>$8.0000,\ 8.0000$</td>
+</tr>
+<tr>
+<td>10</td>
+<td>$U=0$ 解析基准（逐点）</td>
+<td>0</td>
+<td>$4.5\times10^{-14}$</td>
+</tr>
+<tr>
+<td>11</td>
+<td>$\mu(U)=U/2$（粒子-空穴对称）</td>
+<td>$U/2$</td>
+<td>$0,1,2,3,4$ 全部通过</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Ritz$\to E_0$（$L=60$）</td>
+<td>$E_0=-4.6035263$</td>
+<td>$2.8\times10^{-14}$</td>
+</tr>
+<tr>
+<td>13</td>
+<td>鬼本征值（plain vs 重正交）</td>
+<td>0 重复</td>
+<td>0（重正交）；24（plain，对照）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>“故意改错”自检</strong>——证明这些校检非平凡（会真的失败）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>变体</th>
+<th>厄米性</th>
+<th>$U=0$ 基准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正确</td>
+<td>通过</td>
+<td>通过（$4.5\times10^{-14}$）</td>
+</tr>
+<tr>
+<td>开边界（去掉周期项）</td>
+<td>通过</td>
+<td><strong>失败</strong></td>
+</tr>
+<tr>
+<td>单方向跳跃（漏 h.c.）</td>
+<td><strong>失败</strong></td>
+<td><strong>失败</strong></td>
+</tr>
+<tr>
+<td>去掉费米子符号</td>
+<td>通过</td>
+<td><strong>失败</strong>（单粒子块抓不住）</td>
+</tr>
+<tr>
+<td>漏乘 $\alpha^2$</td>
+<td>—</td>
+<td><strong>失败</strong>（幅度错，求和规则抓）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>要点</strong>：<strong>厄米性只抓”漏方向”</strong>；<strong>$U=0$ 基准抓”符号/幅度”</strong>。两类校检<strong>互补</strong>。单粒子块里最多一个电子、符号恒 $+1$，所以单粒子谱抓不住费米子符号——必须靠多体块的基准。</p>
+</blockquote>
+<h1><span id="附复现用的代码工具箱">附：复现用的代码工具箱</span></h1><p>本讲所有图都可以用下面这个工具箱复现（只需 <code>numpy</code> + <code>scipy</code>）。放到 <code>ed3.py</code>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;ED3 toolbox: Hubbard ring blocks + Lanczos + continued fraction + spectral function.&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.sparse <span class="keyword">as</span> sp</span><br><span class="line"><span class="keyword">from</span> scipy.sparse.linalg <span class="keyword">import</span> eigsh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">popcount</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bin</span>(<span class="built_in">int</span>(x)).count(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create</span>(<span class="params">n, p</span>):</span><br><span class="line">    <span class="keyword">if</span> (n &gt;&gt; p) &amp; <span class="number">1</span>: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> (n | (<span class="number">1</span> &lt;&lt; p)), (-<span class="number">1</span>) ** popcount(n &amp; ((<span class="number">1</span> &lt;&lt; p) - <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">annihilate</span>(<span class="params">n, p</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> ((n &gt;&gt; p) &amp; <span class="number">1</span>): <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> (n &amp; ~(<span class="number">1</span> &lt;&lt; p)), (-<span class="number">1</span>) ** popcount(n &amp; ((<span class="number">1</span> &lt;&lt; p) - <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ring_bonds</span>(<span class="params">N</span>):</span><br><span class="line">    <span class="keyword">return</span> [(j, (j + <span class="number">1</span>) % N) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Block</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;(Nup, Ndn) block of the Hubbard ring; one N-bit mask PER SPIN.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, N, Nup, Ndn</span>):</span><br><span class="line">        <span class="variable language_">self</span>.N, <span class="variable language_">self</span>.Nup, <span class="variable language_">self</span>.Ndn = N, Nup, Ndn</span><br><span class="line">        <span class="variable language_">self</span>.ups = [m <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; N) <span class="keyword">if</span> popcount(m) == Nup]</span><br><span class="line">        <span class="variable language_">self</span>.dns = [m <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; N) <span class="keyword">if</span> popcount(m) == Ndn]</span><br><span class="line">        <span class="variable language_">self</span>.nu, <span class="variable language_">self</span>.nd = <span class="built_in">len</span>(<span class="variable language_">self</span>.ups), <span class="built_in">len</span>(<span class="variable language_">self</span>.dns)</span><br><span class="line">        <span class="variable language_">self</span>.dim = <span class="variable language_">self</span>.nu * <span class="variable language_">self</span>.nd</span><br><span class="line">        <span class="variable language_">self</span>.uidx = np.full(<span class="number">1</span> &lt;&lt; N, -<span class="number">1</span>, dtype=np.int64)</span><br><span class="line">        <span class="variable language_">self</span>.didx = np.full(<span class="number">1</span> &lt;&lt; N, -<span class="number">1</span>, dtype=np.int64)</span><br><span class="line">        <span class="keyword">for</span> i, u <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="variable language_">self</span>.ups): <span class="variable language_">self</span>.uidx[u] = i</span><br><span class="line">        <span class="keyword">for</span> j, d <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="variable language_">self</span>.dns): <span class="variable language_">self</span>.didx[d] = j</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">index</span>(<span class="params">self, u, d</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">int</span>(<span class="variable language_">self</span>.uidx[u]) * <span class="variable language_">self</span>.nd + <span class="built_in">int</span>(<span class="variable language_">self</span>.didx[d])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">state</span>(<span class="params">self, k</span>):</span><br><span class="line">        iu, jd = <span class="built_in">divmod</span>(<span class="built_in">int</span>(k), <span class="variable language_">self</span>.nd)</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.ups[iu], <span class="variable language_">self</span>.dns[jd]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">_H_cache = &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">block_H</span>(<span class="params">blk, t, U, drop_sign=<span class="literal">False</span>, one_direction=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Sparse Hamiltonian of the block (CSR), cached.&quot;&quot;&quot;</span></span><br><span class="line">    key = (blk.N, blk.Nup, blk.Ndn, t, U, drop_sign, one_direction)</span><br><span class="line">    <span class="keyword">if</span> key <span class="keyword">in</span> _H_cache: <span class="keyword">return</span> _H_cache[key]</span><br><span class="line">    N = blk.N; bonds = ring_bonds(N)</span><br><span class="line">    nd = blk.nd; rows, cols, vals = [], [], []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(blk.dim):</span><br><span class="line">        iu, jd = <span class="built_in">divmod</span>(k, nd)</span><br><span class="line">        u, d = blk.ups[iu], blk.dns[jd]</span><br><span class="line">        rows.append(k); cols.append(k); vals.append(U * popcount(u &amp; d))</span><br><span class="line">        <span class="keyword">for</span> (a, b) <span class="keyword">in</span> bonds:</span><br><span class="line">            <span class="keyword">for</span> s <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">for</span> (sp_, dp_) <span class="keyword">in</span> (((b, a),) <span class="keyword">if</span> one_direction <span class="keyword">else</span> ((b, a), (a, b))):</span><br><span class="line">                    r1 = annihilate(u <span class="keyword">if</span> s == <span class="number">0</span> <span class="keyword">else</span> d, sp_)</span><br><span class="line">                    <span class="keyword">if</span> r1 <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">continue</span></span><br><span class="line">                    m1, s1 = r1</span><br><span class="line">                    r2 = create(m1, dp_)</span><br><span class="line">                    <span class="keyword">if</span> r2 <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">continue</span></span><br><span class="line">                    m2, s2 = r2</span><br><span class="line">                    <span class="keyword">if</span> drop_sign: s1 = s2 = <span class="number">1</span></span><br><span class="line">                    k2 = (blk.uidx[m2]*nd + jd) <span class="keyword">if</span> s == <span class="number">0</span> <span class="keyword">else</span> (iu*nd + blk.didx[m2])</span><br><span class="line">                    rows.append(<span class="built_in">int</span>(k2)); cols.append(k); vals.append(-t*s1*s2)</span><br><span class="line">    H = sp.csr_matrix((vals, (rows, cols)), shape=(blk.dim, blk.dim))</span><br><span class="line">    _H_cache[key] = H</span><br><span class="line">    <span class="keyword">return</span> H</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">block_ground</span>(<span class="params">blk, t, U, k=<span class="number">1</span></span>):</span><br><span class="line">    H = block_H(blk, t, U)</span><br><span class="line">    w, V = eigsh(H, k=k, which=<span class="string">&#x27;SA&#x27;</span>)</span><br><span class="line">    o = np.argsort(w)</span><br><span class="line">    <span class="keyword">return</span> w[o], V[:, o]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">global_E0</span>(<span class="params">N, t, U, ne</span>):</span><br><span class="line">    best = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">        b = ne - a</span><br><span class="line">        <span class="keyword">if</span> b &lt; <span class="number">0</span> <span class="keyword">or</span> b &gt; N: <span class="keyword">continue</span></span><br><span class="line">        w, _ = block_ground(Block(N, a, b), t, U, k=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> best <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> w[<span class="number">0</span>] &lt; best[<span class="number">0</span>]: best = (w[<span class="number">0</span>], a, b)</span><br><span class="line">    <span class="keyword">return</span> best</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mu_half</span>(<span class="params">N, t, U</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * (global_E0(N, t, U, N + <span class="number">1</span>)[<span class="number">0</span>] - global_E0(N, t, U, N - <span class="number">1</span>)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tridiag</span>(<span class="params">a, b</span>):</span><br><span class="line">    M = <span class="built_in">len</span>(a)</span><br><span class="line">    T = np.diag(a).astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, M):</span><br><span class="line">        T[m, m-<span class="number">1</span>] = T[m-<span class="number">1</span>, m] = b[m]</span><br><span class="line">    <span class="keyword">return</span> T</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lanczos</span>(<span class="params">matvec, v0, M, reorth=<span class="literal">False</span>, tol=<span class="number">1e-12</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Three-term recurrence.  b[M] couples to the not-yet-built |phi_M&gt;.&quot;&quot;&quot;</span></span><br><span class="line">    v0 = np.asarray(v0, dtype=np.complex128 <span class="keyword">if</span> np.iscomplexobj(v0) <span class="keyword">else</span> np.float64)</span><br><span class="line">    V = np.zeros((v0.size, M), dtype=v0.dtype)</span><br><span class="line">    a = np.zeros(M); b = np.zeros(M + <span class="number">1</span>)</span><br><span class="line">    V[:, <span class="number">0</span>] = v0 / np.linalg.norm(v0)</span><br><span class="line">    Meff = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">        w = matvec(V[:, m])</span><br><span class="line">        a[m] = np.vdot(V[:, m], w).real</span><br><span class="line">        w = w - a[m] * V[:, m]</span><br><span class="line">        <span class="keyword">if</span> m &gt; <span class="number">0</span>: w = w - b[m] * V[:, m - <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> reorth:</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">                <span class="keyword">for</span> kk <span class="keyword">in</span> <span class="built_in">range</span>(m + <span class="number">1</span>):</span><br><span class="line">                    w -= (V[:, kk] @ w) * V[:, kk]</span><br><span class="line">        b[m + <span class="number">1</span>] = np.linalg.norm(w)</span><br><span class="line">        Meff = m + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> b[m + <span class="number">1</span>] &lt; tol: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> m + <span class="number">1</span> &lt; M: V[:, m + <span class="number">1</span>] = w / b[m + <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> a[:Meff], b[:Meff + <span class="number">1</span>], V[:, :Meff]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">continued_fraction</span>(<span class="params">a, b, z</span>):</span><br><span class="line">    z = np.asarray(z, dtype=np.complex128)</span><br><span class="line">    g = np.zeros_like(z); M = <span class="built_in">len</span>(a)</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(M - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):            <span class="comment"># MUST be backward</span></span><br><span class="line">        g = <span class="number">1.0</span> / (z - a[m] - (b[m+<span class="number">1</span>]**<span class="number">2</span>) * g)</span><br><span class="line">    <span class="keyword">return</span> g</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">op_cdag</span>(<span class="params">j, sigma, N</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">op</span>(<span class="params">u, d</span>):</span><br><span class="line">        r = create(u <span class="keyword">if</span> sigma == <span class="number">0</span> <span class="keyword">else</span> d, j)</span><br><span class="line">        <span class="keyword">if</span> r <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">return</span> [(r[<span class="number">0</span>], d, r[<span class="number">1</span>])] <span class="keyword">if</span> sigma == <span class="number">0</span> <span class="keyword">else</span> [(u, r[<span class="number">0</span>], r[<span class="number">1</span>])]</span><br><span class="line">    <span class="keyword">return</span> op</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">op_c</span>(<span class="params">j, sigma, N</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">op</span>(<span class="params">u, d</span>):</span><br><span class="line">        r = annihilate(u <span class="keyword">if</span> sigma == <span class="number">0</span> <span class="keyword">else</span> d, j)</span><br><span class="line">        <span class="keyword">if</span> r <span class="keyword">is</span> <span class="literal">None</span>: <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">return</span> [(r[<span class="number">0</span>], d, r[<span class="number">1</span>])] <span class="keyword">if</span> sigma == <span class="number">0</span> <span class="keyword">else</span> [(u, r[<span class="number">0</span>], r[<span class="number">1</span>])]</span><br><span class="line">    <span class="keyword">return</span> op</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">apply_op</span>(<span class="params">op, src, tgt, vec</span>):</span><br><span class="line">    out = np.zeros(tgt.dim, dtype=<span class="built_in">complex</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(src.dim):</span><br><span class="line">        v = vec[k]</span><br><span class="line">        <span class="keyword">if</span> v == <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line">        u, d = src.state(k)</span><br><span class="line">        <span class="keyword">for</span> (u2, d2, s) <span class="keyword">in</span> op(u, d):</span><br><span class="line">            out[tgt.index(u2, d2)] += s * v</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">all_channels</span>(<span class="params">N, t, U, M</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;All (j, sigma) addition/removal channels from the half-filled gs.&quot;&quot;&quot;</span></span><br><span class="line">    nup = ndn = N // <span class="number">2</span></span><br><span class="line">    src = Block(N, nup, ndn)</span><br><span class="line">    w, V = block_ground(src, t, U, k=<span class="number">1</span>)</span><br><span class="line">    E0 = <span class="built_in">float</span>(w[<span class="number">0</span>]); gs = V[:, <span class="number">0</span>]; ch = []</span><br><span class="line">    <span class="keyword">for</span> sigma <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">            tgt = Block(N, nup + (sigma == <span class="number">0</span>), ndn + (sigma == <span class="number">1</span>))</span><br><span class="line">            psi = apply_op(op_cdag(j, sigma, N), src, tgt, gs)</span><br><span class="line">            a2 = <span class="built_in">float</span>(np.vdot(psi, psi).real)</span><br><span class="line">            <span class="keyword">if</span> a2 &gt; <span class="number">1e-14</span>:</span><br><span class="line">                Ht = block_H(tgt, t, U)</span><br><span class="line">                a, b, _ = lanczos(<span class="keyword">lambda</span> v: Ht @ v, psi/np.sqrt(a2), M)</span><br><span class="line">                ch.append((a, b, a2, +<span class="number">1</span>))</span><br><span class="line">            tgt = Block(N, nup - (sigma == <span class="number">0</span>), ndn - (sigma == <span class="number">1</span>))</span><br><span class="line">            psi = apply_op(op_c(j, sigma, N), src, tgt, gs)</span><br><span class="line">            a2 = <span class="built_in">float</span>(np.vdot(psi, psi).real)</span><br><span class="line">            <span class="keyword">if</span> a2 &gt; <span class="number">1e-14</span>:</span><br><span class="line">                Ht = block_H(tgt, t, U)</span><br><span class="line">                a, b, _ = lanczos(<span class="keyword">lambda</span> v: Ht @ v, psi/np.sqrt(a2), M)</span><br><span class="line">                ch.append((a, b, a2, -<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> E0, ch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dos</span>(<span class="params">ch, E0, omega, eta, L</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Total DOS at truncation L; alpha^2 IS multiplied back in.&quot;&quot;&quot;</span></span><br><span class="line">    rho = np.zeros_like(omega, dtype=<span class="built_in">float</span>)</span><br><span class="line">    <span class="keyword">for</span> (a, b, a2, s) <span class="keyword">in</span> ch:</span><br><span class="line">        z = (omega <span class="keyword">if</span> s &gt; <span class="number">0</span> <span class="keyword">else</span> -omega) + <span class="number">1j</span>*eta + E0</span><br><span class="line">        rho += -(<span class="number">1.0</span>/np.pi) * np.imag(a2 * continued_fraction(a[:L], b[:L+<span class="number">1</span>], z))</span><br><span class="line">    <span class="keyword">return</span> rho</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注</strong>：本工具箱用”每个自旋一个 $N$ 位 mask”——mask 内的局域轨道索引<strong>就是格点号</strong>，所以产生/湮灭算符直接用格点号 <code>j</code>，<strong>不要</strong>再加 $N\sigma$ 偏移。（第二讲里”全局 $2N$ 比特串、$\uparrow$ 放低 $N$ 位”的写法在分块结构里不适用；如果照搬那个偏移，下自旋的所有轨道号会越界，<strong>下自旋的整个矩阵变成零</strong>——一个静默的、能量恰好差一半的错误。）<code>all_channels</code>/<code>dos</code> 中的每个通道只做一次 Lanczos，之后可按不同截断步数 $L$、不同 $\omega$ 复用。</p>
+</blockquote>
+<h1><span id="延伸阅读与作业">延伸阅读与作业</span></h1><ul>
+<li><strong>讲义</strong>：第三讲幻灯片（32 页）与配套逐页中文讲义 <code>Lecture03_Notes.pdf</code>。</li>
+<li><strong>作业</strong>：<code>Lecture03_Homework.pdf</code>——Hubbard 环上的分块、Lanczos、连分数、$\rho(\omega)$，必做 1–5、选做 6–8，附完整校检清单与”故意改错”自检。</li>
+<li><strong>参考</strong>：Fehske, Schneider, Weiße (eds.), <em>Computational Many-Particle Physics</em>, LNP 739 (2008)，Lanczos 与谱函数章节。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/">https://xuxu20040407.github.io/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/">量子物理计算方法选讲</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-22</div><div class="title">02 精确对角化</div></div></a></div><div><a href="/2026/09/15/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/01-%E8%AF%BE%E7%A8%8B%E5%AF%BC%E8%AE%BA%E4%B8%8E%E6%A0%BC%E7%82%B9%E6%A8%A1%E5%9E%8B/" title="01 课程导论与格点模型"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">01 课程导论与格点模型</div></div></a></div><div><a href="/2026/09/15/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2Content/" title="量子物理计算方法选讲Content"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">量子物理计算方法选讲Content</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">本讲在课程中的位置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">两条链</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">约定表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">隐形主线：有限精度会骗你</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">变分原理：能量泛函与梯度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">二维极小化与 2×2 矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">变分上界：一份免费的 bug 检测器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">幂法与 Krylov 空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">幂法的陷阱</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">Lanczos 方法：三项递推</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">递推系数与三对角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">核心校检：HV 的上标 T 等于 V 上标 T 乘 T</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.3.</span> <span class="toc-text">起始向量必须归一化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">为什么三项递推能保持正交</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">收敛性：Ritz 值是变分上界</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">陷阱一：正交性丢失与鬼本征值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.1.</span> <span class="toc-text">重正交化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.2.</span> <span class="toc-text">两种重启方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">收敛判据的陷阱：能量快、谱形慢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">第二条链：格林函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.1.</span> <span class="toc-text">经典格林函数与传播子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.2.</span> <span class="toc-text">量子格林函数与五种排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.3.</span> <span class="toc-text">含时关联函数与谱函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.4.</span> <span class="toc-text">局域态密度与 Lehmann 展开</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">谱函数：Lanczos + 连分数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">12.1.</span> <span class="toc-text">第二次 Lanczos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">12.2.</span> <span class="toc-text">陷阱二：alpha 上标 2 必须乘回来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">12.3.</span> <span class="toc-text">连分数：分块矩阵求逆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">12.4.</span> <span class="toc-text">陷阱三：连分数必须反向递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">12.5.</span> <span class="toc-text">减法谱的符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">12.6.</span> <span class="toc-text">收敛快慢由什么决定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">一维 Hubbard 环：态密度与 Mott 绝缘体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">13.1.</span> <span class="toc-text">U 等于 0 的解析基准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">13.2.</span> <span class="toc-text">U 等于 4 的上下 Hubbard 带</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">13.3.</span> <span class="toc-text">Mott 转变</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">陷阱四：简并与求和规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">物理与实验：自旋-电荷分离</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">15.1.</span> <span class="toc-text">谱函数 $A(k,\omega)$ 与 TTF-TCNQ</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">16.</span> <span class="toc-text">研究前沿</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">16.1.</span> <span class="toc-text">Chebyshev 赝 site 矩阵乘积态：电子-声子耦合的谱函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">16.2.</span> <span class="toc-text">掺杂 Mott 绝缘体中的条纹</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">17.</span> <span class="toc-text">校检清单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">18.</span> <span class="toc-text">附：复现用的代码工具箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">19.</span> <span class="toc-text">延伸阅读与作业</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
