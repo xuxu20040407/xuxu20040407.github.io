@@ -1,7 +1,7 @@
 ---
 title: SevenNet 与 SevenNet-Omni：从 MPtrj 到 COSMOS 数据配方
 mathjax: true
-date: 2026-08-30 18:00:00
+date: 2026-08-30 13:00:00
 tags: [机器学习, 分子力场, 通用势, SevenNet, COSMOS]
 categories: 机器学习分子力场
 cover:

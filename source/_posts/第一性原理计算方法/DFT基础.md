@@ -1,7 +1,7 @@
 ---
 title: DFT 基础（整合讲义）
 mathjax: true
-date: 2025-03-04 13:00:03
+date: 2026-09-15 11:00:00
 tags: 第一性原理计算方法
 categories: 第一性原理计算方法
 cover:

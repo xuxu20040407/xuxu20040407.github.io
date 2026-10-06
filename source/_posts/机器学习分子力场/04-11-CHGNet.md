@@ -1,7 +1,7 @@
 ---
 title: CHGNet：电荷感知的先行者
 mathjax: true
-date: 2026-08-30 12:00:00
+date: 2026-08-29 10:00:00
 tags: [机器学习, 分子力场, 通用势, CHGNet]
 categories: 机器学习分子力场
 cover:

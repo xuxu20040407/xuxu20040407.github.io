@@ -1,7 +1,7 @@
 ---
 title: EDM：等变扩散3D分子生成
 mathjax: true
-date: 2026-08-24 12:00:00
+date: 2026-08-24 12:02:00
 tags: [机器学习, 分子生成, 扩散模型, 3D]
 categories: 结构生成
 cover:

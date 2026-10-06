@@ -1,7 +1,7 @@
 ---
 title: 09 BCS理论
 mathjax: true
-date: 2026-09-14 17:00:03
+date: 2026-09-14 17:30:03
 tags: 量子多体物理
 categories: 量子多体物理
 cover:

@@ -1,7 +1,7 @@
 ---
 title: MACE-MP-0 与 MACE-MPA-0：生态的奠基者
 mathjax: true
-date: 2026-08-30 13:00:00
+date: 2026-08-30 11:00:00
 tags: [机器学习, 分子力场, 通用势, MACE]
 categories: 机器学习分子力场
 cover:

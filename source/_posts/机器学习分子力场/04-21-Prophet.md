@@ -1,7 +1,7 @@
 ---
 title: Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首
 mathjax: true
-date: 2026-09-23 09:00:00
+date: 2026-08-30 19:00:00
 tags: [机器学习, 分子力场, 通用势, Prophet, 自旋]
 categories: 机器学习分子力场
 cover:

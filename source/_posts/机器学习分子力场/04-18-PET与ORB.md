@@ -1,7 +1,7 @@
 ---
 title: PET 与 ORB：放弃等变约束的非等变路线
 mathjax: true
-date: 2026-08-30 17:00:00
+date: 2026-08-30 16:00:00
 tags: [机器学习, 分子力场, 通用势, PET, ORB]
 categories: 机器学习分子力场
 cover:

@@ -1,7 +1,7 @@
 ---
 title: GRACE / TACE / TECE：等变 ACE 系与高阶张量积系
 mathjax: true
-date: 2026-08-30 16:00:00
+date: 2026-08-30 18:00:00
 tags: [机器学习, 分子力场, 通用势, GRACE, TACE]
 categories: 机器学习分子力场
 cover:

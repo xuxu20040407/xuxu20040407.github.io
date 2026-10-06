@@ -1,7 +1,7 @@
 ---
 title: MatterSim：高温高压相空间覆盖的独一档
 mathjax: true
-date: 2026-08-30 20:00:00
+date: 2026-08-30 10:00:00
 tags: [机器学习, 分子力场, 通用势, MatterSim]
 categories: 机器学习分子力场
 cover:

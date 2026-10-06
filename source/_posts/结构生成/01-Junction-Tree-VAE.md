@@ -1,7 +1,7 @@
 ---
 title: Junction Tree VAE：开创性图生成
 mathjax: true
-date: 2026-08-24 12:00:00
+date: 2026-08-24 12:01:00
 tags: [机器学习, 分子生成, VAE, 图神经网络]
 categories: 结构生成
 cover:
