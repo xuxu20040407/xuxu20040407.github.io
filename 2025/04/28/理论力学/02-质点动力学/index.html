@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>质点动力学 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="省流 质点动力学基本定律 力学相对性原理 非惯性系与惯性力 质点动力学运动定理 动量定理和动能定理 角动量定理与角动能定理   常见的力 重力与引力 弹力 摩擦力   常见物体的转动惯量 匀质细杆 匀质圆盘 常见物体的转动惯量汇总   例题 匀质杆掉落瞬间 求解      省流 以牛顿定律$F&#x3D;ma$和$M&#x3D;I\beta$为基础推导出的动量定理$p&#x3D;\int Fdt$和动能定理$E_k&#x3D;\int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="质点动力学">
+<meta property="og:url" content="https://xuxu20040407.github.io/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/02-%E8%B4%A8%E7%82%B9%E5%8A%A8%E5%8A%9B%E5%AD%A6/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="省流 质点动力学基本定律 力学相对性原理 非惯性系与惯性力 质点动力学运动定理 动量定理和动能定理 角动量定理与角动能定理   常见的力 重力与引力 弹力 摩擦力   常见物体的转动惯量 匀质细杆 匀质圆盘 常见物体的转动惯量汇总   例题 匀质杆掉落瞬间 求解      省流 以牛顿定律$F&#x3D;ma$和$M&#x3D;I\beta$为基础推导出的动量定理$p&#x3D;\int Fdt$和动能定理$E_k&#x3D;\int">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover2.jpeg">
+<meta property="article:published_time" content="2025-04-28T05:33:57.000Z">
+<meta property="article:modified_time" content="2026-10-06T08:21:23.829Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="理论力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover2.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/02-%E8%B4%A8%E7%82%B9%E5%8A%A8%E5%8A%9B%E5%AD%A6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '质点动力学',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-10-06 16:21:23'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover2.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">质点动力学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-28T05:33:57.000Z" title="发表于 2025-04-28 13:33:57">2025-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-06T08:21:23.829Z" title="更新于 2026-10-06 16:21:23">2026-10-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/">理论力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="质点动力学"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#省流">省流</a></li>
+<li><a href="#质点动力学基本定律">质点动力学基本定律</a></li>
+<li><a href="#力学相对性原理">力学相对性原理</a></li>
+<li><a href="#非惯性系与惯性力">非惯性系与惯性力</a></li>
+<li><a href="#质点动力学运动定理">质点动力学运动定理</a><ul>
+<li><a href="#动量定理和动能定理">动量定理和动能定理</a></li>
+<li><a href="#角动量定理与角动能定理">角动量定理与角动能定理</a></li>
+</ul>
+</li>
+<li><a href="#常见的力">常见的力</a><ul>
+<li><a href="#重力与引力">重力与引力</a></li>
+<li><a href="#弹力">弹力</a></li>
+<li><a href="#摩擦力">摩擦力</a></li>
+</ul>
+</li>
+<li><a href="#常见物体的转动惯量">常见物体的转动惯量</a><ul>
+<li><a href="#匀质细杆">匀质细杆</a></li>
+<li><a href="#匀质圆盘">匀质圆盘</a></li>
+<li><a href="#常见物体的转动惯量汇总">常见物体的转动惯量汇总</a></li>
+</ul>
+</li>
+<li><a href="#例题">例题</a><ul>
+<li><a href="#匀质杆掉落瞬间">匀质杆掉落瞬间</a><ul>
+<li><a href="#求解">求解</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1><span id="省流">省流</span></h1><ul>
+<li>以牛顿定律$F=ma$和$M=I\beta$为基础推导出的动量定理$p=\int Fdt$和动能定理$E_k=\int Fdx$，以及角动量定理$L=\int Mdt$和角动能定理$E_r=\int Md\theta$，是质点动力学的核心定理。</li>
+<li>这些定理本身就是微分形式的积分结果，所以使用牛顿定理进行求解与使用拉格朗日量求解是等价的。</li>
+<li>对于转动问题，分别列出质心的平动方程和绕质心（或瞬时转轴）的转动方程联合求解，从而避免对约束力逐个分析（解除转动自由度）；转动与平动相互耦合，转动会反过来影响质心运动。</li>
+</ul>
+<h1><span id="质点动力学基本定律">质点动力学基本定律</span></h1><p>质点动力学以牛顿三定律为基础：</p>
+<ul>
+<li><strong>牛顿第一定律</strong>：如果一个物体不受外力作用，它将保持静止或匀速直线运动状态；</li>
+<li><strong>牛顿第二定律</strong>：物体的加速度与所受外力成正比，与物体的质量成反比；<script type="math/tex; mode=display">\vec{F}=m\vec{a}</script></li>
+<li><strong>牛顿第三定律</strong>：物体间的相互作用力是大小相等、方向相反的。</li>
+</ul>
+<blockquote>
+<p>第一定律提出了力和惯性两大重要概念，并且是在“惯性系”下研究物体。所谓惯性系，指的是满足第一定律的参考系。然而并不存在绝对的惯性系，牛顿的绝对空间也是人为假设。马赫对此进行了批判：所谓惯性不是物体本身的属性，而是来源于物体之间的相互作用。</p>
+<p>第一定律给出了惯性的定义，进而给出力的定性定义；第二定律给出力的定量定义。除此之外，第二定律的完备性还暗示了决定论的思想，当然这在我们现在看来不那么正确。系统的内禀随机性和非线性性也对告诉我们，实际问题中我们并不能够预测未来（因为世界是高维非线性的）。</p>
+<p>由第二定律，加速度为0的时候，合力为0，可以导出静力学这一领域。</p>
+<p>第二定律还指出力和加速度是瞬时关联的，第三定律指出相互作用也是瞬时的。不过，我们知道相互作用的传播是光速有限的，因而第三定律其实并不成立。</p>
+</blockquote>
+<h1><span id="力学相对性原理">力学相对性原理</span></h1><p>经验表面，惯性系不止一个，在所有惯性系中，力学定律具有相同的形式，这一原理称为<strong>力学相对性原理</strong>。对于不同的惯性系，通过伽利略坐标变换即可证明同一物体在不同惯性系的加速度相等。</p>
+<h1><span id="非惯性系与惯性力">非惯性系与惯性力</span></h1><p>在非惯性系中，物体具有额外的加速度却静止不动，这部分加速度对应的力称为<strong>惯性力</strong>。通过引入惯性力，可以修正非惯性系中的力学定律：</p>
+<script type="math/tex; mode=display">\vec{F}=m\vec{a}'+m\vec{a}_{relation}\Rightarrow \vec{F}+\vec{F}_{relation}=m\vec{a}'</script><p>使其与惯性系中的力学定律具有相同的形式，其中惯性力为：</p>
+<script type="math/tex; mode=display">\vec{F}_{relation}=-m\vec{a}_{relation}</script><p>利用非惯性力可以解释潮汐现象：地月互转产生恒定的离心力，月球对地球的引力随着距离有所不同。作用在地球中心的引力等于离心力，所以向月点的引力大于离心力，背向的引力小于离心力，均表现为向外的合力，所以在向月点和背月点的方向上产生潮汐。</p>
+<h1><span id="质点动力学运动定理">质点动力学运动定理</span></h1><p>从牛顿力学发展的质点动力学已经足够描述所有问题，但是从牛顿力学出发推导的质点动力学运动定理可以帮助简化问题求解。一方面，笛卡尔—牛顿学派以动量为核心量，将力定义为动量变化率$\vec{F}=d\vec{p}/dt$，其对应的是冲量（力对时间的积分）；另一方面，莱布尼兹以活力（动能的前身）为核心，从力对位移的积分（功）导出能量变化，并从能量微分导出力的概念。科里奥利后来正式提出”功”与”动能”两个概念，将两派统一。后者（能量路线）也被分析力学学派所发展。</p>
+<h2><span id="动量定理和动能定理">动量定理和动能定理</span></h2><p>从牛顿第二定律出发，假设物体的质量不变：</p>
+<script type="math/tex; mode=display">m\ddot{x}=F(x,\dot{x},t)</script><p>对以下三种情况分类讨论：</p>
+<ul>
+<li><p><strong>力只依赖于时间</strong> $F=F(t)$：$m\ddot{x}=F(t)\Rightarrow p=m\dot{x}=\int F(t)dt+C$，可以导出<strong>动量定理</strong>：</p>
+<script type="math/tex; mode=display">p=\int Fdt\Leftrightarrow F=\frac{dp}{dt}</script><p>即力的时间积累（<strong>冲量</strong>）改变动量。它不要求知道轨迹，只关心始末状态，常用于碰撞、打击、脉冲力等问题。当 $F(t)=0$ 时即得动量守恒。</p>
+</li>
+<li><p><strong>力只依赖于速度</strong> $F=F(v)$：$m\dfrac{dv}{F(v)}=dt\Rightarrow \int \dfrac{m}{F(v)}dv=t$，先反解出 $v(t)$，再积分一次得到 $x(t)$，或进行一次函数复合得到 $F[v(t)]$。</p>
+<blockquote>
+<p>这是<strong>阻力</strong>的典型情形，例如黏性介质中的低速运动 $F=-kv$（小球在油中缓慢下落，斯托克斯阻力）、高速运动 $F=-kv^2$（跳伞、雨滴、炮弹）以及干摩擦 $F=-\mu mg\cdot\hat v$。这类问题常出现<strong>末端速度</strong>：当阻力与重力平衡时速度不再增加，如跳伞的收尾速度 $v_\infty=\sqrt{mg/k}$。由于力不是位置的函数，此类系统不满足能量守恒（机械能被耗散为热），只能用此法求解。</p>
+<p>在  <a href="/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/03-%E8%B4%A8%E7%82%B9%E7%B3%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="质点系动力学">质点系动力学</a> 最后求解的雨滴问题中运用了该思想。</p>
+</blockquote>
+</li>
+<li><p><strong>力只依赖于位置</strong> $F=F(x)$：$\dfrac{d}{dt}(\dfrac{1}{2}mv^2)=F(x)\dot{x}\Rightarrow \int F(x)dx=\dfrac{1}{2}mv^2+C$，可以导出<strong>动能定理</strong>：</p>
+<script type="math/tex; mode=display">\Delta T=\int F(x)dx\Leftrightarrow F=\frac{dT}{dx}</script><p>其中$T=\dfrac{1}{2}mv^2$为动能，$C$为常数。即力的空间积累（<strong>功</strong>）改变动能。这是保守力场（重力、弹簧、引力、静电力等）的典型情形，也是从能量角度解决问题的出发点。当 $F(x)=0$ 时即得动能守恒。</p>
+<blockquote>
+<p><strong>求解技巧：以角度为积分变量的换元</strong>。动能定理的微分形式 $\frac12\,d(v^2)=\vec a\cdot d\vec r=a_t\,ds$（$a_t$为切向加速度，它只改变速率大小、不改变方向）结合几何关系 $v\,dt=ds=R\,d\theta$，可以把关于时间$t$的积分换成关于极角$\theta$的积分：</p>
+<script type="math/tex; mode=display">dv^2=2v\,dv=2v\,(a_t\,dt)=2a_t\,(v\,dt)=2a_t\,ds=2a_t\,R\,d\theta</script><p>其中$R=\dfrac{ds}{d\theta}=\sqrt{r^2+(dr/d\theta)^2}$是极坐标下的弧长因子（轨迹为圆时$R$就是半径，如单摆$R=l$）。若切向加速度$a_t=f(\theta)$与$R=R(\theta)$都是位置的已知函数，直接积分即得”速率—角度”的一阶关系：</p>
+<script type="math/tex; mode=display">v^2(\theta)=v_0^2+2\int_{\theta_0}^{\theta}f(\theta)\,R(\theta)\,d\theta</script><p>这避免了求解关于$t$的二阶微分方程。典型应用：单摆（$a_t=-g\sin\theta$，$R=l$）、粒子沿极坐标给出的光滑轨道运动、有心力问题求$v(\theta)$。</p>
+<p><a href="/2025/06/20/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/07-%E6%9C%89%E5%BF%83%E5%8A%9B%E5%92%8C%E6%95%A3%E5%B0%84%E9%97%AE%E9%A2%98/" title="有心力和散射问题">有心力和散射问题</a> 中的<strong>比耐公式</strong>运用的正是同一思想——用极角$\theta$替换时间$t$作为独立变量：利用角动量守恒$mr^2\dot\theta=l$把$d/dt$换成$\dfrac{l}{mr^2}\dfrac{d}{d\theta}$（配合$u=1/r$代换），从而把关于时间的运动方程化为关于$\theta$的可解方程。区别在于：这里走的是”能量路线”，直接给出一阶首次积分$v(\theta)$；比耐公式走的是”力路线”，给出二阶轨道方程$r(\theta)$。两种换元思路互补。</p>
+</blockquote>
+</li>
+</ul>
+<p>由动量定理和动能定理，当合力为零（$\vec{F}=0$）时即得<strong>动量守恒</strong>；若力场为保守场（$\vec{F}=-\nabla V$），则机械能守恒（见下文）。</p>
+<p>将动能定理进行拓展，使系统包含产生力的源，则可以得到能量守恒定理：</p>
+<script type="math/tex; mode=display">T+V=Const\Leftrightarrow \vec{F}=-\nabla V</script><p>从势能的变化可以定义出保守力。能量守恒也可以表达为封闭系统仅保守力做功的情况。</p>
+<h2><span id="角动量定理与角动能定理">角动量定理与角动能定理</span></h2><p>对于绕某点转动的问题，动量定理不够方便，需要引入与转动对应的物理量。定义<strong>力矩</strong>和<strong>角动量</strong>（关于参考点$O$）：</p>
+<script type="math/tex; mode=display">\vec{M}=\vec{r}\times\vec{F},\quad \vec{L}=\vec{r}\times\vec{p}</script><p>它们分别是力的”矩”和动量的”矩”，都依赖于参考点的选取。力矩反映力使物体绕参考点转动的效果，角动量则反映运动物体绕参考点转动的”惯性”。对角动量求导：</p>
+<script type="math/tex; mode=display">\frac{d\vec{L}}{dt}=\frac{d}{dt}(\vec{r}\times\vec{p})=\dot{\vec{r}}\times\vec{p}+\vec{r}\times\dot{\vec{p}}=\vec{v}\times(m\vec{v})+\vec{r}\times\vec{F}=\vec{M}</script><p>其中$\vec{v}\times(m\vec{v})=0$，即得<strong>角动量定理</strong>：</p>
+<script type="math/tex; mode=display">\frac{d\vec{L}}{dt}=\vec{M}</script><p>它与动量定理$\dfrac{d\vec{p}}{dt}=\vec{F}$完全平行：动量定理描述平动，角动量定理描述转动。</p>
+<ul>
+<li>当外力矩为零（$\vec{M}=0$）时，角动量$\vec{L}$守恒。质点绕固定点的角动量大小为$L=mrv\sin\theta=mr^2\dot\theta$，$\vec{L}$守恒意味着<strong>掠面速度</strong>$\frac12r^2\dot\theta$为常数，这正是开普勒第二定律（行星与太阳的连线在相等时间内扫过相等的面积）的来源。</li>
+<li>角动量与参考点的选取有关：合外力为零时，关于任意参考点的力矩都为零；合外力不为零时，也可能存在力矩为零的特殊点。</li>
+</ul>
+<p>同样的道理，可以定义<strong>转动动能</strong>：</p>
+<script type="math/tex; mode=display">T_{rot}=\frac12\int_\Omega v^2dm=\frac12\int_\Omega \omega^2r^2dm=\frac12I\omega^2</script><p>其中$I=\int_\Omega r^2dm$为<strong>转动惯量</strong>。对转动动能求导，并利用角动量定理$\dfrac{d\vec{L}}{dt}=\vec{M}$（定轴转动中$\vec{L}=I\vec{\omega}$）：</p>
+<script type="math/tex; mode=display">\frac{dT_{rot}}{dt}=\frac{d}{dt}\left(\frac12I\omega^2\right)=\vec{\omega}\cdot\frac{d\vec{L}}{dt}=\vec{M}\cdot\vec{\omega}=M\omega\Rightarrow M=\frac{dT_{rot}}{d\theta}</script><p>就可以得到<strong>转动动能定理</strong>，它与平动的动能定理$F=\frac{dT}{dx}$完全平行：力矩对转角积分（力矩做功）改变转动动能：</p>
+<script type="math/tex; mode=display">\Delta T_{rot}=\int M\,d\theta</script><h1><span id="常见的力">常见的力</span></h1><h2><span id="重力与引力">重力与引力</span></h2><p><strong>万有引力</strong>是自然界最基本的力之一。任意两个质点之间的引力与质量乘积成正比、与距离平方成反比，这就是<strong>万有引力定律</strong>：</p>
+<script type="math/tex; mode=display">\vec{F}=-G\frac{m_1m_2}{r^2}\hat{r}</script><p>其中$G=6.67\times10^{-11}\ \mathrm{N\cdot m^2/kg^2}$为引力常量，$\hat{r}$为从施力质点指向受力质点的单位矢量，负号表示引力总是吸引。对连续分布的物体，将其微元化再积分即可求得整体所受的引力。由万有引力引入的矢量场称为<strong>引力场</strong>，场强为单位质量所受的引力：</p>
+<script type="math/tex; mode=display">\vec{g}=\frac{\vec{F}}{m}=-\frac{GM}{r^2}\hat{r}</script><p><strong>重力与引力的区别、重力加速度的分解</strong>：以地球为例，地球自转使地面参考系成为非惯性系，静止于地面的物体除引力外还受到惯性离心力，<strong>重力</strong>定义为二者合力所对应的加速度：</p>
+<script type="math/tex; mode=display">\vec{g}=\vec{g}_N+\omega^2\vec{R}</script><p>其中$\vec{g}_N=\dfrac{GM_E}{R_E^2}\approx9.82\ \mathrm{m/s^2}$为引力加速度（严格指向地心），$\omega$为地球自转角速度，$\vec{R}$为自转轴到物体的垂直矢量。引力与重力并不相同：引力严格指向地心，而重力方向（<strong>铅垂线</strong>）略偏离地心；赤道处离心加速度最大$\omega^2R_E\approx0.034\ \mathrm{m/s^2}$，仅占引力的千分之几，两极则没有离心加速度。分解到纬度$\varphi$方向，可近似得到：</p>
+<script type="math/tex; mode=display">g(\varphi)\approx g_N-\omega^2R_E\cos^2\varphi</script><p>两极（$\varphi=\pm90^\circ$）处$g=g_N$最大，赤道处最小，因此同一物体在两极比在赤道更重。</p>
+<p><strong>均匀球壳定理：球体引力等于质心引力</strong>。中学直接给出”球体的引力等价于质量集中于球心”，但这一结论需要证明。考虑质量$M=4\pi R^2\sigma$（$\sigma$为面密度）的均匀球壳和距球心$r$的质点$m$。将球壳按与连线$OP$的夹角$\theta$划分为环带，环带质量$dM=\sigma\cdot 2\pi R\sin\theta\cdot R\,d\theta$，环带上各点到质点的距离由余弦定理：</p>
+<script type="math/tex; mode=display">s^2=r^2+R^2-2rR\cos\theta</script><p>由对称性，环带对质点的引力沿$OP$方向，大小为：</p>
+<script type="math/tex; mode=display">dF=G\frac{m\,dM}{s^2}\cos\alpha=Gm\sigma\frac{2\pi R^2\sin\theta\,(r-R\cos\theta)}{s^3}d\theta</script><p>其中$\cos\alpha=\dfrac{r-R\cos\theta}{s}$为引力沿$OP$的投影。利用换元$s\,ds=rR\sin\theta\,d\theta$与$r-R\cos\theta=\dfrac{r^2-R^2+s^2}{2r}$，化简为：</p>
+<script type="math/tex; mode=display">dF=\frac{Gm\sigma\pi R}{r^2}\left(1+\frac{r^2-R^2}{s^2}\right)ds</script><p>对全壳积分，分两种情况：</p>
+<ul>
+<li><p><strong>外部质点</strong>（$r&gt;R$），$s$从$r-R$变到$r+R$：</p>
+<script type="math/tex; mode=display">F=\frac{Gm\sigma\pi R}{r^2}\left[s-\frac{r^2-R^2}{s}\right]_{r-R}^{r+R}=\frac{GMm}{r^2}</script><p>恰好等于质量集中于球心时的引力。</p>
+</li>
+<li><p><strong>内部质点</strong>（$r&lt;R$），$s$从$R-r$变到$R+r$：</p>
+<script type="math/tex; mode=display">F=\frac{Gm\sigma\pi R}{r^2}\left[s-\frac{r^2-R^2}{s}\right]_{R-r}^{R+r}=0</script><p>球壳对内部任意位置的引力为零。</p>
+</li>
+</ul>
+<p>这便是著名的<strong>球壳定理</strong>。均匀球体可看作无数同心球壳的叠加：对外部质点，每一层球壳都等效为集中于球心，故球体对质点的引力等同于全部质量集中于球心的引力；对内部质点，只有半径小于$r$的球壳部分有贡献。于是均匀球体内部的引力场强为：</p>
+<script type="math/tex; mode=display">g(r)=\frac{GM(r)}{r^2},\quad M(r)=\frac43\pi r^3\rho=M\frac{r^3}{R^3}\Rightarrow g(r)=\frac{GM}{R^3}r\propto r</script><p><strong>引力场强与离球心的距离成正比</strong>，在球心处$g(0)=0$。</p>
+<blockquote>
+<p>中学物理常把重力等同于万有引力，这是忽略地球自转的近似。二者真正的区别来自惯性离心力，重力的方向（铅垂线）也不严格指向地心。<br>均匀模型下球内$g\propto r$是理想化结果：真实地球的密度随深度增大，实际引力会先随深度略有增大再减小，赤道处还叠加了地球扁率的效应。</p>
+</blockquote>
+<h2><span id="弹力">弹力</span></h2><p><strong>弹力</strong>是物体发生形变时产生的、企图恢复原状的力，来源于原子间的电磁相互作用。在弹性限度内，弹力与形变量成正比（<strong>胡克定律</strong>）：</p>
+<script type="math/tex; mode=display">F=-kx</script><p>其中$x$为形变量（拉伸为正、压缩为负），$k$为劲度系数，只由弹簧本身的性质决定。弹簧被拉伸$x$时，其弹性势能为：</p>
+<script type="math/tex; mode=display">V=\frac12kx^2</script><p><strong>弹簧的串联与并联</strong>：多个弹簧组合的等效劲度系数与电容的串并联规律相同——<strong>并联更”硬”，串联更”软”</strong>。</p>
+<ul>
+<li><p><strong>并联</strong>：两端固定时各弹簧形变量相同，总弹力为各弹力之和：</p>
+<script type="math/tex; mode=display">k_{eff}x=k_1x+k_2x\Rightarrow k_{eff}=k_1+k_2</script><p>并联相当于增大了”截面积”，所以劲度系数相加。</p>
+</li>
+<li><p><strong>串联</strong>：各弹簧所受弹力相同（轻弹簧两端张力相等），总形变量为各形变之和：</p>
+<script type="math/tex; mode=display">k_{eff}x=\frac{F}{x_1+x_2},\quad x_1=\frac{F}{k_1},\ x_2=\frac{F}{k_2}\Rightarrow \frac1{k_{eff}}=\frac1{k_1}+\frac1{k_2}</script><p>串联相当于增长了弹簧长度，所以劲度系数按倒数相加，组合后更软。两个$k$相同的弹簧串联后等效劲度系数为$k/2$，并联后为$2k$。</p>
+</li>
+</ul>
+<blockquote>
+<p>弹力的方向总是与形变方向相反，指向恢复原状的方向，这也是胡克定律中负号的来源。拉力（如绳、杆的张力）是弹力，绳只能承受拉伸；桌面支持力也是弹力，其大小由平衡条件决定而非固定，且方向朝着切面垂直方向。</p>
+<p>“轻弹簧”是理想化模型，即忽略弹簧本身质量，此时弹簧各处的弹力大小相等，这也是串联推导的前提。</p>
+<p>事实上，<strong>质量不可忽略的弹簧</strong>的张力沿弹簧线性变化，而不是处处相等。设弹簧质量为$m_s$、自然长度$l_0$、劲度系数$k$，线密度$\lambda=m_s/l_0$，竖直悬挂时各段在自重下拉伸。距下端$y$处的微元$dy$只支撑其下方部分的重力，故该处张力为$T(y)=\lambda y g$。长度为$dy$的微元等效劲度系数为$k l_0/dy$，其伸长量为：</p>
+<script type="math/tex; mode=display">d\Delta=\frac{T(y)}{k l_0}dy</script><p>对整根弹簧积分，自重引起的总伸长：</p>
+<script type="math/tex; mode=display">\Delta=\frac1{k l_0}\int_0^{l_0}\lambda g y\,dy=\frac{\lambda g l_0}{2k}=\frac{m_s g}{2k}</script><p>若下端再悬挂质量$m$，则额外均匀伸长$mg/k$，总伸长为：</p>
+<script type="math/tex; mode=display">\Delta=\frac{mg}{k}+\frac{m_s g}{2k}=\frac{(m+m_s/2)g}{k}</script><p>相比忽略弹簧质量时的$\Delta_0=mg/k$，变化量为$m_s g/(2k)$，即<strong>等效于把弹簧质量的一半挂在下端</strong>。</p>
+<p>而弹簧在振动中的等效质量是$m_s/3$，来源如下。竖直悬挂的弹簧做简谐振动时，各微元距固定端越远速度越大，且速度沿弹簧线性分布：距固定端$y$处的微元速度$v(y)=\frac{y}{l_0}v_{end}$（$v_{end}$为下端和负载的速度）。弹簧的动能为：</p>
+<script type="math/tex; mode=display">T_s=\int_0^{l_0}\frac12\lambda\,dy\,v(y)^2=\frac12\lambda\frac{v_{end}^2}{l_0^2}\int_0^{l_0}y^2dy=\frac12\frac{m_s}{3}v_{end}^2</script><p>即弹簧对动能的贡献等价于在负载处附加质量$m_s/3$，故系统的总动能$T=\frac12\left(m+\frac{m_s}{3}\right)v_{end}^2$，振动频率修正为：</p>
+<script type="math/tex; mode=display">\omega=\sqrt{\frac{k}{m+m_s/3}}</script><p>可见静力学拉伸与动力学振动给出不同的等效系数：前者源于张力沿弹簧的线性分布（做功），后者源于速度沿弹簧的线性分布（动能）。</p>
+</blockquote>
+<h2><span id="摩擦力">摩擦力</span></h2><p><strong>摩擦力</strong>是相互接触的物体发生相对运动或有相对运动趋势时，在接触面上产生的阻碍相对运动的力。按产生机理分为静摩擦力和滑动摩擦力：</p>
+<ul>
+<li><p><strong>静摩擦力</strong>：物体有相对运动趋势但尚未滑动时，接触面上的摩擦力称为静摩擦力，其大小在零到最大静摩擦力之间，由平衡条件或其他约束决定：</p>
+<script type="math/tex; mode=display">f_s\le\mu_s N</script><p>方向与相对运动趋势的方向相反。最大静摩擦力$\mu_s N$是维持静止的上限，一旦超过，物体开始滑动。</p>
+</li>
+<li><p><strong>滑动摩擦力</strong>：物体发生相对滑动时，摩擦力的大小与正压力成正比：</p>
+<script type="math/tex; mode=display">f_k=\mu_k N</script><p>方向与相对运动方向相反。其中$N$为正压力，$\mu_k$为动摩擦系数。</p>
+</li>
+</ul>
+<p>摩擦系数由接触面材料与粗糙程度决定，与接触面积的大小无关（宏观近似下）。实验上通常$\mu_k&lt;\mu_s$：由静摩擦转变为滑动摩擦的瞬间摩擦力会略微下降，这源于接触表面微观突起从”嵌合”状态过渡到”掠过”状态。</p>
+<blockquote>
+<p>摩擦力的方向可以与运动方向相同（如加速的传送带上的物体，摩擦力是动力），这里的”相对运动”是相对于接触面的，而非地面。<br>干摩擦只是摩擦力的一种。实际世界中还有滚动摩擦（轮子与地面）、流体阻力（$F=-kv$或$F=-kv^2$，即前文力只依赖速度的情形）等阻力形式，它们共同构成我们处理耗散系统的出发点。</p>
+</blockquote>
+<h1><span id="常见物体的转动惯量">常见物体的转动惯量</span></h1><h2><span id="匀质细杆">匀质细杆</span></h2><p>质量为$m$、长为$L$的匀质细杆，线密度$\lambda=m/L$。</p>
+<p><strong>绕中心垂直轴</strong>：以中心为原点沿杆取坐标$x$，微元$dm=\lambda dx$到轴的距离为$|x|$：</p>
+<script type="math/tex; mode=display">I_c=\int x^2dm=\lambda\int_{-L/2}^{L/2}x^2dx=\frac{m}{L}\cdot\frac{L^3}{12}=\frac{1}{12}mL^2</script><p><strong>绕端点垂直轴</strong>：将原点移到端点，微元到轴的距离$x$从$0$变到$L$：</p>
+<script type="math/tex; mode=display">I=\lambda\int_0^L x^2dx=\frac{m}{L}\cdot\frac{L^3}{3}=\frac13mL^2</script><blockquote>
+<p>两个结果可以通过<strong>平行轴定理</strong>联系起来：对任意与质心轴平行的轴，转动惯量等于绕质心轴的转动惯量加上质量乘以轴距的平方：</p>
+<script type="math/tex; mode=display">I=I_c+md^2</script><p>证明只需把坐标写为$\vec r=\vec r_c+\vec r’$：</p>
+<script type="math/tex; mode=display">I=\int(\vec r_c+\vec r')^2dm=I_c+md^2+2\vec r_c\cdot\underbrace{\int\vec r'\,dm}_{=0}</script><p>交叉项为零，正是因为质心系中$\int\vec r’\,dm=0$。于是杆的端点轴（$d=L/2$）满足：</p>
+<script type="math/tex; mode=display">I=\frac{1}{12}mL^2+m\left(\frac L2\right)^2=\frac13mL^2</script></blockquote>
+<h2><span id="匀质圆盘">匀质圆盘</span></h2><p>质量为$m$、半径为$R$的匀质圆盘，面密度$\sigma=m/(\pi R^2)$。</p>
+<p><strong>绕中心垂直轴</strong>：将圆盘分成半径$r$、宽$dr$的细圆环，微元$dm=\sigma\cdot 2\pi r\,dr$到轴的距离为$r$：</p>
+<script type="math/tex; mode=display">I=\int_0^R r^2dm=2\pi\sigma\int_0^R r^3dr=2\pi\sigma\frac{R^4}{4}=\frac12mR^2</script><blockquote>
+<p>中心垂直轴与直径轴两个结果可以通过<strong>垂直轴定理</strong>联系起来：对厚度可忽略的薄板，取板面为$xy$平面，则绕$z$轴（垂直板面的轴）的转动惯量等于绕$x$、$y$两轴之和：</p>
+<script type="math/tex; mode=display">I_z=I_x+I_y</script><p>证明只需把各转动惯量的定义写开，注意薄板上每一点几乎都位于$xy$平面内，且到$x$轴的距离为$|y|$、到$y$轴的距离为$|x|$：</p>
+<script type="math/tex; mode=display">I_z=\int(x^2+y^2)dm=\int x^2dm+\int y^2dm=I_y+I_x</script><p>圆盘绕任意直径对称，故$I_x=I_y$，代入即得绕直径轴的转动惯量：</p>
+<script type="math/tex; mode=display">I_{diameter}=I_x=I_y=\frac12I_z=\frac14mR^2</script></blockquote>
+<h2><span id="常见物体的转动惯量汇总">常见物体的转动惯量汇总</span></h2><p>将细杆、圆盘以及其余常见物体的转动惯量整理为下表（$m$为质量，$L$、$R$、$a,b$为几何尺寸）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">物体</th>
+<th style="text-align:center">转轴</th>
+<th style="text-align:center">转动惯量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">匀质细杆（长$L$）</td>
+<td style="text-align:center">过中心垂直杆</td>
+<td style="text-align:center">$\frac{1}{12}mL^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">匀质细杆（长$L$）</td>
+<td style="text-align:center">过端点垂直杆</td>
+<td style="text-align:center">$\frac13mL^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">圆环（半径$R$）</td>
+<td style="text-align:center">过中心垂直环面</td>
+<td style="text-align:center">$mR^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">匀质圆盘（半径$R$）</td>
+<td style="text-align:center">过中心垂直盘面</td>
+<td style="text-align:center">$\frac12mR^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">匀质圆盘（半径$R$）</td>
+<td style="text-align:center">沿直径</td>
+<td style="text-align:center">$\frac14mR^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">球壳（半径$R$）</td>
+<td style="text-align:center">沿直径</td>
+<td style="text-align:center">$\frac23mR^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">实心球（半径$R$）</td>
+<td style="text-align:center">沿直径</td>
+<td style="text-align:center">$\frac25mR^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">匀质圆柱（半径$R$）</td>
+<td style="text-align:center">沿中心轴</td>
+<td style="text-align:center">$\frac12mR^2$</td>
+</tr>
+<tr>
+<td style="text-align:center">匀质长方体（边长$a,b,c$）</td>
+<td style="text-align:center">过中心垂直于$ab$面</td>
+<td style="text-align:center">$\frac{1}{12}m(a^2+b^2)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>其中球壳的$\frac23$可以看作<strong>垂直轴定理的三维推广</strong>：对任意物体，绕同一点三个相互垂直的轴的转动惯量满足$I_x+I_y+I_z=2\int r^2dm$。球壳的全部质量都在距球心$R$处，$\int r^2dm=mR^2$，故$I_x+I_y+I_z=2mR^2$；又由对称性$I_x=I_y=I_z=I$，所以：</p>
+<script type="math/tex; mode=display">I=\frac{I_x+I_y+I_z}{3}=\frac{2mR^2}{3}=\frac23mR^2</script><p>对薄板，全部质量在$xy$平面内，$\int r^2dm=I_z$，上式即退化为垂直轴定理$I_z=I_x+I_y$。</p>
+<blockquote>
+<p>组合体的转动惯量可以叠加（例如圆盘挖去同心小圆后，总惯量减去小圆惯量）；转轴平移用平行轴定理，转轴方向切换用垂直轴定理。这些结果在 <a href="/2025/06/20/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/09-%E5%88%9A%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="刚体力学">刚体力学</a> 中会频繁使用。</p>
+</blockquote>
+<h1><span id="例题">例题</span></h1><h2><span id="匀质杆掉落瞬间">匀质杆掉落瞬间</span></h2><p>匀质杆长$2a$、质量$m$，两端用等高细线绑在天花板上。此时突然切断一根线，杆开始绕另一根线转动。求杆掉落瞬间的角加速度（与另一个线受力）。</p>
+<h3><span id="求解">求解</span></h3><p><strong>原题（水平匀质杆）</strong>：设剪断左线，杆绕右端$O$转动。以$O$为转轴，只有重力有力矩$M=mga$，转动惯量由平行轴定理：</p>
+<script type="math/tex; mode=display">I_O=\frac{1}{12}m(2a)^2+ma^2=\frac43ma^2</script><p>角加速度为：</p>
+<script type="math/tex; mode=display">\alpha=\frac{M}{I_O}=\frac{3g}{4a}</script><p>剪断瞬间角速度$\omega=0$，质心只有切向加速度，方向向下，$a_C=\alpha a=\frac34g$。对质心用牛顿第二定律（剪断瞬间线仍竖直，只提供竖直力）：</p>
+<script type="math/tex; mode=display">ma_C=mg-T\Rightarrow T=mg-\frac34mg=\frac14mg</script><p>断线前两线各承担$mg/2$，断线后另一根线受力变为$mg/4$，<strong>受力之比为$1/2$</strong>。断线后剩余线反而”轻”了一半：因为杆质心向下加速，线不需要再平衡全部重力。</p>
+<p><strong>推广一：任意对称杆</strong>（绕中心转动惯量为$I$）。此时$I_O=I+ma^2$：</p>
+<script type="math/tex; mode=display">\alpha=\frac{mga}{I+ma^2},\quad T=mg-m\alpha a=mg\frac{I}{I+ma^2}</script><p>与断线前$mg/2$之比为：</p>
+<script type="math/tex; mode=display">\frac{T}{mg/2}=\frac{2I}{I+ma^2}</script><p>均匀杆$I=\frac13ma^2$时即回到$T=mg/4$、比值$1/2$。</p>
+<p><strong>推广二：任意倾斜角度</strong>。杆与水平成$\theta$角，剪断后绕剩余线的悬点转动。悬点$O$不是固定铰链而是绳下端的”摆球”，剪断瞬间会横向滑动。杆水平方向不受外力（张力此刻沿竖直绳、重力竖直），故质心水平加速度$a_{C,x}=0$；剪断瞬间$\omega=0$，$\vec a_C=\vec a_O+\alpha\hat z\times\vec r_{C/O}$，而$\vec r_{C/O}=a(\cos\theta\,\hat x+\sin\theta\,\hat y)$，取水平分量即得</p>
+<script type="math/tex; mode=display">a_{O,x}=\alpha a\sin\theta</script><p>（$a_{O,y}=0$因绳不可伸长且此刻绳竖直）。即悬点横向滑动，抵消质心本应有的水平加速度分量；质心竖直向下的加速度为$\alpha a\cos\theta$。$O$在运动，不能把它当固定转轴列力矩方程，下面用两种等价方法求$\alpha$。</p>
+<p><strong>方法一：以瞬时转轴$Q$为轴</strong>。刚体平面运动时，每一瞬时唯一存在一个点（可不在刚体上），使该瞬时各点速度/加速度分布等价于绕它的纯转动，此点称<strong>瞬时转轴（瞬心）</strong>，即各点速度垂线的交点。本例质心速度竖直、悬点速度水平，过$C$的水平线与过$O$的竖直线交于$Q=O+a\sin\theta\,\hat y$。$Q$瞬时静止且加速度为零，绕它列的力矩方程严格成立；质心到$Q$的距离为$a\cos\theta$，故</p>
+<script type="math/tex; mode=display">I_Q=I+m(a\cos\theta)^2=I+ma^2\cos^2\theta</script><p>重力对$Q$的力臂$a\cos\theta$，张力沿竖直绳、作用线恰过$Q$，无力矩：</p>
+<script type="math/tex; mode=display">\alpha=\frac{mga\cos\theta}{I+ma^2\cos^2\theta}</script><p><strong>方法二：随$O$平动的非惯性系（惯性力）</strong>。在$O$系中$O$静止，可照写力矩方程，但须计入惯性力：参考系加速度$\vec a_O$使每质点受$\vec f_i^*=-m_i\vec a_O$，合力作用于质心，</p>
+<script type="math/tex; mode=display">\vec F^*=-m\vec a_O</script><p>$O$系中张力过$O$无力矩，重力矩仍为$mga\cos\theta$，惯性力矩为$\vec r_{C/O}\times\vec F^*=-m\,\vec r_{C/O}\times\vec a_O$；代入$a_{O,x}=\alpha a\sin\theta$，其$z$分量为$m\alpha a^2\sin^2\theta$：</p>
+<script type="math/tex; mode=display">(I+ma^2)\alpha=mga\cos\theta+m\alpha a^2\sin^2\theta\Rightarrow(I+ma^2\cos^2\theta)\alpha=mga\cos\theta</script><script type="math/tex; mode=display">\alpha=\frac{mga\cos\theta}{I+ma^2\cos^2\theta}</script><p>漏掉惯性力矩$m\,\vec r_{C/O}\times\vec a_O$（即默认$O$系是惯性系）便退回错误的$I+ma^2$结果，与方法一一致。</p>
+<p><strong>张力与受力之比</strong>。质心竖直向下的加速度为$\alpha a\cos\theta$（$a_{O,y}=0$）：</p>
+<script type="math/tex; mode=display">T=mg-m\alpha a\cos\theta=mg\frac{I}{I+ma^2\cos^2\theta}</script><p>断线前两线各承担$mg/2$（以任一端为支点列力矩平衡即得，与$\theta$无关），故</p>
+<script type="math/tex; mode=display">\frac{T}{mg/2}=\frac{2I}{I+ma^2\cos^2\theta}</script><p>均匀杆（$I=\frac13ma^2$）时为$2/(1+3\cos^2\theta)$：水平时（$\theta=0$）比值$1/2$，与推广一一致；杆越接近竖直（$\cos\theta\to0$），重力力矩与质心下坠加速度越小，剩余线越接近承担全部重力，比值趋于$2$。误把$O$当固定转轴（分母$I+ma^2$）所得$\alpha$偏小、$T$偏大，仅$\theta=0$时相等。</p>
+<p><strong>推广三：一端着地的倾斜匀质杆倒下</strong>。匀质杆与水平地面成初始角$\theta_0$，一端$O$着地（地面足够粗糙、着地端不滑动），由静止释放绕$O$倒下。以$O$为转轴，仅重力有力矩（力臂$a\cos\theta$）：</p>
+<script type="math/tex; mode=display">I_O\ddot\theta=-mga\cos\theta\Rightarrow\ddot\theta=-\frac{3g\cos\theta}{4a}</script><p>由能量守恒（质心高度下降$mg a(\sin\theta_0-\sin\theta)$，地面与重力均不做功）：</p>
+<script type="math/tex; mode=display">\dot\theta^2=\frac{3g(\sin\theta_0-\sin\theta)}{2a}</script><p>质心坐标$x_c=a\cos\theta,\ y_c=a\sin\theta$，求导两次得质心加速度；着地端受地面的正压力$N$（竖直）与摩擦力$f$（水平），代入质心的牛顿第二定律：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+N&=mg+m\ddot y_c=mg\left(\frac14+\frac94\sin^2\theta-\frac32\sin\theta\sin\theta_0\right)\\
+f&=m\ddot x_c=\frac34mg\cos\theta(3\sin\theta-2\sin\theta_0)
+\end{aligned}</script><p>几点结论：</p>
+<ul>
+<li><strong>初始瞬间</strong>（$\theta=\theta_0$）：$N=mg(1-\frac34\cos^2\theta_0)$。它与推广二中绳的张力$mg/(1+3\cos^2\theta_0)$只在$\theta_0=0$时相等——那时悬点瞬时不动，两情形都是真正的固定转轴；$\theta_0\neq0$时不再相等，因为推广三的着地端被地面锁死是<strong>真固定</strong>转轴，而推广二的悬点是<strong>摆球</strong>会横向滑动（见推广二）；</li>
+<li><strong>落地前瞬间</strong>（$\theta\to0$）：$N\to\frac14mg$，与初始倾角无关，这是”杆倒下撞击地面前压力为$mg/4$”的经典结果；</li>
+<li><strong>竖直释放</strong>（$\theta_0=90^\circ$）：$N=\frac{mg}{4}(3\sin\theta-1)^2$，当$\sin\theta=\frac13$（约$19.5^\circ$）时$N=0$，杆<strong>离开地面</strong>，此后作抛体运动直到另一端触地；</li>
+<li>摩擦力在$\sin\theta=\frac23\sin\theta_0$处反向：前期推动质心向倾倒方向加速（阻止着地端后滑），后期反向制动。若所需$|f|&gt;\mu N$，着地端将滑动，以上分析失效。</li>
+</ul>
+<blockquote>
+<p>注意：”绕另一根线转动”的<strong>瞬时转轴不是悬点$O$</strong>，而是$O$正上方、距$O$为$a\sin\theta$的点$Q$——水平杆（$\theta=0$）时$Q$与$O$重合，所以原题以$O$为转轴成立。严格说悬点$O$不是固定点：剩余线相当于单摆，悬端会横向滑动（$a_{O,x}=\alpha a\sin\theta$），这就是推广二不能用$I_O=I+ma^2$而要改用$I_Q=I+ma^2\cos^2\theta$的原因。推广三则不同：着地端不滑动时是真正的固定转轴，没有单摆式的顾虑，但代价是需要地面提供足够的摩擦力。</p>
+<p><strong>思路小结（牛顿-欧拉方程）</strong>：以上所有情形用的都是同一种简化——分别列<strong>质心的平动方程</strong>（牛顿第二定律，只含外力）与<strong>绕质心或转轴的转动方程</strong>（角动量定理$\vec M=I\vec\alpha$，只含外力矩），由约束条件（绳长不变、着地端不滑动等）补足未知量，再联立求解。之所以可以这样拆开，是因为牛顿-欧拉方程是解耦的：质心运动只由外力决定，绕质心的转动只由外力矩决定，约束力作为”内部未知量”只出现在两个方程各自的右侧，消去后即可得到纯粹的动力学关系。这也解释了本例题中为何可以先求角加速度、再回代求张力/压力——先解转动、再用平动方程反解约束力，比直接对每个质点列牛顿方程要简洁得多。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/02-%E8%B4%A8%E7%82%B9%E5%8A%A8%E5%8A%9B%E5%AD%A6/">https://xuxu20040407.github.io/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/02-%E8%B4%A8%E7%82%B9%E5%8A%A8%E5%8A%9B%E5%AD%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/">理论力学</a></div><div class="post_share"><div class="social-share" data-image="/img/cover2.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/03-%E8%B4%A8%E7%82%B9%E7%B3%BB%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="质点系动力学"><img class="cover" src="/img/cover3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">质点系动力学</div></div></a></div><div class="next-post pull-right"><a href="/2025/04/28/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/01-%E8%B4%A8%E7%82%B9%E8%BF%90%E5%8A%A8%E5%AD%A6/" title="质点运动学"><img class="cover" src="/img/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/%E7%A7%91%E9%87%8C%E5%A5%A5%E5%88%A9%E5%8A%9B.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">质点运动学</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/08/12/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/10-%E7%9B%B8%E5%AF%B9%E8%AE%BA%E5%8A%9B%E5%AD%A6/" title="相对论力学"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-12</div><div class="title">相对论力学</div></div></a></div><div><a href="/2025/06/20/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/09-%E5%88%9A%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="刚体力学"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-20</div><div class="title">刚体力学</div></div></a></div><div><a href="/2025/06/20/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/08-%E5%B0%8F%E6%8C%AF%E5%8A%A8/" title="小振动"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-20</div><div class="title">小振动</div></div></a></div><div><a href="/2025/06/20/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/07-%E6%9C%89%E5%BF%83%E5%8A%9B%E5%92%8C%E6%95%A3%E5%B0%84%E9%97%AE%E9%A2%98/" title="有心力和散射问题"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-20</div><div class="title">有心力和散射问题</div></div></a></div><div><a href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/06-%E5%93%88%E5%AF%86%E9%A1%BF%E5%8A%9B%E5%AD%A6/" title="哈密顿力学"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-11</div><div class="title">哈密顿力学</div></div></a></div><div><a href="/2025/05/11/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/05-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%8A%A8%E5%8A%9B%E5%AD%A6/" title="拉格朗日动力学"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-11</div><div class="title">拉格朗日动力学</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">省流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">质点动力学基本定律</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">力学相对性原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">非惯性系与惯性力</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">质点动力学运动定理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">动量定理和动能定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">角动量定理与角动能定理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">常见的力</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">重力与引力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">弹力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.3.</span> <span class="toc-text">摩擦力</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">常见物体的转动惯量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.1.</span> <span class="toc-text">匀质细杆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.2.</span> <span class="toc-text">匀质圆盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.3.</span> <span class="toc-text">常见物体的转动惯量汇总</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.1.</span> <span class="toc-text">匀质杆掉落瞬间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">8.1.1.</span> <span class="toc-text">求解</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/99-02-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="调度器：学习率的时间表"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/99-02-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表">调度器：学习率的时间表</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
