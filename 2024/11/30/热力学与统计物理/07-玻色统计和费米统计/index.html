@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>玻色统计和费米统计 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="热力学统计量表达式 弱简并理想玻色气体和费米气体 玻色-爱因斯坦凝聚(BEC) 热辐射和光子气体 瑞利-金斯公式 维恩公式 普朗克公式   金属中的自由电子气体 简并压    满足定域或非简并条件的粒子系统可以采用玻尔兹曼统计，而不满足非简并条件的系统，需要用玻色-爱因斯坦统计或费米-狄拉克统计处理。  不满足非简并条件的气体叫做简并气体。不同于理想气体，简并气体不满足定域条件。尽管气体之间的距">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>玻色统计和费米统计 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="热力学统计量表达式 弱简并理想玻色气体和费米气体 三种简并度的近似处理   玻色-爱因斯坦凝聚（强简并） 热辐射和光子气体 瑞利-金斯公式 维恩公式 普朗克公式   金属中的自由电子气体（强简并） 为什么“数态”就够：费米能与化学势的区别 强简并体现在哪：能用阶跃代替费米分布的精度 费米能与化学势的区别   简并压    满足定域或非简并条件的粒子系统可以采用玻尔兹曼统计，而不满足非简并条件的系">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玻色统计和费米统计">
 <meta property="og:url" content="https://xuxu20040407.github.io/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/07-%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/index.html">
 <meta property="og:site_name" content="小径">
-<meta property="og:description" content="热力学统计量表达式 弱简并理想玻色气体和费米气体 玻色-爱因斯坦凝聚(BEC) 热辐射和光子气体 瑞利-金斯公式 维恩公式 普朗克公式   金属中的自由电子气体 简并压    满足定域或非简并条件的粒子系统可以采用玻尔兹曼统计，而不满足非简并条件的系统，需要用玻色-爱因斯坦统计或费米-狄拉克统计处理。  不满足非简并条件的气体叫做简并气体。不同于理想气体，简并气体不满足定域条件。尽管气体之间的距">
+<meta property="og:description" content="热力学统计量表达式 弱简并理想玻色气体和费米气体 三种简并度的近似处理   玻色-爱因斯坦凝聚（强简并） 热辐射和光子气体 瑞利-金斯公式 维恩公式 普朗克公式   金属中的自由电子气体（强简并） 为什么“数态”就够：费米能与化学势的区别 强简并体现在哪：能用阶跃代替费米分布的精度 费米能与化学势的区别   简并压    满足定域或非简并条件的粒子系统可以采用玻尔兹曼统计，而不满足非简并条件的系">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xuxu20040407.github.io/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/bec.png">
 <meta property="article:published_time" content="2024-11-30T08:24:44.000Z">
-<meta property="article:modified_time" content="2026-10-05T05:18:37.983Z">
+<meta property="article:modified_time" content="2026-10-06T04:05:48.485Z">
 <meta property="article:author" content="Xuxu">
 <meta property="article:tag" content="统计物理">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: true,
   isToc: true,
-  postUpdate: '2026-10-05 13:18:37'
+  postUpdate: '2026-10-06 12:05:48'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -183,17 +183,25 @@ p.spoiler {
   color: black;
   background-color: black;
   text-shadow: none;
-}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/bec.png')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">玻色统计和费米统计</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-30T08:24:44.000Z" title="发表于 2024-11-30 16:24:44">2024-11-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-05T05:18:37.983Z" title="更新于 2026-10-05 13:18:37">2026-10-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/">统计物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="玻色统计和费米统计"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/bec.png')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">玻色统计和费米统计</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-30T08:24:44.000Z" title="发表于 2024-11-30 16:24:44">2024-11-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-06T04:05:48.485Z" title="更新于 2026-10-06 12:05:48">2026-10-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/">统计物理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="玻色统计和费米统计"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
 <li><a href="#热力学统计量表达式">热力学统计量表达式</a></li>
-<li><a href="#弱简并理想玻色气体和费米气体">弱简并理想玻色气体和费米气体</a></li>
-<li><a href="#玻色-爱因斯坦凝聚bec">玻色-爱因斯坦凝聚(BEC)</a></li>
+<li><a href="#弱简并理想玻色气体和费米气体">弱简并理想玻色气体和费米气体</a><ul>
+<li><a href="#三种简并度的近似处理">三种简并度的近似处理</a></li>
+</ul>
+</li>
+<li><a href="#玻色-爱因斯坦凝聚强简并">玻色-爱因斯坦凝聚（强简并）</a></li>
 <li><a href="#热辐射和光子气体">热辐射和光子气体</a><ul>
 <li><a href="#瑞利-金斯公式">瑞利-金斯公式</a></li>
 <li><a href="#维恩公式">维恩公式</a></li>
 <li><a href="#普朗克公式">普朗克公式</a></li>
 </ul>
 </li>
-<li><a href="#金属中的自由电子气体">金属中的自由电子气体</a><ul>
+<li><a href="#金属中的自由电子气体强简并">金属中的自由电子气体（强简并）</a><ul>
+<li><a href="#为什么数态就够费米能与化学势的区别">为什么“数态”就够：费米能与化学势的区别</a><ul>
+<li><a href="#强简并体现在哪能用阶跃代替费米分布的精度">强简并体现在哪：能用阶跃代替费米分布的精度</a></li>
+<li><a href="#费米能与化学势的区别">费米能与化学势的区别</a></li>
+</ul>
+</li>
 <li><a href="#简并压">简并压</a></li>
 </ul>
 </li>
@@ -202,32 +210,53 @@ p.spoiler {
 <blockquote>
 <p>不满足非简并条件的气体叫做简并气体。不同于理想气体，简并气体不满足定域条件。尽管气体之间的距离更大，但是气体粒子本身的波包尺度也更大。同样的道理，固体虽然原子之间间距小，但是波包更小，是定域系统。</p>
 </blockquote>
-<p>粒子的简并情况也有所区别，具体可根据逸度$z=e^{-\alpha}$进行分类：</p>
+<p>粒子的简并情况也有所区别。判据是<strong>简并参数</strong>——单粒子的热波体积$\lambda^3$与每粒子平均占据体积$1/n$之比：</p>
+<script type="math/tex; mode=display">z=e^{-\alpha}=e^{\beta\mu}=n\lambda^3=\frac NV\left(\frac{h^2}{2\pi mkT}\right)^{\frac32}</script><p>其中$\lambda=\frac{h}{\sqrt{2\pi mkT}}$是德布罗意热波长（见 <a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计">玻尔兹曼统计</a> ）。$z\ll1$等价于$\lambda\ll n^{-1/3}$，即波包互不重叠、粒子可分辨；这正是 <a href="/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/05-%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/" title="近独立粒子的最概然分布">近独立粒子的最概然分布</a> 中非简并条件$\frac{a_l}{\omega_l}\ll1$的等价形式。于是分类为：</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>理想气体（非简并）</th>
-<th>理想玻色/费米气体（弱简并）</th>
-<th>玻色-爱因斯坦凝聚</th>
-<th>光子气体</th>
-<th>自由电子气（强简并）</th>
+<th>简并度</th>
+<th>简并参数</th>
+<th>特征</th>
+<th>典型例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$e^{-\alpha}\ll1$</td>
-<td>$e^{-\alpha}\ll1$但不可忽略</td>
-<td>$e^{-\alpha}\to 1^{-}$</td>
-<td>$e^{-\alpha}= 1$</td>
-<td>$e^{-\alpha}\gg 1$</td>
+<td>非简并（玻尔兹曼气体）</td>
+<td>$z=n\lambda^3\ll1$</td>
+<td>波包不重叠、粒子可分辨，BE/FD/MB三者重合</td>
+<td>常温常压气体：$N_2$在$300\,K$、$1\,atm$下给出$z\approx1.7\times10^{-7}$</td>
+</tr>
+<tr>
+<td>弱简并</td>
+<td>$z\sim10^{-1}\sim1$</td>
+<td>交换与占据效应开始显现，但级数仍可截断</td>
+<td>中低温下的稀释气体</td>
+</tr>
+<tr>
+<td>强简并（玻色）</td>
+<td>$z\to1^{-}$，且$n\lambda^3\ge\zeta(\frac32)\approx2.612$</td>
+<td>$z$被硬顶在$1$，基态出现宏观占据</td>
+<td>液氦、原子气体降温至$T_c$以下的BEC</td>
+</tr>
+<tr>
+<td>强简并（费米）</td>
+<td>$z\gg1$，金属电子约$10^3\sim10^4$</td>
+<td>$z$无上界，$T\ll T_F$，能级被阶跃填充</td>
+<td>金属中的自由电子气、白矮星</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>其中，理想气体因为忽略相互作用，所以化学势$\mu$接近0，但我们在下面会讨论如果不忽略其影响会带来什么变化。自由电子气由于其费米能（化学势）远大于$kT$，所以在统计上表现出强简并特性。</p>
 <blockquote>
-<p>我们多次谈到逸度，所以逸度是什么呢？由$e^{-\alpha}=e^{\mu/kT}$可得，逸度与化学势正比——当逸度很小的时候，意味着化学势远低于0，此时粒子倾向于逃逸出系统，这就是逸度的来源。当逸度很大的时候，化学势；远高于0，则会出现强简并的情况。</p>
+<p><strong>两种强简并不对称</strong>：玻色子必须满足$\mu\le\epsilon_0$，故$z=e^{\beta\mu}\le1$，其强简并的极限就是$z\to1^{-}$，也就是玻色-爱因斯坦凝聚；费米子没有这个约束，$z$可以任意大，强简并表现为$T\ll T_F$，并没有相变。<strong>两者的$n\lambda^3$都$\gtrsim1$，属于同一档强简并</strong>，只是饱和的位置不同——一个卡在$z=1$，另一个根本不卡。所以判断简并程度要看$n\lambda^3$，不能只看$z$的数值：玻色系统在BEC时$z$数值上趋近于1，却是最强简并的状态。</p>
+<p>光子气体是特例：粒子数不守恒，$\mu=0$恒成立，故$z=1$恒定（见<a href="#热辐射和光子气体">热辐射和光子气体</a>）。</p>
+</blockquote>
+<p>理想气体因为忽略相互作用，所以化学势$\mu$接近0，但我们在下面会讨论如果不忽略其影响会带来什么变化。自由电子气由于其费米能（化学势）远大于$kT$，所以在统计上表现出强简并特性。</p>
+<blockquote>
+<p>我们多次谈到逸度，所以逸度是什么呢？由$e^{-\alpha}=e^{\mu/kT}$可得，逸度与化学势正比——当逸度很小的时候，意味着化学势远低于0，此时粒子倾向于逃逸出系统，这就是逸度的来源。当逸度很大的时候，化学势远高于0，则会出现强简并的情况。</p>
 </blockquote>
 <h1><span id="热力学统计量表达式">热力学统计量表达式</span></h1><p>考虑玻色系统，对于巨正则系综，定义巨配分函数：</p>
 <script type="math/tex; mode=display">\Xi = \prod_l \Xi_l=\prod_l (1-e^{-\alpha-\beta\epsilon_l})^{-\omega_l}</script><blockquote>
@@ -294,6 +323,7 @@ p.spoiler {
 <p>在弱简并环境下就不能忽略：</p>
 <script type="math/tex; mode=display">\ln \Xi =\sum_l \mp\omega_l\ln (1\mp e^{-\alpha-\beta\epsilon_l})</script><p>的近似影响。代入 <a href="/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/05-%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/" title="近独立粒子的最概然分布">近独立粒子的最概然分布</a> 中的自由粒子态密度公式，直接写出配分函数的计算公式：</p>
 <script type="math/tex; mode=display">\ln \Xi=\mp\int_0^\infty D(\epsilon)\ln (1\mp e^{-\alpha-\beta\epsilon})d\epsilon=\mp\frac{2\pi V}{h^3}(2m)^\frac32\int_0^\infty \epsilon^{1/2}\ln (1\mp e^{-\alpha-\beta\epsilon})d\epsilon</script><blockquote>
+<p>这里用的是<strong>态密度语言</strong>（把 $D(\epsilon)$ 直接积掉）。下面把它化成 $Z_1g_{\frac52}(z)$，就切换到<strong>配分函数语言</strong>——两者恒等，是同一结果的两条路，见 <a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计">玻尔兹曼统计</a> 的「两种等价的算法」。这是本系列里两种语言第一次同时出现在同一个问题上。</p>
 <p>Note：对于玻色气体，如果温度太低，$g_{\frac32}(e^{-\alpha})$会达到其上界$g_{\frac32}(1)=\zeta(\frac32)\approx2.612$，即$e^{-\alpha}\to1$，此时玻色-爱因斯坦凝聚会发生，这时候上述式子就会因为$D(\epsilon=0)=0$而不成立。这一点在下一节会讨论。</p>
 </blockquote>
 <p>考虑弱简并条件，我们可以对$\ln (1- e^{-\alpha-\beta\epsilon})$进行泰勒展开：</p>
@@ -355,8 +385,117 @@ S&=k\left(\ln \Xi+\alpha N + \beta U\right)=k\left(\frac52Z_1 g_{\frac52}(z) + \
 <p>可以分析，理想玻色气体的内能较理想气体更小，而理想费米气体的内能较理想气体更大，这表明玻色子之间存在等效的吸引作用，而费米子之间存在等效的排斥作用。</p>
 <p><img src="/img/热力学/bose_fermi_function.png" alt="alt"></p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">g_nu</span>(<span class="params">z, nu, n_terms=<span class="number">1000</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算玻色函数 g_nu(z) = sum_&#123;n=1&#125;^∞ z^n / n^nu (级数展开)&quot;&quot;&quot;</span></span><br><span class="line">    n = np.arange(<span class="number">1</span>, n_terms + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>(z**n / (n**nu))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f_nu</span>(<span class="params">z, nu, n_terms=<span class="number">1000</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算费米函数 f_nu(z) = sum_&#123;n=1&#125;^∞ (-1)^&#123;n+1&#125; z^n / n^nu (级数展开)&quot;&quot;&quot;</span></span><br><span class="line">    n = np.arange(<span class="number">1</span>, n_terms + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>((-<span class="number">1</span>)**(n + <span class="number">1</span>) * z**n / (n**nu))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 z 的范围 (0 &lt; z &lt; 1)</span></span><br><span class="line">z = np.linspace(<span class="number">0.01</span>, <span class="number">0.99</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 g_&#123;5/2&#125;(z) / g_&#123;3/2&#125;(z)</span></span><br><span class="line">g_ratio = np.array([g_nu(zi, <span class="number">5</span>/<span class="number">2</span>) / g_nu(zi, <span class="number">3</span>/<span class="number">2</span>) <span class="keyword">for</span> zi <span class="keyword">in</span> z])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 f_&#123;5/2&#125;(z) / f_&#123;3/2&#125;(z)</span></span><br><span class="line">f_ratio = np.array([f_nu(zi, <span class="number">5</span>/<span class="number">2</span>) / f_nu(zi, <span class="number">3</span>/<span class="number">2</span>) <span class="keyword">for</span> zi <span class="keyword">in</span> z])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制图形</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">plt.plot(z, g_ratio, label=<span class="string">r&#x27;$\frac&#123;g_&#123;5/2&#125;(z)&#125;&#123;g_&#123;3/2&#125;(z)&#125;$&#x27;</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">plt.plot(z, f_ratio, label=<span class="string">r&#x27;$\frac&#123;f_&#123;5/2&#125;(z)&#125;&#123;f_&#123;3/2&#125;(z)&#125;$&#x27;</span>, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">plt.axhline(y=<span class="number">1</span>, color=<span class="string">&#x27;black&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>, label=<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&#x27;z (fugacity)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Ratio&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">r&#x27;Comparison of $\frac&#123;g_&#123;5/2&#125;(z)&#125;&#123;g_&#123;3/2&#125;(z)&#125;$ and $\frac&#123;f_&#123;5/2&#125;(z)&#125;&#123;f_&#123;3/2&#125;(z)&#125;$ with 1&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h1><span id="玻色-爱因斯坦凝聚bec">玻色-爱因斯坦凝聚(BEC)</span></h1><p>由上述计算可知：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">g_nu</span>(<span class="params">z, nu, n_terms=<span class="number">1000</span></span>):</span><br><span class="line">    <span class="string">&quot;““计算玻色函数 g_nu(z) = sum_&#123;n=1&#125;^∞ z^n / n^nu (级数展开)””&quot;</span></span><br><span class="line">    n = np.arange(<span class="number">1</span>, n_terms + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>(z**n / (n**nu))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f_nu</span>(<span class="params">z, nu, n_terms=<span class="number">1000</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;</span>“计算费米函数 f_nu(z) = sum_&#123;n=<span class="number">1</span>&#125;^∞ (-<span class="number">1</span>)^&#123;n+<span class="number">1</span>&#125; z^n / n^nu (级数展开)”<span class="string">&quot;&quot;</span></span><br><span class="line">    n = np.arange(<span class="number">1</span>, n_terms + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>((-<span class="number">1</span>)**(n + <span class="number">1</span>) * z**n / (n**nu))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 z 的范围 (0 &lt; z &lt; 1)</span></span><br><span class="line">z = np.linspace(<span class="number">0.01</span>, <span class="number">0.99</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 g_&#123;5/2&#125;(z) / g_&#123;3/2&#125;(z)</span></span><br><span class="line">g_ratio = np.array([g_nu(zi, <span class="number">5</span>/<span class="number">2</span>) / g_nu(zi, <span class="number">3</span>/<span class="number">2</span>) <span class="keyword">for</span> zi <span class="keyword">in</span> z])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 f_&#123;5/2&#125;(z) / f_&#123;3/2&#125;(z)</span></span><br><span class="line">f_ratio = np.array([f_nu(zi, <span class="number">5</span>/<span class="number">2</span>) / f_nu(zi, <span class="number">3</span>/<span class="number">2</span>) <span class="keyword">for</span> zi <span class="keyword">in</span> z])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制图形</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">plt.plot(z, g_ratio, label=<span class="string">r&#x27;$\frac&#123;g_&#123;5/2&#125;(z)&#125;&#123;g_&#123;3/2&#125;(z)&#125;$&#x27;</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">plt.plot(z, f_ratio, label=<span class="string">r&#x27;$\frac&#123;f_&#123;5/2&#125;(z)&#125;&#123;f_&#123;3/2&#125;(z)&#125;$&#x27;</span>, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">plt.axhline(y=<span class="number">1</span>, color=<span class="string">&#x27;black&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>, label=<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&#x27;z (fugacity)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Ratio&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">r&#x27;Comparison of $\frac&#123;g_&#123;5/2&#125;(z)&#125;&#123;g_&#123;3/2&#125;(z)&#125;$ and $\frac&#123;f_&#123;5/2&#125;(z)&#125;&#123;f_&#123;3/2&#125;(z)&#125;$ with 1&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2><span id="三种简并度的近似处理">三种简并度的近似处理</span></h2><p>回到最开始的级数$g_\nu(z)=\sum_{n=1}^\infty\frac{z^n}{n^\nu}$、$f_\nu(z)=\sum_{n=1}^\infty\frac{(-1)^{n+1}z^n}{n^\nu}$：$z$出现在每一项的分子上，所以<strong>保留到第几阶就是展开参数</strong>。但有一个硬性前提——</p>
+<blockquote>
+<p>这两个级数<strong>只在$z\le1$时收敛</strong>。$z&gt;1$时部分和发散（$z=2$就已溢出），因此$z\gg1$的强简并费米气体<strong>根本不能</strong>用$\ln\Xi=Z_1f_{\frac52}(z)$，必须另换方法。</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>简并度</th>
+<th>展开参数</th>
+<th>处理方法</th>
+<th>保留阶数</th>
+<th>误差阶</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>非简并</td>
+<td>$z\ll1$</td>
+<td>丢掉分母的$\mp1$，$\ln\Xi\approx e^{-\alpha}Z_1$</td>
+<td>只留$z$</td>
+<td>$O(z)$</td>
+</tr>
+<tr>
+<td>弱简并</td>
+<td>$z\sim10^{-1}\sim1$</td>
+<td>级数截断</td>
+<td>留$z,z^2$（必要时$z^3$）</td>
+<td>$O(z^2)$</td>
+</tr>
+<tr>
+<td>强简并（玻色）</td>
+<td>$z\to1^{-}$</td>
+<td>级数仍收敛，但要把基态单独分离出来</td>
+<td>$z=1$代入</td>
+<td>凝聚体部分精确</td>
+</tr>
+<tr>
+<td>强简并（费米）</td>
+<td>$z\gg1$</td>
+<td><strong>弃用级数</strong>，改用Sommerfeld展开／阶跃近似$f(\epsilon)\to\theta(\mu-\epsilon)$</td>
+<td>不做级数展开</td>
+<td>$O((T/T_F)^2)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>弱简并截断的精度可以实测：$g_{\frac32}(z)/z$在$z=0.1$时为$1.0374$（一阶相对误差$3.6\%$），在$z=0.5$时为$1.2497$（误差$20\%$）。所以“弱”的确切含义是“$z^2$要留、$z^3$可丢”。</p>
+<p>强简并两条路径之所以不同，正是因为$z$有顶与无顶之别：玻色侧$z\to1^-$级数还好用，只需把基态那一份$\ln(1-z)$提出来单独处理（见下节）；费米侧$z\gg1$级数已经失效，只能退回到“占据—空占据”的阶跃图像，此时$T\ll T_F$使费米分布的台阶变陡，于是</p>
+<script type="math/tex; mode=display">N=\frac{V}{3\pi^2}\left(\frac{2mE_F}{\hbar^2}\right)^{\frac32},\quad U=\frac35NE_F,\quad p=\frac25 nE_F</script><p>这正是<a href="#金属中的自由电子气体强简并">金属中的自由电子气体</a>一节所用的方法。</p>
+<p>那两种强简并的化学势差多少？以铜为例（$n=8.5\times10^{28}\,\mathrm{m^{-3}}$，$E_F=7.05\,\mathrm{eV}$，$T_F=8.2\times10^4\,K$），玻尔兹曼结果与费米结果并排：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$T$</th>
+<th>$T/T_F$</th>
+<th>$z=n\lambda^3$</th>
+<th>$\mu_{MB}$</th>
+<th>$\mu_{FD}$</th>
+<th>$\mu_{MB}/\mu_{FD}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$10\,K$</td>
+<td>$1.2\times10^{-4}$</td>
+<td>$1.1\times10^{6}$</td>
+<td>$0.012\,\mathrm{eV}$</td>
+<td>$7.049\,\mathrm{eV}$</td>
+<td>$1.7\times10^{-3}$</td>
+</tr>
+<tr>
+<td>$300\,K$</td>
+<td>$3.7\times10^{-3}$</td>
+<td>$6.8\times10^{3}$</td>
+<td>$0.228\,\mathrm{eV}$</td>
+<td>$7.049\,\mathrm{eV}$</td>
+<td>$3.2\times10^{-2}$</td>
+</tr>
+<tr>
+<td>$5000\,K$</td>
+<td>$6.1\times10^{-2}$</td>
+<td>$9.96\times10^{1}$</td>
+<td>$1.98\,\mathrm{eV}$</td>
+<td>$7.03\,\mathrm{eV}$</td>
+<td>$0.28$</td>
+</tr>
+<tr>
+<td>$20000\,K$</td>
+<td>$0.24$</td>
+<td>$12.4$</td>
+<td>$4.35\,\mathrm{eV}$</td>
+<td>$6.70\,\mathrm{eV}$</td>
+<td>$0.65$</td>
+</tr>
+<tr>
+<td>$T\to0$</td>
+<td>—</td>
+<td>$\to\infty$</td>
+<td>$\to0^{-}$</td>
+<td>$\to E_F$</td>
+<td>$\to0$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>只有 $T\sim T_F$ 附近两者才同量级，而那里 Sommerfeld 展开已经不适用了。原理见<a href="#为什么数态就够费米能与化学势的区别">下节</a>。</p>
+<h1><span id="玻色-爱因斯坦凝聚强简并">玻色-爱因斯坦凝聚（强简并）</span></h1><p>这是<strong>强简并的玻色情形</strong>（见前文分类表）：$z\to1^{-}$且$n\lambda^3\ge\zeta(\frac32)\approx2.612$，从简并参数看已经属于最强的一档，只是饱和卡在$z=1$。</p>
+<p>由上述计算可知：</p>
 <script type="math/tex; mode=display">N=Z_1 g_{\frac32}(z)=\frac{V}{h^3}\left(\frac{2\pi m}{\beta}\right)^\frac32 g_{\frac32}(z)</script><p>显然，由于粒子数是守恒的，当温度降低的时候，$Z_1$会变小，而$g_{\frac32}(z)$会变大。遗憾的是，$g_{\frac32}(z)$是有上界$g_{\frac32}(z)\leq g_{\frac32}(1)=\zeta(\frac32)\approx 2.612$的，且当$z&gt;1$的时候，玻色函数发散。这里的原因在上面也提到了，是因为计算配分函数的时候，$\epsilon=0$的态密度为0：</p>
 <script type="math/tex; mode=display">\ln \Xi=-\frac{2\pi V}{h^3}(2m)^\frac32\int_0^\infty \epsilon^{1/2}\ln (1- e^{-\alpha-\beta\epsilon})d\epsilon</script><p>这与玻色分布$a_l=\dfrac{\omega_l}{e^{\alpha+\beta\epsilon_l}-1}(e^{\alpha}\geq1,\mu\leq0)$相违背。</p>
 <p>所以当温度降低到某个临界值时，$g_{\frac32}(z)$会达到上限，此时：</p>
@@ -399,9 +538,9 @@ kT\ln z & T\geq T_c
 <h2><span id="维恩公式">维恩公式</span></h2><p>维恩假设光子气体和理想气体一样，具有玻尔兹曼分布：</p>
 <script type="math/tex; mode=display">\begin{cases}U(\omega,T)d\omega &= D(\omega)\hbar\omega e^{-\beta\hbar\omega}d\omega = \frac{V}{\pi^2c^3}\hbar\omega^3e^{-\beta\hbar\omega}d\omega\\U(\lambda,T)d\lambda &= U(\frac{2\pi c}{\lambda},T)\frac{2\pi c}{\lambda^2}d\lambda=\frac{8\pi hc V}{\lambda^5}e^{-\frac{\beta hc}{\lambda}}d\lambda\end{cases}</script><p>维恩公式在高频段拟合较好，但在低频段出现了明显的偏差。</p>
 <blockquote>
-<p>配分函数：</p>
-<script type="math/tex; mode=display">Z_1=\int_0^\infty D(\omega)d\omega e^{-\beta\hbar\omega}=\frac{V}{2\pi^2c^3}\int_0^\infty \omega^2e^{-\beta\hbar\omega}d\omega=\frac{V}{2\pi^2c^3}\frac{2}{\beta^3\hbar^3}</script><p>得到内能和压强：</p>
-<script type="math/tex; mode=display">\begin{cases}U(T) &= -\frac{\partial Z_1}{\partial \beta} = \frac{3V}{2\pi^2c^3}\frac{2}{\beta^4\hbar^3}\\P(T) &= \frac{1}{\beta}\frac{\partial Z_1}{\partial V} = \frac{1}{\pi^2c^3}\frac{1}{\beta^4\hbar^3}\end{cases}\Rightarrow U=3PV</script><p>对比理想气体的内能和压强：</p>
+<p>也可以用求和的方式算同一个维恩谱：把每个模式按 Boltzmann 因子加权，</p>
+<script type="math/tex; mode=display">Z_1=\int_0^\infty D(\omega)e^{-\beta\hbar\omega}d\omega=\frac{V}{\pi^2c^3}\int_0^\infty \omega^2e^{-\beta\hbar\omega}d\omega=\frac{2V}{\pi^2c^3\beta^3\hbar^3}</script><p>对 $\beta$ 求导会把模式能量 $\hbar\omega$ 拉下来，于是内能和压强：</p>
+<script type="math/tex; mode=display">\begin{cases}U(T) = -\dfrac{\partial Z_1}{\partial \beta} = \dfrac{6V}{\pi^2c^3\beta^4\hbar^3}\\[2mm]P(T) = \dfrac{1}{\beta}\dfrac{\partial Z_1}{\partial V} = \dfrac{2}{\pi^2c^3\beta^4\hbar^3}\end{cases}\Rightarrow U=3PV</script><p>这与上面直接积分 $U=\int D(\omega)\hbar\omega e^{-\beta\hbar\omega}d\omega$ 得到的 $\dfrac{6V}{\pi^2c^3\beta^4\hbar^3}$ 完全一致——又一次印证了 <a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计">玻尔兹曼统计</a> 的「两种等价的算法」。（这里是维恩极限；精确的普朗克情形见下一节。）<br>对比理想气体的内能和压强：</p>
 <script type="math/tex; mode=display">U=\frac32 NkT=\frac32 PV</script><p>相对论的能量关系带来了系数的区别。</p>
 </blockquote>
 <h2><span id="普朗克公式">普朗克公式</span></h2><p>使用光子气体描述热辐射场的观点是正确的，但是在确定光子气体的统计分布时，不能使用玻尔兹曼分布，更不能使用一致分布。光子气体的统计分布应该是玻色-爱因斯坦分布。由于光子气体是粒子数不守恒的，那么拉格朗日法只需要引入一个乘子：</p>
@@ -410,13 +549,17 @@ kT\ln z & T\geq T_c
 <script type="math/tex; mode=display">U(T) = \int_0^\infty U(\omega,T)d\omega = \frac{V}{\pi^2c^3}\int_0^\infty \frac{\hbar\omega^3d\omega}{e^{\beta\hbar\omega}-1}=\frac{\pi^2k^4}{15c^3\hbar^3}VT^4</script><p>内能密度的最大值有：</p>
 <script type="math/tex; mode=display">\frac{d}{dx}\frac{x^3}{e^x-1}=0,x=\beta\hbar\omega\Rightarrow \hbar\omega=2.822kT</script><p>这就是维恩位移定律。</p>
 <blockquote>
-<p>也可以使用巨配分函数来计算，效果是一样的。光子气体的巨配分函数为：</p>
+<p>用<strong>配分函数语言</strong>（巨配分函数）做同一个普朗克问题，结果一致。光子气体的巨配分函数为：</p>
 <script type="math/tex; mode=display">\Xi = \prod_l (1-e^{-\beta\epsilon_l})^{-\omega_l} = \prod_l (1-e^{-\beta\hbar\omega})^{-2}</script><script type="math/tex; mode=display">\ln \Xi = -\frac{V}{\pi^2c^3}\int_0^\infty \omega^2\ln(1-e^{-\beta\hbar\omega})d\omega=\frac{\pi^2V}{45c^3}\frac{1}{(\beta\hbar)^3}</script><p>所以内能：</p>
 <script type="math/tex; mode=display">U = -\frac{\partial \ln \Xi}{\partial \beta} = \frac{\pi^2V}{15c^3}\frac{1}{\beta^4\hbar^3}</script><p>压强：</p>
 <script type="math/tex; mode=display">P = -\frac{\partial J}{\partial V} = \frac{1}{\beta}\frac{\partial \ln \Xi}{\partial V} = \frac{\pi^2}{45c^3}\frac{1}{\beta^4\hbar^3}</script><p>那么两者的关系：</p>
 <script type="math/tex; mode=display">P = \frac13 \frac UV</script><p>熵：</p>
 <script type="math/tex; mode=display">S = \frac{U+PV}{T} = \frac{4k\pi^2}{45c^3}\frac{V}{\beta^3\hbar^3}</script></blockquote>
-<h1><span id="金属中的自由电子气体">金属中的自由电子气体</span></h1><p>金属中的自由电子气体是强简并理想费米气体（这是因为费米能的量级远大于$kT$）。根据费米-狄拉克分布：</p>
+<h1><span id="金属中的自由电子气体强简并">金属中的自由电子气体（强简并）</span></h1><p>这是<strong>强简并的费米情形</strong>（见前文分类表）：与BEC同属最强的一档，但$z$没有上界（铜的电子气$z\approx6.8\times10^3$，远大于BEC的$2.612$），因此不能用$z$的数值来分档。</p>
+<blockquote>
+<p>正因为$z\gg1$，本节<strong>不能</strong>沿用弱简并那套$\ln\Xi=Z_1f_{\frac52}(z)$的级数（$f_\nu$只在$z\le1$收敛）。这里改用<a href="#三种简并度的近似处理">强简并的近似处理</a>：先令$T\to0$，占据分布退化为阶跃函数$f(\epsilon)\to\theta(\mu-\epsilon)$，即“$p<p_f$全满、$p>p_F$全空”，再逐步放开$T\ll T_F$的修正。下面的推导都按这个思路进行。</p_f$全满、$p></p>
+</blockquote>
+<p>金属中的自由电子气体是强简并理想费米气体（这是因为费米能的量级远大于$kT$）。根据费米-狄拉克分布：</p>
 <script type="math/tex; mode=display">a_l = \frac{2}{e^{\beta(\epsilon-\mu)}+1}</script><p>这里考虑了自旋的两个简并。</p>
 <p>电子的量子态数为（含自旋简并$g_s=2$）：</p>
 <script type="math/tex; mode=display">D_3(\epsilon)d\epsilon = g_s\times\frac{V}{4\pi^2}(\frac{2m}{\hbar^2})^{3/2}\epsilon^{1/2}d\epsilon=2\times\frac{V}{4\pi^2}(\frac{2m}{\hbar^2})^{3/2}\epsilon^{1/2}d\epsilon</script><p>平均电子数为：</p>
@@ -425,7 +568,83 @@ kT\ln z & T\geq T_c
 <script type="math/tex; mode=display">\begin{cases}a_l=2,\epsilon<\mu(0)\\a_l=0,\epsilon>\mu(0)\end{cases}</script><p>所以：</p>
 <script type="math/tex; mode=display">N = \int_0^{\mu(0)} 2\times\frac{V}{4\pi^2}(\frac{2m}{\hbar^2})^{3/2}\epsilon^{1/2}d\epsilon</script><p>解得：</p>
 <script type="math/tex; mode=display">\mu(0) = \frac{\hbar^2}{2m}\left(\frac{3\pi^2N}{V}\right)^{2/3}</script><p>这就是费米能级，令$\mu(0)=\frac{p_F^2}{2m}$，得到费米动量：</p>
-<script type="math/tex; mode=display">p_F = \hbar\left(\frac{3\pi^2N}{V}\right)^{1/3}</script><h2><span id="简并压">简并压</span></h2><p>记数密度$\rho=\frac NV$。$0\mathrm{K}$时所有动量小于$p_F$的态都被填满，内能可以对态密度积分得到（$D_3$未计自旋，需要乘$g_s=2$）：</p>
+<script type="math/tex; mode=display">p_F = \hbar\left(\frac{3\pi^2N}{V}\right)^{1/3}</script><h2><span id="为什么数态就够费米能与化学势的区别">为什么“数态”就够：费米能与化学势的区别</span></h2><p>上面的$N=\int_0^{\mu(0)}D_3(\epsilon)d\epsilon$看起来只是个纯计数的积分，既没有玻尔兹曼分布也没有费米分布。之所以正确，是因为它<strong>就是费米-狄拉克分布在$T=0$的精确表达式</strong>：</p>
+<script type="math/tex; mode=display">N=\int_0^\infty D(\epsilon)f_{FD}(\epsilon)d\epsilon,\qquad f_{FD}=\frac{1}{e^{(\epsilon-\mu)/kT}+1}\;\xrightarrow{\;T\to0\;}\;\theta(\mu-\epsilon)</script><p>于是$N\xrightarrow{T\to0}N=\int_0^{\mu(0)}D(\epsilon)d\epsilon$，我们再<strong>命名</strong>$\mu(0)\equiv E_F$。所以统计并没有被忽略，而是<strong>在$T=0$已经退化成了纯几何</strong>：统计的活由两件事干完了——自旋简并$g_s=2$（即“每个空间态最多两个电子”，这是泡利），以及那个“$p<p_f$全满、$p>p_F$全空”的阶跃（这就是$T=0$的费米分布本身）。</p_f$全满、$p></p>
+<h3><span id="强简并体现在哪能用阶跃代替费米分布的精度">强简并体现在哪：能用阶跃代替费米分布的精度</span></h3><p>费米分布的<strong>形状是固定的</strong>（$f_{FD}(\mu\pm kT)$恒为$0.269/0.731$，与$T$无关），随$T$变的只有<strong>过渡区宽度$\sim4kT$</strong>。和$E_F$一比：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$T$</th>
+<th>$T/T_F$</th>
+<th>过渡区$4kT$占$E_F$的比例</th>
+<th>阶跃近似</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$300\,K$</td>
+<td>$3.7\times10^{-3}$</td>
+<td>$1.5\%$</td>
+<td>极好</td>
+</tr>
+<tr>
+<td>$2000\,K$</td>
+<td>$2.4\times10^{-2}$</td>
+<td>$9.8\%$</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>$20000\,K$</td>
+<td>$0.24$</td>
+<td>$98\%$</td>
+<td>已失效</td>
+</tr>
+<tr>
+<td>$T_F$</td>
+<td>$1$</td>
+<td>$390\%$</td>
+<td>完全失效</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>（以铜为例，$n=8.5\times10^{28}\,\mathrm{m^{-3}}$，$E_F=7.05\,\mathrm{eV}$，$T_F=8.2\times10^4\,K$。）</p>
+<p>“强简并”$=T\ll T_F$的准确含义就是这个：<strong>过渡区窄到可以当阶跃</strong>。修正有干净的Sommerfeld形式：</p>
+<script type="math/tex; mode=display">N=\int_0^{\mu}D(\epsilon)d\epsilon+\frac{\pi^2}{6}(kT)^2D'(\mu)+\cdots</script><p>一阶修正被$(T/T_F)^2$压低。所以$\int_0^{E_F}D\,d\epsilon$是这个展开的<strong>领头项</strong>，只在$T\ll T_F$下够用——不是对任意$T$都精确。</p>
+<h3><span id="费米能与化学势的区别">费米能与化学势的区别</span></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>定义</th>
+<th>依赖</th>
+<th>铜（300 K）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$E_F$</td>
+<td>定义为 $\mu(T=0)$</td>
+<td>只是密度的函数</td>
+<td>$7.0494\,\mathrm{eV}$</td>
+</tr>
+<tr>
+<td>$\mu(T)$</td>
+<td>$(\partial F/\partial N)_{T,V}$，也等于 $f_{FD}=1/2$ 处的能量</td>
+<td>$T$ 和 $n$ 都影响</td>
+<td>$7.0493\,\mathrm{eV}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>二者只在 $T=0$ 严格相等；有限温时</p>
+<script type="math/tex; mode=display">\mu(T)=E_F\left[1-\frac{\pi^2}{12}\left(\frac{T}{T_F}\right)^2\right]</script><p>铜在 $300\,K$ 时 $E_F-\mu\approx7.8\times10^{-5}\,\mathrm{eV}$（相对 $1.1\times10^{-5}$）——<strong>这就是“金属的费米能约等于化学势”这句话的来源</strong>。但 $T$ 接近 $T_F$ 时该式给出超过 $80\%$ 的偏移，说明它本身已经失效。</p>
+<blockquote>
+<p><strong>别把它和玻尔兹曼结果搞混</strong>。<a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计">玻尔兹曼统计</a> 给的化学势是 $\mu_{MB}=kT\ln(n\lambda^3)$，$T\to0$ 时趋于 $0^-$（铜在 $300\,K$ 只有 $0.23\,\mathrm{eV}$，比 $E_F$ 小 30 倍）。两者只在 $T\sim T_F$ 附近才同量级，而那恰恰是强简并假设失效之处。根因是：$E_F$ 是<strong>纯计数量</strong>，由泡利和数态完全决定，用哪种分布去描述占据都得到同一个 $E_F$——所以 $E_F$ 本身根本不能用来检验统计用对了没有。能检验的是 $\mu(T)$：费米气体的 $\mu\to E_F&gt;0$，玻尔兹曼气体的 $\mu\to0^-$。</p>
+<p>顺带说明：真实金属的 $\mu$（铜室温约 $4.7\,\mathrm{eV}$）与这里自由电子模型算出的 $E_F=7.05\,\mathrm{eV}$ 也不相等，那是<strong>能带结构</strong>造成的（$d$ 带被填满、$\mu$ 落在 $s/p$ 带中），与统计无关。本节始终在自由电子模型内讨论。</p>
+</blockquote>
+<h2><span id="简并压">简并压</span></h2><p>记数密度$\rho=\frac NV$。$0\mathrm{K}$时所有动量小于$p_F$的态都被填满，内能可以对态密度积分得到（$D_3$未计自旋，需要乘$g_s=2$）：</p>
 <script type="math/tex; mode=display">E_{tot}=g_s\int_0^{p_F}\frac{p^2}{2m}D_3(p)dp=2\times\frac{4\pi V}{h^3}\int_0^{p_F}\frac{p^4}{2m}dp=\frac{4\pi Vp_F^5}{5mh^3}=\frac35 NE_F</script><p>由热力学定义$P=-\left(\frac{\partial E_{tot}}{\partial V}\right)_N$，注意到$E_{tot}\propto V^{-2/3}$：</p>
 <script type="math/tex; mode=display">P=-\left(\frac{\partial E_{tot}}{\partial V}\right)_N=\frac23\frac{E_{tot}}V=\frac25\rho E_F=\frac{\hbar^2}{5m}(3\pi^2)^{2/3}\rho^{5/3}</script><p>这就是<strong>简并压</strong>。<a href="/2024/08/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E5%85%A8%E5%90%8C%E7%B2%92%E5%AD%90/" title="全同粒子">全同粒子</a> 用“先数最高能级、再对能量积分”的方式得到了同一个$P=\frac23\frac{E_{tot}}V$。</p>
 <blockquote>
@@ -434,7 +653,7 @@ kT\ln z & T\geq T_c
 <p>更一般地，由 <a href="/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/05-%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/" title="近独立粒子的最概然分布">近独立粒子的最概然分布</a> 的$D_r(p)\propto p^{r-1}$，占据到$p_F$可得$E_{tot}=\frac{r}{r+2}NE_F$，于是$r$维简并压为</p>
 <script type="math/tex; mode=display">P=\frac{2}{r+2}\rho E_F</script><p>$r=1,2,3$依次是$P=\frac23\rho E_F,\ \frac12\rho E_F,\ \frac25\rho E_F$，与 <a href="/2024/08/23/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/%E5%85%A8%E5%90%8C%E7%B2%92%E5%AD%90/" title="全同粒子">全同粒子</a> 中的二维结果$P=\frac{E_{tot}}S$一致。</p>
 <p>对于任意温度的电子气，可以参考 <a href="/2025/02/22/%E5%9B%BA%E4%BD%93%E7%89%A9%E7%90%86/%E9%87%91%E5%B1%9E%E7%94%B5%E5%AD%90%E8%AE%BA/" title="金属电子论">金属电子论</a> 。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/07-%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/">https://xuxu20040407.github.io/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/07-%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/">统计物理</a></div><div class="post_share"><div class="social-share" data-image="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/bec.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/08-%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img class="cover" src="/img/cover1.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">系综理论</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计"><img class="cover" src="https://upload.wikimedia.org/wikipedia/commons/0/01/MaxwellBoltzmann-en.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">玻尔兹曼统计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/08-%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-30</div><div class="title">系综理论</div></div></a></div><div><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计"><img class="cover" src="https://upload.wikimedia.org/wikipedia/commons/0/01/MaxwellBoltzmann-en.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-28</div><div class="title">玻尔兹曼统计</div></div></a></div><div><a href="/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/05-%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/" title="近独立粒子的最概然分布"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-26</div><div class="title">近独立粒子的最概然分布</div></div></a></div><div><a href="/2024/11/14/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/04-%E5%A4%9A%E5%85%83%E7%B3%BB%E7%9A%84%E5%A4%8D%E7%9B%B8%E5%B9%B3%E8%A1%A1/" title="多元系的复相平衡和化学平衡"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-14</div><div class="title">多元系的复相平衡和化学平衡</div></div></a></div><div><a href="/2024/08/27/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/03-%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/" title="单元系的相变"><img class="cover" src="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/water_phase.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">单元系的相变</div></div></a></div><div><a href="/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/02-01-%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%85%B3%E7%B3%BB%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C/" title="热力学关系速查手册"><img class="cover" src="/img/cover3.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-22</div><div class="title">热力学关系速查手册</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">热力学统计量表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">弱简并理想玻色气体和费米气体</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">玻色-爱因斯坦凝聚(BEC)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">热辐射和光子气体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">瑞利-金斯公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">维恩公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">普朗克公式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">金属中的自由电子气体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">简并压</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/07-%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/">https://xuxu20040407.github.io/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/07-%E7%8E%BB%E8%89%B2%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%B4%B9%E7%B1%B3%E7%BB%9F%E8%AE%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/">统计物理</a></div><div class="post_share"><div class="social-share" data-image="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/bec.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/08-%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img class="cover" src="/img/cover5.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">系综理论</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计"><img class="cover" src="https://upload.wikimedia.org/wikipedia/commons/0/01/MaxwellBoltzmann-en.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">玻尔兹曼统计</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/30/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/08-%E7%B3%BB%E7%BB%BC%E7%90%86%E8%AE%BA/" title="系综理论"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-30</div><div class="title">系综理论</div></div></a></div><div><a href="/2024/11/28/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/06-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E7%BB%9F%E8%AE%A1/" title="玻尔兹曼统计"><img class="cover" src="https://upload.wikimedia.org/wikipedia/commons/0/01/MaxwellBoltzmann-en.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-28</div><div class="title">玻尔兹曼统计</div></div></a></div><div><a href="/2024/11/26/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/05-%E8%BF%91%E7%8B%AC%E7%AB%8B%E7%B2%92%E5%AD%90%E7%9A%84%E6%9C%80%E6%A6%82%E7%84%B6%E5%88%86%E5%B8%83/" title="近独立粒子的最概然分布"><img class="cover" src="/img/cover1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-26</div><div class="title">近独立粒子的最概然分布</div></div></a></div><div><a href="/2024/11/14/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/04-%E5%A4%9A%E5%85%83%E7%B3%BB%E7%9A%84%E5%A4%8D%E7%9B%B8%E5%B9%B3%E8%A1%A1/" title="多元系的复相平衡和化学平衡"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-14</div><div class="title">多元系的复相平衡和化学平衡</div></div></a></div><div><a href="/2024/08/27/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/03-%E5%8D%95%E5%85%83%E7%B3%BB%E7%9A%84%E7%9B%B8%E5%8F%98/" title="单元系的相变"><img class="cover" src="/img/%E7%83%AD%E5%8A%9B%E5%AD%A6/water_phase.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">单元系的相变</div></div></a></div><div><a href="/2024/08/22/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86/01-%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B/" title="热力学基本规律"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-22</div><div class="title">热力学基本规律</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">187</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">热力学统计量表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">弱简并理想玻色气体和费米气体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">三种简并度的近似处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">玻色-爱因斯坦凝聚（强简并）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">热辐射和光子气体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">瑞利-金斯公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">维恩公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">普朗克公式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">金属中的自由电子气体（强简并）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">为什么“数态”就够：费米能与化学势的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.1.1.</span> <span class="toc-text">强简并体现在哪：能用阶跃代替费米分布的精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.1.2.</span> <span class="toc-text">费米能与化学势的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">简并压</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/04-21-Prophet/" title="Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首">Prophet：谱分解等变骨干 + 显式自旋，三亿构型的当前榜首</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09 交换关联泛函 II"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/09-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BDII/" title="09 交换关联泛函 II">09 交换关联泛函 II</a><time datetime="2026-09-15T07:30:00.000Z" title="发表于 2026-09-15 15:30:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I"><img src="/img/cover5.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08 交换关联泛函 I"/></a><div class="content"><a class="title" href="/2026/09/15/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/08-%E4%BA%A4%E6%8D%A2%E5%85%B3%E8%81%94%E6%B3%9B%E5%87%BD/" title="08 交换关联泛函 I">08 交换关联泛函 I</a><time datetime="2026-09-15T07:00:00.000Z" title="发表于 2026-09-15 15:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
