@@ -83,7 +83,7 @@ $$
 \delta\left\{E_{KS}[\Psi_s] - \sum_{ij}\lambda_{ij}[\langle\varphi_i|\varphi_j\rangle-\delta_{ij}]\right\} = 0
 $$
 
-用 Wirtinger 导数把 $\varphi_i(\mathbf r)$ 与 $\varphi_i^*(\mathbf r)$ 当独立变量。对 $\varphi_i^*\to\varphi_i^*+\delta\varphi_i^*$，动能变化 $\delta\langle\Psi_s|\hat T|\Psi_s\rangle = -\frac12\sum_i\int dr\,\delta\varphi_i^*(\mathbf r)\nabla^2\varphi_i(\mathbf r)$；Hartree 项 $\delta E_H[n] = \sum_i\int dr\,\delta\varphi_i^*V_H(\mathbf r)\varphi_i(\mathbf r)$，其中 $V_H(\mathbf r) = \int dr'\frac{n(\mathbf r')}{|\mathbf r-\mathbf r'|}$。各项合并得：
+用 Wirtinger 导数把 $\varphi_i(\mathbf r)$ 与 $\varphi_i^{\ast}(\mathbf r)$ 当独立变量。对 $\varphi_i^{\ast}\to\varphi_i^{\ast}+\delta\varphi_i^{\ast}$，动能变化 $\delta\langle\Psi_s|\hat T|\Psi_s\rangle = -\frac12\sum_i\int dr\,\delta\varphi_i^{\ast}(\mathbf r)\nabla^2\varphi_i(\mathbf r)$；Hartree 项 $\delta E_H[n] = \sum_i\int dr\,\delta\varphi_i^{\ast}V_H(\mathbf r)\varphi_i(\mathbf r)$，其中 $V_H(\mathbf r) = \int dr'\frac{n(\mathbf r')}{|\mathbf r-\mathbf r'|}$。各项合并得：
 
 $$
 \left[-\frac{\nabla^2}{2} + V_s(\mathbf r)\right]\varphi_i(\mathbf r) = \sum_j\lambda_{ij}\varphi_j(\mathbf r), \qquad V_s(\mathbf r) = V_{ext}(\mathbf r) + V_H(\mathbf r) + V_{xc}(\mathbf r)

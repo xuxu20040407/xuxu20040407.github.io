@@ -49,7 +49,7 @@ $$
 
 （用到了 $V_{\alpha\beta\gamma\delta} = V_{\beta\alpha\delta\gamma}$，这不限制理论的普遍性。）$H^{HF}$ 称为 **Hartree-Fock（平均场）哈密顿量**。算符形式 $\hat H^{HF} = \sum_{\alpha\beta}H_{\alpha\beta}^{HF}\hat c_\alpha^\dagger\hat c_\beta$，它依赖底下的 Slater 行列式、但独立于基的选择。
 
-对密度矩阵扰动 $\delta\rho$，能量一阶变化为 $\delta E = \sum_{\alpha\beta}H_{\alpha\beta}^{HF}\delta\rho_{\beta\alpha}$。设 Slater 行列式的轨道为 $\phi_n$，$\rho_{\beta\alpha} = \sum_n\phi_{n\alpha}\phi_{n\beta}^*$，则 $\delta\rho_{\beta\alpha} = \sum_n(\delta\phi_{n\alpha}\phi_{n\beta}^* + \phi_{n\alpha}\delta\phi_{n\beta}^*)$，从而
+对密度矩阵扰动 $\delta\rho$，能量一阶变化为 $\delta E = \sum_{\alpha\beta}H_{\alpha\beta}^{HF}\delta\rho_{\beta\alpha}$。设 Slater 行列式的轨道为 $\phi_n$，$\rho_{\beta\alpha} = \sum_n\phi_{n\alpha}\phi_{n\beta}^{\ast}$，则 $\delta\rho_{\beta\alpha} = \sum_n(\delta\phi_{n\alpha}\phi_{n\beta}^{\ast} + \phi_{n\alpha}\delta\phi_{n\beta}^{\ast})$，从而
 
 $$
 \delta E = \sum_n\sum_{\alpha,\beta}\delta\phi_{n\alpha}^*H_{\alpha\beta}^{HF}\phi_{n\beta} + c.c.

@@ -92,7 +92,7 @@ $$
 
 > **注 1**：同样也可以展开成与 $\{\mathbf R\}$ 无关的基 $\Psi_n = \sum_i\chi_{ni}(\{\mathbf R\})\Phi_i(\{\mathbf r\})$，但这个展开不体现"核更经典、可当作经典变量"的直觉。
 
-我们选择 $\Phi_i(\{\mathbf r\};\{\mathbf R\})$ 为固定 $\{\mathbf R\}$ 下电子哈密顿量的本征态（式 13）。用 $\Phi_j^*$ 左乘薛定谔方程并对 $\{\mathbf r\}$ 积分，得到 $\chi_{ni}$ 的方程。左边有两项：电子项给出 $\varepsilon_j(\{\mathbf R\})\chi_{nj}$，核动能项给出：
+我们选择 $\Phi_i(\{\mathbf r\};\{\mathbf R\})$ 为固定 $\{\mathbf R\}$ 下电子哈密顿量的本征态（式 13）。用 $\Phi_j^{\ast}$ 左乘薛定谔方程并对 $\{\mathbf r\}$ 积分，得到 $\chi_{ni}$ 的方程。左边有两项：电子项给出 $\varepsilon_j(\{\mathbf R\})\chi_{nj}$，核动能项给出：
 
 $$
 -\sum_{i,I}\frac{1}{2M_I}\int d\mathbf r\,\Phi_j^*\nabla_I^2\chi_{ni}\Phi_i
