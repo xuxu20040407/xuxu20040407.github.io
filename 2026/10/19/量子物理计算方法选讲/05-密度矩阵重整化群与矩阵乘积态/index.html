@@ -1,0 +1,1749 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>05 密度矩阵重整化群与矩阵乘积态 | 小径</title><meta name="author" content="Xuxu"><meta name="copyright" content="Xuxu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本讲在课程中的位置 一句话概括本讲 三条线、一张地图 约定表 主线一：NRG 为什么失败 盒中粒子：把”截断”做得看得见 NRG 的五步 kink：失败不在能量，而在边界 fixed-free 补丁与它的极限   主线二：纠缠给”重要”下定义 Schmidt 分解就是 SVD 约化密度矩阵与截断的最优性 数值：N&#x3D;12 中点的 Schmidt 谱 密度矩阵截断 vs 能量截断   主线三：一维的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05 密度矩阵重整化群与矩阵乘积态">
+<meta property="og:url" content="https://xuxu20040407.github.io/2026/10/19/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/05-%E5%AF%86%E5%BA%A6%E7%9F%A9%E9%98%B5%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4%E4%B8%8E%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF%E6%80%81/index.html">
+<meta property="og:site_name" content="小径">
+<meta property="og:description" content="本讲在课程中的位置 一句话概括本讲 三条线、一张地图 约定表 主线一：NRG 为什么失败 盒中粒子：把”截断”做得看得见 NRG 的五步 kink：失败不在能量，而在边界 fixed-free 补丁与它的极限   主线二：纠缠给”重要”下定义 Schmidt 分解就是 SVD 约化密度矩阵与截断的最优性 数值：N&#x3D;12 中点的 Schmidt 谱 密度矩阵截断 vs 能量截断   主线三：一维的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xuxu20040407.github.io/img/cover3.jpeg">
+<meta property="article:published_time" content="2026-10-19T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-10-20T07:33:38.709Z">
+<meta property="article:author" content="Xuxu">
+<meta property="article:tag" content="量子物理计算方法选讲">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xuxu20040407.github.io/img/cover3.jpeg"><link rel="shortcut icon" href="/img/favicon32.ico"><link rel="canonical" href="https://xuxu20040407.github.io/2026/10/19/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/05-%E5%AF%86%E5%BA%A6%E7%9F%A9%E9%98%B5%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4%E4%B8%8E%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF%E6%80%81/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '05 密度矩阵重整化群与矩阵乘积态',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-10-20 15:33:38'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><style type="text/css">
+.spoiler {
+  display: inline;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">189</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover3.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="小径"><span class="site-name">小径</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">05 密度矩阵重整化群与矩阵乘积态</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-10-19T02:30:00.000Z" title="发表于 2026-10-19 10:30:00">2026-10-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-20T07:33:38.709Z" title="更新于 2026-10-20 15:33:38">2026-10-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/">量子物理计算方法选讲</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="05 密度矩阵重整化群与矩阵乘积态"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><a href="#本讲在课程中的位置">本讲在课程中的位置</a></li>
+<li><a href="#一句话概括本讲">一句话概括本讲</a></li>
+<li><a href="#三条线、一张地图">三条线、一张地图</a></li>
+<li><a href="#约定表">约定表</a></li>
+<li><a href="#主线一：NRG-为什么失败">主线一：NRG 为什么失败</a><ul>
+<li><a href="#盒中粒子：把-quot-截断-quot-做得看得见">盒中粒子：把”截断”做得看得见</a></li>
+<li><a href="#NRG-的五步">NRG 的五步</a></li>
+<li><a href="#kink：失败不在能量，而在边界">kink：失败不在能量，而在边界</a></li>
+<li><a href="#fixed-free-补丁与它的极限">fixed-free 补丁与它的极限</a></li>
+</ul>
+</li>
+<li><a href="#主线二：纠缠给-quot-重要-quot-下定义">主线二：纠缠给”重要”下定义</a><ul>
+<li><a href="#Schmidt-分解就是-SVD">Schmidt 分解就是 SVD</a></li>
+<li><a href="#约化密度矩阵与截断的最优性">约化密度矩阵与截断的最优性</a></li>
+<li><a href="#数值：N-12-中点的-Schmidt-谱">数值：N=12 中点的 Schmidt 谱</a></li>
+<li><a href="#密度矩阵截断-vs-能量截断">密度矩阵截断 vs 能量截断</a></li>
+</ul>
+</li>
+<li><a href="#主线三：一维的面积律">主线三：一维的面积律</a><ul>
+<li><a href="#随机态：体积律">随机态：体积律</a></li>
+<li><a href="#基态：面积律">基态：面积律</a></li>
+<li><a href="#临界与有能隙">临界与有能隙</a></li>
+</ul>
+</li>
+<li><a href="#主线四：传统-DMRG">主线四：传统 DMRG</a><ul>
+<li><a href="#块算符：为什么-J2-需要两套边缘算符">块算符：为什么 J2 需要两套边缘算符</a></li>
+<li><a href="#超块与一次增长">超块与一次增长</a></li>
+<li><a href="#infinite-DMRG">infinite DMRG</a></li>
+<li><a href="#finite-DMRG：为什么必须扫描">finite DMRG：为什么必须扫描</a></li>
+<li><a href="#χ-收敛：discarded-weight-是主判据">χ 收敛：discarded weight 是主判据</a></li>
+</ul>
+</li>
+<li><a href="#主线五：MPS-与-MPO">主线五：MPS 与 MPO</a><ul>
+<li><a href="#把波函数写成张量链">把波函数写成张量链</a></li>
+<li><a href="#规范自由度与混合规范">规范自由度与混合规范</a></li>
+<li><a href="#截断就是一次-SVD">截断就是一次 SVD</a></li>
+<li><a href="#MPO：键维只与作用距离有关">MPO：键维只与作用距离有关</a></li>
+<li><a href="#two-site-DMRG：两种语言的同一件事">two-site DMRG：两种语言的同一件事</a></li>
+</ul>
+</li>
+<li><a href="#怎么知道做对了">怎么知道做对了</a><ul>
+<li><a href="#与-ED-逐条对照">与 ED 逐条对照</a></li>
+<li><a href="#MG-点：一个严格解">MG 点：一个严格解</a></li>
+<li><a href="#故意改错">故意改错</a></li>
+</ul>
+</li>
+<li><a href="#为什么值得，边界在哪">为什么值得，边界在哪</a><ul>
+<li><a href="#一维：-chi-32-已经到-10-8">一维：$\chi=32$ 已经到 $10^{-8}$</a></li>
+<li><a href="#二维：面积律变成-quot-周长律-quot-，-chi-指数爆炸">二维：面积律变成”周长律”，$\chi$ 指数爆炸</a></li>
+<li><a href="#通往张量网络">通往张量网络</a></li>
+</ul>
+</li>
+<li><a href="#作业要点与评分">作业要点与评分</a></li>
+<li><a href="#校检清单">校检清单</a></li>
+<li><a href="#附：复现用的代码工具箱">附：复现用的代码工具箱</a></li>
+<li><a href="#延伸阅读与作业">延伸阅读与作业</a></li>
+</ul>
+<h1><span id="本讲在课程中的位置">本讲在课程中的位置</span></h1><p>第四讲的结尾，你那台 ED 机器已经能对 $N=20$ 的开边界 XXZ 链给出</p>
+<script type="math/tex; mode=display">
+E_0=-8.6824733344,\qquad \dim(S^z_{\rm tot}=0)=\binom{20}{10}=184756,</script><p>再往上走一步，$N=24$ 的扇区维数是 $2.7\times10^6$，$N=32$ 是 $6.0\times10^8$。<strong>这不是”慢一点”的问题，是”再也跑不动”的问题。</strong> ED 的墙不在算法，在维度：它老老实实地保存了整个希尔伯特空间。</p>
+<p>前四讲一直在做同一件事：<strong>在不丢信息的前提下把矩阵变小</strong>。对称性把 $2^N$ 切成扇区，平移对称性再切一刀，Lanczos 只碰向量不碰矩阵。这些手段有一个共同点——<strong>它们都是精确的</strong>，最后得到的还是同一个 $E_0$。</p>
+<p>第五讲换了一个问题。它第一次允许你<strong>丢掉东西</strong>：</p>
+<blockquote>
+<p><strong>能不能只保留”重要的”态，把剩下的扔掉，而误差可控？</strong></p>
+</blockquote>
+<p>这是整个量子多体数值方法的分水岭。ED 的一切都建立在”基是完备的”之上；DMRG 的一切都建立在”基可以不完备，但要选对”之上。选错了，你会得到第四讲作业里那条 $J_2$ 扫描的假相变；选对了，$N=100$ 的一维链可以算到 $10^{-10}$。</p>
+<h1><span id="一句话概括本讲">一句话概括本讲</span></h1><blockquote>
+<p><strong>用约化密度矩阵（= Schmidt 分解 = SVD）给”重要”下定义：一个态重要，不是因为它的能量低，而是因为它在真实基态里权重大；按这个标准截断，一维的 $\chi$ 只要几十，误差就掉到 $10^{-8}$。</strong></p>
+</blockquote>
+<p>这句话里有两个”不是”：</p>
+<ol>
+<li><strong>不是按能量截断</strong>——那是 NRG 的做法，Wilson 用它在 Kondo 问题上拿了诺贝尔奖，但换一个体系就崩；</li>
+<li><strong>不是”截断就一定错”</strong>——截断的误差有明确的下界（被丢掉的 Schmidt 权重），你可以随时量它。</li>
+</ol>
+<h1><span id="三条线-一张地图">三条线、一张地图</span></h1><p>本讲有 32 页幻灯片，但真正的逻辑只有三步：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>幻灯片</th>
+<th>答案</th>
+<th>关键词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>为什么不能按能量截断？</td>
+<td>第 3–9 页</td>
+<td>块的低能态在接缝处”归零”，拼不出光滑的基态（kink）</td>
+<td>NRG、fixed-free</td>
+</tr>
+<tr>
+<td>那按什么截断？</td>
+<td>第 12–21 页</td>
+<td>按 Schmidt 值 / 约化密度矩阵的本征值</td>
+<td>SVD、$\rho_A$、Eckart–Young</td>
+</tr>
+<tr>
+<td>具体怎么算？</td>
+<td>第 22–30 页</td>
+<td>超块 + 一次增长（infinite）+ 左右扫描（finite）</td>
+<td>块算符、discarded weight</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>然后还有一条<strong>幻灯片目录里有、正文没展开</strong>的线：第 2 页列了”MPS and MPO””MPS algorithms”。<strong>这不是可有可无的补充</strong>——传统 DMRG 的”块”和 MPS 的”张量”是同一个对象的两种记法，看懂这层等价，你才知道第六讲的张量网络在干什么。本讲会把这条线补完。</p>
+<p><strong>和前四讲的关系</strong>，一句话：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>讲</th>
+<th>手段</th>
+<th>代价</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>02–04</td>
+<td>对称性、稀疏、Lanczos</td>
+<td>维数仍是指数，只是底数小了</td>
+<td>精确，$N\lesssim 20$</td>
+</tr>
+<tr>
+<td><strong>05</strong></td>
+<td><strong>按纠缠截断</strong></td>
+<td><strong>不再精确，但误差可测</strong></td>
+<td><strong>$N\sim10^2$（一维）</strong></td>
+</tr>
+<tr>
+<td>06</td>
+<td>张量网络（PEPS/MERA）</td>
+<td>二维也要截断，且更贵</td>
+<td>$N\sim10^3$（二维窄条）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1><span id="约定表">约定表</span></h1><p>承接前四讲，新增部分用<strong>粗体</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>量</th>
+<th>本讲约定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型</td>
+<td>开边界 $J_1$–$J_2$ XXZ 链，$N$ 个格点，$J_1=1$，$\Delta=1$</td>
+</tr>
+<tr>
+<td>哈密顿量</td>
+<td>$H=J_1\sum_{j=0}^{N-2}\mathbf S_j\cdot\mathbf S_{j+1}+J_2\sum_{j=0}^{N-3}\mathbf S_j\cdot\mathbf S_{j+2}$（$\Delta=1$ 时即海森堡型）</td>
+</tr>
+<tr>
+<td>基矢</td>
+<td>比特 $j$ = 格点 $j$（0 是最低位），$b_j=1$ ↔ 自旋向上</td>
+</tr>
+<tr>
+<td>扇区</td>
+<td>$S^z_{\rm tot}=0$；块基矢带 $q=2S^z$ 标签</td>
+</tr>
+<tr>
+<td>边界</td>
+<td><strong>开边界，求和不回绕</strong>；周期值只用于校检对照</td>
+</tr>
+<tr>
+<td><strong>保留维数</strong></td>
+<td>$\chi$（文献里也写 $m$、$D$）：块基矢截断到的维数</td>
+</tr>
+<tr>
+<td><strong>discarded weight</strong></td>
+<td>$\varepsilon=1-\sum_{i\le\chi}\lambda_i^2/\sum_i\lambda_i^2$，被丢掉的 Schmidt 权重</td>
+</tr>
+<tr>
+<td><strong>MPS 张量</strong></td>
+<td>$A^{[i]}_{a s b}$：左键 $a$、物理指标 $s\in\{0,1\}$、右键 $b$</td>
+</tr>
+<tr>
+<td><strong>MPO 张量</strong></td>
+<td>$W^{[i]}_{\alpha\beta,ts}=\langle t\lvert \hat O\lvert s\rangle$：左键 $\alpha$、右键 $\beta$</td>
+</tr>
+<tr>
+<td>数值环境</td>
+<td><code>numpy</code> + <code>scipy</code>，双精度；$\chi\le64$，$N\le32$ 的实现在本讲附录</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>一个必须提前说清的记号陷阱</strong>：本讲的 $\chi$ 是”每个块保留几个态”，不是”每个 $q$ 扇区保留几个”。带 $q$ 标签时，$\chi$ 是<strong>跨扇区的总数</strong>。作业里若按扇区各留 $\chi$ 个，总维数会是 $\chi\times(\text{扇区数})$，结果会”好得不像话”——那不是算法的功劳，是你偷偷多留了态。</p>
+</blockquote>
+<h1><span id="主线一nrg-为什么失败">主线一：NRG 为什么失败</span></h1><h2><span id="盒中粒子把截断做得看得见">盒中粒子：把”截断”做得看得见</span></h2><p>在讲 DMRG 之前，先看一个<strong>能用手算完</strong>的例子。一维盒中粒子，$[0,L]$ 上离散成 $L$ 个格点，二阶中心差分：</p>
+<script type="math/tex; mode=display">
+-\frac{\psi_{i+1}-2\psi_i+\psi_{i-1}}{h^2}=E\psi_i,\qquad h=\frac{L}{L+1}.</script><p>写成矩阵就是一条<strong>开边界紧束缚链</strong>：</p>
+<script type="math/tex; mode=display">
+H=-t\sum_{i=0}^{L-2}\big(c_i^\dagger c_{i+1}+c_{i+1}^\dagger c_i\big),\qquad t=\frac{1}{h^2}.</script><p>单粒子本征值 $E_n=-2t\cos\frac{\pi n}{L+1}$，本征函数 $\psi_n(x)=\sin\frac{\pi n(x+1)}{L+1}$，<strong>在两端为零</strong>——这是”盒”的定义。</p>
+<p>现在把链从中间切开，左半是”块”（block），右半是”环境”（environment）。<strong>注意左半的边界条件变了</strong>：它现在是一个长度 $L/2$ 的盒子，波函数在切口处也必须为零。这个”多出来的墙”就是后面一切麻烦的根源。</p>
+<h2><span id="nrg-的五步">NRG 的五步</span></h2><p>Wilson 的数值重整化群（NRG，1975）本来是为 Kondo 杂质问题设计的，流程极其简单：</p>
+<ol>
+<li>把两个块拼起来，写出 $H’$；</li>
+<li>对角化 $H’$，得到本征矢 $V_l$；</li>
+<li>取能量最低的 $m$ 个本征矢，组成变换矩阵 $O$；</li>
+<li>换基并截断：$H’’=O^\dagger H’O$，$T’’=O^\dagger T’O$；</li>
+<li>用 $H’’$、$T’’$ 替换 $H$、$T$，重复。</li>
+</ol>
+<p><strong>这套流程的全部智慧在一句话里：保留能量最低的 $m$ 个态。</strong> 对 Kondo 问题它极其成功——因为杂质只和导带的一个端点耦合，低能物理确实由”最靠近费米面的那几个态”决定。</p>
+<p>但把它原封不动地搬到一条<strong>平移不变</strong>的链上，就会出问题。</p>
+<h2><span id="kink失败不在能量而在边界">kink：失败不在能量，而在边界</span></h2><p>问题可以一眼看穿。左块的 $m$ 个最低本征态都满足”在切口处为零”（它们是<strong>孤立</strong>左盒的本征态）。它们的任意线性组合也在切口处为零。而真实的基态 $\psi(x)=\sin\frac{\pi(x+1)}{L+1}$ 在切口处<strong>不为零</strong>——它要穿过接缝，延伸到右半去。</p>
+<p>于是你拼出来的波函数必然长这样：左半段光滑，到接缝处<strong>突然掉到零</strong>，右半段从头开始。这就是幻灯片第 7 页画的 <strong>kink（折角）</strong>。</p>
+<p><strong>“要消掉这个 kink，就得保留几乎所有的态”</strong>——因为接缝处的跳变是一个局域的、高动的特征，它在能量本征基里展开时，系数 decay 得极慢。数值上：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$L$</th>
+<th style="text-align:right">$m=2$</th>
+<th style="text-align:right">$m=4$</th>
+<th style="text-align:right">$m=8$</th>
+<th style="text-align:right">$m=16$</th>
+<th style="text-align:right">$m=32$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">$8.6\times10^{-2}$</td>
+<td style="text-align:right">$2.0\times10^{-2}$</td>
+<td style="text-align:right">$1.8\times10^{-2}$</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:right">20</td>
+<td style="text-align:right">$8.9\times10^{-2}$</td>
+<td style="text-align:right">$3.3\times10^{-2}$</td>
+<td style="text-align:right">$3.8\times10^{-2}$</td>
+<td style="text-align:right">$1.7\times10^{-2}$</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:right">40</td>
+<td style="text-align:right">$9.1\times10^{-2}$</td>
+<td style="text-align:right">$4.0\times10^{-2}$</td>
+<td style="text-align:right">$5.3\times10^{-2}$</td>
+<td style="text-align:right">$2.8\times10^{-2}$</td>
+<td style="text-align:right">$2.0\times10^{-2}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>（表中是相对误差 $\lvert E-E_{\rm exact}\rvert/\lvert E_{\rm exact}\rvert$，$E_{\rm exact}$ 为半满时的多体基态能量。）</p>
+<p><strong>读表</strong>：$m$ 从 2 加到 32，误差只从 $9\%$ 降到 $2\%$；而且<strong>不单调</strong>（$L=40$ 时 $m=8$ 比 $m=4$ 还差）。一个”变分方法”误差不随保留态数单调下降，说明<strong>你保留的根本不是变分空间</strong>——每一步截断都在换基，后面的截断会把你前面辛苦留下的态再扔掉。</p>
+<p>这就是”为什么 NRG 只对 Kondo 有效”的定量版本：<strong>它不是”低能截断”这一个想法错了，而是”低能”这个判据在平移不变体系里选错了态。</strong></p>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_nrg.png" alt="NRG 在紧束缚链上的失败，以及接缝处的 kink"></p>
+<p><strong>读图</strong>：(a) 相对误差随 $m$ 的变化——三条曲线都在 $10^{-2}$ 量级徘徊，没有指数收敛；(b) 机制：精确基态（灰）在接缝处连续，用左块最低几个本征态拼出的近似（蓝）在接缝处归零，形成折角。<strong>kink 不是数值噪声，是边界条件强加的。</strong></p>
+<h2><span id="fixed-free-补丁与它的极限">fixed-free 补丁与它的极限</span></h2><p>White 和 Noack 在 1992 年的第一篇 DMRG 论文里，先给了一个补丁：<strong>把不同边界条件的块态混起来</strong>。</p>
+<p>具体做法（幻灯片第 9 页）：把左块按切口处的边界条件分成四种——固定-固定、固定-自由、自由-固定、自由-自由，对应四个子矩阵 $H_{11},H_{12},H_{21},H_{22}$；从<strong>每个</strong>子问题里取最低的 $m/4$ 个态，拼成候选基，再正交化、换基：</p>
+<script type="math/tex; mode=display">
+H^{[n]}_{11}=O^\dagger H'^{[n]}_{11}O,\quad\cdots,\quad T^{[n]}=O^\dagger T'^{[n]}O.</script><p><strong>这个补丁确实能消掉 kink</strong>：自由边界的那一半允许波函数在接缝处不为零，两种边界条件的态一混合，跳变就被磨平了。对自由粒子，它工作得不错。</p>
+<p>但幻灯片紧接着给了一句极其重要的判词：</p>
+<blockquote>
+<p><strong>“connections to surrounding blocks are important! such method may not work for interacting systems.”</strong></p>
+</blockquote>
+<p>翻译成大白话：<strong>这个补丁是给”边界”打的，不是给”相互作用”打的。</strong> 它修的是”切口处的墙”，修不了”块内的关联”——相互作用体系里，块的低能态和环境的低能态纠缠在一起，你按”块自己”的能量选态，选的仍然是错的。</p>
+<p><strong>真正的出路不是换边界条件，是换判据。</strong> 这就是下一节：不看块的能量，看<strong>这个态在真实基态里占多大权重</strong>。</p>
+<h1><span id="主线二纠缠给重要下定义">主线二：纠缠给”重要”下定义</span></h1><h2><span id="schmidt-分解就是-svd">Schmidt 分解就是 SVD</span></h2><p>把 $N$ 个格点切成 $A$（左 $L$ 个）和 $B$（右 $N-L$ 个）。任意态可以写成</p>
+<script type="math/tex; mode=display">
+\lvert\psi\rangle=\sum_{i,j}C_{ij}\lvert i\rangle_A\lvert j\rangle_B,</script><p>$C$ 是一个 $2^L\times 2^{N-L}$ 的矩阵。对它做奇异值分解：</p>
+<script type="math/tex; mode=display">
+C=USV^\dagger,\qquad
+\lvert\psi\rangle=\sum_{\alpha=1}^{r}s_\alpha\lvert u_\alpha\rangle_A\lvert v_\alpha\rangle_B,
+\qquad r\le\min(2^L,2^{N-L}).</script><p><strong>这就是 Schmidt 分解。</strong> 幻灯片第 15–16 页花了整整两页说明”Schmidt 分解可以用 SVD 得到”——其实是一句话：<strong>对系数矩阵做 SVD，左奇异向量给 $A$ 的 Schmidt 基，右奇异向量给 $B$ 的，奇异值给权重。</strong></p>
+<p>三个必须记住的性质：</p>
+<ol>
+<li>$s_\alpha\ge0$，且 $\sum_\alpha s_\alpha^2=1$（归一化）；</li>
+<li>$\lvert u_\alpha\rangle$ 与 $\lvert v_\alpha\rangle$ <strong>各自正交</strong>：$U^\dagger U=\mathbb 1$，$V^\dagger V=\mathbb 1$；</li>
+<li><strong>Schmidt 分解的项数 $r$ 就是纠缠的”秩”</strong>。乘积态 $r=1$；最大纠缠态 $r=2^{L}$（当 $L\le N/2$）。</li>
+</ol>
+<h2><span id="约化密度矩阵与截断的最优性">约化密度矩阵与截断的最优性</span></h2><p>对 $B$ 求迹，得到 $A$ 的约化密度矩阵：</p>
+<script type="math/tex; mode=display">
+\rho_A=\operatorname{Tr}_B\lvert\psi\rangle\langle\psi\rvert
+=\sum_\alpha s_\alpha^2\lvert u_\alpha\rangle\langle u_\alpha\rvert.</script><p><strong>$\rho_A$ 的本征值就是 $s_\alpha^2$，本征矢就是 Schmidt 基。</strong> 这一句把”纠缠””密度矩阵””SVD”三件事焊在了一起。</p>
+<p>现在截断：只留前 $\chi$ 个 $s_\alpha$，扔掉其余的。误差是多少？</p>
+<script type="math/tex; mode=display">
+\Big\lVert C-C_{\chi}\Big\rVert_F^2=\sum_{\alpha>\chi}s_\alpha^2
+\quad\Longrightarrow\quad
+\varepsilon=1-\sum_{\alpha\le\chi}s_\alpha^2.</script><p>这不是”一种”截断误差，是<strong>最优</strong>截断误差（Eckart–Young 定理）：在所有秩不超过 $\chi$ 的矩阵里，$C_\chi$ 离 $C$ 最近，且最近距离就是被丢掉的奇异值平方和。</p>
+<blockquote>
+<p><strong>这就是 DMRG 与 NRG 的全部区别，写成一行：</strong> NRG 保留”块哈密顿量能量最低”的态，DMRG 保留”$\rho_A$ 本征值最大”的态。前者最小化的是<strong>块自己的能量</strong>，后者最小化的是<strong>对真实基态的 Frobenius 误差</strong>。<strong>前者是局部判据，后者是全局判据。</strong></p>
+</blockquote>
+<p>为什么全局判据能赢？因为任意只作用在 $A$ 上的观测量，期望值只通过 $\rho_A$ 进入：</p>
+<script type="math/tex; mode=display">
+\langle \hat O_A\rangle=\operatorname{Tr}(\rho_A\hat O_A)
+=\sum_\alpha s_\alpha^2\langle u_\alpha\lvert\hat O_A\lvert u_\alpha\rangle.</script><p><strong>权重 $s_\alpha^2$ 小的态，对任何 $A$ 上的测量都几乎没有贡献。</strong> 扔掉它们，你损失的是 $10^{-8}$，不是”物理”。而块的低能态可能权重只有 $10^{-4}$——能量截断扔的正是这些”高权重但非最低能”的态。</p>
+<h2><span id="数值n12-中点的-schmidt-谱">数值：N=12 中点的 Schmidt 谱</span></h2><p>$N=12$、$J_2=0$、开边界，在正中 $L=6$ 切开。精确基态 $E_0=-5.142090632841$，Schmidt 谱如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$\alpha$</th>
+<th style="text-align:right">$s_\alpha$</th>
+<th style="text-align:right">$q=2S^z_A$</th>
+<th style="text-align:right">$s_\alpha^2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0.9317240613</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.868</td>
+</tr>
+<tr>
+<td style="text-align:right">2–4</td>
+<td style="text-align:right">0.2094662253</td>
+<td style="text-align:right">$+2,0,-2$</td>
+<td style="text-align:right">0.0439</td>
+</tr>
+<tr>
+<td style="text-align:right">5–6</td>
+<td style="text-align:right">0.0088167550</td>
+<td style="text-align:right">$\pm2$</td>
+<td style="text-align:right">$7.8\times10^{-5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">…</td>
+<td style="text-align:right">…</td>
+<td style="text-align:right">…</td>
+<td style="text-align:right">…</td>
+</tr>
+<tr>
+<td style="text-align:right">秩</td>
+<td style="text-align:right">$r=64$</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>中点纠缠熵</p>
+<script type="math/tex; mode=display">
+S(6)=-\sum_\alpha s_\alpha^2\ln s_\alpha^2=0.536833253592.</script><p><strong>读谱</strong>：第一个奇异值占了 $87\%$，接下来三个（$q=+2,0,-2$，三重简并）各占 $4.4\%$，再往下掉了两个数量级。<strong>“只留 4 个态就能抓住 $99.98\%$ 的权重”</strong>——这就是 DMRG 在一维能工作的全部底气。</p>
+<blockquote>
+<p><strong>两个容易读错的地方</strong>：</p>
+<ol>
+<li><strong>$q$ 标签不是可有可无的</strong>。第二个奇异值出现在 $q=\pm2$ 和 $q=0$ 两个扇区（三条简并），因为总 $S^z=0$ 要求左右 $q$ 相反。截断时若不分扇区，你会把三重简并拆开，破坏 $SU(2)$ 对称性，能量反而更差。</li>
+<li><strong>秩是 $64=2^6$，但”满秩”不等于”强纠缠”</strong>。左块有 6 个格点，只要每个左基矢都有非零权重，$C$ 就满秩；这只说明没有精确的零。真正的信息在<strong>衰减速度</strong>：前 4 个态占 $99.98\%$，第 5 个就掉到 $7.8\times10^{-5}$。</li>
+</ol>
+</blockquote>
+<h2><span id="密度矩阵截断-vs-能量截断">密度矩阵截断 vs 能量截断</span></h2><p>现在做作业第 2 题：同一个 $N=12$、$J_2=0$ 的基态，左、右各留 $m$ 个态，在完整空间里投影 $H$，取最低本征值。两种选态方式：</p>
+<ul>
+<li><strong>密度矩阵</strong>：留 $s_\alpha$ 最大的 $m$ 个 Schmidt 态；</li>
+<li><strong>能量</strong>：留左块 $H_A$ 本征能量最低的 $m$ 个态（NRG 式）。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$m$</th>
+<th style="text-align:right">投影空间维数</th>
+<th style="text-align:right">密度矩阵 $\lvert E-E_0\rvert$</th>
+<th style="text-align:right">能量 $\lvert E-E_0\rvert$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">$1.11\times10^{-1}$</td>
+<td style="text-align:right">$1.55\times10^{-1}$</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">$5.05\times10^{-4}$</td>
+<td style="text-align:right">$1.07\times10^{-1}$</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">$2.32\times10^{-4}$</td>
+<td style="text-align:right">$6.48\times10^{-2}$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">$1.61\times10^{-5}$</td>
+<td style="text-align:right">$3.00\times10^{-2}$</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">$3.33\times10^{-6}$</td>
+<td style="text-align:right">$2.05\times10^{-3}$</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">70</td>
+<td style="text-align:right">$4.18\times10^{-8}$</td>
+<td style="text-align:right">$5.71\times10^{-4}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>读表</strong>：$m\ge4$ 之后，密度矩阵截断比能量截断好 <strong>2–4 个数量级</strong>。$m=2$ 时两者接近，因为第二个 Schmidt 能级在 $q=-2,0,+2$ 三重简并，只留一个态时”留哪个”本身有歧义；$m\ge4$ 时三重简并被完整包含，趋势就干净了。</p>
+<p><strong>这不是”密度矩阵更聪明”，是”密度矩阵更诚实”</strong>：它衡量的是”这个态在真实基态里有多重”，而不是”这个态自己有多低”。<strong>能量截断会把一个能量低、但在基态里权重只有 $10^{-4}$ 的态当成宝贝留下，同时扔掉一个能量高、权重 $0.2$ 的态。</strong></p>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_schmidt.png" alt="N=12 的 Schmidt 谱与两种截断的误差"></p>
+<p><strong>读图</strong>：(a) Schmidt 谱（对数纵轴），颜色标出 $q$ 扇区——三重简并清晰可见；(b) 两种截断的误差对比，密度矩阵截断（蓝）从 $m=4$ 起就贴着 $10^{-4}$ 往下走，能量截断（红）慢得多。</p>
+<h1><span id="主线三一维的面积律">主线三：一维的面积律</span></h1><h2><span id="随机态体积律">随机态：体积律</span></h2><p>在讲”为什么一维只要几十个态”之前，先看<strong>反面</strong>。</p>
+<p>$N=16$ 的随机态（固定种子），中点 $S(8)=5.038292$。理论值（Page 修正）：</p>
+<script type="math/tex; mode=display">
+S_{\rm Page}=\frac{N}{2}\ln2-\frac12=8\ln2-0.5=5.045.</script><p><strong>随机态的纠缠熵正比于子系统的体积</strong>（这里是 $N/2$ 个格点，每个贡献 $\ln2$）。要精确表示它，Schmidt 秩需要 $2^{N/2}$——指数大。</p>
+<h2><span id="基态面积律">基态：面积律</span></h2><p>真实基态完全不同。$N=16$、$J_2=0$ 的基态，中点 $S(8)=0.592307$；整条曲线：</p>
+<script type="math/tex; mode=display">
+S(l)=0.693,\ 0.420,\ 0.733,\ 0.531,\ 0.759,\ 0.578,\ 0.772,\ 0.592,\ 0.772,\ \ldots</script><p><strong>它不随 $l$ 增长</strong>（除了缓慢的对数修正），而是<strong>饱和</strong>在一个 $O(1)$ 的值上。这就是<strong>面积律</strong>：一维的”边界”是 0 维的两个点，所以纠缠只来自切口附近，与 $l$ 无关。</p>
+<p>四种态的中点熵，一张表看完：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>态</th>
+<th style="text-align:right">$S(8)$</th>
+<th>规律</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>乘积态 $\lvert\uparrow\uparrow\cdots\rangle$</td>
+<td style="text-align:right">0</td>
+<td>面积律（平凡）</td>
+</tr>
+<tr>
+<td>Néel 态 $\lvert\uparrow\downarrow\uparrow\downarrow\cdots\rangle$</td>
+<td style="text-align:right">0</td>
+<td>面积律（平凡）</td>
+</tr>
+<tr>
+<td>GHZ 态 $(\lvert\uparrow\cdots\rangle+\lvert\downarrow\cdots\rangle)/\sqrt2$</td>
+<td style="text-align:right">$\ln2=0.693$</td>
+<td>面积律</td>
+</tr>
+<tr>
+<td><strong>随机态</strong></td>
+<td style="text-align:right"><strong>5.038</strong></td>
+<td><strong>体积律</strong></td>
+</tr>
+<tr>
+<td><strong>XXZ 基态</strong></td>
+<td style="text-align:right"><strong>0.592</strong></td>
+<td><strong>面积律</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>“面积律”是 DMRG 存在的理由。</strong> 若基态满足面积律，$S$ 不随 $l$ 增长，$\rho_A$ 的谱就衰减得快，截断到 $\chi$ 的误差随 $\chi$ 指数小——一维就能用几十个态描述 $N=100$ 的链。</p>
+<h2><span id="临界与有能隙">临界与有能隙</span></h2><p>面积律在两种情形下表现不同：</p>
+<ul>
+<li><strong>有能隙</strong>（如 MG 点 $J_2=0.5$）：$S(l)$ 饱和到常数，且常常是<strong>阶梯状</strong>的。$N=16$ 的 MG 点，$S(l)$ 在 $0$ 与 $\ln2$ 之间交替——因为基态是 singlet 的直积，每个切口最多切断一个 Bell 对。</li>
+<li><strong>临界</strong>（$J_2=0$，$c=1$）：$S(l)\sim\frac{c}{3}\ln l+\text{const}$，缓慢增长。$N=16$ 上这个对数增长还看不明显（$0.69\to0.77$），但它是<strong>真实存在</strong>的——这也解释了为什么临界体系的 DMRG 比有能隙体系贵：$\chi$ 要随 $N$ 多项式增长，而不是饱和。</li>
+</ul>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_area.png" alt="N=16 的纠缠剖面：$J_2=0$、$0.3$、$0.5$ 与四种参照态"></p>
+<p><strong>读图</strong>：(a) 三条剖面。$J_2=0$（蓝）在 $0.6$–$0.8$ 之间缓慢上升（临界，对数）；$J_2=0.3$（橙）更低更平（能隙在打开）；$J_2=0.5$（绿）严格在 $0$ 与 $\ln2$ 之间交替（MG 点，二聚体）。<strong>“能隙打开”在纠缠上的表现就是”剖面变低变平”。</strong> (b) 四种参照态——乘积/Néel 是 0，GHZ 是 $\ln2$，随机态是 5.04（体积律），XXZ 基态紧贴面积律。</p>
+<blockquote>
+<p><strong>别把 (a) 里的 even-odd 振荡当成物理。</strong> $S(8)=0.592$ 比 $S(7)=0.772$ 低，不是”中心纠缠更小”，而是开边界 $N=16$ 的<strong>奇偶效应</strong>：$l=8$ 把链切成两个偶数块，$q=0$ 扇区的权重更集中；$l=7$ 切成奇/偶，Schmidt 谱更”胖”。这个效应随 $N$ 增大而减弱，但在 $N=16$ 上不能忽略。<strong>做有限尺寸标度时，要么取 $l=N/2$ 固定奇偶性，要么对相邻两个切口取平均。</strong></p>
+</blockquote>
+<h1><span id="主线四传统-dmrg">主线四：传统 DMRG</span></h1><p>有了判据，就能造机器了。传统 DMRG 的”机器”是一个<strong>会长的块</strong>：左块从左往右长，右块从右往左长，中间留两个自由格点，每次长一格、截断一次。</p>
+<h2><span id="块算符为什么-j2-需要两套边缘算符">块算符：为什么 J2 需要两套边缘算符</span></h2><p>左块存的东西不多，但要<strong>刚刚够</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算符</th>
+<th>作用位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$I$</td>
+<td>整块恒等</td>
+</tr>
+<tr>
+<td>$H_A$</td>
+<td>块内的 $J_1$、$J_2$ 键</td>
+</tr>
+<tr>
+<td>$S^z_1,S^+_1,S^-_1$</td>
+<td>块<strong>最右端</strong>格点</td>
+</tr>
+<tr>
+<td>$S^z_2,S^+_2,S^-_2$</td>
+<td>块<strong>次右端</strong>格点</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>前两行是”块自己”，后两行是”块伸出去的手”。<strong>为什么需要第二套手？</strong> 因为 $J_2$ 的作用距离是 2：</p>
+<ul>
+<li>加一个新格点时，它与块的<strong>最右端</strong>有 $J_1$ 键，与<strong>次右端</strong>有 $J_2$ 键；</li>
+<li>超块里还有两个距离为 2 的跨接键：左块最右端 ↔ 右自由格点、左自由格点 ↔ 右块最左端。</li>
+</ul>
+<p>只留一套边缘算符，你会在”加格点”时漏掉 $J_2$，或者在超块里把跨接键计错。<strong>这不是实现细节，是 $J_2$ 与 $J_1$ 的本质区别</strong>：作用距离每加 1，块就要多背一套边缘算符（这也是为什么长程相互作用的 MPO 键维会变大的原因，见主线五）。</p>
+<p>块增长（左块加一格）：</p>
+<script type="math/tex; mode=display">
+H_A'=H_A\otimes I+\sum_{\alpha}\Big(J_1S^\alpha_1\otimes S^\alpha+J_2S^\alpha_2\otimes S^\alpha\Big),</script><p>新的边缘算符是</p>
+<script type="math/tex; mode=display">
+S^\alpha_{1,\rm new}=I\otimes S^\alpha,\qquad
+S^\alpha_{2,\rm new}=S^\alpha_{1,\rm old}\otimes I.</script><p>右块做镜像。</p>
+<h2><span id="超块与一次增长">超块与一次增长</span></h2><p>超块的基矢是四段拼起来的：</p>
+<script type="math/tex; mode=display">
+\lvert a\rangle_A\lvert s_L\rangle\lvert s_R\rangle\lvert b\rangle_B,
+\qquad a=1\ldots\chi,\ b=1\ldots\chi.</script><p>哈密顿量由五类项组成：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>形式</th>
+<th>系数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>块内</td>
+<td>$H_A\otimes I\otimes I\otimes I_B$，$I_A\otimes I\otimes I\otimes H_B$</td>
+<td>1</td>
+</tr>
+<tr>
+<td>$J_1$：$A$–$L$、$L$–$R$、$R$–$B$</td>
+<td>三对边缘算符</td>
+<td>$J_1$（$zz$ 带 $\Delta$，$+-$ 带 $1/2$）</td>
+</tr>
+<tr>
+<td>$J_2$：$A$–$L$、$R$–$B$</td>
+<td>用<strong>第二套</strong>边缘算符</td>
+<td>$J_2$</td>
+</tr>
+<tr>
+<td>$J_2$ 跨接：$A_{\rm last}$–$R$、$L$–$B_{\rm first}$</td>
+<td>左块最右端 ↔ 右自由格点；左自由格点 ↔ 右块最左端</td>
+<td>$J_2$</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>每一项都是 $O_A\otimes o_L\otimes o_R\otimes O_B$ 的张量积，所以超块矩阵可以用 Kronecker 积直接拼出来——<strong>这就是”传统” DMRG 最朴素的地方：它不构造 MPS，它构造一个 $(4\chi^2)\times(4\chi^2)$ 的矩阵</strong>。</p>
+<p>一次增长的全部动作：</p>
+<ol>
+<li>构造超块 $H$，对角化（或 Lanczos）求基态 $\Psi_{a s_L,s_R b}$；</li>
+<li>把系数重排成矩阵 $M_{(a s_L),(s_R b)}$，按 $q$ 分块做 SVD；</li>
+<li>留最大的 $\chi$ 个奇异值，得到 $U$（左）与 $V$（右）；</li>
+<li>用 $U$ 投影<strong>扩大的左块</strong>（$O_{\rm new}=U^\dagger O_{\rm full}U$），用 $V$ 投影右块；</li>
+<li>记录 $E$、$E/N$、$\varepsilon$。</li>
+</ol>
+<p><strong>注意第 4 步的方向</strong>：右扫时只更新左块（用 $\rho_L$），左扫时只更新右块（用 $\rho_R$）。<strong>同一次增长里，你只有一个块是”新”的，另一个用的是上一次存下来的旧基。</strong> 这句话是理解 finite DMRG 的钥匙。</p>
+<h2><span id="infinite-dmrg">infinite DMRG</span></h2><p>从”左 1 格 + 右 1 格 + 中间 2 个自由格点”出发（$N=4$），每次左右各加一格，$N=4,6,8,\ldots$。$\chi=32$、$J_2=0$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$N$</th>
+<th style="text-align:right">块大小</th>
+<th style="text-align:right">实际 $\chi$</th>
+<th style="text-align:right">$E$</th>
+<th style="text-align:right">$E/N$</th>
+<th style="text-align:right">$\varepsilon$</th>
+<th style="text-align:right">$E_{\rm ED}$</th>
+<th style="text-align:right">$\lvert E-E_{\rm ED}\rvert$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">$-1.616025403784$</td>
+<td style="text-align:right">$-0.4040063509$</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">$-1.616025403784$</td>
+<td style="text-align:right">$2\times10^{-16}$</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">$-2.493577133888$</td>
+<td style="text-align:right">$-0.4155961890$</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">$-2.493577133888$</td>
+<td style="text-align:right">$4\times10^{-16}$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$-3.374932598688$</td>
+<td style="text-align:right">$-0.4218665748$</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">$-3.374932598688$</td>
+<td style="text-align:right">$2\times10^{-15}$</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">$-4.258035207283$</td>
+<td style="text-align:right">$-0.4258035207$</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">$-4.258035207283$</td>
+<td style="text-align:right">$4\times10^{-15}$</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">$-5.142090632841$</td>
+<td style="text-align:right">$-0.4285075527$</td>
+<td style="text-align:right">$3.3\times10^{-13}$</td>
+<td style="text-align:right">$-5.142090632841$</td>
+<td style="text-align:right">$2\times10^{-15}$</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">$-6.026724661828$</td>
+<td style="text-align:right">$-0.4304803330$</td>
+<td style="text-align:right">$7.8\times10^{-11}$</td>
+<td style="text-align:right">$-6.026724661862$</td>
+<td style="text-align:right">$3\times10^{-11}$</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">$-6.911737137904$</td>
+<td style="text-align:right">$-0.4319835711$</td>
+<td style="text-align:right">$1.1\times10^{-11}$</td>
+<td style="text-align:right">$-6.911737145575$</td>
+<td style="text-align:right">$8\times10^{-9}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>读表</strong>：$N\le12$ 时块维数还没撞到 $\chi=32$ 的天花板（$2,4,8,16,32$），所以<strong>没有截断</strong>，能量与 ED 逐位重合到机器精度——这是对”超块 + 块算符”这套机器最硬的检验。$N=14$ 起开始真截断，$\varepsilon\sim10^{-11}$，能量误差 $10^{-11}$ 到 $10^{-9}$。</p>
+<blockquote>
+<p><strong>$\varepsilon$ 列里有两件事要看</strong>：$N=12$ 的 $3.3\times10^{-13}$ 不是零——块从 16 长到 32 时正好撞上天花板，SVD 从 64 个奇异值里留 32 个，所以有一次真实截断。而 $N=14$ 的 $\varepsilon$ 比 $N=16$ 还大，这<strong>不违反单调性</strong>：每一步截断的都是不同尺寸的块，误差不是随 $N$ 单调的。</p>
+</blockquote>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_infinite.png" alt="infinite DMRG 的能量密度与误差随 N"></p>
+<p><strong>读图</strong>：(a) $E/N$ 随 $N$ 单调下降，虚线是热力学极限 $\frac14-\ln2$——<strong>infinite DMRG 每加一格就靠近极限一点，但永远到不了</strong>，因为有限链的边界能按 $1/N$ 衰减；(b) 与 ED 的差在 $N\le12$ 是 $10^{-15}$（无截断，机器精度），$N=14$ 之后跳到 $10^{-11}$–$10^{-9}$（开始真截断）。<strong>这条”跳变”就是截断开始生效的位置</strong>，它出现在块维数撞上 $\chi$ 的那一步。</p>
+<h2><span id="finite-dmrg为什么必须扫描">finite DMRG：为什么必须扫描</span></h2><p>infinite 算法有一个隐藏的不对称：<strong>它左右同步长</strong>。到第 $N$ 步时，左块和右块一样大，中间两个自由格点——这个”超块”是一个<strong>无限链的局部</strong>，不是你要的那个有限链。</p>
+<p>finite 链的边界效应是真实的：两端的格点配位数少，基态在边缘的纠缠结构与体内不同。<strong>用”无限链的局部”优化出来的基去描述有限链，在边缘一定是错的。</strong></p>
+<p>finite DMRG 的做法是<strong>左右扫描</strong>：</p>
+<ul>
+<li><strong>右扫</strong>：固定右块（用之前存下的、尺寸合适的旧基），左块一格一格吸收左自由格点并截断；</li>
+<li><strong>左扫</strong>：反过来，固定左块，右块吸收右自由格点；</li>
+<li>重复，直到能量不再变化。</li>
+</ul>
+<p>关键在于<strong>每次只有一侧被截断，另一侧用上一次扫描留下的基</strong>。信息就这样一波一波地从一端传到另一端——<strong>“扫描”不是”多算几遍”，是”让两端的边界条件都进入基”</strong>。</p>
+<p>$N=20$、$\chi=32$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$J_2$</th>
+<th>方法</th>
+<th style="text-align:right">$E$</th>
+<th style="text-align:right">$\lvert E-E_0\rvert$</th>
+<th style="text-align:right">最大 $\varepsilon$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td>ED</td>
+<td style="text-align:right">$-8.682473334399$</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:right">0</td>
+<td>infinite</td>
+<td style="text-align:right">$-8.682473274467$</td>
+<td style="text-align:right">$6.0\times10^{-8}$</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:right">0</td>
+<td>sweep 0</td>
+<td style="text-align:right">$-8.682473319650$</td>
+<td style="text-align:right">$1.47\times10^{-8}$</td>
+<td style="text-align:right">$9.9\times10^{-10}$</td>
+</tr>
+<tr>
+<td style="text-align:right">0</td>
+<td>sweep 1</td>
+<td style="text-align:right">$-8.682473319650$</td>
+<td style="text-align:right">$1.47\times10^{-8}$</td>
+<td style="text-align:right">$9.9\times10^{-10}$</td>
+</tr>
+<tr>
+<td style="text-align:right">0.3</td>
+<td>ED</td>
+<td style="text-align:right">$-7.796938545212$</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:right">0.3</td>
+<td>infinite</td>
+<td style="text-align:right">$-7.796938526716$</td>
+<td style="text-align:right">$1.85\times10^{-8}$</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:right">0.3</td>
+<td>sweep 0</td>
+<td style="text-align:right">$-7.796938542724$</td>
+<td style="text-align:right">$2.48\times10^{-9}$</td>
+<td style="text-align:right">$1.5\times10^{-10}$</td>
+</tr>
+<tr>
+<td style="text-align:right">0.3</td>
+<td>sweep 1</td>
+<td style="text-align:right">$-7.796938542724$</td>
+<td style="text-align:right">$2.48\times10^{-9}$</td>
+<td style="text-align:right">$1.5\times10^{-10}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>读表</strong>：扫描把误差降了 4–7 倍，然后<strong>一步都不再动</strong>——第二次扫描与第一次逐位相同，说明在 $\chi=32$ 下已经到达该截断的变分极限。<strong>“扫描不降了”不是”收敛了”，是”这个 $\chi$ 到顶了”</strong>：真正判断 $\chi$ 够不够，要看 $\varepsilon$（下一节）。</p>
+<blockquote>
+<p><strong>一个容易误解的地方</strong>：作业文档里还会同时报告 <code>E_end</code> 与 <code>E_min</code>。<code>E_min</code> 是扫描过程中某一步的最低能量，<code>E_end</code> 是最后一步。<strong>变分原理保证 $E\ge E_0$，但不保证 $E$ 随扫描单调下降</strong>——基在变，投影空间不嵌套。所以 <code>E_min</code> 可以比 <code>E_end</code> 低一点点（这里低 $10^{-9}$ 量级）。<strong>报告结果时报 <code>E_end</code>，诊断收敛时看 <code>E_min</code> 与 <code>E_end</code> 的差。</strong></p>
+</blockquote>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_sweep.png" alt="N=20 的 finite DMRG：infinite 预热后的左右扫描"></p>
+<p><strong>读图</strong>：横轴是”扫描步”（每个点更新一个格点），纵轴是当前超块的基态能量。虚线之前是 infinite 预热，能量随 $N$ 增长一路下降；虚线之后是有限链的扫描，能量在 $10^{-9}$ 的尺度上收敛。<strong>注意纵轴的范围</strong>——收敛后的起伏比”从 infinite 到 sweep”的那一跳小两个数量级。</p>
+<h2><span id="χ-收敛discarded-weight-是主判据">χ 收敛：discarded weight 是主判据</span></h2><p>$N=20$、$J_2=0$，把 $\chi$ 从 2 扫到 32：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$\chi$</th>
+<th style="text-align:right">$E$</th>
+<th style="text-align:right">$\lvert E-E_0\rvert$</th>
+<th style="text-align:right">$\varepsilon_{\max}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">$-7.780705244136$</td>
+<td style="text-align:right">$9.0\times10^{-1}$</td>
+<td style="text-align:right">$4.6\times10^{-2}$</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">$-8.654625014039$</td>
+<td style="text-align:right">$2.78\times10^{-2}$</td>
+<td style="text-align:right">$1.19\times10^{-3}$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$-8.682024944859$</td>
+<td style="text-align:right">$4.48\times10^{-4}$</td>
+<td style="text-align:right">$1.89\times10^{-5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">$-8.682468365409$</td>
+<td style="text-align:right">$4.97\times10^{-6}$</td>
+<td style="text-align:right">$5.75\times10^{-7}$</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td style="text-align:right">$-8.682473319650$</td>
+<td style="text-align:right">$1.47\times10^{-8}$</td>
+<td style="text-align:right">$9.91\times10^{-10}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>两个量一起看</strong>：能量误差与 discarded weight 同步下降，而且 $\lvert E-E_0\rvert$ 总是比 $\varepsilon$ 大 1–2 个数量级——<strong>这不是巧合</strong>：$\varepsilon$ 是波函数的权重损失，能量误差是它的线性响应（$\delta E\sim\varepsilon\times$ 能隙尺度）。所以<strong>看到 $\varepsilon\sim10^{-9}$，就可以预期能量误差在 $10^{-8}$ 量级</strong>。</p>
+<p><strong>为什么 $\varepsilon$ 比”相邻两次扫描的能量差”可靠？</strong> 因为能量可能暂时平台化，而波函数仍远离本征态——两个不同的态可以有相同的能量（简并、或偶然）。$\varepsilon$ 直接度量”你扔掉了多少波函数”，不依赖能量。</p>
+<blockquote>
+<p><strong>判断 $\chi$ 够不够，顺序是这样的</strong>：</p>
+<ol>
+<li>先看 $\varepsilon_{\max}$：它要小于你想要的精度（比如 $10^{-8}$）；</li>
+<li>再看能量随 $\chi$ 的下降是否已经”拐平”；</li>
+<li>最后才看相邻扫描的能量差——它只是”扫描收敛了”的证据，不是”$\chi$ 够了”的证据。</li>
+</ol>
+<p><strong>顺序颠倒，你会得到一个自信的错误答案。</strong></p>
+</blockquote>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_chi.png" alt="chi 收敛：能量误差与 discarded weight 同步下降"></p>
+<p><strong>读图</strong>：(a) 双对数下 $\lvert E-E_0\rvert$ 与 $\varepsilon_{\max}$ 几乎平行下降，斜率比 $1/\chi$ 陡得多——<strong>这是选做 2 的”反面教材”</strong>：虚线 $1/\chi$ 明显偏平，拿它外推会低估 $\chi$ 的需求；(b) 把 (a) 换成 $\lvert E-E_0\rvert$ 对 $\varepsilon$ 的散点，五个点落在一条斜率约 $1$ 的直线上——<strong>能量误差就是 discarded weight 的线性响应</strong>，这句话在这里被数据直接证实。</p>
+<h1><span id="主线五mps-与-mpo">主线五：MPS 与 MPO</span></h1><p>幻灯片第 2 页的目录列了”MPS and MPO””MPS algorithms”，但正文到第 30 页的 finite DMRG 就停了。<strong>这不是超纲，是同一件事的另一种写法。</strong> 不补上这一节，你会以为 DMRG 是”一套关于块的技巧”；补上之后你会发现，它只是”张量网络变分”的第一个实例。</p>
+<h2><span id="把波函数写成张量链">把波函数写成张量链</span></h2><p>$N$ 个自旋的波函数有 $2^N$ 个系数 $C_{s_1\cdots s_N}$——一个 $N$ 阶张量。<strong>张量链（MPS）的写法是把它拆成一串矩阵的乘积</strong>：</p>
+<script type="math/tex; mode=display">
+\lvert\psi\rangle=\sum_{s_1\cdots s_N}A^{[1]\,s_1}_{a_0a_1}A^{[2]\,s_2}_{a_1a_2}\cdots A^{[N]\,s_N}_{a_{N-1}a_N}\lvert s_1\cdots s_N\rangle,</script><p>其中 $a_0=a_N=1$（开边界），中间每个键的维数叫<strong>键维</strong> $\chi$。</p>
+<p><strong>这不是近似，是恒等式</strong>——任何态都能这样写，只要键维足够大。做法就是<strong>逐次 SVD</strong>：把 $C$ 看成矩阵，SVD 出第一个张量，把剩下的奇异值乘进余下的部分，再对余下的部分做同样的事（附录里的 <code>mps_from_state</code> 就是这个循环）。</p>
+<p><strong>关键问题是键维要多大。</strong> 对一般的态，第 $l$ 个键的维数等于左右两半的 Schmidt 秩，最大到 $2^{N/2}$——<strong>和 ED 一样大，没有任何好处</strong>。MPS 的威力全部来自：<strong>基态的 Schmidt 谱衰减得快，所以 $\chi$ 可以远小于 $2^{N/2}$。</strong></p>
+<p>这正是上一节面积律的另一种说法。<strong>面积律不是”一个关于熵的观察”，它是”MPS 可以很小”的物理原因：边界小 → 纠缠小 → Schmidt 谱衰减快 → 几十个态就够。</strong></p>
+<h2><span id="规范自由度与混合规范">规范自由度与混合规范</span></h2><p>MPS 有一个<strong>规范自由度</strong>：在任意一个键上插入 $X X^{-1}$，</p>
+<script type="math/tex; mode=display">
+A^{[i]}\to A^{[i]}X,\qquad A^{[i+1]}\to X^{-1}A^{[i+1]},</script><p>物理态不变。<strong>这不是麻烦，是工具</strong>——你可以用它把张量变成”正交”的。</p>
+<ul>
+<li><strong>左规范</strong>：$\sum_{s}A^{[i]\,s\dagger}A^{[i]\,s}=I$（把张量看成 $(\chi_{i-1}d)\times\chi_i$ 的矩阵，列正交）；</li>
+<li><strong>右规范</strong>：$\sum_{s}A^{[i]\,s}A^{[i]\,s\dagger}=I$；</li>
+<li><strong>混合规范</strong>：$i$ 左边全左规范、右边全右规范，只有第 $i$ 个张量是”中心”。</li>
+</ul>
+<p><strong>混合规范是 DMRG 的全部秘密所在。</strong> 在混合规范下，中心的那个张量 $\Theta^{[i]}$ 就是 Schmidt 分解的系数矩阵：它的奇异值就是第 $i$ 个键上的 Schmidt 值。于是</p>
+<script type="math/tex; mode=display">
+S(l)=-\sum_\alpha s_\alpha^2\ln s_\alpha^2</script><p><strong>不需要碰整个波函数，只要对这个 $(\chi_{l-1}d)\times\chi_l$ 的矩阵做一次 SVD。</strong> 附录里的 <code>mps_from_state</code> 就是”从左往右逐键 SVD、把奇异值乘给右边”的循环；把中心往右移一格，就得到下一个切口的纠缠谱。</p>
+<p><strong>这一点值得停下来想三秒</strong>：在 ED 里算 $S(l)$ 要重排 $2^N$ 个系数、做一次 $2^l\times2^{N-l}$ 的 SVD，$N=40$ 根本不可能；在 MPS 里它是一次 $\chi d\times\chi$ 的 SVD，代价与 $N$ 无关。<strong>同一个物理量，两种表示，代价差了指数量级。</strong></p>
+<h2><span id="截断就是一次-svd">截断就是一次 SVD</span></h2><p>MPS 的截断极其干净：把中心张量看成矩阵 $\Theta_{(\chi_{l-1}d),\chi_l}$，SVD，留前 $\chi$ 个奇异值，把 $S V^\dagger$ 乘给右边。丢掉的权重</p>
+<script type="math/tex; mode=display">
+\varepsilon=1-\sum_{\alpha\le\chi}s_\alpha^2</script><p><strong>与主线二的 $\varepsilon$ 是同一个数</strong>——因为 $\rho_A=\Theta\Theta^\dagger$，它的本征值就是 $s_\alpha^2$。<strong>“密度矩阵截断”与”MPS 键维截断”是同一句话的两种方言。</strong></p>
+<p>数值上，把 $N=16$、$J_2=0$ 的<strong>精确</strong>基态直接做 MPS 分解，在每个键上截断到 $\chi$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$\chi$</th>
+<th style="text-align:right">$\lvert E-E_0\rvert$</th>
+<th style="text-align:right">累计 discarded weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">$3.10$</td>
+<td style="text-align:right">$4.81\times10^{-1}$</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">$9.87\times10^{-2}$</td>
+<td style="text-align:right">$1.09\times10^{-2}$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$7.44\times10^{-4}$</td>
+<td style="text-align:right">$7.87\times10^{-5}$</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">$4.10\times10^{-6}$</td>
+<td style="text-align:right">$4.41\times10^{-7}$</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td style="text-align:right">$5.55\times10^{-9}$</td>
+<td style="text-align:right">$4.72\times10^{-10}$</td>
+</tr>
+<tr>
+<td style="text-align:right">64</td>
+<td style="text-align:right">$1.00\times10^{-13}$</td>
+<td style="text-align:right">$4.68\times10^{-15}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>读表</strong>：$\chi$ 每翻一倍，误差掉 1–2 个数量级。<strong>注意这是”对精确态做截断”的结果，不是 DMRG 的结果</strong>——它是一个上界：DMRG 通过自洽优化，能用同样的 $\chi$ 做得更好（因为它不必保持”精确态的最佳投影”，它直接找变分最优）。</p>
+<h2><span id="mpo键维只与作用距离有关">MPO：键维只与作用距离有关</span></h2><p>既然态是矩阵乘积，<strong>算符能不能也写成矩阵乘积？</strong> 能：</p>
+<script type="math/tex; mode=display">
+\hat H=\sum_{\substack{s_1\cdots s_N\s_1'\cdots s_N'}}W^{[1]\,s_1s_1'}_{\alpha_0\alpha_1}\cdots W^{[N]\,s_Ns_N'}_{\alpha_{N-1}\alpha_N}\lvert s_1\cdots s_N\rangle\langle s_1'\cdots s_N'\rvert.</script><p><strong>MPO 的键维 $D$ 不随 $N$ 增长，只随相互作用距离增长。</strong> 这是它比”$2^N\times2^N$ 的矩阵”优越的全部原因。</p>
+<p>构造方法是一个<strong>自动机</strong>：键指标记录”当前有什么算符已经发出、还没收尾”。对 $J_1$–$J_2$ 链，我用的通道是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>从</th>
+<th>到</th>
+<th>算符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>$I$</td>
+<td>什么都没发生</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1,2,3</td>
+<td>$J_1S^+,J_1S^-,J_1\Delta S^z$</td>
+<td>开始一条 $J_1$ 键</td>
+</tr>
+<tr>
+<td>1,2,3</td>
+<td>7</td>
+<td>$\tfrac12S^-,\tfrac12S^+,\Delta S^z$</td>
+<td>在下一个格点收尾</td>
+</tr>
+<tr>
+<td>0</td>
+<td>4,5,6</td>
+<td>$J_2S^+,J_2S^-,J_2\Delta S^z$</td>
+<td>开始一条 $J_2$ 键</td>
+</tr>
+<tr>
+<td>4,5,6</td>
+<td>8,9,10</td>
+<td>$I$</td>
+<td>等一个格点</td>
+</tr>
+<tr>
+<td>8,9,10</td>
+<td>7</td>
+<td>$\tfrac12S^-,\tfrac12S^+,\Delta S^z$</td>
+<td>再下一个格点收尾</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+<td>$I$</td>
+<td>哈密顿量已累积，继续传递</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>$D=11$（$1+3+6+1$）。<strong>这个构造不是最小的</strong>——用更聪明的编码可以压到 5–8 维；但”$D$ 与 $N$ 无关、只与距离有关”这个结论不受影响。<strong>你要记住的是这个 scaling，不是一个具体的数字。</strong></p>
+<blockquote>
+<p><strong>为什么”等一个格点”要单独一个通道？</strong> 因为 MPO 的张量是<strong>位置无关</strong>的（每个格点用同一个 $W$）。如果”开始”和”等待”共用一个通道，那么在每个格点上你都可以”立刻收尾”，$J_2$ 就会被错误地当成 $J_1$。这正是我自己实现时踩过的坑：第一版 $D=8$，把 $J_2$ 的 $S^+S^-$ 变成了近邻跳跃，MPO 与稀疏 $H$ 的差恰好是 $0.5$（一个 $J_2/2$ 的跳跃项）。<strong>“位置无关”是 MPO 的优点，也是它最容易写错的地方。</strong></p>
+</blockquote>
+<p><strong>验证方式只有一个：把 MPO 全收缩成矩阵，与稀疏 $H$ 逐元素比。</strong> 我的实现：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$N$</th>
+<th style="text-align:right">$\max\lvert H_{\rm MPO}-H_{\rm sparse}\rvert$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">$5.6\times10^{-17}$</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:right">$1.1\times10^{-16}$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$2.2\times10^{-16}$</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">$8.9\times10^{-16}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>到机器精度。</strong> 这一步不做，后面的 MPS-DMRG 全是空中楼阁。</p>
+<h2><span id="two-site-dmrg两种语言的同一件事">two-site DMRG：两种语言的同一件事</span></h2><p>现在把 MPS 与 MPO 拼起来，做<strong>变分优化</strong>：固定其余张量，只优化相邻的两个（”two-site”），因为两站点更新可以<strong>同时调整键维</strong>（截断发生在这一步）。</p>
+<p>对 $\Theta^{[i,i+1]}_{a s t b}$（左键、两个物理指标、右键），有效哈密顿量是</p>
+<script type="math/tex; mode=display">
+H_{\rm eff}\,\Theta=\sum_{\alpha\beta\gamma}L^{\alpha}_{a'a}\,W^{[i]}_{\alpha\beta,s's}\,W^{[i+1]}_{\beta\gamma,t't}\,R^{\gamma}_{b'b}\,\Theta_{astb},</script><p>其中 $L,R$ 是左右<strong>环境张量</strong>（把已经优化好的部分与 MPO 收缩掉）。这就是一个 $\chi^2d^2$ 维的稀疏本征问题，用 Lanczos 求最低态；解出 $\Theta$ 后 SVD 拆开，截断到 $\chi$，继续下一对。</p>
+<p><strong>这套流程与传统 DMRG 一一对应</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>传统 DMRG</th>
+<th>MPS/MPO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左块 $A$ 的基</td>
+<td>MPS 左键 $a$</td>
+</tr>
+<tr>
+<td>块算符 $H_A$、$S^\alpha_1$、$S^\alpha_2$</td>
+<td>MPO 通道 $\alpha$</td>
+</tr>
+<tr>
+<td>超块 $H$</td>
+<td>$L\cdot W\cdot W\cdot R$</td>
+</tr>
+<tr>
+<td>约化密度矩阵 $\rho_L=MM^\dagger$</td>
+<td>$\Theta\Theta^\dagger$</td>
+</tr>
+<tr>
+<td>按 $q$ 分块 SVD</td>
+<td>按扇区 SVD（可选）</td>
+</tr>
+<tr>
+<td>discarded weight</td>
+<td>同一个 $\varepsilon$</td>
+</tr>
+<tr>
+<td>块基变换 $O^\dagger O_{\rm full}O$</td>
+<td>规范变换 + 截断</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>它们不是”两种方法”，是同一个变分问题的两套记账方式。</strong> 传统写法把”块”当黑箱，好处是直观、容易加对称性；MPS 写法把”键”显式化，好处是能推广到二维（PEPS）、能算纠缠、能接机器学习。<strong>第六讲的张量网络，就是把这张表里的”链”换成”图”。</strong></p>
+<p>数值上，我的 two-site MPS-DMRG 在 $N=16$、$\chi=32$ 给出</p>
+<script type="math/tex; mode=display">
+E=-6.9117371433\ldots,\qquad \lvert E-E_{\rm ED}\rvert=2.3\times10^{-9},</script><p>并且它<strong>顺带</strong>给出的纠缠剖面与 ED 逐点相同（这是必然的：同一个态，同一个 Schmidt 分解）。<strong>“顺带”这两个字很重要</strong>：在 ED 里算纠缠要额外的 $2^N$ 存储，在 MPS 里它是免费的副产品。</p>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_mps.png" alt="精确 MPS 截断与 MPO 的通道结构"></p>
+<p><strong>读图</strong>：(a) 对 $N=16$ 精确基态直接截断到 $\chi$ 的能量误差与累计 lost weight，两条线平行下降，$\chi=32$ 时分别是 $5.5\times10^{-9}$ 与 $4.7\times10^{-10}$；<strong>同一个 $\chi=32$，two-site DMRG 给 $2.3\times10^{-9}$，比”截断精确态”还低</strong>——因为它直接变分，不必忠于精确态。(b) 一个体点上的 MPO 张量 $W^{[i]}$：11 条通道，非零元的位置就是自动机的转移（从 $0$ 出发开键、等待一格、在 $7$ 收尾），<strong>$D=11$ 与 $N$ 无关</strong>。</p>
+<h1><span id="怎么知道做对了">怎么知道做对了</span></h1><p>DMRG 有一句行话：<strong>“算出来的能量很低”不等于”算对了”。</strong> 变分方法天然给你一个下界以上的数，你可以用一个错的哈密顿量、一个错的边界条件、一个错的截断，得到一个”看起来很合理”的能量。所以这一节不是补充，是主线。</p>
+<h2><span id="与-ed-逐条对照">与 ED 逐条对照</span></h2><p>第一层检验：<strong>在 ED 能做的尺寸上，DMRG 必须逐位重合。</strong> $J_2=0$ 与 $J_2=0.3$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$N$</th>
+<th style="text-align:right">$E_{\rm ED}(J_2=0)$</th>
+<th style="text-align:right">$E_{\rm DMRG}(J_2=0)$</th>
+<th style="text-align:right">$E_{\rm ED}(J_2=0.3)$</th>
+<th style="text-align:right">$E_{\rm DMRG}(J_2=0.3)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">$-1.616025403784$</td>
+<td style="text-align:right">$-1.616025403784$</td>
+<td style="text-align:right">$-1.524499799840$</td>
+<td style="text-align:right">$-1.524499799840$</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:right">$-2.493577133888$</td>
+<td style="text-align:right">$-2.493577133888$</td>
+<td style="text-align:right">$-2.304775495320$</td>
+<td style="text-align:right">$-2.304775495320$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$-3.374932598688$</td>
+<td style="text-align:right">$-3.374932598688$</td>
+<td style="text-align:right">$-3.087446257868$</td>
+<td style="text-align:right">$-3.087446257868$</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">$-4.258035207283$</td>
+<td style="text-align:right">$-4.258035207283$</td>
+<td style="text-align:right">$-3.871304707478$</td>
+<td style="text-align:right">$-3.871304707478$</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:right">$-5.142090632841$</td>
+<td style="text-align:right">$-5.142090632841$</td>
+<td style="text-align:right">$-4.655832991489$</td>
+<td style="text-align:right">$-4.655832991489$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>为什么前四行必须”逐位相同”而不是”接近”？</strong> 因为 $N\le12$ 时块维数还没撞到 $32$，$\varepsilon=0$，DMRG 只是把 ED 换了一种算法去做——<strong>中间没有任何近似，差一位都是 bug</strong>。这个检验能抓住：超块项漏写、$J_2$ 边缘算符用错、$q$ 标签对错、Kronecker 顺序错。</p>
+<p>第二层：<strong>周期 vs 开边界</strong>。这是最容易被”看起来差不多”掩盖的错误：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$N$</th>
+<th style="text-align:right">开边界</th>
+<th style="text-align:right">周期边界</th>
+<th style="text-align:right">差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">$-1.616025403784$</td>
+<td style="text-align:right">$-2.000000000000$</td>
+<td style="text-align:right">$0.384$</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:right">$-2.493577133888$</td>
+<td style="text-align:right">$-2.802775637732$</td>
+<td style="text-align:right">$0.309$</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$-3.374932598688$</td>
+<td style="text-align:right">$-3.651093408937$</td>
+<td style="text-align:right">$0.276$</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">$-4.258035207283$</td>
+<td style="text-align:right">$-4.515446354492$</td>
+<td style="text-align:right">$0.257$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>开边界能量更高</strong>（边界格点配位数少），差值随 $N$ 减小。如果你把回绕项误加进去，$N=8$ 会得到 $-3.6511$ 而不是 $-3.3749$——差 $0.28$，<strong>大到不可能被当成截断误差</strong>。</p>
+<h2><span id="mg-点一个严格解">MG 点：一个严格解</span></h2><p>上面两层检验都拿 ED 当标尺。这一节换一个<strong>不依赖 ED 的严格解</strong>：Majumdar–Ghosh 点 $J_2=J_1/2$、$\Delta=1$，二聚体乘积态</p>
+<script type="math/tex; mode=display">\lvert D_0\rangle=\prod_{m=0}^{N/2-1}\lvert{\rm singlet}\rangle_{2m,2m+1}</script><p>是<strong>精确本征态</strong>，能量</p>
+<script type="math/tex; mode=display">E_0=-\frac{3N}{8}.</script><p>它给了三条独立的判据：能量、残差、重叠。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$N$</th>
+<th style="text-align:right">$E_{\rm DMRG}$</th>
+<th style="text-align:right">$-3N/8$</th>
+<th style="text-align:right">残差 $\lVert H\lvert D_0\rangle-E_0\lvert D_0\rangle\rVert$</th>
+<th style="text-align:right">重叠</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">$-3.000000000000$</td>
+<td style="text-align:right">$-3$</td>
+<td style="text-align:right">$2.7\times10^{-15}$</td>
+<td style="text-align:right">$1.000000000000$</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">$-3.750000000000$</td>
+<td style="text-align:right">$-3.75$</td>
+<td style="text-align:right">$1.7\times10^{-15}$</td>
+<td style="text-align:right">$1.000000000000$</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:right">$-4.500000000000$</td>
+<td style="text-align:right">$-4.5$</td>
+<td style="text-align:right">$0$</td>
+<td style="text-align:right">$1.000000000000$</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td style="text-align:right">$-5.250000000000$</td>
+<td style="text-align:right">$-5.25$</td>
+<td style="text-align:right">$3.1\times10^{-15}$</td>
+<td style="text-align:right">$1.000000000000$</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">$-6.000000000000$</td>
+<td style="text-align:right">$-6$</td>
+<td style="text-align:right">$0$</td>
+<td style="text-align:right">$1.000000000000$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>残差比能量更狠</strong>：能量对波函数的误差是二阶的（$\delta E\sim\delta\psi^2$），残差是一阶的。一个波函数可以有 $10^{-8}$ 的能量误差而残差只有 $10^{-8}$——反过来，<strong>残差 $10^{-15}$ 意味着波函数本身对了</strong>。所以”能量对上”只是必要条件，”残差对上”才是充分条件。</p>
+<p><strong>MG 点还给了纠缠的解析答案</strong>：每个切口最多切断一个 singlet，</p>
+<script type="math/tex; mode=display">S(l)=\begin{cases}\ln2, & l\ \text{切过一个 dimer},\ 0, & l\ \text{切在两个 dimer 之间}.\end{cases}</script><p>$N=16$ 的数值：$[\ln2,0,\ln2,0,\ldots,\ln2]$，零是 $-10^{-16}$ 量级。<strong>这是本讲唯一一个”纠缠剖面可以手算”的例子</strong>，用它检验你的 $S(l)$ 代码（包括 $q$ 分块、归一化、$\ln$ 的底）最省事。</p>
+<p><img src="/img/量子物理计算方法选讲/fig_dmrg_mg.png" alt="MG 点的纠缠阶梯与 $E/N$"></p>
+<p><strong>读图</strong>：(a) $J_2=0.5$ 的 $S(l)$ 是严格的 $0/\ln2$ 方波，$J_2=0$ 是缓慢上升的曲线——<strong>“二聚化”在纠缠上的签名就是方波</strong>；(b) $E/N$ 随 $N$ 趋于 $-3/8=-0.375$（MG 点）与 $-0.4431$（$J_2=0$ 的海森堡极限），两条线分别收敛到各自的热力学值。</p>
+<h2><span id="故意改错">故意改错</span></h2><p>第三层：<strong>主动把代码改错，看校检能不能抓住。</strong> 这是作业里的 <code>--selfbreak</code>。$N=8$、$J_2=0.3$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>故意错误</th>
+<th style="text-align:right">实测 $E$</th>
+<th>是否被发现</th>
+<th>抓的是哪类错</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>去掉 $J_2$</td>
+<td style="text-align:right">$-3.374932598688$</td>
+<td>是（差 $0.287$）</td>
+<td>漏键</td>
+</tr>
+<tr>
+<td>加上周期回绕</td>
+<td style="text-align:right">$-3.651093408937$</td>
+<td>是（差 $0.564$）</td>
+<td>边界条件</td>
+</tr>
+<tr>
+<td>翻转 $S^zS^z$ 符号</td>
+<td style="text-align:right">$-1.617850746686$</td>
+<td>是（差 $1.47$）</td>
+<td>$zz$ 项系数</td>
+</tr>
+<tr>
+<td>翻转 $S^xS^x+S^yS^y$ 符号</td>
+<td style="text-align:right">$-3.596789850626$</td>
+<td>是（差 $0.509$）</td>
+<td>$xy$ 项系数</td>
+</tr>
+<tr>
+<td>$J_2$ 边缘算符用成 $S^\alpha_1$</td>
+<td style="text-align:right">$-2.433508860620$</td>
+<td>是（差 $0.129$）</td>
+<td>需要第二套边缘算符</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>最后一行值得单独说</strong>：把 $J_2$ 的边缘算符从”次右端”错写成”最右端”，能量只差 $0.13$——<strong>这是最危险的一类错</strong>，因为它”看起来像截断误差”。如果你只拿 $\chi=32$ 的 DMRG 去对一个没有 ED 的体系，这个错会一直陪着你。</p>
+<blockquote>
+<p><strong>反过来，有一类”错”永远抓不住，因为它根本不是错。</strong> $J_2=0$ 时，把 $S^xS^x+S^yS^y$ 整体反号，<strong>整个谱一位都不变</strong>（$N=8$：两种写法都给 $-3.374932598688$，差 $0$）。原因是二分晶格上的交替 $\pi$ 旋转（$U=\prod_{j\ \rm odd}\sigma^z_j$）是精确对称性：每条近邻键两端宇称相反，$S^xS^x$ 与 $S^yS^y$ 同时变号。<strong>但 $J_2\ne0$ 时它不再是错</strong>——次近邻键两端宇称相同，$J_2$ 的 $xy$ 项不变号，于是 $-3.5968\ne-3.0874$。</p>
+<p><strong>这个细节说明：”校检通过”只说明”你的模型与参考模型在谱上等价”，不说明”你的代码逐行正确”。</strong> 等价变换（全局旋转、基的重排、$q\to-q$）不改变能量，却能改变波函数、关联函数、纠缠谱。<strong>要抓这类错，必须比对波函数（重叠、残差），不能只比能量。</strong></p>
+</blockquote>
+<h1><span id="为什么值得边界在哪">为什么值得，边界在哪</span></h1><h2><span id="一维chi32-已经到-10-8">一维：$\chi=32$ 已经到 $10^{-8}$</span></h2><p>$J_2=0$、开边界，把 $N$ 推过 ED 的墙：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">$N$</th>
+<th style="text-align:right">$\chi$</th>
+<th style="text-align:right">$E$</th>
+<th style="text-align:right">$E/N$</th>
+<th style="text-align:right">$\varepsilon$</th>
+<th>与精确值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">20</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">$-8.682473319650$</td>
+<td style="text-align:right">$-0.4341236660$</td>
+<td style="text-align:right">$9.9\times10^{-10}$</td>
+<td>ED: $1.5\times10^{-8}$</td>
+</tr>
+<tr>
+<td style="text-align:right">24</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">$-10.453785760144$</td>
+<td style="text-align:right">$-0.4355744067$</td>
+<td style="text-align:right">$1.2\times10^{-11}$</td>
+<td>无 ED</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">$-13.9973156192$</td>
+<td style="text-align:right">$-0.4374161131$</td>
+<td style="text-align:right">$6.9\times10^{-12}$</td>
+<td>无 ED</td>
+</tr>
+<tr>
+<td style="text-align:right">$\infty$</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">$-0.4431471806$</td>
+<td style="text-align:right">—</td>
+<td>$\tfrac14-\ln2$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>热力学极限是解析的</strong>：自旋 $1/2$ 海森堡链的基态能量密度</p>
+<script type="math/tex; mode=display">e_\infty=\frac14-\ln2=-0.4431471805599453.</script><p>$N=20$ 的 $-0.4341$ 离它还有 $2\%$——<strong>这不是 DMRG 的错，是有限尺寸的边界能</strong>。开边界链的能量密度按 $e(N)=e_\infty+a/N+\cdots$ 收敛，所以拿 $N=20,24,32$ 做 $1/N$ 外推，会非常接近 $-0.4431$：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>外推方式</th>
+<th style="text-align:right">截距</th>
+<th style="text-align:right">与精确值的差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1/N$ 线性（20,24,32）</td>
+<td style="text-align:right">$-0.4429014$</td>
+<td style="text-align:right">$0.06\%$</td>
+</tr>
+<tr>
+<td>$1/N$ 二次（20,24,32）</td>
+<td style="text-align:right">$-0.4431298$</td>
+<td style="text-align:right">$0.004\%$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>这就是”有限链 + 外推”的全部威力</strong>：只用 $N\le32$ 的链，就把热力学极限定到了 $10^{-4}$。<strong>注意外推的不是能量误差，是尺寸效应</strong>——$\chi$ 的误差 $10^{-12}$ 早就比尺寸效应小三个数量级了，所以这里的外推是可信的；反过来，如果 $\chi$ 不够，外推只会把截断误差放大。</p>
+<p><strong>$N=40$、$\chi=64$ 的报告值</strong>是 $E=-17.541473298258$、$E/N=-0.4385368325$——离极限还差 $1\%$，符合 $1/N$ 的预期。<strong>注意 $\chi$ 只需要 64，而 $N$ 从 20 涨到 40 翻了一倍。</strong> 这就是面积律的兑现：<strong>$N$ 指数增长，$\chi$ 几乎不变。</strong></p>
+<h2><span id="二维面积律变成周长律chi-指数爆炸">二维：面积律变成”周长律”，$\chi$ 指数爆炸</span></h2><p>一维的面积律说”纠缠只来自切口”，切口是 0 维的两个点，所以 $S=O(1)$。二维的切口是一条<strong>线</strong>，长度 $L_y$，于是</p>
+<script type="math/tex; mode=display">S\sim L_y\quad\Longrightarrow\quad \chi\sim e^{cL_y}.</script><p><strong>把二维柱面（周长 $L_y$）压成一条 MPS 链，键维随 $L_y$ 指数增长。</strong> 这是 DMRG 在二维的根本困难，不是实现问题。</p>
+<p>实际能做到的：$L_y=4$–$12$ 的柱面，$\chi$ 到 $10^3$–$10^4$，配合外推。<strong>这正是 2020 年代以来研究掺杂 Hubbard / $t$–$J$ 模型（条纹、赝能隙）的主力工具</strong>——不是因为它快，是因为它在窄柱面上仍然”几乎精确”。</p>
+<p><strong>边界在哪，一句话</strong>：</p>
+<blockquote>
+<p><strong>DMRG 的代价由纠缠决定。</strong> 一维有能隙：$S$ 饱和，$\chi$ 常数；一维临界：$S\sim\ln N$，$\chi\sim N$ 多项式；二维：$S\sim L_y$，$\chi\sim e^{L_y}$。</p>
+</blockquote>
+<h2><span id="通往张量网络">通往张量网络</span></h2><p>把这张表再抽象一层，就是第六讲：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>DMRG</th>
+<th>张量网络</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>态</td>
+<td>矩阵乘积态（MPS，一条链）</td>
+<td>PEPS（二维网格）、MERA（分层）</td>
+</tr>
+<tr>
+<td>截断</td>
+<td>每次 SVD 到 $\chi$</td>
+<td>每次 SVD/优化到 $\chi$</td>
+</tr>
+<tr>
+<td>一维</td>
+<td>近乎精确</td>
+<td>等价于 DMRG</td>
+</tr>
+<tr>
+<td>二维</td>
+<td>柱面近似</td>
+<td>直接作用在二维，代价 $\chi^{O(L_y)}$</td>
+</tr>
+<tr>
+<td>关键问题</td>
+<td>$\chi$ 够不够</td>
+<td>收缩顺序、规范、边界</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>DMRG 是张量网络的”一维特例”</strong>；反过来，张量网络是 DMRG 的”任意图推广”。<strong>你在本讲学的 SVD 截断、规范、环境张量，一个都不会浪费。</strong></p>
+<h1><span id="作业要点与评分">作业要点与评分</span></h1><p>作业（Lecture05_Homework）：<strong>开边界 $J_1$–$J_2$ XXZ 链上的传统 DMRG</strong>，五个必做 + 两个校检 + 四个选做。</p>
+<p><strong>评分（100 分）</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th style="text-align:right">分值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>源码可运行</td>
+<td style="text-align:right">+10</td>
+<td><code>run_all.py</code> 一键跑通</td>
+</tr>
+<tr>
+<td>结果正确</td>
+<td style="text-align:right">+20</td>
+<td>与本文表格对照</td>
+</tr>
+<tr>
+<td>可读性</td>
+<td style="text-align:right">+10</td>
+<td>函数分节、命名清楚</td>
+</tr>
+<tr>
+<td>笔记：原理</td>
+<td style="text-align:right">+10</td>
+<td>为什么是密度矩阵，不是能量</td>
+</tr>
+<tr>
+<td>笔记：源码</td>
+<td style="text-align:right">+10</td>
+<td>逐段解释，不是贴代码</td>
+</tr>
+<tr>
+<td>笔记：结果</td>
+<td style="text-align:right">+10</td>
+<td>表格 + 图 + 物理解读</td>
+</tr>
+<tr>
+<td>笔记：好读</td>
+<td style="text-align:right">+10</td>
+<td>叙事、判断句、总结</td>
+</tr>
+<tr>
+<td>AI 使用日志</td>
+<td style="text-align:right">+20</td>
+<td><strong>最大单项</strong></td>
+</tr>
+<tr>
+<td><strong>不做截断</strong></td>
+<td style="text-align:right"><strong>−20</strong></td>
+<td>直接返回满维，等于没做 DMRG</td>
+</tr>
+<tr>
+<td><strong>不报 discarded weight</strong></td>
+<td style="text-align:right"><strong>−20</strong></td>
+<td>无法判断 $\chi$ 够不够</td>
+</tr>
+<tr>
+<td>时间</td>
+<td style="text-align:right">$+5$ / $-1$ 每天</td>
+<td>按时交</td>
+</tr>
+<tr>
+<td>自选加分</td>
+<td style="text-align:right">+10</td>
+<td>新想法、额外结果</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>两个 $-20$ 值得盯着看</strong>：它们正好对应本讲的两个核心——<strong>截断</strong>与<strong>误差度量</strong>。<strong>这门课用扣分告诉你：不做截断就不是 DMRG，不报 $\varepsilon$ 就等于没有误差棒。</strong> 反过来，AI 日志给到 $+20$，说明课程要的不是”你手写了多少行”，是”你知道每一行为什么这么写”。</p>
+<p><strong>五个必做</strong>（与本文一一对应）：</p>
+<ol>
+<li>超块：$N=4,6,8,10$ 与 ED 对照（主线四）；</li>
+<li>截断比较：密度矩阵 vs 能量，$m=2,\ldots,16$（主线二）；</li>
+<li>infinite DMRG：$N\le16$ 与 ED 对照（主线四）；</li>
+<li>finite DMRG：$N=20$、$J_2=0,0.3$（主线四）；</li>
+<li>$\chi$ 收敛：$\chi=2,4,8,16,32$ 的能量与 $\varepsilon$（主线四）。</li>
+</ol>
+<p><strong>四个选做</strong>：纠缠剖面（主线三）、$1/\chi$ 外推、$N\ge40$、二聚化。</p>
+<p><strong>关于选做 2（$1/\chi$ 外推）的一句提醒</strong>：用 $\chi=4,8,16,32$ 的能量对 $1/\chi$ 做线性外推，会得到比 $\chi=32$ 更<strong>差</strong>的”极限值”。原因不是数据错，是<strong>模型错</strong>：误差随 $\chi$ 的下降比 $1/\chi$ 快得多（本文数据每翻倍掉 1.5–2 个数量级），用 $1/\chi$ 拟合等于强行用一个慢函数去描述一个快衰减。<strong>外推之前先看 $\log$-$\log$ 斜率</strong>，这是所有”外推”的通则。</p>
+<h1><span id="校检清单">校检清单</span></h1><p>按顺序做，每一条都能独立抓住一类错：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">#</th>
+<th>校检</th>
+<th>期望</th>
+<th>抓什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>厄米性 $\max\lvert H-H^\dagger\rvert$（$N=8$）</td>
+<td>0</td>
+<td>矩阵元/索引</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>$N=2$ 全谱</td>
+<td>$\{-3J_1/4,\ J_1/4\times3\}$</td>
+<td>键重复计数、$S^+S^-$ 系数</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>开边界 $N=4$</td>
+<td>$-1.616025403784$</td>
+<td>回绕</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>开边界 $N=8$</td>
+<td>$-3.374932598688$</td>
+<td>漏键/边界</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>周期 $N=8$</td>
+<td>$-3.651093408937$</td>
+<td>边界条件混用</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>infinite $N\le12$</td>
+<td>与 ED 逐位相同</td>
+<td>超块项、$q$ 标签</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>MG 点残差</td>
+<td>$&lt;10^{-12}$</td>
+<td>波函数本身</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>$\varepsilon$ 随 $\chi$ 单调下降</td>
+<td>是</td>
+<td>截断没生效</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>第 8 条最容易被忽略</strong>：如果 $\varepsilon$ 不随 $\chi$ 下降（或恒为 0），说明你要么没截断，要么截断写错了（比如按 $q$ 扇区各留 $\chi$ 个，总数远超 $\chi$）。<strong>$\varepsilon$ 是你唯一能”看见”截断的量</strong>，它必须动。</p>
+<h1><span id="附复现用的代码工具箱">附：复现用的代码工具箱</span></h1><p>下面这份代码<strong>独立于作业参考实现</strong>，覆盖本文所有数字：ED、Schmidt、截断比较、传统 DMRG（infinite/finite）、MPS 分解、MPO 构造与能量。约定与正文一致（比特 $j$ = 格点 $j$，$1$ = 向上，$q=2S^z$）。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># dmrg5.py -- 第五讲工具箱（精简版）</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.sparse <span class="keyword">as</span> sp</span><br><span class="line"><span class="keyword">import</span> scipy.sparse.linalg <span class="keyword">as</span> spla</span><br><span class="line"></span><br><span class="line">SZ = np.array([[<span class="number">0.5</span>, <span class="number">0.0</span>], [<span class="number">0.0</span>, -<span class="number">0.5</span>]])</span><br><span class="line">SP = np.array([[<span class="number">0.0</span>, <span class="number">1.0</span>], [<span class="number">0.0</span>, <span class="number">0.0</span>]])      <span class="comment"># S^+ |down&gt; = |up&gt;</span></span><br><span class="line">SM = np.array([[<span class="number">0.0</span>, <span class="number">0.0</span>], [<span class="number">1.0</span>, <span class="number">0.0</span>]])</span><br><span class="line">I2 = np.eye(<span class="number">2</span>)</span><br><span class="line">QS = np.array([<span class="number">1</span>, -<span class="number">1</span>], dtype=<span class="built_in">int</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pc</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(x).bit_count()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------- ED</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">basis</span>(<span class="params">N, nup=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> nup <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> np.arange(<span class="number">1</span> &lt;&lt; N, dtype=np.int64)</span><br><span class="line">    <span class="keyword">return</span> np.array([s <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; N) <span class="keyword">if</span> pc(s) == nup], dtype=np.int64)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bonds</span>(<span class="params">N, r, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    out, seen = [], <span class="built_in">set</span>()</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> (<span class="built_in">range</span>(N) <span class="keyword">if</span> periodic <span class="keyword">else</span> <span class="built_in">range</span>(N - r)):</span><br><span class="line">        a, b = j, (j + r) % N</span><br><span class="line">        key = (<span class="built_in">min</span>(a, b), <span class="built_in">max</span>(a, b))</span><br><span class="line">        <span class="keyword">if</span> a != b <span class="keyword">and</span> key <span class="keyword">not</span> <span class="keyword">in</span> seen:</span><br><span class="line">            seen.add(key)</span><br><span class="line">            out.append(key)</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">H_sparse</span>(<span class="params">N, J1, J2, Delta, states, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    idx = &#123;<span class="built_in">int</span>(s): i <span class="keyword">for</span> i, s <span class="keyword">in</span> <span class="built_in">enumerate</span>(states)&#125;</span><br><span class="line">    rows, cols, vals = [], [], []</span><br><span class="line">    bl = ([(a, b, J1) <span class="keyword">for</span> a, b <span class="keyword">in</span> bonds(N, <span class="number">1</span>, periodic)] +</span><br><span class="line">          [(a, b, J2) <span class="keyword">for</span> a, b <span class="keyword">in</span> bonds(N, <span class="number">2</span>, periodic)])</span><br><span class="line">    <span class="keyword">for</span> i, s <span class="keyword">in</span> <span class="built_in">enumerate</span>(states):</span><br><span class="line">        s = <span class="built_in">int</span>(s)</span><br><span class="line">        d = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> a, b, J <span class="keyword">in</span> bl:</span><br><span class="line">            ba, bb = (s &gt;&gt; a) &amp; <span class="number">1</span>, (s &gt;&gt; b) &amp; <span class="number">1</span></span><br><span class="line">            d += J * Delta * (ba - <span class="number">0.5</span>) * (bb - <span class="number">0.5</span>)</span><br><span class="line">            <span class="keyword">if</span> ba != bb:</span><br><span class="line">                rows.append(idx[s ^ (<span class="number">1</span> &lt;&lt; a) ^ (<span class="number">1</span> &lt;&lt; b)])</span><br><span class="line">                cols.append(i)</span><br><span class="line">                vals.append(<span class="number">0.5</span> * J)</span><br><span class="line">        rows.append(i)</span><br><span class="line">        cols.append(i)</span><br><span class="line">        vals.append(d)</span><br><span class="line">    <span class="keyword">return</span> sp.csr_matrix((vals, (rows, cols)), shape=(<span class="built_in">len</span>(states), <span class="built_in">len</span>(states)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gs</span>(<span class="params">N, J1=<span class="number">1.0</span>, J2=<span class="number">0.0</span>, Delta=<span class="number">1.0</span>, periodic=<span class="literal">False</span></span>):</span><br><span class="line">    states = basis(N, N // <span class="number">2</span>)</span><br><span class="line">    idx = &#123;<span class="built_in">int</span>(s): i <span class="keyword">for</span> i, s <span class="keyword">in</span> <span class="built_in">enumerate</span>(states)&#125;</span><br><span class="line">    H = H_sparse(N, J1, J2, Delta, states, periodic)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(states) &lt;= <span class="number">600</span>:</span><br><span class="line">        w, v = np.linalg.eigh(H.toarray())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        w, v = spla.eigsh(H, k=<span class="number">1</span>, which=<span class="string">&quot;SA&quot;</span>, tol=<span class="number">1e-13</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">float</span>(w[<span class="number">0</span>]), v[:, <span class="number">0</span>], states, idx, H</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------- Schmidt</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">schmidt</span>(<span class="params">psi, N, L, idx</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;[(s_a, q_a, u_a, v_a)], descending; q = 2 S^z of the left part.&quot;&quot;&quot;</span></span><br><span class="line">    M = np.zeros((<span class="number">1</span> &lt;&lt; L, <span class="number">1</span> &lt;&lt; (N - L)))</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; L):</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; (N - L)):</span><br><span class="line">            j = idx.get(a | (b &lt;&lt; L))</span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                M[a, b] = psi[j]</span><br><span class="line">    out = []</span><br><span class="line">    <span class="keyword">for</span> nL <span class="keyword">in</span> <span class="built_in">range</span>(L + <span class="number">1</span>):</span><br><span class="line">        nR = N // <span class="number">2</span> - nL</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="number">0</span> &lt;= nR &lt;= N - L:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        rows = [a <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; L) <span class="keyword">if</span> pc(a) == nL]</span><br><span class="line">        cols = [b <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; (N - L)) <span class="keyword">if</span> pc(b) == nR]</span><br><span class="line">        u, s, vh = np.linalg.svd(M[np.ix_(rows, cols)], full_matrices=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">            <span class="keyword">if</span> s[k] &lt; <span class="number">1e-13</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            ul, vr = np.zeros(<span class="number">1</span> &lt;&lt; L), np.zeros(<span class="number">1</span> &lt;&lt; (N - L))</span><br><span class="line">            ul[rows], vr[cols] = u[:, k], vh[k]</span><br><span class="line">            out.append((<span class="built_in">float</span>(s[k]), <span class="number">2</span> * nL - L, ul, vr))</span><br><span class="line">    out.sort(key=<span class="keyword">lambda</span> t: -t[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">entropy</span>(<span class="params">psi, N, L, idx</span>):</span><br><span class="line">    M = np.zeros((<span class="number">1</span> &lt;&lt; L, <span class="number">1</span> &lt;&lt; (N - L)))</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; L):</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; (N - L)):</span><br><span class="line">            j = idx.get(a | (b &lt;&lt; L))</span><br><span class="line">            <span class="keyword">if</span> j <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                M[a, b] = psi[j]</span><br><span class="line">    p = np.linalg.svd(M, compute_uv=<span class="literal">False</span>) ** <span class="number">2</span></span><br><span class="line">    p = p[p &gt; <span class="number">1e-30</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">float</span>(-np.<span class="built_in">sum</span>(p * np.log(p)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">truncation_table</span>(<span class="params">psi, N, L, idx, H, m_list</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Density-matrix truncation vs energy truncation (homework 2).&quot;&quot;&quot;</span></span><br><span class="line">    sc = schmidt(psi, N, L, idx)</span><br><span class="line">    HL = H_sparse(L, <span class="number">1.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>, basis(L)).toarray()</span><br><span class="line">    blk = []</span><br><span class="line">    <span class="keyword">for</span> nup <span class="keyword">in</span> <span class="built_in">range</span>(L + <span class="number">1</span>):</span><br><span class="line">        r = [a <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; L) <span class="keyword">if</span> pc(a) == nup]</span><br><span class="line">        w, v = np.linalg.eigh(HL[np.ix_(r, r)])</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(w)):</span><br><span class="line">            vec = np.zeros(<span class="number">1</span> &lt;&lt; L)</span><br><span class="line">            vec[r] = v[:, k]</span><br><span class="line">            blk.append((<span class="built_in">float</span>(w[k]), <span class="number">2</span> * nup - L, vec))</span><br><span class="line">    blk.sort(key=<span class="keyword">lambda</span> t: t[<span class="number">0</span>])</span><br><span class="line">    E0 = <span class="built_in">float</span>(np.linalg.eigvalsh(H.toarray())[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">proj</span>(<span class="params">left, right</span>):</span><br><span class="line">        cols = []</span><br><span class="line">        <span class="keyword">for</span> qL, uL <span class="keyword">in</span> left:</span><br><span class="line">            <span class="keyword">for</span> qR, uR <span class="keyword">in</span> right:</span><br><span class="line">                <span class="keyword">if</span> qL + qR:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                v = np.zeros(<span class="built_in">len</span>(idx))</span><br><span class="line">                <span class="keyword">for</span> a <span class="keyword">in</span> np.nonzero(np.<span class="built_in">abs</span>(uL) &gt; <span class="number">1e-12</span>)[<span class="number">0</span>]:</span><br><span class="line">                    <span class="keyword">for</span> b <span class="keyword">in</span> np.nonzero(np.<span class="built_in">abs</span>(uR) &gt; <span class="number">1e-12</span>)[<span class="number">0</span>]:</span><br><span class="line">                        j = idx.get(<span class="built_in">int</span>(a) | (<span class="built_in">int</span>(b) &lt;&lt; L))</span><br><span class="line">                        <span class="keyword">if</span> j <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                            v[j] += uL[a] * uR[b]</span><br><span class="line">                n = np.linalg.norm(v)</span><br><span class="line">                <span class="keyword">if</span> n &gt; <span class="number">1e-12</span>:</span><br><span class="line">                    cols.append(v / n)</span><br><span class="line">        B = np.array(cols).T</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">abs</span>(<span class="built_in">float</span>(np.linalg.eigvalsh(B.T @ (H @ B))[<span class="number">0</span>]) - E0)</span><br><span class="line"></span><br><span class="line">    out = []</span><br><span class="line">    dm = [(t[<span class="number">1</span>], t[<span class="number">2</span>]) <span class="keyword">for</span> t <span class="keyword">in</span> sc]</span><br><span class="line">    dmR = [(-t[<span class="number">1</span>], t[<span class="number">3</span>]) <span class="keyword">for</span> t <span class="keyword">in</span> sc]</span><br><span class="line">    en = [(q, v) <span class="keyword">for</span> _, q, v <span class="keyword">in</span> blk]</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> m_list:</span><br><span class="line">        out.append(<span class="built_in">dict</span>(m=m, dm=proj(dm[:m], dmR[:m]),</span><br><span class="line">                        energy=proj(en[:m], en[:m])))</span><br><span class="line">    <span class="keyword">return</span> out</span><br></pre></td></tr></table></figure>
+<p><strong>块 DMRG</strong>（超块 + 增长 + 截断）：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">site</span>():</span><br><span class="line">    z = np.zeros((<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(n=<span class="number">1</span>, d=<span class="number">2</span>, q=QS.copy(), I=I2.copy(), H=z.copy(),</span><br><span class="line">                Sz1=SZ.copy(), Sp1=SP.copy(), Sm1=SM.copy(),</span><br><span class="line">                Sz2=z.copy(), Sp2=z.copy(), Sm2=z.copy(), has2=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">empty</span>():</span><br><span class="line">    z = np.zeros((<span class="number">1</span>, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(n=<span class="number">0</span>, d=<span class="number">1</span>, q=np.zeros(<span class="number">1</span>, <span class="built_in">int</span>), I=np.eye(<span class="number">1</span>), H=z.copy(),</span><br><span class="line">                Sz1=z.copy(), Sp1=z.copy(), Sm1=z.copy(),</span><br><span class="line">                Sz2=z.copy(), Sp2=z.copy(), Sm2=z.copy(), has2=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">grow</span>(<span class="params">A, side, J1, J2, Delta</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;side=&#x27;L&#x27;: append a site on the right; side=&#x27;R&#x27;: prepend on the left.&quot;&quot;&quot;</span></span><br><span class="line">    k = np.kron</span><br><span class="line">    F = k(A[<span class="string">&quot;H&quot;</span>], I2) <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span> <span class="keyword">else</span> k(I2, A[<span class="string">&quot;H&quot;</span>])</span><br><span class="line">    <span class="keyword">for</span> c, o1, o2, o3 <span class="keyword">in</span> ((J1, <span class="string">&quot;Sz1&quot;</span>, <span class="string">&quot;Sp1&quot;</span>, <span class="string">&quot;Sm1&quot;</span>), (J2, <span class="string">&quot;Sz2&quot;</span>, <span class="string">&quot;Sp2&quot;</span>, <span class="string">&quot;Sm2&quot;</span>)):</span><br><span class="line">        <span class="keyword">if</span> c == <span class="number">0.0</span> <span class="keyword">or</span> (o1 == <span class="string">&quot;Sz2&quot;</span> <span class="keyword">and</span> <span class="keyword">not</span> A[<span class="string">&quot;has2&quot;</span>]):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        zz, pm = c * Delta, <span class="number">0.5</span> * c</span><br><span class="line">        <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span>:</span><br><span class="line">            F += zz * k(A[o1], SZ) + pm * k(A[o2], SM) + pm * k(A[o3], SP)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            F += zz * k(SZ, A[o1]) + pm * k(SP, A[o3]) + pm * k(SM, A[o2])</span><br><span class="line">    q = np.concatenate([A[<span class="string">&quot;q&quot;</span>] + <span class="number">1</span>, A[<span class="string">&quot;q&quot;</span>] - <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span>:</span><br><span class="line">        f = <span class="built_in">dict</span>(n=A[<span class="string">&quot;n&quot;</span>] + <span class="number">1</span>, d=<span class="number">2</span> * A[<span class="string">&quot;d&quot;</span>], q=q, I=k(A[<span class="string">&quot;I&quot;</span>], I2), H=F,</span><br><span class="line">                 Sz1=k(A[<span class="string">&quot;I&quot;</span>], SZ), Sp1=k(A[<span class="string">&quot;I&quot;</span>], SP), Sm1=k(A[<span class="string">&quot;I&quot;</span>], SM),</span><br><span class="line">                 Sz2=k(A[<span class="string">&quot;Sz1&quot;</span>], I2), Sp2=k(A[<span class="string">&quot;Sp1&quot;</span>], I2), Sm2=k(A[<span class="string">&quot;Sm1&quot;</span>], I2))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f = <span class="built_in">dict</span>(n=A[<span class="string">&quot;n&quot;</span>] + <span class="number">1</span>, d=<span class="number">2</span> * A[<span class="string">&quot;d&quot;</span>], q=q, I=k(I2, A[<span class="string">&quot;I&quot;</span>]), H=F,</span><br><span class="line">                 Sz1=k(SZ, A[<span class="string">&quot;I&quot;</span>]), Sp1=k(SP, A[<span class="string">&quot;I&quot;</span>]), Sm1=k(SM, A[<span class="string">&quot;I&quot;</span>]),</span><br><span class="line">                 Sz2=k(I2, A[<span class="string">&quot;Sz1&quot;</span>]), Sp2=k(I2, A[<span class="string">&quot;Sp1&quot;</span>]), Sm2=k(I2, A[<span class="string">&quot;Sm1&quot;</span>]))</span><br><span class="line">    f[<span class="string">&quot;has2&quot;</span>] = A[<span class="string">&quot;n&quot;</span>] &gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">project</span>(<span class="params">F, U, q</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(n=F[<span class="string">&quot;n&quot;</span>], d=U.shape[<span class="number">1</span>], q=np.asarray(q, <span class="built_in">int</span>), has2=F[<span class="string">&quot;has2&quot;</span>],</span><br><span class="line">                **&#123;k: U.T @ F[k] @ U <span class="keyword">for</span> k <span class="keyword">in</span></span><br><span class="line">                   (<span class="string">&quot;I&quot;</span>, <span class="string">&quot;H&quot;</span>, <span class="string">&quot;Sz1&quot;</span>, <span class="string">&quot;Sp1&quot;</span>, <span class="string">&quot;Sm1&quot;</span>, <span class="string">&quot;Sz2&quot;</span>, <span class="string">&quot;Sp2&quot;</span>, <span class="string">&quot;Sm2&quot;</span>)&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">terms</span>(<span class="params">A, B, J1, J2, Delta</span>):</span><br><span class="line">    IA, IB = A[<span class="string">&quot;I&quot;</span>], B[<span class="string">&quot;I&quot;</span>]</span><br><span class="line">    t = [(A[<span class="string">&quot;H&quot;</span>], I2, I2, IB, <span class="number">1.0</span>), (IA, I2, I2, B[<span class="string">&quot;H&quot;</span>], <span class="number">1.0</span>)]</span><br><span class="line">    t += [(A[<span class="string">&quot;Sz1&quot;</span>], SZ, I2, IB, J1 * Delta),</span><br><span class="line">          (A[<span class="string">&quot;Sp1&quot;</span>], SM, I2, IB, <span class="number">0.5</span> * J1), (A[<span class="string">&quot;Sm1&quot;</span>], SP, I2, IB, <span class="number">0.5</span> * J1),</span><br><span class="line">          (IA, SZ, SZ, IB, J1 * Delta),</span><br><span class="line">          (IA, SP, SM, IB, <span class="number">0.5</span> * J1), (IA, SM, SP, IB, <span class="number">0.5</span> * J1),</span><br><span class="line">          (IA, I2, SZ, B[<span class="string">&quot;Sz1&quot;</span>], J1 * Delta),</span><br><span class="line">          (IA, I2, SP, B[<span class="string">&quot;Sm1&quot;</span>], <span class="number">0.5</span> * J1), (IA, I2, SM, B[<span class="string">&quot;Sp1&quot;</span>], <span class="number">0.5</span> * J1)]</span><br><span class="line">    <span class="keyword">if</span> J2 != <span class="number">0.0</span>:</span><br><span class="line">        <span class="keyword">if</span> A[<span class="string">&quot;has2&quot;</span>]:</span><br><span class="line">            t += [(A[<span class="string">&quot;Sz2&quot;</span>], SZ, I2, IB, J2 * Delta),</span><br><span class="line">                  (A[<span class="string">&quot;Sp2&quot;</span>], SM, I2, IB, <span class="number">0.5</span> * J2), (A[<span class="string">&quot;Sm2&quot;</span>], SP, I2, IB, <span class="number">0.5</span> * J2)]</span><br><span class="line">        <span class="keyword">if</span> B[<span class="string">&quot;has2&quot;</span>]:</span><br><span class="line">            t += [(IA, I2, SZ, B[<span class="string">&quot;Sz2&quot;</span>], J2 * Delta),</span><br><span class="line">                  (IA, I2, SP, B[<span class="string">&quot;Sm2&quot;</span>], <span class="number">0.5</span> * J2), (IA, I2, SM, B[<span class="string">&quot;Sp2&quot;</span>], <span class="number">0.5</span> * J2)]</span><br><span class="line">        t += [(A[<span class="string">&quot;Sz1&quot;</span>], I2, SZ, IB, J2 * Delta),</span><br><span class="line">              (A[<span class="string">&quot;Sp1&quot;</span>], I2, SM, IB, <span class="number">0.5</span> * J2), (A[<span class="string">&quot;Sm1&quot;</span>], I2, SP, IB, <span class="number">0.5</span> * J2),</span><br><span class="line">              (IA, SZ, I2, B[<span class="string">&quot;Sz1&quot;</span>], J2 * Delta),</span><br><span class="line">              (IA, SP, I2, B[<span class="string">&quot;Sm1&quot;</span>], <span class="number">0.5</span> * J2), (IA, SM, I2, B[<span class="string">&quot;Sp1&quot;</span>], <span class="number">0.5</span> * J2)]</span><br><span class="line">    <span class="keyword">return</span> t</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">super_gs</span>(<span class="params">A, B, J1, J2, Delta, seed=<span class="number">7</span></span>):</span><br><span class="line">    ts = terms(A, B, J1, J2, Delta)</span><br><span class="line">    dim = A[<span class="string">&quot;d&quot;</span>] * <span class="number">4</span> * B[<span class="string">&quot;d&quot;</span>]</span><br><span class="line">    q = (A[<span class="string">&quot;q&quot;</span>][:, <span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>] + QS[<span class="literal">None</span>, :, <span class="literal">None</span>, <span class="literal">None</span>] +</span><br><span class="line">         QS[<span class="literal">None</span>, <span class="literal">None</span>, :, <span class="literal">None</span>] + B[<span class="string">&quot;q&quot;</span>][<span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>, :]).ravel()</span><br><span class="line">    <span class="keyword">if</span> dim &lt;= <span class="number">2500</span>:</span><br><span class="line">        M = <span class="built_in">sum</span>(c * np.kron(np.kron(np.kron(oA, oL), oR), oB) <span class="keyword">for</span> oA, oL, oR, oB, c <span class="keyword">in</span> ts)</span><br><span class="line">        w, v = np.linalg.eigh(<span class="number">0.5</span> * (M + M.T))</span><br><span class="line">        psi = v[:, <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cache, M = &#123;&#125;, <span class="literal">None</span></span><br><span class="line">        <span class="keyword">for</span> oA, oL, oR, oB, c <span class="keyword">in</span> ts:</span><br><span class="line">            mats = []</span><br><span class="line">            <span class="keyword">for</span> o <span class="keyword">in</span> (oA, oL, oR, oB):</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">id</span>(o) <span class="keyword">not</span> <span class="keyword">in</span> cache:</span><br><span class="line">                    cache[<span class="built_in">id</span>(o)] = sp.csr_matrix(o)</span><br><span class="line">                mats.append(cache[<span class="built_in">id</span>(o)])</span><br><span class="line">            term = sp.kron(sp.kron(mats[<span class="number">0</span>], mats[<span class="number">1</span>]), sp.kron(mats[<span class="number">2</span>], mats[<span class="number">3</span>]), <span class="built_in">format</span>=<span class="string">&quot;csr&quot;</span>)</span><br><span class="line">            M = c * term <span class="keyword">if</span> M <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> M + c * term</span><br><span class="line">        v0 = np.random.default_rng(seed).standard_normal(dim)</span><br><span class="line">        v0[q != <span class="number">0</span>] = <span class="number">0.0</span></span><br><span class="line">        w, v = spla.eigsh(M.tocsr(), k=<span class="number">1</span>, which=<span class="string">&quot;SA&quot;</span>, v0=v0 / np.linalg.norm(v0),</span><br><span class="line">                          tol=<span class="number">1e-11</span>, maxiter=<span class="number">20000</span>, ncv=<span class="built_in">min</span>(dim - <span class="number">1</span>, <span class="number">40</span>))</span><br><span class="line">        psi = v[:, <span class="number">0</span>]</span><br><span class="line">    psi = psi.reshape(A[<span class="string">&quot;d&quot;</span>], <span class="number">2</span>, <span class="number">2</span>, B[<span class="string">&quot;d&quot;</span>])</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">float</span>(w[<span class="number">0</span>]), psi / np.linalg.norm(psi)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">split</span>(<span class="params">P, A, B, chi, side</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Keep the chi largest Schmidt values.  side=&#x27;L&#x27; -&gt; U (2*d_A, chi).&quot;&quot;&quot;</span></span><br><span class="line">    M = P.reshape(A[<span class="string">&quot;d&quot;</span>] * <span class="number">2</span>, B[<span class="string">&quot;d&quot;</span>] * <span class="number">2</span>)</span><br><span class="line">    qr = np.repeat(A[<span class="string">&quot;q&quot;</span>], <span class="number">2</span>) + np.tile(QS, A[<span class="string">&quot;d&quot;</span>])</span><br><span class="line">    qc = np.tile(B[<span class="string">&quot;q&quot;</span>], <span class="number">2</span>) + np.repeat(QS, B[<span class="string">&quot;d&quot;</span>])</span><br><span class="line">    g = []</span><br><span class="line">    <span class="keyword">for</span> qv <span class="keyword">in</span> np.unique(qr <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span> <span class="keyword">else</span> qc):</span><br><span class="line">        rows, cols = (np.where(qr == qv)[<span class="number">0</span>], np.where(qc == -qv)[<span class="number">0</span>]) <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span> \</span><br><span class="line">            <span class="keyword">else</span> (np.where(qr == -qv)[<span class="number">0</span>], np.where(qc == qv)[<span class="number">0</span>])</span><br><span class="line">        Mq = M[np.ix_(rows, cols)]</span><br><span class="line">        w, v = np.linalg.eigh(Mq @ Mq.T <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span> <span class="keyword">else</span> Mq.T @ Mq)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(w) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            g.append((<span class="built_in">max</span>(<span class="built_in">float</span>(w[k]), <span class="number">0.0</span>), qv, rows <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span> <span class="keyword">else</span> cols, v[:, k]))</span><br><span class="line">    g.sort(key=<span class="keyword">lambda</span> t: -t[<span class="number">0</span>])</span><br><span class="line">    keep = g[:chi]</span><br><span class="line">    U = np.zeros((M.shape[<span class="number">0</span>] <span class="keyword">if</span> side == <span class="string">&quot;L&quot;</span> <span class="keyword">else</span> M.shape[<span class="number">1</span>], <span class="built_in">len</span>(keep)))</span><br><span class="line">    qn = np.zeros(<span class="built_in">len</span>(keep), <span class="built_in">int</span>)</span><br><span class="line">    <span class="keyword">for</span> j, (_, qv, ix, vec) <span class="keyword">in</span> <span class="built_in">enumerate</span>(keep):</span><br><span class="line">        U[ix, j], qn[j] = vec, qv</span><br><span class="line">    tot = <span class="built_in">sum</span>(x[<span class="number">0</span>] <span class="keyword">for</span> x <span class="keyword">in</span> g)</span><br><span class="line">    <span class="keyword">return</span> U, qn, <span class="built_in">max</span>(<span class="number">0.0</span>, <span class="number">1.0</span> - <span class="built_in">sum</span>(x[<span class="number">0</span>] <span class="keyword">for</span> x <span class="keyword">in</span> keep) / tot)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">infinite</span>(<span class="params">Nmax, J1=<span class="number">1.0</span>, J2=<span class="number">0.0</span>, Delta=<span class="number">1.0</span>, chi=<span class="number">32</span></span>):</span><br><span class="line">    A, B = site(), site()</span><br><span class="line">    L, R = &#123;<span class="number">1</span>: A&#125;, &#123;<span class="number">1</span>: B&#125;</span><br><span class="line">    rec = []</span><br><span class="line">    <span class="keyword">for</span> N <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>, Nmax + <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        E, P = super_gs(A, B, J1, J2, Delta)</span><br><span class="line">        U, qU, eps = split(P, A, B, chi, <span class="string">&quot;L&quot;</span>)</span><br><span class="line">        V, qV, _ = split(P, A, B, chi, <span class="string">&quot;R&quot;</span>)</span><br><span class="line">        rec.append(<span class="built_in">dict</span>(N=N, chi=A[<span class="string">&quot;d&quot;</span>], E=E, Eps=eps))</span><br><span class="line">        <span class="keyword">if</span> N == Nmax:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        A = project(grow(A, <span class="string">&quot;L&quot;</span>, J1, J2, Delta), U, qU)</span><br><span class="line">        B = project(grow(B, <span class="string">&quot;R&quot;</span>, J1, J2, Delta), V, qV)</span><br><span class="line">        L[A[<span class="string">&quot;n&quot;</span>]], R[B[<span class="string">&quot;n&quot;</span>]] = A, B</span><br><span class="line">    <span class="keyword">return</span> rec, L, R</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">finite</span>(<span class="params">N, J1=<span class="number">1.0</span>, J2=<span class="number">0.0</span>, Delta=<span class="number">1.0</span>, chi=<span class="number">32</span>, sweeps=<span class="number">3</span></span>):</span><br><span class="line">    _, L, R = infinite(N, J1, J2, Delta, chi)</span><br><span class="line">    L[<span class="number">0</span>], R[<span class="number">0</span>] = empty(), empty()</span><br><span class="line">    trace = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">rsweep</span>(<span class="params">tag, l0</span>):</span><br><span class="line">        <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(l0, N - <span class="number">1</span>):</span><br><span class="line">            E, P = super_gs(L[l], R[N - l - <span class="number">2</span>], J1, J2, Delta)</span><br><span class="line">            U, qU, eps = split(P, L[l], R[N - l - <span class="number">2</span>], chi, <span class="string">&quot;L&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> l &lt; N - <span class="number">2</span>:</span><br><span class="line">                L[l + <span class="number">1</span>] = project(grow(L[l], <span class="string">&quot;L&quot;</span>, J1, J2, Delta), U, qU)</span><br><span class="line">            trace.append((tag, <span class="string">&quot;R&quot;</span>, l, E, eps))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">lsweep</span>(<span class="params">tag</span>):</span><br><span class="line">        <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(N - <span class="number">2</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            E, P = super_gs(L[l], R[N - l - <span class="number">2</span>], J1, J2, Delta)</span><br><span class="line">            U, qU, eps = split(P, L[l], R[N - l - <span class="number">2</span>], chi, <span class="string">&quot;R&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> l &gt; <span class="number">0</span>:</span><br><span class="line">                R[N - l - <span class="number">1</span>] = project(grow(R[N - l - <span class="number">2</span>], <span class="string">&quot;R&quot;</span>, J1, J2, Delta), U, qU)</span><br><span class="line">            trace.append((tag, <span class="string">&quot;L&quot;</span>, l, E, eps))</span><br><span class="line"></span><br><span class="line">    rsweep(-<span class="number">1</span>, N // <span class="number">2</span> - <span class="number">1</span>)</span><br><span class="line">    lsweep(-<span class="number">1</span>)</span><br><span class="line">    out = [(<span class="string">&quot;warm&quot;</span>, trace[-<span class="number">1</span>][<span class="number">3</span>])]</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(sweeps):</span><br><span class="line">        rsweep(s, <span class="number">0</span>)</span><br><span class="line">        lsweep(s)</span><br><span class="line">        out.append((s, trace[-<span class="number">1</span>][<span class="number">3</span>]))</span><br><span class="line">    <span class="keyword">return</span> out, trace</span><br></pre></td></tr></table></figure>
+<p><strong>MPS/MPO</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">mps_from_state</span>(<span class="params">psi, N, states, chi=<span class="literal">None</span></span>):</span><br><span class="line">    T = np.zeros([<span class="number">2</span>] * N)</span><br><span class="line">    <span class="keyword">for</span> a, s <span class="keyword">in</span> <span class="built_in">enumerate</span>(states):</span><br><span class="line">        s = <span class="built_in">int</span>(s)</span><br><span class="line">        T[<span class="built_in">tuple</span>((s &gt;&gt; i) &amp; <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N))] = psi[a]</span><br><span class="line">    rest = T[<span class="literal">None</span>, ...]</span><br><span class="line">    out, lost = [], <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N - <span class="number">1</span>):</span><br><span class="line">        aL, d = rest.shape[<span class="number">0</span>], rest.shape[<span class="number">1</span>]</span><br><span class="line">        u, s, vh = np.linalg.svd(rest.reshape(aL * d, -<span class="number">1</span>), full_matrices=<span class="literal">False</span>)</span><br><span class="line">        r = <span class="built_in">len</span>(s) <span class="keyword">if</span> chi <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> <span class="built_in">min</span>(chi, <span class="built_in">len</span>(s))</span><br><span class="line">        lost += <span class="built_in">float</span>(np.<span class="built_in">sum</span>(s[r:] ** <span class="number">2</span>) / np.<span class="built_in">sum</span>(s ** <span class="number">2</span>))</span><br><span class="line">        out.append(u[:, :r].reshape(aL, d, r))</span><br><span class="line">        rest = (s[:r, <span class="literal">None</span>] * vh[:r]).reshape((r,) + rest.shape[<span class="number">2</span>:])</span><br><span class="line">    out.append(rest.reshape(rest.shape[<span class="number">0</span>], <span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> out, lost</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mpo</span>(<span class="params">N, J1=<span class="number">1.0</span>, J2=<span class="number">0.0</span>, Delta=<span class="number">1.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;D = 11: 0 identity, 7 H accumulated, 1-3 J1 pending, 4-6 J2 pending,</span></span><br><span class="line"><span class="string">    8-10 J2 waiting one site.  W[a,b,t,s] = &lt;t|O|s&gt;.&quot;&quot;&quot;</span></span><br><span class="line">    ID, HF, J1c, J2c, J2w = <span class="number">0</span>, <span class="number">7</span>, (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>), (<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>)</span><br><span class="line">    W = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        w = np.zeros((<span class="number">11</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">        w[ID, ID] = I2</span><br><span class="line">        w[HF, HF] = I2</span><br><span class="line">        <span class="keyword">if</span> i &lt;= N - <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">for</span> c, o <span class="keyword">in</span> <span class="built_in">zip</span>(J1c, (SP, SM, SZ)):</span><br><span class="line">                w[ID, c] = J1 * o</span><br><span class="line">        <span class="keyword">for</span> c, o, g <span class="keyword">in</span> <span class="built_in">zip</span>(J1c, (SM, SP, SZ), (<span class="number">0.5</span>, <span class="number">0.5</span>, Delta)):</span><br><span class="line">            w[c, HF] = g * o</span><br><span class="line">        <span class="keyword">if</span> i &lt;= N - <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">for</span> c, o <span class="keyword">in</span> <span class="built_in">zip</span>(J2c, (SP, SM, SZ)):</span><br><span class="line">                w[ID, c] = J2 * o</span><br><span class="line">        <span class="keyword">for</span> a, b <span class="keyword">in</span> <span class="built_in">zip</span>(J2c, J2w):</span><br><span class="line">            w[a, b] = I2</span><br><span class="line">        <span class="keyword">for</span> c, o, g <span class="keyword">in</span> <span class="built_in">zip</span>(J2w, (SM, SP, SZ), (<span class="number">0.5</span>, <span class="number">0.5</span>, Delta)):</span><br><span class="line">            w[c, HF] = g * o</span><br><span class="line">        W.append(w)</span><br><span class="line">    <span class="keyword">return</span> W</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">VL = np.eye(<span class="number">1</span>, <span class="number">11</span>, <span class="number">0</span>).ravel()</span><br><span class="line">VR = np.eye(<span class="number">1</span>, <span class="number">11</span>, <span class="number">7</span>).ravel()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mps_energy</span>(<span class="params">mps, W</span>):</span><br><span class="line">    L = VL[:, <span class="literal">None</span>, <span class="literal">None</span>]</span><br><span class="line">    <span class="keyword">for</span> A, w <span class="keyword">in</span> <span class="built_in">zip</span>(mps, W):</span><br><span class="line">        L = np.einsum(<span class="string">&quot;xpq,xyts,ptr,qsu-&gt;yru&quot;</span>, L, w, A, A.conj(), optimize=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">float</span>(np.real(np.einsum(<span class="string">&quot;xaa,x-&gt;&quot;</span>, L, VR)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mpo_matrix</span>(<span class="params">W, N</span>):</span><br><span class="line">    T = VL</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        T = np.einsum(<span class="string">&quot;...a,abts-&gt;...stb&quot;</span>, T, W[i])</span><br><span class="line">    T = np.tensordot(T, VR, axes=(-<span class="number">1</span>, <span class="number">0</span>))</span><br><span class="line">    perm = ([<span class="number">2</span> * (N - <span class="number">1</span> - i) + <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)] +</span><br><span class="line">            [<span class="number">2</span> * (N - <span class="number">1</span> - i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)])</span><br><span class="line">    <span class="keyword">return</span> T.transpose(perm).reshape(<span class="number">1</span> &lt;&lt; N, <span class="number">1</span> &lt;&lt; N)</span><br></pre></td></tr></table></figure>
+<p><strong>复现本文数字的最短路径</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">E0, psi, st, idx, H = gs(<span class="number">12</span>)                       <span class="comment"># -5.142090632841</span></span><br><span class="line"><span class="built_in">print</span>(entropy(psi, <span class="number">12</span>, <span class="number">6</span>, idx))                    <span class="comment"># 0.536833253592</span></span><br><span class="line"><span class="built_in">print</span>(truncation_table(psi, <span class="number">12</span>, <span class="number">6</span>, idx, H, [<span class="number">4</span>, <span class="number">16</span>]))</span><br><span class="line">rec, _, _ = infinite(<span class="number">16</span>, chi=<span class="number">32</span>)                   <span class="comment"># -6.911737137885</span></span><br><span class="line"><span class="built_in">print</span>(finite(<span class="number">20</span>, chi=<span class="number">32</span>)[<span class="number">0</span>][-<span class="number">1</span>][<span class="number">1</span>])                <span class="comment"># -8.682473319650</span></span><br><span class="line">E16, p16, s16, i16, _ = gs(<span class="number">16</span>)</span><br><span class="line">mps, lost = mps_from_state(p16, <span class="number">16</span>, s16, chi=<span class="number">32</span>)   <span class="comment"># lost = 4.72e-10</span></span><br><span class="line">W = mpo(<span class="number">16</span>)</span><br><span class="line"><span class="built_in">print</span>(mps_energy(mps, W))                          <span class="comment"># -6.911737140029</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">abs</span>(mpo_matrix(mpo(<span class="number">8</span>, <span class="number">1</span>, <span class="number">0.3</span>, <span class="number">1</span>), <span class="number">8</span>) -</span><br><span class="line">          H_sparse(<span class="number">8</span>, <span class="number">1</span>, <span class="number">0.3</span>, <span class="number">1</span>, basis(<span class="number">8</span>)).toarray()).<span class="built_in">max</span>())   <span class="comment"># ~1e-16</span></span><br></pre></td></tr></table></figure>
+<h1><span id="延伸阅读与作业">延伸阅读与作业</span></h1><p><strong>三篇原始论文</strong>（幻灯片第 3 页）：</p>
+<ol>
+<li>S. R. White and R. M. Noack, <em>Density-matrix formulation of low-energy excitations of quantum systems</em>, PRL <strong>68</strong>, 3487 (1992).</li>
+<li>S. R. White, <em>Density matrix formulation for quantum renormalization groups</em>, PRL <strong>69</strong>, 2863 (1992).——DMRG 的出生证明。</li>
+<li>S. R. White, <em>Density-matrix algorithms for quantum renormalization groups</em>, PRB <strong>48</strong>, 10345 (1993).——finite DMRG 与扫描。</li>
+</ol>
+<p><strong>三篇综述</strong>，按需读：</p>
+<ul>
+<li>U. Schollwöck, <em>The density-matrix renormalization group</em>, Rev. Mod. Phys. <strong>77</strong>, 259 (2005).——传统语言。</li>
+<li>U. Schollwöck, <em>The density-matrix renormalization group in the age of matrix product states</em>, Ann. Phys. <strong>326</strong>, 96 (2011).——MPS 语言，本讲主线五的来源。</li>
+<li>R. Orús, <em>A practical introduction to tensor networks</em>, Ann. Phys. <strong>349</strong>, 117 (2014).——通往第六讲。</li>
+</ul>
+<p><strong>作业</strong>（<code>xxz_hw5</code>）：</p>
+<ul>
+<li><code>run_all.py</code>：必做 1–5 + 校检；</li>
+<li><code>run_all.py --optional</code>：加选做 1–4；</li>
+<li>评分表见上一节，两个 $-20$ 是你最该盯住的。</li>
+</ul>
+<p><strong>如果你只记三件事</strong>：</p>
+<ol>
+<li><strong>截断的判据是约化密度矩阵的本征值（= Schmidt 值的平方），不是能量。</strong> 这是 DMRG 与 NRG 的全部分界。</li>
+<li><strong>一维基态满足面积律，所以键维只需几十。</strong> 二维是周长律，$\chi$ 指数爆炸——这是 DMRG 的边界，也是张量网络的起点。</li>
+<li><strong>永远报告 discarded weight。</strong> 没有 $\varepsilon$ 的能量没有误差棒；没有误差棒的结果，不是结果。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io">Xuxu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xuxu20040407.github.io/2026/10/19/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/05-%E5%AF%86%E5%BA%A6%E7%9F%A9%E9%98%B5%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4%E4%B8%8E%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF%E6%80%81/">https://xuxu20040407.github.io/2026/10/19/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/05-%E5%AF%86%E5%BA%A6%E7%9F%A9%E9%98%B5%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4%E4%B8%8E%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF%E6%80%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xuxu20040407.github.io" target="_blank">小径</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/">量子物理计算方法选讲</a></div><div class="post_share"><div class="social-share" data-image="/img/cover3.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/10/12/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/04-%E5%AF%B9%E7%A7%B0%E6%80%A7%E9%87%8F%E5%AD%90%E6%95%B0%E4%B8%8E%E5%8A%A8%E9%87%8F%E5%88%86%E8%BE%A8%E8%B0%B1/" title="04 对称性、量子数与动量分辨谱"><img class="cover" src="/img/cover4.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">04 对称性、量子数与动量分辨谱</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/10/12/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/04-%E5%AF%B9%E7%A7%B0%E6%80%A7%E9%87%8F%E5%AD%90%E6%95%B0%E4%B8%8E%E5%8A%A8%E9%87%8F%E5%88%86%E8%BE%A8%E8%B0%B1/" title="04 对称性、量子数与动量分辨谱"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-10-12</div><div class="title">04 对称性、量子数与动量分辨谱</div></div></a></div><div><a href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-28</div><div class="title">03 迭代对角化与谱函数</div></div></a></div><div><a href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img class="cover" src="/img/cover2.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-22</div><div class="title">02 精确对角化</div></div></a></div><div><a href="/2026/09/15/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/01-%E8%AF%BE%E7%A8%8B%E5%AF%BC%E8%AE%BA%E4%B8%8E%E6%A0%BC%E7%82%B9%E6%A8%A1%E5%9E%8B/" title="01 课程导论与格点模型"><img class="cover" src="/img/cover5.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">01 课程导论与格点模型</div></div></a></div><div><a href="/2026/09/15/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/00-%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/" title="量子物理计算方法选讲"><img class="cover" src="/img/cover4.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-15</div><div class="title">量子物理计算方法选讲</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xuxu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">189</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuxu20040407"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">本讲在课程中的位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">一句话概括本讲</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">三条线、一张地图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">约定表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">主线一：NRG 为什么失败</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.1.</span> <span class="toc-text">盒中粒子：把”截断”做得看得见</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.2.</span> <span class="toc-text">NRG 的五步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.3.</span> <span class="toc-text">kink：失败不在能量，而在边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.4.</span> <span class="toc-text">fixed-free 补丁与它的极限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">主线二：纠缠给”重要”下定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.1.</span> <span class="toc-text">Schmidt 分解就是 SVD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.2.</span> <span class="toc-text">约化密度矩阵与截断的最优性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.3.</span> <span class="toc-text">数值：N&#x3D;12 中点的 Schmidt 谱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">6.4.</span> <span class="toc-text">密度矩阵截断 vs 能量截断</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">主线三：一维的面积律</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.1.</span> <span class="toc-text">随机态：体积律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.2.</span> <span class="toc-text">基态：面积律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">7.3.</span> <span class="toc-text">临界与有能隙</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">主线四：传统 DMRG</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.1.</span> <span class="toc-text">块算符：为什么 J2 需要两套边缘算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.2.</span> <span class="toc-text">超块与一次增长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.3.</span> <span class="toc-text">infinite DMRG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.4.</span> <span class="toc-text">finite DMRG：为什么必须扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.5.</span> <span class="toc-text">χ 收敛：discarded weight 是主判据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">主线五：MPS 与 MPO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.1.</span> <span class="toc-text">把波函数写成张量链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.2.</span> <span class="toc-text">规范自由度与混合规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.3.</span> <span class="toc-text">截断就是一次 SVD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.4.</span> <span class="toc-text">MPO：键维只与作用距离有关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.5.</span> <span class="toc-text">two-site DMRG：两种语言的同一件事</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">怎么知道做对了</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">10.1.</span> <span class="toc-text">与 ED 逐条对照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">10.2.</span> <span class="toc-text">MG 点：一个严格解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">10.3.</span> <span class="toc-text">故意改错</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">为什么值得，边界在哪</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.1.</span> <span class="toc-text">一维：$\chi&#x3D;32$ 已经到 $10^{-8}$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.2.</span> <span class="toc-text">二维：面积律变成”周长律”，$\chi$ 指数爆炸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">11.3.</span> <span class="toc-text">通往张量网络</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">作业要点与评分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">校检清单</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">附：复现用的代码工具箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">延伸阅读与作业</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/10/19/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/05-%E5%AF%86%E5%BA%A6%E7%9F%A9%E9%98%B5%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4%E4%B8%8E%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF%E6%80%81/" title="05 密度矩阵重整化群与矩阵乘积态"><img src="/img/cover3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="05 密度矩阵重整化群与矩阵乘积态"/></a><div class="content"><a class="title" href="/2026/10/19/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/05-%E5%AF%86%E5%BA%A6%E7%9F%A9%E9%98%B5%E9%87%8D%E6%95%B4%E5%8C%96%E7%BE%A4%E4%B8%8E%E7%9F%A9%E9%98%B5%E4%B9%98%E7%A7%AF%E6%80%81/" title="05 密度矩阵重整化群与矩阵乘积态">05 密度矩阵重整化群与矩阵乘积态</a><time datetime="2026-10-19T02:30:00.000Z" title="发表于 2026-10-19 10:30:00">2026-10-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/10/12/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/04-%E5%AF%B9%E7%A7%B0%E6%80%A7%E9%87%8F%E5%AD%90%E6%95%B0%E4%B8%8E%E5%8A%A8%E9%87%8F%E5%88%86%E8%BE%A8%E8%B0%B1/" title="04 对称性、量子数与动量分辨谱"><img src="/img/cover4.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="04 对称性、量子数与动量分辨谱"/></a><div class="content"><a class="title" href="/2026/10/12/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/04-%E5%AF%B9%E7%A7%B0%E6%80%A7%E9%87%8F%E5%AD%90%E6%95%B0%E4%B8%8E%E5%8A%A8%E9%87%8F%E5%88%86%E8%BE%A8%E8%B0%B1/" title="04 对称性、量子数与动量分辨谱">04 对称性、量子数与动量分辨谱</a><time datetime="2026-10-12T02:30:00.000Z" title="发表于 2026-10-12 10:30:00">2026-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="03 迭代对角化与谱函数"/></a><div class="content"><a class="title" href="/2026/09/28/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/03-%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E8%B0%B1%E5%87%BD%E6%95%B0/" title="03 迭代对角化与谱函数">03 迭代对角化与谱函数</a><time datetime="2026-09-28T02:30:00.000Z" title="发表于 2026-09-28 10:30:00">2026-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/99-02-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表"><img src="/img/cover1.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="调度器：学习率的时间表"/></a><div class="content"><a class="title" href="/2026/09/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E5%AD%90%E5%8A%9B%E5%9C%BA/99-02-%E8%B0%83%E5%BA%A6%E5%99%A8/" title="调度器：学习率的时间表">调度器：学习率的时间表</a><time datetime="2026-09-23T01:00:00.000Z" title="发表于 2026-09-23 09:00:00">2026-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化"><img src="/img/cover2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="02 精确对角化"/></a><div class="content"><a class="title" href="/2026/09/22/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95%E9%80%89%E8%AE%B2/02-%E7%B2%BE%E7%A1%AE%E5%AF%B9%E8%A7%92%E5%8C%96/" title="02 精确对角化">02 精确对角化</a><time datetime="2026-09-22T02:30:00.000Z" title="发表于 2026-09-22 10:30:00">2026-09-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Xuxu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body></html>
